@@ -1,0 +1,320 @@
+[object]
+// Crafting stations
+summoningtable=Desatualizada Mesa de Invocação
+summoningtableduo=Mesa de Invocação
+demonicsummoningtableduo=Mesa de Invocação Demoníaca
+tungstensummoningtableduo=Mesa de Invocação de Tungstênio
+fallensummoningtableduo=Mesa de Invocação Caída
+summoningbookshelf=Estante de invocação
+
+[item]
+// Minion weapons
+magiccastlecandelabra=Candelabro mágico do castelo de aranha
+enchantedbrainonastick=Cérebro Encantado em um Bastão
+magicdungeoncandelabra=Candelabro Mágico do Calabouço
+magictungstenlamp=Lâmpada Mágica de Tungstênio
+magicgoldlamp=Lâmpada Mágica Dupla de Ouro
+gemamethystshards=Fragmentos de Ametista
+gememeraldshards=Fragmentos de Esmeralda
+magiccopperlamp=Lâmpada Mágica de Cobre
+gemsapphireshards=Fragmentos de Safira
+runebonestaff=Cajado de Osso Rúnico
+gemrubyshards=Fragmentos de Rubi
+bearhead=Cabeça de Urso Pardo
+vampirewings=Asas de Vampiro
+polarhead=Cabeça Polar
+royalhive=Colmeia Real
+
+// Sentry weapons
+iceblossomstaff=Cajado de Flor de Gelo
+sunflowerstaff=Cajado de Girassol
+firemonestaff=Cajado de Firemone
+caveglowstaff=Cajado do Caveglow
+vampirecoffin=Caixão do Vampiro
+bookmushroom=Livro de Cogumelos
+
+// Secondary weapons
+magictools=Ferramentas Mágicas de Madeira
+explosivesnowball=Bola de Neve Explosiva
+bookfrozen=Livro Congelado
+bookmagma=Livro de Magma
+bookbee=Livro de Abelhas
+bookrunic=Livro Rúnico
+
+// Melee weapons
+fishianspear=Lança de Fishian
+horrorglaive=Glaive do horror
+horrorscythe=Foice do Horror
+horrorsword=Espada do Horror
+wormbucket=Balde de Minhoca
+goblinsword=Espada Goblin
+
+// Range weapons
+mosquitobow=Arco Mosquito
+
+// Armor pieces
+bloodplatemask=Máscara de Placa de Sangue
+copperminerhat=chapéu de mineiro de cobre
+shadowhelmet=Capacete das Sombras
+frostcrown=Coroa de Gelo
+
+// Armor sets
+summonplaguemask=Máscara da Praga do Invocador
+shadowhorrormantle=Manto de Horror das Sombras
+summonplagueboots=Botas da Praga do Invocador
+shadowhorrorboots=Botas de Horror das Sombras
+summonplaguerobe=Manto da Praga do Invocador
+shadowhorrorhood=Capuz de Horror das Sombras
+spiderbridehelmet=Capacete da Noiva Aranha
+spiderbridechest=Peitoral da Noiva Aranha
+spiderbrideboots=Botas da Noiva Aranha
+
+// Trinkets
+challengerarmorpiece=Peça de armadura do desafiante
+essenceofcompanionship=Essência do Companheirismo
+frozenassassinscowl=Capuz de Assassino Congelado
+shadowhorrorcape=Capa do Horror das Sombras
+frenzyhorrorcape=Capa de Horror Frenético
+necromancerarmor=Armadura de Necromante
+demonicpolarclaw=Garra Polar Demoníaca
+frenzystonering=Anel de Frenzystone
+summonergambit=Gambito do Invocador
+hystericalmirror=Espelho Histérico
+spelltablet=Tablete de Feitiços
+inducingsatchel=Bolsa Indutora
+mesmercharm=Amuleto do Mesmer
+necroticclaw=Garra Necrótica
+mesmersatchel=Bolsa Mesmer
+bonepile=Pilha de Ossos
+
+// Potions
+minionattackspeedpotion=Poção de invocador de Velocidade de Ataque
+minioncritchancepotion=Poção de invocador de Chance Crítica
+minioncloserangepotion=Poção de invocador de Curto Alcance
+minioncritpotion=Poção de invocador de Dano Crítico
+minionspeedpotion=Poção de invocador de Velocidade
+minionfarmpotion=Poção de invocador de Agricultura
+minionrangepotion=Poção de invocador de Alcance
+
+// Potions buffs
+minionattackspeedbuff=Buff de invocador de Velocidade de Ataque
+minioncritchancebuff=Buff de invocador de Chance Crítica
+minioncloserangebuff=Buff de invocador de Curto Alcance
+minioncritbuff=Buff de invocador de Dano Crítico
+minionfarmbuff=Buff de invocador de Agricultura
+minionspeedbuff=Buff de invocador de Velocidade
+minionrangebuff=Buff de invocador de Alcance
+
+// Banners
+bannerofresilience=Bandeira da Resiliência
+bannerofdashing=Bandeira da Disparada
+bannerofessence=Bandeira da Essência
+bannerofpicking=Bandeira da Coleta
+bannerofbouncing=Bandeira do Salto
+bannerofstamina=Bandeira do Vigor
+bannerofmana=Bandeira da Mana
+
+// Mounts
+chieftainhat=Chapéu do Chefe
+magiccheese=Queijo Mágico
+
+// Boss summon
+shadowhorrorportal=Portal do Terror das Sombras
+
+// Materials
+purehorror=Horror Puro
+
+[itemtooltip]
+// Minion weapons
+runebonestafftip=Invoca um bruto rúnico que ataca os inimigos com um machado \nTem uma pequena chance de invocar um xamã rúnico \nNíveis de upgrade mais altos aumentam a chance de invocar um xamã
+royalhivetip=Invoca uma abelha rainha que gera abelhas a cada 10 ataques \nA rainha aumenta sua regeneração de saúde durante o combate \nE as abelhas menores desaceleram os inimigos em 10%
+amethystshardtip=Invoca um golem de ametista \nEste golem pode cristalizar inimigos \nGolems de ametista adicionais aumentam a chance de cristalizar
+lampminioncastletip=Invoca um candelabro do castelo de aranha \nQueima e desacelera os inimigos \nOs efeitos ficam mais fortes à noite
+sapphireshardtip=Invoca um golem de safira \nEste golem invoca um glifo de safira em sua localização quando você tem essência de vida
+emeraldshardtip=Invoca um golem de esmeralda \nEste golem dispara um laser que perfura inimigos e ricocheteia nas paredes
+enchantedbrainonasticktip=Invoca um zumbi encantado e um arqueiro encantado \nEles reduzem a defesa do inimigo em 10
+magicgoldlamptip=Invoca uma lâmpada dupla de ouro que brilha e ataca \nQueima inimigos quando ataca
+rubyshardtip=Invoca um golem de rubi \nEste golem atira fragmentos de cristal nos inimigos
+lampminiondungeontip=Invoca um candelabro da masmorra \nQueima inimigos à noite
+magictungstenlamptip=Invoca uma lâmpada de tungstênio que brilha e ataca
+magiccopperlamptip=Invoca uma lâmpada de cobre que brilha e ataca
+polarheadtip=Invoca um urso polar que desacelera os inimigos
+vampirewingstip=Invoca um vampiro que atira em inimigos
+bearheadtip=Invoca um urso pardo que caça os inimigos
+
+// Sentry weapons
+bookmushroomtip=Invoca uma sentinela que desacelera inimigos próximos \nE transforma inimigos mortos em aliados
+sunflowersentrytip=Jogadores próximos recebem regeneração de vida
+firemonesentrytip=Jogadores próximos recebem penetração de defesa
+coffinsentrytip=Após 10 acertos, invoca um morcego da cripta
+iceblossomsentrytip=Jogadores próximos recebem defesa
+caveglowsentrytip=Brilha no escuro
+
+// Secondary weapons
+bookmagmatip=Invoca slimes de magma que atacam inimigos muito próximos \nSe o alvo estiver sob algum efeito de queimadura, ele queimará para sempre
+magictoolstip=Invoca ferramentas mágicas \nEles fornecem um buff quando atacam que aumenta o alcance e velocidade de mineração em 20%
+explosivesnowballtip=Invoca um boneco de neve com chance de explodir quando ataca \nA explosão causa dano dobrado e afeta jogadores
+bookrunictip=Invoca escudos rúnicos que orbitam você \nAumenta sua armadura quando atingem inimigos
+bookfrozentip=Invoca anões congelados que atiram lanças nos inimigos
+bookbeetip=Invoca 3 abelhas \nElas desaceleram os inimigos em 10%
+
+// Melee weapons
+goblinswordtip=Carregue a espada ao atingir os inimigos \nUse [input=mouse2] quando totalmente carregado para invocar goblins \nCarga: <amount>%
+horrorglaivetip=Carregue a glaive ao atingir os inimigos \nUse [input=mouse2] quando totalmente carregado para invocar uma sentinela do horror
+fishianspeartip=Invoca um fishian no seu próximo ataque quando totalmente carregado \nCarregue a lança ao atingir inimigos \nCarga: <amount>%
+horrorswordtip=Ganha cargas de velocidade de ataque ao atingir inimigos \nCom 100 cargas, invoca um zumbi rastejante de terror
+horrorscythetip=Meia carga para invocar até 3 lobos do horror \nCarga completa para invocar um touro do horror
+wormbuckettip=10% de chance de invocar um peixe quando ataca
+
+// Range weapons
+mosquitobowtip=Atira flechas diretamente no local do mouse, deixando uma poça de dano ao aterrissar \nA cada 20 acertos, invoca um mosquito que reduz a armadura dos inimigos \nOs mosquitos invocados podem atacar os inimigos ou não
+
+// Armor set bonus
+spiderbridesettip1=Concede imunidade a lentidão \nAtaques de invocação envenenam o alvo por 25 de dano ao longo de 5 segundos \nPressione [input=setability] para invocar uma noiva aranha que atira veneno e teias
+frostcrownsettip=Ataques de invocação desaceleram e causam dano ao alvo em 15 de dano ao longo de 5 segundos
+shadowhelmetsettip=Ataques de invocação assombram o alvo por 25 de dano ao longo de 5 segundos
+horrorsettip=Chance de invocar espíritos de horror ao atacar inimigos
+copperminersettip=Aumenta a claridade da luz de lâmpadas mágicas
+plaguesettip=Chance de invocar ratos ao atacar inimigos
+
+// Trinkets
+frenzyhorrorcapetip=+1 invocação máxima \nAumenta a velocidade de movimento em 20% \nGanha 4 de regeneração de saúde por segundo enquanto estiver abaixo de 50% de saúde \nGanha até +50% de dano de invocação com base na saúde perdida \nInvoca até 3 morcegos do horror ao receber dano
+essenceofcompanionshiptip=Aumenta o ganho de essência em 100% \nAumenta a duração da essência em 100% \nAumenta o dano e velocidade de movimento de invocação para cada invocação máxima não utilizada\nOs aumentos diminuem ligeiramente além da primeira invocação não utilizada
+necromancerarmortip=Melhora suas estatísticas de invocador \nGanhe dano e regeneração de vida quande estiver com pouca saúde \nAtaques de invocação desaceleram inimigos \nInvoca até 3 morcegos do horror ao receber dano
+summonergambittip=+1 Lacaio máximo \n+10 defesa \n+50% dano de invocação \n-50% dano de outros tipos de dano \n+10% chance de crítico de invocação \nSó pode ser equipado no slot de habilidade.
+mesmersatcheltip=+1 invocações máximas \nAumenta o limite de vigor em 100% \nAumenta a velocidade de invocação em 50% \nAumenta a velocidade de movimento em 25% \nIlumina a área ao seu redor
+challengeraptip=Aumenta a resiliência máxima em 65 \nDesacelera a degradação da resiliência em 75% \nAumenta o ganho de resiliência em 50% e aumenta para 100% durante batalhas contra chefes
+necroticclawtip=Invocar ataques desacelera inimigos \nAumenta a resistência a knockback \nAumenta a penetração de armadura em 25 \nAumenta o dano crítico de invocação em 25%
+frenzystoneringtip=Ganhe até +50% de dano de invocação com base na saúde perdida \nGanhe 4 de regeneração de saúde por segundo enquanto estiver abaixo de 50% de saúde
+frozenassassinscowltip=Aumenta a chance de invocação de acerto crítico em 15% \nAumenta o dano crítico de invocação em 30% \nAumenta o alcance de invocação em 20%
+inducingsatcheltip=Aumenta a velocidade de invocação em 50% \nAumenta a velocidade de movimento em 20% \nIlumina a área ao seu redor
+spelltablettip=Aumenta o mana máximo em 60% \nAumenta a velocidade de invocação e ataque mágico em 30% \n+2 Lacaio máximo
+shadowhorrorcapetip=Aumenta a velocidade em 20% \n+1 invocação máxima \nInvoca até 3 morcegos do horror ao ser atingido
+demonicpolarclawtip=Ataques de invocação retardam inimigos \nAumenta a resistência a knockback
+bonepiletip=Aumenta a penetração de defesa em 25 \nAumenta o dano crítico de invocação em 25%
+hystericalmirrortip=+3 Lacaio máximo \nAumenta a velocidade de invocação em 45%
+mesmercharmtip=+1 Lacaio máximo \nAumenta o limite de vigor em 80%
+
+// Potions buff info
+minionfarmtip=Diminui a velocidade de movimento em 80%, aumenta o alcance de coleta,taxa de geração de mobs, velocidade de invocação e o alcance dos lacios em 40%
+minioncloserangetip=Diminui o alcance dos lacaios em 80% e aumenta a velocidade de invocação e a velocidade de ataque dos lacaios em 20%
+minioncritchancetip=Aumenta a chance de acerto crítico de invocação em 10%
+minionattackspeedtip=Aumenta a velocidade de ataque de invocação em 20%
+minioncrittip=Aumenta o dano crítico de invocação em 50%
+minionspeedtip=Aumenta a velocidade da invocação em 20%
+minionrangetip=Aumenta o alcance dos lacaios em 50%
+
+// Mounts
+chieftainhattip=Transforma você em um chefe que não sabe nadar \nAumenta sua saúde, armadura e o número máximo de lacaios \nSegure [input=trinketability] para se impulsionar ao custo de vigor \nEste impulso aumenta sua velocidade, dano, regeneração de HP e reduz o empurrão recebido
+magiccheesetip=Transforma você em um rato \nImpede que você use itens \nDiminui bastante o alcance de visão dos inimigos, fazendo com que eles ignorem você
+
+// Boss desc
+horrorportaltip=Invoca um exército de espíritos de horror
+
+// Materials
+purehorrortip=Usado para criar equipamentos de horror
+
+// Others
+minionspacetakentip=Cada invocação ocupa <amount> espaços de invocação
+sentrytip=Invoca uma sentinela que atira em inimigos
+lifestealtip=Cura ao acertar em <amount> de vida
+minionactivecap=Limitado a <amount> lacaios
+chargetip=Carga: <amount>%
+
+[mob]
+// Minions
+enchantedbabyzombiearcher=Bebê Zumbi Arqueiro Encantado
+tungstenlampminion = Lâmpada de tungstênio
+enchantedbabyzombie=Bebê Zumbi Encantado
+goldlampminion=Lâmpada dupla de ouro
+beequeenminion=Abelha Rainha Lacaia
+copperlampminion=Lâmpada de Cobre
+vampireminion=Lacaio Vampiro
+golemrubyminion=Lacaio Golem de Rubi
+golememeraldminion=Lacaio Golem de Esmeralda
+golemsapphireminion=Lacaio Golem de Safira
+golemamethystminion=Lacaio Golem de Ametista
+polarminion=Lacaio Polar
+bearminion=Lacaio Urso
+runemeleeminion=Lacaio Bruto Rúnico
+runerangedminion=Lacaio Xamã Rúnico
+lampminioncastle=Lacaio do castelo das aranhas
+lampminiondungeon=Lacaio do calabouço
+
+// Sentry
+iceblossomsentry=Sentinela da Flor de Gelo
+sunflowersentry=Sentinela de Girassol
+firemonesentry=Sentinela de Firemone
+mushroomsentry=Sentinela de Cogumelo
+caveglowsentry=Sentinela de Caveglow
+coffinsentry=Sentinela de Caixão
+
+// Sentry minions
+batcryptminion=Minion Morcego Criptográfico
+mushroomminion=Lacaio Cogumelo
+beeminion=Lacaio Abelha
+
+// Secondary minions
+explosivesnowmanminion=Lacaio Boneco de Neve Explosivo
+runicshieldminion=Lacaio de Escudo Rúnico
+frozendwarfminion=Lacaio Congelado
+magicpickaxeminion=Picareta Mágica
+magicaxeminion=Machado Mágico
+
+// Melee minions
+horrorcrawlingzombieminion=Lacaio Zumbi Rastejante do Terror
+horrorbullminion=Lacaio Touro do Terror
+horrorwolfminion=Lacaio Lobo do Terror
+fishherringminion=Lacaio Peixe Arenque
+fishmackerelminion=Lacaio Peixe Cavala
+fishsalmonminion=Lacaio Peixe Salmão
+fishtroutminion=Lacaio Peixe Truta
+fishcarpminion=Lacaio Peixe Carpa
+goblinchestminion=Goblin Peitoral
+goblinheadminion=Goblin Cabeça
+goblinlegminion=Goblin Perna
+fishianminion=Lacaio Fishian
+
+// Range minions
+mosquitobowminion=Lacaio mosquito
+
+// Equipment minions
+horrorbatminion=Lacaio Morcego do Terror
+mouseminion=Lacaio rato
+
+// Mounts
+chiefsummonmount=Armadura do Chefe
+mousesummonmount=Disfarce de Rato
+
+// Boss
+riftportalmob=Portal de Fenda do Terror
+
+// Foes
+horrorspiritbossmob=Espírito de Horror Ancestral
+horrorspiritmob=Espírito de Terror
+woodmob=Madeira Mágica
+
+[buff]
+// Buffs
+mushroombuff=Inimigos mortos se transformam em lacaios cogumelo
+woodbuff=+20% velocidade e +2 de alcance de mineração
+sunflowerbuff=+0,05 regeneração de saúde em combate
+honeybuff=+0,05% regeneração de saúde em combate
+firemonebuff=+5% penetração de defesa
+runicshieldbuff=Armadura Rúnica
+iceblossombuff=+5 defesa
+horrorswordstack=Velocidade de atacaque bônus
+
+// Debuffs
+enchantedDebuff=-10 de defesa absoluta
+goblincooldowndebuff=Recarregando...
+spiderbridecooldown=Recarregando...
+mosquitodebuff=-10% de defesa
+mushroomDebuff=20% lentidão
+honeyDebuff=10% lentidão
+
+[tech]
+summontablecraft=Mesa de Invocação
+summontablecraft2=Mesa de Invocação Demoníaca
+summontablecraft3=Mesa de Invocação de Tungstênio
+summontablecraft4=Mesa de Invocação Caída

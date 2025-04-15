@@ -1,0 +1,2049 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffca0489af9, pid=8304, tid=9968
+#
+# JRE version: OpenJDK Runtime Environment Temurin-17.0.12+7 (17.0.12+7) (build 17.0.12+7)
+# Java VM: OpenJDK 64-Bit Server VM Temurin-17.0.12+7 (17.0.12+7, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# Problematic frame:
+# C  [steamworks4j64.dll+0x9af9]
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/adoptium/adoptium-support/issues
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M -Xms512m -Xmx4G -Dfile.encoding=UTF-8 -Duser.country=BR -Duser.language=pt -Duser.variant StartSteamClient -dev -mod build/jar/
+
+Host: Intel(R) Core(TM) i5-3470 CPU @ 3.20GHz, 4 cores, 15G,  Windows 10 , 64 bit Build 19041 (10.0.19041.5438)
+Time: Mon Mar 17 19:39:19 2025 Hora oficial do Brasil elapsed time: 68.644081 seconds (0d 0h 1m 8s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000026d09b102d0):  JavaThread "Server Thread" [_thread_in_native, id=9968, stack(0x000000ae8c800000,0x000000ae8c900000)]
+
+Stack: [0x000000ae8c800000,0x000000ae8c900000],  sp=0x000000ae8c8fed80,  free space=1019k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [steamworks4j64.dll+0x9af9]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  com.codedisaster.steamworks.SteamFriendsNative.getPersonaName()Ljava/lang/String;+0
+j  com.codedisaster.steamworks.SteamFriends.getPersonaName()Ljava/lang/String;+0
+j  necesse.engine.platforms.steam.SteamData.getSteamName()Ljava/lang/String;+11
+j  necesse.engine.platforms.steam.SteamPlatform.getUserName()Ljava/lang/String;+0
+j  necesse.reports.BasicsData.<init>(Ljava/lang/String;)V+67
+j  necesse.reports.CrashReportData.<init>(Ljava/util/List;Lnecesse/engine/network/client/Client;Lnecesse/engine/network/server/Server;Ljava/lang/String;)V+3
+j  necesse.engine.GameCrashLog.printCrashLog(Ljava/util/List;Lnecesse/engine/network/client/Client;Lnecesse/engine/network/server/Server;Ljava/lang/String;Z)V+48
+j  necesse.engine.gameLoop.ServerGameLoop.lambda$update$3()V+28
+J 14195 c1 necesse.engine.gameLoop.ServerGameLoop$$Lambda$2136+0x0000026cc0ac1e80.run()V (8 bytes) @ 0x0000026ca4c1b33c [0x0000026ca4c1b2c0+0x000000000000007c]
+J 14174 c1 necesse.engine.GameExceptionHandler.submitException(ZLjava/lang/Exception;Ljava/lang/Runnable;)V (55 bytes) @ 0x0000026ca4c0dcbc [0x0000026ca4c0dac0+0x00000000000001fc]
+J 13502 c1 necesse.engine.gameLoop.ServerGameLoop.update()V (121 bytes) @ 0x0000026ca4a7a6bc [0x0000026ca4a795a0+0x000000000000111c]
+J 11227 c1 necesse.engine.gameLoop.tickManager.TickManager.tickLogic()V (336 bytes) @ 0x0000026ca42601dc [0x0000026ca425fd20+0x00000000000004bc]
+j  necesse.engine.gameLoop.GameLoop.runMainGameLoop()V+8
+j  necesse.engine.server.ServerTickThread.run()V+9
+v  ~StubRoutines::call_stub
+
+siginfo: EXCEPTION_ACCESS_VIOLATION (0xc0000005), reading address 0x0000000000000000
+
+
+Registers:
+RAX=0x00007ffca04c5070, RBX=0x0000026d09b10588, RCX=0x0000000000000000, RDX=0x0000000000000000
+RSP=0x000000ae8c8fed80, RBP=0x000000ae8c8fee20, RSI=0x0000000000000848, RDI=0x0000000000000110
+R8 =0x000000ae8c8fe468, R9 =0x000000ae8c8fe490, R10=0x0000000000000000, R11=0x000000ae8c8fe8c0
+R12=0x0000000000000000, R13=0x0000026d007680f0, R14=0x000000ae8c8fee38, R15=0x0000026d09b102d0
+RIP=0x00007ffca0489af9, EFLAGS=0x0000000000010202
+
+
+Register to memory mapping:
+
+RIP=0x00007ffca0489af9 steamworks4j64.dll
+RAX=0x00007ffca04c5070 steamworks4j64.dll
+RBX=0x0000026d09b10588 points into unknown readable memory: 0x00007ffcfec41810 | 10 18 c4 fe fc 7f 00 00
+RCX=0x0 is NULL
+RDX=0x0 is NULL
+RSP=0x000000ae8c8fed80 is pointing into the stack for thread: 0x0000026d09b102d0
+RBP=0x000000ae8c8fee20 is pointing into the stack for thread: 0x0000026d09b102d0
+RSI=0x0000000000000848 is an unknown value
+RDI=0x0000000000000110 is an unknown value
+R8 =0x000000ae8c8fe468 is pointing into the stack for thread: 0x0000026d09b102d0
+R9 =0x000000ae8c8fe490 is pointing into the stack for thread: 0x0000026d09b102d0
+R10=0x0 is NULL
+R11=0x000000ae8c8fe8c0 is pointing into the stack for thread: 0x0000026d09b102d0
+R12=0x0 is NULL
+R13={method} {0x0000026d007680f8} 'getPersonaName' '()Ljava/lang/String;' in 'com/codedisaster/steamworks/SteamFriendsNative'
+R14=0x000000ae8c8fee38 is pointing into the stack for thread: 0x0000026d09b102d0
+R15=0x0000026d09b102d0 is a thread
+
+
+Top of Stack: (sp=0x000000ae8c8fed80)
+0x000000ae8c8fed80:   0000000746928260 0000001400000000
+0x000000ae8c8fed90:   0000000746927ff0 0000000746927a40
+0x000000ae8c8feda0:   0000026d007680f0 0000026cab2ad661
+0x000000ae8c8fedb0:   0000026cbf0204d8 0000026ca4bd659c
+0x000000ae8c8fedc0:   0000026cbf0204d8 0000026ca49cddf4
+0x000000ae8c8fedd0:   0000000000000001 000000ae8c8fedd8
+0x000000ae8c8fede0:   0000000000000000 000000ae8c8fee38
+0x000000ae8c8fedf0:   0000026d00769340 0000000000000000
+0x000000ae8c8fee00:   0000000701668170 0000026d007680f0
+0x000000ae8c8fee10:   0000000000000000 000000ae8c8fee40
+0x000000ae8c8fee20:   000000ae8c8fee88 0000026cab2a9679
+0x000000ae8c8fee30:   0000000701668170 0000026cab2aaffb
+0x000000ae8c8fee40:   000000ae8c8fee40 0000026d00763350
+0x000000ae8c8fee50:   000000ae8c8fee98 0000026d00764bb8
+0x000000ae8c8fee60:   0000000000000000 00000007016675c0
+0x000000ae8c8fee70:   0000026d00763368 000000ae8c8fee40
+0x000000ae8c8fee80:   000000ae8c8fee98 000000ae8c8feee8
+0x000000ae8c8fee90:   0000026cab2a9679 000000070166b440
+0x000000ae8c8feea0:   000000ae8c8feea0 0000026d00759493
+0x000000ae8c8feeb0:   000000ae8c8feef0 0000026d0075cd80
+0x000000ae8c8feec0:   0000000000000000 000000070166ac08
+0x000000ae8c8feed0:   0000026d007594a0 000000ae8c8fee98
+0x000000ae8c8feee0:   000000ae8c8feef8 000000ae8c8fef40
+0x000000ae8c8feef0:   0000026cab2a9679 000000ae8c8feef8
+0x000000ae8c8fef00:   0000026d00404988 000000ae8c8fef50
+0x000000ae8c8fef10:   0000026d00426620 0000000000000000
+0x000000ae8c8fef20:   0000000701477900 0000026d004049a8
+0x000000ae8c8fef30:   000000ae8c8feef8 000000ae8c8fef50
+0x000000ae8c8fef40:   000000ae8c8fefb0 0000026cab2a9679
+0x000000ae8c8fef50:   0000000701262a98 0000000716118cb8
+0x000000ae8c8fef60:   0000000746927948 000000ae8c8fef68
+0x000000ae8c8fef70:   0000026d00aaa61b 000000ae8c8fefc8 
+
+Instructions: (pc=0x00007ffca0489af9)
+0x00007ffca04899f9:   10 57 48 83 ec 20 48 8b f1 41 8b d9 48 8d 0d 54
+0x00007ffca0489a09:   b6 03 00 49 8b f8 ff 15 8b f8 01 00 44 8b c3 48
+0x00007ffca0489a19:   8b d7 48 8b 08 48 8b 01 ff 90 78 01 00 00 4c 8b
+0x00007ffca0489a29:   06 48 8b ce 48 8b d0 48 8b 5c 24 30 48 8b 74 24
+0x00007ffca0489a39:   38 48 83 c4 20 5f 49 ff a0 38 05 00 00 cc cc cc
+0x00007ffca0489a49:   cc cc cc cc cc cc cc 40 53 48 83 ec 20 48 8d 0d
+0x00007ffca0489a59:   03 b6 03 00 49 8b d8 ff 15 3a f8 01 00 48 8b d3
+0x00007ffca0489a69:   48 8b 08 48 8b 01 48 83 c4 20 5b 48 ff a0 70 01
+0x00007ffca0489a79:   00 00 cc cc cc cc cc 40 53 48 83 ec 20 48 8d 0d
+0x00007ffca0489a89:   d3 b5 03 00 49 8b d8 ff 15 0a f8 01 00 48 8b d3
+0x00007ffca0489a99:   48 8b 08 48 8b 01 48 83 c4 20 5b 48 ff a0 20 01
+0x00007ffca0489aa9:   00 00 cc cc cc cc cc 40 53 48 83 ec 20 48 8d 0d
+0x00007ffca0489ab9:   a3 b5 03 00 49 8b d8 ff 15 da f7 01 00 48 8b d3
+0x00007ffca0489ac9:   48 8b 08 48 8b 01 48 83 c4 20 5b 48 ff a0 18 01
+0x00007ffca0489ad9:   00 00 cc cc cc cc cc 40 53 48 83 ec 20 48 8b d9
+0x00007ffca0489ae9:   48 8d 0d 70 b5 03 00 ff 15 aa f7 01 00 48 8b 08
+0x00007ffca0489af9:   48 8b 01 ff 10 4c 8b 03 48 8b cb 48 8b d0 48 83
+0x00007ffca0489b09:   c4 20 5b 49 ff a0 38 05 00 00 cc cc cc cc cc cc
+0x00007ffca0489b19:   cc cc cc cc cc cc cc 48 83 ec 28 48 8d 0d 35 b5
+0x00007ffca0489b29:   03 00 ff 15 6f f7 01 00 48 8b 08 48 8b 01 48 83
+0x00007ffca0489b39:   c4 28 48 ff 60 10 cc 40 53 48 83 ec 20 48 8d 0d
+0x00007ffca0489b49:   13 b5 03 00 49 8b d8 ff 15 4a f7 01 00 48 8b d3
+0x00007ffca0489b59:   48 8b 08 48 8b 01 48 83 c4 20 5b 48 ff a0 10 01
+0x00007ffca0489b69:   00 00 cc cc cc cc cc 48 89 5c 24 08 48 89 6c 24
+0x00007ffca0489b79:   10 48 89 74 24 18 57 48 83 ec 20 48 8b 01 49 8b
+0x00007ffca0489b89:   d8 45 33 c0 49 8b d1 49 8b e9 48 8b f1 ff 90 48
+0x00007ffca0489b99:   05 00 00 48 8d 0d bd b4 03 00 48 8b f8 ff 15 f4
+0x00007ffca0489ba9:   f6 01 00 4c 8b c7 48 8b d3 48 8b 08 4c 8b 09 41
+0x00007ffca0489bb9:   ff 91 88 01 00 00 4c 8b 0e 4c 8b c7 48 8b d5 48
+0x00007ffca0489bc9:   8b ce 0f b6 d8 41 ff 91 50 05 00 00 48 8b 6c 24
+0x00007ffca0489bd9:   38 0f b6 c3 48 8b 5c 24 30 48 8b 74 24 40 48 83
+0x00007ffca0489be9:   c4 20 5f c3 cc cc cc 40 53 48 83 ec 20 48 8d 0d 
+
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: 0x0000000746928260 is an oop: [B 
+{0x0000000746928260} - klass: {type array byte}
+ - length: 34
+stack at sp + 1 slots: 0x0000001400000000 is an unknown value
+stack at sp + 2 slots: 0x0000000746927ff0 is an oop: java.util.Date 
+{0x0000000746927ff0} - klass: 'java/util/Date'
+ - ---- fields (total size 3 words):
+ - private transient 'cdate' 'Lsun/util/calendar/BaseCalendar$Date;' @12  NULL (0)
+ - private transient 'fastTime' 'J' @16  -782356840925 (d7e5fe23 ffffff49)
+stack at sp + 3 slots: 0x0000000746927a40 is an oop: java.util.GregorianCalendar 
+{0x0000000746927a40} - klass: 'java/util/GregorianCalendar'
+ - ---- fields (total size 14 words):
+ - private 'firstDayOfWeek' 'I' @12  1
+ - protected 'time' 'J' @16  1742251159075 (a642ee23 195)
+ - private 'minimalDaysInFirstWeek' 'I' @24  1
+ - private 'nextStamp' 'I' @28  3
+ - private 'serialVersionOnStream' 'I' @32  1
+ - protected 'isTimeSet' 'Z' @36  true
+ - protected 'areFieldsSet' 'Z' @37  true
+ - transient 'areAllFieldsSet' 'Z' @38  true
+ - private 'lenient' 'Z' @39  true
+ - private transient 'sharedZone' 'Z' @40  false
+ - protected 'fields' '[I' @44  [I{0x0000000746927ab0} (e8d24f56)
+ - protected 'isSet' '[Z' @48  [Z{0x0000000746927b08} (e8d24f61)
+ - private transient 'stamp' '[I' @52  [I{0x0000000746927b30} (e8d24f66)
+ - private 'zone' 'Ljava/util/TimeZone;' @56  a 'sun/util/calendar/ZoneInfo'{0x00000007469279d0} (e8d24f3a)
+ - private transient 'gregorianCutoverYear' 'I' @60  1582 (62e)
+ - private 'gregorianCutover' 'J' @64  -12219292800000 (f964ac00 fffff4e2)
+ - private transient 'gregorianCutoverDate' 'J' @72  577736 (8d0c8 0)
+ - private transient 'cachedFixedDate' 'J' @80  739327 (b47ff 0)
+ - private transient 'gregorianCutoverYearJulian' 'I' @88  1582 (62e)
+ - private transient 'gdate' 'Lsun/util/calendar/BaseCalendar$Date;' @92  a 'sun/util/calendar/Gregorian$Date'{0x0000000746927b88} (e8d24f71)
+ - private transient 'cdate' 'Lsun/util/calendar/BaseCalendar$Date;' @96  a 'sun/util/calendar/Gregorian$Date'{0x0000000746927b88} (e8d24f71)
+ - private transient 'calsys' 'Lsun/util/calendar/BaseCalendar;' @100  a 'sun/util/calendar/Gregorian'{0x00000007011042d8} (e022085b)
+ - private transient 'zoneOffsets' '[I' @104  [I{0x0000000746927be8} (e8d24f7d)
+ - private transient 'originalFields' '[I' @108  NULL (0)
+stack at sp + 4 slots: {method} {0x0000026d007680f8} 'getPersonaName' '()Ljava/lang/String;' in 'com/codedisaster/steamworks/SteamFriendsNative'
+stack at sp + 5 slots: 0x0000026cab2ad661 is at code_begin+993 in an Interpreter codelet
+method entry point (kind = native)  [0x0000026cab2ad280, 0x0000026cab2adc00]  2432 bytes
+stack at sp + 6 slots: 0x0000026cbf0204d8 is a pointer to class: 
+java.lang.Exception {0x0000026cbf0204e0}
+ - instance size:     5
+ - klass size:        75
+ - access:            public synchronized 
+ - state:             fully_initialized
+ - name:              'java/lang/Exception'
+ - super:             'java/lang/Throwable'
+ - sub:               'necesse/engine/network/UnknownPacketException'   'necesse/engine/world/levelCache/LevelCache$InfoNotFoundException'   'necesse/level/maps/presets/PresetCopyException'   'necesse/level/maps/presets/PresetMirrorException'   (21 more klasses...)
+ - arrays:            NULL
+ - methods:           Array<T>(0x0000026cbf5e9138)
+ - method ordering:   Array<T>(0x0000026cbf5e9168)
+ - default_methods:   Array<T>(0x0000000000000000)
+ - local interfaces:  Array<T>(0x0000026cbf5cc5c0)
+ - trans. interfaces: Array<T>(0x0000026cbf5e8fa0)
+ - constants:         constant pool [40] {0x0000026cbf5e8fb8} for 'java/lang/Exception' cache=0x0000026cbf3ee770
+ - class loader data:  loader data: 0x0000026c9c2d62d0 of 'bootstrap'
+ - source file:       'Exception.java'
+ - class annotations:       Array<T>(0x0000000000000000)
+ - class type annotations:  Array<T>(0x0000000000000000)
+ - field annotations:       Array<T>(0x0000000000000000)
+ - field type annotations:  Array<T>(0x0000000000000000)
+ - inner classes:     Array<T>(0x0000026cbf5cc550)
+ - nest members:     Array<T>(0x0000026cbf5cc550)
+ - permitted subclasses:     Array<T>(0x0000026cbf5cc550)
+ - java mirror:       a 'java/lang/Class'{0x000000070167f368} = 'java/lang/Exception'
+ - vtable length      15  (start addr: 0x0000026cbf0206a0)
+ - itable length      2 (start addr: 0x0000026cbf020718)
+ - ---- static fields (1 words):
+ - static final 'serialVersionUID' 'J' @112 
+ - ---- non-static fields (6 words):
+ - private transient 'depth' 'I' @12 
+ - private transient 'backtrace' 'Ljava/lang/Object;' @16 
+ - private 'detailMessage' 'Ljava/lang/String;' @20 
+ - private 'cause' 'Ljava/lang/Throwable;' @24 
+ - private 'stackTrace' '[Ljava/lang/StackTraceElement;' @28 
+ - private 'suppressedExceptions' 'Ljava/util/List;' @32 
+ - non-static oop maps: 16-32 
+stack at sp + 7 slots: 0x0000026ca4bd659c is at entry_point+1084 in (nmethod*)0x0000026ca4bd5f10
+Compiled method (c1)   68704 14095       3       java.text.SimpleDateFormat::<init> (70 bytes)
+ total in heap  [0x0000026ca4bd5f10,0x0000026ca4bd6c60] = 3408
+ relocation     [0x0000026ca4bd6068,0x0000026ca4bd6148] = 224
+ main code      [0x0000026ca4bd6160,0x0000026ca4bd6940] = 2016
+ stub code      [0x0000026ca4bd6940,0x0000026ca4bd69d8] = 152
+ metadata       [0x0000026ca4bd69d8,0x0000026ca4bd6a18] = 64
+ scopes data    [0x0000026ca4bd6a18,0x0000026ca4bd6b18] = 256
+ scopes pcs     [0x0000026ca4bd6b18,0x0000026ca4bd6c48] = 304
+ dependencies   [0x0000026ca4bd6c48,0x0000026ca4bd6c60] = 24
+
+
+Compiled method (c1)   68708 14195       3       necesse.engine.gameLoop.ServerGameLoop$$Lambda$2136/0x0000026cc0ac1e80::run (8 bytes)
+ total in heap  [0x0000026ca4c1b110,0x0000026ca4c1b4a0] = 912
+ relocation     [0x0000026ca4c1b268,0x0000026ca4c1b2a8] = 64
+ main code      [0x0000026ca4c1b2c0,0x0000026ca4c1b3c0] = 256
+ stub code      [0x0000026ca4c1b3c0,0x0000026ca4c1b408] = 72
+ oops           [0x0000026ca4c1b408,0x0000026ca4c1b410] = 8
+ metadata       [0x0000026ca4c1b410,0x0000026ca4c1b420] = 16
+ scopes data    [0x0000026ca4c1b420,0x0000026ca4c1b438] = 24
+ scopes pcs     [0x0000026ca4c1b438,0x0000026ca4c1b488] = 80
+ dependencies   [0x0000026ca4c1b488,0x0000026ca4c1b490] = 8
+ nul chk table  [0x0000026ca4c1b490,0x0000026ca4c1b4a0] = 16
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x0000026d030eb890} 'run' '()V' in 'necesse/engine/gameLoop/ServerGameLoop$$Lambda$2136+0x0000026cc0ac1e80'
+  #           [sp+0x40]  (sp of caller)
+  0x0000026ca4c1b2c0: 448b 5208 | 49bb 0000 | 00bf 6c02 | 0000 4d03 | d34c 3bd0 
+
+  0x0000026ca4c1b2d4: ;   {runtime_call ic_miss_stub}
+  0x0000026ca4c1b2d4: 0f85 a65d | 6d06 660f | 1f44 0000 
+[Verified Entry Point]
+  0x0000026ca4c1b2e0: 8984 2400 | 90ff ff55 | 4883 ec30 
+
+  0x0000026ca4c1b2ec: ;   {metadata(method data for {method} {0x0000026d030eb890} 'run' '()V' in 'necesse/engine/gameLoop/ServerGameLoop$$Lambda$2136+0x0000026cc0ac1e80')}
+  0x0000026ca4c1b2ec: 48be 988a | 1a03 6d02 | 0000 8bbe | cc00 0000 | 83c7 0289 | becc 0000 | 0081 e7fe | 0700 0083 
+  0x0000026ca4c1b30c: ff00 0f84 | 3b00 0000 | 8b52 0c48 | c1e2 0348 | 3b02 488b 
+
+  0x0000026ca4c1b320: ;   {metadata(method data for {method} {0x0000026d030eb890} 'run' '()V' in 'necesse/engine/gameLoop/ServerGameLoop$$Lambda$2136+0x0000026cc0ac1e80')}
+  0x0000026ca4c1b320: f248 bf98 | 8a1a 036d | 0200 0048 | 8387 1001 | 0000 010f 
+
+  0x0000026ca4c1b334: ;   {optimized virtual_call}
+  0x0000026ca4c1b334: 1f40 00e8 
+
+  0x0000026ca4c1b338: ; ImmutableOopMap {}
+                      ;*invokevirtual lambda$update$3 {reexecute=0 rethrow=0 return_oop=0}
+                      ; - necesse.engine.gameLoop.ServerGameLoop$$Lambda$2136/0x0000026cc0ac1e80::run@4
+  0x0000026ca4c1b338: 8900 0000 | 4883 c430 
+
+  0x0000026ca4c1b340: ;   {poll_return}
+  0x0000026ca4c1b340: 5d49 3ba7 | 5003 0000 | 0f87 2400 
+
+  0x0000026ca4c1b34c: ;   {metadata({method} {0x0000026d030eb890} 'run' '()V' in 'necesse/engine/gameLoop/ServerGameLoop$$Lambda$2136+0x0000026cc0ac1e80')}
+  0x0000026ca4c1b34c: 0000 c349 | ba88 b80e | 036d 0200 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x0000026ca4c1b364: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000026ca4c1b364: ffff e815 
+
+  0x0000026ca4c1b368: ; ImmutableOopMap {rdx=Oop }
+                      ;*synchronization entry
+                      ; - necesse.engine.gameLoop.ServerGameLoop$$Lambda$2136/0x0000026cc0ac1e80::run@-1
+  0x0000026ca4c1b368: ea77 06eb 
+
+  0x0000026ca4c1b36c: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000026ca4c1b36c: a7e8 2e93 
+
+  0x0000026ca4c1b370: ; ImmutableOopMap {rdx=Oop }
+                      ;*invokevirtual lambda$update$3 {reexecute=0 rethrow=0 return_oop=0}
+                      ; - necesse.engine.gameLoop.ServerGameLoop$$Lambda$2136/0x0000026cc0ac1e80::run@4
+                      ;   {internal_word}
+  0x0000026ca4c1b370: 7706 49ba | 41b3 c1a4 | 6c02 0000 | 4d89 9768 
+
+  0x0000026ca4c1b380: ;   {runtime_call SafepointBlob}
+  0x0000026ca4c1b380: 0300 00e9 | 78c6 6d06 | 9090 498b | 87e0 0300 | 0049 c787 | e003 0000 | 0000 0000 | 49c7 87e8 
+  0x0000026ca4c1b3a0: 0300 0000 | 0000 0048 | 83c4 305d 
+
+  0x0000026ca4c1b3ac: ;   {runtime_call unwind_exception Runtime1 stub}
+  0x0000026ca4c1b3ac: e9cf ac6e | 06f4 f4f4 | f4f4 f4f4 | f4f4 f4f4 | f4f4 f4f4 
+[Stub Code]
+  0x0000026ca4c1b3c0: ;   {no_reloc}
+  0x0000026ca4c1b3c0: 0f1f 4400 
+
+  0x0000026ca4c1b3c4: ;   {static_stub}
+  0x0000026ca4c1b3c4: 0048 bb38 | 3ee3 026d 
+
+  0x0000026ca4c1b3cc: ;   {runtime_call I2C/C2I adapters}
+  0x0000026ca4c1b3cc: 0200 00e9 | 85a9 6d06 
+[Exception Handler]
+  0x0000026ca4c1b3d4: ;   {runtime_call handle_exception_from_callee Runtime1 stub}
+  0x0000026ca4c1b3d4: e8a7 b677 
+
+  0x0000026ca4c1b3d8: ;   {external_word}
+  0x0000026ca4c1b3d8: 0648 b930 | caa4 fefc | 7f00 0048 
+
+  0x0000026ca4c1b3e4: ;   {runtime_call}
+  0x0000026ca4c1b3e4: 83e4 f049 | ba70 4c6d | fefc 7f00 | 0041 ffd2 
+
+  0x0000026ca4c1b3f4: ;   {section_word}
+  0x0000026ca4c1b3f4: f449 baf5 | b3c1 a46c | 0200 0041 
+
+  0x0000026ca4c1b400: ;   {runtime_call DeoptimizationBlob}
+  0x0000026ca4c1b400: 52e9 9ab8 | 6d06 f4f4 
+[/MachCode]
+
+
+Compiled method (c1)   68717 14174       3       necesse.engine.GameExceptionHandler::submitException (55 bytes)
+ total in heap  [0x0000026ca4c0d910,0x0000026ca4c0de60] = 1360
+ relocation     [0x0000026ca4c0da68,0x0000026ca4c0dac0] = 88
+ main code      [0x0000026ca4c0dac0,0x0000026ca4c0dd40] = 640
+ stub code      [0x0000026ca4c0dd40,0x0000026ca4c0dd98] = 88
+ oops           [0x0000026ca4c0dd98,0x0000026ca4c0dda0] = 8
+ metadata       [0x0000026ca4c0dda0,0x0000026ca4c0ddb0] = 16
+ scopes data    [0x0000026ca4c0ddb0,0x0000026ca4c0dde8] = 56
+ scopes pcs     [0x0000026ca4c0dde8,0x0000026ca4c0de48] = 96
+ dependencies   [0x0000026ca4c0de48,0x0000026ca4c0de50] = 8
+ nul chk table  [0x0000026ca4c0de50,0x0000026ca4c0de60] = 16
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x0000026d0294a8b0} 'submitException' '(ZLjava/lang/Exception;Ljava/lang/Runnable;)V' in 'necesse/engine/GameExceptionHandler'
+  # this:     rdx:rdx   = 'necesse/engine/GameExceptionHandler'
+  # parm0:    r8        = boolean
+  # parm1:    r9:r9     = 'java/lang/Exception'
+  # parm2:    rdi:rdi   = 'java/lang/Runnable'
+  #           [sp+0x50]  (sp of caller)
+  0x0000026ca4c0dac0: 448b 5208 | 49bb 0000 | 00bf 6c02 | 0000 4d03 | d34c 3bd0 
+
+  0x0000026ca4c0dad4: ;   {runtime_call ic_miss_stub}
+  0x0000026ca4c0dad4: 0f85 a635 | 6e06 660f | 1f44 0000 
+[Verified Entry Point]
+  0x0000026ca4c0dae0: 8984 2400 | 90ff ff55 | 4883 ec40 
+
+  0x0000026ca4c0daec: ;   {metadata(method data for {method} {0x0000026d0294a8b0} 'submitException' '(ZLjava/lang/Exception;Ljava/lang/Runnable;)V' in 'necesse/engine/GameExceptionHandler')}
+  0x0000026ca4c0daec: 48be 181a | dc02 6d02 | 0000 8b9e | cc00 0000 | 83c3 0289 | 9ecc 0000 | 0081 e3fe | 0700 0083 
+  0x0000026ca4c0db0c: fb00 0f84 | bb01 0000 | 4889 7c24 | 3044 8944 | 2420 488b 
+
+  0x0000026ca4c0db20: ;   {metadata(method data for {method} {0x0000026d0294a8b0} 'submitException' '(ZLjava/lang/Exception;Ljava/lang/Runnable;)V' in 'necesse/engine/GameExceptionHandler')}
+  0x0000026ca4c0db20: f248 bb18 | 1adc 026d | 0200 0048 | 8383 1001 | 0000 014d | 8bc1 41b9 | 0100 0000 | 488b da48 
+  0x0000026ca4c0db40: 8bd3 4889 
+
+  0x0000026ca4c0db44: ;   {optimized virtual_call}
+  0x0000026ca4c0db44: 5c24 28e8 
+
+  0x0000026ca4c0db48: ; ImmutableOopMap {[40]=Oop [48]=Oop }
+                      ;*invokespecial addSavedException {reexecute=0 rethrow=0 return_oop=0}
+                      ; - necesse.engine.GameExceptionHandler::submitException@3 (line 28)
+  0x0000026ca4c0db48: 74a1 0d00 | 448b 4424 | 2041 83f8 
+
+  0x0000026ca4c0db54: ;   {metadata(method data for {method} {0x0000026d0294a8b0} 'submitException' '(ZLjava/lang/Exception;Ljava/lang/Runnable;)V' in 'necesse/engine/GameExceptionHandler')}
+  0x0000026ca4c0db54: 0048 ba18 | 1adc 026d | 0200 0048 | be20 0100 | 0000 0000 | 000f 840a | 0000 0048 | be30 0100 
+  0x0000026ca4c0db74: 0000 0000 | 0048 8b3c | 3248 8d7f | 0148 893c | 3248 8b54 | 2428 0f84 | 1d00 0000 | 8b72 10ff 
+  0x0000026ca4c0db94: c689 7210 
+
+  0x0000026ca4c0db98: ;   {metadata(method data for {method} {0x0000026d0294a8b0} 'submitException' '(ZLjava/lang/Exception;Ljava/lang/Runnable;)V' in 'necesse/engine/GameExceptionHandler')}
+  0x0000026ca4c0db98: 48be 181a | dc02 6d02 | 0000 ff86 | 4001 0000 | e908 0000 | 008b 720c | ffc6 8972 | 0c8b 720c 
+  0x0000026ca4c0dbb8: ;   {oop(a 'java/lang/Class'{0x000000070277fc20} = 'necesse/engine/GameExceptionHandler')}
+  0x0000026ca4c0dbb8: 8b52 1048 | bf20 fc77 | 0207 0000 | 008b 7f70 | 03f2 3bf7 
+
+  0x0000026ca4c0dbcc: ;   {metadata(method data for {method} {0x0000026d0294a8b0} 'submitException' '(ZLjava/lang/Exception;Ljava/lang/Runnable;)V' in 'necesse/engine/GameExceptionHandler')}
+  0x0000026ca4c0dbcc: 48ba 181a | dc02 6d02 | 0000 48be | 5801 0000 | 0000 0000 | 0f8c 0a00 | 0000 48be | 6801 0000 
+  0x0000026ca4c0dbec: 0000 0000 | 488b 3c32 | 488d 7f01 | 4889 3c32 | 0f8c ba00 | 0000 488b | 7c24 3048 | 3b07 488b 
+  0x0000026ca4c0dc0c: ;   {metadata(method data for {method} {0x0000026d0294a8b0} 'submitException' '(ZLjava/lang/Exception;Ljava/lang/Runnable;)V' in 'necesse/engine/GameExceptionHandler')}
+  0x0000026ca4c0dc0c: d748 be18 | 1adc 026d | 0200 008b | 5208 49ba | 0000 00bf | 6c02 0000 | 4903 d248 | 3b96 8801 
+  0x0000026ca4c0dc2c: 0000 750d | 4883 8690 | 0100 0001 | e966 0000 | 0048 3b96 | 9801 0000 | 750d 4883 | 86a0 0100 
+  0x0000026ca4c0dc4c: 0001 e950 | 0000 0048 | 81be 8801 | 0000 0000 | 0000 7517 | 4889 9688 | 0100 0048 | c786 9001 
+  0x0000026ca4c0dc6c: 0000 0100 | 0000 e92c | 0000 0048 | 81be 9801 | 0000 0000 | 0000 7517 | 4889 9698 | 0100 0048 
+  0x0000026ca4c0dc8c: c786 a001 | 0000 0100 | 0000 e908 | 0000 0048 | 8386 7801 | 0000 0148 | 8bd7 0f1f | 8000 0000 
+  0x0000026ca4c0dcac: 0048 b880 | 1eac c06c 
+
+  0x0000026ca4c0dcb4: ;   {virtual_call}
+  0x0000026ca4c0dcb4: 0200 00e8 
+
+  0x0000026ca4c0dcb8: ; ImmutableOopMap {}
+                      ;*invokeinterface run {reexecute=0 rethrow=0 return_oop=0}
+                      ; - necesse.engine.GameExceptionHandler::submitException@49 (line 33)
+  0x0000026ca4c0dcb8: 04d6 0000 | 4883 c440 
+
+  0x0000026ca4c0dcc0: ;   {poll_return}
+  0x0000026ca4c0dcc0: 5d49 3ba7 | 5003 0000 | 0f87 2700 
+
+  0x0000026ca4c0dccc: ;   {metadata({method} {0x0000026d0294a8b0} 'submitException' '(ZLjava/lang/Exception;Ljava/lang/Runnable;)V' in 'necesse/engine/GameExceptionHandler')}
+  0x0000026ca4c0dccc: 0000 c349 | baa8 a894 | 026d 0200 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x0000026ca4c0dce4: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000026ca4c0dce4: ffff e895 
+
+  0x0000026ca4c0dce8: ; ImmutableOopMap {rdx=Oop r9=Oop rdi=Oop }
+                      ;*synchronization entry
+                      ; - necesse.engine.GameExceptionHandler::submitException@-1 (line 28)
+  0x0000026ca4c0dce8: c078 06e9 | 24fe ffff 
+
+  0x0000026ca4c0dcf0: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000026ca4c0dcf0: e8ab 6978 
+
+  0x0000026ca4c0dcf4: ; ImmutableOopMap {rdi=Oop }
+                      ;*invokeinterface run {reexecute=0 rethrow=0 return_oop=0}
+                      ; - necesse.engine.GameExceptionHandler::submitException@49 (line 33)
+                      ;   {internal_word}
+  0x0000026ca4c0dcf4: 0649 bac1 | dcc0 a46c | 0200 004d | 8997 6803 
+
+  0x0000026ca4c0dd04: ;   {runtime_call SafepointBlob}
+  0x0000026ca4c0dd04: 0000 e9f5 | 9c6e 0690 | 9049 8b87 | e003 0000 | 49c7 87e0 | 0300 0000 | 0000 0049 | c787 e803 
+  0x0000026ca4c0dd24: 0000 0000 | 0000 4883 
+
+  0x0000026ca4c0dd2c: ;   {runtime_call unwind_exception Runtime1 stub}
+  0x0000026ca4c0dd2c: c440 5de9 | 4c83 6f06 | f4f4 f4f4 | f4f4 f4f4 | f4f4 f4f4 
+[Stub Code]
+  0x0000026ca4c0dd40: ;   {no_reloc}
+  0x0000026ca4c0dd40: 0f1f 4400 
+
+  0x0000026ca4c0dd44: ;   {static_stub}
+  0x0000026ca4c0dd44: 0048 bb10 | aa94 026d 
+
+  0x0000026ca4c0dd4c: ;   {runtime_call I2C/C2I adapters}
+  0x0000026ca4c0dd4c: 0200 00e9 | 8de1 6d06 
+
+  0x0000026ca4c0dd54: ;   {static_stub}
+  0x0000026ca4c0dd54: 9048 bb00 | 0000 0000 
+
+  0x0000026ca4c0dd5c: ;   {runtime_call}
+  0x0000026ca4c0dd5c: 0000 00e9 | fbff ffff 
+[Exception Handler]
+  0x0000026ca4c0dd64: ;   {runtime_call handle_exception_from_callee Runtime1 stub}
+  0x0000026ca4c0dd64: e817 8d78 
+
+  0x0000026ca4c0dd68: ;   {external_word}
+  0x0000026ca4c0dd68: 0648 b930 | caa4 fefc | 7f00 0048 
+
+  0x0000026ca4c0dd74: ;   {runtime_call}
+  0x0000026ca4c0dd74: 83e4 f049 | ba70 4c6d | fefc 7f00 | 0041 ffd2 
+
+  0x0000026ca4c0dd84: ;   {section_word}
+  0x0000026ca4c0dd84: f449 ba85 | ddc0 a46c | 0200 0041 
+
+  0x0000026ca4c0dd90: ;   {runtime_call DeoptimizationBlob}
+  0x0000026ca4c0dd90: 52e9 0a8f | 6e06 f4f4 
+[/MachCode]
+
+
+Compiled method (c1)   68725 13502   !   3       necesse.engine.gameLoop.ServerGameLoop::update (121 bytes)
+ total in heap  [0x0000026ca4a79290,0x0000026ca4a7b2a0] = 8208
+ relocation     [0x0000026ca4a793e8,0x0000026ca4a795a0] = 440
+ main code      [0x0000026ca4a795a0,0x0000026ca4a7aaa0] = 5376
+ stub code      [0x0000026ca4a7aaa0,0x0000026ca4a7ab58] = 184
+ oops           [0x0000026ca4a7ab58,0x0000026ca4a7ab78] = 32
+ metadata       [0x0000026ca4a7ab78,0x0000026ca4a7ac38] = 192
+ scopes data    [0x0000026ca4a7ac38,0x0000026ca4a7aec0] = 648
+ scopes pcs     [0x0000026ca4a7aec0,0x0000026ca4a7b120] = 608
+ dependencies   [0x0000026ca4a7b120,0x0000026ca4a7b150] = 48
+ handler table  [0x0000026ca4a7b150,0x0000026ca4a7b250] = 256
+ nul chk table  [0x0000026ca4a7b250,0x0000026ca4a7b2a0] = 80
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop'
+  #           [sp+0x100]  (sp of caller)
+  0x0000026ca4a795a0: 448b 5208 | 49bb 0000 | 00bf 6c02 | 0000 4d03 | d34c 3bd0 
+
+  0x0000026ca4a795b4: ;   {runtime_call ic_miss_stub}
+  0x0000026ca4a795b4: 0f85 c67a | 8706 660f | 1f44 0000 
+[Verified Entry Point]
+  0x0000026ca4a795c0: 8984 2400 | 90ff ff55 | 4881 ecf0 | 0000 0048 | 8994 2498 
+
+  0x0000026ca4a795d4: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a795d4: 0000 0048 | be00 6212 | 036d 0200 | 008b becc | 0000 0083 | c702 89be | cc00 0000 | 81e7 fe07 
+  0x0000026ca4a795f4: 0000 83ff | 000f 843e 
+
+  0x0000026ca4a795fc: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a795fc: 1100 0048 | be00 6212 | 036d 0200 | 0048 8386 | 1001 0000 
+
+  0x0000026ca4a79610: ;   {runtime_call}
+  0x0000026ca4a79610: 0149 bab0 | ad79 fefc | 7f00 0041 | ffd2 4889 | 8424 a800 
+
+  0x0000026ca4a79624: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a79624: 0000 49b8 | 0062 1203 | 6d02 0000 | 4983 8020 | 0100 0001 | 4d8b 8790 | 0200 004d | 8b00 493b 
+  0x0000026ca4a79644: 0049 8bd0 
+
+  0x0000026ca4a79648: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a79648: 48be 0062 | 1203 6d02 | 0000 8b52 | 0849 ba00 | 0000 bf6c | 0200 0049 | 03d2 483b | 9640 0100 
+  0x0000026ca4a79668: 0075 0d48 | 8386 4801 | 0000 01e9 | 6600 0000 | 483b 9650 | 0100 0075 | 0d48 8386 | 5801 0000 
+  0x0000026ca4a79688: 01e9 5000 | 0000 4881 | be40 0100 | 0000 0000 | 0075 1748 | 8996 4001 | 0000 48c7 | 8648 0100 
+  0x0000026ca4a796a8: 0001 0000 | 00e9 2c00 | 0000 4881 | be50 0100 | 0000 0000 | 0075 1748 | 8996 5001 | 0000 48c7 
+  0x0000026ca4a796c8: 8658 0100 | 0001 0000 | 00e9 0800 | 0000 4883 | 8630 0100 | 0001 450f | be40 2d41 | 83e0 0141 
+  0x0000026ca4a796e8: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a796e8: 83f8 0049 | b800 6212 | 036d 0200 | 0048 ba78 | 0100 0000 | 0000 000f | 850a 0000 | 0048 ba68 
+  0x0000026ca4a79708: 0100 0000 | 0000 0049 | 8b34 1048 | 8d76 0149 | 8934 1048 | 8b94 2498 | 0000 000f | 8571 0700 
+  0x0000026ca4a79728: 0044 8b82 | b800 0000 | 49c1 e003 
+
+  0x0000026ca4a79734: ; implicit exception: dispatches to 0x0000026ca4a7a763
+  0x0000026ca4a79734: 493b 0049 
+
+  0x0000026ca4a79738: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a79738: 8bf0 48bf | 0062 1203 | 6d02 0000 
+
+  0x0000026ca4a79744: ;   {metadata('necesse/engine/network/server/Server')}
+  0x0000026ca4a79744: 49ba 8860 | 35c0 6c02 | 0000 4c89 | 97d0 0100 | 0048 8387 | d801 0000 | 0145 0fbe | 4022 4183 
+  0x0000026ca4a79764: e001 4183 
+
+  0x0000026ca4a79768: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a79768: f800 49b8 | 0062 1203 | 6d02 0000 | 48be 0802 | 0000 0000 | 0000 0f85 | 0a00 0000 | 48be f801 
+  0x0000026ca4a79788: 0000 0000 | 0000 498b | 3c30 488d | 7f01 4989 | 3c30 0f85 | 2206 0000 
+
+  0x0000026ca4a797a0: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a797a0: 49b8 0062 | 1203 6d02 | 0000 4d8d | 8070 0200 
+
+  0x0000026ca4a797b0: ;   {metadata('necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a797b0: 0048 bee8 | a1a6 c06c | 0200 0049 | 3370 0848 | f7c6 fcff | ffff 7404 | 4989 7008 
+
+  0x0000026ca4a797cc: ;   {metadata(method data for {method} {0x0000026cbf0dbc20} 'linkToTargetMethod' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000026ca4a797cc: 49b8 e8f9 | 3a00 6d02 | 0000 4d8d | 8000 0200 
+
+  0x0000026ca4a797dc: ;   {oop(a 'java/lang/invoke/DirectMethodHandle$Constructor'{0x0000000704e6ebd0})}
+  0x0000026ca4a797dc: 0048 bed0 | ebe6 0407 | 0000 0048 | 85f6 7510 | 49f7 4010 | 0100 0000 | 7506 f049 | 8348 1001 
+  0x0000026ca4a797fc: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a797fc: 49b8 0062 | 1203 6d02 | 0000 4983 | 8060 0200 
+
+  0x0000026ca4a7980c: ;   {metadata(method data for {method} {0x0000026cbf0dbc20} 'linkToTargetMethod' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000026ca4a7980c: 0001 49b8 | e8f9 3a00 | 6d02 0000 | 418b b8cc | 0000 0083 | c702 4189 | b8cc 0000 | 0081 e7fe 
+  0x0000026ca4a7982c: ff1f 0083 | ff00 0f84 | 300f 0000 
+
+  0x0000026ca4a79838: ;   {metadata(method data for {method} {0x0000026cbf0db520} 'newInvokeSpecial' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder')}
+  0x0000026ca4a79838: 49b8 48ba | 3b00 6d02 | 0000 4d8d | 8040 0200 | 0048 85f6 | 750e 49f7 | 0001 0000 | 0075 05f0 
+  0x0000026ca4a79858: 4983 0801 
+
+  0x0000026ca4a7985c: ;   {metadata(method data for {method} {0x0000026cbf0dbc20} 'linkToTargetMethod' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000026ca4a7985c: 49b8 e8f9 | 3a00 6d02 | 0000 4983 | 8048 0100 
+
+  0x0000026ca4a7986c: ;   {metadata(method data for {method} {0x0000026cbf0db520} 'newInvokeSpecial' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder')}
+  0x0000026ca4a7986c: 0001 49b8 | 48ba 3b00 | 6d02 0000 | 418b b8cc | 0000 0083 | c702 4189 | b8cc 0000 | 0081 e7fe 
+  0x0000026ca4a7988c: ff1f 0083 | ff00 0f84 | f10e 0000 
+
+  0x0000026ca4a79898: ;   {metadata(method data for {method} {0x0000026cbf0db520} 'newInvokeSpecial' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder')}
+  0x0000026ca4a79898: 49b8 48ba | 3b00 6d02 | 0000 4d8d | 8020 0100 | 0048 85f6 | 7510 49f7 | 4008 0100 | 0000 7506 
+  0x0000026ca4a798b8: f049 8348 
+
+  0x0000026ca4a798bc: ;   {metadata(method data for {method} {0x0000026cbf0db520} 'newInvokeSpecial' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder')}
+  0x0000026ca4a798bc: 0801 49b8 | 48ba 3b00 | 6d02 0000 | 4983 8010 | 0100 0001 
+
+  0x0000026ca4a798d0: ;   {metadata(method data for {method} {0x0000026cbf3a0178} 'allocateInstance' '(Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle')}
+  0x0000026ca4a798d0: 49b8 68c4 | 3200 6d02 | 0000 418b | b8cc 0000 | 0083 c702 | 4189 b8cc | 0000 0081 | e7fe ff1f 
+  0x0000026ca4a798f0: 0083 ff00 | 0f84 b00e 
+
+  0x0000026ca4a798f8: ;   {oop(a 'jdk/internal/misc/Unsafe'{0x00000007010d8da8})}
+  0x0000026ca4a798f8: 0000 48bf | a88d 0d01 | 0700 0000 
+
+  0x0000026ca4a79904: ;   {metadata(method data for {method} {0x0000026cbf3a0178} 'allocateInstance' '(Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle')}
+  0x0000026ca4a79904: 4c8b c748 | bb68 c432 | 006d 0200 | 0048 8383 | 4801 0000 
+
+  0x0000026ca4a79918: ;   {oop(a 'java/lang/Class'{0x0000000704e66fe0} = 'necesse/engine/gameLoop/ServerGameLoop$$Lambda$1908+0x0000026cc0a7a000')}
+  0x0000026ca4a79918: 0149 b8e0 | 6fe6 0407 | 0000 0048 | 8bd7 4889 | b424 a000 
+
+  0x0000026ca4a7992c: ;   {optimized virtual_call}
+  0x0000026ca4a7992c: 0000 90e8 
+
+  0x0000026ca4a79930: ; ImmutableOopMap {[152]=Oop [160]=Oop }
+                      ;*invokevirtual allocateInstance {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.invoke.DirectMethodHandle::allocateInstance@12 (line 520)
+                      ; - java.lang.invoke.DirectMethodHandle$Holder::newInvokeSpecial@1
+                      ; - java.lang.invoke.Invokers$Holder::linkToTargetMethod@5
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@39 (line 40)
+  0x0000026ca4a79930: 8ccd e406 
+
+  0x0000026ca4a79934: ;   {metadata(method data for {method} {0x0000026cbf0db520} 'newInvokeSpecial' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder')}
+  0x0000026ca4a79934: 49b8 48ba | 3b00 6d02 | 0000 4d8d | 8030 0100 | 0048 85c0 | 750e 49f7 | 0001 0000 | 0075 05f0 
+  0x0000026ca4a79954: 4983 0801 
+
+  0x0000026ca4a79958: ;   {metadata(method data for {method} {0x0000026cbf0db520} 'newInvokeSpecial' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder')}
+  0x0000026ca4a79958: 49b8 48ba | 3b00 6d02 | 0000 4d8d | 8050 0100 | 0048 8bb4 | 24a0 0000 | 0048 85f6 | 7510 49f7 
+  0x0000026ca4a79978: 4008 0100 | 0000 7506 | f049 8348 
+
+  0x0000026ca4a79984: ;   {metadata(method data for {method} {0x0000026cbf0db520} 'newInvokeSpecial' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder')}
+  0x0000026ca4a79984: 0801 49b8 | 48ba 3b00 | 6d02 0000 | 4983 8040 | 0100 0001 
+
+  0x0000026ca4a79998: ;   {metadata(method data for {method} {0x0000026cbf3a0c20} 'constructorMethod' '(Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle')}
+  0x0000026ca4a79998: 49b8 28c6 | 3200 6d02 | 0000 458b | 88cc 0000 | 0041 83c1 | 0245 8988 | cc00 0000 | 4181 e1fe 
+  0x0000026ca4a799b8: ff1f 0041 | 83f9 000f | 8406 0e00 
+
+  0x0000026ca4a799c4: ;   {metadata(method data for {method} {0x0000026cbf0db520} 'newInvokeSpecial' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder')}
+  0x0000026ca4a799c4: 0049 b848 | ba3b 006d | 0200 004d | 8d80 6001 
+
+  0x0000026ca4a799d4: ;   {oop(a 'java/lang/invoke/MemberName'{0x0000000704e6ec40} = {method} {0x0000026d02e80c90} '<init>' '(Lnecesse/engine/gameLoop/ServerGameLoop;)V' in 'necesse/engine/gameLoop/ServerGameLoop$$Lambda$1908+0x0000026cc0a7a000')}
+  0x0000026ca4a799d4: 0000 49b9 | 40ec e604 | 0700 0000 | 4d85 c975 | 0e49 f700 | 0100 0000 | 7505 f049 | 8308 0148 
+  0x0000026ca4a799f4: 3b00 4c8b 
+
+  0x0000026ca4a799f8: ;   {metadata(method data for {method} {0x0000026cbf0db520} 'newInvokeSpecial' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder')}
+  0x0000026ca4a799f8: c049 b948 | ba3b 006d | 0200 0049 | 8381 a801 
+
+  0x0000026ca4a79a08: ;   {metadata(method data for {method} {0x0000026d02e80c90} '<init>' '(Lnecesse/engine/gameLoop/ServerGameLoop;)V' in 'necesse/engine/gameLoop/ServerGameLoop$$Lambda$1908+0x0000026cc0a7a000')}
+  0x0000026ca4a79a08: 0000 0149 | b8e0 6612 | 036d 0200 | 0045 8b88 | cc00 0000 | 4183 c102 | 4589 88cc | 0000 0041 
+  0x0000026ca4a79a28: 81e1 feff | 1f00 4183 | f900 0f84 | b90d 0000 
+
+  0x0000026ca4a79a38: ;   {metadata(method data for {method} {0x0000026d02e80c90} '<init>' '(Lnecesse/engine/gameLoop/ServerGameLoop;)V' in 'necesse/engine/gameLoop/ServerGameLoop$$Lambda$1908+0x0000026cc0a7a000')}
+  0x0000026ca4a79a38: 4c8b c049 | b9e0 6612 | 036d 0200 | 0049 8381 | 1001 0000 
+
+  0x0000026ca4a79a4c: ;   {metadata(method data for {method} {0x0000026cbf440d88} '<init>' '()V' in 'java/lang/Object')}
+  0x0000026ca4a79a4c: 0149 b8a8 | 7e00 006d | 0200 0045 | 8b88 cc00 | 0000 4183 | c102 4589 | 88cc 0000 | 0041 81e1 
+  0x0000026ca4a79a6c: feff 1f00 | 4183 f900 | 0f84 980d | 0000 450f | be47 3841 | 83f8 000f | 85aa 0d00 | 0048 8b94 
+  0x0000026ca4a79a8c: 2498 0000 | 004c 8bd2 | 49c1 ea03 | 4489 500c | 4c8b c04c | 33c2 49c1 | e819 4983 | f800 0f85 
+  0x0000026ca4a79aac: a30d 0000 
+
+  0x0000026ca4a79ab0: ;   {metadata(method data for {method} {0x0000026cbf0dbc20} 'linkToTargetMethod' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000026ca4a79ab0: 49b8 e8f9 | 3a00 6d02 | 0000 4d8d | 8090 0100 | 0048 85c0 | 750e 49f7 | 0001 0000 | 0075 05f0 
+  0x0000026ca4a79ad0: 4983 0801 
+
+  0x0000026ca4a79ad4: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a79ad4: 49b8 0062 | 1203 6d02 | 0000 4d8d | 8080 0200 | 0048 85c0 | 7510 49f7 | 0001 0000 | 0075 51f0 
+  0x0000026ca4a79af4: 4983 0801 | eb4a 448b | 4808 49ba | 0000 00bf | 6c02 0000 | 4d03 ca4d | 8bd1 4d33 | 0849 f7c1 
+  0x0000026ca4a79b14: fcff ffff | 742a 49f7 | c102 0000 | 0075 2149 | f700 feff | ffff 7415 | 4d8b ca4d | 3308 49f7 
+  0x0000026ca4a79b34: c1fc ffff | ff74 0949 | 8308 02eb | 034d 8908 
+
+  0x0000026ca4a79b44: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a79b44: 49b8 0062 | 1203 6d02 | 0000 4983 | 8090 0200 
+
+  0x0000026ca4a79b54: ;   {metadata(method data for {method} {0x0000026d00a5bcf8} 'recordConstant' '(Lnecesse/engine/gameLoop/tickManager/PerformanceTimerManager;Ljava/lang/String;Ljava/lang/Runnable;)V' in 'necesse/engine/gameLoop/tickManager/Performance')}
+  0x0000026ca4a79b54: 0001 49b8 | 00c0 a802 | 6d02 0000 | 458b 88cc | 0000 0041 | 83c1 0245 | 8988 cc00 | 0000 4181 
+  0x0000026ca4a79b74: e1fe ff1f | 0041 83f9 | 000f 84e8 
+
+  0x0000026ca4a79b80: ;   {metadata(method data for {method} {0x0000026d00a5bcf8} 'recordConstant' '(Lnecesse/engine/gameLoop/tickManager/PerformanceTimerManager;Ljava/lang/String;Ljava/lang/Runnable;)V' in 'necesse/engine/gameLoop/tickManager/Performance')}
+  0x0000026ca4a79b80: 0c00 0049 | b800 c0a8 | 026d 0200 | 0041 ff80 | 2001 0000 
+
+  0x0000026ca4a79b94: ;   {metadata(method data for {method} {0x0000026d00a5bcf8} 'recordConstant' '(Lnecesse/engine/gameLoop/tickManager/PerformanceTimerManager;Ljava/lang/String;Ljava/lang/Runnable;)V' in 'necesse/engine/gameLoop/tickManager/Performance')}
+  0x0000026ca4a79b94: 4c8b c249 | b900 c0a8 | 026d 0200 | 0045 8b40 | 0849 ba00 | 0000 bf6c | 0200 004d | 03c2 4d3b 
+  0x0000026ca4a79bb4: 8140 0100 | 0075 0d49 | 8381 4801 | 0000 01e9 | 6600 0000 | 4d3b 8150 | 0100 0075 | 0d49 8381 
+  0x0000026ca4a79bd4: 5801 0000 | 01e9 5000 | 0000 4981 | b940 0100 | 0000 0000 | 0075 174d | 8981 4001 | 0000 49c7 
+  0x0000026ca4a79bf4: 8148 0100 | 0001 0000 | 00e9 2c00 | 0000 4981 | b950 0100 | 0000 0000 | 0075 174d | 8981 5001 
+  0x0000026ca4a79c14: 0000 49c7 | 8158 0100 | 0001 0000 | 00e9 0800 | 0000 4983 | 8130 0100 
+
+  0x0000026ca4a79c2c: ;   {oop("tickTime"{0x000000070269fcc0})}
+  0x0000026ca4a79c2c: 0001 49b8 | c0fc 6902 | 0700 0000 | 4c8b c848 | 8bf2 488b | d666 0f1f 
+
+  0x0000026ca4a79c44: ;   {optimized virtual_call}
+  0x0000026ca4a79c44: 4400 00e8 
+
+  0x0000026ca4a79c48: ; ImmutableOopMap {[152]=Oop }
+                      ;*invokevirtual recordConstantPerformance {reexecute=0 rethrow=0 return_oop=0}
+                      ; - necesse.engine.gameLoop.tickManager.Performance::recordConstant@7 (line 16)
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@44 (line 40)
+  0x0000026ca4a79c48: 3473 8cff 
+
+  0x0000026ca4a79c4c: ;   {metadata(method data for {method} {0x0000026d00a5bcf8} 'recordConstant' '(Lnecesse/engine/gameLoop/tickManager/PerformanceTimerManager;Ljava/lang/String;Ljava/lang/Runnable;)V' in 'necesse/engine/gameLoop/tickManager/Performance')}
+  0x0000026ca4a79c4c: 48ba 00c0 | a802 6d02 | 0000 ff82 | 6801 0000 | 488b 9424 | 9800 0000 
+
+  0x0000026ca4a79c64: ;   {oop(a 'java/lang/Class'{0x0000000704dc9850} = 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a79c64: 48be 5098 | dc04 0700 | 0000 8b76 | 7048 c1e6 | 0348 8bfa 
+
+  0x0000026ca4a79c78: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a79c78: 48bb 0062 | 1203 6d02 | 0000 8b7f | 0849 ba00 | 0000 bf6c | 0200 0049 | 03fa 483b | bbb0 0200 
+  0x0000026ca4a79c98: 0075 0d48 | 8383 b802 | 0000 01e9 | 6600 0000 | 483b bbc0 | 0200 0075 | 0d48 8383 | c802 0000 
+  0x0000026ca4a79cb8: 01e9 5000 | 0000 4881 | bbb0 0200 | 0000 0000 | 0075 1748 | 89bb b002 | 0000 48c7 | 83b8 0200 
+  0x0000026ca4a79cd8: 0001 0000 | 00e9 2c00 | 0000 4881 | bbc0 0200 | 0000 0000 | 0075 1748 | 89bb c002 | 0000 48c7 
+  0x0000026ca4a79cf8: 83c8 0200 | 0001 0000 | 00e9 0800 | 0000 4883 | 83a0 0200 | 0001 0fbe | 7a17 83e7 | 0148 3b06 
+  0x0000026ca4a79d18: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a79d18: 488b de48 | b800 6212 | 036d 0200 
+
+  0x0000026ca4a79d24: ;   {metadata('necesse/engine/GameExceptionHandler')}
+  0x0000026ca4a79d24: 0049 ba08 | 229b c06c | 0200 004c | 8990 e802 | 0000 4883 | 80f0 0200 
+
+  0x0000026ca4a79d3c: ;   {metadata(method data for {method} {0x0000026d0294a7a0} 'clear' '(Z)V' in 'necesse/engine/GameExceptionHandler')}
+  0x0000026ca4a79d3c: 0001 48bb | b018 dc02 | 6d02 0000 | 8b83 cc00 | 0000 83c0 | 0289 83cc | 0000 0081 | e0fe ff1f 
+  0x0000026ca4a79d5c: 0083 f800 | 0f84 2b0b | 0000 83ff 
+
+  0x0000026ca4a79d68: ;   {metadata(method data for {method} {0x0000026d0294a7a0} 'clear' '(Z)V' in 'necesse/engine/GameExceptionHandler')}
+  0x0000026ca4a79d68: 0048 bfb0 | 18dc 026d | 0200 0048 | bb10 0100 | 0000 0000 | 000f 840a | 0000 0048 | bb20 0100 
+  0x0000026ca4a79d88: 0000 0000 | 0048 8b04 | 1f48 8d40 | 0148 8904 | 1f0f 8407 | 0000 00c7 | 4610 0000 | 0000 c746 
+  0x0000026ca4a79da8: 0c00 0000 
+
+  0x0000026ca4a79dac: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a79dac: 0048 be00 | 6212 036d | 0200 00ff | 8610 0300 | 00e9 1209 
+
+  0x0000026ca4a79dc0: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a79dc0: 0000 48be | 0062 1203 | 6d02 0000 | 4883 8618 | 0200 0001 | 498b b790 | 0200 0048 | 8b36 483b 
+  0x0000026ca4a79de0: 0648 8bfe 
+
+  0x0000026ca4a79de4: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a79de4: 48bb 0062 | 1203 6d02 | 0000 8b7f | 0849 ba00 | 0000 bf6c | 0200 0049 | 03fa 483b | bb38 0200 
+  0x0000026ca4a79e04: 0075 0d48 | 8383 4002 | 0000 01e9 | 6600 0000 | 483b bb48 | 0200 0075 | 0d48 8383 | 5002 0000 
+  0x0000026ca4a79e24: 01e9 5000 | 0000 4881 | bb38 0200 | 0000 0000 | 0075 1748 | 89bb 3802 | 0000 48c7 | 8340 0200 
+  0x0000026ca4a79e44: 0001 0000 | 00e9 2c00 | 0000 4881 | bb48 0200 | 0000 0000 | 0075 1748 | 89bb 4802 | 0000 48c7 
+  0x0000026ca4a79e64: 8350 0200 | 0001 0000 | 00e9 0800 | 0000 4883 | 8328 0200 | 0001 488b 
+
+  0x0000026ca4a79e7c: ;   {optimized virtual_call}
+  0x0000026ca4a79e7c: d666 90e8 
+
+  0x0000026ca4a79e80: ; ImmutableOopMap {[152]=Oop }
+                      ;*invokevirtual interrupt {reexecute=0 rethrow=0 return_oop=0}
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@31 (line 36)
+  0x0000026ca4a79e80: fc74 8706 | 4881 c4f0 | 0000 005d 
+
+  0x0000026ca4a79e8c: ;   {poll_return}
+  0x0000026ca4a79e8c: 493b a750 | 0300 000f | 871e 0a00 | 00c3 488b 
+
+  0x0000026ca4a79e9c: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a79e9c: c248 be00 | 6212 036d | 0200 008b | 4008 49ba | 0000 00bf | 6c02 0000 | 4903 c248 | 3b86 9801 
+  0x0000026ca4a79ebc: 0000 750d | 4883 86a0 | 0100 0001 | e966 0000 | 0048 3b86 | a801 0000 | 750d 4883 | 86b0 0100 
+  0x0000026ca4a79edc: 0001 e950 | 0000 0048 | 81be 9801 | 0000 0000 | 0000 7517 | 4889 8698 | 0100 0048 | c786 a001 
+  0x0000026ca4a79efc: 0000 0100 | 0000 e92c | 0000 0048 | 81be a801 | 0000 0000 | 0000 7517 | 4889 86a8 | 0100 0048 
+  0x0000026ca4a79f1c: c786 b001 | 0000 0100 | 0000 e908 | 0000 0048 | 8386 8801 
+
+  0x0000026ca4a79f30: ;   {metadata(method data for {method} {0x0000026d004352c0} 'stopMainGameLoop' '()V' in 'necesse/engine/gameLoop/GameLoop')}
+  0x0000026ca4a79f30: 0000 0148 | b830 03dc | 026d 0200 | 008b b0cc | 0000 0083 | c602 89b0 | cc00 0000 | 81e6 feff 
+  0x0000026ca4a79f50: 1f00 83fe | 000f 8472 | 0900 00c6 | 82a4 0000 | 0001 4881 | c4f0 0000 
+
+  0x0000026ca4a79f68: ;   {poll_return}
+  0x0000026ca4a79f68: 005d 493b | a750 0300 | 000f 8777 | 0900 00c3 | 488b 9424 | 9800 0000 | 498b 87e0 | 0300 004d 
+  0x0000026ca4a79f88: 33d2 4d89 | 97e0 0300 | 004d 33d2 | 4d89 97e8 | 0300 004c 
+
+  0x0000026ca4a79f9c: ;   {oop(a 'java/lang/Class'{0x0000000704dc9850} = 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a79f9c: 8bc0 48be | 5098 dc04 | 0700 0000 | 8b5e 7048 | c1e3 0348 
+
+  0x0000026ca4a79fb0: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a79fb0: 8bf2 48bf | 0062 1203 | 6d02 0000 | 8b76 0849 | ba00 0000 | bf6c 0200 | 0049 03f2 | 483b b7f0 
+  0x0000026ca4a79fd0: 0300 0075 | 0d48 8387 | f803 0000 | 01e9 6600 | 0000 483b | b700 0400 | 0075 0d48 | 8387 0804 
+  0x0000026ca4a79ff0: 0000 01e9 | 5000 0000 | 4881 bff0 | 0300 0000 | 0000 0075 | 1748 89b7 | f003 0000 | 48c7 87f8 
+  0x0000026ca4a7a010: 0300 0001 | 0000 00e9 | 2c00 0000 | 4881 bf00 | 0400 0000 | 0000 0075 | 1748 89b7 | 0004 0000 
+  0x0000026ca4a7a030: 48c7 8708 | 0400 0001 | 0000 00e9 | 0800 0000 | 4883 87e0 | 0300 0001 | 0fbe 7217 | 83e6 0190 
+  0x0000026ca4a7a050: ;   {no_reloc}
+  0x0000026ca4a7a050: e9be 0800 | 0000 0000 | 0000 89b4 | 24b8 0000 | 0080 ba33 | 0100 0004 | 0f85 b408 | 0000 498b 
+  0x0000026ca4a7a070: 8708 0100 | 0048 8d78 | 2849 3bbf | 1801 0000 | 0f87 9c08 | 0000 4989 | bf08 0100 | 0048 c700 
+  0x0000026ca4a7a090: 0100 0000 | 488b ca49 | ba00 0000 | bf6c 0200 | 0049 2bca | 8948 0848 | 33c9 8948 | 0c48 33c9 
+  0x0000026ca4a7a0b0: 4889 4810 | 4889 4818 | 4889 4820 
+
+  0x0000026ca4a7a0bc: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a7a0bc: 488b d048 | be00 6212 | 036d 0200 | 0048 8386 | 1804 0000 | 0148 8bd0 | 4889 8424 | c000 0000 
+  0x0000026ca4a7a0dc: 4889 9c24 | b000 0000 
+
+  0x0000026ca4a7a0e4: ;   {optimized virtual_call}
+  0x0000026ca4a7a0e4: 6666 90e8 
+
+  0x0000026ca4a7a0e8: ; ImmutableOopMap {[176]=Oop [152]=Oop [192]=Oop }
+                      ;*invokespecial <init> {reexecute=0 rethrow=0 return_oop=0}
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@94 (line 57)
+  0x0000026ca4a7a0e8: 9472 8706 | 0f1f 4000 
+
+  0x0000026ca4a7a0f0: ;   {no_reloc}
+  0x0000026ca4a7a0f0: e949 0800 | 0090 9090 | 9090 488b | 9424 9800 | 0000 0f1f 
+
+  0x0000026ca4a7a104: ;   {static_call}
+  0x0000026ca4a7a104: 4400 00e8 
+
+  0x0000026ca4a7a108: ; ImmutableOopMap {[176]=Oop [152]=Oop [192]=Oop }
+                      ;*invokedynamic {reexecute=0 rethrow=0 return_oop=0}
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@98 (line 57)
+  0x0000026ca4a7a108: 7478 8706 
+
+  0x0000026ca4a7a10c: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a7a10c: 49b8 0062 | 1203 6d02 | 0000 4d8d | 8048 0400 | 0048 85c0 | 7510 49f7 | 0001 0000 | 0075 51f0 
+  0x0000026ca4a7a12c: 4983 0801 | eb4a 448b | 4808 49ba | 0000 00bf | 6c02 0000 | 4d03 ca4d | 8bd1 4d33 | 0849 f7c1 
+  0x0000026ca4a7a14c: fcff ffff | 742a 49f7 | c102 0000 | 0075 2149 | f700 feff | ffff 7415 | 4d8b ca4d | 3308 49f7 
+  0x0000026ca4a7a16c: c1fc ffff | ff74 0949 | 8308 02eb | 034d 8908 | 488b 9c24 | b000 0000 
+
+  0x0000026ca4a7a184: ; implicit exception: dispatches to 0x0000026ca4a7a948
+  0x0000026ca4a7a184: 483b 034c 
+
+  0x0000026ca4a7a188: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a7a188: 8bc3 49b9 | 0062 1203 | 6d02 0000 
+
+  0x0000026ca4a7a194: ;   {metadata('necesse/engine/GameExceptionHandler')}
+  0x0000026ca4a7a194: 49ba 0822 | 9bc0 6c02 | 0000 4d89 | 9168 0400 | 0049 8381 | 7004 0000 | 0144 8b84 | 24b8 0000 
+  0x0000026ca4a7a1b4: 004c 8b8c | 24c0 0000 | 0048 8bf8 | 488b d30f 
+
+  0x0000026ca4a7a1c4: ;   {optimized virtual_call}
+  0x0000026ca4a7a1c4: 1f40 00e8 
+
+  0x0000026ca4a7a1c8: ; ImmutableOopMap {[152]=Oop }
+                      ;*invokevirtual submitException {reexecute=0 rethrow=0 return_oop=0}
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@103 (line 57)
+  0x0000026ca4a7a1c8: b471 8706 | 488b 9424 | 9800 0000 | e9fb 0400 | 0048 8b94 | 2498 0000 | 0049 8b87 | e003 0000 
+  0x0000026ca4a7a1e8: 4d33 d24d | 8997 e003 | 0000 4d33 | d24d 8997 | e803 0000 
+
+  0x0000026ca4a7a1fc: ;   {oop(a 'java/lang/Class'{0x0000000704dc9850} = 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a7a1fc: 49b8 5098 | dc04 0700 | 0000 418b | 7070 48c1 | e603 4c8b 
+
+  0x0000026ca4a7a210: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a7a210: c248 bf00 | 6212 036d | 0200 0045 | 8b40 0849 | ba00 0000 | bf6c 0200 | 004d 03c2 | 4c3b 8738 
+  0x0000026ca4a7a230: 0300 0075 | 0d48 8387 | 4003 0000 | 01e9 6600 | 0000 4c3b | 8748 0300 | 0075 0d48 | 8387 5003 
+  0x0000026ca4a7a250: 0000 01e9 | 5000 0000 | 4881 bf38 | 0300 0000 | 0000 0075 | 174c 8987 | 3803 0000 | 48c7 8740 
+  0x0000026ca4a7a270: 0300 0001 | 0000 00e9 | 2c00 0000 | 4881 bf48 | 0300 0000 | 0000 0075 | 174c 8987 | 4803 0000 
+  0x0000026ca4a7a290: 48c7 8750 | 0300 0001 | 0000 00e9 | 0800 0000 | 4883 8728 | 0300 0001 | 440f be42 
+
+  0x0000026ca4a7a2ac: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a7a2ac: 1748 bf00 | 6212 036d | 0200 0048 | 8dbf 7003 
+
+  0x0000026ca4a7a2bc: ;   {metadata('necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a7a2bc: 0000 48bb | e8a1 a6c0 | 6c02 0000 | 4833 5f08 | 48f7 c3fc | ffff ff74 | 0448 895f 
+
+  0x0000026ca4a7a2d8: ;   {metadata(method data for {method} {0x0000026cbf0dbc20} 'linkToTargetMethod' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000026ca4a7a2d8: 0848 bfe8 | f93a 006d | 0200 0048 | 8dbf 0002 
+
+  0x0000026ca4a7a2e8: ;   {oop(a 'java/lang/invoke/DirectMethodHandle$Constructor'{0x0000000716006fe0})}
+  0x0000026ca4a7a2e8: 0000 48bb | e06f 0016 | 0700 0000 | 4885 db75 | 1048 f747 | 1001 0000 | 0075 06f0 | 4883 4f10 
+  0x0000026ca4a7a308: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a7a308: 0148 bf00 | 6212 036d | 0200 0048 | 8387 6003 | 0000 0141 
+
+  0x0000026ca4a7a31c: ;   {metadata(method data for {method} {0x0000026cbf0dbc20} 'linkToTargetMethod' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000026ca4a7a31c: 83e0 0148 | bfe8 f93a | 006d 0200 | 008b 8fcc | 0000 0083 | c102 898f | cc00 0000 | 81e1 feff 
+  0x0000026ca4a7a33c: 1f00 83f9 | 000f 8406 
+
+  0x0000026ca4a7a344: ;   {metadata(method data for {method} {0x0000026cbf0db520} 'newInvokeSpecial' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder')}
+  0x0000026ca4a7a344: 0600 0048 | bf48 ba3b | 006d 0200 | 0048 8dbf | 4002 0000 | 4885 db75 | 0e48 f707 | 0100 0000 
+  0x0000026ca4a7a364: 7505 f048 
+
+  0x0000026ca4a7a368: ;   {metadata(method data for {method} {0x0000026cbf0dbc20} 'linkToTargetMethod' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000026ca4a7a368: 830f 0148 | bfe8 f93a | 006d 0200 | 0048 8387 | 4801 0000 
+
+  0x0000026ca4a7a37c: ;   {metadata(method data for {method} {0x0000026cbf0db520} 'newInvokeSpecial' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder')}
+  0x0000026ca4a7a37c: 0148 bf48 | ba3b 006d | 0200 008b | 8fcc 0000 | 0083 c102 | 898f cc00 | 0000 81e1 | feff 1f00 
+  0x0000026ca4a7a39c: 83f9 000f | 84c9 0500 
+
+  0x0000026ca4a7a3a4: ;   {metadata(method data for {method} {0x0000026cbf0db520} 'newInvokeSpecial' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder')}
+  0x0000026ca4a7a3a4: 0048 bf48 | ba3b 006d | 0200 0048 | 8dbf 2001 | 0000 4885 | db75 1048 | f747 0801 | 0000 0075 
+  0x0000026ca4a7a3c4: 06f0 4883 
+
+  0x0000026ca4a7a3c8: ;   {metadata(method data for {method} {0x0000026cbf0db520} 'newInvokeSpecial' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder')}
+  0x0000026ca4a7a3c8: 4f08 0148 | bf48 ba3b | 006d 0200 | 0048 8387 | 1001 0000 
+
+  0x0000026ca4a7a3dc: ;   {metadata(method data for {method} {0x0000026cbf3a0178} 'allocateInstance' '(Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle')}
+  0x0000026ca4a7a3dc: 0148 bf68 | c432 006d | 0200 008b | 8fcc 0000 | 0083 c102 | 898f cc00 | 0000 81e1 | feff 1f00 
+  0x0000026ca4a7a3fc: 83f9 000f | 848a 0500 
+
+  0x0000026ca4a7a404: ;   {oop(a 'jdk/internal/misc/Unsafe'{0x00000007010d8da8})}
+  0x0000026ca4a7a404: 0048 bfa8 | 8d0d 0107 | 0000 0048 
+
+  0x0000026ca4a7a410: ;   {metadata(method data for {method} {0x0000026cbf3a0178} 'allocateInstance' '(Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle')}
+  0x0000026ca4a7a410: 8bcf 49b9 | 68c4 3200 | 6d02 0000 | 4983 8148 | 0100 0001 | 4489 8424 | bc00 0000 
+
+  0x0000026ca4a7a42c: ;   {oop(a 'java/lang/Class'{0x00000007161073b8} = 'necesse/engine/gameLoop/ServerGameLoop$$Lambda$2136+0x0000026cc0ac1e80')}
+  0x0000026ca4a7a42c: 49b8 b873 | 1016 0700 | 0000 488b | d748 8984 | 24d8 0000 | 0048 89b4 | 24d0 0000 | 0048 899c 
+  0x0000026ca4a7a44c: 24c8 0000 | 0066 0f1f 
+
+  0x0000026ca4a7a454: ;   {optimized virtual_call}
+  0x0000026ca4a7a454: 4400 00e8 
+
+  0x0000026ca4a7a458: ; ImmutableOopMap {[208]=Oop [200]=Oop [216]=Oop [152]=Oop }
+                      ;*invokevirtual allocateInstance {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.invoke.DirectMethodHandle::allocateInstance@12 (line 520)
+                      ; - java.lang.invoke.DirectMethodHandle$Holder::newInvokeSpecial@1
+                      ; - java.lang.invoke.Invokers$Holder::linkToTargetMethod@5
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@70 (line 51)
+  0x0000026ca4a7a458: 64c2 e406 
+
+  0x0000026ca4a7a45c: ;   {metadata(method data for {method} {0x0000026cbf0db520} 'newInvokeSpecial' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder')}
+  0x0000026ca4a7a45c: 49b8 48ba | 3b00 6d02 | 0000 4d8d | 8030 0100 | 0048 85c0 | 750e 49f7 | 0001 0000 | 0075 05f0 
+  0x0000026ca4a7a47c: 4983 0801 
+
+  0x0000026ca4a7a480: ;   {metadata(method data for {method} {0x0000026cbf0db520} 'newInvokeSpecial' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder')}
+  0x0000026ca4a7a480: 49b8 48ba | 3b00 6d02 | 0000 4d8d | 8050 0100 | 0048 8b9c | 24c8 0000 | 0048 85db | 7510 49f7 
+  0x0000026ca4a7a4a0: 4008 0100 | 0000 7506 | f049 8348 
+
+  0x0000026ca4a7a4ac: ;   {metadata(method data for {method} {0x0000026cbf0db520} 'newInvokeSpecial' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder')}
+  0x0000026ca4a7a4ac: 0801 49b8 | 48ba 3b00 | 6d02 0000 | 4983 8040 | 0100 0001 
+
+  0x0000026ca4a7a4c0: ;   {metadata(method data for {method} {0x0000026cbf3a0c20} 'constructorMethod' '(Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle')}
+  0x0000026ca4a7a4c0: 49b8 28c6 | 3200 6d02 | 0000 458b | 88cc 0000 | 0041 83c1 | 0245 8988 | cc00 0000 | 4181 e1fe 
+  0x0000026ca4a7a4e0: ff1f 0041 | 83f9 000f | 84c3 0400 
+
+  0x0000026ca4a7a4ec: ;   {metadata(method data for {method} {0x0000026cbf0db520} 'newInvokeSpecial' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder')}
+  0x0000026ca4a7a4ec: 0049 b848 | ba3b 006d | 0200 004d | 8d80 6001 
+
+  0x0000026ca4a7a4fc: ;   {oop(a 'java/lang/invoke/MemberName'{0x0000000716007008} = {method} {0x0000026d030eb800} '<init>' '(Lnecesse/engine/gameLoop/ServerGameLoop;)V' in 'necesse/engine/gameLoop/ServerGameLoop$$Lambda$2136+0x0000026cc0ac1e80')}
+  0x0000026ca4a7a4fc: 0000 49b9 | 0870 0016 | 0700 0000 | 4d85 c975 | 0e49 f700 | 0100 0000 | 7505 f049 | 8308 0148 
+  0x0000026ca4a7a51c: 3b00 4c8b 
+
+  0x0000026ca4a7a520: ;   {metadata(method data for {method} {0x0000026cbf0db520} 'newInvokeSpecial' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder')}
+  0x0000026ca4a7a520: c049 b948 | ba3b 006d | 0200 0049 | 8381 a801 
+
+  0x0000026ca4a7a530: ;   {metadata(method data for {method} {0x0000026d030eb800} '<init>' '(Lnecesse/engine/gameLoop/ServerGameLoop;)V' in 'necesse/engine/gameLoop/ServerGameLoop$$Lambda$2136+0x0000026cc0ac1e80')}
+  0x0000026ca4a7a530: 0000 0149 | b838 6812 | 036d 0200 | 0045 8b88 | cc00 0000 | 4183 c102 | 4589 88cc | 0000 0041 
+  0x0000026ca4a7a550: 81e1 feff | 1f00 4183 | f900 0f84 | 7604 0000 
+
+  0x0000026ca4a7a560: ;   {metadata(method data for {method} {0x0000026d030eb800} '<init>' '(Lnecesse/engine/gameLoop/ServerGameLoop;)V' in 'necesse/engine/gameLoop/ServerGameLoop$$Lambda$2136+0x0000026cc0ac1e80')}
+  0x0000026ca4a7a560: 4c8b c049 | b938 6812 | 036d 0200 | 0049 8381 | 1001 0000 
+
+  0x0000026ca4a7a574: ;   {metadata(method data for {method} {0x0000026cbf440d88} '<init>' '()V' in 'java/lang/Object')}
+  0x0000026ca4a7a574: 0149 b8a8 | 7e00 006d | 0200 0045 | 8b88 cc00 | 0000 4183 | c102 4589 | 88cc 0000 | 0041 81e1 
+  0x0000026ca4a7a594: feff 1f00 | 4183 f900 | 0f84 5504 | 0000 450f | be47 3841 | 83f8 000f | 8567 0400 | 0048 8b94 
+  0x0000026ca4a7a5b4: 2498 0000 | 004c 8bd2 | 49c1 ea03 | 4489 500c | 4c8b c04c | 33c2 49c1 | e819 4983 | f800 0f85 
+  0x0000026ca4a7a5d4: 6004 0000 
+
+  0x0000026ca4a7a5d8: ;   {metadata(method data for {method} {0x0000026cbf0dbc20} 'linkToTargetMethod' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000026ca4a7a5d8: 49b8 e8f9 | 3a00 6d02 | 0000 4d8d | 8090 0100 | 0048 85c0 | 750e 49f7 | 0001 0000 | 0075 05f0 
+  0x0000026ca4a7a5f8: 4983 0801 
+
+  0x0000026ca4a7a5fc: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a7a5fc: 49b8 0062 | 1203 6d02 | 0000 4d8d | 8080 0300 | 0048 85c0 | 7510 49f7 | 0001 0000 | 0075 51f0 
+  0x0000026ca4a7a61c: 4983 0801 | eb4a 448b | 4808 49ba | 0000 00bf | 6c02 0000 | 4d03 ca4d | 8bd1 4d33 | 0849 f7c1 
+  0x0000026ca4a7a63c: fcff ffff | 742a 49f7 | c102 0000 | 0075 2149 | f700 feff | ffff 7415 | 4d8b ca4d | 3308 49f7 
+  0x0000026ca4a7a65c: c1fc ffff | ff74 0949 | 8308 02eb | 034d 8908 | 488b b424 | d000 0000 
+
+  0x0000026ca4a7a674: ; implicit exception: dispatches to 0x0000026ca4a7aa50
+  0x0000026ca4a7a674: 483b 064c 
+
+  0x0000026ca4a7a678: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a7a678: 8bc6 49b9 | 0062 1203 | 6d02 0000 
+
+  0x0000026ca4a7a684: ;   {metadata('necesse/engine/GameExceptionHandler')}
+  0x0000026ca4a7a684: 49ba 0822 | 9bc0 6c02 | 0000 4d89 | 91a0 0300 | 0049 8381 | a803 0000 | 0144 8b84 | 24bc 0000 
+  0x0000026ca4a7a6a4: 004c 8b8c | 24d8 0000 | 0048 8bf8 | 488b d60f 
+
+  0x0000026ca4a7a6b4: ;   {optimized virtual_call}
+  0x0000026ca4a7a6b4: 1f40 00e8 
+
+  0x0000026ca4a7a6b8: ; ImmutableOopMap {[152]=Oop }
+                      ;*invokevirtual submitException {reexecute=0 rethrow=0 return_oop=0}
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@75 (line 51)
+  0x0000026ca4a7a6b8: 2434 1900 
+
+  0x0000026ca4a7a6bc: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a7a6bc: 48be 0062 | 1203 6d02 | 0000 ff86 | c803 0000 | 488b 9424 | 9800 0000 | 488b b2a8 
+
+  0x0000026ca4a7a6d8: ;   {metadata(method data for {method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a7a6d8: 0000 0048 | bf00 6212 | 036d 0200 | 0048 8387 | 9004 0000 | 0148 89b4 | 24e0 0000 
+
+  0x0000026ca4a7a6f4: ;   {runtime_call}
+  0x0000026ca4a7a6f4: 0049 bab0 | ad79 fefc | 7f00 0041 | ffd2 488b | b424 a800 | 0000 482b | c648 8bb4 | 24e0 0000 
+  0x0000026ca4a7a714: 0048 03f0 | 488b 9424 | 9800 0000 | 4889 b2a8 | 0000 0048 | 81c4 f000 
+
+  0x0000026ca4a7a72c: ;   {poll_return}
+  0x0000026ca4a7a72c: 0000 5d49 | 3ba7 5003 | 0000 0f87 | 1903 0000 
+
+  0x0000026ca4a7a73c: ;   {metadata({method} {0x0000026d02e33a88} 'update' '()V' in 'necesse/engine/gameLoop/ServerGameLoop')}
+  0x0000026ca4a7a73c: c349 ba80 | 3ae3 026d | 0200 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x0000026ca4a7a754: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000026ca4a7a754: e827 f691 
+
+  0x0000026ca4a7a758: ; ImmutableOopMap {rdx=Oop [152]=Oop }
+                      ;*synchronization entry
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@-1 (line 27)
+  0x0000026ca4a7a758: 06e9 a1ee 
+
+  0x0000026ca4a7a75c: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000026ca4a7a75c: ffff e83d 
+
+  0x0000026ca4a7a760: ; ImmutableOopMap {[152]=Oop r8=Oop }
+                      ;*invokevirtual isInterrupted {reexecute=0 rethrow=0 return_oop=0}
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@7 (line 29)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000026ca4a7a760: 9f91 06e8 
+
+  0x0000026ca4a7a764: ; ImmutableOopMap {rdx=Oop [152]=Oop r8=Oop }
+                      ;*invokevirtual hasClosed {reexecute=0 rethrow=0 return_oop=0}
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@22 (line 35)
+  0x0000026ca4a7a764: 389f 9106 
+
+  0x0000026ca4a7a768: ;   {metadata({method} {0x0000026cbf0dbc20} 'linkToTargetMethod' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000026ca4a7a768: 49ba 18bc | 0dbf 6c02 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x0000026ca4a7a77c: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000026ca4a7a77c: ffff ffe8 
+
+  0x0000026ca4a7a780: ; ImmutableOopMap {rdx=Oop [152]=Oop rsi=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.invoke.Invokers$Holder::linkToTargetMethod@-1
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@39 (line 40)
+  0x0000026ca4a7a780: fcf5 9106 | e9af f0ff 
+
+  0x0000026ca4a7a788: ;   {metadata({method} {0x0000026cbf0db520} 'newInvokeSpecial' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder')}
+  0x0000026ca4a7a788: ff49 ba18 | b50d bf6c | 0200 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x0000026ca4a7a7a0: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000026ca4a7a7a0: e8db f591 
+
+  0x0000026ca4a7a7a4: ; ImmutableOopMap {rdx=Oop [152]=Oop rsi=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.invoke.DirectMethodHandle$Holder::newInvokeSpecial@-1
+                      ; - java.lang.invoke.Invokers$Holder::linkToTargetMethod@5
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@39 (line 40)
+  0x0000026ca4a7a7a4: 06e9 eef0 
+
+  0x0000026ca4a7a7a8: ;   {metadata({method} {0x0000026cbf3a0178} 'allocateInstance' '(Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle')}
+  0x0000026ca4a7a7a8: ffff 49ba | 7001 3abf | 6c02 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x0000026ca4a7a7c0: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000026ca4a7a7c0: ffe8 baf5 
+
+  0x0000026ca4a7a7c4: ; ImmutableOopMap {rdx=Oop [152]=Oop rsi=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.invoke.DirectMethodHandle::allocateInstance@-1 (line 519)
+                      ; - java.lang.invoke.DirectMethodHandle$Holder::newInvokeSpecial@1
+                      ; - java.lang.invoke.Invokers$Holder::linkToTargetMethod@5
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@39 (line 40)
+  0x0000026ca4a7a7c4: 9106 e92f 
+
+  0x0000026ca4a7a7c8: ;   {metadata({method} {0x0000026cbf3a0c20} 'constructorMethod' '(Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle')}
+  0x0000026ca4a7a7c8: f1ff ff49 | ba18 0c3a | bf6c 0200 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x0000026ca4a7a7e0: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000026ca4a7a7e0: ffff e899 
+
+  0x0000026ca4a7a7e4: ; ImmutableOopMap {[152]=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.invoke.DirectMethodHandle::constructorMethod@-1 (line 513)
+                      ; - java.lang.invoke.DirectMethodHandle$Holder::newInvokeSpecial@6
+                      ; - java.lang.invoke.Invokers$Holder::linkToTargetMethod@5
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@39 (line 40)
+  0x0000026ca4a7a7e4: f591 06e9 | d9f1 ffff 
+
+  0x0000026ca4a7a7ec: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000026ca4a7a7ec: e8af 9e91 
+
+  0x0000026ca4a7a7f0: ; ImmutableOopMap {[152]=Oop rax=Oop }
+                      ;*invokestatic linkToSpecial {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.invoke.DirectMethodHandle$Holder::newInvokeSpecial@16
+                      ; - java.lang.invoke.Invokers$Holder::linkToTargetMethod@5
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@39 (line 40)
+                      ;   {metadata({method} {0x0000026d02e80c90} '<init>' '(Lnecesse/engine/gameLoop/ServerGameLoop;)V' in 'necesse/engine/gameLoop/ServerGameLoop$$Lambda$1908+0x0000026cc0a7a000')}
+  0x0000026ca4a7a7f0: 0649 ba88 | 0ce8 026d | 0200 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x0000026ca4a7a808: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000026ca4a7a808: e873 f591 
+
+  0x0000026ca4a7a80c: ; ImmutableOopMap {[152]=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - necesse.engine.gameLoop.ServerGameLoop$$Lambda$1908/0x0000026cc0a7a000::<init>@-1
+                      ; - java.lang.invoke.DirectMethodHandle$Holder::newInvokeSpecial@16
+                      ; - java.lang.invoke.Invokers$Holder::linkToTargetMethod@5
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@39 (line 40)
+  0x0000026ca4a7a80c: 06e9 26f2 
+
+  0x0000026ca4a7a810: ;   {metadata({method} {0x0000026cbf440d88} '<init>' '()V' in 'java/lang/Object')}
+  0x0000026ca4a7a810: ffff 49ba | 800d 44bf | 6c02 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x0000026ca4a7a828: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000026ca4a7a828: ffe8 52f5 
+
+  0x0000026ca4a7a82c: ; ImmutableOopMap {[152]=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Object::<init>@-1 (line 44)
+                      ; - necesse.engine.gameLoop.ServerGameLoop$$Lambda$1908/0x0000026cc0a7a000::<init>@1
+                      ; - java.lang.invoke.DirectMethodHandle$Holder::newInvokeSpecial@16
+                      ; - java.lang.invoke.Invokers$Holder::linkToTargetMethod@5
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@39 (line 40)
+  0x0000026ca4a7a82c: 9106 e947 | f2ff ff44 | 8b40 0c49 | c1e0 0349 | 83f8 000f | 8444 f2ff | ff4c 8904 
+
+  0x0000026ca4a7a848: ;   {runtime_call g1_pre_barrier_slow}
+  0x0000026ca4a7a848: 24e8 32fb | 9106 e936 | f2ff ff48 | 83fa 000f | 8453 f2ff | ff48 8904 
+
+  0x0000026ca4a7a860: ;   {runtime_call g1_post_barrier_slow}
+  0x0000026ca4a7a860: 24e8 1afe | 9106 e945 
+
+  0x0000026ca4a7a868: ;   {metadata({method} {0x0000026d00a5bcf8} 'recordConstant' '(Lnecesse/engine/gameLoop/tickManager/PerformanceTimerManager;Ljava/lang/String;Ljava/lang/Runnable;)V' in 'necesse/engine/gameLoop/tickManager/Performance')}
+  0x0000026ca4a7a868: f2ff ff49 | baf0 bca5 | 006d 0200 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x0000026ca4a7a880: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000026ca4a7a880: ffff e8f9 
+
+  0x0000026ca4a7a884: ; ImmutableOopMap {rax=Oop rdx=Oop [152]=Oop }
+                      ;*synchronization entry
+                      ; - necesse.engine.gameLoop.tickManager.Performance::recordConstant@-1 (line 16)
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@44 (line 40)
+  0x0000026ca4a7a884: f491 06e9 | f7f2 ffff 
+
+  0x0000026ca4a7a88c: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000026ca4a7a88c: e80f 9e91 
+
+  0x0000026ca4a7a890: ; ImmutableOopMap {rdx=Oop [152]=Oop rsi=Oop }
+                      ;*invokevirtual clear {reexecute=0 rethrow=0 return_oop=0}
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@54 (line 49)
+                      ;   {metadata({method} {0x0000026d0294a7a0} 'clear' '(Z)V' in 'necesse/engine/GameExceptionHandler')}
+  0x0000026ca4a7a890: 0649 ba98 | a794 026d | 0200 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x0000026ca4a7a8a8: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000026ca4a7a8a8: e8d3 f491 
+
+  0x0000026ca4a7a8ac: ; ImmutableOopMap {rdx=Oop [152]=Oop rsi=Oop }
+                      ;*synchronization entry
+                      ; - necesse.engine.GameExceptionHandler::clear@-1 (line 23)
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@54 (line 49)
+  0x0000026ca4a7a8ac: 06e9 b4f4 
+
+  0x0000026ca4a7a8b0: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000026ca4a7a8b0: ffff e8e9 
+
+  0x0000026ca4a7a8b4: ; ImmutableOopMap {[152]=Oop rsi=Oop }
+                      ;*invokevirtual interrupt {reexecute=0 rethrow=0 return_oop=0}
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@31 (line 36)
+                      ;   {internal_word}
+  0x0000026ca4a7a8b4: 9d91 0649 | ba8c 9ea7 | a46c 0200 | 004d 8997 | 6803 0000 
+
+  0x0000026ca4a7a8c8: ;   {runtime_call SafepointBlob}
+  0x0000026ca4a7a8c8: e933 d187 
+
+  0x0000026ca4a7a8cc: ;   {metadata({method} {0x0000026d004352c0} 'stopMainGameLoop' '()V' in 'necesse/engine/gameLoop/GameLoop')}
+  0x0000026ca4a7a8cc: 0649 bab8 | 5243 006d | 0200 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x0000026ca4a7a8e4: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000026ca4a7a8e4: e897 f491 
+
+  0x0000026ca4a7a8e8: ; ImmutableOopMap {rdx=Oop [152]=Oop }
+                      ;*synchronization entry
+                      ; - necesse.engine.gameLoop.GameLoop::stopMainGameLoop@-1 (line 27)
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@14 (line 30)
+  0x0000026ca4a7a8e8: 06e9 6df6 
+
+  0x0000026ca4a7a8ec: ;   {internal_word}
+  0x0000026ca4a7a8ec: ffff 49ba | 6a9f a7a4 | 6c02 0000 | 4d89 9768 
+
+  0x0000026ca4a7a8fc: ;   {runtime_call SafepointBlob}
+  0x0000026ca4a7a8fc: 0300 00e9 | fcd0 8706 
+
+  0x0000026ca4a7a904: ;   {metadata(NULL)}
+  0x0000026ca4a7a904: 48ba 0000 | 0000 0000 | 0000 b800 
+
+  0x0000026ca4a7a910: ;   {runtime_call load_klass_patching Runtime1 stub}
+  0x0000026ca4a7a910: 0f05 0ae8 
+
+  0x0000026ca4a7a914: ; ImmutableOopMap {r8=Oop rbx=Oop [152]=Oop }
+                      ;*new {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) necesse.engine.gameLoop.ServerGameLoop::update@89 (line 57)
+  0x0000026ca4a7a914: e8e3 9106 | e933 f7ff 
+
+  0x0000026ca4a7a91c: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000026ca4a7a91c: ffe8 7e9d 
+
+  0x0000026ca4a7a920: ; ImmutableOopMap {r8=Oop rbx=Oop [152]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@89 (line 57)
+  0x0000026ca4a7a920: 9106 488b 
+
+  0x0000026ca4a7a924: ;   {runtime_call fast_new_instance_init_check Runtime1 stub}
+  0x0000026ca4a7a924: d2e8 56a9 
+
+  0x0000026ca4a7a928: ; ImmutableOopMap {r8=Oop rbx=Oop [152]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@89 (line 57)
+  0x0000026ca4a7a928: 9106 e98d | f7ff ff49 | b800 0000 | 0000 0000 | 00b8 000f 
+
+  0x0000026ca4a7a93c: ;   {runtime_call load_appendix_patching Runtime1 stub}
+  0x0000026ca4a7a93c: 050a e8bd 
+
+  0x0000026ca4a7a940: ; ImmutableOopMap {[176]=Oop [152]=Oop [192]=Oop }
+                      ;*invokedynamic {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) necesse.engine.gameLoop.ServerGameLoop::update@98 (line 57)
+  0x0000026ca4a7a940: ec91 06e9 | a8f7 ffff 
+
+  0x0000026ca4a7a948: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000026ca4a7a948: e853 9d91 
+
+  0x0000026ca4a7a94c: ; ImmutableOopMap {[152]=Oop [192]=Oop rax=Oop rbx=Oop }
+                      ;*invokevirtual submitException {reexecute=0 rethrow=0 return_oop=0}
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@103 (line 57)
+                      ;   {metadata({method} {0x0000026cbf0dbc20} 'linkToTargetMethod' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/Invokers$Holder')}
+  0x0000026ca4a7a94c: 0649 ba18 | bc0d bf6c | 0200 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x0000026ca4a7a964: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000026ca4a7a964: e817 f491 
+
+  0x0000026ca4a7a968: ; ImmutableOopMap {rdx=Oop [152]=Oop rax=Oop rsi=Oop rbx=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.invoke.Invokers$Holder::linkToTargetMethod@-1
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@70 (line 51)
+  0x0000026ca4a7a968: 06e9 d9f9 
+
+  0x0000026ca4a7a96c: ;   {metadata({method} {0x0000026cbf0db520} 'newInvokeSpecial' '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle$Holder')}
+  0x0000026ca4a7a96c: ffff 49ba | 18b5 0dbf | 6c02 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x0000026ca4a7a984: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000026ca4a7a984: ffe8 f6f3 
+
+  0x0000026ca4a7a988: ; ImmutableOopMap {rdx=Oop [152]=Oop rax=Oop rsi=Oop rbx=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.invoke.DirectMethodHandle$Holder::newInvokeSpecial@-1
+                      ; - java.lang.invoke.Invokers$Holder::linkToTargetMethod@5
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@70 (line 51)
+  0x0000026ca4a7a988: 9106 e916 
+
+  0x0000026ca4a7a98c: ;   {metadata({method} {0x0000026cbf3a0178} 'allocateInstance' '(Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle')}
+  0x0000026ca4a7a98c: faff ff49 | ba70 013a | bf6c 0200 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x0000026ca4a7a9a4: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000026ca4a7a9a4: ffff e8d5 
+
+  0x0000026ca4a7a9a8: ; ImmutableOopMap {rdx=Oop [152]=Oop rax=Oop rsi=Oop rbx=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.invoke.DirectMethodHandle::allocateInstance@-1 (line 519)
+                      ; - java.lang.invoke.DirectMethodHandle$Holder::newInvokeSpecial@1
+                      ; - java.lang.invoke.Invokers$Holder::linkToTargetMethod@5
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@70 (line 51)
+  0x0000026ca4a7a9a8: f391 06e9 | 55fa ffff 
+
+  0x0000026ca4a7a9b0: ;   {metadata({method} {0x0000026cbf3a0c20} 'constructorMethod' '(Ljava/lang/Object;)Ljava/lang/Object;' in 'java/lang/invoke/DirectMethodHandle')}
+  0x0000026ca4a7a9b0: 49ba 180c | 3abf 6c02 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x0000026ca4a7a9c4: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000026ca4a7a9c4: ffff ffe8 
+
+  0x0000026ca4a7a9c8: ; ImmutableOopMap {[208]=Oop [216]=Oop [152]=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.invoke.DirectMethodHandle::constructorMethod@-1 (line 513)
+                      ; - java.lang.invoke.DirectMethodHandle$Holder::newInvokeSpecial@6
+                      ; - java.lang.invoke.Invokers$Holder::linkToTargetMethod@5
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@70 (line 51)
+  0x0000026ca4a7a9c8: b4f3 9106 | e91c fbff 
+
+  0x0000026ca4a7a9d0: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000026ca4a7a9d0: ffe8 ca9c 
+
+  0x0000026ca4a7a9d4: ; ImmutableOopMap {[208]=Oop [216]=Oop [152]=Oop rax=Oop }
+                      ;*invokestatic linkToSpecial {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.invoke.DirectMethodHandle$Holder::newInvokeSpecial@16
+                      ; - java.lang.invoke.Invokers$Holder::linkToTargetMethod@5
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@70 (line 51)
+                      ;   {metadata({method} {0x0000026d030eb800} '<init>' '(Lnecesse/engine/gameLoop/ServerGameLoop;)V' in 'necesse/engine/gameLoop/ServerGameLoop$$Lambda$2136+0x0000026cc0ac1e80')}
+  0x0000026ca4a7a9d4: 9106 49ba | f8b7 0e03 | 6d02 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x0000026ca4a7a9ec: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000026ca4a7a9ec: ffe8 8ef3 
+
+  0x0000026ca4a7a9f0: ; ImmutableOopMap {[208]=Oop [216]=Oop [152]=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - necesse.engine.gameLoop.ServerGameLoop$$Lambda$2136/0x0000026cc0ac1e80::<init>@-1
+                      ; - java.lang.invoke.DirectMethodHandle$Holder::newInvokeSpecial@16
+                      ; - java.lang.invoke.Invokers$Holder::linkToTargetMethod@5
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@70 (line 51)
+  0x0000026ca4a7a9f0: 9106 e969 
+
+  0x0000026ca4a7a9f4: ;   {metadata({method} {0x0000026cbf440d88} '<init>' '()V' in 'java/lang/Object')}
+  0x0000026ca4a7a9f4: fbff ff49 | ba80 0d44 | bf6c 0200 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x0000026ca4a7aa0c: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000026ca4a7aa0c: ffff e86d 
+
+  0x0000026ca4a7aa10: ; ImmutableOopMap {[208]=Oop [216]=Oop [152]=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Object::<init>@-1 (line 44)
+                      ; - necesse.engine.gameLoop.ServerGameLoop$$Lambda$2136/0x0000026cc0ac1e80::<init>@1
+                      ; - java.lang.invoke.DirectMethodHandle$Holder::newInvokeSpecial@16
+                      ; - java.lang.invoke.Invokers$Holder::linkToTargetMethod@5
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@70 (line 51)
+  0x0000026ca4a7aa10: f391 06e9 | 8afb ffff | 448b 400c | 49c1 e003 | 4983 f800 | 0f84 87fb | ffff 4c89 
+
+  0x0000026ca4a7aa2c: ;   {runtime_call g1_pre_barrier_slow}
+  0x0000026ca4a7aa2c: 0424 e84d | f991 06e9 | 79fb ffff | 4883 fa00 | 0f84 96fb | ffff 4889 
+
+  0x0000026ca4a7aa44: ;   {runtime_call g1_post_barrier_slow}
+  0x0000026ca4a7aa44: 0424 e835 | fc91 06e9 | 88fb ffff 
+
+  0x0000026ca4a7aa50: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000026ca4a7aa50: e84b 9c91 
+
+  0x0000026ca4a7aa54: ; ImmutableOopMap {[216]=Oop rax=Oop rdx=Oop [152]=Oop rsi=Oop }
+                      ;*invokevirtual submitException {reexecute=0 rethrow=0 return_oop=0}
+                      ; - necesse.engine.gameLoop.ServerGameLoop::update@75 (line 51)
+                      ;   {internal_word}
+  0x0000026ca4a7aa54: 0649 ba2f | a7a7 a46c | 0200 004d | 8997 6803 
+
+  0x0000026ca4a7aa64: ;   {runtime_call SafepointBlob}
+  0x0000026ca4a7aa64: 0000 e995 | cf87 0690 | 9049 8b87 | e003 0000 | 49c7 87e0 | 0300 0000 | 0000 0049 | c787 e803 
+  0x0000026ca4a7aa84: 0000 0000 | 0000 4881 | c4f0 0000 
+
+  0x0000026ca4a7aa90: ;   {runtime_call unwind_exception Runtime1 stub}
+  0x0000026ca4a7aa90: 005d e9e9 | b588 06f4 | f4f4 f4f4 | f4f4 f4f4 
+[Stub Code]
+  0x0000026ca4a7aaa0: ;   {no_reloc}
+  0x0000026ca4a7aaa0: 0f1f 4400 
+
+  0x0000026ca4a7aaa4: ;   {static_stub}
+  0x0000026ca4a7aaa4: 0048 bb00 | 0000 0000 
+
+  0x0000026ca4a7aaac: ;   {runtime_call}
+  0x0000026ca4a7aaac: 0000 00e9 | fbff ffff 
+
+  0x0000026ca4a7aab4: ;   {static_stub}
+  0x0000026ca4a7aab4: 9048 bb00 | 0000 0000 
+
+  0x0000026ca4a7aabc: ;   {runtime_call}
+  0x0000026ca4a7aabc: 0000 00e9 | fbff ffff 
+
+  0x0000026ca4a7aac4: ;   {static_stub}
+  0x0000026ca4a7aac4: 9048 bb00 | 0000 0000 
+
+  0x0000026ca4a7aacc: ;   {runtime_call}
+  0x0000026ca4a7aacc: 0000 00e9 | fbff ffff 
+
+  0x0000026ca4a7aad4: ;   {static_stub}
+  0x0000026ca4a7aad4: 9048 bb00 | 0000 0000 
+
+  0x0000026ca4a7aadc: ;   {runtime_call}
+  0x0000026ca4a7aadc: 0000 00e9 | fbff ffff 
+
+  0x0000026ca4a7aae4: ;   {static_stub}
+  0x0000026ca4a7aae4: 9048 bb00 | 0000 0000 
+
+  0x0000026ca4a7aaec: ;   {runtime_call}
+  0x0000026ca4a7aaec: 0000 00e9 | fbff ffff 
+
+  0x0000026ca4a7aaf4: ;   {static_stub}
+  0x0000026ca4a7aaf4: 9048 bb00 | 0000 0000 
+
+  0x0000026ca4a7aafc: ;   {runtime_call}
+  0x0000026ca4a7aafc: 0000 00e9 | fbff ffff 
+
+  0x0000026ca4a7ab04: ;   {static_stub}
+  0x0000026ca4a7ab04: 9048 bb00 | 0000 0000 
+
+  0x0000026ca4a7ab0c: ;   {runtime_call}
+  0x0000026ca4a7ab0c: 0000 00e9 | fbff ffff 
+
+  0x0000026ca4a7ab14: ;   {static_stub}
+  0x0000026ca4a7ab14: 9048 bba8 | a894 026d 
+
+  0x0000026ca4a7ab1c: ;   {runtime_call I2C/C2I adapters}
+  0x0000026ca4a7ab1c: 0200 00e9 | c1f1 8406 
+[Exception Handler]
+  0x0000026ca4a7ab24: ;   {runtime_call handle_exception_from_callee Runtime1 stub}
+  0x0000026ca4a7ab24: e857 bf91 
+
+  0x0000026ca4a7ab28: ;   {external_word}
+  0x0000026ca4a7ab28: 0648 b930 | caa4 fefc | 7f00 0048 
+
+  0x0000026ca4a7ab34: ;   {runtime_call}
+  0x0000026ca4a7ab34: 83e4 f049 | ba70 4c6d | fefc 7f00 | 0041 ffd2 
+
+  0x0000026ca4a7ab44: ;   {section_word}
+  0x0000026ca4a7ab44: f449 ba45 | aba7 a46c | 0200 0041 
+
+  0x0000026ca4a7ab50: ;   {runtime_call DeoptimizationBlob}
+  0x0000026ca4a7ab50: 52e9 4ac1 | 8706 f4f4 
+[/MachCode]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x0000026d2bf4a350, length=13, elements={
+0x0000026cbe9cdf80, 0x0000026cbe9cf1c0, 0x0000026cbe9e0d10, 0x0000026cbe9e25f0,
+0x0000026cbe9e32d0, 0x0000026cbe9e3fb0, 0x0000026cbe9e5880, 0x0000026cbe9e9740,
+0x0000026cbe9f5080, 0x0000026cbec33100, 0x0000026cbec3dfe0, 0x0000026d09b102d0,
+0x0000026d410b47b0
+}
+
+Java Threads: ( => current thread )
+  0x0000026cbe9cdf80 JavaThread "Reference Handler" daemon [_thread_blocked, id=6192, stack(0x000000ae89d00000,0x000000ae89e00000)]
+  0x0000026cbe9cf1c0 JavaThread "Finalizer" daemon [_thread_blocked, id=7748, stack(0x000000ae89e00000,0x000000ae89f00000)]
+  0x0000026cbe9e0d10 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=2700, stack(0x000000ae89f00000,0x000000ae8a000000)]
+  0x0000026cbe9e25f0 JavaThread "Attach Listener" daemon [_thread_blocked, id=13660, stack(0x000000ae8a000000,0x000000ae8a100000)]
+  0x0000026cbe9e32d0 JavaThread "Service Thread" daemon [_thread_blocked, id=4132, stack(0x000000ae8a100000,0x000000ae8a200000)]
+  0x0000026cbe9e3fb0 JavaThread "Monitor Deflation Thread" daemon [_thread_blocked, id=5332, stack(0x000000ae8a200000,0x000000ae8a300000)]
+  0x0000026cbe9e5880 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=13316, stack(0x000000ae8a300000,0x000000ae8a400000)]
+  0x0000026cbe9e9740 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=10952, stack(0x000000ae8a400000,0x000000ae8a500000)]
+  0x0000026cbe9f5080 JavaThread "Sweeper thread" daemon [_thread_blocked, id=13540, stack(0x000000ae8a500000,0x000000ae8a600000)]
+  0x0000026cbec33100 JavaThread "Notification Thread" daemon [_thread_blocked, id=11636, stack(0x000000ae8a600000,0x000000ae8a700000)]
+  0x0000026cbec3dfe0 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=11032, stack(0x000000ae8a800000,0x000000ae8a900000)]
+=>0x0000026d09b102d0 JavaThread "Server Thread" [_thread_in_native, id=9968, stack(0x000000ae8c800000,0x000000ae8c900000)]
+  0x0000026d410b47b0 JavaThread "DestroyJavaVM" [_thread_blocked, id=12688, stack(0x000000ae89600000,0x000000ae89700000)]
+
+Other Threads:
+  0x0000026c9c2ec370 VMThread "VM Thread" [stack: 0x000000ae89c00000,0x000000ae89d00000] [id=13688]
+  0x0000026cbeaaecb0 WatcherThread [stack: 0x000000ae8a700000,0x000000ae8a800000] [id=10072]
+  0x0000026c9c271f60 GCTaskThread "GC Thread#0" [stack: 0x000000ae89700000,0x000000ae89800000] [id=12572]
+  0x0000026d051d92a0 GCTaskThread "GC Thread#1" [stack: 0x000000ae8ad00000,0x000000ae8ae00000] [id=13952]
+  0x0000026c9a101be0 GCTaskThread "GC Thread#2" [stack: 0x000000ae8ae00000,0x000000ae8af00000] [id=13900]
+  0x0000026d056b32a0 GCTaskThread "GC Thread#3" [stack: 0x000000ae8af00000,0x000000ae8b000000] [id=8804]
+  0x0000026c9c273cc0 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000ae89800000,0x000000ae89900000] [id=14284]
+  0x0000026c9c275500 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000ae89900000,0x000000ae89a00000] [id=6092]
+  0x0000026c9c2c8700 ConcurrentGCThread "G1 Refine#0" [stack: 0x000000ae89a00000,0x000000ae89b00000] [id=12396]
+  0x0000026d0458cc10 ConcurrentGCThread "G1 Refine#1" [stack: 0x000000ae8b000000,0x000000ae8b100000] [id=8992]
+  0x0000026d051768e0 ConcurrentGCThread "G1 Refine#2" [stack: 0x000000ae8b100000,0x000000ae8b200000] [id=11296]
+  0x0000026c9c2c8f40 ConcurrentGCThread "G1 Service" [stack: 0x000000ae89b00000,0x000000ae89c00000] [id=5220]
+
+Threads with active compile tasks:
+
+VM state: not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x0000000700000000, size: 4096 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x0000026cbf000000-0x0000026cbfbb0000-0x0000026cbfbb0000), size 12255232, SharedBaseAddress: 0x0000026cbf000000, ArchiveRelocationMode: 1.
+Compressed class space mapped at: 0x0000026cc0000000-0x0000026d00000000, reserved size: 1073741824
+Narrow klass base: 0x0000026cbf000000, Narrow klass shift: 0, Narrow klass range: 0x100000000
+
+GC Precious Log:
+ CPUs: 4 total, 4 available
+ Memory: 16278M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (Zero based)
+ Heap Region Size: 32M
+ Heap Min Capacity: 512M
+ Heap Initial Capacity: 512M
+ Heap Max Capacity: 4G
+ Pre-touch: Disabled
+ Parallel Workers: 4
+ Concurrent Workers: 1
+ Concurrent Refinement Workers: 4
+ Periodic GC: Disabled
+
+Heap:
+ garbage-first heap   total 884736K, used 150940K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 2 young (65536K), 1 survivors (32768K)
+ Metaspace       used 61038K, committed 61760K, reserved 1114112K
+  class space    used 10683K, committed 11008K, reserved 1048576K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, OA=open archive, CA=closed archive, TAMS=top-at-mark-start (previous, next)
+|   0|0x0000000700000000, 0x0000000702000000, 0x0000000702000000|100%| O|  |TAMS 0x0000000702000000, 0x0000000700000000| Untracked 
+|   1|0x0000000702000000, 0x0000000704000000, 0x0000000704000000|100%| O|  |TAMS 0x0000000702000000, 0x0000000702000000| Untracked 
+|   2|0x0000000704000000, 0x0000000705df2c00, 0x0000000706000000| 93%| O|  |TAMS 0x0000000704000000, 0x0000000704000000| Untracked 
+|   3|0x0000000706000000, 0x0000000708000000, 0x0000000708000000|100%| O|  |TAMS 0x00000007075c1a00, 0x0000000706000000| Untracked 
+|   4|0x0000000708000000, 0x0000000708000000, 0x000000070a000000|  0%| F|  |TAMS 0x0000000708000000, 0x0000000708000000| Untracked 
+|   5|0x000000070a000000, 0x000000070a000000, 0x000000070c000000|  0%| F|  |TAMS 0x000000070a000000, 0x000000070a000000| Untracked 
+|   6|0x000000070c000000, 0x000000070c000000, 0x000000070e000000|  0%| F|  |TAMS 0x000000070c000000, 0x000000070c000000| Untracked 
+|   7|0x000000070e000000, 0x000000070e000000, 0x0000000710000000|  0%| F|  |TAMS 0x000000070e000000, 0x000000070e000000| Untracked 
+|   8|0x0000000710000000, 0x0000000710000000, 0x0000000712000000|  0%| F|  |TAMS 0x0000000710000000, 0x0000000710000000| Untracked 
+|   9|0x0000000712000000, 0x0000000712000000, 0x0000000714000000|  0%| F|  |TAMS 0x0000000712000000, 0x0000000712000000| Untracked 
+|  10|0x0000000714000000, 0x0000000714000000, 0x0000000716000000|  0%| F|  |TAMS 0x0000000714000000, 0x0000000714000000| Untracked 
+|  11|0x0000000716000000, 0x0000000717574478, 0x0000000718000000| 67%| S|CS|TAMS 0x0000000716000000, 0x0000000716000000| Complete 
+|  12|0x0000000718000000, 0x0000000718000000, 0x000000071a000000|  0%| F|  |TAMS 0x0000000718000000, 0x0000000718000000| Untracked 
+|  13|0x000000071a000000, 0x000000071a000000, 0x000000071c000000|  0%| F|  |TAMS 0x000000071a000000, 0x000000071a000000| Untracked 
+|  14|0x000000071c000000, 0x000000071c000000, 0x000000071e000000|  0%| F|  |TAMS 0x000000071c000000, 0x000000071c000000| Untracked 
+|  15|0x000000071e000000, 0x000000071e000000, 0x0000000720000000|  0%| F|  |TAMS 0x000000071e000000, 0x000000071e000000| Untracked 
+|  16|0x0000000720000000, 0x0000000720000000, 0x0000000722000000|  0%| F|  |TAMS 0x0000000720000000, 0x0000000720000000| Untracked 
+|  17|0x0000000722000000, 0x0000000722000000, 0x0000000724000000|  0%| F|  |TAMS 0x0000000722000000, 0x0000000722000000| Untracked 
+|  18|0x0000000724000000, 0x0000000724000000, 0x0000000726000000|  0%| F|  |TAMS 0x0000000724000000, 0x0000000724000000| Untracked 
+|  19|0x0000000726000000, 0x0000000726000000, 0x0000000728000000|  0%| F|  |TAMS 0x0000000726000000, 0x0000000726000000| Untracked 
+|  20|0x0000000728000000, 0x0000000728000000, 0x000000072a000000|  0%| F|  |TAMS 0x0000000728000000, 0x0000000728000000| Untracked 
+|  21|0x000000072a000000, 0x000000072a000000, 0x000000072c000000|  0%| F|  |TAMS 0x000000072a000000, 0x000000072a000000| Untracked 
+|  22|0x000000072c000000, 0x000000072c000000, 0x000000072e000000|  0%| F|  |TAMS 0x000000072c000000, 0x000000072c000000| Untracked 
+|  23|0x000000072e000000, 0x000000072e000000, 0x0000000730000000|  0%| F|  |TAMS 0x000000072e000000, 0x000000072e000000| Untracked 
+|  24|0x0000000730000000, 0x0000000730000000, 0x0000000732000000|  0%| F|  |TAMS 0x0000000730000000, 0x0000000730000000| Untracked 
+|  25|0x0000000732000000, 0x0000000732000000, 0x0000000734000000|  0%| F|  |TAMS 0x0000000732000000, 0x0000000732000000| Untracked 
+|  35|0x0000000746000000, 0x0000000746a72da8, 0x0000000748000000| 32%| E|  |TAMS 0x0000000746000000, 0x0000000746000000| Complete 
+
+Card table byte_map: [0x0000026cb3570000,0x0000026cb3d70000] _byte_map_base: 0x0000026cafd70000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x0000026c9c2723d0, (CMBitMap*) 0x0000026c9c272390
+ Prev Bits: [0x0000026cb8570000, 0x0000026cbc570000)
+ Next Bits: [0x0000026cb4570000, 0x0000026cb8570000)
+
+Polling page: 0x0000026c9a210000
+
+Metaspace:
+
+Usage:
+  Non-class:     49.17 MB used.
+      Class:     10.43 MB used.
+       Both:     59.61 MB used.
+
+Virtual space:
+  Non-class space:       64.00 MB reserved,      49.56 MB ( 77%) committed,  1 nodes.
+      Class space:        1.00 GB reserved,      10.75 MB (  1%) committed,  1 nodes.
+             Both:        1.06 GB reserved,      60.31 MB (  6%) committed. 
+
+Chunk freelists:
+   Non-Class:  14.17 MB
+       Class:  5.20 MB
+        Both:  19.38 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 79.69 MB
+CDS: on
+MetaspaceReclaimPolicy: balanced
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 8388608.
+ - enlarge_chunks_in_place: 1.
+ - new_chunks_are_fully_committed: 0.
+ - uncommit_free_chunks: 1.
+ - use_allocation_guard: 0.
+ - handle_deallocations: 1.
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 27.
+num_arena_births: 1022.
+num_arena_deaths: 0.
+num_vsnodes_births: 2.
+num_vsnodes_deaths: 0.
+num_space_committed: 962.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 27.
+num_chunks_taken_from_freelist: 3277.
+num_chunk_merges: 27.
+num_chunk_splits: 2356.
+num_chunks_enlarged: 1810.
+num_inconsistent_stats: 0.
+
+CodeHeap 'non-profiled nmethods': size=120000Kb used=9149Kb max_used=9149Kb free=110850Kb
+ bounds [0x0000026cab840000, 0x0000026cac130000, 0x0000026cb2d70000]
+CodeHeap 'profiled nmethods': size=120000Kb used=16295Kb max_used=16295Kb free=103704Kb
+ bounds [0x0000026ca3d70000, 0x0000026ca4d60000, 0x0000026cab2a0000]
+CodeHeap 'non-nmethods': size=5760Kb used=2314Kb max_used=2371Kb free=3445Kb
+ bounds [0x0000026cab2a0000, 0x0000026cab510000, 0x0000026cab840000]
+ total_blobs=11113 nmethods=9170 adapters=1853
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 67.735 Thread 0x0000026cbe9e9740 14634       3       java.text.SimpleDateFormat::format (171 bytes)
+Event: 67.736 Thread 0x0000026cbe9e9740 nmethod 14634 0x0000026ca4d56890 code [0x0000026ca4d56b00, 0x0000026ca4d57858]
+Event: 67.938 Thread 0x0000026cbe9e5880 14635       4       com.sun.jna.PointerType::toNative (5 bytes)
+Event: 67.939 Thread 0x0000026cbe9e5880 nmethod 14635 0x0000026cac127010 code [0x0000026cac127180, 0x0000026cac1271f8]
+Event: 68.184 Thread 0x0000026cbe9e9740 14636       3       jdk.nio.zipfs.ZipFileSystem::getParentOff (40 bytes)
+Event: 68.184 Thread 0x0000026cbe9e9740 nmethod 14636 0x0000026ca4d57e10 code [0x0000026ca4d57fc0, 0x0000026ca4d58258]
+Event: 68.235 Thread 0x0000026cbe9e5880 14637       4       com.sun.jna.Function::invoke (548 bytes)
+Event: 68.354 Thread 0x0000026cbe9e5880 nmethod 14637 0x0000026cac127310 code [0x0000026cac127760, 0x0000026cac12bab8]
+Event: 68.384 Thread 0x0000026cbe9e5880 14638   !   4       oshi.util.Memoizer$1::get (110 bytes)
+Event: 68.386 Thread 0x0000026cbe9e5880 nmethod 14638 0x0000026cac12e610 code [0x0000026cac12e7a0, 0x0000026cac12ec88]
+Event: 68.445 Thread 0x0000026cbe9e9740 14639 % !   3       java.lang.ref.Reference::processPendingReferences @ 27 (118 bytes)
+Event: 68.445 Thread 0x0000026cbe9e5880 14640       4       com.sun.jna.Memory::finalize (5 bytes)
+Event: 68.446 Thread 0x0000026cbe9e5880 nmethod 14640 0x0000026cac12ee90 code [0x0000026cac12f000, 0x0000026cac12f098]
+Event: 68.446 Thread 0x0000026cbe9e9740 nmethod 14639% 0x0000026ca4d58390 code [0x0000026ca4d585e0, 0x0000026ca4d58fd8]
+Event: 68.447 Thread 0x0000026cbe9e9740 14641       3       java.lang.Boolean::equals (29 bytes)
+Event: 68.448 Thread 0x0000026cbe9e9740 nmethod 14641 0x0000026ca4d59310 code [0x0000026ca4d594c0, 0x0000026ca4d598b8]
+Event: 68.448 Thread 0x0000026cbe9e5880 14642       4       java.util.regex.Pattern$LastNode::match (45 bytes)
+Event: 68.449 Thread 0x0000026cbe9e5880 nmethod 14642 0x0000026cac12f190 code [0x0000026cac12f300, 0x0000026cac12f3f8]
+Event: 68.535 Thread 0x0000026cbe9e9740 14643       3       com.sun.jna.DefaultTypeMapper::getFromNativeConverter (13 bytes)
+Event: 68.535 Thread 0x0000026cbe9e9740 nmethod 14643 0x0000026ca4d59990 code [0x0000026ca4d59b40, 0x0000026ca4d59da8]
+
+GC Heap History (20 events):
+Event: 46.588 GC heap before
+{Heap before GC invocations=49 (full 0):
+ garbage-first heap   total 884736K, used 543449K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 14 young (458752K), 2 survivors (65536K)
+ Metaspace       used 59896K, committed 60672K, reserved 1114112K
+  class space    used 10668K, committed 11008K, reserved 1048576K
+}
+Event: 46.611 GC heap after
+{Heap after GC invocations=50 (full 0):
+ garbage-first heap   total 884736K, used 150719K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 1 young (32768K), 1 survivors (32768K)
+ Metaspace       used 59896K, committed 60672K, reserved 1114112K
+  class space    used 10668K, committed 11008K, reserved 1048576K
+}
+Event: 48.399 GC heap before
+{Heap before GC invocations=50 (full 0):
+ garbage-first heap   total 884736K, used 576703K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 14 young (458752K), 1 survivors (32768K)
+ Metaspace       used 60131K, committed 60864K, reserved 1114112K
+  class space    used 10668K, committed 11008K, reserved 1048576K
+}
+Event: 48.411 GC heap after
+{Heap after GC invocations=51 (full 0):
+ garbage-first heap   total 884736K, used 149431K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 1 young (32768K), 1 survivors (32768K)
+ Metaspace       used 60131K, committed 60864K, reserved 1114112K
+  class space    used 10668K, committed 11008K, reserved 1048576K
+}
+Event: 50.420 GC heap before
+{Heap before GC invocations=51 (full 0):
+ garbage-first heap   total 884736K, used 608183K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 15 young (491520K), 1 survivors (32768K)
+ Metaspace       used 60208K, committed 60928K, reserved 1114112K
+  class space    used 10671K, committed 11008K, reserved 1048576K
+}
+Event: 50.434 GC heap after
+{Heap after GC invocations=52 (full 0):
+ garbage-first heap   total 884736K, used 150396K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 1 young (32768K), 1 survivors (32768K)
+ Metaspace       used 60208K, committed 60928K, reserved 1114112K
+  class space    used 10671K, committed 11008K, reserved 1048576K
+}
+Event: 52.515 GC heap before
+{Heap before GC invocations=52 (full 0):
+ garbage-first heap   total 884736K, used 609148K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 15 young (491520K), 1 survivors (32768K)
+ Metaspace       used 60623K, committed 61376K, reserved 1114112K
+  class space    used 10677K, committed 11008K, reserved 1048576K
+}
+Event: 52.529 GC heap after
+{Heap after GC invocations=53 (full 0):
+ garbage-first heap   total 884736K, used 150643K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 1 young (32768K), 1 survivors (32768K)
+ Metaspace       used 60623K, committed 61376K, reserved 1114112K
+  class space    used 10677K, committed 11008K, reserved 1048576K
+}
+Event: 54.596 GC heap before
+{Heap before GC invocations=53 (full 0):
+ garbage-first heap   total 884736K, used 609395K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 15 young (491520K), 1 survivors (32768K)
+ Metaspace       used 60694K, committed 61440K, reserved 1114112K
+  class space    used 10677K, committed 11008K, reserved 1048576K
+}
+Event: 54.612 GC heap after
+{Heap after GC invocations=54 (full 0):
+ garbage-first heap   total 884736K, used 152758K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 1 young (32768K), 1 survivors (32768K)
+ Metaspace       used 60694K, committed 61440K, reserved 1114112K
+  class space    used 10677K, committed 11008K, reserved 1048576K
+}
+Event: 56.748 GC heap before
+{Heap before GC invocations=54 (full 0):
+ garbage-first heap   total 884736K, used 611510K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 15 young (491520K), 1 survivors (32768K)
+ Metaspace       used 60790K, committed 61504K, reserved 1114112K
+  class space    used 10677K, committed 11008K, reserved 1048576K
+}
+Event: 56.761 GC heap after
+{Heap after GC invocations=55 (full 0):
+ garbage-first heap   total 884736K, used 152429K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 1 young (32768K), 1 survivors (32768K)
+ Metaspace       used 60790K, committed 61504K, reserved 1114112K
+  class space    used 10677K, committed 11008K, reserved 1048576K
+}
+Event: 59.139 GC heap before
+{Heap before GC invocations=55 (full 0):
+ garbage-first heap   total 884736K, used 611181K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 16 young (524288K), 1 survivors (32768K)
+ Metaspace       used 60856K, committed 61568K, reserved 1114112K
+  class space    used 10677K, committed 11008K, reserved 1048576K
+}
+Event: 59.152 GC heap after
+{Heap after GC invocations=56 (full 0):
+ garbage-first heap   total 884736K, used 151844K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 1 young (32768K), 1 survivors (32768K)
+ Metaspace       used 60856K, committed 61568K, reserved 1114112K
+  class space    used 10677K, committed 11008K, reserved 1048576K
+}
+Event: 61.666 GC heap before
+{Heap before GC invocations=56 (full 0):
+ garbage-first heap   total 884736K, used 643364K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 16 young (524288K), 1 survivors (32768K)
+ Metaspace       used 60938K, committed 61696K, reserved 1114112K
+  class space    used 10678K, committed 11008K, reserved 1048576K
+}
+Event: 61.679 GC heap after
+{Heap after GC invocations=57 (full 0):
+ garbage-first heap   total 884736K, used 151606K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 1 young (32768K), 1 survivors (32768K)
+ Metaspace       used 60938K, committed 61696K, reserved 1114112K
+  class space    used 10678K, committed 11008K, reserved 1048576K
+}
+Event: 64.010 GC heap before
+{Heap before GC invocations=57 (full 0):
+ garbage-first heap   total 884736K, used 643126K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 16 young (524288K), 1 survivors (32768K)
+ Metaspace       used 60994K, committed 61696K, reserved 1114112K
+  class space    used 10678K, committed 11008K, reserved 1048576K
+}
+Event: 64.024 GC heap after
+{Heap after GC invocations=58 (full 0):
+ garbage-first heap   total 884736K, used 151328K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 1 young (32768K), 1 survivors (32768K)
+ Metaspace       used 60994K, committed 61696K, reserved 1114112K
+  class space    used 10678K, committed 11008K, reserved 1048576K
+}
+Event: 68.432 GC heap before
+{Heap before GC invocations=58 (full 0):
+ garbage-first heap   total 884736K, used 642848K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 16 young (524288K), 1 survivors (32768K)
+ Metaspace       used 61037K, committed 61760K, reserved 1114112K
+  class space    used 10683K, committed 11008K, reserved 1048576K
+}
+Event: 68.445 GC heap after
+{Heap after GC invocations=59 (full 0):
+ garbage-first heap   total 884736K, used 150940K [0x0000000700000000, 0x0000000800000000)
+  region size 32768K, 1 young (32768K), 1 survivors (32768K)
+ Metaspace       used 61037K, committed 61760K, reserved 1114112K
+  class space    used 10683K, committed 11008K, reserved 1048576K
+}
+
+Dll operation events (20 events):
+Event: 0.006 Loaded shared library C:\Users\gagad\.jdks\temurin-17.0.12\bin\java.dll
+Event: 0.022 Loaded shared library C:\Users\gagad\.jdks\temurin-17.0.12\bin\jsvml.dll
+Event: 0.053 Loaded shared library C:\Users\gagad\.jdks\temurin-17.0.12\bin\net.dll
+Event: 0.055 Loaded shared library C:\Users\gagad\.jdks\temurin-17.0.12\bin\nio.dll
+Event: 0.064 Loaded shared library C:\Users\gagad\.jdks\temurin-17.0.12\bin\zip.dll
+Event: 0.165 Loaded shared library C:\Users\gagad\.jdks\temurin-17.0.12\bin\jimage.dll
+Event: 0.233 Loaded shared library C:\Users\gagad\.jdks\temurin-17.0.12\bin\verify.dll
+Event: 0.382 Loaded shared library C:\Users\gagad\AppData\Local\Temp\jna-98114480\jna7919308049326309850.dll
+Event: 0.844 Loaded shared library C:\Users\gagad\.jdks\temurin-17.0.12\bin\management.dll
+Event: 0.846 Loaded shared library C:\Users\gagad\.jdks\temurin-17.0.12\bin\management_ext.dll
+Event: 0.921 Loaded shared library C:\Users\gagad\AppData\Local\Temp\lwjgl_gagad\3.3.2+13\x64\lwjgl.dll
+Event: 0.943 Loaded shared library C:\Users\gagad\AppData\Local\Temp\lwjgl_gagad\3.3.2+13\x64\steam_api64.dll
+Event: 0.949 Loaded shared library C:\Users\gagad\AppData\Local\Temp\lwjgl_gagad\3.3.2+13\x64\steamworks4j64.dll
+Event: 1.446 Loaded shared library C:\Users\gagad\.jdks\temurin-17.0.12\bin\awt.dll
+Event: 1.832 Loaded shared library C:\Users\gagad\AppData\Local\Temp\lwjgl_gagad\3.3.2+13\x64\lwjgl_opengl.dll
+Event: 2.351 Loaded shared library C:\Users\gagad\AppData\Local\Temp\lwjgl_gagad\3.3.2+13\x64\lwjgl_stb.dll
+Event: 3.523 Loaded shared library C:\Users\gagad\.jdks\temurin-17.0.12\bin\instrument.dll
+Event: 3.524 Loaded shared library C:\Users\gagad\.jdks\temurin-17.0.12\bin\zip.dll
+Event: 3.527 Loaded shared library C:\Users\gagad\.jdks\temurin-17.0.12\bin\instrument.dll
+Event: 24.272 Loaded shared library C:\Users\gagad\.jdks\temurin-17.0.12\bin\extnet.dll
+
+Deoptimization events (20 events):
+Event: 66.993 Thread 0x0000026c9c22c290 DEOPT PACKING pc=0x0000026cac09549c sp=0x000000ae896ff2b0
+Event: 66.993 Thread 0x0000026c9c22c290 DEOPT UNPACKING pc=0x0000026cab2f69a3 sp=0x000000ae896ff238 mode 2
+Event: 67.073 Thread 0x0000026d0ee91f90 Uncommon trap: trap_request=0xffffff45 fr.pc=0x0000026cabe834cc relative=0x000000000000066c
+Event: 67.073 Thread 0x0000026d0ee91f90 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000026cabe834cc method=java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.isReleasable()Z @ 14 c2
+Event: 67.073 Thread 0x0000026d0ee91f90 DEOPT PACKING pc=0x0000026cabe834cc sp=0x000000ae8beff530
+Event: 67.073 Thread 0x0000026d0ee91f90 DEOPT UNPACKING pc=0x0000026cab2f69a3 sp=0x000000ae8beff2f8 mode 2
+Event: 67.083 Thread 0x0000026d09b102d0 DEOPT PACKING pc=0x0000026ca484d2f1 sp=0x000000ae8c8fec30
+Event: 67.083 Thread 0x0000026d09b102d0 DEOPT UNPACKING pc=0x0000026cab2f7143 sp=0x000000ae8c8fe0c0 mode 0
+Event: 67.235 Thread 0x0000026d09b102d0 Uncommon trap: trap_request=0xffffff45 fr.pc=0x0000026cac1068c4 relative=0x0000000000001f04
+Event: 67.235 Thread 0x0000026d09b102d0 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000026cac1068c4 method=java.math.BigDecimal.compareTo(Ljava/math/BigDecimal;)I @ 43 c2
+Event: 67.235 Thread 0x0000026d09b102d0 DEOPT PACKING pc=0x0000026cac1068c4 sp=0x000000ae8c8fecc0
+Event: 67.235 Thread 0x0000026d09b102d0 DEOPT UNPACKING pc=0x0000026cab2f69a3 sp=0x000000ae8c8febe0 mode 2
+Event: 67.235 Thread 0x0000026d09b102d0 Uncommon trap: trap_request=0xffffff45 fr.pc=0x0000026cac07fe10 relative=0x0000000000005c90
+Event: 67.235 Thread 0x0000026d09b102d0 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000026cac07fe10 method=java.math.BigDecimal.divide(JIJIJLjava/math/MathContext;)Ljava/math/BigDecimal; @ 48 c2
+Event: 67.235 Thread 0x0000026d09b102d0 DEOPT PACKING pc=0x0000026cac07fe10 sp=0x000000ae8c8febb0
+Event: 67.235 Thread 0x0000026d09b102d0 DEOPT UNPACKING pc=0x0000026cab2f69a3 sp=0x000000ae8c8fe9b0 mode 2
+Event: 68.384 Thread 0x0000026d09b102d0 Uncommon trap: trap_request=0xfffffff4 fr.pc=0x0000026cac12b07c relative=0x000000000000391c
+Event: 68.384 Thread 0x0000026d09b102d0 Uncommon trap: reason=null_check action=make_not_entrant pc=0x0000026cac12b07c method=com.sun.jna.Function.invoke(Ljava/lang/reflect/Method;[Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Object;Ljava/util/Map;)Ljava/lang/Object; @ 207 c2
+Event: 68.384 Thread 0x0000026d09b102d0 DEOPT PACKING pc=0x0000026cac12b07c sp=0x000000ae8c8fe7d0
+Event: 68.384 Thread 0x0000026d09b102d0 DEOPT UNPACKING pc=0x0000026cab2f69a3 sp=0x000000ae8c8fe770 mode 2
+
+Classes loaded (20 events):
+Event: 43.457 Loading class java/util/stream/LongStream done
+Event: 43.458 Loading class java/util/stream/LongPipeline done
+Event: 43.458 Loading class java/util/stream/LongPipeline$StatelessOp done
+Event: 43.458 Loading class java/util/stream/ReferencePipeline$5 done
+Event: 43.458 Loading class java/util/stream/Nodes$LongSpinedNodeBuilder
+Event: 43.458 Loading class java/util/stream/Node$Builder$OfLong
+Event: 43.458 Loading class java/util/stream/Sink$OfLong
+Event: 43.459 Loading class java/util/stream/Sink$OfLong done
+Event: 43.459 Loading class java/util/stream/Node$Builder$OfLong done
+Event: 43.459 Loading class java/util/stream/SpinedBuffer$OfLong
+Event: 43.459 Loading class java/util/stream/SpinedBuffer$OfPrimitive
+Event: 43.459 Loading class java/util/stream/SpinedBuffer$OfPrimitive done
+Event: 43.459 Loading class java/util/stream/SpinedBuffer$OfLong done
+Event: 43.460 Loading class java/util/stream/Nodes$LongSpinedNodeBuilder done
+Event: 43.468 Loading class java/util/stream/ReferencePipeline$5$1
+Event: 43.469 Loading class java/util/stream/ReferencePipeline$5$1 done
+Event: 46.130 Loading class java/lang/Throwable$WrappedPrintStream
+Event: 46.131 Loading class java/lang/Throwable$PrintStreamOrWriter
+Event: 46.131 Loading class java/lang/Throwable$PrintStreamOrWriter done
+Event: 46.131 Loading class java/lang/Throwable$WrappedPrintStream done
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (20 events):
+Event: 4.440 Thread 0x0000026c9c2ec370 redefined class name=FasterMachines.patches.GrainMillPatch, count=2
+Event: 4.440 Thread 0x0000026c9c2ec370 redefined class name=FasterMachines.patches.IncinerationPatch, count=2
+Event: 4.491 Thread 0x0000026c9c2ec370 redefined class name=necesse.entity.objectEntity.ProcessingForgeObjectEntity, count=1
+Event: 4.496 Thread 0x0000026c9c2ec370 redefined class name=FasterMachines.patches.CheesePressPatch, count=3
+Event: 4.496 Thread 0x0000026c9c2ec370 redefined class name=FasterMachines.patches.CompostBinPatch, count=3
+Event: 4.496 Thread 0x0000026c9c2ec370 redefined class name=FasterMachines.patches.ForgePatch, count=3
+Event: 4.496 Thread 0x0000026c9c2ec370 redefined class name=FasterMachines.patches.GrainMillPatch, count=3
+Event: 4.496 Thread 0x0000026c9c2ec370 redefined class name=FasterMachines.patches.IncinerationPatch, count=3
+Event: 4.531 Thread 0x0000026c9c2ec370 redefined class name=necesse.entity.objectEntity.GrainMillObjectEntity, count=1
+Event: 4.537 Thread 0x0000026c9c2ec370 redefined class name=FasterMachines.patches.CheesePressPatch, count=4
+Event: 4.537 Thread 0x0000026c9c2ec370 redefined class name=FasterMachines.patches.CompostBinPatch, count=4
+Event: 4.537 Thread 0x0000026c9c2ec370 redefined class name=FasterMachines.patches.ForgePatch, count=4
+Event: 4.537 Thread 0x0000026c9c2ec370 redefined class name=FasterMachines.patches.GrainMillPatch, count=4
+Event: 4.537 Thread 0x0000026c9c2ec370 redefined class name=FasterMachines.patches.IncinerationPatch, count=4
+Event: 4.594 Thread 0x0000026c9c2ec370 redefined class name=necesse.inventory.item.Item, count=1
+Event: 4.601 Thread 0x0000026c9c2ec370 redefined class name=FasterMachines.patches.CheesePressPatch, count=5
+Event: 4.601 Thread 0x0000026c9c2ec370 redefined class name=FasterMachines.patches.CompostBinPatch, count=5
+Event: 4.601 Thread 0x0000026c9c2ec370 redefined class name=FasterMachines.patches.ForgePatch, count=5
+Event: 4.601 Thread 0x0000026c9c2ec370 redefined class name=FasterMachines.patches.GrainMillPatch, count=5
+Event: 4.601 Thread 0x0000026c9c2ec370 redefined class name=FasterMachines.patches.IncinerationPatch, count=5
+
+Internal exceptions (20 events):
+Event: 68.184 Thread 0x0000026d09b102d0 Exception <a 'java/lang/NullPointerException'{0x00000007194efaa0}> (0x00000007194efaa0) 
+thrown [s\src\hotspot\share\runtime\sharedRuntime.cpp, line 631]
+Event: 68.234 Thread 0x0000026d09b102d0 Implicit null exception at 0x0000026ca4c1ea3f to 0x0000026ca4c24196
+Event: 68.234 Thread 0x0000026d09b102d0 Exception <a 'java/lang/NullPointerException'{0x000000071963eb88}> (0x000000071963eb88) 
+thrown [s\src\hotspot\share\runtime\sharedRuntime.cpp, line 631]
+Event: 68.284 Thread 0x0000026d09b102d0 Implicit null exception at 0x0000026ca4c1ea3f to 0x0000026ca4c24196
+Event: 68.284 Thread 0x0000026d09b102d0 Exception <a 'java/lang/NullPointerException'{0x000000071978dc70}> (0x000000071978dc70) 
+thrown [s\src\hotspot\share\runtime\sharedRuntime.cpp, line 631]
+Event: 68.334 Thread 0x0000026d09b102d0 Implicit null exception at 0x0000026ca4c1ea3f to 0x0000026ca4c24196
+Event: 68.334 Thread 0x0000026d09b102d0 Exception <a 'java/lang/NullPointerException'{0x00000007198e1260}> (0x00000007198e1260) 
+thrown [s\src\hotspot\share\runtime\sharedRuntime.cpp, line 631]
+Event: 68.383 Thread 0x0000026d09b102d0 Implicit null exception at 0x0000026ca4c1ea3f to 0x0000026ca4c24196
+Event: 68.383 Thread 0x0000026d09b102d0 Exception <a 'java/lang/NullPointerException'{0x0000000719a2f998}> (0x0000000719a2f998) 
+thrown [s\src\hotspot\share\runtime\sharedRuntime.cpp, line 631]
+Event: 68.384 Thread 0x0000026d09b102d0 Implicit null exception at 0x0000026cac128328 to 0x0000026cac12b038
+Event: 68.446 Thread 0x0000026d09b102d0 Implicit null exception at 0x0000026ca4c1ea3f to 0x0000026ca4c24196
+Event: 68.446 Thread 0x0000026d09b102d0 Exception <a 'java/lang/NullPointerException'{0x0000000746022d78}> (0x0000000746022d78) 
+thrown [s\src\hotspot\share\runtime\sharedRuntime.cpp, line 631]
+Event: 68.486 Thread 0x0000026d09b102d0 Implicit null exception at 0x0000026ca4c1ea3f to 0x0000026ca4c24196
+Event: 68.486 Thread 0x0000026d09b102d0 Exception <a 'java/lang/NullPointerException'{0x0000000746171228}> (0x0000000746171228) 
+thrown [s\src\hotspot\share\runtime\sharedRuntime.cpp, line 631]
+Event: 68.534 Thread 0x0000026d09b102d0 Implicit null exception at 0x0000026ca4c1ea3f to 0x0000026ca4c24196
+Event: 68.534 Thread 0x0000026d09b102d0 Exception <a 'java/lang/NullPointerException'{0x00000007462bfa58}> (0x00000007462bfa58) 
+thrown [s\src\hotspot\share\runtime\sharedRuntime.cpp, line 631]
+Event: 68.585 Thread 0x0000026d09b102d0 Implicit null exception at 0x0000026ca4c1ea3f to 0x0000026ca4c24196
+Event: 68.585 Thread 0x0000026d09b102d0 Exception <a 'java/lang/NullPointerException'{0x000000074640e2e0}> (0x000000074640e2e0) 
+thrown [s\src\hotspot\share\runtime\sharedRuntime.cpp, line 631]
+Event: 68.633 Thread 0x0000026d09b102d0 Implicit null exception at 0x0000026ca4c1ea3f to 0x0000026ca4c24196
+Event: 68.633 Thread 0x0000026d09b102d0 Exception <a 'java/lang/NullPointerException'{0x0000000746925828}> (0x0000000746925828) 
+thrown [s\src\hotspot\share\runtime\sharedRuntime.cpp, line 631]
+
+VM Operations (20 events):
+Event: 58.763 Executing VM operation: Cleanup
+Event: 58.763 Executing VM operation: Cleanup done
+Event: 59.139 Executing VM operation: G1CollectForAllocation
+Event: 59.152 Executing VM operation: G1CollectForAllocation done
+Event: 60.128 Executing VM operation: HandshakeAllThreads
+Event: 60.128 Executing VM operation: HandshakeAllThreads done
+Event: 61.140 Executing VM operation: Cleanup
+Event: 61.140 Executing VM operation: Cleanup done
+Event: 61.666 Executing VM operation: G1CollectForAllocation
+Event: 61.680 Executing VM operation: G1CollectForAllocation done
+Event: 63.686 Executing VM operation: Cleanup
+Event: 63.686 Executing VM operation: Cleanup done
+Event: 64.010 Executing VM operation: G1CollectForAllocation
+Event: 64.024 Executing VM operation: G1CollectForAllocation done
+Event: 66.024 Executing VM operation: Cleanup
+Event: 66.024 Executing VM operation: Cleanup done
+Event: 68.024 Executing VM operation: Cleanup
+Event: 68.024 Executing VM operation: Cleanup done
+Event: 68.432 Executing VM operation: G1CollectForAllocation
+Event: 68.445 Executing VM operation: G1CollectForAllocation done
+
+Events (20 events):
+Event: 56.674 Thread 0x0000026dc2f46af0 Thread added: 0x0000026dc2f46af0
+Event: 56.948 Thread 0x0000026dc2f46af0 Thread exited: 0x0000026dc2f46af0
+Event: 57.739 Thread 0x0000026dc2f46af0 Thread added: 0x0000026dc2f46af0
+Event: 57.977 Thread 0x0000026dc2f46af0 Thread exited: 0x0000026dc2f46af0
+Event: 60.883 Thread 0x0000026dc2f48030 Thread added: 0x0000026dc2f48030
+Event: 61.446 Thread 0x0000026dc2f48030 Thread exited: 0x0000026dc2f48030
+Event: 64.052 Thread 0x0000026dc2f48030 Thread added: 0x0000026dc2f48030
+Event: 64.187 Thread 0x0000026dc2f48030 Thread exited: 0x0000026dc2f48030
+Event: 66.283 Thread 0x0000026d0ee8ba50 Thread exited: 0x0000026d0ee8ba50
+Event: 66.283 Thread 0x0000026d0ee8fc20 Thread exited: 0x0000026d0ee8fc20
+Event: 66.283 Thread 0x0000026d0ee90130 Thread exited: 0x0000026d0ee90130
+Event: 66.283 Thread 0x0000026d0ee924a0 Thread exited: 0x0000026d0ee924a0
+Event: 66.283 Thread 0x0000026d0ee92ec0 Thread exited: 0x0000026d0ee92ec0
+Event: 66.283 Thread 0x0000026d0ee8e7e0 Thread exited: 0x0000026d0ee8e7e0
+Event: 66.283 Thread 0x0000026d0ee8d3a0 Thread exited: 0x0000026d0ee8d3a0
+Event: 66.283 Thread 0x0000026d0ee8ecf0 Thread exited: 0x0000026d0ee8ecf0
+Event: 66.283 Thread 0x0000026d0ee8e2d0 Thread exited: 0x0000026d0ee8e2d0
+Event: 67.073 Thread 0x0000026d0ee91f90 Thread exited: 0x0000026d0ee91f90
+Event: 68.599 Thread 0x0000026c9c22c290 Thread exited: 0x0000026c9c22c290
+Event: 68.600 Thread 0x0000026d410b47b0 Thread added: 0x0000026d410b47b0
+
+
+Dynamic libraries:
+0x00007ff7fa190000 - 0x00007ff7fa19e000 	C:\Users\gagad\.jdks\temurin-17.0.12\bin\java.exe
+0x00007ffd35550000 - 0x00007ffd35748000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffd338f0000 - 0x00007ffd339b2000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffd32db0000 - 0x00007ffd330af000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffd32bf0000 - 0x00007ffd32cf0000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffd2d7d0000 - 0x00007ffd2d7e7000 	C:\Users\gagad\.jdks\temurin-17.0.12\bin\jli.dll
+0x00007ffd2a7b0000 - 0x00007ffd2a7cb000 	C:\Users\gagad\.jdks\temurin-17.0.12\bin\VCRUNTIME140.dll
+0x00007ffd34d10000 - 0x00007ffd34ead000 	C:\Windows\System32\USER32.dll
+0x00007ffd32cf0000 - 0x00007ffd32d12000 	C:\Windows\System32\win32u.dll
+0x00007ffd24720000 - 0x00007ffd249ba000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.4355_none_60b8b9eb71f62e16\COMCTL32.dll
+0x00007ffd351e0000 - 0x00007ffd3520b000 	C:\Windows\System32\GDI32.dll
+0x00007ffd33da0000 - 0x00007ffd33e3e000 	C:\Windows\System32\msvcrt.dll
+0x00007ffd33330000 - 0x00007ffd3344a000 	C:\Windows\System32\gdi32full.dll
+0x00007ffd33130000 - 0x00007ffd331cd000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffd350f0000 - 0x00007ffd3511f000 	C:\Windows\System32\IMM32.DLL
+0x00007ffd2fc50000 - 0x00007ffd2fc5c000 	C:\Users\gagad\.jdks\temurin-17.0.12\bin\vcruntime140_1.dll
+0x00007ffd1a2d0000 - 0x00007ffd1a35d000 	C:\Users\gagad\.jdks\temurin-17.0.12\bin\msvcp140.dll
+0x00007ffcfe120000 - 0x00007ffcfed8a000 	C:\Users\gagad\.jdks\temurin-17.0.12\bin\server\jvm.dll
+0x00007ffd33b30000 - 0x00007ffd33bdf000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffd339e0000 - 0x00007ffd33a7f000 	C:\Windows\System32\sechost.dll
+0x00007ffd33c70000 - 0x00007ffd33d93000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffd330b0000 - 0x00007ffd330d7000 	C:\Windows\System32\bcrypt.dll
+0x00007ffd34700000 - 0x00007ffd3476b000 	C:\Windows\System32\WS2_32.dll
+0x00007ffd32a50000 - 0x00007ffd32a9b000 	C:\Windows\SYSTEM32\POWRPROF.dll
+0x00007ffd249e0000 - 0x00007ffd24a07000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffd291b0000 - 0x00007ffd291ba000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffd32a30000 - 0x00007ffd32a42000 	C:\Windows\SYSTEM32\UMPDC.dll
+0x00007ffd30a90000 - 0x00007ffd30aa2000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ffd2fb70000 - 0x00007ffd2fb7a000 	C:\Users\gagad\.jdks\temurin-17.0.12\bin\jimage.dll
+0x00007ffd2c990000 - 0x00007ffd2cb74000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ffd2c7b0000 - 0x00007ffd2c7e4000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ffd32d20000 - 0x00007ffd32da2000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffd21ee0000 - 0x00007ffd21f05000 	C:\Users\gagad\.jdks\temurin-17.0.12\bin\java.dll
+0x00007ffd0d3d0000 - 0x00007ffd0d4a7000 	C:\Users\gagad\.jdks\temurin-17.0.12\bin\jsvml.dll
+0x00007ffd33e40000 - 0x00007ffd345ad000 	C:\Windows\System32\SHELL32.dll
+0x00007ffd30c90000 - 0x00007ffd31434000 	C:\Windows\SYSTEM32\windows.storage.dll
+0x00007ffd33570000 - 0x00007ffd338c5000 	C:\Windows\System32\combase.dll
+0x00007ffd325b0000 - 0x00007ffd325db000 	C:\Windows\SYSTEM32\Wldp.dll
+0x00007ffd35210000 - 0x00007ffd352dd000 	C:\Windows\System32\OLEAUT32.dll
+0x00007ffd35040000 - 0x00007ffd350ed000 	C:\Windows\System32\SHCORE.dll
+0x00007ffd34fe0000 - 0x00007ffd35035000 	C:\Windows\System32\shlwapi.dll
+0x00007ffd32b20000 - 0x00007ffd32b45000 	C:\Windows\SYSTEM32\profapi.dll
+0x00007ffd21e30000 - 0x00007ffd21e49000 	C:\Users\gagad\.jdks\temurin-17.0.12\bin\net.dll
+0x00007ffd2b5f0000 - 0x00007ffd2b6fa000 	C:\Windows\SYSTEM32\WINHTTP.dll
+0x00007ffd32310000 - 0x00007ffd3237c000 	C:\Windows\system32\mswsock.dll
+0x00007ffd21740000 - 0x00007ffd21756000 	C:\Users\gagad\.jdks\temurin-17.0.12\bin\nio.dll
+0x00007ffd1f120000 - 0x00007ffd1f138000 	C:\Users\gagad\.jdks\temurin-17.0.12\bin\zip.dll
+0x00007ffd2ef30000 - 0x00007ffd2ef40000 	C:\Users\gagad\.jdks\temurin-17.0.12\bin\verify.dll
+0x00007ffd32510000 - 0x00007ffd32528000 	C:\Windows\SYSTEM32\CRYPTSP.dll
+0x00007ffd31bd0000 - 0x00007ffd31c08000 	C:\Windows\system32\rsaenh.dll
+0x00007ffd32ae0000 - 0x00007ffd32b0e000 	C:\Windows\SYSTEM32\USERENV.dll
+0x00007ffd32500000 - 0x00007ffd3250c000 	C:\Windows\SYSTEM32\CRYPTBASE.dll
+0x00007ffd31f90000 - 0x00007ffd31fcb000 	C:\Windows\SYSTEM32\IPHLPAPI.DLL
+0x00007ffd339d0000 - 0x00007ffd339d8000 	C:\Windows\System32\NSI.dll
+0x00007ffd2d4f0000 - 0x00007ffd2d507000 	C:\Windows\SYSTEM32\dhcpcsvc6.DLL
+0x00007ffd2d4d0000 - 0x00007ffd2d4ed000 	C:\Windows\SYSTEM32\dhcpcsvc.DLL
+0x00007ffd31fd0000 - 0x00007ffd3209a000 	C:\Windows\SYSTEM32\DNSAPI.dll
+0x00007ffca3660000 - 0x00007ffca36a5000 	C:\Users\gagad\AppData\Local\Temp\jna-98114480\jna7919308049326309850.dll
+0x00007ffd339c0000 - 0x00007ffd339c8000 	C:\Windows\System32\PSAPI.DLL
+0x00007ffd34eb0000 - 0x00007ffd34fdb000 	C:\Windows\System32\Ole32.dll
+0x00007ffd33a80000 - 0x00007ffd33b29000 	C:\Windows\System32\clbcatq.dll
+0x00007ffd29240000 - 0x00007ffd2925f000 	C:\Windows\SYSTEM32\amsi.dll
+0x00007ffd291c0000 - 0x00007ffd29240000 	C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.25020.1008-0\MpOav.dll
+0x00007ffd2cb80000 - 0x00007ffd2cb89000 	C:\Users\gagad\.jdks\temurin-17.0.12\bin\management.dll
+0x00007ffd21ed0000 - 0x00007ffd21edb000 	C:\Users\gagad\.jdks\temurin-17.0.12\bin\management_ext.dll
+0x00007ffca0530000 - 0x00007ffca05aa000 	C:\Users\gagad\AppData\Local\Temp\lwjgl_gagad\3.3.2+13\x64\lwjgl.dll
+0x00007ffca04e0000 - 0x00007ffca052d000 	C:\Users\gagad\AppData\Local\Temp\lwjgl_gagad\3.3.2+13\x64\steam_api64.dll
+0x00007ffca0480000 - 0x00007ffca04d4000 	C:\Users\gagad\AppData\Local\Temp\lwjgl_gagad\3.3.2+13\x64\steamworks4j64.dll
+0x00007ffd331d0000 - 0x00007ffd3332c000 	C:\Windows\System32\CRYPT32.dll
+0x00007ffd34890000 - 0x00007ffd34d01000 	C:\Windows\System32\SETUPAPI.dll
+0x00007ffd330e0000 - 0x00007ffd3312e000 	C:\Windows\System32\cfgmgr32.dll
+0x00007ffca02e0000 - 0x00007ffca0479000 	D:\Steam\gameoverlayrenderer64.dll
+0x00007ffca0150000 - 0x00007ffca02e0000 	C:\Users\gagad\.jdks\temurin-17.0.12\bin\awt.dll
+0x00007ffd300e0000 - 0x00007ffd30174000 	C:\Windows\SYSTEM32\apphelp.dll
+0x00007ffca00c0000 - 0x00007ffca0142000 	C:\Users\gagad\AppData\Local\Temp\lwjgl_gagad\3.3.2+13\x64\glfw.dll
+0x00007ffca0070000 - 0x00007ffca00b5000 	C:\Windows\SYSTEM32\dinput8.dll
+0x00007ffd1f260000 - 0x00007ffd1f3b2000 	C:\Windows\SYSTEM32\inputhost.dll
+0x00007ffd2fe40000 - 0x00007ffd2ff32000 	C:\Windows\SYSTEM32\CoreMessaging.dll
+0x00007ffd2ee20000 - 0x00007ffd2ef16000 	C:\Windows\SYSTEM32\PROPSYS.dll
+0x00007ffd2efd0000 - 0x00007ffd2f127000 	C:\Windows\SYSTEM32\wintypes.dll
+0x00007ffd2f800000 - 0x00007ffd2fb5b000 	C:\Windows\SYSTEM32\CoreUIComponents.dll
+0x00007ffd31e20000 - 0x00007ffd31e53000 	C:\Windows\SYSTEM32\ntmarta.dll
+0x00007ffca3640000 - 0x00007ffca3651000 	C:\Windows\SYSTEM32\xinput1_4.dll
+0x00007ffd32910000 - 0x00007ffd32943000 	C:\Windows\SYSTEM32\DEVOBJ.dll
+0x00007ffd30980000 - 0x00007ffd309af000 	C:\Windows\SYSTEM32\dwmapi.dll
+0x00007ffd305a0000 - 0x00007ffd3063e000 	C:\Windows\system32\uxtheme.dll
+0x00007ffd34770000 - 0x00007ffd34885000 	C:\Windows\System32\MSCTF.dll
+0x00007ffd21cc0000 - 0x00007ffd21de8000 	C:\Windows\SYSTEM32\opengl32.dll
+0x00007ffd2c430000 - 0x00007ffd2c45c000 	C:\Windows\SYSTEM32\GLU32.dll
+0x0000026d0b6f0000 - 0x0000026d0bf21000 	C:\Windows\SYSTEM32\ig7icd64.dll
+0x00007ffd1f7f0000 - 0x00007ffd1fc55000 	C:\Windows\SYSTEM32\igdusc64.dll
+0x00007ffd2f7c0000 - 0x00007ffd2f7d4000 	C:\Windows\SYSTEM32\WTSAPI32.dll
+0x00007ffd31480000 - 0x00007ffd31576000 	C:\Windows\SYSTEM32\dxgi.dll
+0x00007ffd2e750000 - 0x00007ffd2e9b3000 	C:\Windows\SYSTEM32\d3d11.dll
+0x00007ffd1fc60000 - 0x00007ffd20802000 	C:\Windows\SYSTEM32\igd10iumd64.dll
+0x00007ffd32620000 - 0x00007ffd32647000 	C:\Windows\SYSTEM32\ncrypt.dll
+0x00007ffd325e0000 - 0x00007ffd3261b000 	C:\Windows\SYSTEM32\NTASN1.dll
+0x00007ffd222e0000 - 0x00007ffd2231b000 	C:\Windows\SYSTEM32\dxcore.dll
+0x00007ffd2d230000 - 0x00007ffd2d2b9000 	C:\Windows\System32\MMDevApi.dll
+0x00007ffd2d510000 - 0x00007ffd2d691000 	C:\Windows\SYSTEM32\AUDIOSES.DLL
+0x00007ffc9f7d0000 - 0x00007ffc9f82e000 	C:\Users\gagad\AppData\Local\Temp\lwjgl_gagad\3.3.2+13\x64\lwjgl_opengl.dll
+0x00007ffd2c280000 - 0x00007ffd2c379000 	C:\Windows\SYSTEM32\textinputframework.dll
+0x00007ffd33500000 - 0x00007ffd33568000 	C:\Windows\System32\WINTRUST.dll
+0x00007ffd32740000 - 0x00007ffd32752000 	C:\Windows\System32\MSASN1.dll
+0x00007ffc9f600000 - 0x00007ffc9f7c5000 	C:\Users\gagad\AppData\Local\Temp\lwjgl_gagad\3.3.2+13\x64\OpenAL.dll
+0x00007ffd30640000 - 0x00007ffd30654000 	C:\Windows\SYSTEM32\resourcepolicyclient.dll
+0x00007ffc9f570000 - 0x00007ffc9f5f2000 	C:\Users\gagad\AppData\Local\Temp\lwjgl_gagad\3.3.2+13\x64\lwjgl_stb.dll
+0x00007ffd225b0000 - 0x00007ffd2265e000 	C:\Windows\SYSTEM32\mscms.dll
+0x00007ffd22590000 - 0x00007ffd225a1000 	C:\Windows\SYSTEM32\ColorAdapterClient.dll
+0x00007ffd2f140000 - 0x00007ffd2f185000 	C:\Windows\SYSTEM32\icm32.dll
+0x00007ffd0cad0000 - 0x00007ffd0cade000 	C:\Users\gagad\.jdks\temurin-17.0.12\bin\instrument.dll
+0x00007ffd29ce0000 - 0x00007ffd29cea000 	C:\Windows\System32\rasadhlp.dll
+0x00007ffd29970000 - 0x00007ffd299f0000 	C:\Windows\System32\fwpuclnt.dll
+0x00007ffd21e20000 - 0x00007ffd21e29000 	C:\Users\gagad\.jdks\temurin-17.0.12\bin\extnet.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\gagad\.jdks\temurin-17.0.12\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.4355_none_60b8b9eb71f62e16;C:\Users\gagad\.jdks\temurin-17.0.12\bin\server;C:\Users\gagad\AppData\Local\Temp\jna-98114480;C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.25020.1008-0;C:\Users\gagad\AppData\Local\Temp\lwjgl_gagad\3.3.2+13\x64;D:\Steam
+
+VM Arguments:
+jvm_args: -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M -Xms512m -Xmx4G -Dfile.encoding=UTF-8 -Duser.country=BR -Duser.language=pt -Duser.variant 
+java_command: StartSteamClient -dev -mod build/jar/
+java_class_path (initial): D:\Steam\steamapps\common\Necesse\Necesse.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 3                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 1                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 4                                         {product} {ergonomic}
+     uint G1EagerReclaimRemSetThreshold            = 256                                  {experimental} {ergonomic}
+   size_t G1HeapRegionSize                         = 33554432                                  {product} {command line}
+    uintx G1NewSizePercent                         = 20                                   {experimental} {command line}
+    uintx G1ReservePercent                         = 20                                        {product} {command line}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 536870912                                 {product} {command line}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+    uintx MaxGCPauseMillis                         = 50                                        {product} {command line}
+   size_t MaxHeapSize                              = 4294967296                                {product} {command line}
+   size_t MaxNewSize                               = 2550136832                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 33554432                                  {product} {ergonomic}
+   size_t MinHeapSize                              = 536870912                                 {product} {command line}
+    uintx NonNMethodCodeHeapSize                   = 5832780                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122912730                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122912730                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 4294967296                             {manageable} {ergonomic}
+     bool UnlockExperimentalVMOptions              = true                                 {experimental} {command line}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseFastUnorderedTimeStamps               = true                                 {experimental} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {command line}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\dotnet\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;D:\Marcelo\Git\cmd;C:\Users\gagad\AppData\Local\Microsoft\WindowsApps;D:\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\gagad\.dotnet\tools
+USERNAME=gagad
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 58 Stepping 9, GenuineIntel
+TMP=C:\Users\gagad\AppData\Local\Temp
+TEMP=C:\Users\gagad\AppData\Local\Temp
+
+
+
+Periodic native trim disabled
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.5438)
+OS uptime: 5 days 1:28 hours
+
+CPU: total 4 (initial active 4) (4 cores per cpu, 1 threads per core) family 6 model 58 stepping 9 microcode 0x21, cx8, cmov, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, tsc, tscinvbit, avx, aes, erms, clmul, vzeroupper, clflush
+Processor Information for all 4 processors :
+  Max Mhz: 3201, Current Mhz: 3201, Mhz Limit: 3201
+
+Memory: 4k page, system-wide physical 16278M (8325M free)
+TotalPageFile size 18710M (AvailPageFile size 9218M)
+current process WorkingSet (physical memory assigned to process): 1164M, peak: 4458M
+current process commit charge ("private bytes"): 1189M, peak: 4656M
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.12+7) for windows-amd64 JRE (17.0.12+7), built on Jul 16 2024 22:08:24 by "admin" with MS VC++ 16.10 / 16.11 (VS2019)
+
+END.

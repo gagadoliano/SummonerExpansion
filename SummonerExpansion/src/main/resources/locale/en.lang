@@ -1,0 +1,320 @@
+[object]
+// Crafting stations
+summoningtable=Legacy Summoning Table
+summoningtableduo=Summoning Table
+demonicsummoningtableduo=Demonic Summoning Table
+tungstensummoningtableduo=Tungsten Summoning Table
+fallensummoningtableduo=Fallen Summoning Table
+summoningbookshelf=Summoning Bookshelf
+
+[item]
+// Minion weapons
+magiccastlecandelabra=Magic Spider Castle Candelabra
+enchantedbrainonastick=Enchanted Brain On A Stick
+magicdungeoncandelabra=Magic Dungeon Candelabra
+magictungstenlamp=Magic Tungsten Lamp
+magicgoldlamp=Magic Gold Double Lamp
+gemamethystshards=Amethyst Shards
+gemsapphireshards=Sapphire Shards
+magiccopperlamp=Magic Copper Lamp
+gememeraldshards=Emerald Shards
+runebonestaff=Runebone Staff
+bearhead=Grizzly Bear Head
+vampirewings=Vampire Wings
+gemrubyshards=Ruby Shards
+polarhead=Polar Head
+royalhive=Royal Hive
+
+// Sentry weapons
+iceblossomstaff=Ice Blossom Staff
+sunflowerstaff=Sunflower Staff
+firemonestaff=Firemone Staff
+vampirecoffin=Vampire Coffin
+caveglowstaff=Caveglow Staff
+bookmushroom=Mushroom Book
+
+// Secondary weapons
+explosivesnowball=Explosive Snowball
+magictools=Magic Wood Tools
+bookfrozen=Frozen Book
+bookmagma=Magma Book
+bookrunic=Runic Book
+bookbee=Bee Book
+
+// Melee weapons
+fishianspear=Fishian Spear
+horrorscythe=Horror Scythe
+horrorglaive=Horror Glaive
+goblinsword=Goblin Sword
+horrorsword=Horror Sword
+wormbucket=Worm Bucket
+
+// Range weapons
+mosquitobow=Mosquito Bow
+
+// Armor pieces
+bloodplatemask=Bloodplate Mask
+shadowhelmet=Shadow Helmet
+frostcrown=Frost Crown
+copperminerhat=Copper Miner Hat
+
+// Armor sets
+summonplaguemask=Summoner Plague Mask
+summonplaguerobe=Summoner Plague Robe
+summonplagueboots=Summoner Plague Boots
+shadowhorrorhood=Shadow Horror Hood
+shadowhorrormantle=Shadow Horror Mantle
+shadowhorrorboots=Shadow Horror Boots
+spiderbridehelmet=Spider Bride Helmet
+spiderbridechest=Spider Bride Chest
+spiderbrideboots=Spider Bride Boots
+
+// Trinkets
+essenceofcompanionship=Essence of Companionship
+challengerarmorpiece=Challenger's Armor Piece
+frozenassassinscowl=Frozen Assassins Cowl
+shadowhorrorcape=Shadow Horror Cape
+demonicpolarclaw=Demonic Polar Claw
+frenzyhorrorcape=Frenzy Horror Cape
+hystericalmirror=Hysterical Mirror
+necromancerarmor=Necromancer Armor
+frenzystonering=Frenzystone Ring
+inducingsatchel=Inducing Satchel
+summonergambit=Summoner Gambit
+mesmersatchel=Mesmer Satchel
+necroticclaw=Necrotic Claw
+spelltablet=Spell Tablet
+mesmercharm=Mesmer Charm
+bonepile=Bone Pile
+
+// Potions
+minioncritchancepotion=Summon Critical Chance Potion
+minionattackspeedpotion=Summon Attack Speed Potion
+minioncloserangepotion=Summon Short Range Potion
+minioncritpotion=Summon Critical Damage Potion
+minionfarmpotion=Summon Farming Potion
+minionrangepotion=Summon Range Potion
+minionspeedpotion=Summon Speed Potion
+
+// Potions buffs
+minioncritchancebuff=Summon Critical Chance Buff
+minionattackspeedbuff=Summon Attack Speed Buff
+minioncloserangebuff=Summon Short Range Buff
+minioncritbuff=Summon Critical Damage Buff
+minionfarmbuff=Summon Farming Buff
+minionrangebuff=Summon Range Buff
+minionspeedbuff=Summon Speed Buff
+
+// Banners
+bannerofresilience=Banner of Resilience
+bannerofbouncing=Banner of Bouncing
+bannerofdashing=Banner of Dashing
+bannerofessence=Banner of Essence
+bannerofpicking=Banner of Picking
+bannerofstamina=Banner of Stamina
+bannerofmana=Banner of Mana
+
+// Mounts
+chieftainhat=Chieftain Hat
+magiccheese=Magic Cheese
+
+// Boss summons
+shadowhorrorportal=Shadow Horror Portal
+
+// Materials
+purehorror=Pure Horror
+
+[itemtooltip]
+// Minion weapons
+runebonestafftip=Summons a runebound brute that attack foes with an axe \nHave a small chance to summon a runebond shaman instead \nHigher upgrade tiers increases the summoning chance
+royalhivetip=Summons a bee queen that spawn bees every 10 hits \nThe queen increases your health regen while on combat \nAnd the smaller bees slows foes by 10%
+amethystshardtip=Summons an amethyst golem \nThis golem can crystallize foes \nAdditional amethyst golems increases the chance to crystallize
+sapphireshardtip=Summons a sapphire golem \nThis golem summons a sapphire glyph at your location when you have life essence
+lampminioncastletip=Summons a spider castle candelabra \nBurn and slows foes \nDebuffs get stronger at night
+emeraldshardtip=Summons an emerald golem \nThis golem shoots a laser that pierce foes and bounce from walls
+enchantedbrainonasticktip=Summons 2 enchanted zombies \nMelee zombies reduces foe's armor by 10
+magictungstenlamptip=Summons a tungsten lamp that glows and attack \nBurn foes on hit
+magicgoldlamptip=Summons a double gold lamp that glows and attack \nBurn foes on hit
+rubyshardtip=Summons a ruby golem \nThis golem shoots crystal shards at foes
+lampminiondungeontip=Summons a dungeon candelabra \nBurn foes at night
+vampirewingstip=Summons a vampire that shoots blood bolts at foes
+magiccopperlamptip=Summons a copper lamp that glows and attack
+polarheadtip=Summons a polar bear that attack and slows foes
+bearheadtip=Summons a grizzly bear that attack foes
+
+// Sentry weapons
+bookmushroomtip=Summons a sentry that slows nearby foes \nSometimes turn killed foes into mushroom allies
+caveglowsentrytip=The sentry glows and shoot projectiles that can pierce and bounce once
+sunflowersentrytip=Buffs nearby player's health regen while on combat
+coffinsentrytip=Every 10 shoots summons a crypt bat to attack foes
+firemonesentrytip=Buffs nearby player's armor penetration
+iceblossomsentrytip=Buffs nearby player's armor
+
+// Secondary weapons
+explosivesnowballtip=Summons a snowman with a chance to explode on hit \nThe explosion does double damage and damages players
+bookmagmatip=Summons magma slimes that attacks very close foes \nIf the target is under a burn effect, it will last forever
+bookrunictip=Summons runic shields that orbit you \nIncreases your armor with a stacking buff when they hit foes
+magictoolstip=Summons magic tools \nThey provide a buff on hit that increases mining range and speed by 20%
+bookfrozentip=Summons frozen dwarfs that throws ice javelins that slows foes by 30%
+bookbeetip=Summons 3 bees \nThey slows foes by 10%
+
+// Melee weapons
+horrorglaivetip=Charges the glaive by hitting foes \nUse [input=mouse2] when fully charged to summon a horror sentry
+goblinswordtip=Charges the sword by hitting foes \nUse [input=mouse2] when fully charged to summon 3 goblins
+fishianspeartip=Summons a fishian on your next attack when fully charged \nCharges the spear by hitting foes
+horrorscythetip=Half charge to summon up to 3 horror wolfs \nFully charge to summon a horror bull
+wormbuckettip=10% chance to summon a fish when attacking foes
+horrorswordtip=Gains attack speed stacks by hitting foes \nAt max stacks summons a horror crawling zombie
+
+// Range weapons
+mosquitobowtip=Shoots down arrows from above that leaves a damaging pool in it's wake \nEvery 20 hits summons a mosquito that reduces foes armor \nSummoned mosquitos may attack foes or not
+
+// Armor set bonus
+spiderbridesettip=Grants immunity to slows \nSummon attacks poison target for 25 damage over 5 seconds \nPress [input=setability] to summon a spider bride that shoots poison and webs
+frostcrownsettip=Summon attacks slows and damages the target for 15 damage over 5 seconds
+shadowhelmetsettip=Summon attacks haunt target for 25 damage over 5 seconds
+horrorsettip=Chance to summon horror spirits when attacking foes
+plaguesettip=Chance to summon mouses when attacking foes
+copperminersettip=Increases the light of magic lamps and candles
+
+// Trinkets
+frenzyhorrorcapetip=+1 max summon \nIncreases movement speed by 20% \nGain 4 health regen per second while below 50% health \nGain up to +50% summon damage based on missing health \nSummons up to 3 horror bats when taking damage
+essenceofcompanionshiptip=Increases life essence gain by 100% \nIncreases life essence duration 100% \nIncreases summon damage and speed greatly for each unused summon\nThe increases diminish slightly beyond first unused summon
+summonergambittip=+1 max summon \n+10 armor \n+50% summon damage \n-50% non-summon damage \n+10% summon crit chance \nCan only be equipped in the ability trinket slot.
+necromancerarmortip=Improves your summoner stats \nGain damage and hp regen on low health \nSummon attacks slows foes \nSummons up to 3 horror bats when taking damage
+mesmersatcheltip=+1 Max Summons \nIncreases Stamina Cap by 100% \nIncreases summon speed by 50% \nIncreases movement speed by 25% \nLights up the area around you
+challengeraptip=Increase max resilience by 65 \nSlows resilience decay by 75% \nIncreases resilience gain by 50% and increases to 100% during boss battles
+necroticclawtip=Summon attacks slows foes \nIncreases knockback resistance \nIncreases armor penetration by 25 \nIncreases summon crit damage by 25%
+frenzystoneringtip=Gain up to +50% summon damage based on missing health \nGain 4 health regen per second while below 50% health
+frozenassassinscowltip=Increases summon crit chance by 15% \nIncreases summon crit damage by 20% \nIncreases summon range by 20%
+shadowhorrorcapetip=+1 max summon \nIncreases movement speed by 20% \nSummons up to 3 horror bats when taking damage
+inducingsatcheltip=Increases summon speed by 40% \nIncreases movement speed by 20% \nLights up the area around you
+spelltablettip=+2 max summons \nIncreases max mana by 60% \nIncreases summon and magic attack speed by 30%
+bonepiletip=Increases armor penetration by 25 \nIncreases summon crit damage by 25%
+demonicpolarclawtip=Summon attacks slows foes \nIncreases knockback resistance
+hystericalmirrortip=+3 max summons \nIncreases summon speed by 45%
+mesmercharmtip=+1 Max Summons \nIncreases Stamina Cap by 80%
+
+// Potions buff
+minionfarmtip=Decreases movement but increases pickup range by 50, mob spawn rate by 50%, summon speed and range by 40%
+minioncloserangetip=Decreases summon range by 80% and increases summon speed and attack speed by 20%
+minioncritchancetip=Increases summon critical chance by 10%
+minionattackspeedtip=Increases summon attack speed by 20%
+minioncrittip=Increases summon critical damage by 50%
+minionrangetip=Increases summon range by 50%
+minionspeedtip=Increases summon speed by 20%
+
+// Mounts
+chieftainhattip=Tranforms you into a chieftain that can't swim \nIncreases your health, armor and max minion slots \nHold [input=trinketability] to boost yourself at the cost of stamina \nThis boost increases your speed, damage, hp regen and reduces knockback received
+magiccheesetip=Tranforms you into a mouse \nPrevents you from using items \nGreatly decreases your target range, making foes ignore you
+
+// Boss desc
+horrorportaltip=Summons an army of horror spirits
+
+// Materials
+purehorrortip=Used to craft nightmare equipments
+
+// Others
+minionspacetakentip=Each summon takes up <amount> summon slots
+sentrytip=Summons a sentry that shoots at foes
+minionactivecap=Capped at <amount> minions
+lifestealtip=Heals on hit by <amount> hp
+chargetip=Charge: <amount>%
+
+[mob]
+// Minions
+enchantedbabyzombiearcher=Enchanted Baby Zombie Archer Minion
+lampminioncastle=Spider Castle Candelabra Minion
+enchantedbabyzombie=Enchanted Baby Zombie Minion
+lampminiondungeon=Dungeon Candelabra Minion
+golemsapphireminion=Sapphire Golem Minion
+golemamethystminion=Amethyst Golem Minion
+golememeraldminion=Emerald Golem Minion
+tungstenlampminion=Tungsten Lamp Minion
+goldlampminion=Double Gold Lamp Minion
+runerangedminion=Runic Shaman Minion
+copperlampminion=Copper Lamp Minion
+runemeleeminion=Runic Brute Minion
+golemrubyminion=Ruby Golem Minion
+beequeenminion=Bee Queen Minion
+vampireminion=Vampire Minion
+polarminion=Polar Minion
+bearminion=Bear Minion
+
+// Sentry
+iceblossomsentry=Ice Blossom Sentry
+sunflowersentry=Sunflower Sentry
+firemonesentry=Firemone Sentry
+mushroomsentry=Mushroom Sentry
+caveglowsentry=Caveglow Sentry
+coffinsentry=Coffin Sentry
+
+// Sentry minions
+batcryptminion=Crypt Bat Minion
+mushroomminion=Mushroom Minion
+beeminion=Bee Minion
+
+// Secondary minions
+explosivesnowmanminion=Explosive Snowman Minion
+magicpickaxeminion=Magic Pickaxe Minion
+frozendwarfminion=Frozen Dwarf Minion
+runicshieldminion=Runic Shield Minion
+magicaxeminion=Magic Axe Minion
+
+// Melee minions
+horrorcrawlingzombieminion=Horror Crawling Zombie Minion
+fishmackerelminion=Fish Mackerel Minion
+fishherringminion=Fish Herring Minion
+goblinchestminion=Goblin Chest Minion
+fishsalmonminion=Fish Salmon Minion
+horrorwolfminion=Horror Wolf Minion
+horrorbullminion=Horror Bull Minion
+goblinheadminion=Goblin Head Minion
+fishtroutminion=Fish Trout Minion
+goblinlegminion=Goblin Leg Minion
+fishcarpminion=Fish Carp Minion
+fishianminion=Fishian Minion
+
+// Range minions
+mosquitobowminion=Mosquito Minion
+
+// Equipment minions
+horrorbatminion=Horror Bat Minion
+mouseminion=Mouse Minion
+
+// Mounts
+chiefsummonmount=Chieftain Armor
+mousesummonmount=Mouse Disguise
+
+// Boss
+riftportalmob=Horror Rift Portal
+
+// Foes
+horrorspiritbossmob=Ancient Horror Spirit
+horrorspiritmob=Horror Spirit
+woodmob=Magical Wood
+
+[buff]
+// Buffs
+mushroombuff=Killed foes turn into mushroom minions
+sunflowerbuff=+0.05 health regen while on combat
+horrorswordstack=Horror Sword Attack Speed Buff
+woodbuff=+20% mining speed and +2 mining range
+honeybuff=+0.05% health regen while on combat
+runicshieldbuff=Runic Armor
+firemonebuff=+5% Armor penetration
+iceblossombuff=+5 Armor
+
+// Debuffs
+goblincooldowndebuff=Goblin Sword Cooldown
+spiderbridecooldown=Spider Bride Cooldown
+enchanteddebuff=-10 flat armor
+mosquitodebuff=-10% armor
+mushroomdebuff=20% slow
+honeydebuff=10% slow
+
+[tech]
+summontablecraft=Summoning Table
+summontablecraft2=Demonic Summoning Table
+summontablecraft3=Tungsten Summoning Table
+summontablecraft4=Fallen Summoning Table
