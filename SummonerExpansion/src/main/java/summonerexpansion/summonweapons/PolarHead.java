@@ -13,7 +13,7 @@ public class PolarHead extends SummonToolItem
 {
     public PolarHead()
     {
-        super("polarminion", FollowPosition.WALK_CLOSE, 2F, 200);
+        super("bearpolarminion", FollowPosition.WALK_CLOSE, 2F, 200);
         rarity = Rarity.COMMON;
         attackDamage.setBaseValue(20.0F).setUpgradedValue(1, 50.0F);
         canBeUsedForRaids = false;

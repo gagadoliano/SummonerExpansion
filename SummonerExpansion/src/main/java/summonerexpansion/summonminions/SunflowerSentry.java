@@ -18,6 +18,7 @@ import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
+import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 
@@ -27,6 +28,8 @@ import java.util.function.Predicate;
 
 public class SunflowerSentry extends AttackingFollowingMob implements OEVicinityBuff
 {
+    public IntUpgradeValue flowerLevel = new IntUpgradeValue(250, 0.0F).setUpgradedValue(1, 500);
+    public int flowerRange;
     public static GameTexture texture;
     public float moveAngle;
 
@@ -40,6 +43,7 @@ public class SunflowerSentry extends AttackingFollowingMob implements OEVicinity
         collision = new Rectangle(0, 0, 34, 66);
         hitBox = new Rectangle(0, 0, 34, 66);
         selectBox = new Rectangle();
+        flowerLevel.setBaseValue(250).setUpgradedValue(1, 500);
     }
 
     public void init()
@@ -73,7 +77,9 @@ public class SunflowerSentry extends AttackingFollowingMob implements OEVicinity
 
     public int getBuffRange()
     {
-        return 250;
+        ActiveBuff ab = new ActiveBuff(BuffRegistry.getBuff("sunflowerbuff"), getAttackOwner(), 120, this);
+        flowerRange = flowerLevel.getValue(ab.getUpgradeTier());
+        return flowerRange;
     }
 
     public boolean shouldBuffPlayers() {

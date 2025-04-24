@@ -23,7 +23,7 @@ import necesse.level.maps.Level;
 
 public class BookRunic extends SummonToolItem
 {
-    public IntUpgradeValue maxSummons = new IntUpgradeValue(3, 0.0F);
+    public IntUpgradeValue maxSummons = new IntUpgradeValue(2, 0.0F);
 
     public BookRunic()
     {
@@ -37,7 +37,10 @@ public class BookRunic extends SummonToolItem
         maxSummons.setBaseValue(2).setUpgradedValue(1,4).setUpgradedValue(5,6);
     }
 
-    public int getMaxSummons(InventoryItem item, ItemAttackerMob attackerMob){return maxSummons.getValue(getUpgradeTier(item));}
+    public int getMaxSummons(InventoryItem item, ItemAttackerMob attackerMob)
+    {
+        return maxSummons.getValue(getUpgradeTier(item));
+    }
 
     public int getItemAttackerStoppingDistance(ItemAttackerMob mob, InventoryItem item, int attackRange) {
         return 128;

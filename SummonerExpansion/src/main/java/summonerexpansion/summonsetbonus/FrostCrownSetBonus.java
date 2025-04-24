@@ -32,7 +32,6 @@ public class FrostCrownSetBonus extends SetBonusBuff
         {
             event.target.buffManager.addBuff(new ActiveBuff(BuffRegistry.Debuffs.FREEZING, event.target, 5.0F, event.attacker), event.target.isServer());
         }
-
     }
 
     public ListGameTooltips getTooltip(ActiveBuff ab, GameBlackboard blackboard)

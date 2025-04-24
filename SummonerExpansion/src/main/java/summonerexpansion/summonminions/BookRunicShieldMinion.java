@@ -34,7 +34,6 @@ public class BookRunicShieldMinion extends FlyingAttackingFollowingMob
         setSpeed(100.0F);
         setFriction(2.0F);
         moveAccuracy = 5;
-        isStatic = false;
         collision = new Rectangle(-30, -30, 60, 60);
         hitBox = new Rectangle(-30, -30, 60, 60);
         selectBox = new Rectangle();

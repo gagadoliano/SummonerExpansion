@@ -38,7 +38,7 @@ public class CaveglowProj extends FollowingProjectile
     {
         super.init();
         turnSpeed = 1.25f;
-        givesLight = false;
+        givesLight = true;
         height = 14;
         trailOffset = -14f;
         setWidth(10, true);

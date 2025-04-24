@@ -113,7 +113,7 @@ public class BookMagmaSlimeMinion extends AttackingFollowingJumpingMob
                 target.addBuff(new ActiveBuff(BuffRegistry.getBuff("lampdungeondebuff"), target, 216000.0F, owner), true);
             }
 
-            this.remove(0.0F, 0.0F, (Attacker)null, true);
+            this.remove(0.0F, 0.0F, null, true);
         }
     }
 

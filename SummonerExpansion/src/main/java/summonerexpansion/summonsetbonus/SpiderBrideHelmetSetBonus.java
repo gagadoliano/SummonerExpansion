@@ -1,6 +1,5 @@
 package summonerexpansion.summonsetbonus;
 
-import necesse.engine.modifiers.Modifier;
 import necesse.engine.registries.BuffRegistry;
 import necesse.engine.registries.DamageTypeRegistry;
 import necesse.entity.mobs.MobWasHitEvent;
@@ -35,6 +34,6 @@ public class SpiderBrideHelmetSetBonus extends SpiderBrideSetBonus
     public void addStatTooltips(LinkedList<ItemStatTip> list, ActiveBuff currentValues, ActiveBuff lastValues)
     {
         super.addStatTooltips(list, currentValues, lastValues);
-        currentValues.getModifierTooltipsBuilder(true, true).addLastValues(lastValues).excludeLimits(new Modifier[]{BuffModifiers.SLOW}).buildToStatList(list);
+        currentValues.getModifierTooltipsBuilder(true, true).addLastValues(lastValues).excludeLimits(BuffModifiers.SLOW).buildToStatList(list);
     }
 }

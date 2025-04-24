@@ -63,9 +63,7 @@ public class WormProj extends FollowingProjectile
         if (this.traveledDistance > 50.0F)
         {
             this.findTarget((m) ->
-            {
-                return m.isHostile;
-            }, 0.0F, 250.0F);
+                    m.isHostile, 0.0F, 250.0F);
         }
     }
 

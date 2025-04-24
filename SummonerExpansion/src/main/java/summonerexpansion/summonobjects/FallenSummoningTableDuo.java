@@ -5,12 +5,10 @@ import necesse.engine.registries.ObjectRegistry;
 import necesse.entity.mobs.PlayerMob;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptionsList;
-import necesse.gfx.drawOptions.texture.TextureDrawOptions;
 import necesse.gfx.drawables.LevelSortedDrawable;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.inventory.item.toolItem.ToolType;
-import necesse.inventory.recipe.Ingredient;
 import necesse.inventory.recipe.Tech;
 import necesse.level.gameObject.*;
 import necesse.level.maps.Level;
@@ -22,7 +20,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static summonerexpansion.SummonerExpansion.*;
+import static summonerexpansion.summonothers.SummonerTechs.*;
 
 public class FallenSummoningTableDuo extends CraftingStationObject
 {

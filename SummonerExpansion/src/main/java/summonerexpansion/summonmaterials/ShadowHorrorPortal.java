@@ -27,7 +27,7 @@ public class ShadowHorrorPortal extends ConsumableItem
     {
         super(1, true);
         itemCooldownTime.setBaseValue(2000);
-        setItemCategory(new String[]{"consumable", "bossitems"});
+        setItemCategory("consumable", "bossitems");
         dropsAsMatDeathPenalty = true;
         keyWords.add("boss");
         rarity = Rarity.LEGENDARY;

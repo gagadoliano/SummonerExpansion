@@ -16,7 +16,7 @@ import necesse.level.maps.light.GameLight;
 import java.awt.*;
 import java.util.List;
 
-import static summonerexpansion.SummonerExpansion.SUMMONBOOKCRAFT;
+import static summonerexpansion.summonothers.SummonerTechs.SUMMONBOOKCRAFT;
 
 public class SummoningBookshelf extends CraftingStationObject
 {

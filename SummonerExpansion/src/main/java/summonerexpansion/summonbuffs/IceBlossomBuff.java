@@ -14,7 +14,6 @@ public class IceBlossomBuff extends Buff
 {
     public IceBlossomBuff()
     {
-        isVisible = true;
         canCancel = false;
         shouldSave = false;
         isImportant = true;

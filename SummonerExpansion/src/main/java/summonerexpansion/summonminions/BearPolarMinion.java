@@ -21,9 +21,9 @@ import necesse.level.maps.light.GameLight;
 import java.awt.*;
 import java.util.List;
 
-public class PolarMinion extends AttackingFollowingMob
+public class BearPolarMinion extends AttackingFollowingMob
 {
-    public PolarMinion()
+    public BearPolarMinion()
     {
         super(10);
         setSpeed(30.0F);
@@ -37,23 +37,22 @@ public class PolarMinion extends AttackingFollowingMob
         prioritizeVerticalDir = false;
     }
 
-    public GameDamage getCollisionDamage(Mob target) {
-        return summonDamage;
-    }
-
     public void init()
     {
         super.init();
         ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI(500, summonDamage, 30, 800, 640, 100));
     }
 
-    @Override
+    public GameDamage getCollisionDamage(Mob target) {
+        return summonDamage;
+    }
+
     public void handleCollisionHit(Mob target, GameDamage damage, int knockback)
     {
         Mob owner = this.getAttackOwner();
         if (owner != null && target != null)
         {
-            ActiveBuff buff = new ActiveBuff(BuffRegistry.getBuff("chilled"), target, 600F, this);
+            ActiveBuff buff = new ActiveBuff(BuffRegistry.getBuff("chilled"), target, 60F, this);
             target.addBuff(buff, true);
         }
     }

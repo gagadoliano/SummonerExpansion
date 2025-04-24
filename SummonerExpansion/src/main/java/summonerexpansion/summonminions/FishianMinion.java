@@ -75,19 +75,19 @@ public class FishianMinion extends AttackingFollowingMob
         lifeTime++;
         if (lifeTime >= 600)
         {
-            remove(0.0F, 0.0F, (Attacker)null, true);
+            remove(0.0F, 0.0F, null, true);
         }
     }
 
     public void playHitSound()
     {
-        float pitch = GameRandom.globalRandom.getOneOf(new Float[]{0.95F, 1.0F, 1.05F});
+        float pitch = GameRandom.globalRandom.getOneOf(0.95F, 1.0F, 1.05F);
         SoundManager.playSound(GameResources.crack, SoundEffect.effect(this).volume(1.6F).pitch(pitch));
     }
 
     protected void playDeathSound()
     {
-        float pitch = GameRandom.globalRandom.getOneOf(new Float[]{0.95F, 1.0F, 1.05F});
+        float pitch = GameRandom.globalRandom.getOneOf(0.95F, 1.0F, 1.05F);
         SoundManager.playSound(GameResources.crackdeath, SoundEffect.effect(this).volume(0.8F).pitch(pitch));
     }
 

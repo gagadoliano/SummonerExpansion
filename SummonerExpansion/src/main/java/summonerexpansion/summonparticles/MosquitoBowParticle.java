@@ -14,7 +14,7 @@ import necesse.level.maps.light.GameLight;
 
 import java.util.List;
 
-import static summonerexpansion.SummonerExpansion.MosquitoBowVisual;
+import static summonerexpansion.summonothers.SummonerTextures.MosquitoBowVisual;
 
 public class MosquitoBowParticle extends Particle
 {

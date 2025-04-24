@@ -101,19 +101,19 @@ public class GoblinSword extends SwordToolItem implements ItemInteractAction
         if (goblinCharge >= 100 && attackerMob.isServer())
         {
             GoblinHeadMinion mob1 = new GoblinHeadMinion();
-            attackerMob.serverFollowersManager.addFollower("goblinheadminion", mob1, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, 1, (BiConsumer)null, false);
+            attackerMob.serverFollowersManager.addFollower("goblinheadminion", mob1, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, 1, null, false);
             mob1.updateDamage(this.getAttackDamage(item));
             mob1.setEnchantment(this.getEnchantment(item));
             attackerMob.getLevel().entityManager.addMob(mob1, attackerMob.x, attackerMob.y - 50);
 
             GoblinChestMinion mob2 = new GoblinChestMinion();
-            attackerMob.serverFollowersManager.addFollower("goblinchestminion", mob2, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, 1, (BiConsumer)null, false);
+            attackerMob.serverFollowersManager.addFollower("goblinchestminion", mob2, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, 1, null, false);
             mob2.updateDamage(this.getAttackDamage(item));
             mob2.setEnchantment(this.getEnchantment(item));
             attackerMob.getLevel().entityManager.addMob(mob2, attackerMob.x - 50, attackerMob.y + 50);
 
             GoblinLegMinion mob3 = new GoblinLegMinion();
-            attackerMob.serverFollowersManager.addFollower("goblinlegminion", mob3, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, 1, (BiConsumer)null, false);
+            attackerMob.serverFollowersManager.addFollower("goblinlegminion", mob3, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, 1, null, false);
             mob3.updateDamage(this.getAttackDamage(item));
             mob3.setEnchantment(this.getEnchantment(item));
             attackerMob.getLevel().entityManager.addMob(mob3, attackerMob.x + 50, attackerMob.y + 50);

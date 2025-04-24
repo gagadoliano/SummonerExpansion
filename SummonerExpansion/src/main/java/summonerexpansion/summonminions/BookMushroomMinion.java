@@ -33,12 +33,12 @@ public class BookMushroomMinion extends AttackingFollowingMob
 
     public BookMushroomMinion()
     {
-        super(200);
+        super(350);
         setSpeed(50.0F);
         setFriction(2.0F);
         collision = new Rectangle(-10, -7, 20, 14);
         hitBox = new Rectangle(-12, -14, 24, 24);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(-16, -40, 32, 50);
         swimMaskMove = 12;
         swimMaskOffset = 0;
         swimSinkOffset = 0;

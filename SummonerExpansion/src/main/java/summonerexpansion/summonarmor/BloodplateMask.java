@@ -8,10 +8,12 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.SetHelmetArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 
 public class BloodplateMask extends SetHelmetArmorItem
 {
     public FloatUpgradeValue healthRegen = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1.0F, 0.25F);
+    public IntUpgradeValue maxMinion = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1.0F, 2);
 
     public BloodplateMask()
     {
@@ -22,6 +24,6 @@ public class BloodplateMask extends SetHelmetArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue(BuffModifiers.MAX_SUMMONS, 1), new ModifierValue(BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, healthRegen.getValue(this.getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue(BuffModifiers.MAX_SUMMONS, maxMinion.getValue(this.getUpgradeTier(item))), new ModifierValue(BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, healthRegen.getValue(this.getUpgradeTier(item))));
     }
 }

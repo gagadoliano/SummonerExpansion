@@ -43,7 +43,7 @@ public class HorrorScytheHandler extends GreatswordAttackHandler
         if (attackerMob.isServer())
         {
             HorrorBullMinion mob = new HorrorBullMinion();
-            attackerMob.serverFollowersManager.addFollower("horrorbullminion", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, 1, (BiConsumer)null, false);
+            attackerMob.serverFollowersManager.addFollower("horrorbullminion", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, 1, null, false);
             Point2D.Float spawnPoint = SummonToolItem.findSpawnLocation(mob, this.attackerMob.getLevel(), this.attackerMob.x, this.attackerMob.y);
             mob.updateDamage(toolItem.getAttackDamage(item).modFinalMultiplier(0.8f));
             mob.setEnchantment(toolItem.getEnchantment(item));

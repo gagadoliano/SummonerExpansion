@@ -14,7 +14,6 @@ public class FiremoneBuff extends Buff
 {
     public FiremoneBuff()
     {
-        isVisible = true;
         canCancel = false;
         shouldSave = false;
         isImportant = true;
@@ -23,7 +22,7 @@ public class FiremoneBuff extends Buff
     @Override
     public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber)
     {
-        activeBuff.setModifier(BuffModifiers.ARMOR_PEN, 0.05f);
+        activeBuff.setModifier(BuffModifiers.ARMOR_PEN, 0.10F);
     }
 
     public void clientTick(ActiveBuff buff)

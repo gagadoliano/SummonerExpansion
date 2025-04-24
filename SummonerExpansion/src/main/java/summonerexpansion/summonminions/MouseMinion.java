@@ -52,7 +52,7 @@ public class MouseMinion extends AttackingFollowingMob
         {
             target.isServerHit(damage, target.x - owner.x, target.y - owner.y, (float)knockback, this);
             this.collisionHitCooldowns.startCooldown(target);
-            this.remove(0.0F, 0.0F, (Attacker)null, true);
+            this.remove(0.0F, 0.0F, null, true);
         }
     }
 
@@ -66,7 +66,7 @@ public class MouseMinion extends AttackingFollowingMob
     {
         super.serverTick();
         this.lifeTime++;
-        if (this.lifeTime >= 1000)
+        if (this.lifeTime >= 1200)
         {
             this.remove(0.0F, 0.0F, (Attacker)null, true);
         }

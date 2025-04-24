@@ -69,7 +69,7 @@ public class CoffinSentry extends AttackingFollowingMob
         if (coffinCharge >= 10)
         {
             FlyingAttackingFollowingMob mob = (FlyingAttackingFollowingMob) MobRegistry.getMob("batcryptminion", getFollowingItemAttacker().getLevel());
-            getFollowingItemAttacker().serverFollowersManager.addFollower("batcryptminion", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, (p) -> {return 100;}, (BiConsumer)null, false);
+            getFollowingItemAttacker().serverFollowersManager.addFollower("batcryptminion", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, (p) -> 100, null, false);
             mob.updateDamage(summonDamage);
             this.getLevel().entityManager.addMob(mob, x, y);
             coffinCharge = 0;

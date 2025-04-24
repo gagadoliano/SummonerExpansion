@@ -5,7 +5,6 @@ import necesse.engine.registries.ObjectRegistry;
 import necesse.entity.mobs.PlayerMob;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptionsList;
-import necesse.gfx.drawOptions.texture.TextureDrawOptions;
 import necesse.gfx.drawables.LevelSortedDrawable;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
@@ -22,8 +21,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static summonerexpansion.SummonerExpansion.SUMMONTABLECRAFT;
-import static summonerexpansion.SummonerExpansion.SUMMONTABLECRAFT2;
+import static summonerexpansion.summonothers.SummonerTechs.SUMMONTABLECRAFT;
+import static summonerexpansion.summonothers.SummonerTechs.SUMMONTABLECRAFT2;
 
 public class DemonicSummoningTableDuo extends CraftingStationObject
 {

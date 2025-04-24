@@ -14,7 +14,6 @@ public class SunflowerBuff extends Buff
 {
     public SunflowerBuff()
     {
-        isVisible = true;
         canCancel = false;
         shouldSave = false;
         isImportant = true;
@@ -23,7 +22,7 @@ public class SunflowerBuff extends Buff
     @Override
     public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber)
     {
-        activeBuff.setModifier(BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, 0.05f);
+        activeBuff.setModifier(BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, 0.05F);
     }
 
     public void clientTick(ActiveBuff buff)

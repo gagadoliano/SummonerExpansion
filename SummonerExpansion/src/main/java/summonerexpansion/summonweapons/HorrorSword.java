@@ -35,7 +35,7 @@ public class HorrorSword extends SwordToolItem
         rarity = Rarity.EPIC;
         damageType = DamageTypeRegistry.SUMMON;
         attackDamage.setBaseValue(40.0F).setUpgradedValue(1.0F, 65.0F);
-        attackAnimTime.setBaseValue(1000);
+        attackAnimTime.setBaseValue(900);
         resilienceGain.setBaseValue(0F);
         attackRange.setBaseValue(50);
         knockback.setBaseValue(80);

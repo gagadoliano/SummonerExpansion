@@ -6,6 +6,7 @@ demonicsummoningtableduo=Demonic Summoning Table
 tungstensummoningtableduo=Tungsten Summoning Table
 fallensummoningtableduo=Fallen Summoning Table
 summoningbookshelf=Summoning Bookshelf
+bannerofwater=Banner of Water
 
 [item]
 // Minion weapons
@@ -18,9 +19,11 @@ gemamethystshards=Amethyst Shards
 gemsapphireshards=Sapphire Shards
 magiccopperlamp=Magic Copper Lamp
 gememeraldshards=Emerald Shards
+sandwormstaff=Sand Worm Staff
 runebonestaff=Runebone Staff
 bearhead=Grizzly Bear Head
 vampirewings=Vampire Wings
+dryadessence=Dryad Essence
 gemrubyshards=Ruby Shards
 polarhead=Polar Head
 royalhive=Royal Hive
@@ -53,10 +56,10 @@ wormbucket=Worm Bucket
 mosquitobow=Mosquito Bow
 
 // Armor pieces
+copperminerhat=Copper Miner Hat
 bloodplatemask=Bloodplate Mask
 shadowhelmet=Shadow Helmet
 frostcrown=Frost Crown
-copperminerhat=Copper Miner Hat
 
 // Armor sets
 summonplaguemask=Summoner Plague Mask
@@ -124,6 +127,9 @@ shadowhorrorportal=Shadow Horror Portal
 // Materials
 purehorror=Pure Horror
 
+// Foods
+rottenbread=Rotten Bread
+
 [itemtooltip]
 // Minion weapons
 runebonestafftip=Summons a runebound brute that attack foes with an axe \nHave a small chance to summon a runebond shaman instead \nHigher upgrade tiers increases the summoning chance
@@ -135,12 +141,14 @@ emeraldshardtip=Summons an emerald golem \nThis golem shoots a laser that pierce
 enchantedbrainonasticktip=Summons 2 enchanted zombies \nMelee zombies reduces foe's armor by 10
 magictungstenlamptip=Summons a tungsten lamp that glows and attack \nBurn foes on hit
 magicgoldlamptip=Summons a double gold lamp that glows and attack \nBurn foes on hit
+dryadessencetip=Summons a slow moving ghoul \nThis ghoul leaves a damaging trail
 rubyshardtip=Summons a ruby golem \nThis golem shoots crystal shards at foes
 lampminiondungeontip=Summons a dungeon candelabra \nBurn foes at night
 vampirewingstip=Summons a vampire that shoots blood bolts at foes
 magiccopperlamptip=Summons a copper lamp that glows and attack
 polarheadtip=Summons a polar bear that attack and slows foes
-bearheadtip=Summons a grizzly bear that attack foes
+bearheadtip=Summons a grizzly bear that attack foes \nHit foes will start bleeding, causing damage and lowering their damage by 20%
+sandwormstafftip=Summons a sand worm to attack foes
 
 // Sentry weapons
 bookmushroomtip=Summons a sentry that slows nearby foes \nSometimes turn killed foes into mushroom allies
@@ -153,8 +161,8 @@ iceblossomsentrytip=Buffs nearby player's armor
 // Secondary weapons
 explosivesnowballtip=Summons a snowman with a chance to explode on hit \nThe explosion does double damage and damages players
 bookmagmatip=Summons magma slimes that attacks very close foes \nIf the target is under a burn effect, it will last forever
+magictoolstip=Summons magic tools \nThey provide a stacking buff on hit that increases mining range and mining speed
 bookrunictip=Summons runic shields that orbit you \nIncreases your armor with a stacking buff when they hit foes
-magictoolstip=Summons magic tools \nThey provide a buff on hit that increases mining range and speed by 20%
 bookfrozentip=Summons frozen dwarfs that throws ice javelins that slows foes by 30%
 bookbeetip=Summons 3 bees \nThey slows foes by 10%
 
@@ -162,20 +170,21 @@ bookbeetip=Summons 3 bees \nThey slows foes by 10%
 horrorglaivetip=Charges the glaive by hitting foes \nUse [input=mouse2] when fully charged to summon a horror sentry
 goblinswordtip=Charges the sword by hitting foes \nUse [input=mouse2] when fully charged to summon 3 goblins
 fishianspeartip=Summons a fishian on your next attack when fully charged \nCharges the spear by hitting foes
+horrorswordtip=Gains attack speed stacks by hitting foes \nAt max stacks summons a horror crawling zombie
 horrorscythetip=Half charge to summon up to 3 horror wolfs \nFully charge to summon a horror bull
 wormbuckettip=10% chance to summon a fish when attacking foes
-horrorswordtip=Gains attack speed stacks by hitting foes \nAt max stacks summons a horror crawling zombie
 
 // Range weapons
 mosquitobowtip=Shoots down arrows from above that leaves a damaging pool in it's wake \nEvery 20 hits summons a mosquito that reduces foes armor \nSummoned mosquitos may attack foes or not
 
 // Armor set bonus
 spiderbridesettip=Grants immunity to slows \nSummon attacks poison target for 25 damage over 5 seconds \nPress [input=setability] to summon a spider bride that shoots poison and webs
+bloodplateset=After taking damage, your health regen is doubled for 4 seconds \nVampire minions will shoot projectiles that travel faster and deals +50% damage
 frostcrownsettip=Summon attacks slows and damages the target for 15 damage over 5 seconds
 shadowhelmetsettip=Summon attacks haunt target for 25 damage over 5 seconds
 horrorsettip=Chance to summon horror spirits when attacking foes
-plaguesettip=Chance to summon mouses when attacking foes
 copperminersettip=Increases the light of magic lamps and candles
+plaguesettip=Periodically summons mouses during combat
 
 // Trinkets
 frenzyhorrorcapetip=+1 max summon \nIncreases movement speed by 20% \nGain 4 health regen per second while below 50% health \nGain up to +50% summon damage based on missing health \nSummons up to 3 horror bats when taking damage
@@ -214,6 +223,9 @@ horrorportaltip=Summons an army of horror spirits
 // Materials
 purehorrortip=Used to craft nightmare equipments
 
+// Objects
+bannerofwatertip=Allows water walking \nGreatly increases your world view and travel range
+
 // Others
 minionspacetakentip=Each summon takes up <amount> summon slots
 sentrytip=Summons a sentry that shoots at foes
@@ -232,13 +244,15 @@ golemamethystminion=Amethyst Golem Minion
 golememeraldminion=Emerald Golem Minion
 tungstenlampminion=Tungsten Lamp Minion
 goldlampminion=Double Gold Lamp Minion
+spiritghoulminion=Spirit Ghoul Minion
 runerangedminion=Runic Shaman Minion
 copperlampminion=Copper Lamp Minion
 runemeleeminion=Runic Brute Minion
 golemrubyminion=Ruby Golem Minion
+sandwormminion=Sand Worm Minion
 beequeenminion=Bee Queen Minion
 vampireminion=Vampire Minion
-polarminion=Polar Minion
+bearpolarminion=Polar Minion
 bearminion=Bear Minion
 
 // Sentry
@@ -297,13 +311,13 @@ woodmob=Magical Wood
 [buff]
 // Buffs
 mushroombuff=Killed foes turn into mushroom minions
-sunflowerbuff=+0.05 health regen while on combat
+woodtoolbuff=Increased mining range and mining speed
+sunflowerbuff=Health regen while on combat
 horrorswordstack=Horror Sword Attack Speed Buff
-woodbuff=+20% mining speed and +2 mining range
-honeybuff=+0.05% health regen while on combat
+honeybuff=Health regen while on combat
+firemonebuff=Armor penetration
 runicshieldbuff=Runic Armor
-firemonebuff=+5% Armor penetration
-iceblossombuff=+5 Armor
+iceblossombuff=Armor
 
 // Debuffs
 goblincooldowndebuff=Goblin Sword Cooldown
@@ -312,6 +326,27 @@ enchanteddebuff=-10 flat armor
 mosquitodebuff=-10% armor
 mushroomdebuff=20% slow
 honeydebuff=10% slow
+bleedingdebuff=-20% damage and 2 poison damage
+
+[journal]
+watergrasscollected=[item=watergrass] Gather 35 Water Grass
+lanternplaced=[item=waterlantern] Place a water lantern
+fincollected=[item=fins] Gather a fin trinket
+bucketcrafted=[item=bucket] Craft a bucket
+duckkilled=[mob=duck] Beat a duck
+
+[enchantment]
+uncontrollable=Uncontrollable
+incapacitated=Incapacitated
+unambiguous=Unambiguous
+definitive=Definitive
+ferocious=Ferocious
+frenzied=Frenzied
+maniacal=Maniacal
+untamed=Untamed
+strict=Strict
+fierce=Fierce
+feral=Feral
 
 [tech]
 summontablecraft=Summoning Table

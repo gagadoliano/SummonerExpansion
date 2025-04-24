@@ -10,13 +10,17 @@ public class HoneyBuff extends Buff
     public HoneyBuff()
     {
         canCancel = true;
-        isVisible = true;
         shouldSave = false;
+        isImportant = true;
     }
 
     @Override
     public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber)
     {
-        activeBuff.setModifier(BuffModifiers.COMBAT_HEALTH_REGEN, 0.05f);
+        activeBuff.setModifier(BuffModifiers.COMBAT_HEALTH_REGEN, 0.02f);
+    }
+
+    public int getStackSize(ActiveBuff buff) {
+        return 10;
     }
 }

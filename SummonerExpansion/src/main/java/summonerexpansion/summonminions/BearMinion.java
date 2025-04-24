@@ -1,10 +1,12 @@
 package summonerexpansion.summonminions;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
+import necesse.engine.registries.BuffRegistry;
 import necesse.engine.registries.MobRegistry;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerCollisionChaserAI;
+import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
@@ -43,6 +45,16 @@ public class BearMinion extends AttackingFollowingMob
 
     public GameDamage getCollisionDamage(Mob target) {
         return summonDamage;
+    }
+
+    public void handleCollisionHit(Mob target, GameDamage damage, int knockback)
+    {
+        Mob owner = this.getAttackOwner();
+        if (owner != null && target != null)
+        {
+            ActiveBuff buff = new ActiveBuff(BuffRegistry.getBuff("bleedingdebuff"), target, 10F, this);
+            target.addBuff(buff, true);
+        }
     }
 
     public void spawnDeathParticles(float knockbackX, float knockbackY)

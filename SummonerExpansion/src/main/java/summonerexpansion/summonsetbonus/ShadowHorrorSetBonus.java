@@ -59,9 +59,7 @@ public class ShadowHorrorSetBonus extends SetBonusBuff
                 ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
                 Level level = buff.owner.getLevel();
                 AttackingFollowingMob mob = (AttackingFollowingMob)MobRegistry.getMob("horrorbabyminion", level);
-                attackerMob.serverFollowersManager.addFollower("shadowhorrorsetbonus", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, (p) -> {
-                    return 5;
-                }, (BiConsumer)null, false);
+                attackerMob.serverFollowersManager.addFollower("shadowhorrorsetbonus", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, (p) -> 5, null, false);
                 Point2D.Float spawnPoint = SummonToolItem.findSpawnLocation(mob, level, attackerMob.x, attackerMob.y);
                 mob.updateDamage(new GameDamage(DamageTypeRegistry.SUMMON, horrorDamage.getValue(buff.getUpgradeTier())));
                 mob.setRemoveWhenNotInInventory(ItemRegistry.getItem("shadowhorrorhood"), CheckSlotType.HELMET);
