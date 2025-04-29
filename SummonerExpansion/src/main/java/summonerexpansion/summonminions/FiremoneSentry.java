@@ -6,6 +6,7 @@ import necesse.engine.registries.ProjectileRegistry;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerChaserAI;
+import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerCollisionChaserAI;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.staticBuffs.Buff;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
@@ -27,8 +28,7 @@ import java.util.function.Predicate;
 
 public class FiremoneSentry extends AttackingFollowingMob implements OEVicinityBuff
 {
-    public IntUpgradeValue flowerLevel = new IntUpgradeValue(250, 0.0F).setUpgradedValue(1, 500);
-    public int flowerRange;
+    public int flowerRange = 500;
     public static GameTexture texture;
     public float moveAngle;
 
@@ -37,47 +37,31 @@ public class FiremoneSentry extends AttackingFollowingMob implements OEVicinityB
         super(10);
         setSpeed(0.0F);
         setFriction(0F);
-        attackAnimTime = 750;
-        attackCooldown = 2000;
         collision = new Rectangle(0, 0, 34, 54);
         hitBox = new Rectangle(0, 0, 34, 54);
         selectBox = new Rectangle();
-        flowerLevel.setBaseValue(250).setUpgradedValue(1, 500);
     }
 
     public void init()
     {
         super.init();
-        this.ai = new BehaviourTreeAI<>(this, new PlayerFollowerChaserAI<FiremoneSentry>(600, 900, false, false, 90000, 64)
-        {
-            public boolean attackTarget(FiremoneSentry mob, Mob target)
-            {
-                if (mob.canAttack())
-                {
-                    mob.attack(target.getX(), target.getY(), false);
-                    Projectile projectile = ProjectileRegistry.getProjectile("firemoneproj", mob.getLevel(), mob.x, mob.y, target.x, target.y, 70F, 600, summonDamage, mob);
-                    projectile.setTargetPrediction(target, -20.0F);
-                    projectile.moveDist(40.0);
-                    mob.getLevel().entityManager.projectiles.add(projectile);
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        });
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI(0, null, 0, 0, 90000, 64));
     }
 
     public Buff[] getBuffs()
     {
-        return new Buff[]{BuffRegistry.getBuff("firemonebuff")};
+        if (flowerRange >= 600)
+        {
+            return new Buff[]{BuffRegistry.getBuff("firemonebufft1")};
+        }
+        else
+        {
+            return new Buff[]{BuffRegistry.getBuff("firemonebuff")};
+        }
     }
 
     public int getBuffRange()
     {
-        ActiveBuff ab = new ActiveBuff(BuffRegistry.getBuff("firemonebuff"), getAttackOwner(), 120, this);
-        flowerRange = flowerLevel.getValue(ab.getUpgradeTier());
         return flowerRange;
     }
 

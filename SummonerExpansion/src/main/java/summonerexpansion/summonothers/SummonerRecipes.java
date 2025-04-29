@@ -33,6 +33,16 @@ public class SummonerRecipes
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "tanktrainingdummy",
+                1,
+                RecipeTechRegistry.CARPENTER,
+                new Ingredient[]{
+                        new Ingredient("trainingdummy", 1),
+                        new Ingredient("ironbar", 100)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "magictools",
                 1,
                 RecipeTechRegistry.WORKSTATION,
@@ -333,6 +343,17 @@ public class SummonerRecipes
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "cactusstaff",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("sandtile", 10),
+                        new Ingredient("thorns", 25),
+                        new Ingredient("cactussapling", 50)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "explosivesnowball",
                 1,
                 SUMMONTABLECRAFT,
@@ -590,7 +611,6 @@ public class SummonerRecipes
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
                         new Ingredient("brutesbattleaxe", 1),
-                        new Ingredient("boneoffering", 1),
                         new Ingredient("runeboundbackbones", 1),
                         new Ingredient("resistancepotion", 5)
                 }

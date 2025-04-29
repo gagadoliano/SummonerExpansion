@@ -1,11 +1,11 @@
 package summonerexpansion.summonothers;
 
+import necesse.engine.localization.message.GameMessage;
+import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.registries.MobRegistry;
+import necesse.entity.mobs.TrainingDummyMob;
 import summonerexpansion.summonminions.*;
-import summonerexpansion.summonmobs.HorrorSpiritBossMob;
-import summonerexpansion.summonmobs.HorrorSpiritMob;
-import summonerexpansion.summonmobs.RiftPortalMob;
-import summonerexpansion.summonmobs.WoodMob;
+import summonerexpansion.summonmobs.*;
 
 public class SummonerMobs
 {
@@ -29,6 +29,7 @@ public class SummonerMobs
         MobRegistry.registerMob("lampminiongold", LampMinionGold.class, false);
         MobRegistry.registerMob("beequeenminion", BeeQueenMinion.class, false);
         MobRegistry.registerMob("vampireminion", VampireMinion.class, false);
+        MobRegistry.registerMob("cactusminion", CactusMinion.class, false);
         MobRegistry.registerMob("bearminion", BearMinion.class, false);
 
         // Worm Minions
@@ -61,6 +62,8 @@ public class SummonerMobs
         // Range Minions
         MobRegistry.registerMob("mosquitobowminion", MosquitoBowMinion.class, false);
 
+        // Magic Minions
+
         // Armor Minions
         MobRegistry.registerMob("spiderbrideminion", SpiderBrideMinion.class, false);
         MobRegistry.registerMob("horrorbabyminion", HorrorBabyMinion.class, false);
@@ -70,13 +73,22 @@ public class SummonerMobs
         MobRegistry.registerMob("horrorbatminion", HorrorBatMinion.class, false);
 
         // Sentries
+        MobRegistry.registerMob("leafshotcoldsentry", LeafShotColdSentry.class, false);
+        MobRegistry.registerMob("leafshotheatsentry", LeafShotHeatSentry.class, false);
         MobRegistry.registerMob("mushroomsentry", BookMushroomSentry.class, false);
+        MobRegistry.registerMob("horrorspikesentry", HorrorSentry.class, false);
+        MobRegistry.registerMob("caveglowsentry", CaveglowSentry.class, false);
+        MobRegistry.registerMob("leafshotsentry", LeafShotSentry.class, false);
+        MobRegistry.registerMob("coffinsentry", CoffinSentry.class, false);
+
+        // Melee Sentries
+
+        // Ranged Sentries
+
+        // Magic Sentries
         MobRegistry.registerMob("iceblossomsentry", IceBlossomSentry.class, false);
         MobRegistry.registerMob("sunflowersentry", SunflowerSentry.class, false);
-        MobRegistry.registerMob("horrorspikesentry", HorrorSentry.class, false);
         MobRegistry.registerMob("firemonesentry", FiremoneSentry.class, false);
-        MobRegistry.registerMob("caveglowsentry", CaveglowSentry.class, false);
-        MobRegistry.registerMob("coffinsentry", CoffinSentry.class, false);
 
         // Minions from minions
         MobRegistry.registerMob("mushroomminion", BookMushroomMinion.class, false);
@@ -88,5 +100,11 @@ public class SummonerMobs
         MobRegistry.registerMob("horrorspiritbossmob", HorrorSpiritBossMob.class, true);
         MobRegistry.registerMob("horrorspiritmob", HorrorSpiritMob.class, true);
         MobRegistry.registerMob("woodmob", WoodMob.class, true);
+
+        // Settlers
+        MobRegistry.registerMob("druidhuman", DruidHumanMob.class, true);
+
+        // Others
+        MobRegistry.registerMob("tanktrainingdummy", TankTrainingDummyMob.class, false, false, new LocalMessage("object", "trainingdummy"), null);
     }
 }

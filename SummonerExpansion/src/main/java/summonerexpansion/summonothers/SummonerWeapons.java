@@ -14,7 +14,11 @@ public class SummonerWeapons
 
         // Minion
         ItemRegistry.registerItem("enchantedbrainonastick", new EnchantedBrainOnAStick(), 50, true);
+        ItemRegistry.registerItem("leafshotheatpack", new LeafShotHeatPack(), 50, true);
+        ItemRegistry.registerItem("leafshotcoldpack", new LeafShotColdPack(), 50, true);
         ItemRegistry.registerItem("magiccopperlamp", new MagicCopperLamp(), 50, true);
+        ItemRegistry.registerItem("leafshotpack", new LeafShotPack(), 50, true);
+        ItemRegistry.registerItem("cactusstaff", new CactusStaff(), 50, true);
         ItemRegistry.registerItem("royalhive", new RoyalHive(), 50, true);
         ItemRegistry.registerItem("polarhead", new PolarHead(), 50, true);
         ItemRegistry.registerItem("bearhead", new BearHead(), 50, true);
@@ -22,15 +26,17 @@ public class SummonerWeapons
         ItemRegistry.registerItem("wormbucket", new WormBucket(), 50, true);
         // Ranged
 
+        // Magic
+        ItemRegistry.registerItem("iceblossomstaff", new IceBlossomStaff(), 50, true);
+        ItemRegistry.registerItem("sunflowerstaff", new SunflowerStaff(), 50, true);
+        ItemRegistry.registerItem("firemonestaff", new FiremoneStaff(), 50, true);
+
         // Secondary
         ItemRegistry.registerItem("explosivesnowball", new ExplosiveSnowball(), 50, true);
         ItemRegistry.registerItem("magictools", new MagicTools(), 50, true);
         ItemRegistry.registerItem("bookmagma", new BookMagma(), 50, true);
         ItemRegistry.registerItem("bookbee", new BookBee(), 50, true);
         // Sentry
-        ItemRegistry.registerItem("iceblossomstaff", new IceBlossomStaff(), 50, true);
-        ItemRegistry.registerItem("sunflowerstaff", new SunflowerStaff(), 50, true);
-        ItemRegistry.registerItem("firemonestaff", new FiremoneStaff(), 50, true);
         ItemRegistry.registerItem("bookmushroom", new BookMushroom(), 50, true);
 
         // --Weapons T2--

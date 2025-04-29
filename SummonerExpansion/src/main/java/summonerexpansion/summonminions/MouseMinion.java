@@ -38,7 +38,7 @@ public class MouseMinion extends AttackingFollowingMob
     }
 
     public GameDamage getCollisionDamage(Mob target) {
-        return this.summonDamage;
+        return summonDamage;
     }
 
     public int getCollisionKnockback(Mob target) {
@@ -59,16 +59,16 @@ public class MouseMinion extends AttackingFollowingMob
     public void init()
     {
         super.init();
-        this.ai = new BehaviourTreeAI(this, new PlayerFollowerCollisionChaserAI(400, (GameDamage)null, 30, 500, 640, 64));
+        this.ai = new BehaviourTreeAI(this, new PlayerFollowerCollisionChaserAI(400, null, 30, 500, 640, 64));
     }
 
     public void serverTick()
     {
         super.serverTick();
         this.lifeTime++;
-        if (this.lifeTime >= 1200)
+        if (this.lifeTime >= 2400)
         {
-            this.remove(0.0F, 0.0F, (Attacker)null, true);
+            this.remove(0.0F, 0.0F, null, true);
         }
     }
 

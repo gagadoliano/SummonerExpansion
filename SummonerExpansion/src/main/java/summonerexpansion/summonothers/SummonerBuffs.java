@@ -40,13 +40,16 @@ public class SummonerBuffs
         BuffRegistry.registerBuff("bannerofmana", SummonerBanners.MANABOOST = new ManaBannerBuff());
 
         // Minion buffs
+        BuffRegistry.registerBuff("iceblossombufft1", new IceBlossomBuffT1());
+        BuffRegistry.registerBuff("sunflowerbufft1", new SunflowerBuffT1());
         BuffRegistry.registerBuff("runicshieldbuff", new RunicShieldBuff());
+        BuffRegistry.registerBuff("firemonebufft1", new FiremoneBuffT1());
         BuffRegistry.registerBuff("iceblossombuff", new IceBlossomBuff());
         BuffRegistry.registerBuff("sunflowerbuff", new SunflowerBuff());
+        BuffRegistry.registerBuff("woodtoolbuff", new WoodToolBuff());
         BuffRegistry.registerBuff("firemonebuff", new FiremoneBuff());
         BuffRegistry.registerBuff("mushroombuff", new MushroomBuff());
         BuffRegistry.registerBuff("honeybuff", new HoneyBuff());
-        BuffRegistry.registerBuff("woodtoolbuff", new WoodToolBuff());
 
         // Minion debuffs
         BuffRegistry.registerBuff("lamptungstendebuff", new LampTungstenDebuff());

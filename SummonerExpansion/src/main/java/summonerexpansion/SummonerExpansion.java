@@ -1,5 +1,6 @@
 package summonerexpansion;
 
+import necesse.level.gameObject.TrainingDummyObject;
 import necesse.level.maps.biomes.Biome;
 import summonerexpansion.summonobjects.*;
 import summonerexpansion.summonothers.*;
@@ -16,6 +17,7 @@ public class SummonerExpansion
         SummonerEnchantments.registerSummonEnchantments();
         SummonerChallenges.registerSummonChallenges();
         SummonerProjectiles.registerSummonProjs();
+        SummonerSettlers.registerSummonSettlers();
         SummonerJournal.registerSummonerJournal();
         SummonerWeapons.registerSummonWeapons();
         SummonerEquips.registerSummonEquips();
@@ -36,6 +38,9 @@ public class SummonerExpansion
         ObjectRegistry.registerObject("summoningbookshelf", new SummoningBookshelf(), 50, true);
         ObjectRegistry.registerObject("bannerofwater", new BannerOfWater(), 100, true);
         BuffRegistry.registerBuff("waterbannerbuff", new WaterBannerBuff());
+
+        ObjectRegistry.registerObject("tanktrainingdummy", new TankTrainingDummyObject(), 60.0F, true);
+
     }
 
     public void initResources()

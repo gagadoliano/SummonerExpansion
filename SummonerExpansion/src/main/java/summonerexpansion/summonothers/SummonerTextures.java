@@ -53,6 +53,7 @@ public class SummonerTextures
         FishCarpMinion.texture = GameTexture.fromFile("mobs/fishcarpminion");
         VampireMinion.texture = GameTexture.fromFile("mobs/vampireminion");
         FishianMinion.texture = GameTexture.fromFile("mobs/fishianminion");
+        CactusMinion.texture = GameTexture.fromFile("mobs/cactusminion");
         MouseMinion.texture = GameTexture.fromFile("mobs/mouseminion");
 
         // Worm
@@ -67,6 +68,9 @@ public class SummonerTextures
         FiremoneSentry.texture = GameTexture.fromFile("mobs/firemonesentry");
         CaveglowSentry.texture = GameTexture.fromFile("mobs/caveglowsentry");
         CoffinSentry.texture = GameTexture.fromFile("mobs/coffinsentry");
+        LeafShotSentry.texture = GameTexture.fromFile("mobs/leafshotsentry");
+        LeafShotHeatSentry.texture = GameTexture.fromFile("mobs/leafshotheatsentry");
+        LeafShotColdSentry.texture = GameTexture.fromFile("mobs/leafshotcoldsentry");
 
         // Mobs
         HorrorSpiritBossMob.texture = GameTexture.fromFile("mobs/horrorspiritbossmob");

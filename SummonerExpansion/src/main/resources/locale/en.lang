@@ -7,6 +7,7 @@ tungstensummoningtableduo=Tungsten Summoning Table
 fallensummoningtableduo=Fallen Summoning Table
 summoningbookshelf=Summoning Bookshelf
 bannerofwater=Banner of Water
+tanktrainingdummy=Tanky Training Dummy
 
 [item]
 // Minion weapons
@@ -25,10 +26,14 @@ bearhead=Grizzly Bear Head
 vampirewings=Vampire Wings
 dryadessence=Dryad Essence
 gemrubyshards=Ruby Shards
+cactusstaff=Cactus Staff
 polarhead=Polar Head
 royalhive=Royal Hive
 
 // Sentry weapons
+leafshotheatpack=Fire Leaf Shooter Seed Pack
+leafshotcoldpack=Ice Leaf Shooter Seed Pack
+leafshotpack=Leaf Shooter Seed Pack
 iceblossomstaff=Ice Blossom Staff
 sunflowerstaff=Sunflower Staff
 firemonestaff=Firemone Staff
@@ -129,34 +134,36 @@ purehorror=Pure Horror
 
 // Foods
 rottenbread=Rotten Bread
+berrytrio=Berry Trio
 
 [itemtooltip]
 // Minion weapons
 runebonestafftip=Summons a runebound brute that attack foes with an axe \nHave a small chance to summon a runebond shaman instead \nHigher upgrade tiers increases the summoning chance
 royalhivetip=Summons a bee queen that spawn bees every 10 hits \nThe queen increases your health regen while on combat \nAnd the smaller bees slows foes by 10%
 amethystshardtip=Summons an amethyst golem \nThis golem can crystallize foes \nAdditional amethyst golems increases the chance to crystallize
+bearheadtip=Summons a grizzly bear that attack foes \nHit foes will start bleeding, causing damage and lowering their damage by 20%
 sapphireshardtip=Summons a sapphire golem \nThis golem summons a sapphire glyph at your location when you have life essence
 lampminioncastletip=Summons a spider castle candelabra \nBurn and slows foes \nDebuffs get stronger at night
 emeraldshardtip=Summons an emerald golem \nThis golem shoots a laser that pierce foes and bounce from walls
 enchantedbrainonasticktip=Summons 2 enchanted zombies \nMelee zombies reduces foe's armor by 10
 magictungstenlamptip=Summons a tungsten lamp that glows and attack \nBurn foes on hit
 magicgoldlamptip=Summons a double gold lamp that glows and attack \nBurn foes on hit
+cactusstafftip=Summons a cactus minion \nIt shoots projectiles with random piercing
 dryadessencetip=Summons a slow moving ghoul \nThis ghoul leaves a damaging trail
 rubyshardtip=Summons a ruby golem \nThis golem shoots crystal shards at foes
 lampminiondungeontip=Summons a dungeon candelabra \nBurn foes at night
 vampirewingstip=Summons a vampire that shoots blood bolts at foes
 magiccopperlamptip=Summons a copper lamp that glows and attack
 polarheadtip=Summons a polar bear that attack and slows foes
-bearheadtip=Summons a grizzly bear that attack foes \nHit foes will start bleeding, causing damage and lowering their damage by 20%
 sandwormstafftip=Summons a sand worm to attack foes
 
 // Sentry weapons
 bookmushroomtip=Summons a sentry that slows nearby foes \nSometimes turn killed foes into mushroom allies
 caveglowsentrytip=The sentry glows and shoot projectiles that can pierce and bounce once
-sunflowersentrytip=Buffs nearby player's health regen while on combat
 coffinsentrytip=Every 10 shoots summons a crypt bat to attack foes
-firemonesentrytip=Buffs nearby player's armor penetration
-iceblossomsentrytip=Buffs nearby player's armor
+leafshotcoldpacktip=It's projectiles chills foes \nConsumable
+leafshotheatpacktip=It's projectiles burn foes \nConsumable
+leafshotpacktip=It's projectiles poison foes \nConsumable
 
 // Secondary weapons
 explosivesnowballtip=Summons a snowman with a chance to explode on hit \nThe explosion does double damage and damages players
@@ -176,6 +183,11 @@ wormbuckettip=10% chance to summon a fish when attacking foes
 
 // Range weapons
 mosquitobowtip=Shoots down arrows from above that leaves a damaging pool in it's wake \nEvery 20 hits summons a mosquito that reduces foes armor \nSummoned mosquitos may attack foes or not
+
+// Magic weapons
+sunflowersentrytip=This sentry gives nearby allies health regen while on combat
+firemonesentrytip=This sentry gives nearby allies armor penetration
+iceblossomsentrytip=This sentry gives nearby allies armor
 
 // Armor set bonus
 spiderbridesettip=Grants immunity to slows \nSummon attacks poison target for 25 damage over 5 seconds \nPress [input=setability] to summon a spider bride that shoots poison and webs
@@ -214,7 +226,7 @@ minionrangetip=Increases summon range by 50%
 minionspeedtip=Increases summon speed by 20%
 
 // Mounts
-chieftainhattip=Tranforms you into a chieftain that can't swim \nIncreases your health, armor and max minion slots \nHold [input=trinketability] to boost yourself at the cost of stamina \nThis boost increases your speed, damage, hp regen and reduces knockback received
+chieftainhattip=Tranforms you into a chieftain that can't swim \nIncreases your health, armor and max minion slots \nHold [input=trinketability] to boost yourself at the cost of stamina \nThis boost increases your damage, hp regen and prevents knockback and slow
 magiccheesetip=Tranforms you into a mouse \nPrevents you from using items \nGreatly decreases your target range, making foes ignore you
 
 // Boss desc
@@ -225,9 +237,11 @@ purehorrortip=Used to craft nightmare equipments
 
 // Objects
 bannerofwatertip=Allows water walking \nGreatly increases your world view and travel range
+tanktrainingdummytip=A stronger training dummy with 1000 armor
 
 // Others
 minionspacetakentip=Each summon takes up <amount> summon slots
+clicksentrytip=Press [input=mouse2] to summon a sentry
 sentrytip=Summons a sentry that shoots at foes
 minionactivecap=Capped at <amount> minions
 lifestealtip=Heals on hit by <amount> hp
@@ -253,12 +267,13 @@ sandwormminion=Sand Worm Minion
 beequeenminion=Bee Queen Minion
 vampireminion=Vampire Minion
 bearpolarminion=Polar Minion
+cactusminion=Cactus Minion
 bearminion=Bear Minion
 
 // Sentry
-iceblossomsentry=Ice Blossom Sentry
-sunflowersentry=Sunflower Sentry
-firemonesentry=Firemone Sentry
+leafshotheatsentry=Fire Leaf Shooter Sentry
+leafshotcoldsentry=Ice Leaf Shooter Sentry
+leafshotsentry=Leaf Shooter Sentry
 mushroomsentry=Mushroom Sentry
 caveglowsentry=Caveglow Sentry
 coffinsentry=Coffin Sentry
@@ -289,8 +304,16 @@ goblinlegminion=Goblin Leg Minion
 fishcarpminion=Fish Carp Minion
 fishianminion=Fishian Minion
 
+// Melee sentry minions
+horrorspikesentry=Horror Spike Sentry
+
 // Range minions
 mosquitobowminion=Mosquito Minion
+
+// Magic sentry minions
+iceblossomsentry=Ice Blossom Sentry
+sunflowersentry=Sunflower Sentry
+firemonesentry=Firemone Sentry
 
 // Equipment minions
 horrorbatminion=Horror Bat Minion
@@ -308,25 +331,35 @@ horrorspiritbossmob=Ancient Horror Spirit
 horrorspiritmob=Horror Spirit
 woodmob=Magical Wood
 
+// Settlers
+druidhuman=Druid
+druidhumanname=<name> the Druid
+
+[mobmsg]
+druidtalk1=Are you interested in the arts of summoning?
+druidtalk2=The trees are more talkative at my hometown
+druidtalk3=I am looking for sacrifices
+druidtalk4=Hello my mentee!
+
 [buff]
 // Buffs
-mushroombuff=Killed foes turn into mushroom minions
 woodtoolbuff=Increased mining range and mining speed
+mushroombuff=Killed foes turn into mushroom minions
+horrorswordstack=Horror Sword attack speed buff
 sunflowerbuff=Health regen while on combat
-horrorswordstack=Horror Sword Attack Speed Buff
 honeybuff=Health regen while on combat
 firemonebuff=Armor penetration
 runicshieldbuff=Runic Armor
 iceblossombuff=Armor
 
 // Debuffs
+bleedingdebuff=-20% damage and 2 poison damage
 goblincooldowndebuff=Goblin Sword Cooldown
 spiderbridecooldown=Spider Bride Cooldown
 enchanteddebuff=-10 flat armor
 mosquitodebuff=-10% armor
 mushroomdebuff=20% slow
 honeydebuff=10% slow
-bleedingdebuff=-20% damage and 2 poison damage
 
 [journal]
 watergrasscollected=[item=watergrass] Gather 35 Water Grass

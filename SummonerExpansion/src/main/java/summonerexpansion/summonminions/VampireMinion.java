@@ -46,7 +46,7 @@ public class VampireMinion extends AttackingFollowingMob
     public void init()
     {
         super.init();
-        this.ai = new BehaviourTreeAI<>(this, new PlayerFollowerChaserAI<VampireMinion>(600, 320, false, false, 640, 64)
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerChaserAI<VampireMinion>(600, 320, false, false, 640, 64)
         {
             public boolean attackTarget(VampireMinion mob, Mob target)
             {
