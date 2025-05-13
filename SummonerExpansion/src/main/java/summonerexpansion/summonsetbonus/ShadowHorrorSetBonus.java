@@ -38,7 +38,7 @@ public class ShadowHorrorSetBonus extends SetBonusBuff
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
     {
-        buff.setModifier(BuffModifiers.MAX_SUMMONS, this.maxSummons.getValue(buff.getUpgradeTier()));
+        buff.setModifier(BuffModifiers.MAX_SUMMONS, maxSummons.getValue(buff.getUpgradeTier()));
     }
 
     public void tickEffect(ActiveBuff buff, Mob owner)
@@ -54,12 +54,13 @@ public class ShadowHorrorSetBonus extends SetBonusBuff
         super.serverTick(buff);
         if (buff.owner.isItemAttacker && buff.owner.isInCombat())
         {
-            if (GameRandom.globalRandom.getChance(0.01F))
+            ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
+            float count = attackerMob.serverFollowersManager.getFollowerCount("horrorbabyminion");
+            if (GameRandom.globalRandom.getChance(0.05F) && count <= 4)
             {
-                ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
                 Level level = buff.owner.getLevel();
                 AttackingFollowingMob mob = (AttackingFollowingMob)MobRegistry.getMob("horrorbabyminion", level);
-                attackerMob.serverFollowersManager.addFollower("shadowhorrorsetbonus", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, (p) -> 5, null, false);
+                attackerMob.serverFollowersManager.addFollower("horrorbabyminion", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, (p) -> 5, null, false);
                 Point2D.Float spawnPoint = SummonToolItem.findSpawnLocation(mob, level, attackerMob.x, attackerMob.y);
                 mob.updateDamage(new GameDamage(DamageTypeRegistry.SUMMON, horrorDamage.getValue(buff.getUpgradeTier())));
                 mob.setRemoveWhenNotInInventory(ItemRegistry.getItem("shadowhorrorhood"), CheckSlotType.HELMET);

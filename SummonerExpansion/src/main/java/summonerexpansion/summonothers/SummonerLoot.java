@@ -1,16 +1,11 @@
 package summonerexpansion.summonothers;
 
-import necesse.engine.registries.ItemRegistry;
 import necesse.entity.mobs.hostile.EnchantedCrawlingZombieMob;
 import necesse.entity.mobs.hostile.EnchantedZombieArcherMob;
 import necesse.entity.mobs.hostile.EnchantedZombieMob;
-import necesse.inventory.item.Item;
 import necesse.inventory.lootTable.LootTablePresets;
 import necesse.inventory.lootTable.lootItem.ChanceLootItem;
 import necesse.inventory.lootTable.lootItem.LootItemList;
-import summonerexpansion.summonmaterials.PureHorror;
-import summonerexpansion.summonmaterials.ShadowHorrorPortal;
-import summonerexpansion.summonweapons.*;
 
 public class SummonerLoot
 {

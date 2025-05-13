@@ -7,14 +7,11 @@ import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.inventory.item.Item;
 import necesse.inventory.item.miscItem.BannerItem;
 import necesse.inventory.item.placeableItem.consumableItem.food.FoodConsumableItem;
-import necesse.inventory.item.placeableItem.consumableItem.food.FoodMatItem;
 import necesse.level.maps.levelData.settlementData.settler.Settler;
 import summonerexpansion.summonbannerbuffs.*;
 import summonerexpansion.summonbuffs.*;
-import summonerexpansion.summonmaterials.PureHorror;
-import summonerexpansion.summonmaterials.ShadowHorrorPortal;
+import summonerexpansion.summonmaterials.*;
 import summonerexpansion.summonpotions.*;
-import summonerexpansion.summonweapons.*;
 
 public class SummonerItems
 {

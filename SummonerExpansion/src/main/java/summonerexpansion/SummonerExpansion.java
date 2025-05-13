@@ -1,10 +1,8 @@
 package summonerexpansion;
 
-import necesse.level.gameObject.TrainingDummyObject;
 import necesse.level.maps.biomes.Biome;
 import summonerexpansion.summonobjects.*;
 import summonerexpansion.summonothers.*;
-import summonerexpansion.summonbannerbuffs.*;
 import necesse.engine.modLoader.annotations.ModEntry;
 import necesse.engine.registries.*;
 
@@ -19,6 +17,7 @@ public class SummonerExpansion
         SummonerProjectiles.registerSummonProjs();
         SummonerSettlers.registerSummonSettlers();
         SummonerJournal.registerSummonerJournal();
+        SummonerObjects.registerSummonObjects();
         SummonerWeapons.registerSummonWeapons();
         SummonerEquips.registerSummonEquips();
         SummonerItems.registerSummonItems();
@@ -35,12 +34,6 @@ public class SummonerExpansion
         DemonicSummoningTableDuo.registerDemonicSummoningTable();
         TungstenSummoningTableDuo.registerTungstenSummoningTable();
         FallenSummoningTableDuo.registerFallenSummoningTable();
-        ObjectRegistry.registerObject("summoningbookshelf", new SummoningBookshelf(), 50, true);
-        ObjectRegistry.registerObject("bannerofwater", new BannerOfWater(), 100, true);
-        BuffRegistry.registerBuff("waterbannerbuff", new WaterBannerBuff());
-
-        ObjectRegistry.registerObject("tanktrainingdummy", new TankTrainingDummyObject(), 60.0F, true);
-
     }
 
     public void initResources()

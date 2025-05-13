@@ -23,6 +23,8 @@ import java.util.List;
 
 public class BearPolarMinion extends AttackingFollowingMob
 {
+    public static GameTexture texture;
+
     public BearPolarMinion()
     {
         super(10);
@@ -61,7 +63,7 @@ public class BearPolarMinion extends AttackingFollowingMob
     {
         for(int i = 0; i < 4; ++i)
         {
-            this.getLevel().entityManager.addParticle(new FleshParticle(this.getLevel(), MobRegistry.Textures.polarBear, i, 16, 32, this.x, this.y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
+            this.getLevel().entityManager.addParticle(new FleshParticle(this.getLevel(), texture, i, 16, 32, this.x, this.y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
         }
     }
 
@@ -75,7 +77,7 @@ public class BearPolarMinion extends AttackingFollowingMob
         drawY += this.getBobbing(x, y);
         drawY += this.getLevel().getTile(x / 32, y / 32).getMobSinkingAmount(this);
         final MaskShaderOptions swimMask = this.getSwimMaskShaderOptions(this.inLiquidFloat(x, y));
-        final DrawOptions options = MobRegistry.Textures.polarBear.initDraw().sprite(sprite.x, sprite.y, 128).addMaskShader(swimMask).light(light).pos(drawX, drawY);
+        final DrawOptions options = texture.initDraw().sprite(sprite.x, sprite.y, 128).addMaskShader(swimMask).light(light).pos(drawX, drawY);
         list.add(new MobDrawable() {
             public void draw(TickManager tickManager) {
                 swimMask.use();

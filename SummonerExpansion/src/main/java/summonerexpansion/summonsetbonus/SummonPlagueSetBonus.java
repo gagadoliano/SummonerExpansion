@@ -35,7 +35,7 @@ public class SummonPlagueSetBonus extends SetBonusBuff
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
     {
-        buff.setModifier(BuffModifiers.MAX_SUMMONS, this.maxSummons.getValue(buff.getUpgradeTier()));
+        buff.setModifier(BuffModifiers.MAX_SUMMONS, maxSummons.getValue(buff.getUpgradeTier()));
     }
 
     public void serverTick(ActiveBuff buff)
@@ -44,12 +44,13 @@ public class SummonPlagueSetBonus extends SetBonusBuff
         if (buff.owner.isItemAttacker && buff.owner.isInCombat())
         {
             mouseTimer++;
-            if (mouseTimer >= 300)
+            ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
+            float count = attackerMob.serverFollowersManager.getFollowerCount("mouseminion");
+            if (mouseTimer >= 300 && count <= 7)
             {
-                ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
                 Level level = buff.owner.getLevel();
                 AttackingFollowingMob mob = (AttackingFollowingMob)MobRegistry.getMob("mouseminion", level);
-                attackerMob.serverFollowersManager.addFollower("summonplaguesetbonus", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, (p) -> 8, null, false);
+                attackerMob.serverFollowersManager.addFollower("mouseminion", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, (p) -> 8, null, false);
                 Point2D.Float spawnPoint = SummonToolItem.findSpawnLocation(mob, level, attackerMob.x, attackerMob.y);
                 mob.updateDamage(new GameDamage(DamageTypeRegistry.SUMMON, mouseDamage.getValue(buff.getUpgradeTier())));
                 mob.setRemoveWhenNotInInventory(ItemRegistry.getItem("summonplaguemask"), CheckSlotType.HELMET);

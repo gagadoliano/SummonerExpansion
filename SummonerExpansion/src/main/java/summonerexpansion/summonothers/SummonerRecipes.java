@@ -304,8 +304,7 @@ public class SummonerRecipes
                 SUMMONTABLECRAFT,
                 new Ingredient[]{
                         new Ingredient("queenbee", 1),
-                        new Ingredient("honeybee", 3),
-                        new Ingredient("honey", 5)
+                        new Ingredient("honey", 30)
                 }
         ));
 
@@ -403,12 +402,12 @@ public class SummonerRecipes
                 SUMMONTABLECRAFT,
                 new Ingredient[]{
                         new Ingredient("bucket", 1),
-                        new Ingredient("wormbait", 15),
-                        new Ingredient("mackerel", 5),
-                        new Ingredient("herring", 5),
-                        new Ingredient("salmon", 5),
-                        new Ingredient("trout", 5),
-                        new Ingredient("carp", 5)
+                        new Ingredient("wormbait", 35),
+                        new Ingredient("mackerel", 2),
+                        new Ingredient("herring", 2),
+                        new Ingredient("salmon", 2),
+                        new Ingredient("trout", 2),
+                        new Ingredient("carp", 2)
                 }
         ));
 

@@ -13,6 +13,10 @@ public class SummonerJournal
 
         JournalEntry forestCaveJournal = JournalRegistry.getJournalEntry("forestcave");
         forestCaveJournal.addTreasureEntry("magiccopperlamp", "minionattackspeedpotion", "minioncloserangepotion", "minioncritchancepotion", "minionrangepotion", "minionspeedpotion", "minioncritpotion", "minionfarmpotion");
+        forestCaveJournal.addEntryChallenges(SummonerChallenges.SUMMON_FOREST_CAVES_CHALLENGES_ID);
+
+        JournalEntry snowSurfaceJournal = JournalRegistry.getJournalEntry("snowsurface");
+        snowSurfaceJournal.addEntryChallenges(SummonerChallenges.SUMMON_SNOW_SURFACE_CHALLENGES_ID);
 
         JournalEntry plainsSurfaceJournal = JournalRegistry.getJournalEntry("plainssurface");
         plainsSurfaceJournal.addTreasureEntry("royalhive");

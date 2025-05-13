@@ -1,9 +1,7 @@
 package summonerexpansion.summonothers;
 
-import necesse.engine.localization.message.GameMessage;
 import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.registries.MobRegistry;
-import necesse.entity.mobs.TrainingDummyMob;
 import summonerexpansion.summonminions.*;
 import summonerexpansion.summonmobs.*;
 
@@ -71,6 +69,7 @@ public class SummonerMobs
 
         // Trinket Minions
         MobRegistry.registerMob("horrorbatminion", HorrorBatMinion.class, false);
+        MobRegistry.registerMob("beetminion", BeetMinion.class, false);
 
         // Sentries
         MobRegistry.registerMob("leafshotcoldsentry", LeafShotColdSentry.class, false);
@@ -80,6 +79,7 @@ public class SummonerMobs
         MobRegistry.registerMob("caveglowsentry", CaveglowSentry.class, false);
         MobRegistry.registerMob("leafshotsentry", LeafShotSentry.class, false);
         MobRegistry.registerMob("coffinsentry", CoffinSentry.class, false);
+        MobRegistry.registerMob("xmastreesentry", XmasTreeSentry.class, false);
 
         // Melee Sentries
 

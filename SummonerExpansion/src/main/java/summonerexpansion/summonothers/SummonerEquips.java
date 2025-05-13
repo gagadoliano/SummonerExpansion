@@ -8,19 +8,12 @@ import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.ShownCooldownBuff;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.SimpleTrinketBuff;
 import necesse.inventory.item.Item;
-import necesse.inventory.item.miscItem.BannerItem;
 import necesse.inventory.item.trinketItem.SimpleTrinketItem;
 import summonerexpansion.summonarmor.*;
-import summonerexpansion.summonbannerbuffs.*;
-import summonerexpansion.summonbuffs.*;
-import summonerexpansion.summonmaterials.PureHorror;
-import summonerexpansion.summonmaterials.ShadowHorrorPortal;
 import summonerexpansion.summonmounts.*;
-import summonerexpansion.summonpotions.*;
 import summonerexpansion.summonsetbonus.*;
 import summonerexpansion.summontrinket.*;
 import summonerexpansion.summontrinketbuffs.*;
-import summonerexpansion.summonweapons.*;
 
 public class SummonerEquips
 {
@@ -94,6 +87,10 @@ public class SummonerEquips
         BuffRegistry.registerBuff("necromancerarmorbuff", new NecromancerArmorBuff());
         BuffRegistry.registerBuff("frenzystoneringbuff", new FrenzystoneRingBuff());
         BuffRegistry.registerBuff("necroticclawbuff", new NecroticClawBuff());
+
+        // Challenge
+        ItemRegistry.registerItem("giantbeet", new SimpleTrinketItem(Item.Rarity.RARE, "giantbeetbuff", 100), 50, true);
+        BuffRegistry.registerBuff("giantbeetbuff", new GiantBeetBuff());
 
         // Mounts
         ItemRegistry.registerItem("chieftainhat", new ChieftainHat(), 50, true);

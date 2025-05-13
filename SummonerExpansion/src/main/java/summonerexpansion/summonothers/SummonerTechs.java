@@ -1,10 +1,5 @@
 package summonerexpansion.summonothers;
 
-import necesse.engine.journal.*;
-import necesse.engine.registries.JournalChallengeRegistry;
-import necesse.inventory.lootTable.LootTable;
-import necesse.inventory.lootTable.lootItem.LootItem;
-import necesse.inventory.lootTable.lootItem.LootItemList;
 import necesse.inventory.recipe.Tech;
 
 import static necesse.engine.registries.RecipeTechRegistry.registerTech;

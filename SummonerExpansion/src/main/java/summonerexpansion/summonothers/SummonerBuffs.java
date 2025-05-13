@@ -13,13 +13,10 @@ public class SummonerBuffs
     {
         public static Buff WATERBANNERBOOST;
         public static Buff RESILIENCEBOOST;
-        public static Buff PROJSPEEDBOOST;
-        public static Buff MOVEMENTBOOST;
         public static Buff STAMINABOOST;
         public static Buff ESSENCEBOOST;
         public static Buff BOUNCEBOOST;
         public static Buff PICKUPBOOST;
-        public static Buff MINERBOOST;
         public static Buff DASHBOOST;
         public static Buff MANABOOST;
 
@@ -38,6 +35,7 @@ public class SummonerBuffs
         BuffRegistry.registerBuff("bannerofpicking", SummonerBanners.PICKUPBOOST = new PickingBannerBuff());
         BuffRegistry.registerBuff("bannerofdashing", SummonerBanners.DASHBOOST = new DashingBannerBuff());
         BuffRegistry.registerBuff("bannerofmana", SummonerBanners.MANABOOST = new ManaBannerBuff());
+        BuffRegistry.registerBuff("waterbannerbuff", new WaterBannerBuff());
 
         // Minion buffs
         BuffRegistry.registerBuff("iceblossombufft1", new IceBlossomBuffT1());
@@ -49,6 +47,7 @@ public class SummonerBuffs
         BuffRegistry.registerBuff("woodtoolbuff", new WoodToolBuff());
         BuffRegistry.registerBuff("firemonebuff", new FiremoneBuff());
         BuffRegistry.registerBuff("mushroombuff", new MushroomBuff());
+        BuffRegistry.registerBuff("xmastreebuff", new XmasTreeBuff());
         BuffRegistry.registerBuff("honeybuff", new HoneyBuff());
 
         // Minion debuffs
@@ -66,5 +65,8 @@ public class SummonerBuffs
         BuffRegistry.registerBuff("horrorglaivecooldowndebuff", new ShownItemCooldownBuff(1, true, "items/horrorglaive"));
         BuffRegistry.registerBuff("goblincooldowndebuff", new ShownItemCooldownBuff(1, true, "items/goblinsword"));
         BuffRegistry.registerBuff("horrorswordstack", new HorrorSwordStackBuff());
+
+        // Others
+        BuffRegistry.registerBuff("summonedbeetminionbuff", new SummonedBeetMinionBuff());
     }
 }

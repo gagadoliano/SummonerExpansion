@@ -50,7 +50,7 @@ public class HorrorBatMinion extends FlyingAttackingFollowingMob
         lifeTime++;
         if (lifeTime >= 600)
         {
-            remove(0.0F, 0.0F, (Attacker)null, true);
+            remove(0.0F, 0.0F, null, true);
         }
     }
 

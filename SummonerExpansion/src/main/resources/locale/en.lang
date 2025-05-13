@@ -1,13 +1,12 @@
 [object]
 // Crafting stations
-summoningtable=Legacy Summoning Table
-summoningtableduo=Summoning Table
-demonicsummoningtableduo=Demonic Summoning Table
 tungstensummoningtableduo=Tungsten Summoning Table
+demonicsummoningtableduo=Demonic Summoning Table
 fallensummoningtableduo=Fallen Summoning Table
-summoningbookshelf=Summoning Bookshelf
-bannerofwater=Banner of Water
 tanktrainingdummy=Tanky Training Dummy
+summoningbookshelf=Summoning Bookshelf
+summoningtableduo=Summoning Table
+bannerofwater=Banner of Water
 
 [item]
 // Minion weapons
@@ -40,6 +39,7 @@ firemonestaff=Firemone Staff
 vampirecoffin=Vampire Coffin
 caveglowstaff=Caveglow Staff
 bookmushroom=Mushroom Book
+xmastreescepter=Christmas Tree Scepter
 
 // Secondary weapons
 explosivesnowball=Explosive Snowball
@@ -94,6 +94,7 @@ necroticclaw=Necrotic Claw
 spelltablet=Spell Tablet
 mesmercharm=Mesmer Charm
 bonepile=Bone Pile
+giantbeet=Giant Beet
 
 // Potions
 minioncritchancepotion=Summon Critical Chance Potion
@@ -164,6 +165,7 @@ coffinsentrytip=Every 10 shoots summons a crypt bat to attack foes
 leafshotcoldpacktip=It's projectiles chills foes \nConsumable
 leafshotheatpacktip=It's projectiles burn foes \nConsumable
 leafshotpacktip=It's projectiles poison foes \nConsumable
+xmastreetip=Summons a sentry that debuffs nearby foes \nThey glow and takes 20% increased damage from all sources
 
 // Secondary weapons
 explosivesnowballtip=Summons a snowman with a chance to explode on hit \nThe explosion does double damage and damages players
@@ -215,6 +217,7 @@ bonepiletip=Increases armor penetration by 25 \nIncreases summon crit damage by 
 demonicpolarclawtip=Summon attacks slows foes \nIncreases knockback resistance
 hystericalmirrortip=+3 max summons \nIncreases summon speed by 45%
 mesmercharmtip=+1 Max Summons \nIncreases Stamina Cap by 80%
+beetminiontip=Summons a beet minion that throws beets at foes \nThese beets have 10% chance to drop on missed hits
 
 // Potions buff
 minionfarmtip=Decreases movement but increases pickup range by 50, mob spawn rate by 50%, summon speed and range by 40%
@@ -269,10 +272,12 @@ vampireminion=Vampire Minion
 bearpolarminion=Polar Minion
 cactusminion=Cactus Minion
 bearminion=Bear Minion
+beetminion=Beet Minion
 
 // Sentry
 leafshotheatsentry=Fire Leaf Shooter Sentry
 leafshotcoldsentry=Ice Leaf Shooter Sentry
+xmastreesentry=Christmas Tree Sentry
 leafshotsentry=Leaf Shooter Sentry
 mushroomsentry=Mushroom Sentry
 caveglowsentry=Caveglow Sentry
@@ -348,6 +353,7 @@ mushroombuff=Killed foes turn into mushroom minions
 horrorswordstack=Horror Sword attack speed buff
 sunflowerbuff=Health regen while on combat
 honeybuff=Health regen while on combat
+summonedbeetminionbuff=Beet Minion
 firemonebuff=Armor penetration
 runicshieldbuff=Runic Armor
 iceblossombuff=Armor
@@ -363,10 +369,18 @@ honeydebuff=10% slow
 
 [journal]
 watergrasscollected=[item=watergrass] Gather 35 Water Grass
-lanternplaced=[item=waterlantern] Place a water lantern
+lanternplaced=[item=waterlantern] Place 5 water lanterns
 fincollected=[item=fins] Gather a fin trinket
 bucketcrafted=[item=bucket] Craft a bucket
-duckkilled=[mob=duck] Beat a duck
+duckkilled=[mob=duck] Hunt 20 ducks
+seedcollected=[item=wheatseed] Collect 50 seeds that can be found in forest caves
+beetplanted=[item=beetseed] Plant 20 Beet seeds inside a forest cave
+beetskilled=[mob=beetcavecroppler] Kill 20 Beet cave croppler
+snowmancollected=[item=snowmantrainingdummy] Craft a snowman
+xmaswreathcollected=[item=christmaswreath] Gather a christmas wreath
+xmastreeplaced=[item=christmastree] Place a christmas tree
+presentcollected=[item=redpresent] Wrap 10 presents
+cookieeated=[item=cookies] Eat a cookie
 
 [enchantment]
 uncontrollable=Uncontrollable

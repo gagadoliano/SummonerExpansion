@@ -6,6 +6,7 @@ import necesse.engine.registries.MobRegistry;
 import necesse.engine.registries.ProjectileRegistry;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
+import necesse.engine.util.GameMath;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
@@ -18,20 +19,25 @@ import necesse.entity.projectile.Projectile;
 import necesse.gfx.GameResources;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
+import necesse.gfx.drawOptions.human.HumanDrawOptions;
+import necesse.gfx.drawOptions.itemAttack.ItemAttackDrawOptions;
 import necesse.gfx.drawOptions.texture.TextureDrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
+import necesse.inventory.InventoryItem;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 
 import java.awt.*;
+import java.awt.geom.Point2D;
 import java.util.List;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
+import static summonerexpansion.summonothers.SummonerTextures.fishianMinion;
+
 public class FishianMinion extends AttackingFollowingMob
 {
-    public static GameTexture texture;
     public int lifeTime = 0;
 
     public FishianMinion()
@@ -50,14 +56,14 @@ public class FishianMinion extends AttackingFollowingMob
     public void init()
     {
         super.init();
-        this.ai = new BehaviourTreeAI<>(this, new PlayerFollowerChaserAI<FishianMinion>(600, 260, true, true, 800, 64)
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerChaserAI<FishianMinion>(600, 260, true, true, 800, 64)
         {
             public boolean attackTarget(FishianMinion mob, Mob target)
             {
                 if (mob.canAttack())
                 {
                     mob.attack(target.getX(), target.getY(), false);
-                    Projectile projectile = ProjectileRegistry.getProjectile("fishianwarriorhook", mob.getLevel(), mob.x, mob.y, target.x, target.y, 200.0F, 480, FishianMinion.this.summonDamage, mob);
+                    Projectile projectile = ProjectileRegistry.getProjectile("fishianwarriorhook", mob.getLevel(), mob.x, mob.y, target.x, target.y, 200.0F, 480, summonDamage, mob);
                     projectile.setTargetPrediction(target, -20.0F);
                     projectile.moveDist(20.0);
                     mob.getLevel().entityManager.projectiles.add(projectile);
@@ -95,39 +101,49 @@ public class FishianMinion extends AttackingFollowingMob
     {
         for(int i = 0; i < 7; ++i)
         {
-            this.getLevel().entityManager.addParticle(new FleshParticle(this.getLevel(), texture, i, 8, 32, this.x, this.y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
+            getLevel().entityManager.addParticle(new FleshParticle(getLevel(), fishianMinion.body, i, 8, 32, x, y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
         }
     }
 
-    public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
+    public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) 
     {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
         GameLight light = level.getLightLevel(x / 32, y / 32);
-        int drawX = camera.getDrawX(x) - 32;
+        int drawX = camera.getDrawX(x) - 22 - 10;
         int drawY = camera.getDrawY(y) - 44 - 7;
         int dir = getDir();
+        float animProgress = getAttackAnimProgress();
         Point sprite = getAnimSprite(x, y, dir);
         drawY += getBobbing(x, y);
         drawY += getLevel().getTile(x / 32, y / 32).getMobSinkingAmount(this);
-        final MaskShaderOptions swimMask = getSwimMaskShaderOptions(inLiquidFloat(x, y));
-        final DrawOptions options = texture.initDraw().sprite(sprite.x, sprite.y, 64).addMaskShader(swimMask).light(light).pos(drawX, drawY);
+        MaskShaderOptions swimMask = getSwimMaskShaderOptions(inLiquidFloat(x, y));
+        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, fishianMinion)).sprite(sprite).dir(dir).mask(swimMask).light(light);
+        if (!isAttacking && canAttack()) 
+        {
+            humanDrawOptions.itemAttack(new InventoryItem("fishianwarriorhook"), null, animProgress, 0.0F, 0.0F);
+        } 
+        else 
+        {
+            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).armSprite(MobRegistry.Textures.fishianHookWarrior.body, 0, 8, 32).pointRotation(attackDir.x, attackDir.y).light(light);
+            humanDrawOptions.attackAnim(attackOptions, animProgress);
+        }
+        final DrawOptions drawOptions = humanDrawOptions.pos(drawX, drawY);
         list.add(new MobDrawable() {
             public void draw(TickManager tickManager) {
-                swimMask.use();
-                options.draw();
-                swimMask.stop();
+                drawOptions.draw();
             }
         });
+        addShadowDrawables(tileList, x, y, light, camera);
     }
-
+    
     protected TextureDrawOptions getShadowDrawOptions(int x, int y, GameLight light, GameCamera camera)
     {
         GameTexture shadowTexture = MobRegistry.Textures.human_baby_shadow;
         int res = shadowTexture.getHeight();
         int drawX = camera.getDrawX(x) - res / 2;
         int drawY = camera.getDrawY(y) - res / 2;
-        drawY += this.getBobbing(x, y);
-        int dir = this.getDir();
+        drawY += getBobbing(x, y);
+        int dir = getDir();
         return shadowTexture.initDraw().sprite(dir, 0, res).light(light).pos(drawX, drawY);
     }
 

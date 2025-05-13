@@ -1,9 +1,6 @@
 package summonerexpansion.summonothers;
 
 import necesse.engine.registries.ItemRegistry;
-import necesse.inventory.item.Item;
-import summonerexpansion.summonmaterials.PureHorror;
-import summonerexpansion.summonmaterials.ShadowHorrorPortal;
 import summonerexpansion.summonweapons.*;
 
 public class SummonerWeapons
@@ -91,5 +88,8 @@ public class SummonerWeapons
         // Sentry
         ItemRegistry.registerItem("caveglowstaff", new CaveglowStaff(), 400, true);
         ItemRegistry.registerItem("vampirecoffin", new VampireCoffin(), 400, true);
+
+        // Challenge
+        ItemRegistry.registerItem("xmastreescepter", new XmasTreeScepter(), 10, true);
     }
 }
