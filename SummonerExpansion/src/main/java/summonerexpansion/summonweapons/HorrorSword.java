@@ -18,16 +18,13 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.swordToolItem.SwordToolItem;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 import necesse.level.maps.Level;
-import summonerexpansion.summonminions.FishianMinion;
-import summonerexpansion.summonminions.GoblinHeadMinion;
 import summonerexpansion.summonminions.HorrorCrawlingZombieMinion;
 
 import java.awt.geom.Point2D;
-import java.util.function.BiConsumer;
 
 public class HorrorSword extends SwordToolItem
 {
-    public IntUpgradeValue maxCrawlers = new IntUpgradeValue(2, 0.0F);
+    public IntUpgradeValue maxCrawlers = (new IntUpgradeValue()).setBaseValue(2);
 
     public HorrorSword()
     {
@@ -35,12 +32,12 @@ public class HorrorSword extends SwordToolItem
         rarity = Rarity.EPIC;
         damageType = DamageTypeRegistry.SUMMON;
         attackDamage.setBaseValue(40.0F).setUpgradedValue(1.0F, 65.0F);
-        attackAnimTime.setBaseValue(900);
-        resilienceGain.setBaseValue(0F);
+        attackAnimTime.setBaseValue(1000);
+        resilienceGain.setBaseValue(0F).setUpgradedValue(1, 0.1F);
         attackRange.setBaseValue(50);
         knockback.setBaseValue(80);
-        canBeUsedForRaids = false;
         maxCrawlers.setBaseValue(2).setUpgradedValue(1, 4).setUpgradedValue(5, 6);
+        canBeUsedForRaids = false;
     }
 
     @Override
@@ -51,18 +48,13 @@ public class HorrorSword extends SwordToolItem
         {
             ActiveBuff ab = new ActiveBuff(BuffRegistry.getBuff("horrorswordstack"), attacker, 30.0F, attacker);
             attacker.addBuff(ab, true);
-
-            if (attacker.buffManager.getStacks(BuffRegistry.getBuff("horrorswordstack")) >= 100)
-            {
-                attacker.buffManager.removeBuff("horrorswordstack", true);
-            }
         }
     }
 
     public InventoryItem onAttack(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight, InventoryItem item, ItemAttackSlot slot, int animAttack, int seed, GNDItemMap mapContent)
     {
         InventoryItem out = super.onAttack(level, x, y, attackerMob, attackHeight, item, slot, animAttack, seed, mapContent);
-        if (animAttack == 0 && attackerMob.isServer() && attackerMob.buffManager.getStacks(BuffRegistry.getBuff("horrorswordstack")) >= 99)
+        if (animAttack == 0 && attackerMob.isServer() && attackerMob.buffManager.getStacks(BuffRegistry.getBuff("horrorswordstack")) >= 100)
         {
             HorrorCrawlingZombieMinion mob = new HorrorCrawlingZombieMinion();
             Point2D.Float dir = GameMath.normalize((float)x - attackerMob.x, (float)y - attackerMob.y + (float)attackHeight);
@@ -83,7 +75,8 @@ public class HorrorSword extends SwordToolItem
     {
         int horrorBuff = attackerMob.buffManager.getStacks(BuffRegistry.getBuff("horrorswordstack"));
         int horrorStack = 1000 - (horrorBuff * 2);
-        attackAnimTime.setBaseValue(horrorStack);
+        int horrorStackT1 = 800 - (horrorBuff * 2);
+        attackAnimTime.setBaseValue(horrorStack).setUpgradedValue(1, horrorStackT1);
         return super.getAttackAnimTime(item, attackerMob);
     }
 

@@ -27,7 +27,6 @@ import java.util.function.BiConsumer;
 
 public class BeeQueenMinion extends FlyingAttackingFollowingMob
 {
-    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1.0F, 2);
     public static GameTexture texture;
     public int BeeHits;
 
@@ -40,7 +39,6 @@ public class BeeQueenMinion extends FlyingAttackingFollowingMob
         collision = new Rectangle(-10, -7, 20, 14);
         hitBox = new Rectangle(-12, -14, 24, 24);
         selectBox = new Rectangle();
-        maxSummons.setBaseValue(1).setUpgradedValue(1, 2);
     }
 
     public void init()
@@ -59,12 +57,7 @@ public class BeeQueenMinion extends FlyingAttackingFollowingMob
         ActiveBuff buff = new ActiveBuff(BuffRegistry.getBuff("honeybuff"), target, 6000, this);
         getFollowingItemAttacker().addBuff(buff, true);
 
-        if (BeeHits < 10)
-        {
-          BeeHits += maxSummons.getValue(buff.getUpgradeTier());
-        }
-
-        if (BeeHits >= 10)
+        if (++BeeHits >= 10)
         {
             FlyingAttackingFollowingMob mob = (FlyingAttackingFollowingMob)MobRegistry.getMob("beeminion", getFollowingItemAttacker().getLevel());
             getFollowingItemAttacker().serverFollowersManager.addFollower("beeminion", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, (p) -> 10, null, false);

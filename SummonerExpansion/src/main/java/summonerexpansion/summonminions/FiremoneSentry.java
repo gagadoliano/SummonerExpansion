@@ -50,14 +50,7 @@ public class FiremoneSentry extends AttackingFollowingMob implements OEVicinityB
 
     public Buff[] getBuffs()
     {
-        if (flowerRange >= 600)
-        {
-            return new Buff[]{BuffRegistry.getBuff("firemonebufft1")};
-        }
-        else
-        {
-            return new Buff[]{BuffRegistry.getBuff("firemonebuff")};
-        }
+        return new Buff[]{BuffRegistry.getBuff("firemonebuff")};
     }
 
     public int getBuffRange()

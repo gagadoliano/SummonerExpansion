@@ -3,9 +3,12 @@
 tungstensummoningtableduo=Tungsten Summoning Table
 demonicsummoningtableduo=Demonic Summoning Table
 fallensummoningtableduo=Fallen Summoning Table
-tanktrainingdummy=Tanky Training Dummy
 summoningbookshelf=Summoning Bookshelf
 summoningtableduo=Summoning Table
+
+// Others
+overgrowthornssapling=Regenerative Thorns
+tanktrainingdummy=Tanky Training Dummy
 bannerofwater=Banner of Water
 
 [item]
@@ -21,6 +24,7 @@ magiccopperlamp=Magic Copper Lamp
 gememeraldshards=Emerald Shards
 sandwormstaff=Sand Worm Staff
 runebonestaff=Runebone Staff
+goldpitchfork=Gold Pitchfork
 bearhead=Grizzly Bear Head
 vampirewings=Vampire Wings
 dryadessence=Dryad Essence
@@ -32,6 +36,7 @@ royalhive=Royal Hive
 // Sentry weapons
 leafshotheatpack=Fire Leaf Shooter Seed Pack
 leafshotcoldpack=Ice Leaf Shooter Seed Pack
+xmastreescepter=Christmas Tree Scepter
 leafshotpack=Leaf Shooter Seed Pack
 iceblossomstaff=Ice Blossom Staff
 sunflowerstaff=Sunflower Staff
@@ -39,7 +44,6 @@ firemonestaff=Firemone Staff
 vampirecoffin=Vampire Coffin
 caveglowstaff=Caveglow Staff
 bookmushroom=Mushroom Book
-xmastreescepter=Christmas Tree Scepter
 
 // Secondary weapons
 explosivesnowball=Explosive Snowball
@@ -91,10 +95,11 @@ inducingsatchel=Inducing Satchel
 summonergambit=Summoner Gambit
 mesmersatchel=Mesmer Satchel
 necroticclaw=Necrotic Claw
+littleangel=Little Angel
 spelltablet=Spell Tablet
 mesmercharm=Mesmer Charm
-bonepile=Bone Pile
 giantbeet=Giant Beet
+bonepile=Bone Pile
 
 // Potions
 minioncritchancepotion=Summon Critical Chance Potion
@@ -146,6 +151,7 @@ bearheadtip=Summons a grizzly bear that attack foes \nHit foes will start bleedi
 sapphireshardtip=Summons a sapphire golem \nThis golem summons a sapphire glyph at your location when you have life essence
 lampminioncastletip=Summons a spider castle candelabra \nBurn and slows foes \nDebuffs get stronger at night
 emeraldshardtip=Summons an emerald golem \nThis golem shoots a laser that pierce foes and bounce from walls
+goldpitchforktip=Summons a farmer that have a small chance to spawn wheat or farm animals when attacking
 enchantedbrainonasticktip=Summons 2 enchanted zombies \nMelee zombies reduces foe's armor by 10
 magictungstenlamptip=Summons a tungsten lamp that glows and attack \nBurn foes on hit
 magicgoldlamptip=Summons a double gold lamp that glows and attack \nBurn foes on hit
@@ -159,13 +165,13 @@ polarheadtip=Summons a polar bear that attack and slows foes
 sandwormstafftip=Summons a sand worm to attack foes
 
 // Sentry weapons
+xmastreetip=Summons a sentry that debuffs nearby foes \nThey glow and takes 20% increased damage from all sources
 bookmushroomtip=Summons a sentry that slows nearby foes \nSometimes turn killed foes into mushroom allies
 caveglowsentrytip=The sentry glows and shoot projectiles that can pierce and bounce once
 coffinsentrytip=Every 10 shoots summons a crypt bat to attack foes
 leafshotcoldpacktip=It's projectiles chills foes \nConsumable
 leafshotheatpacktip=It's projectiles burn foes \nConsumable
 leafshotpacktip=It's projectiles poison foes \nConsumable
-xmastreetip=Summons a sentry that debuffs nearby foes \nThey glow and takes 20% increased damage from all sources
 
 // Secondary weapons
 explosivesnowballtip=Summons a snowman with a chance to explode on hit \nThe explosion does double damage and damages players
@@ -178,13 +184,13 @@ bookbeetip=Summons 3 bees \nThey slows foes by 10%
 // Melee weapons
 horrorglaivetip=Charges the glaive by hitting foes \nUse [input=mouse2] when fully charged to summon a horror sentry
 goblinswordtip=Charges the sword by hitting foes \nUse [input=mouse2] when fully charged to summon 3 goblins
-fishianspeartip=Summons a fishian on your next attack when fully charged \nCharges the spear by hitting foes
-horrorswordtip=Gains attack speed stacks by hitting foes \nAt max stacks summons a horror crawling zombie
+fishianspeartip=Charges the spear by hitting foes \nSummons a fishian on your next attack when fully charged
+horrorswordtip=Gains attack speed stacks by hitting foes \nAt max stacks summons a horror crawling zombie and resets to 0
 horrorscythetip=Half charge to summon up to 3 horror wolfs \nFully charge to summon a horror bull
 wormbuckettip=10% chance to summon a fish when attacking foes
 
 // Range weapons
-mosquitobowtip=Shoots down arrows from above that leaves a damaging pool in it's wake \nEvery 20 hits summons a mosquito that reduces foes armor \nSummoned mosquitos may attack foes or not
+mosquitobowtip=Shoots down arrows from above that leaves a damaging pool in it's wake \nEvery 20 hits summons a mosquito that reduces foes armor
 
 // Magic weapons
 sunflowersentrytip=This sentry gives nearby allies health regen while on combat
@@ -201,6 +207,7 @@ copperminersettip=Increases the light of magic lamps and candles
 plaguesettip=Periodically summons mouses during combat
 
 // Trinkets
+littleangeltip=Equip and press [input=trinketability] to blink forward \nIncreases your summon and dash stats \nBeing hit while you have a Dash Cooldown refreshes your dash instantly \nGain 5 resilience whenever you use a dash trinket
 frenzyhorrorcapetip=+1 max summon \nIncreases movement speed by 20% \nGain 4 health regen per second while below 50% health \nGain up to +50% summon damage based on missing health \nSummons up to 3 horror bats when taking damage
 essenceofcompanionshiptip=Increases life essence gain by 100% \nIncreases life essence duration 100% \nIncreases summon damage and speed greatly for each unused summon\nThe increases diminish slightly beyond first unused summon
 summonergambittip=+1 max summon \n+10 armor \n+50% summon damage \n-50% non-summon damage \n+10% summon crit chance \nCan only be equipped in the ability trinket slot.
@@ -212,12 +219,12 @@ frenzystoneringtip=Gain up to +50% summon damage based on missing health \nGain 
 frozenassassinscowltip=Increases summon crit chance by 15% \nIncreases summon crit damage by 20% \nIncreases summon range by 20%
 shadowhorrorcapetip=+1 max summon \nIncreases movement speed by 20% \nSummons up to 3 horror bats when taking damage
 inducingsatcheltip=Increases summon speed by 40% \nIncreases movement speed by 20% \nLights up the area around you
+beetminiontip=Summons a beet minion that throws beets at foes \nThese beets have 10% chance to drop on missed hits
 spelltablettip=+2 max summons \nIncreases max mana by 60% \nIncreases summon and magic attack speed by 30%
 bonepiletip=Increases armor penetration by 25 \nIncreases summon crit damage by 25%
 demonicpolarclawtip=Summon attacks slows foes \nIncreases knockback resistance
 hystericalmirrortip=+3 max summons \nIncreases summon speed by 45%
 mesmercharmtip=+1 Max Summons \nIncreases Stamina Cap by 80%
-beetminiontip=Summons a beet minion that throws beets at foes \nThese beets have 10% chance to drop on missed hits
 
 // Potions buff
 minionfarmtip=Decreases movement but increases pickup range by 50, mob spawn rate by 50%, summon speed and range by 40%
@@ -239,6 +246,7 @@ horrorportaltip=Summons an army of horror spirits
 purehorrortip=Used to craft nightmare equipments
 
 // Objects
+overgrowthornstip=Can be placed on mud tiles \nGrows harmless thorns over time that can be harvested
 bannerofwatertip=Allows water walking \nGreatly increases your world view and travel range
 tanktrainingdummytip=A stronger training dummy with 1000 armor
 
@@ -348,17 +356,27 @@ druidtalk4=Hello my mentee!
 
 [buff]
 // Buffs
+sunflowerbufft5=Health regen while on combat and out of combat
+horrorglaivestack=Allows horror sentry summoning at 100 stacks
+firemonebufft5=Armor penetration and projectile velocity
+sunflowerbufft1=Stronger health regen while on combat
+goblinswordstack=Allows goblin summoning at 50 stacks
 woodtoolbuff=Increased mining range and mining speed
 mushroombuff=Killed foes turn into mushroom minions
 horrorswordstack=Horror Sword attack speed buff
+fishianstack=Summons a fishian at 100 stacks
 sunflowerbuff=Health regen while on combat
+firemonebufft1=Stronger armor penetration
 honeybuff=Health regen while on combat
+iceblossombufft5=Armor and resilience
 summonedbeetminionbuff=Beet Minion
+iceblossombufft1=Stronger armor
 firemonebuff=Armor penetration
 runicshieldbuff=Runic Armor
 iceblossombuff=Armor
 
 // Debuffs
+horrorglaivecooldowndebuff=Horror Glaive Cooldown
 bleedingdebuff=-20% damage and 2 poison damage
 goblincooldowndebuff=Goblin Sword Cooldown
 spiderbridecooldown=Spider Bride Cooldown
@@ -379,7 +397,7 @@ beetskilled=[mob=beetcavecroppler] Kill 20 Beet cave croppler
 snowmancollected=[item=snowmantrainingdummy] Craft a snowman
 xmaswreathcollected=[item=christmaswreath] Gather a christmas wreath
 xmastreeplaced=[item=christmastree] Place a christmas tree
-presentcollected=[item=redpresent] Wrap 10 presents
+presentcollected=[item=redpresent] Receive 10 presents
 cookieeated=[item=cookies] Eat a cookie
 
 [enchantment]

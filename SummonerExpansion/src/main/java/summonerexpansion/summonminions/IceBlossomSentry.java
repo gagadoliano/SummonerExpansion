@@ -2,10 +2,8 @@ package summonerexpansion.summonminions;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.registries.BuffRegistry;
-import necesse.engine.registries.ProjectileRegistry;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
-import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerChaserAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerCollisionChaserAI;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.staticBuffs.Buff;
@@ -13,12 +11,10 @@ import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.Attac
 import necesse.entity.objectEntity.interfaces.OEVicinityBuff;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
-import necesse.entity.projectile.Projectile;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
-import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 
@@ -50,14 +46,7 @@ public class IceBlossomSentry extends AttackingFollowingMob implements OEVicinit
 
     public Buff[] getBuffs()
     {
-        if (flowerRange >= 600)
-        {
-            return new Buff[]{BuffRegistry.getBuff("iceblossombufft1")};
-        }
-        else
-        {
-            return new Buff[]{BuffRegistry.getBuff("iceblossombuff")};
-        }
+        return new Buff[]{BuffRegistry.getBuff("iceblossombuff")};
     }
 
     public int getBuffRange()

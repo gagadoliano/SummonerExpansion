@@ -2,17 +2,20 @@
 // Crafting stations
 tungstensummoningtableduo=Mesa de Invocação de Tungstênio
 demonicsummoningtableduo=Mesa de Invocação Demoníaca
-tanktrainingdummy=Boneco de treinamento metálico
 fallensummoningtableduo=Mesa de Invocação Caída
 summoningbookshelf=Estante de invocação
 summoningtableduo=Mesa de Invocação
+
+// Others
+tanktrainingdummy=Boneco de treinamento metálico
+overgrowthornssapling=Espinhos Regenerativos
 bannerofwater=Bandeira de água
 
 [item]
 // Minion weapons
 magiccastlecandelabra=Candelabro mágico do castelo de aranha
 enchantedbrainonastick=Cérebro Encantado em um Bastão
-magicdungeoncandelabra=Candelabro Mágico do Calabouço
+magicdungeoncandelabra=Candelabro Mágico do Masmorra
 magictungstenlamp=Lâmpada Mágica de Tungstênio
 magicgoldlamp=Lâmpada Mágica Dupla de Ouro
 gemamethystshards=Fragmentos de Ametista
@@ -23,6 +26,7 @@ sandwormstaff=Cajado de verme da areia
 runebonestaff=Cajado de Osso Rúnico
 gemrubyshards=Fragmentos de Rubi
 dryadessence=Essência de Dríade
+goldpitchfork=Forcado de Ouro
 bearhead=Cabeça de Urso Pardo
 vampirewings=Asas de Vampiro
 cactusstaff=Cajado de cacto
@@ -33,13 +37,13 @@ royalhive=Colmeia Real
 leafshotheatpack=Pacote de Sementes do Disparador de Folhas de Fogo
 leafshotcoldpack=Pacote de Sementes do Disparador de Folhas de Gelo
 leafshotpack=Pacote de Sementes do Disparador de Folhas
+xmastreescepter=Cetro de Árvore de Natal
 iceblossomstaff=Cajado de Flor de Gelo
 sunflowerstaff=Cajado de Girassol
 firemonestaff=Cajado de Firemone
 caveglowstaff=Cajado do Caveglow
 vampirecoffin=Caixão do Vampiro
 bookmushroom=Livro de Cogumelos
-xmastreescepter=Cetro de Árvore de Natal
 
 // Secondary weapons
 magictools=Ferramentas Mágicas de Madeira
@@ -92,9 +96,10 @@ spelltablet=Tablete de Feitiços
 inducingsatchel=Bolsa Indutora
 mesmercharm=Amuleto do Mesmer
 necroticclaw=Garra Necrótica
+giantbeet=Beterraba Gigante
 mesmersatchel=Bolsa Mesmer
 bonepile=Pilha de Ossos
-giantbeet=Beterraba Gigante
+littleangel=Anjinho
 
 // Potions
 minionattackspeedpotion=Poção de invocador de Velocidade de Ataque
@@ -128,7 +133,7 @@ chieftainhat=Chapéu do Chefe
 magiccheese=Queijo Mágico
 
 // Boss summon
-shadowhorrorportal=Portal do Terror das Sombras
+shadowhorrorportal=Portal do Horror das Sombras
 
 // Materials
 purehorror=Horror Puro
@@ -145,7 +150,8 @@ amethystshardtip=Invoca um golem de ametista \nEste golem pode cristalizar inimi
 lampminioncastletip=Invoca um candelabro do castelo de aranha \nQueima e desacelera os inimigos \nOs efeitos ficam mais fortes à noite
 sapphireshardtip=Invoca um golem de safira \nEste golem invoca um glifo de safira em sua localização quando você tem essência de vida
 emeraldshardtip=Invoca um golem de esmeralda \nEste golem dispara um laser que perfura inimigos e ricocheteia nas paredes
-enchantedbrainonasticktip=Invoca um zumbi encantado e um arqueiro encantado \nEles reduzem a defesa do inimigo em 10
+enchantedbrainonasticktip=Invoca um zumbi encantado e um arqueiro encantado \nEles reduzem a armadura do inimigo em 10
+goldpitchforktip=Invoca um fazendeiro que tem uma pequena chance de gerar trigo ou animais de fazenda ao atacar
 magicgoldlamptip=Invoca uma lâmpada dupla de ouro que brilha e ataca \nQueima inimigos quando ataca
 rubyshardtip=Invoca um golem de rubi \nEste golem atira fragmentos de cristal nos inimigos
 cactusstafftip=Invoca um cacto móvel \nEle atira projéteis com perfuração aleatória
@@ -160,12 +166,12 @@ bearheadtip=Invoca um urso pardo que caça os inimigos
 
 // Sentry weapons
 bookmushroomtip=Invoca uma sentinela que desacelera inimigos próximos \nE transforma inimigos mortos em aliados
+xmastreetip=Invoca uma sentinela que afeta inimigos \nEles brilham e tomam mais 20% de dano
+leafshotheatpacktip=Seus projéteis queimam os inimigos \nConsumível
+leafshotcoldpacktip=Seus projéteis gelam os inimigos \nConsumível
+leafshotpacktip=Seus projéteis envenenam os inimigos \nConsumível
 coffinsentrytip=Após 10 acertos, invoca um morcego da cripta
 caveglowsentrytip=Brilha no escuro
-leafshotcoldpacktip=Seus projéteis gelam os inimigos \nConsumível
-leafshotheatpacktip=Seus projéteis queimam os inimigos \nConsumível
-leafshotpacktip=Seus projéteis envenenam os inimigos \nConsumível
-xmastreetip=Invoca uma sentinela que afeta inimigos \nEles brilham e tomam mais 20% de dano
 
 // Secondary weapons
 bookmagmatip=Invoca slimes de magma que atacam inimigos muito próximos \nSe o alvo estiver sob algum efeito de queimadura, ele queimará para sempre
@@ -176,23 +182,23 @@ bookfrozentip=Invoca anões congelados que atiram lanças nos inimigos
 bookbeetip=Invoca 3 abelhas \nElas desaceleram os inimigos em 10%
 
 // Melee weapons
-goblinswordtip=Carregue a espada ao atingir os inimigos \nUse [input=mouse2] quando totalmente carregado para invocar goblins
+horrorswordtip=Carregue a espada ao atingir os inimigos \nCada carga aumenta a velocidade de ataque desta espada \nCom carga máxima perde todas a cargas para invoca um zumbi rastejante do horror
 horrorglaivetip=Carregue a glaive ao atingir os inimigos \nUse [input=mouse2] quando totalmente carregado para invocar uma sentinela do horror
-fishianspeartip=Invoca um fishian no seu próximo ataque quando totalmente carregado \nCarregue a lança ao atingir inimigos
-horrorswordtip=Ganha cargas de velocidade de ataque ao atingir inimigos \nCom 100 cargas, invoca um zumbi rastejante de terror
+goblinswordtip=Carregue a espada ao atingir os inimigos \nUse [input=mouse2] quando totalmente carregado para invocar goblins
+fishianspeartip=Carregue a lança ao atingir inimigos \nInvoca um fishian no seu próximo ataque quando totalmente carregado
 horrorscythetip=Meia carga para invocar até 3 lobos do horror \nCarga completa para invocar um touro do horror
 wormbuckettip=10% de chance de invocar um peixe quando ataca
 
 // Range weapons
-mosquitobowtip=Atira flechas diretamente no local do mouse, deixando uma poça de dano ao aterrissar \nA cada 20 acertos, invoca um mosquito que reduz a armadura dos inimigos \nOs mosquitos invocados podem atacar os inimigos ou não
+mosquitobowtip=Atira flechas diretamente no local do mouse, deixando uma poça de dano ao aterrissar \nA cada 20 acertos, invoca um mosquito que reduz a armadura dos inimigos
 
 // Magic weapons
 sunflowersentrytip=Jogadores próximos recebem regeneração de vida
-firemonesentrytip=Jogadores próximos recebem penetração de defesa
-iceblossomsentrytip=Jogadores próximos recebem defesa
+firemonesentrytip=Jogadores próximos recebem penetração de armadura
+iceblossomsentrytip=Jogadores próximos recebem armadura
 
 // Armor set bonus
-spiderbridesettip1=Concede imunidade a lentidão \nAtaques de invocação envenenam o alvo por 25 de dano ao longo de 5 segundos \nPressione [input=setability] para invocar uma noiva aranha que atira veneno e teias
+spiderbridesettip=Concede imunidade a lentidão \nAtaques de invocação envenenam o alvo por 25 de dano ao longo de 5 segundos \nPressione [input=setability] para invocar uma noiva aranha que atira veneno e teias
 bloodplateset=Após sofrer dano, sua regeneração de saúde é dobrada por 4 segundos \nOs lacaios vampiros dispararão projéteis que viajam mais rápido e causam +50% de dano
 frostcrownsettip=Ataques de invocação desaceleram e causam dano ao alvo em 15 de dano ao longo de 5 segundos
 shadowhelmetsettip=Ataques de invocação assombram o alvo por 25 de dano ao longo de 5 segundos
@@ -203,21 +209,22 @@ plaguesettip=Chance de invocar ratos ao atacar inimigos
 // Trinkets
 frenzyhorrorcapetip=+1 invocação máxima \nAumenta a velocidade de movimento em 20% \nGanha 4 de regeneração de saúde por segundo enquanto estiver abaixo de 50% de saúde \nGanha até +50% de dano de invocação com base na saúde perdida \nInvoca até 3 morcegos do horror ao receber dano
 essenceofcompanionshiptip=Aumenta o ganho de essência em 100% \nAumenta a duração da essência em 100% \nAumenta o dano e velocidade de movimento de invocação para cada invocação máxima não utilizada\nOs aumentos diminuem ligeiramente além da primeira invocação não utilizada
+littleangeltip=Aperte [input=trinketability] para teletransportar \nMelhora suas estatísticas de invocador e investida \nSer atingido reseta suas cargas de investida instantaneamente \nGanhe 5 de resiliência sempre que usar uma investida
 necromancerarmortip=Melhora suas estatísticas de invocador \nGanhe dano e regeneração de vida quande estiver com pouca saúde \nAtaques de invocação desaceleram inimigos \nInvoca até 3 morcegos do horror ao receber dano
-summonergambittip=+1 Lacaio máximo \n+10 defesa \n+50% dano de invocação \n-50% dano de outros tipos de dano \n+10% chance de crítico de invocação \nSó pode ser equipado no slot de habilidade.
+summonergambittip=+1 Lacaio máximo \n+10 armadura \n+50% dano de invocação \n-50% dano de outros tipos de dano \n+10% chance de crítico de invocação \nSó pode ser equipado no slot de habilidade.
 mesmersatcheltip=+1 invocações máximas \nAumenta o limite de energia em 100% \nAumenta a velocidade de invocação em 50% \nAumenta a velocidade de movimento em 25% \nIlumina a área ao seu redor
 challengeraptip=Aumenta a resiliência máxima em 65 \nDesacelera a degradação da resiliência em 75% \nAumenta o ganho de resiliência em 50% e aumenta para 100% durante batalhas contra chefes
-necroticclawtip=Invocar ataques desacelera inimigos \nAumenta a resistência a knockback \nAumenta a penetração de armadura em 25 \nAumenta o dano crítico de invocação em 25%
+necroticclawtip=Ataques de invocação desacelera inimigos \nAumenta a resistência a knockback \nAumenta a penetração de armadura em 25 \nAumenta o dano crítico de invocação em 25%
 frenzystoneringtip=Ganhe até +50% de dano de invocação com base na saúde perdida \nGanhe 4 de regeneração de saúde por segundo enquanto estiver abaixo de 50% de saúde
 frozenassassinscowltip=Aumenta a chance de invocação de acerto crítico em 15% \nAumenta o dano crítico de invocação em 30% \nAumenta o alcance de invocação em 20%
+beetminiontip=Invoca uma beterrabinha que joga beterrabas nos inimigos \nCaso a beterraba jogada não acerte nada, há 10% de chance de cair no chão
 inducingsatcheltip=Aumenta a velocidade de invocação em 50% \nAumenta a velocidade de movimento em 20% \nIlumina a área ao seu redor
 spelltablettip=Aumenta o mana máximo em 60% \nAumenta a velocidade de invocação e ataque mágico em 30% \n+2 Lacaio máximo
 shadowhorrorcapetip=Aumenta a velocidade em 20% \n+1 invocação máxima \nInvoca até 3 morcegos do horror ao ser atingido
 demonicpolarclawtip=Ataques de invocação desaceleram inimigos \nAumenta a resistência a knockback
-bonepiletip=Aumenta a penetração de defesa em 25 \nAumenta o dano crítico de invocação em 25%
+bonepiletip=Aumenta a penetração de armadura em 25 \nAumenta o dano crítico de invocação em 25%
 hystericalmirrortip=+3 Lacaio máximo \nAumenta a velocidade de invocação em 45%
 mesmercharmtip=+1 Lacaio máximo \nAumenta o limite de energia em 80%
-beetminiontip=Invoca uma beterrabinha que joga beterrabas nos inimigos \nCaso a beterraba jogada não acerte nada, há 10% de chance de cair no chão
 
 // Potions buff info
 minionfarmtip=Diminui a velocidade de movimento em 80%, aumenta o alcance de coleta,taxa de geração de mobs, velocidade de invocação e o alcance dos lacios em 40%
@@ -239,8 +246,9 @@ horrorportaltip=Invoca um exército de espíritos de horror
 purehorrortip=Usado para criar equipamentos de horror
 
 // Objects
-bannerofwatertip=Permite caminhar sobre a água. \nAumenta consideravelmente seu alcance de viagem.
-tanktrainingdummytip=Um boneco de treinamento mais resistente com 1000 de armadura.
+overgrowthornstip=Pode ser colocado em azulejo de lama \nGera lentamente espinhos inofensivos que podem ser colhidos
+bannerofwatertip=Permite caminhar sobre a água. \nAumenta consideravelmente seu alcance de viagem
+tanktrainingdummytip=Um boneco de treinamento mais resistente com 1000 de armadura
 
 // Others
 minionspacetakentip=Cada invocação ocupa <amount> espaços de invocação
@@ -259,7 +267,7 @@ golemamethystminion=Lacaio golem de ametista
 golemsapphireminion=Lacaio golem de safira
 tungstenlampminion=Lâmpada de tungstênio
 enchantedbabyzombie=Bebê zumbi encantado
-lampminiondungeon=Lacaio do calabouço
+lampminiondungeon=Lacaio do masmorra
 goldlampminion=Lâmpada dupla de ouro
 golemrubyminion=Lacaio golem de rubi
 sandwormminion=Lacaio verme da areia
@@ -296,9 +304,9 @@ magicpickaxeminion=Picareta Mágica
 magicaxeminion=Machado Mágico
 
 // Melee minions
-horrorcrawlingzombieminion=Lacaio Zumbi Rastejante do Terror
-horrorbullminion=Lacaio Touro do Terror
-horrorwolfminion=Lacaio Lobo do Terror
+horrorcrawlingzombieminion=Lacaio Zumbi Rastejante do Horror
+horrorbullminion=Lacaio Touro do Horror
+horrorwolfminion=Lacaio Lobo do Horror
 fishherringminion=Lacaio Peixe Arenque
 fishmackerelminion=Lacaio Peixe Cavala
 fishsalmonminion=Lacaio Peixe Salmão
@@ -321,7 +329,7 @@ sunflowersentry=Sentinela de Girassol
 firemonesentry=Sentinela de Firemone
 
 // Equipment minions
-horrorbatminion=Lacaio Morcego do Terror
+horrorbatminion=Lacaio Morcego do Horror
 mouseminion=Lacaio rato
 
 // Mounts
@@ -329,11 +337,11 @@ chiefsummonmount=Armadura do Chefe
 mousesummonmount=Disfarce de Rato
 
 // Boss
-riftportalmob=Portal de Fenda do Terror
+riftportalmob=Portal de Fenda do Horror
 
 // Foes
 horrorspiritbossmob=Espírito de Horror Ancestral
-horrorspiritmob=Espírito de Terror
+horrorspiritmob=Espírito de Horror
 woodmob=Madeira Mágica
 
 // Settlers
@@ -348,22 +356,32 @@ druidtalk4=Olá!
 
 [buff]
 // Buffs
+sunflowerbufft5=Regeneração de saúde em combate e fora de combate
 mushroombuff=Inimigos mortos se transformam em lacaios cogumelo
+firemonebufft5=Penetração de armadura e velocidade de projétil
+horrorglaivestack=Permite invocar uma sentinela com 100 cargas
+sunflowerbufft1=Regeneração de saúde em combate mais forte
+goblinswordstack=Permite invocar goblins com 50 cargas
+firemonebufft1=Penetração de armadura mais forte
+fishianstack=Invoca um fishian com 100 cargas
 sunflowerbuff=Regeneração de saúde em combate
-horrorswordstack=Velocidade de atacaque bônus
+horrorswordstack=Velocidade de ataque bônus
 woodbuff=Velocidade e alcance de mineração
 honeybuff=Regeneração de saúde em combate
+iceblossombufft5=Armadura e resiliência
+iceblossombufft1=Armadura mais forte
 summonedbeetminionbuff=Beterrabinha
-firemonebuff=Penetração de defesa
+firemonebuff=Penetração de armadura
 runicshieldbuff=Armadura Rúnica
-iceblossombuff=Defesa
+iceblossombuff=Armadura
 
 // Debuffs
 bleedingdebuff=-20% de dano e 2 de dano de veneno
-enchantedDebuff=-10 de defesa absoluta
+horrorglaivecooldowndebuff=Recarregando...
+enchantedDebuff=-10 de armadura absoluta
 goblincooldowndebuff=Recarregando...
 spiderbridecooldown=Recarregando...
-mosquitodebuff=-10% de defesa
+mosquitodebuff=-10% de armadura
 mushroomDebuff=20% lentidão
 honeyDebuff=10% lentidão
 
@@ -379,21 +397,21 @@ beetskilled=[mob=beetcavecroppler] Mate 20 beterrabinhas fugitivas
 snowmancollected=[item=snowmantrainingdummy] Construa um boneco de neve
 xmaswreathcollected=[item=christmaswreath] Ache uma guirlanda de natal
 xmastreeplaced=[item=christmastree] Coloque uma árvore de natal
-presentcollected=[item=redpresent] Embrulhe 10 presentes
+presentcollected=[item=redpresent] Receba 10 presentes
 cookieeated=[item=cookies] Coma um cookie
 
-[encantamento]
-uncontrollable=Incontrolável
-unambiguous=Sem ambiguidade
-incapacitated=Incapacitado
-definitive=Definitivo
-frenzied=Frenqueado
-untamed=Indomável
-maniacal=Maníaco
-strict=Rigoroso
-ferocious=Feroz
-feral=Selvagem
-fierce=Feroz
+[enchantment]
+uncontrollable=[Incontrolável]
+unambiguous=[Sem ambiguidade]
+incapacitated=[Incapacitado]
+definitive=[Definitivo]
+frenzied=[Frenqueado]
+untamed=[Indomável]
+maniacal=[Maníaco]
+strict=[Rigoroso]
+ferocious=[Raivoso]
+feral=[Selvagem]
+fierce=[Cruel]
 
 [tech]
 summontablecraft=Mesa de Invocação

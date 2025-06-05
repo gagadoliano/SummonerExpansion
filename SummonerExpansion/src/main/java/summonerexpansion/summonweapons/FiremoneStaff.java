@@ -19,21 +19,26 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.ItemInteractAction;
 import necesse.inventory.item.toolItem.projectileToolItem.magicProjectileToolItem.MagicProjectileToolItem;
+import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 import necesse.level.maps.Level;
-import summonerexpansion.summonminions.FiremoneSentry;
+import summonerexpansion.summonminions.*;
 
 public class FiremoneStaff extends MagicProjectileToolItem implements ItemInteractAction
 {
+    public IntUpgradeValue sentryLevel = (new IntUpgradeValue()).setBaseValue(2);
+
     public FiremoneStaff()
     {
         super(200);
         rarity = Rarity.COMMON;
         damageType = DamageTypeRegistry.SUMMON;
-        attackDamage.setBaseValue(30.0F).setUpgradedValue(1.0F, 160.0F);
-        manaCost.setBaseValue(1.75F).setUpgradedValue(1.0F, 4.0F);
+        attackDamage.setBaseValue(30.0F).setUpgradedValue(1, 160F);
+        manaCost.setBaseValue(1.75F).setUpgradedValue(1, 4F);
+        resilienceGain.setBaseValue(0).setUpgradedValue(1, 1F);
         attackAnimTime.setBaseValue(800);
-        attackRange.setBaseValue(600);
-        velocity.setBaseValue(80);
+        attackRange.setBaseValue(600).setUpgradedValue(1, 1000);
+        velocity.setBaseValue(80).setUpgradedValue(1, 90).setUpgradedValue(5, 150);
+        sentryLevel.setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(5, 3);
         knockback.setBaseValue(10);
         attackXOffset = 20;
         attackYOffset = 20;
@@ -70,9 +75,26 @@ public class FiremoneStaff extends MagicProjectileToolItem implements ItemIntera
     {
         if (attackerMob.isServer())
         {
-            FiremoneSentry mob1 = new FiremoneSentry();
-            attackerMob.serverFollowersManager.addFollower("firemonesentry", mob1, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, 1, null, false);
-            attackerMob.getLevel().entityManager.addMob(mob1, attackerMob.x, attackerMob.y - 50);
+            if (sentryLevel.getValue(getUpgradeTier(item)) == 1)
+            {
+                FiremoneSentry mob1 = new FiremoneSentry();
+                attackerMob.serverFollowersManager.addFollower("firemonesentry", mob1, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
+                attackerMob.getLevel().entityManager.addMob(mob1, attackerMob.x, attackerMob.y);
+            }
+
+            if (sentryLevel.getValue(getUpgradeTier(item)) == 2)
+            {
+                FiremoneSentryT1 mob2 = new FiremoneSentryT1();
+                attackerMob.serverFollowersManager.addFollower("firemonesentryt1", mob2, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
+                attackerMob.getLevel().entityManager.addMob(mob2, attackerMob.x, attackerMob.y);
+            }
+
+            if (sentryLevel.getValue(getUpgradeTier(item)) > 2)
+            {
+                FiremoneSentryT5 mob3 = new FiremoneSentryT5();
+                attackerMob.serverFollowersManager.addFollower("firemonesentryt5", mob3, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
+                attackerMob.getLevel().entityManager.addMob(mob3, attackerMob.x, attackerMob.y);
+            }
         }
         return item;
     }

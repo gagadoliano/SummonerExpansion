@@ -28,7 +28,7 @@ import java.awt.geom.Point2D;
 
 public class MosquitoBow  extends BowProjectileToolItem
 {
-    public IntUpgradeValue maxMosquitos = new IntUpgradeValue(5, 0.0F);
+    public IntUpgradeValue maxMosquitos = new IntUpgradeValue(4, 0.0F);
     public int mosquitoStack;
     public int projectileMaxHeight;
 
@@ -37,7 +37,8 @@ public class MosquitoBow  extends BowProjectileToolItem
         super(200);
         rarity = Rarity.COMMON;
         damageType = DamageTypeRegistry.SUMMON;
-        attackDamage.setBaseValue(40.0F).setUpgradedValue(1.0F, 75.0F);
+        attackDamage.setBaseValue(40.0F).setUpgradedValue(1, 75.0F);
+        resilienceGain.setBaseValue(0F).setUpgradedValue(1, 0.5F);
         attackAnimTime.setBaseValue(1500);
         attackRange.setBaseValue(1600);
         velocity.setBaseValue(350);
@@ -45,24 +46,21 @@ public class MosquitoBow  extends BowProjectileToolItem
         attackXOffset = 12;
         attackYOffset = 28;
         canBeUsedForRaids = false;
-        maxMosquitos.setBaseValue(5).setUpgradedValue(1, 10).setUpgradedValue(5, 15);
+        maxMosquitos.setBaseValue(4).setUpgradedValue(1, 6).setUpgradedValue(5, 8);
     }
 
     @Override
     public InventoryItem onAttack(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight, InventoryItem item, ItemAttackSlot slot, int animAttack, int seed, GNDItemMap mapContent)
     {
-        if (mosquitoStack >= 2)
+        MosquitoBowMinion mob = new MosquitoBowMinion();
+        attackerMob.serverFollowersManager.addFollower("mosquitobowminion", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, maxMosquitos.getValue(getUpgradeTier(item)), null, false);
+        mob.updateDamage(getAttackDamage(item));
+        mob.setEnchantment(getEnchantment(item));
+
+        if (++mosquitoStack >= 20)
         {
-            MosquitoBowMinion mob = new MosquitoBowMinion();
-            attackerMob.serverFollowersManager.addFollower("mosquitobowminion", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, maxMosquitos.getValue(getUpgradeTier(item)), null, false);
-            mob.updateDamage(getAttackDamage(item));
-            mob.setEnchantment(getEnchantment(item));
             attackerMob.getLevel().entityManager.addMob(mob, attackerMob.x, attackerMob.y);
             mosquitoStack = 0;
-        }
-        else
-        {
-            mosquitoStack++;
         }
 
         return super.onAttack(level, x, y, attackerMob, attackHeight, item, slot, animAttack, seed, mapContent);

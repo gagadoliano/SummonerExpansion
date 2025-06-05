@@ -51,14 +51,7 @@ public class SunflowerSentry extends AttackingFollowingMob implements OEVicinity
 
     public Buff[] getBuffs()
     {
-        if (flowerRange >= 600)
-        {
-            return new Buff[]{BuffRegistry.getBuff("sunflowerbufft1")};
-        }
-        else
-        {
-            return new Buff[]{BuffRegistry.getBuff("sunflowerbuff")};
-        }
+        return new Buff[]{BuffRegistry.getBuff("sunflowerbuff")};
     }
 
     public int getBuffRange()
@@ -136,7 +129,7 @@ public class SunflowerSentry extends AttackingFollowingMob implements OEVicinity
         GameLight light = level.getLightLevel(x / 32, y / 32);
         int drawX = camera.getDrawX(x) - 16;
         int drawY = camera.getDrawY(y) - 20;
-        DrawOptions body = texture.initDraw().light(light).rotate(this.moveAngle, 16, 20).pos(drawX, drawY);
+        DrawOptions body = texture.initDraw().light(light).rotate(moveAngle, 16, 20).pos(drawX, drawY);
         topList.add((tm) -> {
             body.draw();
         });

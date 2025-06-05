@@ -16,7 +16,6 @@ import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
-import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 
@@ -26,7 +25,6 @@ import java.util.List;
 
 public class MagicPickaxeMinion extends FlyingAttackingFollowingMob
 {
-    public IntUpgradeValue levelStack = new IntUpgradeValue(2, 0.0F).setUpgradedValue(1, 3).setUpgradedValue(2, 4).setUpgradedValue(3, 5).setUpgradedValue(4, 6).setUpgradedValue(3, 8);
     public static GameTexture texture;
     public float moveAngle;
     public int woodHit;
@@ -41,7 +39,6 @@ public class MagicPickaxeMinion extends FlyingAttackingFollowingMob
         collision = new Rectangle(6, 6, 18, 16);
         hitBox = new Rectangle(6, 6, 18, 16);
         selectBox = new Rectangle();
-        levelStack.setBaseValue(2).setUpgradedValue(1, 3).setUpgradedValue(2, 4).setUpgradedValue(3, 5).setUpgradedValue(4, 6).setUpgradedValue(3, 8);
     }
 
     public GameDamage getCollisionDamage(Mob target) {
@@ -54,11 +51,7 @@ public class MagicPickaxeMinion extends FlyingAttackingFollowingMob
         if (owner != null && target != null)
         {
             ActiveBuff buff = new ActiveBuff(BuffRegistry.getBuff("woodtoolbuff"), target, 60F, this);
-
-            if (owner.buffManager.getStacks(BuffRegistry.getBuff("woodtoolbuff")) < levelStack.getValue(buff.getUpgradeTier()))
-            {
-                owner.buffManager.addBuff(buff, true);
-            }
+            owner.buffManager.addBuff(buff, true);
 
             target.isServerHit(damage, target.x - owner.x, target.y - owner.y, (float)knockback, this);
             collisionHitCooldowns.startCooldown(target);
@@ -80,13 +73,13 @@ public class MagicPickaxeMinion extends FlyingAttackingFollowingMob
     public void tickMovement(float delta)
     {
         toMove += delta;
-        while(this.toMove > 4.0F)
+        while(toMove > 4.0F)
         {
-            float oldX = this.x;
-            float oldY = this.y;
+            float oldX = x;
+            float oldY = y;
             super.tickMovement(4.0F);
             toMove -= 4.0F;
-            Point2D.Float d = GameMath.normalize(oldX - this.x, oldY - this.y);
+            Point2D.Float d = GameMath.normalize(oldX - x, oldY - y);
             moveAngle = (float)Math.toDegrees(Math.atan2(d.y, d.x)) - 90.0F;
         }
     }

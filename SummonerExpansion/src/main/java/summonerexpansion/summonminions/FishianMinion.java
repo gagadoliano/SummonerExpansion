@@ -6,7 +6,6 @@ import necesse.engine.registries.MobRegistry;
 import necesse.engine.registries.ProjectileRegistry;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
-import necesse.engine.util.GameMath;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
@@ -29,9 +28,7 @@ import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 
 import java.awt.*;
-import java.awt.geom.Point2D;
 import java.util.List;
-import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 import static summonerexpansion.summonothers.SummonerTextures.fishianMinion;
@@ -124,7 +121,7 @@ public class FishianMinion extends AttackingFollowingMob
         } 
         else 
         {
-            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).armSprite(MobRegistry.Textures.fishianHookWarrior.body, 0, 8, 32).pointRotation(attackDir.x, attackDir.y).light(light);
+            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).armSprite(fishianMinion.body, 0, 8, 32).pointRotation(attackDir.x, attackDir.y).light(light);
             humanDrawOptions.attackAnim(attackOptions, animProgress);
         }
         final DrawOptions drawOptions = humanDrawOptions.pos(drawX, drawY);

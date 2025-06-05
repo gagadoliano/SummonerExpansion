@@ -5,19 +5,13 @@ import necesse.engine.network.gameNetworkData.GNDItemMap;
 import necesse.engine.registries.BuffRegistry;
 import necesse.engine.registries.DamageTypeRegistry;
 import necesse.engine.util.GameBlackboard;
-import necesse.engine.util.GameRandom;
-import necesse.entity.ParticleTypeSwitcher;
 import necesse.entity.levelEvent.mobAbilityLevelEvent.ToolItemMobAbilityEvent;
-import necesse.entity.mobs.Attacker;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
-import necesse.entity.mobs.attackHandler.NecroticGreatswordAttackHandler;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackSlot;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
-import necesse.entity.particle.Particle;
-import necesse.gfx.GameResources;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
 import necesse.gfx.gameTooltips.ListGameTooltips;
@@ -33,44 +27,20 @@ import summonerexpansion.summonminions.GoblinLegMinion;
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.LinkedList;
-import java.util.function.BiConsumer;
 
 public class GoblinSword extends SwordToolItem implements ItemInteractAction
 {
-    public int goblinCharge;
-
     public GoblinSword()
     {
         super(400);
         rarity = Rarity.UNCOMMON;
         damageType = DamageTypeRegistry.SUMMON;
-        attackDamage.setBaseValue(20.0F).setUpgradedValue(1.0F, 50.0F);
+        attackDamage.setBaseValue(20.0F).setUpgradedValue(1, 50.0F);
         attackAnimTime.setBaseValue(300);
-        resilienceGain.setBaseValue(0F);
+        resilienceGain.setBaseValue(0F).setUpgradedValue(1, 0.1F);
         attackRange.setBaseValue(60);
         knockback.setBaseValue(75);
         canBeUsedForRaids = false;
-    }
-
-    @Override
-    public InventoryItem onAttack(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight, InventoryItem item, ItemAttackSlot slot, int animAttack, int seed, GNDItemMap mapContent)
-    {
-        if (goblinCharge == 99)
-        {
-            int particleCount = 25;
-            GameRandom random = GameRandom.globalRandom;
-            ParticleTypeSwitcher typeSwitcher = new ParticleTypeSwitcher(Particle.GType.CRITICAL, Particle.GType.IMPORTANT_COSMETIC, Particle.GType.COSMETIC);
-            float anglePerParticle = 360.0F / (float)particleCount;
-            for(int i = 0; i < particleCount; ++i)
-            {
-                int angle = (int)((float)i * anglePerParticle + random.nextFloat() * anglePerParticle);
-                float dx = (float)Math.sin(Math.toRadians(angle)) * 50.0F;
-                float dy = (float)Math.cos(Math.toRadians(angle)) * 50.0F;
-                attackerMob.getLevel().entityManager.addParticle(attackerMob, typeSwitcher.next()).sprite(GameResources.starParticles.sprite(random.nextInt(4), 0, 22)).sizeFades(22, 44).movesFriction(dx * 2.0F, dy * 2.0F, 0.8F).color(new Color(168, 184, 170)).givesLight(247.0F, 0.3F).heightMoves(0.0F, 30.0F).lifeTime(1500);
-            }
-            goblinCharge++;
-        }
-        return super.onAttack(level, x, y, attackerMob, attackHeight, item, slot, animAttack, seed, mapContent);
     }
 
     public void hitMob(InventoryItem item, ToolItemMobAbilityEvent event, Level level, Mob target, Mob attacker)
@@ -78,16 +48,14 @@ public class GoblinSword extends SwordToolItem implements ItemInteractAction
         super.hitMob(item, event, level, target, attacker);
         if (attacker.isServer())
         {
-            if (goblinCharge < 99)
-            {
-                goblinCharge++;
-            }
+            ActiveBuff ab = new ActiveBuff(BuffRegistry.getBuff("goblinswordstack"), attacker, 30.0F, attacker);
+            attacker.addBuff(ab, true);
         }
     }
 
     public boolean canLevelInteract(Level level, int x, int y, ItemAttackerMob attackerMob, InventoryItem item)
     {
-        return !attackerMob.buffManager.hasBuff(BuffRegistry.getBuff("goblincooldowndebuff")) && goblinCharge >= 100;
+        return !attackerMob.buffManager.hasBuff(BuffRegistry.getBuff("goblincooldowndebuff")) && attackerMob.buffManager.getStacks(BuffRegistry.getBuff("goblinswordstack")) >= 50;
     }
 
     public float getItemCooldownPercent(InventoryItem item, PlayerMob perspective)
@@ -97,8 +65,8 @@ public class GoblinSword extends SwordToolItem implements ItemInteractAction
 
     public InventoryItem onLevelInteract(Level level, int x, int y, final ItemAttackerMob attackerMob, int attackHeight, final InventoryItem item, ItemAttackSlot slot, final int seed, GNDItemMap mapContent)
     {
-        attackerMob.buffManager.addBuff(new ActiveBuff(BuffRegistry.getBuff("goblincooldowndebuff"), attackerMob, 12.0F, (Attacker)null), false);
-        if (goblinCharge >= 100 && attackerMob.isServer())
+        attackerMob.buffManager.addBuff(new ActiveBuff(BuffRegistry.getBuff("goblincooldowndebuff"), attackerMob, 60.0F, null), false);
+        if (attackerMob.isServer() && attackerMob.buffManager.getStacks(BuffRegistry.getBuff("goblinswordstack")) >= 50)
         {
             GoblinHeadMinion mob1 = new GoblinHeadMinion();
             attackerMob.serverFollowersManager.addFollower("goblinheadminion", mob1, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, 1, null, false);
@@ -118,7 +86,7 @@ public class GoblinSword extends SwordToolItem implements ItemInteractAction
             mob3.setEnchantment(this.getEnchantment(item));
             attackerMob.getLevel().entityManager.addMob(mob3, attackerMob.x + 50, attackerMob.y + 50);
 
-            goblinCharge = 0;
+            attackerMob.buffManager.removeBuff("goblinswordstack", true);
         }
         return item;
     }
@@ -141,7 +109,6 @@ public class GoblinSword extends SwordToolItem implements ItemInteractAction
     {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "goblinswordtip"));
-        tooltips.add(Localization.translate("itemtooltip", "chargetip", "amount", goblinCharge));
         return tooltips;
     }
 }

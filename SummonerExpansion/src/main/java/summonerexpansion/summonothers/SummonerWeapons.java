@@ -42,6 +42,7 @@ public class SummonerWeapons
         ItemRegistry.registerItem("magicdungeoncandelabra", new MagicDungeonCandelabra(), 100, true);
         ItemRegistry.registerItem("magicgoldlamp", new MagicGoldLamp(), 100, true);
         ItemRegistry.registerItem("runebonestaff", new RuneboneStaff(), 100, true);
+        ItemRegistry.registerItem("goldpitchfork", new GoldPitchfork(), 100, true);
         ItemRegistry.registerItem("vampirewings", new VampireWings(), 100, true);
         // Melee
         ItemRegistry.registerItem("goblinsword", new GoblinSword(), 100, true);

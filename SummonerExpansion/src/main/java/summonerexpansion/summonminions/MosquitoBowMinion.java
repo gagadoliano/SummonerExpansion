@@ -42,7 +42,7 @@ public class MosquitoBowMinion extends FlyingAttackingFollowingMob
     public void init()
     {
         super.init();
-        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI(1200, summonDamage, 45, 800, 2000, 70));
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI(1200, summonDamage, 45, 800, 2000, 90));
     }
 
     public GameDamage getCollisionDamage(Mob target) {
@@ -55,7 +55,7 @@ public class MosquitoBowMinion extends FlyingAttackingFollowingMob
         Mob owner = this.getAttackOwner();
 
         MosquitoHits++;
-        if (MosquitoHits >= 10)
+        if (MosquitoHits >= 20)
         {
             remove();
         }

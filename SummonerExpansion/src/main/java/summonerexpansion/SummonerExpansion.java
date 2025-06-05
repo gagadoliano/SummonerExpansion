@@ -29,7 +29,7 @@ public class SummonerExpansion
         LevelEventRegistry.registerEvent("snowmanexplosionlevelevent", SnowmanExplosionLevelEvent.class);
         LevelEventRegistry.registerEvent("mosquitobowevent", MosquitoBowEvent.class);
 
-        // Objects
+        // Duo Objects
         SummoningTableDuo.registerSummoningTable();
         DemonicSummoningTableDuo.registerDemonicSummoningTable();
         TungstenSummoningTableDuo.registerTungstenSummoningTable();

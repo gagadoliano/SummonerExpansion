@@ -1,9 +1,7 @@
 package summonerexpansion.summonweapons;
 
 import necesse.engine.localization.Localization;
-import necesse.engine.network.PacketReader;
 import necesse.engine.network.gameNetworkData.GNDItemMap;
-import necesse.engine.network.server.ServerClient;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.util.GameBlackboard;
 import necesse.entity.mobs.PlayerMob;
@@ -14,7 +12,6 @@ import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.Attac
 import necesse.gfx.gameTooltips.GameTooltips;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
-import necesse.inventory.PlayerInventorySlot;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.level.maps.Level;
 

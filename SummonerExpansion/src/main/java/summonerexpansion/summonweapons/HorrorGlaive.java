@@ -9,7 +9,6 @@ import necesse.engine.util.GameRandom;
 import necesse.entity.ParticleTypeSwitcher;
 import necesse.entity.levelEvent.GlaiveShowAttackEvent;
 import necesse.entity.levelEvent.mobAbilityLevelEvent.ToolItemMobAbilityEvent;
-import necesse.entity.mobs.Attacker;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
@@ -22,24 +21,14 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.ItemInteractAction;
 import necesse.inventory.item.toolItem.glaiveToolItem.GlaiveToolItem;
-import necesse.inventory.item.toolItem.glaiveToolItem.SlimeGlaiveToolItem;
-import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
-import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 import necesse.level.maps.Level;
-import summonerexpansion.summonminions.GoblinChestMinion;
-import summonerexpansion.summonminions.GoblinHeadMinion;
-import summonerexpansion.summonminions.GoblinLegMinion;
 import summonerexpansion.summonminions.HorrorSentry;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
-import java.util.function.BiConsumer;
 
 public class HorrorGlaive extends GlaiveToolItem implements ItemInteractAction
 {
-    public FloatUpgradeValue horrorUpgrade = new FloatUpgradeValue(0.5F, 0.0F);
-    public float glaiveCharge;
-
     public HorrorGlaive()
     {
         super(800);
@@ -47,13 +36,12 @@ public class HorrorGlaive extends GlaiveToolItem implements ItemInteractAction
         damageType = DamageTypeRegistry.SUMMON;
         attackDamage.setBaseValue(35.0F).setUpgradedValue(1.0F, 75.0F);
         attackAnimTime.setBaseValue(600);
-        resilienceGain.setBaseValue(0F);
+        resilienceGain.setBaseValue(0F).setUpgradedValue(1, 0.5F);
         attackRange.setBaseValue(200);
         knockback.setBaseValue(150);
         attackXOffset = 74;
         attackYOffset = 74;
         width = 20.0F;
-        horrorUpgrade.setBaseValue(0.5F).setUpgradedValue(1, 1F).setUpgradedValue(5,3F);
         canBeUsedForRaids = false;
     }
 
@@ -78,7 +66,7 @@ public class HorrorGlaive extends GlaiveToolItem implements ItemInteractAction
 
     public InventoryItem onAttack(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight, InventoryItem item, ItemAttackSlot slot, int animAttack, int seed, GNDItemMap mapContent)
     {
-        if (glaiveCharge == 99)
+        if (attackerMob.buffManager.getStacks(BuffRegistry.getBuff("horrorglaivestack")) >= 100)
         {
             int particleCount = 25;
             GameRandom random = GameRandom.globalRandom;
@@ -91,7 +79,6 @@ public class HorrorGlaive extends GlaiveToolItem implements ItemInteractAction
                 float dy = (float)Math.cos(Math.toRadians(angle)) * 50.0F;
                 attackerMob.getLevel().entityManager.addParticle(attackerMob, typeSwitcher.next()).sprite(GameResources.magicSparkParticles.sprite(random.nextInt(4), 0, 22)).sizeFades(22, 44).movesFriction(dx * 2.0F, dy * 2.0F, 0.8F).color(new Color(98, 0, 0)).givesLight(247.0F, 0.3F).heightMoves(0.0F, 30.0F).lifeTime(1500);
             }
-            glaiveCharge++;
         }
         return super.onAttack(level, x, y, attackerMob, attackHeight, item, slot, animAttack, seed, mapContent);
     }
@@ -99,15 +86,16 @@ public class HorrorGlaive extends GlaiveToolItem implements ItemInteractAction
     public void hitMob(InventoryItem item, ToolItemMobAbilityEvent event, Level level, Mob target, Mob attacker)
     {
         super.hitMob(item, event, level, target, attacker);
-        if (attacker.isServer() && glaiveCharge < 99)
+        if (attacker.isServer())
         {
-            glaiveCharge += horrorUpgrade.getValue(getUpgradeTier(item));
+            ActiveBuff ab = new ActiveBuff(BuffRegistry.getBuff("horrorglaivestack"), attacker, 30.0F, attacker);
+            attacker.addBuff(ab, true);
         }
     }
 
     public boolean canLevelInteract(Level level, int x, int y, ItemAttackerMob attackerMob, InventoryItem item)
     {
-        return !attackerMob.buffManager.hasBuff(BuffRegistry.getBuff("horrorglaivecooldowndebuff")) && glaiveCharge >= 100;
+        return !attackerMob.buffManager.hasBuff(BuffRegistry.getBuff("horrorglaivecooldowndebuff")) && attackerMob.buffManager.getStacks(BuffRegistry.getBuff("horrorglaivestack")) >= 100;
     }
 
     public float getItemCooldownPercent(InventoryItem item, PlayerMob perspective)
@@ -117,15 +105,16 @@ public class HorrorGlaive extends GlaiveToolItem implements ItemInteractAction
 
     public InventoryItem onLevelInteract(Level level, int x, int y, final ItemAttackerMob attackerMob, int attackHeight, final InventoryItem item, ItemAttackSlot slot, final int seed, GNDItemMap mapContent)
     {
-        attackerMob.buffManager.addBuff(new ActiveBuff(BuffRegistry.getBuff("horrorglaivecooldowndebuff"), attackerMob, 12.0F, (Attacker)null), false);
-        if (glaiveCharge >= 100 && attackerMob.isServer())
+        attackerMob.buffManager.addBuff(new ActiveBuff(BuffRegistry.getBuff("horrorglaivecooldowndebuff"), attackerMob, 12.0F, null), false);
+        if (attackerMob.isServer() && attackerMob.buffManager.getStacks(BuffRegistry.getBuff("horrorglaivestack")) >= 100)
         {
             HorrorSentry mob1 = new HorrorSentry();
             attackerMob.serverFollowersManager.addFollower("horrorspikesentry", mob1, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, 5, null, false);
             mob1.updateDamage(this.getAttackDamage(item));
             mob1.setEnchantment(this.getEnchantment(item));
             attackerMob.getLevel().entityManager.addMob(mob1, attackerMob.x, attackerMob.y);
-            glaiveCharge = 0;
+
+            attackerMob.buffManager.removeBuff("horrorglaivestack", true);
         }
         return item;
     }
@@ -140,7 +129,6 @@ public class HorrorGlaive extends GlaiveToolItem implements ItemInteractAction
     {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "horrorglaivetip"));
-        tooltips.add(Localization.translate("itemtooltip", "chargetip", "amount", (int)glaiveCharge));
         return tooltips;
     }
 }

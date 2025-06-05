@@ -49,7 +49,7 @@ public class MushroomBuff extends Buff
             ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
             Level level = buff.owner.getLevel();
             AttackingFollowingMob mob = (AttackingFollowingMob)MobRegistry.getMob("mushroomminion", level);
-            attackerMob.serverFollowersManager.addFollower("mushroombuff", mob, FollowPosition.WALK_CLOSE, "mushroombuff", 1.0F, (p) -> {return 10;}, (BiConsumer)null, false);
+            attackerMob.serverFollowersManager.addFollower("mushroombuff", mob, FollowPosition.WALK_CLOSE, "mushroombuff", 1.0F, (p) -> 10, null, false);
             mob.getLevel().entityManager.addMob(mob, buff.owner.x, buff.owner.y);
             killedMob = true;
         }

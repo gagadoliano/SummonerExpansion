@@ -1,18 +1,15 @@
 package summonerexpansion.summonweapons;
 
 import necesse.engine.localization.Localization;
-import necesse.engine.network.PacketReader;
 import necesse.engine.network.gameNetworkData.GNDItemMap;
 import necesse.engine.registries.DamageTypeRegistry;
 import necesse.engine.util.GameBlackboard;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.attackHandler.GreatswordChargeLevel;
-import necesse.entity.mobs.attackHandler.SlimeGreatswordAttackHandler;
 import necesse.entity.mobs.itemAttacker.ItemAttackSlot;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
-import necesse.inventory.PlayerInventorySlot;
 import necesse.inventory.item.toolItem.swordToolItem.greatswordToolItem.GreatswordToolItem;
 import necesse.level.maps.Level;
 import summonerexpansion.summonothers.HorrorScytheHandler;
@@ -26,8 +23,8 @@ public class HorrorScythe extends GreatswordToolItem
         super(800, HorrorScythe.getChargeLevels(600, 800, 1200));
         rarity = Rarity.EPIC;
         damageType = DamageTypeRegistry.SUMMON;
-        attackDamage.setBaseValue(60.0F).setUpgradedValue(1.0F, 65.0F);
-        resilienceGain.setBaseValue(0F);
+        attackDamage.setBaseValue(60.0F).setUpgradedValue(1, 65.0F);
+        resilienceGain.setBaseValue(0F).setUpgradedValue(1, 1F);
         attackRange.setBaseValue(80);
         knockback.setBaseValue(120);
         attackXOffset = 12;

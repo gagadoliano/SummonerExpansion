@@ -64,8 +64,8 @@ public class SummonerEquips
         // T3
         BuffRegistry.registerBuff("spelltabletbuff", new SimpleTrinketBuff("spelltablettip", new ModifierValue(BuffModifiers.MAX_MANA, 0.60F), new ModifierValue(BuffModifiers.MAX_SUMMONS, 2), new ModifierValue(BuffModifiers.SUMMON_ATTACK_SPEED, 0.30F), new ModifierValue(BuffModifiers.MAGIC_ATTACK_SPEED, 0.30F)));
         BuffRegistry.registerBuff("inducingsatchelbuff", new SimpleTrinketBuff("inducingsatcheltip", new ModifierValue(BuffModifiers.SUMMONS_SPEED, 0.40F), new ModifierValue(BuffModifiers.SPEED, 0.20F), new ModifierValue(BuffModifiers.EMITS_LIGHT, true)));
-        ItemRegistry.registerItem("spelltablet", (new SimpleTrinketItem(Item.Rarity.RARE, "spelltabletbuff", 400)).addDisables("spellstone", "hysteriatablet", "hystericalmirror"), 200, true);
-        ItemRegistry.registerItem("hystericalmirror", (new SimpleTrinketItem(Item.Rarity.RARE, "hystericalmirrorbuff", 400)).addDisables("scryingmirror", "hysteriatablet"), 200, true);
+        ItemRegistry.registerItem("spelltablet", (new SimpleTrinketItem(Item.Rarity.RARE, "spelltabletbuff", 400)).addDisables("spellstone", "hysteriatablet", "inducingamulet", "mesmertablet"), 200, true);
+        ItemRegistry.registerItem("hystericalmirror", (new SimpleTrinketItem(Item.Rarity.RARE, "hystericalmirrorbuff", 400)).addDisables("scryingmirror", "hysteriatablet", "inducingamulet", "mesmertablet"), 200, true);
         ItemRegistry.registerItem("inducingsatchel", (new SimpleTrinketItem(Item.Rarity.RARE, "inducingsatchelbuff", 400)).addDisables("explorersatchel", "inducingamulet"), 200, true);
         BuffRegistry.registerBuff("hystericalmirrorbuff", new SimpleTrinketBuff("hystericalmirrortip", new ModifierValue(BuffModifiers.MAX_SUMMONS, 3), new ModifierValue(BuffModifiers.SUMMONS_SPEED, 0.45F)));
         BuffRegistry.registerBuff("bonepilebuff", new SimpleTrinketBuff("bonepiletip", new ModifierValue(BuffModifiers.ARMOR_PEN_FLAT, 25), new ModifierValue(BuffModifiers.SUMMON_CRIT_DAMAGE, 0.25F)));
@@ -83,10 +83,13 @@ public class SummonerEquips
         ItemRegistry.registerItem("frenzyhorrorcape", (new FrenzyHorrorCape()).addDisables("bloodstonering", "frenzyorb", "frenzystonering", "shadowhorrorcape"), 500, true);
         ItemRegistry.registerItem("necroticclaw", (new NecroticClaw()).addDisables("bonehilt", "bonepile", "demonicpolarclaw", "polarclaw", "demonclaw"), 500, true);
         ItemRegistry.registerItem("frenzystonering", (new FrenzystoneRing()).addDisables("bloodstonering", "frenzyorb"), 500, true);
+        ItemRegistry.registerItem("littleangel", new LittleAngel(), 500, true);
         BuffRegistry.registerBuff("frenzyhorrorcapebuff", new FrenzyHorrorCapeBuff());
         BuffRegistry.registerBuff("necromancerarmorbuff", new NecromancerArmorBuff());
         BuffRegistry.registerBuff("frenzystoneringbuff", new FrenzystoneRingBuff());
         BuffRegistry.registerBuff("necroticclawbuff", new NecroticClawBuff());
+        BuffRegistry.registerBuff("littleangelbuff", new LittleAngelBuff());
+
 
         // Challenge
         ItemRegistry.registerItem("giantbeet", new SimpleTrinketItem(Item.Rarity.RARE, "giantbeetbuff", 100), 50, true);

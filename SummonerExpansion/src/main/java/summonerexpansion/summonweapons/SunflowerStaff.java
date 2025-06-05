@@ -22,19 +22,25 @@ import necesse.inventory.item.toolItem.projectileToolItem.magicProjectileToolIte
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 import necesse.level.maps.Level;
 import summonerexpansion.summonminions.SunflowerSentry;
+import summonerexpansion.summonminions.SunflowerSentryT1;
+import summonerexpansion.summonminions.SunflowerSentryT5;
 
 public class SunflowerStaff extends MagicProjectileToolItem implements ItemInteractAction
 {
+    public IntUpgradeValue sentryLevel = (new IntUpgradeValue()).setBaseValue(2);
+
     public SunflowerStaff()
     {
         super(200);
         rarity = Rarity.COMMON;
         damageType = DamageTypeRegistry.SUMMON;
-        attackDamage.setBaseValue(20.0F).setUpgradedValue(1.0F, 150.0F);
-        manaCost.setBaseValue(1.75F).setUpgradedValue(1.0F, 4.0F);
+        attackDamage.setBaseValue(20.0F).setUpgradedValue(1, 150F);
+        manaCost.setBaseValue(1.75F).setUpgradedValue(1, 4F);
+        resilienceGain.setBaseValue(0).setUpgradedValue(1, 1F);
         attackAnimTime.setBaseValue(800);
-        attackRange.setBaseValue(500);
-        velocity.setBaseValue(70);
+        attackRange.setBaseValue(500).setUpgradedValue(1, 1000);
+        velocity.setBaseValue(70).setUpgradedValue(1, 80).setUpgradedValue(5, 150);
+        sentryLevel.setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(5, 3);
         knockback.setBaseValue(5);
         attackXOffset = 20;
         attackYOffset = 20;
@@ -71,9 +77,26 @@ public class SunflowerStaff extends MagicProjectileToolItem implements ItemInter
     {
         if (attackerMob.isServer())
         {
-            SunflowerSentry mob1 = new SunflowerSentry();
-            attackerMob.serverFollowersManager.addFollower("sunflowersentry", mob1, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, 1, null, false);
-            attackerMob.getLevel().entityManager.addMob(mob1, attackerMob.x, attackerMob.y);
+            if (sentryLevel.getValue(getUpgradeTier(item)) == 1)
+            {
+                SunflowerSentry mob1 = new SunflowerSentry();
+                attackerMob.serverFollowersManager.addFollower("sunflowersentry", mob1, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
+                attackerMob.getLevel().entityManager.addMob(mob1, attackerMob.x, attackerMob.y);
+            }
+
+            if (sentryLevel.getValue(getUpgradeTier(item)) == 2)
+            {
+                SunflowerSentryT1 mob2 = new SunflowerSentryT1();
+                attackerMob.serverFollowersManager.addFollower("sunflowersentryt1", mob2, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
+                attackerMob.getLevel().entityManager.addMob(mob2, attackerMob.x, attackerMob.y);
+            }
+
+            if (sentryLevel.getValue(getUpgradeTier(item)) > 2)
+            {
+                SunflowerSentryT5 mob3 = new SunflowerSentryT5();
+                attackerMob.serverFollowersManager.addFollower("sunflowersentryt5", mob3, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
+                attackerMob.getLevel().entityManager.addMob(mob3, attackerMob.x, attackerMob.y);
+            }
         }
         return item;
     }

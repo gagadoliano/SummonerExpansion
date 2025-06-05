@@ -28,6 +28,7 @@ public class SummonerMobs
         MobRegistry.registerMob("beequeenminion", BeeQueenMinion.class, false);
         MobRegistry.registerMob("vampireminion", VampireMinion.class, false);
         MobRegistry.registerMob("cactusminion", CactusMinion.class, false);
+        MobRegistry.registerMob("farmerminion", FarmerMinion.class, false);
         MobRegistry.registerMob("bearminion", BearMinion.class, false);
 
         // Worm Minions
@@ -86,7 +87,13 @@ public class SummonerMobs
         // Ranged Sentries
 
         // Magic Sentries
+        MobRegistry.registerMob("iceblossomsentryt5", IceBlossomSentryT5.class, false);
+        MobRegistry.registerMob("iceblossomsentryt1", IceBlossomSentryT1.class, false);
+        MobRegistry.registerMob("sunflowersentryt5", SunflowerSentryT5.class, false);
+        MobRegistry.registerMob("sunflowersentryt1", SunflowerSentryT1.class, false);
         MobRegistry.registerMob("iceblossomsentry", IceBlossomSentry.class, false);
+        MobRegistry.registerMob("firemonesentryt5", FiremoneSentryT5.class, false);
+        MobRegistry.registerMob("firemonesentryt1", FiremoneSentryT1.class, false);
         MobRegistry.registerMob("sunflowersentry", SunflowerSentry.class, false);
         MobRegistry.registerMob("firemonesentry", FiremoneSentry.class, false);
 

@@ -38,9 +38,12 @@ public class SummonerBuffs
         BuffRegistry.registerBuff("waterbannerbuff", new WaterBannerBuff());
 
         // Minion buffs
+        BuffRegistry.registerBuff("iceblossombufft5", new IceBlossomBuffT5());
         BuffRegistry.registerBuff("iceblossombufft1", new IceBlossomBuffT1());
+        BuffRegistry.registerBuff("sunflowerbufft5", new SunflowerBuffT5());
         BuffRegistry.registerBuff("sunflowerbufft1", new SunflowerBuffT1());
         BuffRegistry.registerBuff("runicshieldbuff", new RunicShieldBuff());
+        BuffRegistry.registerBuff("firemonebufft5", new FiremoneBuffT5());
         BuffRegistry.registerBuff("firemonebufft1", new FiremoneBuffT1());
         BuffRegistry.registerBuff("iceblossombuff", new IceBlossomBuff());
         BuffRegistry.registerBuff("sunflowerbuff", new SunflowerBuff());
@@ -64,7 +67,10 @@ public class SummonerBuffs
         // Melee buffs
         BuffRegistry.registerBuff("horrorglaivecooldowndebuff", new ShownItemCooldownBuff(1, true, "items/horrorglaive"));
         BuffRegistry.registerBuff("goblincooldowndebuff", new ShownItemCooldownBuff(1, true, "items/goblinsword"));
+        BuffRegistry.registerBuff("horrorglaivestack", new HorrorGlaiveStackBuff());
+        BuffRegistry.registerBuff("goblinswordstack", new GoblinSwordStackBuff());
         BuffRegistry.registerBuff("horrorswordstack", new HorrorSwordStackBuff());
+        BuffRegistry.registerBuff("fishianstack", new FishianStackBuff());
 
         // Others
         BuffRegistry.registerBuff("summonedbeetminionbuff", new SummonedBeetMinionBuff());

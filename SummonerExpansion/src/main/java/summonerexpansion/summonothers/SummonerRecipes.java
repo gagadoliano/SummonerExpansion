@@ -11,37 +11,7 @@ public class SummonerRecipes
 {
     public static void registerSummonRecipes()
     {
-        Recipes.registerModRecipe(new Recipe(
-                "berrytrio",
-                1,
-                RecipeTechRegistry.COOKING_POT,
-                new Ingredient[]{
-                        new Ingredient("blueberry", 1),
-                        new Ingredient("blackberry", 1),
-                        new Ingredient("raspberry", 1)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "rottenbread",
-                1,
-                RecipeTechRegistry.COOKING_POT,
-                new Ingredient[]{
-                        new Ingredient("bread", 1),
-                        new Ingredient("spoiledfood", 4)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "tanktrainingdummy",
-                1,
-                RecipeTechRegistry.CARPENTER,
-                new Ingredient[]{
-                        new Ingredient("trainingdummy", 1),
-                        new Ingredient("ironbar", 100)
-                }
-        ));
-
+        // Workstation items
         Recipes.registerModRecipe(new Recipe(
                 "magictools",
                 1,
@@ -49,104 +19,7 @@ public class SummonerRecipes
                 new Ingredient[]{
                         new Ingredient("woodpickaxe", 1),
                         new Ingredient("woodaxe", 1),
-                        new Ingredient("anysapling", 10)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "copperminerhat",
-                1,
-                RecipeTechRegistry.IRON_ANVIL,
-                new Ingredient[]{
-                        new Ingredient("copperbar", 15),
-                        new Ingredient("torch", 25)
-                }
-        ).showBefore("copperhelmet"));
-
-        Recipes.registerModRecipe(new Recipe(
-                "magiccopperlamp",
-                1,
-                RecipeTechRegistry.IRON_ANVIL,
-                new Ingredient[]{
-                        new Ingredient("copperbar", 2),
-                        new Ingredient("oillantern", 1),
-                        new Ingredient("torch", 10)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "magicgoldlamp",
-                1,
-                RecipeTechRegistry.DEMONIC_ANVIL,
-                new Ingredient[]{
-                        new Ingredient("goldbar", 6),
-                        new Ingredient("oillantern", 1),
-                        new Ingredient("torch", 10)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "magictungstenlamp",
-                1,
-                RecipeTechRegistry.TUNGSTEN_ANVIL,
-                new Ingredient[]{
-                        new Ingredient("tungstenbar", 10),
-                        new Ingredient("oillantern", 1),
-                        new Ingredient("torch", 10)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "magicdungeoncandelabra",
-                1,
-                RecipeTechRegistry.DEMONIC_ANVIL,
-                new Ingredient[]{
-                        new Ingredient("dungeoncandelabra", 1),
-                        new Ingredient("magicstilts", 1),
-                        new Ingredient("voidshard", 10)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "magiccastlecandelabra",
-                1,
-                RecipeTechRegistry.FALLEN_ANVIL,
-                new Ingredient[]{
-                        new Ingredient("spidercastlecandelabra", 1),
-                        new Ingredient("spideritearrow", 50)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "summoningtableduo",
-                1,
-                RecipeTechRegistry.WORKSTATION,
-                new Ingredient[]{
-                        new Ingredient("anylog", 35),
-                        new Ingredient("clay", 15),
-                        new Ingredient("healthpotion", 5)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "summoningtableduo",
-                1,
-                SUMMONTABLECRAFT,
-                new Ingredient[]{
-                        new Ingredient("anylog", 20),
-                        new Ingredient("clay", 10),
-                        new Ingredient("healthpotion", 2)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "summoningbookshelf",
-                1,
-                RecipeTechRegistry.CARPENTER,
-                new Ingredient[]{
-                        new Ingredient("anylog", 40),
-                        new Ingredient("craftingguide", 1),
-                        new Ingredient("book", 5)
+                        new Ingredient("anysapling", 4)
                 }
         ));
 
@@ -223,6 +96,72 @@ public class SummonerRecipes
                 }
         ).showAfter("bannerofsummonspeed"));
 
+        // Anvil items
+        Recipes.registerModRecipe(new Recipe(
+                "copperminerhat",
+                1,
+                RecipeTechRegistry.IRON_ANVIL,
+                new Ingredient[]{
+                        new Ingredient("copperbar", 15),
+                        new Ingredient("torch", 25)
+                }
+        ).showBefore("copperhelmet"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "magiccopperlamp",
+                1,
+                RecipeTechRegistry.IRON_ANVIL,
+                new Ingredient[]{
+                        new Ingredient("copperbar", 2),
+                        new Ingredient("oillantern", 1),
+                        new Ingredient("torch", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "magicgoldlamp",
+                1,
+                RecipeTechRegistry.DEMONIC_ANVIL,
+                new Ingredient[]{
+                        new Ingredient("goldbar", 6),
+                        new Ingredient("oillantern", 1),
+                        new Ingredient("torch", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "magictungstenlamp",
+                1,
+                RecipeTechRegistry.TUNGSTEN_ANVIL,
+                new Ingredient[]{
+                        new Ingredient("tungstenbar", 10),
+                        new Ingredient("oillantern", 1),
+                        new Ingredient("torch", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "magicdungeoncandelabra",
+                1,
+                RecipeTechRegistry.DEMONIC_ANVIL,
+                new Ingredient[]{
+                        new Ingredient("dungeoncandelabra", 1),
+                        new Ingredient("magicstilts", 1),
+                        new Ingredient("voidshard", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "magiccastlecandelabra",
+                1,
+                RecipeTechRegistry.FALLEN_ANVIL,
+                new Ingredient[]{
+                        new Ingredient("spidercastlecandelabra", 1),
+                        new Ingredient("spideritearrow", 50)
+                }
+        ));
+
+        // Bookcase
         Recipes.registerModRecipe(new Recipe(
                 "book",
                 1,
@@ -288,13 +227,16 @@ public class SummonerRecipes
                 }
         ));
 
+        // Summon table weapons
+        // T1
         Recipes.registerModRecipe(new Recipe(
-                "shadowhorrorportal",
+                "magictools",
                 1,
-                SUMMONTABLECRAFT3,
+                SUMMONTABLECRAFT,
                 new Ingredient[]{
-                        new Ingredient("purehorror", 5),
-                        new Ingredient("mysteriousportal", 1)
+                        new Ingredient("woodpickaxe", 1),
+                        new Ingredient("woodaxe", 1),
+                        new Ingredient("anysapling", 10)
                 }
         ));
 
@@ -411,76 +353,7 @@ public class SummonerRecipes
                 }
         ));
 
-        Recipes.registerModRecipe(new Recipe(
-                "mesmercharm",
-                1,
-                SUMMONTABLECRAFT,
-                new Ingredient[]{
-                        new Ingredient("mesmertablet", 1),
-                        new Ingredient("zephyrcharm", 1)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "bloodplatemask",
-                1,
-                SUMMONTABLECRAFT,
-                new Ingredient[]{
-                        new Ingredient("bloodplatecowl", 1),
-                        new Ingredient("batwing", 10)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "bloodplatechestplate",
-                1,
-                SUMMONTABLECRAFT,
-                new Ingredient[]{
-                        new Ingredient("demonicbar", 5),
-                        new Ingredient("batwing", 10)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "bloodplateboots",
-                1,
-                SUMMONTABLECRAFT,
-                new Ingredient[]{
-                        new Ingredient("demonicbar", 5),
-                        new Ingredient("batwing", 10)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "frostcrown",
-                1,
-                SUMMONTABLECRAFT,
-                new Ingredient[]{
-                        new Ingredient("frostshard", 5),
-                        new Ingredient("goldcrown", 1)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "frostchestplate",
-                1,
-                SUMMONTABLECRAFT,
-                new Ingredient[]{
-                        new Ingredient("frostshard", 6),
-                        new Ingredient("goldchestplate", 1)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "frostboots",
-                1,
-                SUMMONTABLECRAFT,
-                new Ingredient[]{
-                        new Ingredient("frostshard", 4),
-                        new Ingredient("goldboots", 1)
-                }
-        ));
-
+        // T2
         Recipes.registerModRecipe(new Recipe(
                 "vampirewings",
                 1,
@@ -489,6 +362,18 @@ public class SummonerRecipes
                         new Ingredient("batwing", 10),
                         new Ingredient("healthregenpotion", 1),
                         new Ingredient("demonicbar", 2)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "goldpitchfork",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("copperpitchfork", 1),
+                        new Ingredient("rope", 5),
+                        new Ingredient("goldbar", 25),
+                        new Ingredient("wheat", 50)
                 }
         ));
 
@@ -504,42 +389,6 @@ public class SummonerRecipes
         ));
 
         Recipes.registerModRecipe(new Recipe(
-                "summonplaguemask",
-                1,
-                SUMMONTABLECRAFT2,
-                new Ingredient[]{
-                        new Ingredient("wool", 10),
-                        new Ingredient("ivybar", 2),
-                        new Ingredient("voidshard", 1),
-                        new Ingredient("glassbottle", 10)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "summonplaguerobe",
-                1,
-                SUMMONTABLECRAFT2,
-                new Ingredient[]{
-                        new Ingredient("wool", 10),
-                        new Ingredient("ivybar", 2),
-                        new Ingredient("voidshard", 1),
-                        new Ingredient("glassbottle", 10)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "summonplagueboots",
-                1,
-                SUMMONTABLECRAFT2,
-                new Ingredient[]{
-                        new Ingredient("wool", 10),
-                        new Ingredient("ivybar", 2),
-                        new Ingredient("voidshard", 1),
-                        new Ingredient("glassbottle", 10)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
                 "goblinsword",
                 1,
                 SUMMONTABLECRAFT2,
@@ -551,70 +400,7 @@ public class SummonerRecipes
                 }
         ));
 
-        Recipes.registerModRecipe(new Recipe(
-                "demonicpolarclaw",
-                1,
-                SUMMONTABLECRAFT2,
-                new Ingredient[]{
-                        new Ingredient("polarclaw", 1),
-                        new Ingredient("demonclaw", 1)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "frozenassassinscowl",
-                1,
-                SUMMONTABLECRAFT2,
-                new Ingredient[]{
-                        new Ingredient("assassinscowl", 1),
-                        new Ingredient("frozenwave", 1)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "essenceofcompanionship",
-                1,
-                SUMMONTABLECRAFT2,
-                new Ingredient[]{
-                        new Ingredient("companionlocket", 1),
-                        new Ingredient("essenceofprolonging", 1),
-                        new Ingredient("essenceofperspective", 1)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "inducingsatchel",
-                1,
-                SUMMONTABLECRAFT2,
-                new Ingredient[]{
-                        new Ingredient("explorersatchel", 1),
-                        new Ingredient("inducingamulet", 1)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "magiccheese",
-                1,
-                SUMMONTABLECRAFT2,
-                new Ingredient[]{
-                        new Ingredient("cheese", 1),
-                        new Ingredient("luckycape", 1),
-                        new Ingredient("speedpotion", 5),
-                        new Ingredient("voidshard", 8)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "chieftainhat",
-                1,
-                SUMMONTABLECRAFT2,
-                new Ingredient[]{
-                        new Ingredient("brutesbattleaxe", 1),
-                        new Ingredient("runeboundbackbones", 1),
-                        new Ingredient("resistancepotion", 5)
-                }
-        ));
-
+        // T3
         Recipes.registerModRecipe(new Recipe(
                 "horrorscythe",
                 1,
@@ -704,6 +490,365 @@ public class SummonerRecipes
                         new Ingredient("essenceofprolonging", 1),
                         new Ingredient("essenceofperspective", 1),
                         new Ingredient("dryadlog", 100)
+                }
+        ));
+
+        // T4
+        Recipes.registerModRecipe(new Recipe(
+                "vampirecoffin",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("cryptstone", 125),
+                        new Ingredient("vampirewings", 1),
+                        new Ingredient("bloodvolley", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "gemrubyshards",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("ruby", 20),
+                        new Ingredient("pearlescentdiamond", 5),
+                        new Ingredient("omnicrystal", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "gemsapphireshards",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("sapphire", 20),
+                        new Ingredient("pearlescentdiamond", 5),
+                        new Ingredient("omnicrystal", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "gememeraldshards",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("emerald", 20),
+                        new Ingredient("pearlescentdiamond", 5),
+                        new Ingredient("omnicrystal", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "gemamethystshards",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("amethyst", 20),
+                        new Ingredient("pearlescentdiamond", 5),
+                        new Ingredient("omnicrystal", 5)
+                }
+        ));
+
+        // Summon table trinkets
+        Recipes.registerModRecipe(new Recipe(
+                "mesmercharm",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("mesmertablet", 1),
+                        new Ingredient("zephyrcharm", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "demonicpolarclaw",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("polarclaw", 1),
+                        new Ingredient("demonclaw", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "frozenassassinscowl",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("assassinscowl", 1),
+                        new Ingredient("frozenwave", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "essenceofcompanionship",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("companionlocket", 1),
+                        new Ingredient("essenceofprolonging", 1),
+                        new Ingredient("essenceofperspective", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "inducingsatchel",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("explorersatchel", 1),
+                        new Ingredient("inducingamulet", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "shadowhorrorcape",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("vampiresgift", 1),
+                        new Ingredient("purehorror", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "bonepile",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("bonehilt", 1),
+                        new Ingredient("skull", 1),
+                        new Ingredient("ectoplasm", 15)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "hystericalmirror",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("scryingmirror", 1),
+                        new Ingredient("hysteriatablet", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "spelltablet",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("spellstone", 1),
+                        new Ingredient("hysteriatablet", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "challengerarmorpiece",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("manica", 1),
+                        new Ingredient("claygauntlet", 1),
+                        new Ingredient("challengerspauldron", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "summonergambit",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("summonfoci", 1),
+                        new Ingredient("foolsgambit", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "mesmersatchel",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("mesmercharm", 1),
+                        new Ingredient("inducingsatchel", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "frenzystonering",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("bloodstonering", 1),
+                        new Ingredient("frenzyorb", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "frenzyhorrorcape",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("frenzystonering", 1),
+                        new Ingredient("shadowhorrorcape", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "necroticclaw",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("demonicpolarclaw", 1),
+                        new Ingredient("bonepile", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "necromancerarmor",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("frozenassassinscowl", 1),
+                        new Ingredient("frenzyhorrorcape", 1),
+                        new Ingredient("necroticclaw", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "littleangel",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("summonergambit", 1),
+                        new Ingredient("spiritgreaves", 1),
+                        new Ingredient("secondwindcharm", 1),
+                        new Ingredient("blinkscepter", 1),
+                        new Ingredient("ancientrelics", 1)
+                }
+        ));
+
+        // Summon table armors
+        Recipes.registerModRecipe(new Recipe(
+                "copperminerhat",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("copperbar", 10),
+                        new Ingredient("torch", 15)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "copperchestplate",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("copperbar", 12)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "copperboots",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("copperbar", 6)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "bloodplatemask",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("bloodplatecowl", 1),
+                        new Ingredient("batwing", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "bloodplatechestplate",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("demonicbar", 5),
+                        new Ingredient("batwing", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "bloodplateboots",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("demonicbar", 5),
+                        new Ingredient("batwing", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "frostcrown",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("frostshard", 5),
+                        new Ingredient("goldcrown", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "frostchestplate",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("frostshard", 6),
+                        new Ingredient("goldchestplate", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "frostboots",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("frostshard", 4),
+                        new Ingredient("goldboots", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "summonplaguemask",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("wool", 10),
+                        new Ingredient("ivybar", 2),
+                        new Ingredient("voidshard", 1),
+                        new Ingredient("glassbottle", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "summonplaguerobe",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("wool", 10),
+                        new Ingredient("ivybar", 2),
+                        new Ingredient("voidshard", 1),
+                        new Ingredient("glassbottle", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "summonplagueboots",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("wool", 10),
+                        new Ingredient("ivybar", 2),
+                        new Ingredient("voidshard", 1),
+                        new Ingredient("glassbottle", 10)
                 }
         ));
 
@@ -804,174 +949,119 @@ public class SummonerRecipes
                 }
         ));
 
+        // Mounts
         Recipes.registerModRecipe(new Recipe(
-                "shadowhorrorcape",
+                "magiccheese",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("cheese", 1),
+                        new Ingredient("luckycape", 1),
+                        new Ingredient("speedpotion", 5),
+                        new Ingredient("voidshard", 8)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "chieftainhat",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("brutesbattleaxe", 1),
+                        new Ingredient("runeboundbackbones", 1),
+                        new Ingredient("resistancepotion", 5)
+                }
+        ));
+
+        // Objects
+        Recipes.registerModRecipe(new Recipe(
+                "tanktrainingdummy",
+                1,
+                RecipeTechRegistry.CARPENTER,
+                new Ingredient[]{
+                        new Ingredient("trainingdummy", 1),
+                        new Ingredient("ironbar", 100)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "summoningtableduo",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("anylog", 35),
+                        new Ingredient("clay", 15),
+                        new Ingredient("healthpotion", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "summoningtableduo",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("anylog", 20),
+                        new Ingredient("clay", 10),
+                        new Ingredient("healthpotion", 2)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "summoningbookshelf",
+                1,
+                RecipeTechRegistry.CARPENTER,
+                new Ingredient[]{
+                        new Ingredient("anylog", 40),
+                        new Ingredient("craftingguide", 1),
+                        new Ingredient("book", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "overgrowthornssapling",
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
-                        new Ingredient("vampiresgift", 1),
-                        new Ingredient("purehorror", 10)
+                        new Ingredient("thorns", 100),
+                        new Ingredient("thornspotion", 1),
+                        new Ingredient("fertilizer", 5)
                 }
         ));
 
+        // Boss summon
         Recipes.registerModRecipe(new Recipe(
-                "bonepile",
+                "shadowhorrorportal",
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
-                        new Ingredient("bonehilt", 1),
-                        new Ingredient("skull", 1),
-                        new Ingredient("ectoplasm", 15)
+                        new Ingredient("purehorror", 5),
+                        new Ingredient("mysteriousportal", 1)
+                }
+        ));
+
+        // Food
+        Recipes.registerModRecipe(new Recipe(
+                "berrytrio",
+                1,
+                RecipeTechRegistry.COOKING_POT,
+                new Ingredient[]{
+                        new Ingredient("blueberry", 1),
+                        new Ingredient("blackberry", 1),
+                        new Ingredient("raspberry", 1)
                 }
         ));
 
         Recipes.registerModRecipe(new Recipe(
-                "hystericalmirror",
+                "rottenbread",
                 1,
-                SUMMONTABLECRAFT3,
+                RecipeTechRegistry.COOKING_POT,
                 new Ingredient[]{
-                        new Ingredient("scryingmirror", 1),
-                        new Ingredient("hysteriatablet", 1)
+                        new Ingredient("bread", 1),
+                        new Ingredient("spoiledfood", 4)
                 }
         ));
 
-        Recipes.registerModRecipe(new Recipe(
-                "spelltablet",
-                1,
-                SUMMONTABLECRAFT3,
-                new Ingredient[]{
-                        new Ingredient("spellstone", 1),
-                        new Ingredient("hysteriatablet", 1)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "challengerarmorpiece",
-                1,
-                SUMMONTABLECRAFT3,
-                new Ingredient[]{
-                        new Ingredient("manica", 1),
-                        new Ingredient("claygauntlet", 1),
-                        new Ingredient("challengerspauldron", 1)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "summonergambit",
-                1,
-                SUMMONTABLECRAFT3,
-                new Ingredient[]{
-                        new Ingredient("summonfoci", 1),
-                        new Ingredient("foolsgambit", 1)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "vampirecoffin",
-                1,
-                SUMMONTABLECRAFT4,
-                new Ingredient[]{
-                        new Ingredient("cryptstone", 125),
-                        new Ingredient("vampirewings", 1),
-                        new Ingredient("bloodvolley", 1)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "gemrubyshards",
-                1,
-                SUMMONTABLECRAFT4,
-                new Ingredient[]{
-                        new Ingredient("ruby", 20),
-                        new Ingredient("pearlescentdiamond", 5),
-                        new Ingredient("omnicrystal", 5)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "gemsapphireshards",
-                1,
-                SUMMONTABLECRAFT4,
-                new Ingredient[]{
-                        new Ingredient("sapphire", 20),
-                        new Ingredient("pearlescentdiamond", 5),
-                        new Ingredient("omnicrystal", 5)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "gememeraldshards",
-                1,
-                SUMMONTABLECRAFT4,
-                new Ingredient[]{
-                        new Ingredient("emerald", 20),
-                        new Ingredient("pearlescentdiamond", 5),
-                        new Ingredient("omnicrystal", 5)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "gemamethystshards",
-                1,
-                SUMMONTABLECRAFT4,
-                new Ingredient[]{
-                        new Ingredient("amethyst", 20),
-                        new Ingredient("pearlescentdiamond", 5),
-                        new Ingredient("omnicrystal", 5)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "mesmersatchel",
-                1,
-                SUMMONTABLECRAFT4,
-                new Ingredient[]{
-                        new Ingredient("mesmercharm", 1),
-                        new Ingredient("inducingsatchel", 1)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "frenzystonering",
-                1,
-                SUMMONTABLECRAFT4,
-                new Ingredient[]{
-                        new Ingredient("bloodstonering", 1),
-                        new Ingredient("frenzyorb", 1)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "frenzyhorrorcape",
-                1,
-                SUMMONTABLECRAFT4,
-                new Ingredient[]{
-                        new Ingredient("frenzystonering", 1),
-                        new Ingredient("shadowhorrorcape", 1)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "necroticclaw",
-                1,
-                SUMMONTABLECRAFT4,
-                new Ingredient[]{
-                        new Ingredient("demonicpolarclaw", 1),
-                        new Ingredient("bonepile", 1)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "necromancerarmor",
-                1,
-                SUMMONTABLECRAFT4,
-                new Ingredient[]{
-                        new Ingredient("frozenassassinscowl", 1),
-                        new Ingredient("frenzyhorrorcape", 1),
-                        new Ingredient("necroticclaw", 1)
-                }
-        ));
-
+        // Potions
         Recipes.registerModRecipe(new Recipe(
                 "minioncritchancepotion",
                 1,

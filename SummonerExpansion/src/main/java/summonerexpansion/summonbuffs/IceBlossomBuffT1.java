@@ -23,7 +23,7 @@ public class IceBlossomBuffT1 extends Buff
     @Override
     public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber)
     {
-        activeBuff.setModifier(BuffModifiers.ARMOR_FLAT, 25);
+        activeBuff.setModifier(BuffModifiers.ARMOR_FLAT, 15);
     }
 
     public void clientTick(ActiveBuff buff)
