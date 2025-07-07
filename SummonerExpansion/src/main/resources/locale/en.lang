@@ -1,3 +1,9 @@
+[tile]
+empoweredamethyst=Empowered Amethyst Floor
+empoweredsapphire=Empowered Sapphire Floor
+empoweredemerald=Empowered Emerald Floor
+empoweredruby=Empowered Ruby Floor
+
 [object]
 // Crafting stations
 tungstensummoningtableduo=Tungsten Summoning Table
@@ -22,6 +28,7 @@ gemamethystshards=Amethyst Shards
 gemsapphireshards=Sapphire Shards
 magiccopperlamp=Magic Copper Lamp
 gememeraldshards=Emerald Shards
+redspiderstaff=Red Spider Staff
 sandwormstaff=Sand Worm Staff
 runebonestaff=Runebone Staff
 goldpitchfork=Gold Pitchfork
@@ -65,12 +72,16 @@ wormbucket=Worm Bucket
 mosquitobow=Mosquito Bow
 
 // Armor pieces
+leathersummonerhood=Leather Summoner Hood
 copperminerhat=Copper Miner Hat
 bloodplatemask=Bloodplate Mask
 shadowhelmet=Shadow Helmet
 frostcrown=Frost Crown
 
 // Armor sets
+redspiderhelmet=Red Spider Helmet
+redspiderchestplate=Red Spider Chestplate
+redspiderboots=Red Spider Boots
 summonplaguemask=Summoner Plague Mask
 summonplaguerobe=Summoner Plague Robe
 summonplagueboots=Summoner Plague Boots
@@ -94,12 +105,14 @@ frenzystonering=Frenzystone Ring
 inducingsatchel=Inducing Satchel
 summonergambit=Summoner Gambit
 mesmersatchel=Mesmer Satchel
+cactusemblem=Cactus Emblem
 necroticclaw=Necrotic Claw
 littleangel=Little Angel
 spelltablet=Spell Tablet
 mesmercharm=Mesmer Charm
 giantbeet=Giant Beet
 bonepile=Bone Pile
+jellyfishbowl=Jellyfish Bowl
 
 // Potions
 minioncritchancepotion=Summon Critical Chance Potion
@@ -129,6 +142,7 @@ bannerofstamina=Banner of Stamina
 bannerofmana=Banner of Mana
 
 // Mounts
+cavelingminecart=Caveling Minecart
 chieftainhat=Chieftain Hat
 magiccheese=Magic Cheese
 
@@ -142,6 +156,9 @@ purehorror=Pure Horror
 rottenbread=Rotten Bread
 berrytrio=Berry Trio
 
+// Bags
+shadowhorrorbag=Shadow Horror Bag
+
 [itemtooltip]
 // Minion weapons
 runebonestafftip=Summons a runebound brute that attack foes with an axe \nHave a small chance to summon a runebond shaman instead \nHigher upgrade tiers increases the summoning chance
@@ -150,6 +167,7 @@ amethystshardtip=Summons an amethyst golem \nThis golem can crystallize foes \nA
 bearheadtip=Summons a grizzly bear that attack foes \nHit foes will start bleeding, causing damage and lowering their damage by 20%
 sapphireshardtip=Summons a sapphire golem \nThis golem summons a sapphire glyph at your location when you have life essence
 lampminioncastletip=Summons a spider castle candelabra \nBurn and slows foes \nDebuffs get stronger at night
+redspiderstafftip=Summons baby red spiders that do melee attacks \nPoison foes for 15 damage over 5 seconds
 emeraldshardtip=Summons an emerald golem \nThis golem shoots a laser that pierce foes and bounce from walls
 goldpitchforktip=Summons a farmer that have a small chance to spawn wheat or farm animals when attacking
 enchantedbrainonasticktip=Summons 2 enchanted zombies \nMelee zombies reduces foe's armor by 10
@@ -200,6 +218,7 @@ iceblossomsentrytip=This sentry gives nearby allies armor
 // Armor set bonus
 spiderbridesettip=Grants immunity to slows \nSummon attacks poison target for 25 damage over 5 seconds \nPress [input=setability] to summon a spider bride that shoots poison and webs
 bloodplateset=After taking damage, your health regen is doubled for 4 seconds \nVampire minions will shoot projectiles that travel faster and deals +50% damage
+redspidersettip=Grants immunity to slow and blindness \nSummon attacks slows foes \nRed spiders doubles poison damage from all sources
 frostcrownsettip=Summon attacks slows and damages the target for 15 damage over 5 seconds
 shadowhelmetsettip=Summon attacks haunt target for 25 damage over 5 seconds
 horrorsettip=Chance to summon horror spirits when attacking foes
@@ -221,10 +240,12 @@ shadowhorrorcapetip=+1 max summon \nIncreases movement speed by 20% \nSummons up
 inducingsatcheltip=Increases summon speed by 40% \nIncreases movement speed by 20% \nLights up the area around you
 beetminiontip=Summons a beet minion that throws beets at foes \nThese beets have 10% chance to drop on missed hits
 spelltablettip=+2 max summons \nIncreases max mana by 60% \nIncreases summon and magic attack speed by 30%
+cactusemblemtip=Damages attackers back \nIt's damage multiply with max summons slots
 bonepiletip=Increases armor penetration by 25 \nIncreases summon crit damage by 25%
 demonicpolarclawtip=Summon attacks slows foes \nIncreases knockback resistance
 hystericalmirrortip=+3 max summons \nIncreases summon speed by 45%
 mesmercharmtip=+1 Max Summons \nIncreases Stamina Cap by 80%
+jellyfishminiontip=Summons a jellyfish minion that attack foes
 
 // Potions buff
 minionfarmtip=Decreases movement but increases pickup range by 50, mob spawn rate by 50%, summon speed and range by 40%
@@ -238,6 +259,7 @@ minionspeedtip=Increases summon speed by 20%
 // Mounts
 chieftainhattip=Tranforms you into a chieftain that can't swim \nIncreases your health, armor and max minion slots \nHold [input=trinketability] to boost yourself at the cost of stamina \nThis boost increases your damage, hp regen and prevents knockback and slow
 magiccheesetip=Tranforms you into a mouse \nPrevents you from using items \nGreatly decreases your target range, making foes ignore you
+cavelingminecarttip=Can only be placed on tracks \nIncreases your item pickup range
 
 // Boss desc
 horrorportaltip=Summons an army of horror spirits
@@ -250,12 +272,23 @@ overgrowthornstip=Can be placed on mud tiles \nGrows harmless thorns over time t
 bannerofwatertip=Allows water walking \nGreatly increases your world view and travel range
 tanktrainingdummytip=A stronger training dummy with 1000 armor
 
+// Bags
+shadowbagtip=Stores tools and weapons picked up
+
+// Tiles
+empoweredsapphiretip=Increases the speed of player and settlers by 50% \nIncreases summon crit chance and summon crit damage by 10%
+empoweredemeraldtip=Increases the speed of player and settlers by 50% \nIncreases max mana and mana regen during combat by 10%
+empoweredamethysttip=Increases the speed of player and settlers by 50% \nIncreases max resilience and resilience regen by 10%
+empoweredrubytip=Increases the speed of player and settlers by 50% \nIncreases summon speed and summon attack speed by 10%
+
 // Others
 minionspacetakentip=Each summon takes up <amount> summon slots
 clicksentrytip=Press [input=mouse2] to summon a sentry
+cavelingmounttip=You can't use <mount> as an mount!
 sentrytip=Summons a sentry that shoots at foes
 minionactivecap=Capped at <amount> minions
 lifestealtip=Heals on hit by <amount> hp
+storedshadowtip=Stored items: <items>
 chargetip=Charge: <amount>%
 
 [mob]
@@ -274,6 +307,7 @@ runerangedminion=Runic Shaman Minion
 copperlampminion=Copper Lamp Minion
 runemeleeminion=Runic Brute Minion
 golemrubyminion=Ruby Golem Minion
+redspiderminion=Red Spider Minion
 sandwormminion=Sand Worm Minion
 beequeenminion=Bee Queen Minion
 vampireminion=Vampire Minion
@@ -281,6 +315,7 @@ bearpolarminion=Polar Minion
 cactusminion=Cactus Minion
 bearminion=Bear Minion
 beetminion=Beet Minion
+jellyfishminion=Jellyfish Minion
 
 // Sentry
 leafshotheatsentry=Fire Leaf Shooter Sentry
@@ -333,6 +368,7 @@ horrorbatminion=Horror Bat Minion
 mouseminion=Mouse Minion
 
 // Mounts
+cavelingminecart=Caveling Minecart
 chiefsummonmount=Chieftain Armor
 mousesummonmount=Mouse Disguise
 
@@ -374,12 +410,15 @@ iceblossombufft1=Stronger armor
 firemonebuff=Armor penetration
 runicshieldbuff=Runic Armor
 iceblossombuff=Armor
+summonedjellyfishminionbuff=Jellyfish Minion
 
 // Debuffs
 horrorglaivecooldowndebuff=Horror Glaive Cooldown
 bleedingdebuff=-20% damage and 2 poison damage
 goblincooldowndebuff=Goblin Sword Cooldown
 spiderbridecooldown=Spider Bride Cooldown
+redspiderdebuff=2x Poison damage received
+redspiderpoisondebuff=Poison damage
 enchanteddebuff=-10 flat armor
 mosquitodebuff=-10% armor
 mushroomdebuff=20% slow

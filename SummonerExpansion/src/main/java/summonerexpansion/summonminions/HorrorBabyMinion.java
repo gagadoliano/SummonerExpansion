@@ -82,14 +82,14 @@ public class HorrorBabyMinion extends FlyingAttackingFollowingMob
             super.tickMovement(4.0F);
             this.toMove -= 4.0F;
             Point2D.Float d = GameMath.normalize(oldX - this.x, oldY - this.y);
-            this.moveAngle = (float)Math.toDegrees(Math.atan2((double)d.y, (double)d.x)) - 90.0F;
+            this.moveAngle = (float)Math.toDegrees(Math.atan2(d.y, d.x)) - 90.0F;
         }
     }
 
     public void serverTick()
     {
         super.serverTick();
-        this.lifeTime++;
+        this.lifeTime--;
         if (this.lifeTime <= 0)
         {
             this.remove(0.0F, 0.0F, (Attacker)null, true);

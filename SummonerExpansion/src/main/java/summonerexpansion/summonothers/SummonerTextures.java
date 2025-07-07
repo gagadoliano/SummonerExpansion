@@ -15,6 +15,7 @@ public class SummonerTextures
     public static HumanTexture enchantedBabyZombieMinion;
     public static HumanTexture vampireMinion;
     public static HumanTexture fishianMinion;
+    public static GameTexture[] cavelingminecart_mask;
 
     public static void initResources()
     {
@@ -92,12 +93,16 @@ public class SummonerTextures
         RiftPortalMob.icon =  GameTexture.fromFile("mobicons/riftportalicon");
 
         // Mounts
-        MouseSummonMount.texture_mask =  GameTexture.fromFile("mobs/chiefsummonmount_mask");
-        ChiefSummonMount.texture_mask =  GameTexture.fromFile("mobs/chiefsummonmount_mask");
+        CavelingMinecartMount.texture =  GameTexture.fromFile("mobs/cavelingminecart");
+        CavelingMinecart.texture =  GameTexture.fromFile("mobs/cavelingminecart");
         ChiefSummonMount.texture =  GameTexture.fromFile("mobs/chiefsummonmount");
 
         // Particles
         GameTexture MosquitoBowTexture = GameTexture.fromFile("particles/mosquitobowpool");
         MosquitoBowVisual = GameResources.particlesTextureGenerator.addTexture(MosquitoBowTexture);
+        
+        // Masks
+        MouseSummonMount.texture_mask =  GameTexture.fromFile("mobs/chiefsummonmount_mask");
+        ChiefSummonMount.texture_mask =  GameTexture.fromFile("mobs/chiefsummonmount_mask");
     }
 }

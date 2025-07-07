@@ -14,6 +14,7 @@ public class SummonerWeapons
         ItemRegistry.registerItem("leafshotheatpack", new LeafShotHeatPack(), 50, true);
         ItemRegistry.registerItem("leafshotcoldpack", new LeafShotColdPack(), 50, true);
         ItemRegistry.registerItem("magiccopperlamp", new MagicCopperLamp(), 50, true);
+        ItemRegistry.registerItem("redspiderstaff", new RedSpiderStaff(), 50, true);
         ItemRegistry.registerItem("leafshotpack", new LeafShotPack(), 50, true);
         ItemRegistry.registerItem("cactusstaff", new CactusStaff(), 50, true);
         ItemRegistry.registerItem("royalhive", new RoyalHive(), 50, true);

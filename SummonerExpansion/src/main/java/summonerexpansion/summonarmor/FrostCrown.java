@@ -12,7 +12,7 @@ public class FrostCrown extends SetHelmetArmorItem
 {
     public FrostCrown()
     {
-        super(5, DamageTypeRegistry.SUMMON, 500, Rarity.COMMON, "frostcrown", "frostchestplate", "frostboots", "frostcrownsetbonus");
+        super(5, DamageTypeRegistry.SUMMON, 50, Rarity.COMMON, "frostcrown", "frostchestplate", "frostboots", "frostcrownsetbonus");
         hairDrawOptions = HairDrawMode.OVER_HAIR;
         facialFeatureDrawOptions = FacialFeatureDrawMode.OVER_FACIAL_FEATURE;
     }

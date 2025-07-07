@@ -21,6 +21,7 @@ public class SummonerExpansion
         SummonerWeapons.registerSummonWeapons();
         SummonerEquips.registerSummonEquips();
         SummonerItems.registerSummonItems();
+        SummonerTiles.registerSummonTiles();
         SummonerTechs.registerSummonTechs();
         SummonerBuffs.registerSummonBuffs();
         SummonerMobs.registerSummonMobs();

@@ -108,6 +108,16 @@ public class SummonerRecipes
         ).showBefore("copperhelmet"));
 
         Recipes.registerModRecipe(new Recipe(
+                "leathersummonerhood",
+                1,
+                RecipeTechRegistry.IRON_ANVIL,
+                new Ingredient[]{
+                        new Ingredient("leather", 15),
+                        new Ingredient("beef", 2)
+                }
+        ).showAfter("leatherhood"));
+
+        Recipes.registerModRecipe(new Recipe(
                 "magiccopperlamp",
                 1,
                 RecipeTechRegistry.IRON_ANVIL,
@@ -237,6 +247,17 @@ public class SummonerRecipes
                         new Ingredient("woodpickaxe", 1),
                         new Ingredient("woodaxe", 1),
                         new Ingredient("anysapling", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "redspiderstaff",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("spiderstaff", 1),
+                        new Ingredient("redflowerpatch", 10),
+                        new Ingredient("firemone", 20)
                 }
         ));
 
@@ -561,6 +582,16 @@ public class SummonerRecipes
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "cactusemblem",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("cactussapling", 25),
+                        new Ingredient("thornspotion", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "demonicpolarclaw",
                 1,
                 SUMMONTABLECRAFT2,
@@ -729,6 +760,36 @@ public class SummonerRecipes
 
         // Summon table armors
         Recipes.registerModRecipe(new Recipe(
+                "leathersummonerhood",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("leather", 10),
+                        new Ingredient("beef", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "leathershirt",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("leather", 14),
+                        new Ingredient("beef", 4)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "leatherboots",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("leather", 6),
+                        new Ingredient("beef", 3)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "copperminerhat",
                 1,
                 SUMMONTABLECRAFT,
@@ -753,6 +814,39 @@ public class SummonerRecipes
                 SUMMONTABLECRAFT,
                 new Ingredient[]{
                         new Ingredient("copperbar", 6)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "redspiderhelmet",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("spiderhelmet", 1),
+                        new Ingredient("redflowerpatch", 12),
+                        new Ingredient("firemone", 20)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "redspiderchestplate",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("spiderchestplate", 1),
+                        new Ingredient("redflowerpatch", 15),
+                        new Ingredient("firemone", 20)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "redspiderboots",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("spiderboots", 1),
+                        new Ingredient("redflowerpatch", 10),
+                        new Ingredient("firemone", 20)
                 }
         ));
 
@@ -1025,6 +1119,47 @@ public class SummonerRecipes
                         new Ingredient("thorns", 100),
                         new Ingredient("thornspotion", 1),
                         new Ingredient("fertilizer", 5)
+                }
+        ));
+
+        //Tiles
+        Recipes.registerModRecipe(new Recipe(
+                "empoweredamethyst",
+                10,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("amethyst", 10),
+                        new Ingredient("deepstone", 100)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "empoweredemerald",
+                10,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("emerald", 10),
+                        new Ingredient("deepstone", 100)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "empoweredsapphire",
+                10,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("sapphire", 10),
+                        new Ingredient("deepstone", 100)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "empoweredruby",
+                10,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("ruby", 10),
+                        new Ingredient("deepstone", 100)
                 }
         ));
 

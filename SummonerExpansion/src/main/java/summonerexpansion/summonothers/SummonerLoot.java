@@ -13,15 +13,15 @@ public class SummonerLoot
     {
         // Chests
         LootTablePresets.basicCaveChest.items.add(
-                ChanceLootItem.between(0.02f, "magiccopperlamp", 1, 1)
+                new ChanceLootItem(0.02f, "magiccopperlamp")
         );
 
-        LootTablePresets.plainsCrate.items.add(
-                ChanceLootItem.between(0.01f, "royalhive", 1, 1)
+        LootTablePresets.plainsCaveChest.items.add(
+                new ChanceLootItem(0.01f, "royalhive")
         );
 
         LootTablePresets.templeChest.items.add(
-                ChanceLootItem.between(0.01f, "sandwormstaff", 1, 1)
+                new ChanceLootItem(0.01f, "sandwormstaff")
         );
 
         LootTablePresets.alchemistChest.items.addAll(

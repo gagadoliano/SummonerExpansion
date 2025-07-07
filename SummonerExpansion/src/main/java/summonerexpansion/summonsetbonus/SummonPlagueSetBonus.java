@@ -36,6 +36,7 @@ public class SummonPlagueSetBonus extends SetBonusBuff
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
     {
         buff.setModifier(BuffModifiers.MAX_SUMMONS, maxSummons.getValue(buff.getUpgradeTier()));
+        buff.setModifier(BuffModifiers.POTION_DURATION, 2F);
     }
 
     public void serverTick(ActiveBuff buff)

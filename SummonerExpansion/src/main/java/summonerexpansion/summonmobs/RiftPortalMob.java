@@ -5,6 +5,9 @@ import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.network.PacketReader;
 import necesse.engine.network.PacketWriter;
 import necesse.engine.network.client.Client;
+import necesse.engine.network.gameNetworkData.GNDItemMap;
+import necesse.engine.network.server.ServerClient;
+import necesse.engine.registries.ItemRegistry;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.registries.MusicRegistry;
 import necesse.engine.save.LoadData;
@@ -28,6 +31,9 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.gfx.gameTooltips.GameTooltips;
 import necesse.gfx.gameTooltips.StringTooltips;
+import necesse.inventory.lootTable.LootItemInterface;
+import necesse.inventory.lootTable.LootTable;
+import necesse.inventory.lootTable.lootItem.*;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 
@@ -37,6 +43,11 @@ import java.util.List;
 
 public class RiftPortalMob extends BossMob
 {
+    public static LootTable lootTable = new LootTable(new OneOfLootItems(LootItem.between("purehorror", 2, 20)));
+    public static LootTable privateLootTable = new LootTable(new ConditionLootItem("shadowhorrorbag", (r, o) -> {
+        ServerClient client = LootTable.expectExtra(ServerClient.class, o, 1);
+        return client != null && client.playerMob.getInv().getAmount(ItemRegistry.getItem("shadowhorrorbag"), false, false, true, true, "have") == 0;
+    }));
     public static MaxHealthGetter MAX_HEALTH = new MaxHealthGetter(1500, 1600, 1700, 1800, 2000);
     protected MobHealthScaling scaling = new MobHealthScaling(this);
     public static GameTexture texture;
@@ -50,32 +61,34 @@ public class RiftPortalMob extends BossMob
         difficultyChanges.setMaxHealth(MAX_HEALTH);
         isSummoned = true;
         isHostile = true;
-        collision = new Rectangle(0, 0, 118, 118);
-        hitBox = new Rectangle(0, 0, 118, 118);
-        selectBox = new Rectangle(0, 0, 118, 118);
+        collision = new Rectangle(-40, -40, 50, 50);
+        hitBox = new Rectangle(-40, -40, 50, 50);
+        selectBox = new Rectangle(-40, -40, 50, 50);
         setKnockbackModifier(0.0F);
-        setArmor(100000);
+        setArmor(10000);
     }
 
     public void addSaveData(SaveData save)
     {
         super.addSaveData(save);
-        save.addLong("lifeTime", this.lifeTime);
+        save.addLong("lifeTime", lifeTime);
     }
 
     public void applyLoadData(LoadData save)
     {
         super.applyLoadData(save);
-        this.lifeTime = (long)save.getInt("lifeTime", 0);
+        lifeTime = save.getInt("lifeTime", 0);
     }
 
-    public void setupHealthPacket(PacketWriter writer, boolean isFull) {
-        this.scaling.setupHealthPacket(writer, isFull);
+    public void setupHealthPacket(PacketWriter writer, boolean isFull)
+    {
+        scaling.setupHealthPacket(writer, isFull);
         super.setupHealthPacket(writer, isFull);
     }
 
-    public void applyHealthPacket(PacketReader reader, boolean isFull) {
-        this.scaling.applyHealthPacket(reader, isFull);
+    public void applyHealthPacket(PacketReader reader, boolean isFull)
+    {
+        scaling.applyHealthPacket(reader, isFull);
         super.applyHealthPacket(reader, isFull);
     }
 
@@ -83,7 +96,7 @@ public class RiftPortalMob extends BossMob
     {
         super.init();
         lifeTime = 0L;
-        this.ai = new BehaviourTreeAI(this, new RiftPortalMob.RiftPortalAINode());
+        ai = new BehaviourTreeAI(this, new RiftPortalMob.RiftPortalAINode());
     }
 
     public void tickMovement(float delta)
@@ -96,7 +109,7 @@ public class RiftPortalMob extends BossMob
     {
         super.clientTick();
         SoundManager.setMusic(MusicRegistry.TheFirstTrial, SoundManager.MusicPriority.EVENT, 1.5F);
-        getLevel().lightManager.refreshParticleLightFloat(this.x, this.y, 270.0F, 0.7F);
+        getLevel().lightManager.refreshParticleLightFloat(x, y, 270.0F, 0.7F);
         EventStatusBarManager.registerMobHealthStatusBar(this);
         BossNearbyBuff.applyAround(this);
     }
@@ -105,13 +118,14 @@ public class RiftPortalMob extends BossMob
     {
         super.serverTick();
         scaling.serverTick();
-        ++this.lifeTime;
-        if (this.lifeTime >= 6000L)
+        ++lifeTime;
+        if (lifeTime >= 3600L)
         {
-            setHealth(0);
+            float armorReduced = (getArmor() * 10) / 100;
+            setArmor((int)armorReduced);
+            lifeTime = 0L;
         }
-
-        if (this.getHealth() <= (this.getMaxHealth() / 2))
+        if (getHealth() <= (getMaxHealth() / 2))
         {
             nextPhase = true;
         }
@@ -124,7 +138,7 @@ public class RiftPortalMob extends BossMob
 
     public void spawnDeathParticles(float knockbackX, float knockbackY)
     {
-        this.getLevel().entityManager.addParticle(new SmokePuffParticle(this.getLevel(), (float)this.getX(), (float)this.getY(), new Color(50, 50, 50)), Particle.GType.CRITICAL);
+        getLevel().entityManager.addParticle(new SmokePuffParticle(getLevel(), (float)getX(), (float)getY(), new Color(50, 50, 50)), Particle.GType.CRITICAL);
     }
 
     public boolean shouldDrawOnMap() {
@@ -146,20 +160,32 @@ public class RiftPortalMob extends BossMob
 
     public GameTooltips getMapTooltips()
     {
-        return new StringTooltips(this.getDisplayName() + " " + this.getHealth() + "/" + this.getMaxHealth());
+        return new StringTooltips(getDisplayName() + " " + getHealth() + "/" + getMaxHealth());
     }
 
     public boolean canBePushed(Mob other) {
         return false;
     }
 
-    public boolean isBoss() {return true;}
+    public boolean isBoss() {
+        return true;
+    }
 
-    public boolean isHealthBarVisible() {return false;}
+    public boolean isHealthBarVisible() {
+        return false;
+    }
 
     public int getMaxHealth()
     {
-        return super.getMaxHealth() + (int)((float)(this.scaling == null ? 0 : this.scaling.getHealthIncrease()) * this.getMaxHealthModifier());
+        return super.getMaxHealth() + (int)((float)(scaling == null ? 0 : scaling.getHealthIncrease()) * getMaxHealthModifier());
+    }
+
+    public LootTable getLootTable() {
+        return lootTable;
+    }
+
+    public LootTable getPrivateLootTable() {
+        return privateLootTable;
     }
 
     protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
@@ -168,7 +194,7 @@ public class RiftPortalMob extends BossMob
         GameLight light = level.getLightLevel(x / 32, y / 32);
         int drawX = camera.getDrawX(x) - 16;
         int drawY = camera.getDrawY(y) - 20;
-        DrawOptions body = texture.initDraw().sprite(0, 0, 118).mirror(this.moveX < 0.0F, false).alpha(0.7F).light(light).pos(drawX, drawY);
+        DrawOptions body = texture.initDraw().sprite(0, 0, 118).mirror(moveX < 0.0F, false).alpha(0.7F).light(light).pos(drawX, drawY);
         topList.add((tm) -> {
             body.draw();
         });
@@ -177,13 +203,12 @@ public class RiftPortalMob extends BossMob
     public class RiftPortalAINode<T extends Mob> extends AINode<T>
     {
         private ArrayList<Mob> spawnedMobs = new ArrayList();
-
         public RiftPortalAINode() {}
 
         protected void onRootSet(AINode<T> root, T mob, Blackboard<T> blackboard)
         {
             blackboard.onRemoved((e) -> {
-                this.spawnedMobs.forEach(Mob::remove);
+                spawnedMobs.forEach(Mob::remove);
             });
         }
 
@@ -191,19 +216,31 @@ public class RiftPortalMob extends BossMob
 
         public AINodeResult tick(T mob, Blackboard<T> blackboard)
         {
-            if (RiftPortalMob.this.lifeTime % 100L == 0L)
+            if (nextPhase)
             {
-                Mob portalMob = MobRegistry.getMob("horrorspiritmob", RiftPortalMob.this.getLevel());
-                RiftPortalMob.this.getLevel().entityManager.addMob(portalMob, (float)(RiftPortalMob.this.getX() + (int)(GameRandom.globalRandom.nextGaussian() * 3.0)), (float)(RiftPortalMob.this.getY() + (int)(GameRandom.globalRandom.nextGaussian() * 3.0)));
-                this.spawnedMobs.add(portalMob);
+                if (RiftPortalMob.this.lifeTime % 600L == 0L)
+                {
+                    Mob portalMob = MobRegistry.getMob("horrorspiritmob", RiftPortalMob.this.getLevel());
+                    RiftPortalMob.this.getLevel().entityManager.addMob(portalMob, (float)(RiftPortalMob.this.getX() + (int)(GameRandom.globalRandom.nextGaussian() * 3.0)), (float)(RiftPortalMob.this.getY() + (int)(GameRandom.globalRandom.nextGaussian() * 3.0)));
+                    this.spawnedMobs.add(portalMob);
+                }
+                if (nextPhase && RiftPortalMob.this.lifeTime % 400L == 0L)
+                {
+                    Mob portalMob2 = MobRegistry.getMob("horrorspiritbossmob", RiftPortalMob.this.getLevel());
+                    RiftPortalMob.this.getLevel().entityManager.addMob(portalMob2, (float)(RiftPortalMob.this.getX() + (int)(GameRandom.globalRandom.nextGaussian() * 3.0)), (float)(RiftPortalMob.this.getY() + (int)(GameRandom.globalRandom.nextGaussian() * 3.0)));
+                    this.spawnedMobs.add(portalMob2);
+                }
+            }
+            else
+            {
+                if (RiftPortalMob.this.lifeTime % 100L == 0L)
+                {
+                    Mob portalMob = MobRegistry.getMob("horrorspiritmob", RiftPortalMob.this.getLevel());
+                    RiftPortalMob.this.getLevel().entityManager.addMob(portalMob, (float)(RiftPortalMob.this.getX() + (int)(GameRandom.globalRandom.nextGaussian() * 3.0)), (float)(RiftPortalMob.this.getY() + (int)(GameRandom.globalRandom.nextGaussian() * 3.0)));
+                    this.spawnedMobs.add(portalMob);
+                }
             }
 
-            if (nextPhase && RiftPortalMob.this.lifeTime % 200L == 0L)
-            {
-                Mob portalMob2 = MobRegistry.getMob("horrorspiritbossmob", RiftPortalMob.this.getLevel());
-                RiftPortalMob.this.getLevel().entityManager.addMob(portalMob2, (float)(RiftPortalMob.this.getX() + (int)(GameRandom.globalRandom.nextGaussian() * 3.0)), (float)(RiftPortalMob.this.getY() + (int)(GameRandom.globalRandom.nextGaussian() * 3.0)));
-                this.spawnedMobs.add(portalMob2);
-            }
             return AINodeResult.SUCCESS;
         }
     }

@@ -24,6 +24,7 @@ public class SummonerMobs
         MobRegistry.registerMob("runemeleeminion", RuneMeleeMinion.class, false);
         MobRegistry.registerMob("golemrubyminion", GolemRubyMinion.class, false);
         MobRegistry.registerMob("bearpolarminion", BearPolarMinion.class, false);
+        MobRegistry.registerMob("redspiderminion", RedSpiderMinion.class, false);
         MobRegistry.registerMob("lampminiongold", LampMinionGold.class, false);
         MobRegistry.registerMob("beequeenminion", BeeQueenMinion.class, false);
         MobRegistry.registerMob("vampireminion", VampireMinion.class, false);
@@ -70,6 +71,7 @@ public class SummonerMobs
 
         // Trinket Minions
         MobRegistry.registerMob("horrorbatminion", HorrorBatMinion.class, false);
+        MobRegistry.registerMob("jellyfishminion", JellyfishMinion.class, false);
         MobRegistry.registerMob("beetminion", BeetMinion.class, false);
 
         // Sentries

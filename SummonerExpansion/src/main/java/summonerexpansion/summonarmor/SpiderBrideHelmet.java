@@ -18,7 +18,7 @@ public class SpiderBrideHelmet extends SetHelmetArmorItem
     {
         super(19, DamageTypeRegistry.SUMMON, 600, Rarity.UNCOMMON, "spiderbridehelmet", "spiderbridechest", "spiderbrideboots", "spiderbridehelmetsetbonus");
         hairDrawOptions = HairDrawMode.NO_HEAD;
-        canBeUsedForRaids = true;
+        canBeUsedForRaids = false;
     }
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)

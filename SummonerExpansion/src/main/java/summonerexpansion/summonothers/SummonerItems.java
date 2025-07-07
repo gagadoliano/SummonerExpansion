@@ -12,6 +12,7 @@ import summonerexpansion.summonbannerbuffs.*;
 import summonerexpansion.summonbuffs.*;
 import summonerexpansion.summonmaterials.*;
 import summonerexpansion.summonpotions.*;
+import summonerexpansion.summonmisc.*;
 
 public class SummonerItems
 {
@@ -56,5 +57,8 @@ public class SummonerItems
         BuffRegistry.registerBuff("minioncritbuff", new MinionCritBuff());
         ItemRegistry.registerItem("minionfarmpotion", new MinionFarmPotion(), 10, true);
         BuffRegistry.registerBuff("minionfarmbuff", new MinionFarmBuff());
+
+        // Bags
+        ItemRegistry.registerItem("shadowhorrorbag", new ShadowHorrorBag(), 10, true);
     }
 }

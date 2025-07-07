@@ -56,7 +56,7 @@ public class ShadowHorrorSetBonus extends SetBonusBuff
         {
             ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
             float count = attackerMob.serverFollowersManager.getFollowerCount("horrorbabyminion");
-            if (GameRandom.globalRandom.getChance(0.05F) && count <= 4)
+            if (GameRandom.globalRandom.getChance(0.02F) && count <= 4)
             {
                 Level level = buff.owner.getLevel();
                 AttackingFollowingMob mob = (AttackingFollowingMob)MobRegistry.getMob("horrorbabyminion", level);

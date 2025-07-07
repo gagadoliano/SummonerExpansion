@@ -1,5 +1,7 @@
 package summonerexpansion.summonothers;
 
+import necesse.engine.localization.message.GameMessage;
+import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.registries.BuffRegistry;
 import necesse.engine.registries.ItemRegistry;
@@ -7,6 +9,7 @@ import necesse.engine.registries.MobRegistry;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.ShownCooldownBuff;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.SimpleTrinketBuff;
+import necesse.entity.mobs.summon.summonFollowingMob.mountFollowingMob.MinecartMountMob;
 import necesse.inventory.item.Item;
 import necesse.inventory.item.trinketItem.SimpleTrinketItem;
 import summonerexpansion.summonarmor.*;
@@ -27,6 +30,12 @@ public class SummonerEquips
         BuffRegistry.registerBuff("frostcrownsetbonus", new FrostCrownSetBonus());
         ItemRegistry.registerItem("copperminerhat", new CopperMinerHat(), 50, true);
         BuffRegistry.registerBuff("copperminersetbonus", new CopperMinerSetBonus());
+        ItemRegistry.registerItem("leathersummonerhood", new LeatherSummonerHood(), 50, true);
+        BuffRegistry.registerBuff("leathersummonersetbonus", new LeatherSummonerSetBonus());
+        ItemRegistry.registerItem("redspiderhelmet", new RedSpiderHelmet(), 50, true);
+        ItemRegistry.registerItem("redspiderchestplate", new RedSpiderChestplate(), 50, true);
+        ItemRegistry.registerItem("redspiderboots", new RedSpiderBoots(), 50, true);
+        BuffRegistry.registerBuff("redspidersetbonus", new RedSpiderSetBonus());
         // T2
         ItemRegistry.registerItem("summonplagueboots", new SummonPlagueBoots(), 100, true);
         ItemRegistry.registerItem("summonplaguerobe", new SummonPlagueRobe(), 100, true);
@@ -54,6 +63,8 @@ public class SummonerEquips
         // T1
         ItemRegistry.registerItem("mesmercharm", (new SimpleTrinketItem(Item.Rarity.RARE, "mesmercharmbuff", 100)).addDisables("mesmertablet", "zephyrcharm"), 50, true);
         BuffRegistry.registerBuff("mesmercharmbuff", new SimpleTrinketBuff("mesmercharmtip", new ModifierValue(BuffModifiers.MAX_SUMMONS, 1), new ModifierValue(BuffModifiers.STAMINA_CAPACITY, 0.80f)));
+        ItemRegistry.registerItem("cactusemblem", new CactusEmblem(), 50, true);
+        BuffRegistry.registerBuff("cactusemblembuff", new CactusEmblemBuff());
         // T2
         BuffRegistry.registerBuff("frozenassassinscowlbuff", new SimpleTrinketBuff("frozenassassinscowltip", new ModifierValue(BuffModifiers.SUMMON_CRIT_CHANCE, 0.15F), new ModifierValue(BuffModifiers.SUMMON_CRIT_DAMAGE, 0.20F), new ModifierValue(BuffModifiers.SUMMONS_TARGET_RANGE, 0.20F)));
         ItemRegistry.registerItem("essenceofcompanionship", new SimpleTrinketItem(Item.Rarity.RARE, "essenceofcompanionshipbuff", 200).addDisables("companionlocket", "essenceofperspective", "essenceofprolonging"), 100, true);
@@ -90,16 +101,22 @@ public class SummonerEquips
         BuffRegistry.registerBuff("necroticclawbuff", new NecroticClawBuff());
         BuffRegistry.registerBuff("littleangelbuff", new LittleAngelBuff());
 
-
         // Challenge
         ItemRegistry.registerItem("giantbeet", new SimpleTrinketItem(Item.Rarity.RARE, "giantbeetbuff", 100), 50, true);
         BuffRegistry.registerBuff("giantbeetbuff", new GiantBeetBuff());
+        ItemRegistry.registerItem("jellyfishbowl", new SimpleTrinketItem(Item.Rarity.RARE, "jellyfishbowlbuff", 100), 50, true);
+        BuffRegistry.registerBuff("jellyfishbowlbuff", new JellyfishBowlBuff());
 
         // Mounts
         ItemRegistry.registerItem("chieftainhat", new ChieftainHat(), 50, true);
         MobRegistry.registerMob("chiefsummonmount", ChiefSummonMount.class, false);
         BuffRegistry.registerBuff("chiefbuff", new ChiefBuff());
+
         ItemRegistry.registerItem("magiccheese", new MagicCheese(), 50, true);
         MobRegistry.registerMob("mousesummonmount", MouseSummonMount.class, false);
+
+        ItemRegistry.registerItem("cavelingminecart", new CavelingMinecartItem(), 50, true);
+        MobRegistry.registerMob("cavelingminecart", CavelingMinecart.class, false);
+        MobRegistry.registerMob("cavelingminecartmount", MinecartMountMob.class, false, false, new LocalMessage("mob", "cavelingminecart"), null);
     }
 }
