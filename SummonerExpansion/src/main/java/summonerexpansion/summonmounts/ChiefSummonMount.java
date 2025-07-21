@@ -75,7 +75,7 @@ public class ChiefSummonMount extends MountFollowingMob implements ActiveMountAb
 
     public boolean canRunMountAbility(PlayerMob player, Packet content)
     {
-        return player.isServer() && Settings.giveClientsPower || StaminaBuff.canStartStaminaUsage(player);
+        return player.isServer() && !Settings.strictServerAuthority ? true : StaminaBuff.canStartStaminaUsage(player);
     }
 
     public void serverTick()

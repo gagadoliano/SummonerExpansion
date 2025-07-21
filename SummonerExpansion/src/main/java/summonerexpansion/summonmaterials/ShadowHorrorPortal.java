@@ -1,5 +1,8 @@
 package summonerexpansion.summonmaterials;
 
+import java.awt.Point;
+import java.awt.geom.Line2D;
+import java.util.ArrayList;
 import necesse.engine.localization.Localization;
 import necesse.engine.localization.message.GameMessage;
 import necesse.engine.localization.message.LocalMessage;
@@ -18,9 +21,6 @@ import necesse.inventory.item.placeableItem.consumableItem.ConsumableItem;
 import necesse.level.maps.IncursionLevel;
 import necesse.level.maps.Level;
 
-import java.awt.*;
-import java.util.ArrayList;
-
 public class ShadowHorrorPortal extends ConsumableItem
 {
     public ShadowHorrorPortal()
@@ -35,19 +35,26 @@ public class ShadowHorrorPortal extends ConsumableItem
         incinerationTimeMillis = 30000;
     }
 
-    public String canPlace(Level level, int x, int y, PlayerMob player, InventoryItem item, GNDItemMap mapContent)
+    public String canPlace(Level level, int x, int y, PlayerMob player, Line2D playerPositionLine, InventoryItem item, GNDItemMap mapContent)
     {
-        if (level.isClient()) {
+        if (level.isClient())
+        {
             return null;
-        } else if (level instanceof IncursionLevel) {
+        }
+        else if (level instanceof IncursionLevel)
+        {
             return "inincursion";
-        } else if (!level.isIslandPosition()) {
+        }
+        else if (!level.isIslandPosition())
+        {
             return "notisland";
-        } else if (level.getIslandDimension() != 0) {
-            return "notsurface";
-        } else if (!level.getServer().world.worldEntity.isNight()) {
+        }
+        else if (!level.getServer().world.worldEntity.isNight())
+        {
             return "notnight";
-        } else {
+        }
+        else
+        {
             ArrayList<Point> spawnPoints = new ArrayList();
             Mob mob = MobRegistry.getMob("riftportalmob", level);
             int pTileX = player.getX() / 32;
@@ -73,6 +80,7 @@ public class ShadowHorrorPortal extends ConsumableItem
                 return null;
             }
         }
+
     }
 
     public InventoryItem onPlace(Level level, int x, int y, PlayerMob player, int seed, InventoryItem item, GNDItemMap mapContent)
@@ -108,17 +116,16 @@ public class ShadowHorrorPortal extends ConsumableItem
                     }
                 }
             }
-            System.out.println("An army of horror spirits has been summoned at " + level.getIdentifier() + ".");
+            System.out.println("The portal has been summoned at " + level.getIdentifier() + ".");
             Point spawnPoint;
             if (!spawnPoints.isEmpty())
             {
-                spawnPoint = (Point) GameRandom.globalRandom.getOneOf(spawnPoints);
+                spawnPoint = GameRandom.globalRandom.getOneOf(spawnPoints);
             }
             else
             {
                 spawnPoint = new Point(player.getTileX() + GameRandom.globalRandom.getIntBetween(-8, 8), player.getTileY() + GameRandom.globalRandom.getIntBetween(-8, 8));
             }
-
             level.entityManager.addMob(mob, (float)(spawnPoint.x * 32 + 16), (float)(spawnPoint.y * 32 + 16));
             level.getServer().network.sendToClientsWithEntity(new PacketChatMessage(new LocalMessage("misc", "bosssummon", "name", mob.getLocalization())), mob);
             if (level instanceof IncursionLevel)
@@ -126,7 +133,7 @@ public class ShadowHorrorPortal extends ConsumableItem
                 ((IncursionLevel)level).onBossSummoned(mob);
             }
         }
-        if (this.singleUse)
+        if (this.isSingleUse(player))
         {
             item.setAmount(item.getAmount() - 1);
         }
@@ -145,15 +152,20 @@ public class ShadowHorrorPortal extends ConsumableItem
             if (level.isServer())
             {
                 String translationKey;
-                if (error.equals("alreadyspawned")) {
+                if (error.equals("alreadyspawned"))
+                {
                     translationKey = null;
-                } else if (error.equals("notsurface")) {
-                    translationKey = "portalnotonsurface";
-                } else if (error.equals("notnight")) {
+                }
+                else if (error.equals("notnight"))
+                {
                     translationKey = "portalnotnight";
-                } else if (error.equals("nospace")) {
+                }
+                else if (error.equals("nospace"))
+                {
                     translationKey = "portalnospace";
-                } else {
+                }
+                else
+                {
                     translationKey = "portalerror";
                 }
                 if (translationKey != null) {
@@ -169,5 +181,10 @@ public class ShadowHorrorPortal extends ConsumableItem
         ListGameTooltips tooltips = super.getTooltips(item, perspective, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "horrorportaltip"));
         return tooltips;
+    }
+
+    public String getTranslatedTypeName()
+    {
+        return Localization.translate("item", "relic");
     }
 }

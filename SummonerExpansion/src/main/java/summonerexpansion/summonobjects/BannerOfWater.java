@@ -33,6 +33,7 @@ public class BannerOfWater extends GameObject
         displayMapTooltip = true;
         isLightTransparent = true;
         rarity = Item.Rarity.LEGENDARY;
+        setItemCategory("objects", "misc");
     }
 
     public void loadTextures()

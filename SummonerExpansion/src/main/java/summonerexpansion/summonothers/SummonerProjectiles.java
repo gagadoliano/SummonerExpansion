@@ -1,6 +1,7 @@
 package summonerexpansion.summonothers;
 
 import necesse.engine.registries.ProjectileRegistry;
+import necesse.entity.projectile.VoidApprenticeProjectile;
 import summonerexpansion.summonprojs.*;
 
 public class SummonerProjectiles
@@ -17,6 +18,7 @@ public class SummonerProjectiles
         // Minion Projectiles
         ProjectileRegistry.registerProjectile("iceminionjavelinproj", IceMinionJavelinProj.class, "iceminionjavelin", "iceminionjavelin_shadow");
         ProjectileRegistry.registerProjectile("crystalminionproj", CrystalMinionProj.class, "crystalminionproj", "crystalminionproj_shadow");
+        ProjectileRegistry.registerProjectile("icewizardproj", IceWizardProj.class, "icewizardproj", "voidapprentice_shadow");
         ProjectileRegistry.registerProjectile("leafcoldballproj", LeafColdBallProj.class, "leafcoldballproj", "bolt_shadow");
         ProjectileRegistry.registerProjectile("leafheatballproj", LeafHeatBallProj.class, "leafheatballproj", "bolt_shadow");
         ProjectileRegistry.registerProjectile("leafballproj", LeafBallProj.class, "leafballproj", "bolt_shadow");
@@ -28,5 +30,8 @@ public class SummonerProjectiles
         // Sentry Projectiles
         ProjectileRegistry.registerProjectile("caveglowproj", CaveglowProj.class, "caveglowproj", "caveglowproj_shadow");
         ProjectileRegistry.registerProjectile("horrorsentryproj", HorrorSentryProj.class, null, null);
+
+        // Mob Projectiles
+        ProjectileRegistry.registerProjectile("woodmobproj", WoodMobProj.class, null, null);
     }
 }

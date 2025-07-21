@@ -28,7 +28,7 @@ public class HorrorSpiritBossMob extends FlyingHostileMob
 {
     public float moveAngle;
     public static GameTexture texture;
-    public static GameDamage baseDamage = new GameDamage(250.0F);
+    public static GameDamage baseDamage = new GameDamage(150.0F);
     public static GameDamage incursionDamage = new GameDamage(300.0F);
 
     public static LootTable lootTable = new LootTable(
@@ -90,7 +90,7 @@ public class HorrorSpiritBossMob extends FlyingHostileMob
     {
         for(int i = 0; i < 20; ++i)
         {
-            this.getLevel().entityManager.addParticle(this.x, this.y, Particle.GType.COSMETIC).movesConstantAngle((float)GameRandom.globalRandom.nextInt(360), (float)GameRandom.globalRandom.getIntBetween(5, 20)).color(new Color(10, 10, 10));
+            this.getLevel().entityManager.addParticle(x, y, Particle.GType.COSMETIC).movesConstantAngle((float)GameRandom.globalRandom.nextInt(360), (float)GameRandom.globalRandom.getIntBetween(5, 20)).color(new Color(10, 10, 10));
         }
     }
 
@@ -103,9 +103,9 @@ public class HorrorSpiritBossMob extends FlyingHostileMob
     {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
         GameLight light = level.getLightLevel(x / 32, y / 32);
-        int drawX = camera.getDrawX(x) - 16;
-        int drawY = camera.getDrawY(y) - 20;
-        DrawOptions body = texture.initDraw().light(light).rotate(this.moveAngle, 16, 20).pos(drawX, drawY);
+        int drawX = camera.getDrawX(x);
+        int drawY = camera.getDrawY(y);
+        DrawOptions body = texture.initDraw().light(light).rotate(moveAngle, 0, 0).pos(drawX, drawY);
         topList.add((tm) -> {
             body.draw();
         });

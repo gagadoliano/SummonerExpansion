@@ -6,6 +6,7 @@ import necesse.engine.registries.ItemRegistry;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.inventory.item.Item;
 import necesse.inventory.item.miscItem.BannerItem;
+import necesse.inventory.item.placeableItem.consumableItem.TrinketSlotsIncreaseItem;
 import necesse.inventory.item.placeableItem.consumableItem.food.FoodConsumableItem;
 import necesse.level.maps.levelData.settlementData.settler.Settler;
 import summonerexpansion.summonbannerbuffs.*;
@@ -18,9 +19,17 @@ public class SummonerItems
 {
     public static void registerSummonItems()
     {
-        // Materials & Others
-        ItemRegistry.registerItem("shadowhorrorportal", new ShadowHorrorPortal(), 50, true);
+        // Materials
         ItemRegistry.registerItem("purehorror", new PureHorror(), 50, true);
+
+        // Boss Summon
+        ItemRegistry.registerItem("shadowhorrorportal", new ShadowHorrorPortal(), 50, true);
+
+        // Bags
+        ItemRegistry.registerItem("shadowhorrorbag", new ShadowHorrorBag(), 10, true);
+
+        // Stat increases
+        ItemRegistry.registerItem("fusedessences", new TrinketSlotsIncreaseItem(8), 500.0F, true, true);
 
         // Foods
         ItemRegistry.registerItem("rottenbread", (new FoodConsumableItem(250, Item.Rarity.NORMAL, Settler.FOOD_SIMPLE, 10, 1200, new ModifierValue(BuffModifiers.MAX_HEALTH, -0.20F), new ModifierValue(BuffModifiers.MAX_SUMMONS, 1))).spoilDuration(500), 0F, true);
@@ -57,8 +66,5 @@ public class SummonerItems
         BuffRegistry.registerBuff("minioncritbuff", new MinionCritBuff());
         ItemRegistry.registerItem("minionfarmpotion", new MinionFarmPotion(), 10, true);
         BuffRegistry.registerBuff("minionfarmbuff", new MinionFarmBuff());
-
-        // Bags
-        ItemRegistry.registerItem("shadowhorrorbag", new ShadowHorrorBag(), 10, true);
     }
 }

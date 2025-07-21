@@ -192,8 +192,8 @@ public class RiftPortalMob extends BossMob
     {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
         GameLight light = level.getLightLevel(x / 32, y / 32);
-        int drawX = camera.getDrawX(x) - 16;
-        int drawY = camera.getDrawY(y) - 20;
+        int drawX = camera.getDrawX(x) - 60;
+        int drawY = camera.getDrawY(y) - 60;
         DrawOptions body = texture.initDraw().sprite(0, 0, 118).mirror(moveX < 0.0F, false).alpha(0.7F).light(light).pos(drawX, drawY);
         topList.add((tm) -> {
             body.draw();

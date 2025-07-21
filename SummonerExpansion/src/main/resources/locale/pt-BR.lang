@@ -30,6 +30,7 @@ redspiderstaff=Cajado de aranha vermelha
 magiccopperlamp=Lâmpada mágica de cobre
 gemsapphireshards=Fragmentos de safira
 sandwormstaff=Cajado de verme da areia
+icewizardstaff=Cajado do Mago de Gelo
 runebonestaff=Cajado de osso rúnico
 gemrubyshards=Fragmentos de rubi
 dryadessence=Essência de dríade
@@ -112,6 +113,7 @@ giantbeet=Beterraba Gigante
 mesmersatchel=Bolsa Mesmer
 bonepile=Pilha de Ossos
 littleangel=Anjinho
+jellyfishbowl=Tigela de água-viva
 
 // Potions
 minionattackspeedpotion=Poção de invocador de Velocidade de Ataque
@@ -158,10 +160,14 @@ rottenbread=Pão Podre
 // Bags
 shadowhorrorbag=Bolsa de Horror das Sombras
 
+// Stat item
+fusedessences=Essências infundidas
+
 [itemtooltip]
 // Minion weapons
 runebonestafftip=Invoca um bruto rúnico que ataca os inimigos com um machado \nTem uma pequena chance de invocar um xamã rúnico \nNíveis de upgrade mais altos aumentam a chance de invocar um xamã
 royalhivetip=Invoca uma abelha rainha que gera abelhas a cada 10 ataques \nA rainha aumenta sua regeneração de saúde durante o combate \nE as abelhas menores desaceleram os inimigos em 10%
+icewizardtip=Invoca um mago de gelo para disparar projéteis congelantes nos inimigos \nEles desaceleram dos inimigos em 30% e causam dano ao longo do tempo por 10 segundos
 amethystshardtip=Invoca um golem de ametista \nEste golem pode cristalizar inimigos \nGolems de ametista adicionais aumentam a chance de cristalizar
 redspiderstafftip=Invoca aranhas vermelhas que realizam ataques corpo a corpo \nEnvenena os inimigos, causando 15 de dano ao longo de 5 segundos
 lampminioncastletip=Invoca um candelabro do castelo de aranha \nQueima e desacelera os inimigos \nOs efeitos ficam mais fortes à noite
@@ -244,6 +250,7 @@ demonicpolarclawtip=Ataques de invocação desaceleram inimigos \nAumenta a resi
 bonepiletip=Aumenta a penetração de armadura em 25 \nAumenta o dano crítico de invocação em 25%
 hystericalmirrortip=+3 Lacaio máximo \nAumenta a velocidade de invocação em 45%
 mesmercharmtip=+1 Lacaio máximo \nAumenta o limite de energia em 80%
+jellyfishminiontip=Invoca uma água-viva que ataca os inimigos
 
 // Potions buff info
 minionfarmtip=Diminui a velocidade de movimento em 80%, aumenta o alcance de coleta,taxa de geração de mobs, velocidade de invocação e o alcance dos lacios em 40%
@@ -303,12 +310,12 @@ lampminiondungeon=Lacaio do masmorra
 goldlampminion=Lâmpada dupla de ouro
 golemrubyminion=Lacaio golem de rubi
 sandwormminion=Lacaio verme da areia
+icewizardminion=Lacaio Mago de Gelo
 runemeleeminion=Lacaio bruto rúnico
 runerangedminion=Lacaio xamã rúnico
 beequeenminion=Abelha rainha lacaia
 spiritghoulminion=Lacaio carniçal
 copperlampminion=Lâmpada de cobre
-beetminion=Lacaio beterrabinha
 vampireminion=Lacaio vampiro
 cactusminion=Lacaio de cacto
 polarminion=Lacaio polar
@@ -363,6 +370,8 @@ firemonesentry=Sentinela de Firemone
 // Equipment minions
 horrorbatminion=Lacaio Morcego do Horror
 mouseminion=Lacaio rato
+beetminion=Lacaio beterrabinha
+jellyfishminion=Lacaio água-viva
 
 // Mounts
 cavelingminecart=Carrinho de Mina de Cavernídio
@@ -375,7 +384,7 @@ riftportalmob=Portal de Fenda do Horror
 // Foes
 horrorspiritbossmob=Espírito de Horror Ancestral
 horrorspiritmob=Espírito de Horror
-woodmob=Madeira Mágica
+woodmob=Boneco de Madeira
 
 // Settlers
 druidhuman=Druida
@@ -407,6 +416,7 @@ summonedbeetminionbuff=Beterrabinha
 firemonebuff=Penetração de armadura
 runicshieldbuff=Armadura Rúnica
 iceblossombuff=Armadura
+summonedjellyfishminionbuff=Lacaio água-viva
 
 // Debuffs
 bleedingdebuff=-20% de dano e 2 de dano de veneno
@@ -434,6 +444,9 @@ xmaswreathcollected=[item=christmaswreath] Ache uma guirlanda de natal
 xmastreeplaced=[item=christmastree] Coloque uma árvore de natal
 presentcollected=[item=redpresent] Receba 10 presentes
 cookieeated=[item=cookies] Coma um cookie
+fishiankilled=[mob=fishianhookwarrior] Mate 40 fishians no pântano
+bamboocollected=[item=bamboo] Colete 100 bambus
+shelldestroyed=[item=seashell] Colete 30 conchas
 
 [enchantment]
 uncontrollable=[Incontrolável]

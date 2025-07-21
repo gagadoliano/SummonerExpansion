@@ -41,6 +41,7 @@ public class SummonerWeapons
 
         // Minion
         ItemRegistry.registerItem("magicdungeoncandelabra", new MagicDungeonCandelabra(), 100, true);
+        ItemRegistry.registerItem("icewizardstaff", new IceWizardStaff(), 100, true);
         ItemRegistry.registerItem("magicgoldlamp", new MagicGoldLamp(), 100, true);
         ItemRegistry.registerItem("runebonestaff", new RuneboneStaff(), 100, true);
         ItemRegistry.registerItem("goldpitchfork", new GoldPitchfork(), 100, true);

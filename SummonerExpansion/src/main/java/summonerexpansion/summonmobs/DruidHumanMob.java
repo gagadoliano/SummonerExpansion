@@ -25,6 +25,7 @@ public class DruidHumanMob extends HumanShop
         attackAnimTime = 500;
         setSwimSpeed(1.0F);
         equipmentInventory.setItem(6, new InventoryItem("woodstaff"));
+
         shop.addSellingItem("leafshotpack", new SellingShopItem(100, 5)).setStaticPriceBasedOnHappiness(800, 1500).addKilledMobRequirement("swampzombie");
         shop.addSellingItem("leafshotcoldpack", new SellingShopItem(100, 5)).setStaticPriceBasedOnHappiness(800, 1500).addKilledMobRequirement("trapperzombie");
         shop.addSellingItem("leafshotheatpack", new SellingShopItem(100, 5)).setStaticPriceBasedOnHappiness(800, 1500).addKilledMobRequirement("enchantedzombie");
@@ -33,6 +34,7 @@ public class DruidHumanMob extends HumanShop
         shop.addSellingItem("iceblossomstaff", new SellingShopItem()).setStaticPriceBasedOnHappiness(600, 1200).addRandomAvailableRequirement(0.20F);
         shop.addSellingItem("firemonestaff", new SellingShopItem()).setStaticPriceBasedOnHappiness(600, 1200).addRandomAvailableRequirement(0.20F);
         shop.addSellingItem("dryadessence", new SellingShopItem()).setStaticPriceBasedOnHappiness(2500, 4000).addKilledMobRequirement("thecursedcrone");
+
         shop.addBuyingItem("redflowerpatch", new BuyingShopItem()).setPriceBasedOnHappiness(10, 2, 3);
         shop.addBuyingItem("blueflowerpatch", new BuyingShopItem()).setPriceBasedOnHappiness(10, 2, 3);
         shop.addBuyingItem("whiteflowerpatch", new BuyingShopItem()).setPriceBasedOnHappiness(10, 2, 3);

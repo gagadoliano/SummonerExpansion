@@ -10,11 +10,14 @@ import summonerexpansion.summonmounts.*;
 
 public class SummonerTextures
 {
-    public static GameTextureSection MosquitoBowVisual;
     public static HumanTexture enchantedBabyZombieArcherMinion;
     public static HumanTexture enchantedBabyZombieMinion;
+    public static HumanTexture iceWizardMinion;
     public static HumanTexture vampireMinion;
     public static HumanTexture fishianMinion;
+
+    public static GameTextureSection MosquitoBowVisual;
+
     public static GameTexture[] cavelingminecart_mask;
 
     public static void initResources()
@@ -22,6 +25,7 @@ public class SummonerTextures
         // Human textures
         enchantedBabyZombieArcherMinion = new HumanTexture(GameTexture.fromFile("mobs/enchantedbabyzombiearcherminion"), GameTexture.fromFile("mobs/enchantedbabyzombiearms_left"), GameTexture.fromFile("mobs/enchantedbabyzombiearms_right"));
         enchantedBabyZombieMinion = new HumanTexture(GameTexture.fromFile("mobs/enchantedbabyzombieminion"), GameTexture.fromFile("mobs/enchantedbabyzombiearms_left"), GameTexture.fromFile("mobs/enchantedbabyzombiearms_right"));
+        iceWizardMinion = new HumanTexture(GameTexture.fromFile("mobs/icewizardminion"), GameTexture.fromFile("mobs/icewizardminionarms_left"), GameTexture.fromFile("mobs/icewizardminionarms_right"));
         vampireMinion = new HumanTexture(GameTexture.fromFile("mobs/vampireminion"), GameTexture.fromFile("mobs/vampireminionarms_left"), GameTexture.fromFile("mobs/vampireminionarms_right"));
         fishianMinion = new HumanTexture(GameTexture.fromFile("mobs/fishianminion"), GameTexture.fromFile("mobs/fishianminionarms_left"), GameTexture.fromFile("mobs/fishianminionarms_right"));
 

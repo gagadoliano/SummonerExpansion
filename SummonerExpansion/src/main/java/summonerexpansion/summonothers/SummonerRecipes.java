@@ -410,6 +410,17 @@ public class SummonerRecipes
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "icewizardstaff",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("voidmissile", 1),
+                        new Ingredient("voidshard", 12),
+                        new Ingredient("frostshard", 6)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "goblinsword",
                 1,
                 SUMMONTABLECRAFT2,
@@ -1171,6 +1182,19 @@ public class SummonerRecipes
                 new Ingredient[]{
                         new Ingredient("purehorror", 5),
                         new Ingredient("mysteriousportal", 1)
+                }
+        ));
+
+        // Stat items
+        Recipes.registerModRecipe(new Recipe(
+                "fusedessences",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("shadowessence", 5),
+                        new Ingredient("cryoessence", 5),
+                        new Ingredient("bioessence", 5),
+                        new Ingredient("primordialessence", 5)
                 }
         ));
 
