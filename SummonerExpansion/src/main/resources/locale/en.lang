@@ -96,7 +96,9 @@ spiderbrideboots=Spider Bride Boots
 // Trinkets
 essenceofcompanionship=Essence of Companionship
 challengerarmorpiece=Challenger's Armor Piece
+balancedsummonerboard=Balanced Summoner Board
 frozenassassinscowl=Frozen Assassins Cowl
+doomshroomshield=Doom Shroom Shield
 shadowhorrorcape=Shadow Horror Cape
 demonicpolarclaw=Demonic Polar Claw
 frenzyhorrorcape=Frenzy Horror Cape
@@ -114,6 +116,10 @@ spelltablet=Spell Tablet
 mesmercharm=Mesmer Charm
 giantbeet=Giant Beet
 bonepile=Bone Pile
+transplantedheart=Transplanted Heart
+scryingmagicianscard=Scrying Magician's Card
+minerslantern=Miner's Lantern
+calmminerslantern=Calm Miner's Lantern
 
 // Potions
 minioncritchancepotion=Summon Critical Chance Potion
@@ -166,12 +172,13 @@ fusedessences=Infused essences
 [itemtooltip]
 // Minion weapons
 runebonestafftip=Summons a runebound brute that attack foes with an axe \nHave a small chance to summon a runebond shaman instead \nHigher upgrade tiers increases the summoning chance
+icewizardtip=Summons a ice wizard to shoot freezing projectiles that slow foes by 30% \nDeals frost damage over time and doubles the damage of all frost debuff on foes
 royalhivetip=Summons a bee queen that spawn bees every 10 hits \nThe queen increases your health regen while on combat \nAnd the smaller bees slows foes by 10%
 amethystshardtip=Summons an amethyst golem \nThis golem can crystallize foes \nAdditional amethyst golems increases the chance to crystallize
-icewizardtip=Summons a ice wizard to shoot freezing projectiles at foes \nThey slow foes by 30% and deals damage over time for 10 seconds
 bearheadtip=Summons a grizzly bear that attack foes \nHit foes will start bleeding, causing damage and lowering their damage by 20%
 sapphireshardtip=Summons a sapphire golem \nThis golem summons a sapphire glyph at your location when you have life essence
-lampminioncastletip=Summons a spider castle candelabra \nBurn and slows foes \nDebuffs get stronger at night
+lampminioncastletip=Summons a spider castle candelabra \nBurn and slows foes \nDebuff effects get stronger at night
+polarheadtip=Summons a polar bear that attack and slow foes by 25% \nIncreases the knockback foes receive by 20%
 redspiderstafftip=Summons baby red spiders that do melee attacks \nPoison foes for 15 damage over 5 seconds
 emeraldshardtip=Summons an emerald golem \nThis golem shoots a laser that pierce foes and bounce from walls
 goldpitchforktip=Summons a farmer that have a small chance to spawn wheat or farm animals when attacking
@@ -184,7 +191,6 @@ rubyshardtip=Summons a ruby golem \nThis golem shoots crystal shards at foes
 lampminiondungeontip=Summons a dungeon candelabra \nBurn foes at night
 vampirewingstip=Summons a vampire that shoots blood bolts at foes
 magiccopperlamptip=Summons a copper lamp that glows and attack
-polarheadtip=Summons a polar bear that attack and slows foes
 sandwormstafftip=Summons a sand worm to attack foes
 
 // Sentry weapons
@@ -226,17 +232,20 @@ bloodplateset=After taking damage, your health regen is doubled for 4 seconds \n
 redspidersettip=Grants immunity to slow and blindness \nSummon attacks slows foes \nRed spiders doubles poison damage from all sources
 frostcrownsettip=Summon attacks slows and damages the target for 15 damage over 5 seconds
 shadowhelmetsettip=Summon attacks haunt target for 25 damage over 5 seconds
-horrorsettip=Chance to summon horror spirits when attacking foes
 copperminersettip=Increases the light of magic lamps and candles
+horrorsettip=Chance to summon horror spirits during combat
 plaguesettip=Periodically summons mouses during combat
 
 // Trinkets
+transplantedhearttip=Increases health regen during combat by 0.75 \nIncreases max resilience by 10% \nTurns half your health into resilience \nRegen resilience when at full health \nRestore 25% health when taking fatal damage\n5 minute cooldown
 littleangeltip=Equip and press [input=trinketability] to blink forward \nIncreases your summon and dash stats \nBeing hit while you have a Dash Cooldown refreshes your dash instantly \nGain 5 resilience whenever you use a dash trinket
 frenzyhorrorcapetip=+1 max summon \nIncreases movement speed by 20% \nGain 4 health regen per second while below 50% health \nGain up to +50% summon damage based on missing health \nSummons up to 3 horror bats when taking damage
 essenceofcompanionshiptip=Increases life essence gain by 100% \nIncreases life essence duration 100% \nIncreases summon damage and speed greatly for each unused summon\nThe increases diminish slightly beyond first unused summon
+doomshroomshieldtip=Increases summon damage by 10% \nIncreases aggro range by 50% \nEquip and press [input=trinketability] to explode \nThe explosion pushes away foes and set them ablaze \n10 seconds cooldown
+balancedsummonerboardtip=Increases summon damage by 15% \nGain 5% increased summon damage for each different summon you have \nSummon attacks slow foes, deals 35 damage over 5 seconds
 summonergambittip=+1 max summon \n+10 armor \n+50% summon damage \n-50% non-summon damage \n+10% summon crit chance \nCan only be equipped in the ability trinket slot.
 necromancerarmortip=Improves your summoner stats \nGain damage and hp regen on low health \nSummon attacks slows foes \nSummons up to 3 horror bats when taking damage
-mesmersatcheltip=+1 Max Summons \nIncreases Stamina Cap by 100% \nIncreases summon speed by 50% \nIncreases movement speed by 25% \nLights up the area around you
+mesmersatcheltip=+1 max summons \nIncreases stamina cap by 100% \nIncreases summon speed by 50% \nIncreases movement speed by 25% \nLights up the area around you
 challengeraptip=Increase max resilience by 65 \nSlows resilience decay by 75% \nIncreases resilience gain by 50% and increases to 100% during boss battles
 necroticclawtip=Summon attacks slows foes \nIncreases knockback resistance \nIncreases armor penetration by 25 \nIncreases summon crit damage by 25%
 frenzystoneringtip=Gain up to +50% summon damage based on missing health \nGain 4 health regen per second while below 50% health
@@ -251,6 +260,9 @@ demonicpolarclawtip=Summon attacks slows foes \nIncreases knockback resistance
 hystericalmirrortip=+3 max summons \nIncreases summon speed by 45%
 jellyfishminiontip=Summons a jellyfish minion that attack foes
 mesmercharmtip=+1 Max Summons \nIncreases Stamina Cap by 80%
+scryingmagicianscardtip=+5 max summons \nIncreases mana stats \nIncreases summon speed and attack speed by 45% \nMagic damage increases by 50% of summon damage \nSummons mummies with summon or magic attacks
+calmminerslanterntip=Summons a Will-o'-Wisp \nIncreases mining and building stats \nMining rocks deals cleave damage to other nearby rocks \nSwing to turn off calming effect
+minerslanterntip=Summons a Will-o'-Wisp \nIncreases mining and building stats \nMining rocks deals cleave damage to other nearby rocks \nIncreases summon damage is increased by mining damage \nSwing to turn on calming effect
 
 // Potions buff
 minionfarmtip=Decreases movement but increases pickup range by 50, mob spawn rate by 50%, summon speed and range by 40%
@@ -431,14 +443,14 @@ mushroomdebuff=20% slow
 honeydebuff=10% slow
 
 [journal]
-watergrasscollected=[item=watergrass] Gather 35 Water Grass
+watergrasscollected=[item=watergrass] Collect 35 water grass
 lanternplaced=[item=waterlantern] Place 5 water lanterns
 fincollected=[item=fins] Gather a fin trinket
 bucketcrafted=[item=bucket] Craft a bucket
 duckkilled=[mob=duck] Hunt 20 ducks
 seedcollected=[item=wheatseed] Collect 50 seeds that can be found in forest caves
-beetplanted=[item=beetseed] Plant 20 Beet seeds inside a forest cave
-beetskilled=[mob=beetcavecroppler] Kill 20 Beet cave croppler
+beetplanted=[item=beetseed] Plant 20 beet seeds inside a forest cave
+beetskilled=[mob=beetcavecroppler] Kill 20 beet cave croppler
 snowmancollected=[item=snowmantrainingdummy] Craft a snowman
 xmaswreathcollected=[item=christmaswreath] Gather a christmas wreath
 xmastreeplaced=[item=christmastree] Place a christmas tree
@@ -447,6 +459,10 @@ cookieeated=[item=cookies] Eat a cookie
 fishiankilled=[mob=fishianhookwarrior] Kill 40 fishians in swamp
 bamboocollected=[item=bamboo] Collect 100 bamboo
 shelldestroyed=[item=seashell] Collect 30 seashells
+sporekilled=Destroy 10 swamp spores
+mushroomcollected=[item=mushroom] Collect 50 mushrooms
+mudcollected=[item=mudtile] Collect 100 mud tiles
+stinkflaskcollected=[item=stinkflask] Gather a stink flask
 
 [enchantment]
 uncontrollable=Uncontrollable

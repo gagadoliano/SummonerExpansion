@@ -12,11 +12,13 @@ public class SummonerChallenges
     public static LootTable SUMMON_FOREST_SURFACE_REWARD = new LootTable((new LootItemList(new LootItem("bannerofwater"))).setCustomListName("object", "bannerofwater"));
     public static LootTable SUMMON_FOREST_CAVE_REWARD = new LootTable(new LootItem("giantbeet"));
     public static LootTable SUMMON_SNOW_SURFACE_REWARD = new LootTable(new LootItem("xmastreescepter"));
+    public static LootTable SUMMON_SWAMP_CAVE_REWARD = new LootTable(new LootItem("doomshroomshield"));
     public static LootTable SUMMON_DEEP_SWAMP_CAVE_REWARD = new LootTable(new LootItem("jellyfishbowl"));
 
     public static int SUMMON_FOREST_SURFACE_CHALLENGES_ID;
     public static int SUMMON_FOREST_CAVE_CHALLENGES_ID;
     public static int SUMMON_SNOW_SURFACE_CHALLENGES_ID;
+    public static int SUMMON_SWAMP_CAVE_CHALLENGES_ID;
     public static int SUMMON_DEEP_SWAMP_CAVE_CHALLENGES_ID;
 
     public static int WATERGRASS_COLLECT_ID;
@@ -32,6 +34,10 @@ public class SummonerChallenges
     public static int XMASTREE_PLACE_ID;
     public static int PRESENT_COLLECT_ID;
     public static int COOKIE_EAT_ID;
+    public static int SPORE_KILL_ID;
+    public static int MUSHROOM_COLLECT_ID;
+    public static int MUD_COLLECT_ID;
+    public static int STINKFLASK_COLLECT_ID;
     public static int SHELL_DESTROY_ID;
     public static int BAMBOO_COLLECT_ID;
     public static int FISHIAN_KILL_ID;
@@ -75,6 +81,11 @@ public class SummonerChallenges
         //Swamp
 
         //Swamp cave
+        SPORE_KILL_ID = registerChallenge("sporekilled", new MobsKilledJournalChallenge(10, "swampsporedummy"));
+        MUSHROOM_COLLECT_ID = registerChallenge("mushroomcollected", new PickupItemsJournalChallenge(50, true, "mushroom"));
+        MUD_COLLECT_ID = registerChallenge("mudcollected", new PickupItemsJournalChallenge(100, true, "mudtile"));
+        STINKFLASK_COLLECT_ID = registerChallenge("stinkflaskcollected", new PickupItemJournalChallenge(true, "stinkflask"));
+        SUMMON_SWAMP_CAVE_CHALLENGES_ID = registerChallenge("summonswampcave", (new MultiJournalChallenge(SPORE_KILL_ID, MUSHROOM_COLLECT_ID, MUD_COLLECT_ID, STINKFLASK_COLLECT_ID)).setReward(SUMMON_SWAMP_CAVE_REWARD));
 
         //Swamp deep cave
         FISHIAN_KILL_ID = registerChallenge("fishiankilled", new FishianKillJournalChallenge());

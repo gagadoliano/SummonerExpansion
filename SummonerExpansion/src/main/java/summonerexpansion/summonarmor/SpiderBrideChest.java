@@ -14,7 +14,7 @@ public class SpiderBrideChest extends ChestArmorItem
 
     public SpiderBrideChest()
     {
-        super(25, 600, Rarity.UNCOMMON, "spiderbridechest", "spiderbridearms");
+        super(25, 600, Rarity.LEGENDARY, "spiderbridechest", "spiderbridearms");
     }
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)

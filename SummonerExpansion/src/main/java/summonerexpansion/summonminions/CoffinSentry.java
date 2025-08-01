@@ -47,16 +47,27 @@ public class CoffinSentry extends AttackingFollowingMob
         {
             public boolean attackTarget(CoffinSentry mob, Mob target)
             {
-                if (mob.canAttack())
+                if (mob.canAttack() && getAttackOwner().buffManager.hasBuff("bloodplatecowlsetbonus"))
                 {
                     mob.attack(target.getX(), target.getY(), false);
-                    Projectile projectile = ProjectileRegistry.getProjectile("bloodbolt", mob.getLevel(), mob.x, mob.y, target.x, target.y, 80.0F, 900, CoffinSentry.this.summonDamage, mob);
+                    Projectile projectile = ProjectileRegistry.getProjectile("bloodbolt", mob.getLevel(), mob.x, mob.y, target.x, target.y, 120F, 900, summonDamage.modFinalMultiplier(1.20F), mob);
                     projectile.setTargetPrediction(target, -20.0F);
-                    projectile.moveDist(20.0);
+                    projectile.moveDist(40.0);
                     mob.getLevel().entityManager.projectiles.add(projectile);
                     coffinCharge++;
                     return true;
-                } else {
+                }
+                else if (mob.canAttack())
+                {
+                    mob.attack(target.getX(), target.getY(), false);
+                    Projectile projectile = ProjectileRegistry.getProjectile("bloodbolt", mob.getLevel(), mob.x, mob.y, target.x, target.y, 80F, 900, summonDamage, mob);
+                    projectile.setTargetPrediction(target, -20.0F);
+                    projectile.moveDist(20.0);
+                    mob.getLevel().entityManager.projectiles.add(projectile);
+                    return true;
+                }
+                else
+                {
                     return false;
                 }
             }

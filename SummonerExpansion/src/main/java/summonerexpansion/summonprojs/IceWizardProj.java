@@ -53,7 +53,7 @@ public class IceWizardProj extends Projectile
         {
             if (mob != null)
             {
-                ActiveBuff ab = new ActiveBuff("freezing", mob, 10.0F, this.getOwner());
+                ActiveBuff ab = new ActiveBuff("icewizarddebuff", mob, 10.0F, this.getOwner());
                 mob.addBuff(ab, true);
             }
         }

@@ -2,7 +2,6 @@ package summonerexpansion.summonminions;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.registries.BuffRegistry;
-import necesse.engine.registries.DamageTypeRegistry;
 import necesse.engine.registries.MobRegistry;
 import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.Mob;

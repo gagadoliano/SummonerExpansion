@@ -716,6 +716,53 @@ public class SummonerRecipes
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "calmminerslantern",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("calmingminersbouquet", 1),
+                        new Ingredient("minersprosthetic", 1),
+                        new Ingredient("diggingclaw", 1),
+                        new Ingredient("toolbox", 1),
+                        new Ingredient("willowisplantern", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "balancedsummonerboard",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("balancedfrostfirefoci", 1),
+                        new Ingredient("spiritboard", 1),
+                        new Ingredient("summonersbestiary", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "transplantedheart",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("clockworkheart", 1),
+                        new Ingredient("frozensoul", 1),
+                        new Ingredient("lifependant", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "scryingmagicianscard",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("hystericalmirror", 1),
+                        new Ingredient("spelltablet", 1),
+                        new Ingredient("scryingcards", 1),
+                        new Ingredient("forbiddenspellbook", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "frenzystonering",
                 1,
                 SUMMONTABLECRAFT4,

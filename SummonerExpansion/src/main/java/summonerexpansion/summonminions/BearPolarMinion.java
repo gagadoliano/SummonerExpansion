@@ -54,7 +54,7 @@ public class BearPolarMinion extends AttackingFollowingMob
         Mob owner = this.getAttackOwner();
         if (owner != null && target != null)
         {
-            ActiveBuff buff = new ActiveBuff(BuffRegistry.getBuff("chilled"), target, 60F, this);
+            ActiveBuff buff = new ActiveBuff(BuffRegistry.getBuff("polarsnowdebuff"), target, 60F, this);
             target.addBuff(buff, true);
         }
     }

@@ -65,7 +65,7 @@ public class LampMinionGold extends FlyingAttackingFollowingMob
     public void init()
     {
         super.init();
-        ai = new BehaviourTreeAI<>(this, new PlayerFlyingFollowerCollisionChaserAI(300, (GameDamage)null, 15, 500, 640, 70), new FlyingAIMover());
+        ai = new BehaviourTreeAI<>(this, new PlayerFlyingFollowerCollisionChaserAI(300, null, 15, 500, 640, 70), new FlyingAIMover());
     }
 
     public void clientTick()
@@ -111,7 +111,6 @@ public class LampMinionGold extends FlyingAttackingFollowingMob
         {
             sprite = 3;
         }
-
         float rotate = dx / 10.0F;
         DrawOptions options = texture.initDraw().sprite(sprite, 0, 64).light(light).mirror(dir == 0, false).rotate(rotate, 32, 32).pos(drawX, drawY);
         topList.add((tm) -> {options.draw();});

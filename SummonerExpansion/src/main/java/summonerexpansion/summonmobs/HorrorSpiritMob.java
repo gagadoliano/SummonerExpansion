@@ -36,7 +36,7 @@ public class HorrorSpiritMob extends FlyingHostileMob
     public static GameDamage incursionDamage = new GameDamage(80.0F);
 
     public static LootTable lootTable = new LootTable(
-            ChanceLootItem.between(0.5f, "purehorror", 1, 5)
+            ChanceLootItem.between(0.8f, "purehorror", 1, 4)
     );
 
     public HorrorSpiritMob()

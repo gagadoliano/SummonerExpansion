@@ -1,12 +1,17 @@
 package summonerexpansion.summontrinketbuffs;
 
+import necesse.engine.localization.Localization;
 import necesse.engine.registries.BuffRegistry;
 import necesse.engine.util.GameMath;
 import necesse.entity.mobs.Attacker;
+import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.TrinketBuff;
+import necesse.gfx.gameTooltips.ListGameTooltips;
+import necesse.inventory.InventoryItem;
+import necesse.inventory.item.trinketItem.TrinketItem;
 
 public class FrenzystoneRingBuff extends TrinketBuff
 {
@@ -65,5 +70,12 @@ public class FrenzystoneRingBuff extends TrinketBuff
         }
         healthPercent = GameMath.limit(healthPercent, 0.0F, 1.0F);
         return Math.abs(healthPercent - 1.0F);
+    }
+
+    public ListGameTooltips getTrinketTooltip(TrinketItem trinketItem, InventoryItem item, PlayerMob perspective)
+    {
+        ListGameTooltips tooltips = new ListGameTooltips();
+        tooltips.add(Localization.translate("itemtooltip", "frenzystoneringtip"));
+        return tooltips;
     }
 }

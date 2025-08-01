@@ -12,7 +12,11 @@ public class ShadowHorrorBag extends PouchItem
 {
     public ShadowHorrorBag()
     {
-        this.rarity = Rarity.UNCOMMON;
+        canUseHealthPotionsFromPouch = false;
+        canUseManaPotionsFromPouch = false;
+        canUseBuffPotionsFromPouch = false;
+        canEatFoodFromPouch = false;
+        rarity = Rarity.UNCOMMON;
     }
 
     public ListGameTooltips getTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard)
@@ -24,19 +28,31 @@ public class ShadowHorrorBag extends PouchItem
         return tooltips;
     }
 
-    public boolean isValidPouchItem(InventoryItem item) {
-        return this.isValidRequestType(item.item.type);
+    public boolean isValidPouchItem(InventoryItem item)
+    {
+        if (item == null || item.item == null)
+        {
+            return false;
+        }
+        return isValidRequestType(item.item.type);
     }
 
-    public boolean isValidRequestItem(Item item) {
-        return this.isValidRequestType(item.type);
+    public boolean isValidRequestItem(Item item)
+    {
+        if (item == null)
+        {
+            return false;
+        }
+        return isValidRequestType(item.type);
     }
 
-    public boolean isValidRequestType(Item.Type type) {
+    public boolean isValidRequestType(Item.Type type)
+    {
         return type == Type.TOOL;
     }
 
-    public int getInternalInventorySize() {
+    public int getInternalInventorySize()
+    {
         return 20;
     }
 }

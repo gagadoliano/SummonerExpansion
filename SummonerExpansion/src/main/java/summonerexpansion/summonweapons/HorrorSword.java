@@ -64,7 +64,6 @@ public class HorrorSword extends SwordToolItem
             mob.dx = dir.x * 300.0F;
             mob.dy = dir.y * 300.0F;
             attackerMob.getLevel().entityManager.addMob(mob, attackerMob.x + dir.x, attackerMob.y + dir.y);
-
             attackerMob.buffManager.removeBuff("horrorswordstack", true);
         }
         return item;

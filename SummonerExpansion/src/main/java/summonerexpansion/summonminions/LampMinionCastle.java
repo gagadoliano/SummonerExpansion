@@ -65,7 +65,7 @@ public class LampMinionCastle extends FlyingAttackingFollowingMob
     public void init()
     {
         super.init();
-        ai = new BehaviourTreeAI<>(this, new PlayerFlyingFollowerCollisionChaserAI(400, (GameDamage)null, 15, 500, 800, 64), new FlyingAIMover());
+        ai = new BehaviourTreeAI<>(this, new PlayerFlyingFollowerCollisionChaserAI(400, null, 15, 500, 800, 64), new FlyingAIMover());
     }
 
     public void clientTick()

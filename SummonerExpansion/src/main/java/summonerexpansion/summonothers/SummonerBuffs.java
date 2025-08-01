@@ -58,8 +58,11 @@ public class SummonerBuffs
         BuffRegistry.registerBuff("lamptungstendebuff", new LampTungstenDebuff());
         BuffRegistry.registerBuff("lampdungeondebuff", new LampDungeonDebuff());
         BuffRegistry.registerBuff("lampcastledebuff", new LampCastleDebuff());
+        BuffRegistry.registerBuff("frozenbookdebuff", new FrozenBookDebuff());
+        BuffRegistry.registerBuff("icewizarddebuff", new IceWizardDebuff());
         BuffRegistry.registerBuff("enchanteddebuff", new EnchantedDebuff());
         BuffRegistry.registerBuff("redspiderdebuff", new RedSpiderDebuff());
+        BuffRegistry.registerBuff("polarsnowdebuff", new PolarSnowDebuff());
         BuffRegistry.registerBuff("lampgolddebuff", new LampGoldDebuff());
         BuffRegistry.registerBuff("mushroomdebuff", new MushroomDebuff());
         BuffRegistry.registerBuff("mosquitodebuff", new MosquitoDebuff());
@@ -80,7 +83,11 @@ public class SummonerBuffs
         BuffRegistry.registerBuff("emeraldfloorbuff", new EmeraldFloorBuff());
         BuffRegistry.registerBuff("rubyfloorbuff", new RubyFloorBuff());
 
-        // Others
+        // Others Debuffs
+        BuffRegistry.registerBuff("mummysummondebuff", new MummySummonDebuff());
+        BuffRegistry.registerBuff("mummymagicdebuff", new MummyMagicDebuff());
+
+        // Others Buffs
         BuffRegistry.registerBuff("summonedbeetminionbuff", new SummonedBeetMinionBuff());
         BuffRegistry.registerBuff("summonedjellyfishminionbuff", new SummonedJellyfishMinionBuff());
     }

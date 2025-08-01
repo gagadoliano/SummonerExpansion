@@ -27,7 +27,6 @@ import necesse.level.maps.Level;
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.LinkedList;
-import java.util.function.BiConsumer;
 
 public class ShadowHorrorSetBonus extends SetBonusBuff
 {

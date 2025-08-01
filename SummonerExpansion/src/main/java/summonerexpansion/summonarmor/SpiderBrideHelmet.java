@@ -16,7 +16,7 @@ public class SpiderBrideHelmet extends SetHelmetArmorItem
 
     public SpiderBrideHelmet()
     {
-        super(19, DamageTypeRegistry.SUMMON, 600, Rarity.UNCOMMON, "spiderbridehelmet", "spiderbridechest", "spiderbrideboots", "spiderbridehelmetsetbonus");
+        super(19, DamageTypeRegistry.SUMMON, 600, Rarity.LEGENDARY, "spiderbridehelmet", "spiderbridechest", "spiderbrideboots", "spiderbridehelmetsetbonus");
         hairDrawOptions = HairDrawMode.NO_HEAD;
         canBeUsedForRaids = false;
     }

@@ -18,6 +18,8 @@ public class SummonerMobs
         MobRegistry.registerMob("lampminiontungsten", LampMinionTungsten.class, false);
         MobRegistry.registerMob("lampminiondungeon", LampMinionDungeon.class, false);
         MobRegistry.registerMob("spiritghoulminion", SpiritGhoulMinion.class, false);
+        MobRegistry.registerMob("mummysummonminion", MummySummonMinion.class, false);
+        MobRegistry.registerMob("mummymagicminion", MummyMagicMinion.class, false);
         MobRegistry.registerMob("runerangedminion", RuneRangedMinion.class, false);
         MobRegistry.registerMob("lampminioncopper", LampMinionCopper.class, false);
         MobRegistry.registerMob("lampminioncastle", LampMinionCastle.class, false);

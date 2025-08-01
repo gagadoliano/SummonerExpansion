@@ -18,6 +18,9 @@ public class SummonerJournal
         JournalEntry snowSurfaceJournal = JournalRegistry.getJournalEntry("snowsurface");
         snowSurfaceJournal.addEntryChallenges(SummonerChallenges.SUMMON_SNOW_SURFACE_CHALLENGES_ID);
 
+        JournalEntry swampCave = JournalRegistry.getJournalEntry("swampcave");
+        swampCave.addEntryChallenges(SummonerChallenges.SUMMON_SWAMP_CAVE_CHALLENGES_ID);
+
         JournalEntry swampDeepCave = JournalRegistry.getJournalEntry("swampdeepcave");
         swampDeepCave.addEntryChallenges(SummonerChallenges.SUMMON_DEEP_SWAMP_CAVE_CHALLENGES_ID);
 

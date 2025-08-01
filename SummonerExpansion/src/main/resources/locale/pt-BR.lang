@@ -94,6 +94,7 @@ spiderbridechest=Peitoral da Noiva Aranha
 spiderbrideboots=Botas da Noiva Aranha
 
 // Trinkets
+balancedsummonerboard=Tabuleiro de Invocador Balanceado
 challengerarmorpiece=Peça de armadura do desafiante
 essenceofcompanionship=Essência do Companheirismo
 frozenassassinscowl=Capuz de Assassino Congelado
@@ -101,9 +102,11 @@ shadowhorrorcape=Capa do Horror das Sombras
 frenzyhorrorcape=Capa de Horror Frenético
 necromancerarmor=Armadura de Necromante
 demonicpolarclaw=Garra Polar Demoníaca
+doomshroomshield=Escudo de Ruínagumelo
 frenzystonering=Anel de Frenzystone
 summonergambit=Gambito do Invocador
 hystericalmirror=Espelho Histérico
+jellyfishbowl=Tigela de água-viva
 spelltablet=Tablete de Feitiços
 inducingsatchel=Bolsa Indutora
 cactusemblem=Emblema de Cacto
@@ -113,16 +116,19 @@ giantbeet=Beterraba Gigante
 mesmersatchel=Bolsa Mesmer
 bonepile=Pilha de Ossos
 littleangel=Anjinho
-jellyfishbowl=Tigela de água-viva
+transplantedheart=Coração Transplantado
+scryingmagicianscard=Cartão do Mágico Vidente
+minerslantern=Lanterna do Mineiro
+calmminerslantern=Lanterna Calma do Mineiro
 
 // Potions
-minionattackspeedpotion=Poção de invocador de Velocidade de Ataque
-minioncritchancepotion=Poção de invocador de Chance Crítica
-minioncloserangepotion=Poção de invocador de Curto Alcance
-minioncritpotion=Poção de invocador de Dano Crítico
-minionspeedpotion=Poção de invocador de Velocidade
-minionfarmpotion=Poção de invocador de Agricultura
-minionrangepotion=Poção de invocador de Alcance
+minionattackspeedpotion=Poção de invocador de velocidade de ataque
+minioncritchancepotion=Poção de invocador de chance crítica
+minioncloserangepotion=Poção de invocador de curto alcance
+minioncritpotion=Poção de invocador de dano crítico
+minionspeedpotion=Poção de invocador de velocidade
+minionfarmpotion=Poção de invocador de agricultura
+minionrangepotion=Poção de invocador de alcance
 
 // Potions buffs
 minionattackspeedbuff=Buff de invocador de Velocidade de Ataque
@@ -223,34 +229,40 @@ iceblossomsentrytip=Jogadores próximos recebem armadura
 // Armor set bonus
 spiderbridesettip=Concede imunidade a lentidão \nAtaques de invocação envenenam o alvo por 25 de dano ao longo de 5 segundos \nPressione [input=setability] para invocar uma noiva aranha que atira veneno e teias
 bloodplateset=Após sofrer dano, sua regeneração de saúde é dobrada por 4 segundos \nOs lacaios vampiros dispararão projéteis que viajam mais rápido e causam +50% de dano
-redspidersettip=Concede imunidade a lentidão e cegueira \nAtaques de invocação desaceleram inimigos
 frostcrownsettip=Ataques de invocação desaceleram e causam dano ao alvo em 15 de dano ao longo de 5 segundos
+redspidersettip=Concede imunidade a lentidão e cegueira \nAtaques de invocação desaceleram inimigos
 shadowhelmetsettip=Ataques de invocação assombram o alvo por 25 de dano ao longo de 5 segundos
-horrorsettip=Chance de invocar espíritos de horror ao atacar inimigos
+horrorsettip=Chance de invocar espíritos de horror durante combate
 copperminersettip=Aumenta a claridade da luz de lâmpadas mágicas
-plaguesettip=Chance de invocar ratos ao atacar inimigos
+plaguesettip=Periodicamente invoca ratos durante combate
 
 // Trinkets
+transplantedhearttip=Aumenta a regeneração de vida durante combate em 0,75 \nAumenta a resiliência máxima em 10% \nTransforma metade de sua vida em resiliência \nRegenera resiliência quando estiver com a vida cheia \nRestaura 25% de vida ao receber dano fatal \nTempo de recarga: 5 minutos
 frenzyhorrorcapetip=+1 invocação máxima \nAumenta a velocidade de movimento em 20% \nGanha 4 de regeneração de saúde por segundo enquanto estiver abaixo de 50% de saúde \nGanha até +50% de dano de invocação com base na saúde perdida \nInvoca até 3 morcegos do horror ao receber dano
 essenceofcompanionshiptip=Aumenta o ganho de essência em 100% \nAumenta a duração da essência em 100% \nAumenta o dano e velocidade de movimento de invocação para cada invocação máxima não utilizada\nOs aumentos diminuem ligeiramente além da primeira invocação não utilizada
+balancedsummonerboardtip=Aumenta o dano de invocação em 15% \nRecebe 5% de dano de invocação por cada tipo diferente de lacaio que possuir \nAtaques de invocação causam lentidão, 7 de dano por segundo durante 5 segundos e aplicam 1 ponto de Assombração Dríade
+doomshroomshieldtip=Aumenta o dano de invocação em 10% \nAumenta o alcance de agressividade dos inimigos em 50% \nEquipe e pressione [input=trinketability] para explodir \nA explosão empurra os inimigos e os incendeia \nTempo de recarga de 10 segundos
 littleangeltip=Aperte [input=trinketability] para teletransportar \nMelhora suas estatísticas de invocador e investida \nSer atingido reseta suas cargas de investida instantaneamente \nGanhe 5 de resiliência sempre que usar uma investida
 necromancerarmortip=Melhora suas estatísticas de invocador \nGanhe dano e regeneração de vida quande estiver com pouca saúde \nAtaques de invocação desaceleram inimigos \nInvoca até 3 morcegos do horror ao receber dano
-summonergambittip=+1 Lacaio máximo \n+10 armadura \n+50% dano de invocação \n-50% dano de outros tipos de dano \n+10% chance de crítico de invocação \nSó pode ser equipado no slot de habilidade.
-mesmersatcheltip=+1 invocações máximas \nAumenta o limite de energia em 100% \nAumenta a velocidade de invocação em 50% \nAumenta a velocidade de movimento em 25% \nIlumina a área ao seu redor
+summonergambittip=+1 invocação máxima \n+10 armadura \n+50% dano de invocação \n-50% dano de outros tipos de dano \n+10% chance de crítico de invocação \nSó pode ser equipado no slot de habilidade.
+mesmersatcheltip=+1 invocação máxima \nAumenta o limite de energia em 100% \nAumenta a velocidade de invocação em 50% \nAumenta a velocidade de movimento em 25% \nIlumina a área ao seu redor
 challengeraptip=Aumenta a resiliência máxima em 65 \nDesacelera a degradação da resiliência em 75% \nAumenta o ganho de resiliência em 50% e aumenta para 100% durante batalhas contra chefes
 necroticclawtip=Ataques de invocação desacelera inimigos \nAumenta a resistência a knockback \nAumenta a penetração de armadura em 25 \nAumenta o dano crítico de invocação em 25%
 frenzystoneringtip=Ganhe até +50% de dano de invocação com base na saúde perdida \nGanhe 4 de regeneração de saúde por segundo enquanto estiver abaixo de 50% de saúde
 frozenassassinscowltip=Aumenta a chance de invocação de acerto crítico em 15% \nAumenta o dano crítico de invocação em 30% \nAumenta o alcance de invocação em 20%
 beetminiontip=Invoca uma beterrabinha que joga beterrabas nos inimigos \nCaso a beterraba jogada não acerte nada, há 10% de chance de cair no chão
 inducingsatcheltip=Aumenta a velocidade de invocação em 50% \nAumenta a velocidade de movimento em 20% \nIlumina a área ao seu redor
-spelltablettip=Aumenta o mana máximo em 60% \nAumenta a velocidade de invocação e ataque mágico em 30% \n+2 Lacaio máximo
+spelltablettip=Aumenta o mana máximo em 60% \nAumenta a velocidade de invocação e ataque mágico em 30% \n+2 invocação máxima
 shadowhorrorcapetip=Aumenta a velocidade em 20% \n+1 invocação máxima \nInvoca até 3 morcegos do horror ao ser atingido
 cactusemblemtip=Causa dano aos atacantes de volta \nSeu dano se multiplica com o espaço máximo de invocação
 demonicpolarclawtip=Ataques de invocação desaceleram inimigos \nAumenta a resistência a knockback
 bonepiletip=Aumenta a penetração de armadura em 25 \nAumenta o dano crítico de invocação em 25%
-hystericalmirrortip=+3 Lacaio máximo \nAumenta a velocidade de invocação em 45%
-mesmercharmtip=+1 Lacaio máximo \nAumenta o limite de energia em 80%
+hystericalmirrortip=+3 invocação máxima \nAumenta a velocidade de invocação em 45%
+mesmercharmtip=+1 invocação máxima \nAumenta o limite de energia em 80%
 jellyfishminiontip=Invoca uma água-viva que ataca os inimigos
+scryingmagicianscardtip=+5 invocação máxima \nAumenta as estatísticas de mana \nAumenta a velocidade de invocação e a velocidade de ataque em 45% \nO dano mágico aumenta em 50% do dano de invocação \nInvoca múmias ao atacar inimigos com armas mágicas ou invocações
+calmminerslanterntip=Invoca um Fogo-Fátuo \nAumenta as estatísticas de mineração e construção \nAo minerar rochas, causa dano às rochas adjacentes \nBalance para desativar efeito calmante
+minerslanterntip=Invoca um Fogo-Fátuo \nAumenta as estatísticas de mineração e construção \nAo minerar rochas, causa dano às rochas adjacentes \nDano de mineração aumenta o dano de invocação \nBalance para ativar efeito calmante
 
 // Potions buff info
 minionfarmtip=Diminui a velocidade de movimento em 80%, aumenta o alcance de coleta,taxa de geração de mobs, velocidade de invocação e o alcance dos lacios em 40%
@@ -447,6 +459,10 @@ cookieeated=[item=cookies] Coma um cookie
 fishiankilled=[mob=fishianhookwarrior] Mate 40 fishians no pântano
 bamboocollected=[item=bamboo] Colete 100 bambus
 shelldestroyed=[item=seashell] Colete 30 conchas
+sporekilled=Destrua 10 esporos de pântano
+mushroomcollected=[item=mushroom] Colete 50 cogumelos
+mudcollected=[item=mudtile] Colete 100 chãos de lama
+stinkflaskcollected=[item=stinkflask] Colete um frasco fedorento
 
 [enchantment]
 uncontrollable=[Incontrolável]

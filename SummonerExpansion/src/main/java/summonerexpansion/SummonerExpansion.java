@@ -1,6 +1,9 @@
 package summonerexpansion;
 
 import necesse.level.maps.biomes.Biome;
+import necesse.level.maps.biomes.dungeon.DungeonBiome;
+import necesse.level.maps.biomes.pirate.PirateVillageBiome;
+import necesse.level.maps.biomes.swamp.SwampBiome;
 import summonerexpansion.summonobjects.*;
 import summonerexpansion.summonothers.*;
 import necesse.engine.modLoader.annotations.ModEntry;
@@ -29,6 +32,7 @@ public class SummonerExpansion
         // Events
         LevelEventRegistry.registerEvent("snowmanexplosionlevelevent", SnowmanExplosionLevelEvent.class);
         LevelEventRegistry.registerEvent("mosquitobowevent", MosquitoBowEvent.class);
+        LevelEventRegistry.registerEvent("doomshroomevent", DoomShroomEvent.class);
 
         // Duo Objects
         SummoningTableDuo.registerSummoningTable();
@@ -49,5 +53,8 @@ public class SummonerExpansion
 
         Biome.defaultDeepCaveMobs
                 .add(10, "horrorspiritmob");
+
+        SwampBiome.surfaceMobs
+                .add(1, "woodmob");
     }
 }

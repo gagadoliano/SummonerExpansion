@@ -67,11 +67,16 @@ public class IceMinionJavelinProj extends Projectile
         }
     }
 
-    public void doHitLogic(Mob mob, LevelObjectHit object, float x, float y) {
+    public void doHitLogic(Mob mob, LevelObjectHit object, float x, float y)
+    {
         super.doHitLogic(mob, object, x, y);
-        if (this.isServer() && mob != null) {
+        if (this.isServer() && mob != null)
+        {
             Mob owner = this.getOwner();
-            if (owner.isPlayer && ((PlayerMob)owner).isServerClient()) {
+            ActiveBuff ab = new ActiveBuff(BuffRegistry.getBuff("frozenbookdebuff"), mob, 30.0F, this.getOwner());
+            mob.addBuff(ab, true);
+            if (owner.isPlayer && ((PlayerMob)owner).isServerClient())
+            {
                 ServerClient serverClient = ((PlayerMob)owner).getServerClient();
                 JournalChallenge challenge = JournalChallengeRegistry.getChallenge(JournalChallengeRegistry.IMPALE_FIVE_ICE_JAVELINS_ID);
                 ((ImpaleIceJavelinsJournalChallenge)challenge).submitIceJavelinImpale(serverClient, mob);
@@ -118,8 +123,6 @@ public class IceMinionJavelinProj extends Projectile
             {
                 if (mob != null)
                 {
-                    ActiveBuff ab = new ActiveBuff(BuffRegistry.Debuffs.FROSTSLOW, mob, 30.0F, this.getOwner());
-                    mob.addBuff(ab, true);
                     if (this.modifier != null)
                     {
                         this.modifier.doHitLogic(mob, object, x, y);
