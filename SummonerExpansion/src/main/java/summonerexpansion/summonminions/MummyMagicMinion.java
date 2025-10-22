@@ -124,7 +124,7 @@ public class MummyMagicMinion extends AttackingFollowingMob
                 drawOptions.draw();
             }
         });
-        this.addShadowDrawables(tileList, x, y, light, camera);
+        this.addShadowDrawables(tileList, level, x, y, light, camera);
     }
 
     public int getRockSpeed() {

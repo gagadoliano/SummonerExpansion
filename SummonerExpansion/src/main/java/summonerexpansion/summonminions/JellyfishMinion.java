@@ -98,7 +98,7 @@ public class JellyfishMinion extends FlyingAttackingFollowingMob
         }
     }
 
-    protected void playDeathSound() {
+    public void playDeathSound() {
         SoundManager.playSound(GameResources.waterblob, SoundEffect.effect(this));
     }
 

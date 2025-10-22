@@ -8,15 +8,16 @@ import necesse.gfx.gameTooltips.GameTooltips;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 
 public class BearHead extends SummonToolItem
 {
     public BearHead()
     {
-        super("bearminion", FollowPosition.WALK_CLOSE, 2F, 200);
+        super("bearminion", FollowPosition.WALK_CLOSE, 2F, 200, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.COMMON;
         attackDamage.setBaseValue(30.0F).setUpgradedValue(1, 50.0F);
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
     }
 
     public GameTooltips getSpaceTakenTooltip(InventoryItem item, PlayerMob perspective) {

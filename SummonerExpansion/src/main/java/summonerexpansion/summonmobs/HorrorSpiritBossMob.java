@@ -97,7 +97,7 @@ public class HorrorSpiritBossMob extends FlyingHostileMob
     @Override
     public LootTable getLootTable() {return lootTable;}
 
-    protected void playDeathSound() {SoundManager.playSound(GameResources.fadedeath3, SoundEffect.effect(this));}
+    public void playDeathSound() {SoundManager.playSound(GameResources.fadedeath3, SoundEffect.effect(this));}
 
     protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
     {

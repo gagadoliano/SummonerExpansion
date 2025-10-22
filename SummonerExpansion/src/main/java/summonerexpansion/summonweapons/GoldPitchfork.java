@@ -8,15 +8,16 @@ import necesse.gfx.gameTooltips.GameTooltips;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 
 public class GoldPitchfork extends SummonToolItem
 {
     public GoldPitchfork()
     {
-        super("farmerminion", FollowPosition.WALK_CLOSE, 2F, 800);
+        super("farmerminion", FollowPosition.WALK_CLOSE, 2F, 800, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.RARE;
         attackDamage.setBaseValue(30.0F).setUpgradedValue(1, 120.0F);
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
     }
 
     public GameTooltips getSpaceTakenTooltip(InventoryItem item, PlayerMob perspective) {

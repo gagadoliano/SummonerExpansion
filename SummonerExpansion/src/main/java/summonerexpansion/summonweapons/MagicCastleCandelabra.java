@@ -7,15 +7,16 @@ import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 
 public class MagicCastleCandelabra extends SummonToolItem
 {
     public MagicCastleCandelabra()
     {
-        super("lampminioncastle", FollowPosition.FLYING, 1, 200);
+        super("lampminioncastle", FollowPosition.FLYING, 1, 200, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.COMMON;
         attackDamage.setBaseValue(50.0F).setUpgradedValue(1, 75.0F);
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
     }
 
     @Override

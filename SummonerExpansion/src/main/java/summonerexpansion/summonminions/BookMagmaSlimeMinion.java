@@ -141,7 +141,7 @@ public class BookMagmaSlimeMinion extends AttackingFollowingJumpingMob
         }
     }
 
-    protected void playDeathSound()
+    public void playDeathSound()
     {
         float pitch = (Float)GameRandom.globalRandom.getOneOf(new Float[]{0.95F, 1.0F, 1.05F});
         SoundManager.playSound(GameResources.npcdeath, SoundEffect.effect(this).volume(0.1F).pitch(pitch));

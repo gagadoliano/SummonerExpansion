@@ -215,7 +215,7 @@ public class RuneRangedMinion extends AttackingFollowingMob
                 drawOptions.draw();
             }
         });
-        this.addShadowDrawables(tileList, x, y, light, camera);
+        this.addShadowDrawables(tileList, level, x, y, light, camera);
     }
 
     public float getAttackingMovementModifier() {

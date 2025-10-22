@@ -7,6 +7,7 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.ChestArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.BodyArmorLootTable;
 
 public class RedSpiderChestplate extends ChestArmorItem
 {
@@ -14,7 +15,7 @@ public class RedSpiderChestplate extends ChestArmorItem
 
     public RedSpiderChestplate()
     {
-        super(6, 50, Rarity.UNCOMMON, "redspiderchestplate", "redspiderarms");
+        super(6, 50, Rarity.UNCOMMON, "redspiderchestplate", "redspiderarms", BodyArmorLootTable.bodyArmor);
     }
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)

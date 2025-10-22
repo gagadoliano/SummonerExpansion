@@ -19,6 +19,7 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.ItemControllerInteract;
 import necesse.inventory.item.ItemInteractAction;
 import necesse.inventory.item.toolItem.swordToolItem.SwordToolItem;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
 import summonerexpansion.summonminions.GoblinChestMinion;
 import summonerexpansion.summonminions.GoblinHeadMinion;
@@ -32,15 +33,15 @@ public class GoblinSword extends SwordToolItem implements ItemInteractAction
 {
     public GoblinSword()
     {
-        super(400);
+        super(400, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.UNCOMMON;
         damageType = DamageTypeRegistry.SUMMON;
-        attackDamage.setBaseValue(20.0F).setUpgradedValue(1, 50.0F);
+        attackDamage.setBaseValue(20.0F).setUpgradedValue(1, 100.0F);
         attackAnimTime.setBaseValue(300);
-        resilienceGain.setBaseValue(0F).setUpgradedValue(1, 0.1F);
+        resilienceGain.setBaseValue(0F).setUpgradedValue(1, 0.1F).setUpgradedValue(10, 0.2F);
         attackRange.setBaseValue(60);
         knockback.setBaseValue(75);
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
     }
 
     public void hitMob(InventoryItem item, ToolItemMobAbilityEvent event, Level level, Mob target, Mob attacker)

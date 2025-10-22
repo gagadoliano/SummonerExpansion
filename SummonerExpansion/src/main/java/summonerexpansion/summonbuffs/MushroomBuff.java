@@ -1,21 +1,24 @@
 package summonerexpansion.summonbuffs;
 
-import necesse.engine.registries.MobRegistry;
-import necesse.entity.mobs.MobWasHitEvent;
+import necesse.engine.util.GameRandom;
+import necesse.entity.mobs.Mob;
+import necesse.entity.mobs.MobWasKilledEvent;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
+import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.Buff;
-import necesse.entity.mobs.itemAttacker.FollowPosition;
-import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
-import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
-import necesse.level.maps.Level;
+import necesse.entity.particle.Particle;
+import necesse.entity.particle.ParticleOption;
+import necesse.gfx.GameResources;
+import necesse.gfx.ThemeColorRegistry;
+import necesse.gfx.drawOptions.texture.SharedTextureDrawOptions;
 
-import java.util.function.BiConsumer;
+import java.awt.*;
 
 public class MushroomBuff extends Buff
 {
-    public boolean killedMob = false;
-    public int killedcooldown = 0;
+    public int mushValue = 0;
+    public int mushTimer = 0;
 
     public MushroomBuff()
     {
@@ -25,33 +28,34 @@ public class MushroomBuff extends Buff
     }
 
     @Override
-    public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber) {}
+    public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber) {
+    }
 
-    public void serverTick(ActiveBuff buff)
+    @Override
+    public void onHasKilledTarget(ActiveBuff buff, MobWasKilledEvent event)
     {
-        if (killedMob)
+        if (mushValue <= 46)
         {
-            killedcooldown++;
-            if (killedcooldown >= 120)
-            {
-                killedMob = false;
-                killedcooldown = 0;
-            }
+            mushValue += 5;
         }
     }
 
     @Override
-    public void onHasAttacked(ActiveBuff buff, MobWasHitEvent event)
+    public void clientTick(ActiveBuff buff)
     {
-        super.onHasAttacked(buff, event);
-        if ((event.target.removed() || event.target.getHealth() <= 0) && !killedMob && event.target.isHostile && buff.owner.isInCombat())
+        mushTimer++;
+        buff.setModifier(BuffModifiers.MAX_HEALTH_FLAT, mushValue);
+        if (mushTimer >= 120 && mushValue > 1)
         {
-            ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
-            Level level = buff.owner.getLevel();
-            AttackingFollowingMob mob = (AttackingFollowingMob)MobRegistry.getMob("mushroomminion", level);
-            attackerMob.serverFollowersManager.addFollower("mushroombuff", mob, FollowPosition.WALK_CLOSE, "mushroombuff", 1.0F, (p) -> 10, null, false);
-            mob.getLevel().entityManager.addMob(mob, buff.owner.x, buff.owner.y);
-            killedMob = true;
+            mushValue -= 1;
+            mushTimer = 0;
+        }
+
+        if (buff.owner.isVisible() && GameRandom.globalRandom.getChance((double)0.5F))
+        {
+            Mob owner = buff.owner;
+            GameRandom clientRandom = GameRandom.globalRandom;
+            owner.getLevel().entityManager.addParticle(owner.x + (float)clientRandom.getIntBetween(-10, 10), owner.y + (float)clientRandom.getIntBetween(-10, 10), Particle.GType.IMPORTANT_COSMETIC).sprite(GameResources.puffParticles.sprite(clientRandom.nextInt(4), 0, 12)).sizeFades(12, 24).height(1.0F).color(new Color(174, 161, 137));
         }
     }
 

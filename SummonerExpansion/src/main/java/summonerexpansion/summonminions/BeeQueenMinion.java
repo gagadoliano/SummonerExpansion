@@ -62,7 +62,7 @@ public class BeeQueenMinion extends FlyingAttackingFollowingMob
             FlyingAttackingFollowingMob mob = (FlyingAttackingFollowingMob)MobRegistry.getMob("beeminion", getFollowingItemAttacker().getLevel());
             getFollowingItemAttacker().serverFollowersManager.addFollower("beeminion", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, (p) -> 10, null, false);
             mob.updateDamage(damage);
-            this.getLevel().entityManager.addMob(mob, x, y);
+            getLevel().entityManager.addMob(mob, x, y);
 
             BeeHits = 0;
         }

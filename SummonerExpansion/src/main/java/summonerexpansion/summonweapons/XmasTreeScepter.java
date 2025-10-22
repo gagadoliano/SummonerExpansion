@@ -12,13 +12,14 @@ import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.Attac
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
 
 public class XmasTreeScepter extends SummonToolItem
 {
     public XmasTreeScepter()
     {
-        super("xmastreesentry", FollowPosition.WALK_CLOSE, 1F, 100);
+        super("xmastreesentry", FollowPosition.WALK_CLOSE, 1F, 100, SummonWeaponsLootTable.summonWeapons);
         summonType = "summonedxmastree";
         rarity = Rarity.COMMON;
         drawMaxSummons = false;

@@ -234,7 +234,7 @@ public class FarmerMinion extends AttackingFollowingMob
                 drawOptions.draw();
             }
         });
-        addShadowDrawables(tileList, x, y, light, camera);
+        addShadowDrawables(tileList, level, x, y, light, camera);
     }
 
     public void setFacingDir(float deltaX, float deltaY)

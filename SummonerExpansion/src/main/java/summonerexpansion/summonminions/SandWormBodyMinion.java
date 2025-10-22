@@ -108,7 +108,7 @@ public class SandWormBodyMinion extends FollowingWormMobBody<SandWormHeadMinion,
                 MobDrawable drawOptions = WormMobHead.getAngledDrawable(new GameSprite(texture, 0, this.spriteY, 64), null, light, (int)this.height, angle, drawX, drawY, 96);
                 topList.add(drawOptions);
             }
-            this.addShadowDrawables(tileList, x, y, light, camera);
+            this.addShadowDrawables(tileList, level, x, y, light, camera);
         }
     }
 

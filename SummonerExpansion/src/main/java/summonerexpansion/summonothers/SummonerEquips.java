@@ -1,6 +1,5 @@
 package summonerexpansion.summonothers;
 
-import necesse.engine.localization.message.GameMessage;
 import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.registries.BuffRegistry;
@@ -12,6 +11,7 @@ import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.SimpleTrink
 import necesse.entity.mobs.summon.summonFollowingMob.mountFollowingMob.MinecartMountMob;
 import necesse.inventory.item.Item;
 import necesse.inventory.item.trinketItem.SimpleTrinketItem;
+import necesse.inventory.lootTable.presets.TrinketsLootTable;
 import summonerexpansion.summonarmor.*;
 import summonerexpansion.summonmounts.*;
 import summonerexpansion.summonsetbonus.*;
@@ -60,51 +60,51 @@ public class SummonerEquips
 
         // --Trinkets--
         // T1
-        ItemRegistry.registerItem("mesmercharm", new SimpleTrinketItem(Item.Rarity.RARE, "mesmercharmbuff", 100).addDisables("mesmertablet", "zephyrcharm"), 50, true);
+        ItemRegistry.registerItem("mesmercharm", new SimpleTrinketItem(Item.Rarity.RARE, "mesmercharmbuff", 100, TrinketsLootTable.trinkets).addDisables("mesmertablet", "zephyrcharm"), 50, true);
         BuffRegistry.registerBuff("mesmercharmbuff", new SimpleTrinketBuff("mesmercharmtip", new ModifierValue(BuffModifiers.MAX_SUMMONS, 1), new ModifierValue(BuffModifiers.STAMINA_CAPACITY, 0.80f)));
-        ItemRegistry.registerItem("cactusemblem", new SimpleTrinketItem(Item.Rarity.RARE, "cactusemblembuff", 100), 50, true);
+        ItemRegistry.registerItem("cactusemblem", new SimpleTrinketItem(Item.Rarity.RARE, "cactusemblembuff", 100, TrinketsLootTable.trinkets), 50, true);
         BuffRegistry.registerBuff("cactusemblembuff", new CactusEmblemBuff());
         // T2
-        ItemRegistry.registerItem("frozenassassinscowl", new SimpleTrinketItem(Item.Rarity.RARE, "frozenassassinscowlbuff", 200).addDisables("assassinscowl", "frozenwave"), 100, true);
+        ItemRegistry.registerItem("frozenassassinscowl", new SimpleTrinketItem(Item.Rarity.RARE, "frozenassassinscowlbuff", 200, TrinketsLootTable.trinkets).addDisables("assassinscowl", "frozenwave"), 100, true);
         BuffRegistry.registerBuff("frozenassassinscowlbuff", new SimpleTrinketBuff("frozenassassinscowltip", new ModifierValue(BuffModifiers.SUMMON_CRIT_CHANCE, 0.15F), new ModifierValue(BuffModifiers.SUMMON_CRIT_DAMAGE, 0.20F), new ModifierValue(BuffModifiers.SUMMONS_TARGET_RANGE, 0.20F)));
-        ItemRegistry.registerItem("essenceofcompanionship", new SimpleTrinketItem(Item.Rarity.RARE, "essenceofcompanionshipbuff", 200).addDisables("companionlocket", "essenceofperspective", "essenceofprolonging"), 100, true);
+        ItemRegistry.registerItem("essenceofcompanionship", new SimpleTrinketItem(Item.Rarity.RARE, "essenceofcompanionshipbuff", 200, TrinketsLootTable.trinkets).addDisables("companionlocket", "essenceofperspective", "essenceofprolonging"), 100, true);
         BuffRegistry.registerBuff("essenceofcompanionshipbuff", new EssenceOfCompanionshipBuff());
-        ItemRegistry.registerItem("demonicpolarclaw", new SimpleTrinketItem(Item.Rarity.RARE, "demonicpolarclawbuff", 200).addDisables("polarclaw", "demonclaw"), 100, true);
+        ItemRegistry.registerItem("demonicpolarclaw", new SimpleTrinketItem(Item.Rarity.RARE, "demonicpolarclawbuff", 200, TrinketsLootTable.trinkets).addDisables("polarclaw", "demonclaw"), 100, true);
         BuffRegistry.registerBuff("demonicpolarclawbuff", new DemonicPolarClawBuff());
         // T3
-        ItemRegistry.registerItem("spelltablet", new SimpleTrinketItem(Item.Rarity.RARE, "spelltabletbuff", 400).addDisables("spellstone", "hysteriatablet", "inducingamulet", "mesmertablet"), 200, true);
+        ItemRegistry.registerItem("spelltablet", new SimpleTrinketItem(Item.Rarity.RARE, "spelltabletbuff", 400, TrinketsLootTable.trinkets).addDisables("spellstone", "hysteriatablet", "inducingamulet", "mesmertablet"), 200, true);
         BuffRegistry.registerBuff("spelltabletbuff", new SimpleTrinketBuff("spelltablettip", new ModifierValue(BuffModifiers.MAX_MANA, 0.60F), new ModifierValue(BuffModifiers.MAX_SUMMONS, 2), new ModifierValue(BuffModifiers.SUMMON_ATTACK_SPEED, 0.30F), new ModifierValue(BuffModifiers.MAGIC_ATTACK_SPEED, 0.30F)));
-        ItemRegistry.registerItem("inducingsatchel", new SimpleTrinketItem(Item.Rarity.RARE, "inducingsatchelbuff", 400).addDisables("explorersatchel", "inducingamulet"), 200, true);
+        ItemRegistry.registerItem("inducingsatchel", new SimpleTrinketItem(Item.Rarity.RARE, "inducingsatchelbuff", 400, TrinketsLootTable.trinkets).addDisables("explorersatchel", "inducingamulet"), 200, true);
         BuffRegistry.registerBuff("inducingsatchelbuff", new SimpleTrinketBuff("inducingsatcheltip", new ModifierValue(BuffModifiers.SUMMONS_SPEED, 0.40F), new ModifierValue(BuffModifiers.SPEED, 0.20F), new ModifierValue(BuffModifiers.EMITS_LIGHT, true)));
-        ItemRegistry.registerItem("hystericalmirror", new SimpleTrinketItem(Item.Rarity.RARE, "hystericalmirrorbuff", 400).addDisables("scryingmirror", "hysteriatablet", "inducingamulet", "mesmertablet"), 200, true);
+        ItemRegistry.registerItem("hystericalmirror", new SimpleTrinketItem(Item.Rarity.RARE, "hystericalmirrorbuff", 400, TrinketsLootTable.trinkets).addDisables("scryingmirror", "hysteriatablet", "inducingamulet", "mesmertablet"), 200, true);
         BuffRegistry.registerBuff("hystericalmirrorbuff", new SimpleTrinketBuff("hystericalmirrortip", new ModifierValue(BuffModifiers.MAX_SUMMONS, 3), new ModifierValue(BuffModifiers.SUMMONS_SPEED, 0.45F)));
-        ItemRegistry.registerItem("challengerarmorpiece", new SimpleTrinketItem(Item.Rarity.RARE, "challengerarmorpiecebuff", 400).addDisables("manica", "claygauntlet", "challengerspauldron"), 200, true);
+        ItemRegistry.registerItem("challengerarmorpiece", new SimpleTrinketItem(Item.Rarity.RARE, "challengerarmorpiecebuff", 400, TrinketsLootTable.trinkets).addDisables("manica", "claygauntlet", "challengerspauldron"), 200, true);
         BuffRegistry.registerBuff("challengerarmorpiecebuff", new ChallengerArmorPieceBuff());
-        ItemRegistry.registerItem("bonepile", new SimpleTrinketItem(Item.Rarity.RARE, "bonepilebuff", 400).addDisables("bonehilt"), 200, true);
+        ItemRegistry.registerItem("bonepile", new SimpleTrinketItem(Item.Rarity.RARE, "bonepilebuff", 400, TrinketsLootTable.trinkets).addDisables("bonehilt"), 200, true);
         BuffRegistry.registerBuff("bonepilebuff", new SimpleTrinketBuff("bonepiletip", new ModifierValue(BuffModifiers.ARMOR_PEN_FLAT, 25), new ModifierValue(BuffModifiers.SUMMON_CRIT_DAMAGE, 0.25F)));
-        ItemRegistry.registerItem("shadowhorrorcape", new SimpleTrinketItem(Item.Rarity.RARE, "shadowhorrorcapebuff", 400).addDisables("vampiresgift"), 200, true);
+        ItemRegistry.registerItem("shadowhorrorcape", new SimpleTrinketItem(Item.Rarity.RARE, "shadowhorrorcapebuff", 400, TrinketsLootTable.trinkets).addDisables("vampiresgift"), 200, true);
         BuffRegistry.registerBuff("shadowhorrorcapebuff", new ShadowHorrorCapeBuff());
-        ItemRegistry.registerItem("doomshroomshield", new SimpleTrinketItem(Item.Rarity.RARE, "doomshroomshieldbuff", 400), 200, true);
+        ItemRegistry.registerItem("doomshroomshield", new SimpleTrinketItem(Item.Rarity.RARE, "doomshroomshieldbuff", 400, TrinketsLootTable.trinkets), 200, true);
         BuffRegistry.registerBuff("doomshroomshieldcooldown", new ShownCooldownBuff());
         BuffRegistry.registerBuff("doomshroomshieldbuff", new DoomShroomShieldBuff());
         ItemRegistry.registerItem("summonergambit", new SummonerGambit(), 200, true);
         BuffRegistry.registerBuff("summonergambitbuff", new SummonerGambitBuff());
         // T4
-        ItemRegistry.registerItem("mesmersatchel", new SimpleTrinketItem(Item.Rarity.RARE, "mesmersatchelbuff", 800).addDisables("mesmertablet", "zephyrcharm", "explorersatchel", "inducingamulet", "inducingsatchel", "mesmercharm"), 500, true);
+        ItemRegistry.registerItem("mesmersatchel", new SimpleTrinketItem(Item.Rarity.RARE, "mesmersatchelbuff", 800, TrinketsLootTable.trinkets).addDisables("mesmertablet", "zephyrcharm", "explorersatchel", "inducingamulet", "inducingsatchel", "mesmercharm"), 500, true);
         BuffRegistry.registerBuff("mesmersatchelbuff", new SimpleTrinketBuff("mesmersatcheltip", new ModifierValue(BuffModifiers.MAX_SUMMONS, 1), new ModifierValue(BuffModifiers.STAMINA_CAPACITY, 1.00f), new ModifierValue(BuffModifiers.SUMMONS_SPEED, 0.50F), new ModifierValue(BuffModifiers.SPEED, 0.25F), new ModifierValue(BuffModifiers.EMITS_LIGHT, true)));
-        ItemRegistry.registerItem("necromancerarmor", new SimpleTrinketItem(Item.Rarity.RARE, "necromancerarmorbuff", 800).addDisables("bloodstonering", "frenzyorb", "frenzystonering", "shadowhorrorcape", "frenzyhorrorcape", "bonehilt", "bonepile", "demonicpolarclaw", "polarclaw", "demonclaw", "necroticclaw"), 500, true);
+        ItemRegistry.registerItem("necromancerarmor", new SimpleTrinketItem(Item.Rarity.RARE, "necromancerarmorbuff", 800, TrinketsLootTable.trinkets).addDisables("bloodstonering", "frenzyorb", "frenzystonering", "shadowhorrorcape", "frenzyhorrorcape", "bonehilt", "bonepile", "demonicpolarclaw", "polarclaw", "demonclaw", "necroticclaw"), 500, true);
         BuffRegistry.registerBuff("necromancerarmorbuff", new NecromancerArmorBuff());
-        ItemRegistry.registerItem("frenzyhorrorcape", new SimpleTrinketItem(Item.Rarity.RARE, "frenzyhorrorcapebuff", 800).addDisables("bloodstonering", "frenzyorb", "frenzystonering", "shadowhorrorcape"), 500, true);
+        ItemRegistry.registerItem("frenzyhorrorcape", new SimpleTrinketItem(Item.Rarity.RARE, "frenzyhorrorcapebuff", 800, TrinketsLootTable.trinkets).addDisables("bloodstonering", "frenzyorb", "frenzystonering", "shadowhorrorcape"), 500, true);
         BuffRegistry.registerBuff("frenzyhorrorcapebuff", new FrenzyHorrorCapeBuff());
-        ItemRegistry.registerItem("necroticclaw", new SimpleTrinketItem(Item.Rarity.RARE, "necroticclawbuff", 800).addDisables("bonehilt", "bonepile", "demonicpolarclaw", "polarclaw", "demonclaw"), 500, true);
+        ItemRegistry.registerItem("necroticclaw", new SimpleTrinketItem(Item.Rarity.RARE, "necroticclawbuff", 800, TrinketsLootTable.trinkets).addDisables("bonehilt", "bonepile", "demonicpolarclaw", "polarclaw", "demonclaw"), 500, true);
         BuffRegistry.registerBuff("necroticclawbuff", new NecroticClawBuff());
-        ItemRegistry.registerItem("frenzystonering", new SimpleTrinketItem(Item.Rarity.RARE, "frenzystoneringbuff", 800).addDisables("bloodstonering", "frenzyorb"), 500, true);
+        ItemRegistry.registerItem("frenzystonering", new SimpleTrinketItem(Item.Rarity.RARE, "frenzystoneringbuff", 800, TrinketsLootTable.trinkets).addDisables("bloodstonering", "frenzyorb"), 500, true);
         BuffRegistry.registerBuff("frenzystoneringbuff", new FrenzystoneRingBuff());
-        ItemRegistry.registerItem("balancedsummonerboard", new SimpleTrinketItem(Item.Rarity.RARE, "balancedsummonerboardbuff", 800).addDisables("balancedfrostfirefoci", "spiritboard", "summonersbestiary"), 500, true);
+        ItemRegistry.registerItem("balancedsummonerboard", new SimpleTrinketItem(Item.Rarity.RARE, "balancedsummonerboardbuff", 800, TrinketsLootTable.trinkets).addDisables("balancedfrostfirefoci", "spiritboard", "summonersbestiary"), 500, true);
         BuffRegistry.registerBuff("balancedsummonerboardbuff", new BalancedSummonerBoardBuff());
-        ItemRegistry.registerItem("transplantedheart", new SimpleTrinketItem(Item.Rarity.RARE, "transplantedheartbuff", 800).addDisables("lifependant", "clockworkheart", "frozensoul", "lifeline", "frozenheart"), 500, true);
+        ItemRegistry.registerItem("transplantedheart", new SimpleTrinketItem(Item.Rarity.RARE, "transplantedheartbuff", 800, TrinketsLootTable.trinkets).addDisables("lifependant", "clockworkheart", "frozensoul", "lifeline", "frozenheart"), 500, true);
         BuffRegistry.registerBuff("transplantedheartbuff", new TransplantedHeartBuff());
-        ItemRegistry.registerItem("scryingmagicianscard", new SimpleTrinketItem(Item.Rarity.RARE, "scryingmagicianscardbuff", 800).addDisables("hystericalmirror", "spelltablet", "forbiddenspellbook", "scryingcards", "prophecyslab", "magicmanual", "spellstone", "hysteriatablet", "inducingamulet", "mesmertablet"), 500, true);
+        ItemRegistry.registerItem("scryingmagicianscard", new SimpleTrinketItem(Item.Rarity.RARE, "scryingmagicianscardbuff", 800, TrinketsLootTable.trinkets).addDisables("hystericalmirror", "spelltablet", "forbiddenspellbook", "scryingcards", "prophecyslab", "magicmanual", "spellstone", "hysteriatablet", "inducingamulet", "mesmertablet"), 500, true);
         BuffRegistry.registerBuff("scryingmagicianscardbuff", new ScryingMagiciansCardBuff());
         ItemRegistry.registerItem("littleangel", new LittleAngel(), 500, true);
         BuffRegistry.registerBuff("littleangelbuff", new LittleAngelBuff());
@@ -114,9 +114,9 @@ public class SummonerEquips
         BuffRegistry.registerBuff("minerslanternbuff", new MinersLanternBuff());
 
         // Challenge
-        ItemRegistry.registerItem("jellyfishbowl", new SimpleTrinketItem(Item.Rarity.RARE, "jellyfishbowlbuff", 100), 50, true);
+        ItemRegistry.registerItem("jellyfishbowl", new SimpleTrinketItem(Item.Rarity.RARE, "jellyfishbowlbuff", 100, TrinketsLootTable.trinkets), 50, true);
         BuffRegistry.registerBuff("jellyfishbowlbuff", new JellyfishBowlBuff());
-        ItemRegistry.registerItem("giantbeet", new SimpleTrinketItem(Item.Rarity.RARE, "giantbeetbuff", 100), 50, true);
+        ItemRegistry.registerItem("giantbeet", new SimpleTrinketItem(Item.Rarity.RARE, "giantbeetbuff", 100, TrinketsLootTable.trinkets), 50, true);
         BuffRegistry.registerBuff("giantbeetbuff", new GiantBeetBuff());
 
         // Mounts

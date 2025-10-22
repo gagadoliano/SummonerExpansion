@@ -17,6 +17,7 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
 
 public class BookMagma extends SummonToolItem
@@ -25,14 +26,14 @@ public class BookMagma extends SummonToolItem
 
     public BookMagma()
     {
-        super("magmaslimeminion", FollowPosition.SLIME_CIRCLE_MOVEMENT, 1F, 200);
+        super("magmaslimeminion", FollowPosition.SLIME_CIRCLE_MOVEMENT, 1F, 200, SummonWeaponsLootTable.summonWeapons);
         summonType = "summonedmagmaslime";
         rarity = Rarity.COMMON;
         drawMaxSummons = false;
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
         attackAnimTime.setBaseValue(400);
         attackDamage.setBaseValue(22.0F).setUpgradedValue(1, 35.0F);
-        maxSummons.setBaseValue(3).setUpgradedValue(1, 6).setUpgradedValue(5,9);
+        maxSummons.setBaseValue(3).setUpgradedValue(1, 6).setUpgradedValue(10,10);
     }
 
     public int getMaxSummons(InventoryItem item, ItemAttackerMob attackerMob){return maxSummons.getValue(getUpgradeTier(item));}

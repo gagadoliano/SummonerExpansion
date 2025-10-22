@@ -14,6 +14,7 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
 
 public class RuneboneStaff extends SummonToolItem
@@ -22,11 +23,11 @@ public class RuneboneStaff extends SummonToolItem
 
     public RuneboneStaff()
     {
-        super("runemeleeminion", FollowPosition.WALK_CLOSE, 1F, 800);
+        super("runemeleeminion", FollowPosition.WALK_CLOSE, 1F, 800, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.UNCOMMON;
         attackDamage.setBaseValue(23.0F).setUpgradedValue(1, 40.0F);
         rangedBoneChance.setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(2, 4).setUpgradedValue(3, 6).setUpgradedValue(4, 8).setUpgradedValue(5, 10);
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
     }
 
     public void runServerSummon(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight, InventoryItem item, ItemAttackSlot slot, int animAttack, int seed, GNDItemMap mapContent)

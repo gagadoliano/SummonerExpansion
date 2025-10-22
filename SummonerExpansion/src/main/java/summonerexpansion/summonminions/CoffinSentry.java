@@ -64,6 +64,7 @@ public class CoffinSentry extends AttackingFollowingMob
                     projectile.setTargetPrediction(target, -20.0F);
                     projectile.moveDist(20.0);
                     mob.getLevel().entityManager.projectiles.add(projectile);
+                    coffinCharge++;
                     return true;
                 }
                 else

@@ -39,7 +39,7 @@ public class BeeMinion extends FlyingAttackingFollowingMob
     public void init()
     {
         super.init();
-        ai = new BehaviourTreeAI<>(this, new PlayerFlyingFollowerCollisionChaserAI(1000, summonDamage, 1, 500, 640, 64), new FlyingAIMover());
+        ai = new BehaviourTreeAI<>(this, new PlayerFlyingFollowerCollisionChaserAI(1000, summonDamage, 1, 500, 9000, 64), new FlyingAIMover());
     }
 
     public void serverTick()

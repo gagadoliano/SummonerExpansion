@@ -1,5 +1,8 @@
 package summonerexpansion.summonobjects;
 
+import java.awt.Color;
+import java.awt.Rectangle;
+import java.util.List;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.entity.mobs.PlayerMob;
 import necesse.gfx.camera.GameCamera;
@@ -9,12 +12,9 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.inventory.item.toolItem.ToolType;
 import necesse.inventory.recipe.Tech;
-import necesse.level.gameObject.CraftingStationObject;
+import necesse.level.gameObject.container.CraftingStationObject;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
-
-import java.awt.*;
-import java.util.List;
 
 import static summonerexpansion.summonothers.SummonerTechs.SUMMONBOOKCRAFT;
 

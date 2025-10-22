@@ -9,6 +9,7 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 
 public class ExplosiveSnowball extends SummonToolItem
 {
@@ -16,13 +17,13 @@ public class ExplosiveSnowball extends SummonToolItem
 
     public ExplosiveSnowball()
     {
-        super("explosivesnowmanminion", FollowPosition.PYRAMID, 1F, 200);
+        super("explosivesnowmanminion", FollowPosition.PYRAMID, 1F, 200, SummonWeaponsLootTable.summonWeapons);
         summonType = "explosivesnowmanminion";
         rarity = Rarity.COMMON;
         drawMaxSummons = false;
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
         attackDamage.setBaseValue(20.0F).setUpgradedValue(1, 40.0F);
-        maxSummons.setBaseValue(3).setUpgradedValue(2, 4).setUpgradedValue(4, 5).setUpgradedValue(5, 6);
+        maxSummons.setBaseValue(3).setUpgradedValue(2, 4).setUpgradedValue(10, 9);
     }
 
     public int getMaxSummons(InventoryItem item, ItemAttackerMob attackerMob) { return maxSummons.getValue(getUpgradeTier(item)); }

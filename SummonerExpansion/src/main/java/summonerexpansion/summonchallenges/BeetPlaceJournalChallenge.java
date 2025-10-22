@@ -26,7 +26,7 @@ public class BeetPlaceJournalChallenge extends ObjectsPlacedJournalChallenge
     @Override
     public void onObjectPlaced(GameObject object, Level level, int layerID, int tileX, int tileY, int objectRotation, ServerClient client)
     {
-        if (JournalChallengeUtils.isForestBiome(level.biome) && level.isCave)
+        if (level.isCave)
         {
             super.onObjectPlaced(object, level, layerID, tileX, tileY, objectRotation, client);
         }

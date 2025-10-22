@@ -88,6 +88,6 @@ public class GolemEmeraldMinion extends AttackingFollowingMob
                 swimMask.stop();
             }
         });
-        this.addShadowDrawables(tileList, x, y, light, camera);
+        this.addShadowDrawables(tileList, level, x, y, light, camera);
     }
 }

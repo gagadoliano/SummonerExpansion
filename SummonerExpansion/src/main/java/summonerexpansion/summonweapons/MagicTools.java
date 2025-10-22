@@ -14,6 +14,7 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
 
 public class MagicTools extends SummonToolItem
@@ -22,14 +23,14 @@ public class MagicTools extends SummonToolItem
 
     public MagicTools()
     {
-        super("magicaxeminion", FollowPosition.FLYING_CIRCLE, 1F, 200);
+        super("magicaxeminion", FollowPosition.FLYING_CIRCLE, 1F, 200, SummonWeaponsLootTable.summonWeapons);
         summonType = "magicaxeminion";
         rarity = Rarity.COMMON;
         drawMaxSummons = false;
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
         knockback.setBaseValue(35);
         attackDamage.setBaseValue(5.0F).setUpgradedValue(1, 35.0F);
-        maxSummons.setBaseValue(3).setUpgradedValue(1, 4).setUpgradedValue(3, 5).setUpgradedValue(5, 6);
+        maxSummons.setBaseValue(3).setUpgradedValue(1, 4).setUpgradedValue(10, 9);
     }
 
     public int getMaxSummons(InventoryItem item, ItemAttackerMob attackerMob) { return maxSummons.getValue(getUpgradeTier(item)); }

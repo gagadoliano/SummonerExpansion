@@ -8,12 +8,13 @@ import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.gfx.drawOptions.itemAttack.ItemAttackDrawOptions;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.trinketItem.TrinketItem;
+import necesse.inventory.lootTable.presets.TrinketsLootTable;
 import necesse.level.maps.Level;
 
 public class MinerLantern extends TrinketItem
 {
     public MinerLantern() {
-        super(Rarity.RARE, 800);
+        super(Rarity.RARE, 800, TrinketsLootTable.trinkets);
     }
 
     public TrinketBuff[] getBuffs(InventoryItem item)

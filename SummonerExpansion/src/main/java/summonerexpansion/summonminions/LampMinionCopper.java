@@ -109,7 +109,7 @@ public class LampMinionCopper extends FlyingAttackingFollowingMob
         float rotate = dx / 10.0F;
         DrawOptions options = texture.initDraw().sprite(sprite, 0, 64).light(light).mirror(dir == 0, false).rotate(rotate, 32, 32).pos(drawX, drawY);
         topList.add((tm) -> {options.draw();});
-        addShadowDrawables(tileList, x, y, light, camera);
+        addShadowDrawables(tileList, level, x, y, light, camera);
     }
 
     protected TextureDrawOptions getShadowDrawOptions(int x, int y, GameLight light, GameCamera camera)

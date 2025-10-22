@@ -17,6 +17,7 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.arrowItem.ArrowItem;
 import necesse.inventory.item.toolItem.projectileToolItem.bowProjectileToolItem.BowProjectileToolItem;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.CollisionFilter;
 import necesse.level.maps.Level;
 import necesse.level.maps.LevelObjectHit;
@@ -34,7 +35,7 @@ public class MosquitoBow  extends BowProjectileToolItem
 
     public MosquitoBow()
     {
-        super(200);
+        super(200, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.COMMON;
         damageType = DamageTypeRegistry.SUMMON;
         attackDamage.setBaseValue(40.0F).setUpgradedValue(1, 75.0F);
@@ -45,7 +46,7 @@ public class MosquitoBow  extends BowProjectileToolItem
         projectileMaxHeight = 600;
         attackXOffset = 12;
         attackYOffset = 28;
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
         maxMosquitos.setBaseValue(4).setUpgradedValue(1, 6).setUpgradedValue(5, 8);
     }
 

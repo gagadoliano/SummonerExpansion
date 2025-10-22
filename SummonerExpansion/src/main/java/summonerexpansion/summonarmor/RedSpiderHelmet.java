@@ -9,6 +9,8 @@ import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.SetHelmetArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
+import necesse.inventory.lootTable.presets.ArmorSetsLootTable;
+import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class RedSpiderHelmet extends SetHelmetArmorItem
 {
@@ -16,9 +18,8 @@ public class RedSpiderHelmet extends SetHelmetArmorItem
 
     public RedSpiderHelmet()
     {
-        super(5, DamageTypeRegistry.SUMMON, 50, Rarity.UNCOMMON, "redspiderhelmet", "redspiderchestplate", "redspiderboots", "redspidersetbonus");
+        super(5, DamageTypeRegistry.SUMMON, 50, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, Rarity.UNCOMMON, "redspiderhelmet", "redspiderchestplate", "redspiderboots", "redspidersetbonus");
         hairDrawOptions = HairDrawMode.NO_HEAD;
-        canBeUsedForRaids = false;
     }
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)

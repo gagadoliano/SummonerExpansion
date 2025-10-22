@@ -185,7 +185,7 @@ magicgoldlamptip=Invoca uma lâmpada dupla de ouro que brilha e ataca \nQueima i
 rubyshardtip=Invoca um golem de rubi \nEste golem atira fragmentos de cristal nos inimigos
 cactusstafftip=Invoca um cacto móvel \nEle atira projéteis com perfuração aleatória
 lampminiondungeontip=Invoca um candelabro da masmorra \nQueima inimigos à noite
-dryadessencetip=Invoca um carniçal \nEste carniçal deixa um rastro de dano
+dryadessencetip=Invoca um carniçal \nEste carniçal deixa um rastro de dano \nVocêpode invocar até <amount> carniçais
 magictungstenlamptip=Invoca uma lâmpada de tungstênio que brilha e ataca
 magiccopperlamptip=Invoca uma lâmpada de cobre que brilha e ataca
 sandwormstafftip=Invoca um verme da areia para atacar os inimigos
@@ -194,7 +194,7 @@ vampirewingstip=Invoca um vampiro que atira em inimigos
 bearheadtip=Invoca um urso pardo que caça os inimigos
 
 // Sentry weapons
-bookmushroomtip=Invoca uma sentinela que desacelera inimigos próximos \nE transforma inimigos mortos em aliados
+bookmushroomtip=Invoca uma sentinela que desacelera inimigos e melhoram jogadores próximos \nA cada 10 segundos invoca um lacaio de cogumelo
 xmastreetip=Invoca uma sentinela que afeta inimigos \nEles brilham e tomam mais 20% de dano
 leafshotheatpacktip=Seus projéteis queimam os inimigos \nConsumível
 leafshotcoldpacktip=Seus projéteis gelam os inimigos \nConsumível
@@ -223,7 +223,7 @@ mosquitobowtip=Atira flechas diretamente no local do mouse, deixando uma poça d
 
 // Magic weapons
 firemonesentrytip=Jogadores próximos recebem penetração de armadura
-sunflowersentrytip=Jogadores próximos recebem regeneração de vida
+sunflowersentrytip=Jogadores próximos recebem regeneração de saúde
 iceblossomsentrytip=Jogadores próximos recebem armadura
 
 // Armor set bonus
@@ -237,13 +237,13 @@ copperminersettip=Aumenta a claridade da luz de lâmpadas mágicas
 plaguesettip=Periodicamente invoca ratos durante combate
 
 // Trinkets
-transplantedhearttip=Aumenta a regeneração de vida durante combate em 0,75 \nAumenta a resiliência máxima em 10% \nTransforma metade de sua vida em resiliência \nRegenera resiliência quando estiver com a vida cheia \nRestaura 25% de vida ao receber dano fatal \nTempo de recarga: 5 minutos
+transplantedhearttip=Aumenta a regeneração de saúde durante combate em 0,75 \nAumenta a resiliência máxima em 10% \nTransforma metade de sua vida em resiliência \nRegenera resiliência quando estiver com a vida cheia \nRestaura 25% de vida ao receber dano fatal \nTempo de recarga: 5 minutos
 frenzyhorrorcapetip=+1 invocação máxima \nAumenta a velocidade de movimento em 20% \nGanha 4 de regeneração de saúde por segundo enquanto estiver abaixo de 50% de saúde \nGanha até +50% de dano de invocação com base na saúde perdida \nInvoca até 3 morcegos do horror ao receber dano
 essenceofcompanionshiptip=Aumenta o ganho de essência em 100% \nAumenta a duração da essência em 100% \nAumenta o dano e velocidade de movimento de invocação para cada invocação máxima não utilizada\nOs aumentos diminuem ligeiramente além da primeira invocação não utilizada
 balancedsummonerboardtip=Aumenta o dano de invocação em 15% \nRecebe 5% de dano de invocação por cada tipo diferente de lacaio que possuir \nAtaques de invocação causam lentidão, 7 de dano por segundo durante 5 segundos e aplicam 1 ponto de Assombração Dríade
 doomshroomshieldtip=Aumenta o dano de invocação em 10% \nAumenta o alcance de agressividade dos inimigos em 50% \nEquipe e pressione [input=trinketability] para explodir \nA explosão empurra os inimigos e os incendeia \nTempo de recarga de 10 segundos
 littleangeltip=Aperte [input=trinketability] para teletransportar \nMelhora suas estatísticas de invocador e investida \nSer atingido reseta suas cargas de investida instantaneamente \nGanhe 5 de resiliência sempre que usar uma investida
-necromancerarmortip=Melhora suas estatísticas de invocador \nGanhe dano e regeneração de vida quande estiver com pouca saúde \nAtaques de invocação desaceleram inimigos \nInvoca até 3 morcegos do horror ao receber dano
+necromancerarmortip=Melhora suas estatísticas de invocador \nGanhe dano e regeneração de saúde quande estiver com pouca saúde \nAtaques de invocação desaceleram inimigos \nInvoca até 3 morcegos do horror ao receber dano
 summonergambittip=+1 invocação máxima \n+10 armadura \n+50% dano de invocação \n-50% dano de outros tipos de dano \n+10% chance de crítico de invocação \nSó pode ser equipado no slot de habilidade.
 mesmersatcheltip=+1 invocação máxima \nAumenta o limite de energia em 100% \nAumenta a velocidade de invocação em 50% \nAumenta a velocidade de movimento em 25% \nIlumina a área ao seu redor
 challengeraptip=Aumenta a resiliência máxima em 65 \nDesacelera a degradação da resiliência em 75% \nAumenta o ganho de resiliência em 50% e aumenta para 100% durante batalhas contra chefes
@@ -274,7 +274,7 @@ minionspeedtip=Aumenta a velocidade da invocação em 20%
 minionrangetip=Aumenta o alcance dos lacaios em 50%
 
 // Mounts
-chieftainhattip=Transforma você em um chefe que não sabe nadar \nAumenta sua saúde, armadura e o número máximo de lacaios \nSegure [input=trinketability] para se impulsionar ao custo de energia \nEste impulso aumenta seu dano, regeneração de vida e previne empurros e lentidão
+chieftainhattip=Transforma você em um chefe que não sabe nadar \nAumenta sua saúde, armadura e o número máximo de lacaios \nSegure [input=trinketability] para se impulsionar ao custo de energia \nEste impulso aumenta seu dano, regeneração de saúde e previne empurros e lentidão
 magiccheesetip=Transforma você em um rato \nImpede que você use itens \nDiminui bastante o alcance de visão dos inimigos, fazendo com que eles ignorem você
 cavelingminecarttip=Só pode ser colocado em trilhos \nAumenta o alcance de coleta de itens
 
@@ -303,7 +303,7 @@ minionspacetakentip=Cada invocação ocupa <amount> espaços de invocação
 clicksentrytip=Pressione [input=mouse2] para invocar uma sentinela
 cavelingmounttip=Você não pode usar <mount> como montaria!
 sentrytip=Invoca uma sentinela que atira em inimigos
-lifestealtip=Cura ao acertar em <amount> de vida
+lifestealtip=Cura ao acertar em <amount> de saúde
 minionactivecap=Limitado a <amount> lacaios
 storedshadowtip=Itens armazenados: <items>
 chargetip=Carga: <amount>%
@@ -411,11 +411,11 @@ druidtalk4=Olá!
 [buff]
 // Buffs
 sunflowerbufft5=Regeneração de saúde em combate e fora de combate
-mushroombuff=Inimigos mortos se transformam em lacaios cogumelo
 firemonebufft5=Penetração de armadura e velocidade de projétil
 horrorglaivestack=Permite invocar uma sentinela com 100 cargas
 sunflowerbufft1=Regeneração de saúde em combate mais forte
 goblinswordstack=Permite invocar goblins com 50 cargas
+mushroombuff=Inimigos mortos aumentam sua saúde máxima
 firemonebufft1=Penetração de armadura mais forte
 fishianstack=Invoca um fishian com 100 cargas
 sunflowerbuff=Regeneração de saúde em combate

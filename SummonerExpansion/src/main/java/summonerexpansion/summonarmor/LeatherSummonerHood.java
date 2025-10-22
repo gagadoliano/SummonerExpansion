@@ -9,6 +9,8 @@ import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.SetHelmetArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
+import necesse.inventory.lootTable.presets.ArmorSetsLootTable;
+import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class LeatherSummonerHood extends SetHelmetArmorItem
 {
@@ -16,7 +18,7 @@ public class LeatherSummonerHood extends SetHelmetArmorItem
 
     public LeatherSummonerHood()
     {
-        super(1, DamageTypeRegistry.SUMMON, 50, Rarity.COMMON, "leathersummonerhood", "leathershirt", "leatherboots", "leathersummonersetbonus");
+        super(1, DamageTypeRegistry.SUMMON, 50, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, Rarity.COMMON, "leathersummonerhood", "leathershirt", "leatherboots", "leathersummonersetbonus");
         hairDrawOptions = HairDrawMode.NO_HEAD;
     }
 

@@ -7,6 +7,7 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.ChestArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.BodyArmorLootTable;
 
 public class SummonPlagueRobe extends ChestArmorItem
 {
@@ -14,7 +15,7 @@ public class SummonPlagueRobe extends ChestArmorItem
 
     public SummonPlagueRobe()
     {
-        super(15, 550, Rarity.UNCOMMON, "summonplaguerobe", "summonplaguearms");
+        super(15, 550, Rarity.UNCOMMON, "summonplaguerobe", "summonplaguearms", BodyArmorLootTable.bodyArmor);
     }
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)

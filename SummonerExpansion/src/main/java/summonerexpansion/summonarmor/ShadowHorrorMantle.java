@@ -7,6 +7,7 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.ChestArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.BodyArmorLootTable;
 
 public class ShadowHorrorMantle extends ChestArmorItem
 {
@@ -14,7 +15,7 @@ public class ShadowHorrorMantle extends ChestArmorItem
 
     public ShadowHorrorMantle()
     {
-        super(25, 600, Rarity.LEGENDARY, "shadowhorrormantle", "shadowhorrorarms");
+        super(25, 600, Rarity.LEGENDARY, "shadowhorrormantle", "shadowhorrorarms", BodyArmorLootTable.bodyArmor);
     }
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)

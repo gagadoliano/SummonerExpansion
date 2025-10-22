@@ -7,15 +7,16 @@ import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 
 public class VampireWings extends SummonToolItem
 {
     public VampireWings()
     {
-        super("vampireminion", FollowPosition.WALK_CLOSE, 1F, 400);
+        super("vampireminion", FollowPosition.WALK_CLOSE, 1F, 400, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.UNCOMMON;
         attackDamage.setBaseValue(20.0F).setUpgradedValue(1, 65.0F);
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
     }
 
     @Override

@@ -12,17 +12,18 @@ import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.Flyin
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
 
 public class BookBee extends SummonToolItem
 {
     public BookBee()
     {
-        super("beebookminion", FollowPosition.FLYING_CIRCLE, 1F, 200);
+        super("beebookminion", FollowPosition.FLYING_CIRCLE, 1F, 200, SummonWeaponsLootTable.summonWeapons);
         summonType = "beebookminion";
         rarity = Rarity.COMMON;
         drawMaxSummons = false;
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
         attackDamage.setBaseValue(10.0F).setUpgradedValue(1, 30.0F);
     }
 

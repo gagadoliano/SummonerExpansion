@@ -7,6 +7,7 @@ import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.Buff;
 import necesse.entity.particle.Particle;
+import necesse.gfx.GameResources;
 
 import java.awt.*;
 
@@ -28,10 +29,11 @@ public class MushroomDebuff extends Buff
 
     public void clientTick(ActiveBuff buff)
     {
-        if (buff.owner.isVisible())
+        if (buff.owner.isVisible() && GameRandom.globalRandom.getChance((double)0.5F))
         {
             Mob owner = buff.owner;
-            owner.getLevel().entityManager.addParticle(owner.x + (float)(GameRandom.globalRandom.nextGaussian() * 6.0), owner.y + (float)(GameRandom.globalRandom.nextGaussian() * 8.0), Particle.GType.IMPORTANT_COSMETIC).movesConstant(owner.dx / 2.0F, owner.dy / 2.0F).color(new Color(174, 161, 137));
+            GameRandom clientRandom = GameRandom.globalRandom;
+            owner.getLevel().entityManager.addParticle(owner.x + (float)clientRandom.getIntBetween(-10, 10), owner.y + (float)clientRandom.getIntBetween(-10, 10), Particle.GType.IMPORTANT_COSMETIC).sprite(GameResources.puffParticles.sprite(clientRandom.nextInt(4), 0, 12)).sizeFades(12, 24).height(1.0F).color(new Color(164, 151, 127));
         }
     }
 

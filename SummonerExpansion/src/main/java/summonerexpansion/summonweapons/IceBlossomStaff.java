@@ -20,6 +20,7 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.ItemInteractAction;
 import necesse.inventory.item.toolItem.projectileToolItem.magicProjectileToolItem.MagicProjectileToolItem;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
 import summonerexpansion.summonminions.*;
 
@@ -29,7 +30,7 @@ public class IceBlossomStaff extends MagicProjectileToolItem implements ItemInte
 
     public IceBlossomStaff()
     {
-        super(200);
+        super(200, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.COMMON;
         damageType = DamageTypeRegistry.SUMMON;
         attackDamage.setBaseValue(25.0F).setUpgradedValue(1, 155F);

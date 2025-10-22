@@ -1,42 +1,32 @@
 package summonerexpansion.summonweapons;
 
 import necesse.engine.localization.Localization;
-import necesse.engine.network.gameNetworkData.GNDItemMap;
-import necesse.engine.registries.MobRegistry;
 import necesse.engine.util.GameBlackboard;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
-import necesse.entity.mobs.itemAttacker.ItemAttackSlot;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
-import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
-import necesse.level.maps.Level;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 
 public class BookMushroom extends SummonToolItem
 {
-    public IntUpgradeValue maxSummons = new IntUpgradeValue(3, 0.0F);
+    public IntUpgradeValue maxSummons = new IntUpgradeValue(1, 0.0F);
 
     public BookMushroom()
     {
-        super("mushroomsentry", FollowPosition.WALK_CLOSE, 1F, 200);
+        super("mushroomsentry", FollowPosition.WALK_CLOSE, 1F, 200, SummonWeaponsLootTable.summonWeapons);
         summonType = "summonedmushroom";
         rarity = Rarity.COMMON;
         drawMaxSummons = false;
         canBeUsedForRaids = false;
-        attackDamage.setBaseValue(0F);
-        maxSummons.setBaseValue(1).setUpgradedValue(2, 2).setUpgradedValue(3,3);
+        attackDamage.setBaseValue(20F).setUpgradedValue(1, 80.0F);
+        maxSummons.setBaseValue(1).setUpgradedValue(2, 2).setUpgradedValue(10,5);
     }
 
     public int getMaxSummons(InventoryItem item, ItemAttackerMob attackerMob){return maxSummons.getValue(getUpgradeTier(item));}
-
-    public void runServerSummon(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight, InventoryItem item, ItemAttackSlot slot, int animAttack, int seed, GNDItemMap mapContent)
-    {
-        AttackingFollowingMob mob1 = (AttackingFollowingMob) MobRegistry.getMob("mushroomsentry", level);
-        summonServerMob(attackerMob, mob1, x, y, attackHeight, item);
-    }
 
     @Override
     public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard)

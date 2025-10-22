@@ -132,7 +132,7 @@ public class RiftPortalMob extends BossMob
         BossNearbyBuff.applyAround(this);
     }
 
-    protected void playDeathSound() {
+    public void playDeathSound() {
         SoundManager.playSound(GameResources.fadedeath3, SoundEffect.effect(this));
     }
 

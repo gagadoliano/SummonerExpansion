@@ -156,7 +156,7 @@ public class LeafShotHeatSentry extends AttackingFollowingMob
                 body.draw();
             }
         });
-        this.addShadowDrawables(tileList, x, y, light, camera);
+        this.addShadowDrawables(tileList, level, x, y, light, camera);
     }
 
     protected TextureDrawOptions getShadowDrawOptions(int x, int y, GameLight light, GameCamera camera)

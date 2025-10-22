@@ -380,7 +380,7 @@ public class CavelingMinecart extends SummonedMob
         }
     }
 
-    protected void playHitSound() {
+    public void playHitSound() {
     }
 
     public void interact(PlayerMob player)
@@ -409,7 +409,7 @@ public class CavelingMinecart extends SummonedMob
         return isMounted() ? null : Localization.translate("controls", "usetip");
     }
 
-    protected void playDeathSound() {
+    public void playDeathSound() {
     }
 
     public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
@@ -434,7 +434,7 @@ public class CavelingMinecart extends SummonedMob
                 swimMask.stop();
             }
         });
-        addShadowDrawables(tileList, x, y, light, camera);
+        addShadowDrawables(tileList, level, x, y, light, camera);
     }
 
     public static void drawPlacePreview(Level level, int levelX, int levelY, int dir, GameCamera camera)

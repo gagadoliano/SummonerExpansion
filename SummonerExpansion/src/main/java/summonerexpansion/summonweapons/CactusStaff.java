@@ -7,15 +7,16 @@ import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 
 public class CactusStaff extends SummonToolItem
 {
     public CactusStaff()
     {
-        super("cactusminion", FollowPosition.WALK_CLOSE, 1F, 200);
+        super("cactusminion", FollowPosition.WALK_CLOSE, 1F, 200, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.UNCOMMON;
         attackDamage.setBaseValue(12.0F).setUpgradedValue(1, 50.0F);
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
     }
 
     @Override

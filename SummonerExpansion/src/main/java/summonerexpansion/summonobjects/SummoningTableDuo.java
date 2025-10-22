@@ -1,7 +1,13 @@
 package summonerexpansion.summonobjects;
 
+import java.awt.Color;
+import java.awt.Rectangle;
+import java.util.ArrayList;
+import java.util.List;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.registries.ObjectRegistry;
+import necesse.engine.sound.SoundSettings;
+import necesse.engine.sound.SoundSettingsRegistry;
 import necesse.entity.mobs.PlayerMob;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptionsList;
@@ -11,15 +17,14 @@ import necesse.gfx.gameTexture.GameTexture;
 import necesse.inventory.item.toolItem.ToolType;
 import necesse.inventory.recipe.Ingredient;
 import necesse.inventory.recipe.Tech;
-import necesse.level.gameObject.*;
+import necesse.level.gameObject.ObjectDamagedTextureArray;
+import necesse.level.gameObject.ObjectPlaceOption;
+import necesse.level.gameObject.container.CraftingStationObject;
+import necesse.level.gameObject.container.CraftingStationUpgrade;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 import necesse.level.maps.multiTile.MultiTile;
 import necesse.level.maps.multiTile.SideMultiTile;
-
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 import static summonerexpansion.summonothers.SummonerTechs.SUMMONTABLECRAFT;
 
@@ -162,5 +167,9 @@ public class SummoningTableDuo extends CraftingStationObject
         o1.counterID = i2;
         o2.counterID = i1;
         return new int[]{i1, i2};
+    }
+
+    protected SoundSettings getInteractSoundOpen() {
+        return SoundSettingsRegistry.workstationOpen;
     }
 }

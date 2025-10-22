@@ -104,7 +104,7 @@ public class HorrorBabyMinion extends FlyingAttackingFollowingMob
         }
     }
 
-    protected void playDeathSound()
+    public void playDeathSound()
     {
         SoundManager.playSound(GameResources.fadedeath1, SoundEffect.effect(this).volume(0.5F));
     }

@@ -7,15 +7,16 @@ import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 
 public class MagicCopperLamp extends SummonToolItem
 {
     public MagicCopperLamp()
     {
-        super("lampminioncopper", FollowPosition.FLYING, 1, 200);
+        super("lampminioncopper", FollowPosition.FLYING, 1, 200, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.COMMON;
         attackDamage.setBaseValue(5.0F).setUpgradedValue(1, 25.0F);
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
     }
 
     @Override

@@ -13,6 +13,7 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
 
 public class BookFrozen extends SummonToolItem
@@ -21,23 +22,17 @@ public class BookFrozen extends SummonToolItem
 
     public BookFrozen()
     {
-        super("frozendwarfminion", FollowPosition.WALK_CLOSE, 1F, 400);
+        super("frozendwarfminion", FollowPosition.WALK_CLOSE, 1F, 400, SummonWeaponsLootTable.summonWeapons);
         summonType = "summonedfrozendwarf";
         rarity = Rarity.COMMON;
         drawMaxSummons = false;
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
         attackAnimTime.setBaseValue(400);
         attackDamage.setBaseValue(30.0F).setUpgradedValue(1, 45.0F);
-        maxSummons.setBaseValue(2).setUpgradedValue(1, 4).setUpgradedValue(5,6);
+        maxSummons.setBaseValue(2).setUpgradedValue(1, 4).setUpgradedValue(10,8);
     }
 
     public int getMaxSummons(InventoryItem item, ItemAttackerMob attackerMob){return maxSummons.getValue(getUpgradeTier(item));}
-
-    public void runServerSummon(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight, InventoryItem item, ItemAttackSlot slot, int animAttack, int seed, GNDItemMap mapContent)
-    {
-        AttackingFollowingMob mob1 = (AttackingFollowingMob) MobRegistry.getMob("frozendwarfminion", level);
-        summonServerMob(attackerMob, mob1, x, y, attackHeight, item);
-    }
 
     @Override
     public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard)

@@ -7,12 +7,14 @@ import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.SetHelmetArmorItem;
+import necesse.inventory.lootTable.presets.ArmorSetsLootTable;
+import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class FrostCrown extends SetHelmetArmorItem
 {
     public FrostCrown()
     {
-        super(5, DamageTypeRegistry.SUMMON, 50, Rarity.COMMON, "frostcrown", "frostchestplate", "frostboots", "frostcrownsetbonus");
+        super(5, DamageTypeRegistry.SUMMON, 50, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, Rarity.COMMON, "frostcrown", "frostchestplate", "frostboots", "frostcrownsetbonus");
         hairDrawOptions = HairDrawMode.OVER_HAIR;
         facialFeatureDrawOptions = FacialFeatureDrawMode.OVER_FACIAL_FEATURE;
     }

@@ -1,19 +1,15 @@
 package summonerexpansion.summonweapons;
 
 import necesse.engine.localization.Localization;
-import necesse.engine.network.gameNetworkData.GNDItemMap;
-import necesse.engine.registries.MobRegistry;
 import necesse.engine.util.GameBlackboard;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
-import necesse.entity.mobs.itemAttacker.ItemAttackSlot;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
-import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.FlyingAttackingFollowingMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
-import necesse.level.maps.Level;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 
 public class BookRunic extends SummonToolItem
 {
@@ -21,14 +17,14 @@ public class BookRunic extends SummonToolItem
 
     public BookRunic()
     {
-        super("runicshieldminion", FollowPosition.FLYING_CIRCLE, 1F, 200);
+        super("runicshieldminion", FollowPosition.FLYING_CIRCLE, 1F, 200, SummonWeaponsLootTable.summonWeapons);
         summonType = "summonedrunicshield";
         rarity = Rarity.COMMON;
         drawMaxSummons = false;
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
         attackAnimTime.setBaseValue(400);
         attackDamage.setBaseValue(30.0F).setUpgradedValue(1, 65.0F);
-        maxSummons.setBaseValue(2).setUpgradedValue(1,4).setUpgradedValue(5,6);
+        maxSummons.setBaseValue(2).setUpgradedValue(1,4).setUpgradedValue(10,8);
     }
 
     public int getMaxSummons(InventoryItem item, ItemAttackerMob attackerMob)
@@ -42,12 +38,6 @@ public class BookRunic extends SummonToolItem
 
     public int getItemAttackerRunAwayDistance(ItemAttackerMob attackerMob, InventoryItem item) {
         return 96;
-    }
-
-    public void runServerSummon(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight, InventoryItem item, ItemAttackSlot slot, int animAttack, int seed, GNDItemMap mapContent)
-    {
-        FlyingAttackingFollowingMob mob1 = (FlyingAttackingFollowingMob) MobRegistry.getMob("runicshieldminion", level);
-        summonServerMob(attackerMob, mob1, x, y, attackHeight, item);
     }
 
     @Override

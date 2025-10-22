@@ -10,6 +10,7 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 
 public class MagicGoldLamp extends SummonToolItem
 {
@@ -17,11 +18,11 @@ public class MagicGoldLamp extends SummonToolItem
 
     public MagicGoldLamp()
     {
-        super("lampminiongold", FollowPosition.FLYING, 2f, 400);
+        super("lampminiongold", FollowPosition.FLYING, 2f, 400, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.COMMON;
         attackDamage.setBaseValue(10.0F).setUpgradedValue(1, 40.0F);
         goldlampSpace.setBaseValue(2).setUpgradedValue(5.0F, 1);
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
     }
 
     public GameTooltips getSpaceTakenTooltip(InventoryItem item, PlayerMob perspective) {

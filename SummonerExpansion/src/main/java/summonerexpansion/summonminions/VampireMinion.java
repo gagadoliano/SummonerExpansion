@@ -145,7 +145,7 @@ public class VampireMinion extends AttackingFollowingMob
                 drawOptions.draw();
             }
         });
-        addShadowDrawables(tileList, x, y, light, camera);
+        addShadowDrawables(tileList, level, x, y, light, camera);
     }
 
     public Point getAnimSprite(int x, int y, int dir) 

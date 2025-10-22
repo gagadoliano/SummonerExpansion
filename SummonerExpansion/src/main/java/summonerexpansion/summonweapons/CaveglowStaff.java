@@ -7,15 +7,16 @@ import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 
 public class CaveglowStaff extends SummonToolItem
 {
     public CaveglowStaff()
     {
-        super("caveglowsentry", FollowPosition.PYRAMID, 1F, 1600);
+        super("caveglowsentry", FollowPosition.PYRAMID, 1F, 1600, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.RARE;
         attackDamage.setBaseValue(35.0F).setUpgradedValue(1, 80.0F);
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
     }
 
     @Override

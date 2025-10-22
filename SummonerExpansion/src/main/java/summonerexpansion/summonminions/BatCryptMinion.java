@@ -36,7 +36,7 @@ public class BatCryptMinion extends FlyingAttackingFollowingMob
     public void init()
     {
         super.init();
-        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI(900, summonDamage, 10, 500, 640, 64));
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI(900, summonDamage, 10, 500, 9000, 64));
     }
 
     public void serverTick()
@@ -76,7 +76,7 @@ public class BatCryptMinion extends FlyingAttackingFollowingMob
                 drawOptions.draw();
             }
         });
-        this.addShadowDrawables(tileList, x, y, light, camera);
+        this.addShadowDrawables(tileList, level, x, y, light, camera);
     }
 
     public Point getAnimSprite(int x, int y, int dir)

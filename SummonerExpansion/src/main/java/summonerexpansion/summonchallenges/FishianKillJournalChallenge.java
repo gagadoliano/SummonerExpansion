@@ -16,7 +16,7 @@ public class FishianKillJournalChallenge extends MobsKilledJournalChallenge
     public void onMobKilled(ServerClient serverClient, Mob mob)
     {
         Level level = mob.getLevel();
-        if (JournalChallengeUtils.isSwampBiome(level.biome))
+        if (level.isCave)
         {
             super.onMobKilled(serverClient, mob);
         }

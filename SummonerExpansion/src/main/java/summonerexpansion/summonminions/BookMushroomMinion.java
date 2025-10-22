@@ -27,13 +27,13 @@ import java.util.List;
 
 public class BookMushroomMinion extends AttackingFollowingMob
 {
-    static GameDamage sDamage = new GameDamage(DamageTypeRegistry.SUMMON, 20);
     public static GameTexture texture;
-    public int MushCount;
+    public static MaxHealthGetter MAX_HEALTH = new MaxHealthGetter(350, 400, 450, 500, 550);
 
     public BookMushroomMinion()
     {
         super(350);
+        difficultyChanges.setMaxHealth(MAX_HEALTH);
         setSpeed(50.0F);
         setFriction(2.0F);
         collision = new Rectangle(-10, -7, 20, 14);
@@ -42,32 +42,26 @@ public class BookMushroomMinion extends AttackingFollowingMob
         swimMaskMove = 12;
         swimMaskOffset = 0;
         swimSinkOffset = 0;
+        isStatic = false;
     }
 
     public void init()
     {
         super.init();
-        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI(1500, sDamage, 1, 500, 640, 64));
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI(1500, summonDamage, 30, 500, 9000, 64));
     }
 
-    public void serverTick()
-    {
-        super.serverTick();
-        MushCount++;
-        if (MushCount >= 500)
-        {
-            remove();
-        }
+    public GameDamage getCollisionDamage(Mob target) {
+        return summonDamage;
     }
-
-    public GameDamage getCollisionDamage(Mob target) {return sDamage;}
 
     @Override
     public void handleCollisionHit(Mob target, GameDamage damage, int knockback)
     {
-        if (target.isHostile)
+        Mob owner = getAttackOwner();
+        if (owner != null && target != null)
         {
-            ActiveBuff buff = new ActiveBuff(BuffRegistry.getBuff("mushroomdebuff"), target, 6000, this);
+            ActiveBuff buff = new ActiveBuff(BuffRegistry.getBuff("mushroomdebuff"), target, 60F, this);
             target.addBuff(buff, true);
         }
     }

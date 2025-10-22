@@ -88,7 +88,7 @@ public class FishianMinion extends AttackingFollowingMob
         SoundManager.playSound(GameResources.crack, SoundEffect.effect(this).volume(1.6F).pitch(pitch));
     }
 
-    protected void playDeathSound()
+    public void playDeathSound()
     {
         float pitch = GameRandom.globalRandom.getOneOf(0.95F, 1.0F, 1.05F);
         SoundManager.playSound(GameResources.crackdeath, SoundEffect.effect(this).volume(0.8F).pitch(pitch));
@@ -130,7 +130,7 @@ public class FishianMinion extends AttackingFollowingMob
                 drawOptions.draw();
             }
         });
-        addShadowDrawables(tileList, x, y, light, camera);
+        addShadowDrawables(tileList, level, x, y, light, camera);
     }
     
     protected TextureDrawOptions getShadowDrawOptions(int x, int y, GameLight light, GameCamera camera)

@@ -1,9 +1,13 @@
 package summonerexpansion.summonobjects;
 
+import java.awt.Color;
+import java.awt.Rectangle;
+import java.util.Collections;
+import java.util.List;
+import java.util.function.Consumer;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.localization.Localization;
 import necesse.engine.util.GameRandom;
-import necesse.engine.util.GameUtils;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.objectEntity.ObjectEntity;
 import necesse.entity.objectEntity.TrainingDummyObjectEntity;
@@ -16,19 +20,14 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
-import necesse.inventory.item.Item;
 import necesse.inventory.item.toolItem.ToolType;
-import necesse.level.gameObject.*;
+import necesse.level.gameObject.GameObject;
+import necesse.level.gameObject.ObjectDamagedTextureArray;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
-import necesse.level.maps.regionSystem.SemiRegion;
-import summonerexpansion.summonothers.BannerOfWaterObjectEntity;
+import necesse.level.maps.regionSystem.RegionType;
 import summonerexpansion.summonothers.TankTrainingDummyObjectEntity;
 
-import java.awt.*;
-import java.util.Collections;
-import java.util.List;
-import java.util.function.Consumer;
 
 public class TankTrainingDummyObject extends GameObject
 {
@@ -45,7 +44,7 @@ public class TankTrainingDummyObject extends GameObject
         this.toolType = ToolType.ALL;
         this.isLightTransparent = true;
         this.drawRandom = new GameRandom();
-        this.regionType = SemiRegion.RegionType.SUMMON_IGNORED;
+        this.regionType = RegionType.SUMMON_IGNORED;
         this.hoverHitbox = new Rectangle(0, -16, 32, 48);
         this.setItemCategory("objects", "misc");
         this.setCraftingCategory("objects", "misc");

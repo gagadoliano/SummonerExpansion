@@ -85,7 +85,7 @@ public class HorrorSpiritMob extends FlyingHostileMob
         return lootTable;
     }
 
-    protected void playDeathSound() {
+    public void playDeathSound() {
         SoundManager.playSound(GameResources.fadedeath3, SoundEffect.effect(this));
     }
 
@@ -100,7 +100,7 @@ public class HorrorSpiritMob extends FlyingHostileMob
         DrawOptions body = texture.initDraw().sprite(0, anim, 64).mirror(this.moveX < 0.0F, false).alpha(0.7F).light(light).pos(drawX, drawY);
         int minLight = 100;
         DrawOptions eyes = texture.initDraw().sprite(1, anim, 64).mirror(this.moveX < 0.0F, false).alpha(0.7F).light(light.minLevelCopy((float)minLight)).pos(drawX, drawY);
-        this.addShadowDrawables(topList, x, y, light, camera);
+        this.addShadowDrawables(topList, level, x, y, light, camera);
         topList.add((tm) -> {
             body.draw();
             eyes.draw();

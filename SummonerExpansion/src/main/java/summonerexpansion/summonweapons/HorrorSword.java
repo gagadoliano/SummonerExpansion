@@ -17,6 +17,7 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.swordToolItem.SwordToolItem;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
 import summonerexpansion.summonminions.HorrorCrawlingZombieMinion;
 
@@ -28,16 +29,16 @@ public class HorrorSword extends SwordToolItem
 
     public HorrorSword()
     {
-        super(800);
+        super(800, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.EPIC;
         damageType = DamageTypeRegistry.SUMMON;
         attackDamage.setBaseValue(40.0F).setUpgradedValue(1.0F, 65.0F);
         attackAnimTime.setBaseValue(1000);
-        resilienceGain.setBaseValue(0F).setUpgradedValue(1, 0.1F);
+        resilienceGain.setBaseValue(0F).setUpgradedValue(1, 0.1F).setUpgradedValue(10, 0.2F);
         attackRange.setBaseValue(50);
         knockback.setBaseValue(80);
         maxCrawlers.setBaseValue(2).setUpgradedValue(1, 4).setUpgradedValue(5, 6);
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
     }
 
     @Override

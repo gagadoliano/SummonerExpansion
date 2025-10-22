@@ -8,6 +8,8 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.SetHelmetArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.ArmorSetsLootTable;
+import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class ShadowHorrorHood extends SetHelmetArmorItem
 {
@@ -15,9 +17,8 @@ public class ShadowHorrorHood extends SetHelmetArmorItem
 
     public ShadowHorrorHood()
     {
-        super(20, DamageTypeRegistry.SUMMON, 600, Rarity.LEGENDARY, "shadowhorrorhood", "shadowhorrormantle", "shadowhorrorboots", "shadowhorrorsetbonus");
+        super(20, DamageTypeRegistry.SUMMON, 600, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, Rarity.LEGENDARY, "shadowhorrorhood", "shadowhorrormantle", "shadowhorrorboots", "shadowhorrorsetbonus");
         hairDrawOptions = HairDrawMode.NO_HEAD;
-        canBeUsedForRaids = false;
     }
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)

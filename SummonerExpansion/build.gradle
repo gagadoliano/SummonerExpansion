@@ -7,8 +7,8 @@ plugins {
 
 project.ext.modID = "gagadoliano.summonerexpansion" // The unique id of your mod. Must be all lowercase and cannot use special characters.
 project.ext.modName = "Summoner Expansion" // The display name of your mod.
-project.ext.modVersion = "4.3" // Your current builds version. Must follow the xx.xx... format.
-project.ext.gameVersion = "0.33.1" // The target game version.
+project.ext.modVersion = "5.0" // Your current builds version. Must follow the xx.xx... format.
+project.ext.gameVersion = "1.0.1" // The target game version.
 project.ext.modDescription = "A summoner expansion mod" // Short description of what your mod is.
 project.ext.author = "Gagadoliano" // Your name
 
@@ -28,7 +28,7 @@ project.ext.clientside = false
 //project.ext.modOptionalDependencies = ["optional.modid1", "optional.modid2"]
 
 // The path to the games install directory
-def gameDirectory = "D:/Steam/steamapps/common/Necesse"
+def gameDirectory = "C:/Program Files (x86)/Steam/steamapps/common/Necesse"
 
 // =================================================
 // ========== DO NOT EDIT BELOW THIS LINE ==========

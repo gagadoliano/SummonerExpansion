@@ -1,8 +1,6 @@
 package summonerexpansion;
 
 import necesse.level.maps.biomes.Biome;
-import necesse.level.maps.biomes.dungeon.DungeonBiome;
-import necesse.level.maps.biomes.pirate.PirateVillageBiome;
 import necesse.level.maps.biomes.swamp.SwampBiome;
 import summonerexpansion.summonobjects.*;
 import summonerexpansion.summonothers.*;

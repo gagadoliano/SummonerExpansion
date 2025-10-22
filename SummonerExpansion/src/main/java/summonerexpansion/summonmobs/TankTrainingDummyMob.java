@@ -20,12 +20,13 @@ import java.util.List;
 
 public class TankTrainingDummyMob extends Mob
 {
-    public DPSTracker trainingDummyDPSTracker = new DPSTracker();
+    public DPSTracker trainingDummyDPSTracker;
     private int aliveTimer;
 
     public TankTrainingDummyMob()
     {
         super(Integer.MAX_VALUE);
+        trainingDummyDPSTracker = new DPSTracker();
         this.setArmor(1000);
         this.setSpeed(0.0F);
         this.setFriction(1000.0F);
@@ -77,19 +78,26 @@ public class TankTrainingDummyMob extends Mob
     public void keepAlive(TankTrainingDummyObjectEntity entity)
     {
         this.aliveTimer = 20;
-        this.setPos((float)(entity.getX() * 32 + 16), (float)(entity.getY() * 32 + 16), true);
+        this.setPos((float)(entity.tileX * 32 + 16), (float)(entity.tileY * 32 + 16), true);
     }
 
-    protected void playHitSound()
+    public void playHitSound()
     {
-        SoundManager.playSound(GameResources.blunthit, SoundEffect.effect(this).pitch(GameRandom.globalRandom.getFloatBetween(0.9F, 1.1F)));
+        SoundManager.playSound(GameResources.blunthit, SoundEffect.effect(this).volume(0.7F).pitch(GameRandom.globalRandom.getFloatBetween(0.9F, 1.1F)));
     }
 
-    protected void playDeathSound() {
+    public void playHitDeathSound() {
+    }
+
+    public void playDeathSound() {
     }
 
     public boolean canBePushed(Mob other) {
         return false;
+    }
+
+    protected int getDrawSortY(Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective, boolean fromMount) {
+        return this.getTileY() * 32 + 20;
     }
 
     public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
@@ -113,9 +121,9 @@ public class TankTrainingDummyMob extends Mob
 
     public MobWasHitEvent isHit(MobWasHitEvent event, Attacker attacker)
     {
-        if (this.getLevel() != null)
+        if (getLevel() != null)
         {
-            this.getLevel().forceGrassWeave(this.getX() / 32, this.getY() / 32, 200);
+            getLevel().forceGrassWeave(this.getTileX(), this.getTileY(), 200);
         }
         return super.isHit(event, attacker);
     }

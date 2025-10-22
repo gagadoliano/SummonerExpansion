@@ -7,15 +7,16 @@ import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 
 public class IceWizardStaff extends SummonToolItem
 {
     public IceWizardStaff()
     {
-        super("icewizardminion", FollowPosition.WALK_CLOSE, 1F, 800);
+        super("icewizardminion", FollowPosition.WALK_CLOSE, 1F, 800, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.COMMON;
         attackDamage.setBaseValue(32.0F).setUpgradedValue(1, 50.0F);
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
     }
 
     @Override

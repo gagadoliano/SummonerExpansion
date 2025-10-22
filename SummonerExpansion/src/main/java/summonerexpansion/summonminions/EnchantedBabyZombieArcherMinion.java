@@ -105,7 +105,7 @@ public class EnchantedBabyZombieArcherMinion extends AttackingFollowingMob
                 drawOptions.draw();
             }
         });
-        addShadowDrawables(tileList, x, y, light, camera);
+        addShadowDrawables(tileList, level, x, y, light, camera);
     }
 
     protected TextureDrawOptions getShadowDrawOptions(int x, int y, GameLight light, GameCamera camera) 

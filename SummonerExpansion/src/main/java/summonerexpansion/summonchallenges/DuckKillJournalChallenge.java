@@ -15,7 +15,7 @@ public class DuckKillJournalChallenge extends MobsKilledJournalChallenge
     public void onMobKilled(ServerClient serverClient, Mob mob)
     {
         Level level = mob.getLevel();
-        if (JournalChallengeUtils.isForestBiome(level.biome))
+        if (!level.isCave)
         {
             super.onMobKilled(serverClient, mob);
         }

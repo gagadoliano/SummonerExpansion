@@ -76,7 +76,7 @@ public class BookRunicShieldMinion extends FlyingAttackingFollowingMob
         }
     }
 
-    protected void playDeathSound()
+    public void playDeathSound()
     {
         SoundManager.playSound(GameResources.shatter1, SoundEffect.effect(this).volume(0.5F));
     }

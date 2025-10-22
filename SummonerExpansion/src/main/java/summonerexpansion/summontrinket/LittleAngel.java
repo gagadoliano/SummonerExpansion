@@ -10,11 +10,12 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.container.Container;
 import necesse.inventory.container.slots.ContainerSlot;
 import necesse.inventory.item.trinketItem.TrinketItem;
+import necesse.inventory.lootTable.presets.TrinketsLootTable;
 
 public class LittleAngel extends TrinketItem
 {
     public LittleAngel() {
-        super(Rarity.RARE, 800);
+        super(Rarity.RARE, 800, TrinketsLootTable.trinkets);
     }
 
     public TrinketBuff[] getBuffs(InventoryItem item)

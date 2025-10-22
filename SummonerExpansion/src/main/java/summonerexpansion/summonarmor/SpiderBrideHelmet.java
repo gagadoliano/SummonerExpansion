@@ -8,6 +8,8 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.SetHelmetArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.ArmorSetsLootTable;
+import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class SpiderBrideHelmet extends SetHelmetArmorItem
 {
@@ -16,9 +18,8 @@ public class SpiderBrideHelmet extends SetHelmetArmorItem
 
     public SpiderBrideHelmet()
     {
-        super(19, DamageTypeRegistry.SUMMON, 600, Rarity.LEGENDARY, "spiderbridehelmet", "spiderbridechest", "spiderbrideboots", "spiderbridehelmetsetbonus");
+        super(19, DamageTypeRegistry.SUMMON, 600, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, Rarity.LEGENDARY, "spiderbridehelmet", "spiderbridechest", "spiderbrideboots", "spiderbridehelmetsetbonus");
         hairDrawOptions = HairDrawMode.NO_HEAD;
-        canBeUsedForRaids = false;
     }
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)

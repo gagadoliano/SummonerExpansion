@@ -7,6 +7,7 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.BootsArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.FeetArmorLootTable;
 
 public class SpiderBrideBoots extends BootsArmorItem
 {
@@ -14,7 +15,7 @@ public class SpiderBrideBoots extends BootsArmorItem
 
     public SpiderBrideBoots()
     {
-        super(17, 600, Rarity.LEGENDARY, "spiderbrideboots");
+        super(17, 600, Rarity.LEGENDARY, "spiderbrideboots", FeetArmorLootTable.feetArmor);
     }
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)

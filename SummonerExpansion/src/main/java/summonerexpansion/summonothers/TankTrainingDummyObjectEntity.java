@@ -64,7 +64,9 @@ public class TankTrainingDummyObjectEntity extends ObjectEntity
         }
 
         TankTrainingDummyMob m = new TankTrainingDummyMob();
-        this.getLevel().entityManager.addMob(m, (float)(this.getX() * 32 + 16), (float)(this.getY() * 32 + 16));
+        float var10002 = (float)(this.tileX * 32 + 16);
+        int var10003 = this.tileY * 32;
+        this.getLevel().entityManager.addMob(m, var10002, (float)(var10003 + 16));
         this.dummyMobID = m.getUniqueID();
         return m;
     }

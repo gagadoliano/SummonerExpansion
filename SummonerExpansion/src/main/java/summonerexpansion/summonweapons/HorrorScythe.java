@@ -11,6 +11,7 @@ import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.swordToolItem.greatswordToolItem.GreatswordToolItem;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
 import summonerexpansion.summonothers.HorrorScytheHandler;
 
@@ -20,16 +21,16 @@ public class HorrorScythe extends GreatswordToolItem
 {
     public HorrorScythe()
     {
-        super(800, HorrorScythe.getChargeLevels(600, 800, 1200));
+        super(800, SummonWeaponsLootTable.summonWeapons, HorrorScythe.getChargeLevels(600, 800, 1200));
         rarity = Rarity.EPIC;
         damageType = DamageTypeRegistry.SUMMON;
         attackDamage.setBaseValue(60.0F).setUpgradedValue(1, 65.0F);
-        resilienceGain.setBaseValue(0F).setUpgradedValue(1, 1F);
+        resilienceGain.setBaseValue(0F).setUpgradedValue(1, 1F).setUpgradedValue(10, 1.2F);
         attackRange.setBaseValue(80);
         knockback.setBaseValue(120);
         attackXOffset = 12;
         attackYOffset = 14;
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
     }
 
     public static GreatswordChargeLevel[] getChargeLevels(int level1Time, int level2Time, int level3Time)

@@ -7,12 +7,13 @@ import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 
 public class VampireCoffin extends SummonToolItem
 {
     public VampireCoffin()
     {
-        super("coffinsentry", FollowPosition.PYRAMID, 1F, 1600);
+        super("coffinsentry", FollowPosition.PYRAMID, 1F, 1600, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.RARE;
         attackDamage.setBaseValue(60.0F).setUpgradedValue(1, 80.0F);
         canBeUsedForRaids = false;

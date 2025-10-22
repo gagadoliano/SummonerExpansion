@@ -124,7 +124,7 @@ public class SandWormHeadMinion extends AttackingFollowingWormMobHead<SandWormBo
                     headDrawable.draw(tickManager);
                 }
             });
-            this.addShadowDrawables(tileList, x, y, light, camera);
+            this.addShadowDrawables(tileList, level, x, y, light, camera);
         }
     }
 

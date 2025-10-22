@@ -89,7 +89,7 @@ public class HorrorBatMinion extends FlyingAttackingFollowingMob
                 drawOptions.draw();
             }
         });
-        this.addShadowDrawables(tileList, x, y, light, camera);
+        this.addShadowDrawables(tileList, level, x, y, light, camera);
     }
 
     public Point getAnimSprite(int x, int y, int dir)

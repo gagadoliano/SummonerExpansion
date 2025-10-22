@@ -8,6 +8,8 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.SetHelmetArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.ArmorSetsLootTable;
+import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class CopperMinerHat extends SetHelmetArmorItem
 {
@@ -15,11 +17,10 @@ public class CopperMinerHat extends SetHelmetArmorItem
 
     public CopperMinerHat()
     {
-        super(4, DamageTypeRegistry.SUMMON, 50, Rarity.COMMON, "copperminerhat", "copperchestplate", "copperboots", "copperminersetbonus");
+        super(4, DamageTypeRegistry.SUMMON, 50, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, Rarity.COMMON, "copperminerhat", "copperchestplate", "copperboots", "copperminersetbonus");
         facialFeatureDrawOptions = FacialFeatureDrawMode.OVER_FACIAL_FEATURE;
         hairDrawOptions = HairDrawMode.OVER_HAIR;
         hairMaskTextureName = "safarihat_hardhat_minerhat_hairmask";
-        canBeUsedForRaids = false;
     }
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)

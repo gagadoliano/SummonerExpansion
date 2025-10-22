@@ -17,6 +17,7 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.spearToolItem.SpearToolItem;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
 import summonerexpansion.summonminions.FishianMinion;
 
@@ -28,17 +29,17 @@ public class FishianSpear extends SpearToolItem
 
     public FishianSpear()
     {
-        super(800);
+        super(800, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.RARE;
         damageType = DamageTypeRegistry.SUMMON;
         attackDamage.setBaseValue(30.0F).setUpgradedValue(1, 45.0F);
         attackAnimTime.setBaseValue(500);
-        resilienceGain.setBaseValue(0F).setUpgradedValue(1, 0.1F);
+        resilienceGain.setBaseValue(0F).setUpgradedValue(1, 0.1F).setUpgradedValue(10, 0.2F);
         attackRange.setBaseValue(80);
         knockback.setBaseValue(25);
         width = 80.0F;
         maxFishians.setBaseValue(2).setUpgradedValue(1, 4).setUpgradedValue(5, 6);
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
     }
 
     public void hitMob(InventoryItem item, ToolItemMobAbilityEvent event, Level level, Mob target, Mob attacker)

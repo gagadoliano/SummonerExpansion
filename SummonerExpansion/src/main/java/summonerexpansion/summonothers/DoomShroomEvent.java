@@ -6,6 +6,7 @@ import necesse.engine.registries.BuffRegistry;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
 import necesse.engine.util.GameRandom;
+import necesse.engine.util.PointSetAbstract;
 import necesse.entity.levelEvent.mobAbilityLevelEvent.GroundEffectEvent;
 import necesse.entity.levelEvent.mobAbilityLevelEvent.HitboxEffectEvent;
 import necesse.entity.mobs.Attacker;
@@ -120,7 +121,13 @@ public class DoomShroomEvent extends HitboxEffectEvent implements Attacker
     public void hitObject(LevelObjectHit hit) {
     }
 
-    public Set<RegionPosition> getRegionPositions() {
-        return owner.getRegionPositions();
+    public PointSetAbstract<?> getRegionPositions()
+    {
+        return this.owner != null ? this.owner.getRegionPositions() : super.getRegionPositions();
+    }
+
+    public Point getSaveToRegionPos()
+    {
+        return this.owner != null ? new Point(this.level.regionManager.getRegionCoordByTile(this.owner.getTileX()), this.level.regionManager.getRegionCoordByTile(this.owner.getTileY())) : super.getSaveToRegionPos();
     }
 }

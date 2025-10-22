@@ -184,17 +184,6 @@ public class SummonerRecipes
         ));
 
         Recipes.registerModRecipe(new Recipe(
-                "bookmushroom",
-                1,
-                SUMMONBOOKCRAFT,
-                new Ingredient[]{
-                        new Ingredient("mushroom", 25),
-                        new Ingredient("spoiledfood", 10),
-                        new Ingredient("book", 1)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
                 "bookbee",
                 1,
                 SUMMONBOOKCRAFT,
@@ -233,6 +222,18 @@ public class SummonerRecipes
                 SUMMONBOOKCRAFT,
                 new Ingredient[]{
                         new Ingredient("runestone", 25),
+                        new Ingredient("book", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "bookmushroom",
+                1,
+                SUMMONBOOKCRAFT,
+                new Ingredient[]{
+                        new Ingredient("mushroom", 50),
+                        new Ingredient("spoiledfood", 20),
+                        new Ingredient("revivalpotion", 2),
                         new Ingredient("book", 1)
                 }
         ));

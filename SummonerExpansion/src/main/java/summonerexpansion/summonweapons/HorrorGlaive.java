@@ -21,6 +21,7 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.ItemInteractAction;
 import necesse.inventory.item.toolItem.glaiveToolItem.GlaiveToolItem;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
 import summonerexpansion.summonminions.HorrorSentry;
 
@@ -31,7 +32,7 @@ public class HorrorGlaive extends GlaiveToolItem implements ItemInteractAction
 {
     public HorrorGlaive()
     {
-        super(800);
+        super(800, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.UNCOMMON;
         damageType = DamageTypeRegistry.SUMMON;
         attackDamage.setBaseValue(35.0F).setUpgradedValue(1.0F, 75.0F);
@@ -42,7 +43,7 @@ public class HorrorGlaive extends GlaiveToolItem implements ItemInteractAction
         attackXOffset = 74;
         attackYOffset = 74;
         width = 20.0F;
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
     }
 
     public void showAttack(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight, InventoryItem item, int animAttack, int seed, GNDItemMap mapContent)

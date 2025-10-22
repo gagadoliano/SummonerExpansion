@@ -2,11 +2,13 @@ package summonerexpansion.summonminions;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.registries.BuffRegistry;
+import necesse.engine.registries.MobRegistry;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerCollisionChaserAI;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.staticBuffs.Buff;
+import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.entity.objectEntity.interfaces.OEVicinityBuff;
 import necesse.entity.particle.FleshParticle;
@@ -26,6 +28,7 @@ public class BookMushroomSentry extends AttackingFollowingMob implements OEVicin
 {
     public static GameTexture texture;
     public float moveAngle;
+    public int mushtimer;
 
     public BookMushroomSentry()
     {
@@ -118,6 +121,14 @@ public class BookMushroomSentry extends AttackingFollowingMob implements OEVicin
     public void serverTick()
     {
         super.serverTick();
+        if (++mushtimer >= 600)
+        {
+            AttackingFollowingMob mob = (AttackingFollowingMob) MobRegistry.getMob("mushroomminion", getFollowingItemAttacker().getLevel());
+            getFollowingItemAttacker().serverFollowersManager.addFollower("mushroomminion", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, (p) -> 10, null, false);
+            mob.updateDamage(summonDamage);
+            getLevel().entityManager.addMob(mob, x, y);
+            mushtimer = 0;
+        }
         tickVicinityBuff(this);
     }
 

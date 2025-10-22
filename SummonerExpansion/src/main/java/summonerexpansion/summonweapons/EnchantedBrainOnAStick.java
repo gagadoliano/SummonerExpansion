@@ -13,16 +13,17 @@ import necesse.gfx.gameTooltips.GameTooltips;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
 
 public class EnchantedBrainOnAStick extends SummonToolItem
 {
     public EnchantedBrainOnAStick()
     {
-        super("enchantedbabyzombieminion", FollowPosition.PYRAMID, 0.5F, 200);
+        super("enchantedbabyzombieminion", FollowPosition.PYRAMID, 0.5F, 200, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.COMMON;
         attackDamage.setBaseValue(12.0F).setUpgradedValue(1, 32.0F);
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
     }
 
     public GameTooltips getSpaceTakenTooltip(InventoryItem item, PlayerMob perspective) {

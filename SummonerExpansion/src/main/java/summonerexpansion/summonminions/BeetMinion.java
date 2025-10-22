@@ -89,7 +89,7 @@ public class BeetMinion extends AttackingFollowingMob
                 swimMask.stop();
             }
         });
-        this.addShadowDrawables(tileList, x, y - 5, light, camera);
+        addShadowDrawables(tileList, level, x, y - 5, light, camera);
     }
 
     public int getRockSpeed() {

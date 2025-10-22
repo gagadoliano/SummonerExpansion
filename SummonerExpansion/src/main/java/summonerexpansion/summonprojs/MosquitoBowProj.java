@@ -131,7 +131,7 @@ public class MosquitoBowProj extends Projectile
             if (!isServer()) 
             {
                 SoundManager.playSound(GameResources.bowhit, SoundEffect.effect(this));
-                SoundManager.playSound(GameResources.slimesplash, SoundEffect.effect(this));
+                SoundManager.playSound(GameResources.slimeSplash3, SoundEffect.effect(this));
                 FireworksExplosion explosion = new FireworksExplosion(FireworksPath.sphere((float)GameRandom.globalRandom.getIntBetween(range - 10, range)));
                 explosion.colorGetter = (particle, progress, random) -> ParticleOption.randomizeColor(54.0F, 0F, 0.2F, 0F, 0F, 0F);
                 explosion.trailChance = 0.5F;

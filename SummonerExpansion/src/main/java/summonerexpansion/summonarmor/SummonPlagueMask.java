@@ -8,6 +8,8 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.SetHelmetArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.ArmorSetsLootTable;
+import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class SummonPlagueMask extends SetHelmetArmorItem
 {
@@ -15,9 +17,8 @@ public class SummonPlagueMask extends SetHelmetArmorItem
 
     public SummonPlagueMask()
     {
-        super(15, DamageTypeRegistry.SUMMON, 550, Rarity.UNCOMMON, "summonplaguemask", "summonplaguerobe", "summonplagueboots", "summonplaguesetbonus");
+        super(15, DamageTypeRegistry.SUMMON, 550, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, Rarity.UNCOMMON, "summonplaguemask", "summonplaguerobe", "summonplagueboots", "summonplaguesetbonus");
         hairDrawOptions = HairDrawMode.NO_HEAD;
-        canBeUsedForRaids = false;
     }
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)

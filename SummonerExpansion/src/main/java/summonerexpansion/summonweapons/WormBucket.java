@@ -9,6 +9,7 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.projectileToolItem.throwToolItem.boomerangToolItem.BoomerangToolItem;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
 
 public class WormBucket extends BoomerangToolItem
@@ -17,16 +18,16 @@ public class WormBucket extends BoomerangToolItem
 
     public WormBucket()
     {
-        super(200, "wormproj");
+        super(200, SummonWeaponsLootTable.summonWeapons, "wormproj");
         rarity = Rarity.COMMON;
         damageType = DamageTypeRegistry.SUMMON;
         attackDamage.setBaseValue(10.0F).setUpgradedValue(1, 35.0F);
         attackAnimTime.setBaseValue(300).setUpgradedValue(1, 280);
-        resilienceGain.setBaseValue(0F).setUpgradedValue(1, 0.1F);
+        resilienceGain.setBaseValue(0F).setUpgradedValue(1, 0.1F).setUpgradedValue(10, 0.2F);
         attackRange.setBaseValue(400);
         velocity.setBaseValue(100).setUpgradedValue(1, 120);
         wormAmount.setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(3, 3).setUpgradedValue(5, 4);
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
     }
 
     @Override

@@ -7,12 +7,14 @@ import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.SetHelmetArmorItem;
+import necesse.inventory.lootTable.presets.ArmorSetsLootTable;
+import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class ShadowHelmet extends SetHelmetArmorItem
 {
     public ShadowHelmet()
     {
-        super(5, DamageTypeRegistry.SUMMON, 600, Rarity.UNCOMMON, "shadowhelmet", "shadowmantle", "shadowboots", "shadowhelmetsetbonus");
+        super(5, DamageTypeRegistry.SUMMON, 600, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, Rarity.UNCOMMON, "shadowhelmet", "shadowmantle", "shadowboots", "shadowhelmetsetbonus");
         hairDrawOptions = HairDrawMode.NO_HAIR;
         facialFeatureDrawOptions = FacialFeatureDrawMode.NO_FACIAL_FEATURE;
     }

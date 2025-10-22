@@ -7,15 +7,16 @@ import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 
 public class EmeraldShards extends SummonToolItem
 {
     public EmeraldShards()
     {
-        super("golememeraldminion", FollowPosition.WALK_CLOSE, 1F, 1600);
+        super("golememeraldminion", FollowPosition.WALK_CLOSE, 1F, 1600, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.COMMON;
         attackDamage.setBaseValue(110.0F).setUpgradedValue(1, 125.0F);
-        canBeUsedForRaids = false;
+        canBeUsedForRaids = true;
     }
 
     @Override
