@@ -3,6 +3,7 @@ package summonerexpansion.summonminions;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.localization.message.GameMessage;
 import necesse.engine.localization.message.LocalMessage;
+import necesse.engine.network.server.ServerClient;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.util.ComputedObjectValue;
 import necesse.engine.util.GameLinkedList;
@@ -79,9 +80,7 @@ public class SandWormHeadMinion extends AttackingFollowingWormMobHead<SandWormBo
         return super.getTurnSpeed(delta) * 1.2F;
     }
 
-    public GameDamage getCollisionDamage(Mob target) {
-        return this.summonDamage;
-    }
+    public GameDamage getCollisionDamage(Mob target, boolean fromPacket, ServerClient packetSubmitter) { return summonDamage; }
 
     public void spawnDeathParticles(float knockbackX, float knockbackY)
     {

@@ -1,6 +1,7 @@
 package summonerexpansion.summonminions;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
+import necesse.engine.network.server.ServerClient;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
@@ -44,9 +45,7 @@ public class ExplosiveSnowmanMinion extends AttackingFollowingMob
         swimSinkOffset = 0;
     }
 
-    public GameDamage getCollisionDamage(Mob target) {
-        return summonDamage;
-    }
+    public GameDamage getCollisionDamage(Mob target, boolean fromPacket, ServerClient packetSubmitter) { return summonDamage; }
 
     public int getCollisionKnockback(Mob target) {
         return 15;
@@ -58,8 +57,20 @@ public class ExplosiveSnowmanMinion extends AttackingFollowingMob
 
         if (SnowHitCount >= 5)
         {
-            GameDamage bombDamage = new GameDamage(this.summonDamage.damage * 2.0F);
-            SnowmanExplosionLevelEvent explosionLevelEvent = new SnowmanExplosionLevelEvent(this.x, this.y, 200, bombDamage, false, 0, this);
+            GameDamage bombDamage;
+            int range;
+            if (getAttackOwner().buffManager.hasBuff("frostcrownsetbonus"))
+            {
+                bombDamage = new GameDamage(summonDamage.damage * 3.0F);
+                range = 250;
+            }
+            else
+            {
+                bombDamage = new GameDamage(summonDamage.damage * 2.0F);
+                range = 200;
+            }
+
+            SnowmanExplosionLevelEvent explosionLevelEvent = new SnowmanExplosionLevelEvent(x, y, range, bombDamage, false, 0, this);
             getLevel().entityManager.addLevelEvent(explosionLevelEvent);
             remove(0.0F, 0.0F, null, true);
         }

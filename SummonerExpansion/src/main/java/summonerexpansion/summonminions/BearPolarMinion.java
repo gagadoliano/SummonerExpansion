@@ -1,6 +1,7 @@
 package summonerexpansion.summonminions;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
+import necesse.engine.network.server.ServerClient;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.registries.BuffRegistry;
 import necesse.entity.mobs.*;
@@ -39,14 +40,22 @@ public class BearPolarMinion extends AttackingFollowingMob
         prioritizeVerticalDir = false;
     }
 
+    public GameDamage getCollisionDamage(Mob target, boolean fromPacket, ServerClient packetSubmitter)
+    {
+        if (getAttackOwner().buffManager.hasBuff("frostcrownsetbonus"))
+        {
+            return summonDamage.modFinalMultiplier(1.20F);
+        }
+        else
+        {
+            return summonDamage;
+        }
+    }
+
     public void init()
     {
         super.init();
         ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI(500, summonDamage, 30, 800, 640, 100));
-    }
-
-    public GameDamage getCollisionDamage(Mob target) {
-        return summonDamage;
     }
 
     public void handleCollisionHit(Mob target, GameDamage damage, int knockback)
@@ -54,8 +63,16 @@ public class BearPolarMinion extends AttackingFollowingMob
         Mob owner = this.getAttackOwner();
         if (owner != null && target != null)
         {
-            ActiveBuff buff = new ActiveBuff(BuffRegistry.getBuff("polarsnowdebuff"), target, 60F, this);
-            target.addBuff(buff, true);
+            if (getAttackOwner().buffManager.hasBuff("frostcrownsetbonus"))
+            {
+                ActiveBuff buff = new ActiveBuff(BuffRegistry.getBuff("polarsnowdebuff"), target, 15F, this);
+                target.addBuff(buff, true);
+            }
+            else
+            {
+                ActiveBuff buff = new ActiveBuff(BuffRegistry.getBuff("polarsnowdebuff"), target, 5F, this);
+                target.addBuff(buff, true);
+            }
         }
     }
 

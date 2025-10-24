@@ -21,7 +21,7 @@ import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.CollisionFilter;
 import necesse.level.maps.Level;
 import necesse.level.maps.LevelObjectHit;
-import summonerexpansion.summonminions.MosquitoBowMinion;
+import summonerexpansion.summonminions.BowMosquitoMinion;
 import summonerexpansion.summonprojs.MosquitoBowProj;
 
 import java.awt.*;
@@ -53,7 +53,7 @@ public class MosquitoBow  extends BowProjectileToolItem
     @Override
     public InventoryItem onAttack(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight, InventoryItem item, ItemAttackSlot slot, int animAttack, int seed, GNDItemMap mapContent)
     {
-        MosquitoBowMinion mob = new MosquitoBowMinion();
+        BowMosquitoMinion mob = new BowMosquitoMinion();
         attackerMob.serverFollowersManager.addFollower("mosquitobowminion", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, maxMosquitos.getValue(getUpgradeTier(item)), null, false);
         mob.updateDamage(getAttackDamage(item));
         mob.setEnchantment(getEnchantment(item));

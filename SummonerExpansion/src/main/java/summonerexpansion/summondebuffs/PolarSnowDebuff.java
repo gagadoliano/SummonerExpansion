@@ -20,8 +20,7 @@ public class PolarSnowDebuff extends Buff
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
     {
-        buff.setModifier(BuffModifiers.SLOW, 0.25F);
-        buff.setModifier(BuffModifiers.KNOCKBACK_INCOMING_MOD, 1.20F);
+        buff.setModifier(BuffModifiers.SLOW, 0.01F);
     }
 
     public void clientTick(ActiveBuff buff)
@@ -32,6 +31,9 @@ public class PolarSnowDebuff extends Buff
             Mob owner = buff.owner;
             owner.getLevel().entityManager.addParticle(owner.x + (float)(GameRandom.globalRandom.nextGaussian() * 6.0), owner.y + (float)(GameRandom.globalRandom.nextGaussian() * 8.0), Particle.GType.IMPORTANT_COSMETIC).movesConstant(owner.dx / 10.0F, owner.dy / 10.0F).color(new Color(149, 204, 245)).height(16.0F);
         }
+    }
 
+    public int getStackSize(ActiveBuff buff) {
+        return 25;
     }
 }

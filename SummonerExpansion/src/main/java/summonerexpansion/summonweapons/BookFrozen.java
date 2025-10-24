@@ -10,11 +10,14 @@ import necesse.entity.mobs.itemAttacker.ItemAttackSlot;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
+import necesse.gfx.gameTooltips.StringTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
+
+import java.awt.*;
 
 public class BookFrozen extends SummonToolItem
 {
@@ -39,6 +42,10 @@ public class BookFrozen extends SummonToolItem
     {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "bookfrozentip"));
+        if (perspective.buffManager.hasBuff("frostcrownsetbonus"))
+        {
+            tooltips.add(new StringTooltips(Localization.translate("itemtooltip", "bookfrozentip2"), new Color(87, 189, 216)));
+        }
         tooltips.add(Localization.translate("itemtooltip", "secondarysummon"));
         tooltips.add(Localization.translate("itemtooltip", "minionactivecap", "amount", this.getMaxSummons(item, perspective)));
         return tooltips;

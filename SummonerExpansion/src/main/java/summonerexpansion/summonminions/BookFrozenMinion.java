@@ -63,16 +63,31 @@ public class BookFrozenMinion extends AttackingFollowingMob
         {
             public boolean attackTarget(BookFrozenMinion mob, Mob target)
             {
-                if (mob.canAttack())
+                if (mob.canAttack() && getAttackOwner().buffManager.hasBuff("frostcrownsetbonus"))
                 {
                     mob.attack(target.getX(), target.getY(), false);
-                    Projectile projectile = ProjectileRegistry.getProjectile("iceminionjavelinproj", mob.getLevel(), mob.x, mob.y, target.x, target.y, 80.0F, 480, BookFrozenMinion.this.summonDamage, mob);
+                    Projectile projectile = ProjectileRegistry.getProjectile("iceminionjavelinproj", mob.getLevel(), mob.x, mob.y, target.x, target.y, 120.0F, 600, summonDamage.modFinalMultiplier(1.20F), mob);
+                    projectile.setTargetPrediction(target, -20.0F);
+                    projectile.moveDist(120.0);
+                    mob.getLevel().entityManager.projectiles.add(projectile);
+                    if (GameRandom.globalRandom.nextInt(2) == 0)
+                    {
+                        throwLife++;
+                    }
+                    return true;
+                }
+                else if (mob.canAttack())
+                {
+                    mob.attack(target.getX(), target.getY(), false);
+                    Projectile projectile = ProjectileRegistry.getProjectile("iceminionjavelinproj", mob.getLevel(), mob.x, mob.y, target.x, target.y, 80.0F, 480, summonDamage, mob);
                     projectile.setTargetPrediction(target, -20.0F);
                     projectile.moveDist(80.0);
                     mob.getLevel().entityManager.projectiles.add(projectile);
                     throwLife++;
                     return true;
-                } else {
+                }
+                else
+                {
                     return false;
                 }
             }

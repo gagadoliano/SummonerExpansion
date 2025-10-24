@@ -1,6 +1,7 @@
 package summonerexpansion.summonminions;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
+import necesse.engine.network.server.ServerClient;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.registries.BuffRegistry;
 import necesse.entity.mobs.*;
@@ -41,14 +42,12 @@ public class BeeQueenMinion extends FlyingAttackingFollowingMob
         selectBox = new Rectangle();
     }
 
+    public GameDamage getCollisionDamage(Mob target, boolean fromPacket, ServerClient packetSubmitter) { return summonDamage; }
+
     public void init()
     {
         super.init();
         ai = new BehaviourTreeAI<>(this, new PlayerFlyingFollowerCollisionChaserAI(600, summonDamage, 10, 500, 800, 80), new FlyingAIMover());
-    }
-
-    public GameDamage getCollisionDamage(Mob target) {
-        return summonDamage;
     }
 
     @Override
@@ -61,7 +60,7 @@ public class BeeQueenMinion extends FlyingAttackingFollowingMob
         {
             FlyingAttackingFollowingMob mob = (FlyingAttackingFollowingMob)MobRegistry.getMob("beeminion", getFollowingItemAttacker().getLevel());
             getFollowingItemAttacker().serverFollowersManager.addFollower("beeminion", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, (p) -> 10, null, false);
-            mob.updateDamage(damage);
+            mob.updateDamage(damage.modFinalMultiplier(0.50F));
             getLevel().entityManager.addMob(mob, x, y);
 
             BeeHits = 0;

@@ -49,7 +49,13 @@ public class IceWizardMinion extends AttackingFollowingMob
         {
             public boolean attackTarget(IceWizardMinion mob, Mob target)
             {
-                if (mob.canAttack() && !mob.isAccelerating() && !mob.hasCurrentMovement())
+                if (mob.canAttack() && !mob.isAccelerating() && !mob.hasCurrentMovement() && getAttackOwner().buffManager.hasBuff("frostcrownsetbonus"))
+                {
+                    mob.attack(target.getX(), target.getY(), false);
+                    mob.getLevel().entityManager.projectiles.add(new IceWizardProj(mob.x, mob.y, target.x, target.y, summonDamage.modFinalMultiplier(1.20F), mob));
+                    return true;
+                }
+                else if (mob.canAttack() && !mob.isAccelerating() && !mob.hasCurrentMovement())
                 {
                     mob.attack(target.getX(), target.getY(), false);
                     mob.getLevel().entityManager.projectiles.add(new IceWizardProj(mob.x, mob.y, target.x, target.y, summonDamage, mob));

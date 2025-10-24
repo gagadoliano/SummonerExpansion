@@ -1,6 +1,7 @@
 package summonerexpansion.summonminions;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
+import necesse.engine.network.server.ServerClient;
 import necesse.engine.util.GameMath;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.*;
@@ -37,9 +38,7 @@ public class FishCarpMinion extends AttackingFollowingMob
         selectBox = new Rectangle();
     }
 
-    public GameDamage getCollisionDamage(Mob target) {
-        return summonDamage;
-    }
+    public GameDamage getCollisionDamage(Mob target, boolean fromPacket, ServerClient packetSubmitter) { return summonDamage; }
 
     public void handleCollisionHit(Mob target, GameDamage damage, int knockback)
     {

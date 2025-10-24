@@ -12,14 +12,14 @@ public class SummonerMobs
         // Minions
         MobRegistry.registerMob("enchantedbabyzombiearcherminion", EnchantedBabyZombieArcherMinion.class, false);
         MobRegistry.registerMob("enchantedbabyzombieminion", EnchantedBabyZombieMinion.class, false);
+        MobRegistry.registerMob("mummysummonminion", TrinketMummySummonMinion.class, false);
+        MobRegistry.registerMob("mummymagicminion", TrinketMummyMagicMinion.class, false);
         MobRegistry.registerMob("golemamethystminion", GolemAmethystMinion.class, false);
         MobRegistry.registerMob("golemsapphireminion", GolemSapphireMinion.class, false);
         MobRegistry.registerMob("golememeraldminion", GolemEmeraldMinion.class, false);
         MobRegistry.registerMob("lampminiontungsten", LampMinionTungsten.class, false);
         MobRegistry.registerMob("lampminiondungeon", LampMinionDungeon.class, false);
         MobRegistry.registerMob("spiritghoulminion", SpiritGhoulMinion.class, false);
-        MobRegistry.registerMob("mummysummonminion", MummySummonMinion.class, false);
-        MobRegistry.registerMob("mummymagicminion", MummyMagicMinion.class, false);
         MobRegistry.registerMob("runerangedminion", RuneRangedMinion.class, false);
         MobRegistry.registerMob("lampminioncopper", LampMinionCopper.class, false);
         MobRegistry.registerMob("lampminioncastle", LampMinionCastle.class, false);
@@ -34,6 +34,7 @@ public class SummonerMobs
         MobRegistry.registerMob("cactusminion", CactusMinion.class, false);
         MobRegistry.registerMob("farmerminion", FarmerMinion.class, false);
         MobRegistry.registerMob("bearminion", BearMinion.class, false);
+        MobRegistry.registerMob("golemtopazminion", GolemTopazMinion.class, false);
 
         // Worm Minions
         MobRegistry.registerMob("sandwormheadminion", SandWormHeadMinion.class, false);
@@ -63,28 +64,28 @@ public class SummonerMobs
         MobRegistry.registerMob("fishianminion", FishianMinion.class, false);
 
         // Range Minions
-        MobRegistry.registerMob("mosquitobowminion", MosquitoBowMinion.class, false);
+        MobRegistry.registerMob("mosquitobowminion", BowMosquitoMinion.class, false);
 
         // Magic Minions
 
         // Armor Minions
-        MobRegistry.registerMob("spiderbrideminion", SpiderBrideMinion.class, false);
-        MobRegistry.registerMob("horrorbabyminion", HorrorBabyMinion.class, false);
-        MobRegistry.registerMob("mouseminion", MouseMinion.class, false);
+        MobRegistry.registerMob("spiderbrideminion", SetSpiderBrideMinion.class, false);
+        MobRegistry.registerMob("horrorbabyminion", SetHorrorBabyMinion.class, false);
+        MobRegistry.registerMob("mouseminion", SetMouseMinion.class, false);
 
         // Trinket Minions
-        MobRegistry.registerMob("horrorbatminion", HorrorBatMinion.class, false);
-        MobRegistry.registerMob("jellyfishminion", JellyfishMinion.class, false);
-        MobRegistry.registerMob("beetminion", BeetMinion.class, false);
+        MobRegistry.registerMob("horrorbatminion", TrinketHorrorBatMinion.class, false);
+        MobRegistry.registerMob("jellyfishminion", PetJellyfishMinion.class, false);
+        MobRegistry.registerMob("beetminion", PetBeetMinion.class, false);
 
         // Sentries
         MobRegistry.registerMob("leafshotcoldsentry", LeafShotColdSentry.class, false);
         MobRegistry.registerMob("leafshotheatsentry", LeafShotHeatSentry.class, false);
         MobRegistry.registerMob("mushroomsentry", BookMushroomSentry.class, false);
+        MobRegistry.registerMob("coffinsentry", VampireCoffinSentry.class, false);
         MobRegistry.registerMob("horrorspikesentry", HorrorSentry.class, false);
         MobRegistry.registerMob("caveglowsentry", CaveglowSentry.class, false);
         MobRegistry.registerMob("leafshotsentry", LeafShotSentry.class, false);
-        MobRegistry.registerMob("coffinsentry", CoffinSentry.class, false);
         MobRegistry.registerMob("xmastreesentry", XmasTreeSentry.class, false);
 
         // Melee Sentries
@@ -103,8 +104,8 @@ public class SummonerMobs
         MobRegistry.registerMob("firemonesentry", FiremoneSentry.class, false);
 
         // Minions from minions
+        MobRegistry.registerMob("batcryptminion", VampireBatCryptMinion.class, false);
         MobRegistry.registerMob("mushroomminion", BookMushroomMinion.class, false);
-        MobRegistry.registerMob("batcryptminion", BatCryptMinion.class, false);
         MobRegistry.registerMob("beeminion", BeeMinion.class, false);
 
         // Mobs

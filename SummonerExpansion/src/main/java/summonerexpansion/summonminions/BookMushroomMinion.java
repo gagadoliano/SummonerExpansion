@@ -1,6 +1,7 @@
 package summonerexpansion.summonminions;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
+import necesse.engine.network.server.ServerClient;
 import necesse.engine.registries.DamageTypeRegistry;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.registries.BuffRegistry;
@@ -45,14 +46,12 @@ public class BookMushroomMinion extends AttackingFollowingMob
         isStatic = false;
     }
 
+    public GameDamage getCollisionDamage(Mob target, boolean fromPacket, ServerClient packetSubmitter) { return summonDamage; }
+
     public void init()
     {
         super.init();
         ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI(1500, summonDamage, 30, 500, 9000, 64));
-    }
-
-    public GameDamage getCollisionDamage(Mob target) {
-        return summonDamage;
     }
 
     @Override

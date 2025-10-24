@@ -1,6 +1,7 @@
 package summonerexpansion.summonminions;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
+import necesse.engine.network.server.ServerClient;
 import necesse.engine.registries.BuffRegistry;
 import necesse.engine.util.*;
 import necesse.entity.levelEvent.mobAbilityLevelEvent.SapphireGlyphEvent;
@@ -44,9 +45,7 @@ public class GolemSapphireMinion extends AttackingFollowingMob
         rightClickLifeEssenceCost = LifeEssenceStacksBuff.STACKS_PER_LIFE_ESSENCE;
     }
 
-    public GameDamage getCollisionDamage(Mob target) {
-        return summonDamage;
-    }
+    public GameDamage getCollisionDamage(Mob target, boolean fromPacket, ServerClient packetSubmitter) { return summonDamage; }
 
     public void init()
     {

@@ -1,6 +1,7 @@
 package summonerexpansion.summonminions;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
+import necesse.engine.network.server.ServerClient;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.registries.BuffRegistry;
 import necesse.engine.registries.ProjectileRegistry;
@@ -11,6 +12,8 @@ import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerChaserAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerCollisionChaserAI;
+import necesse.entity.mobs.buffs.BuffManager;
+import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.Buff;
 import necesse.entity.mobs.hostile.CrystalGolemMob;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
@@ -46,23 +49,26 @@ public class GolemAmethystMinion extends AttackingFollowingMob
         swimSinkOffset = -4;
     }
 
-    public GameDamage getCollisionDamage(Mob target) {
-        return this.summonDamage;
-    }
+    public GameDamage getCollisionDamage(Mob target, boolean fromPacket, ServerClient packetSubmitter) { return summonDamage; }
 
     public void handleCollisionHit(Mob target, GameDamage damage, int knockback)
     {
         Mob owner = this.getAttackOwner();
-        if (owner != null && target != null)
+
+        if (getLevel().isServer() && owner != null && target != null)
         {
-            int stackThreshold = (int) 10.0F;
-            float crystallizeDamageMultiplier = GameMath.limit(2.0F, 2.0F, (float)stackThreshold);
+            BuffManager attackerBM = owner.buffManager;
+            float thresholdMod = attackerBM.getModifier(BuffModifiers.SUMMON_CRIT_CHANCE);
+            float crystallizeMod = attackerBM.getModifier(BuffModifiers.CRIT_DAMAGE) + attackerBM.getModifier(BuffModifiers.SUMMON_CRIT_CHANCE);
+            int stackThreshold = (int)GameMath.limit(10.0F - 7.0F * thresholdMod, 3.0F, 10.0F);
+            float crystallizeDamageMultiplier = GameMath.limit(crystallizeMod, 2.0F, (float)stackThreshold);
             Buff crystallizeBuff = BuffRegistry.Debuffs.CRYSTALLIZE_BUFF;
-            ActiveBuff buff = new ActiveBuff(crystallizeBuff, target, 2000, this);
-            target.buffManager.addBuff(buff, true);
-            if (target.buffManager.getBuff(crystallizeBuff).getStacks() >= stackThreshold)
+            ActiveBuff ab = new ActiveBuff(crystallizeBuff, target, 2000, this);
+            target.buffManager.addBuff(ab, true);
+            ActiveBuff buff = target.buffManager.getBuff(crystallizeBuff);
+            if (buff != null && buff.getStacks() >= stackThreshold)
             {
-                getLevel().entityManager.addLevelEvent(new CrystallizeShatterEvent(target, CrystallizeShatterEvent.ParticleType.AMETHYST));
+                getLevel().entityManager.events.add(new CrystallizeShatterEvent(target, CrystallizeShatterEvent.ParticleType.AMETHYST));
                 target.buffManager.removeBuff(crystallizeBuff, true);
                 GameDamage finalDamage = summonDamage.modDamage(crystallizeDamageMultiplier);
                 target.isServerHit(finalDamage, 0.0F, 0.0F, 0.0F, this);

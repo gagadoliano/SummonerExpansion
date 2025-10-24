@@ -6,9 +6,12 @@ import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.gfx.gameTooltips.GameTooltips;
 import necesse.gfx.gameTooltips.ListGameTooltips;
+import necesse.gfx.gameTooltips.StringTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
+
+import java.awt.*;
 
 public class BearHead extends SummonToolItem
 {
@@ -29,6 +32,10 @@ public class BearHead extends SummonToolItem
     {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "bearheadtip"));
+        if (perspective.buffManager.hasBuff("frostcrownsetbonus"))
+        {
+            tooltips.add(new StringTooltips(Localization.translate("itemtooltip", "leathersummonersetbonus"), new Color(206, 135, 70)));
+        }
         tooltips.add(Localization.translate("itemtooltip", "minionspacetakentip", "amount", (int) getSummonSpaceTaken(item, perspective)));
         return tooltips;
     }

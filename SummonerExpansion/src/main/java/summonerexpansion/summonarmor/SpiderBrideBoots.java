@@ -16,6 +16,7 @@ public class SpiderBrideBoots extends BootsArmorItem
     public SpiderBrideBoots()
     {
         super(17, 600, Rarity.LEGENDARY, "spiderbrideboots", FeetArmorLootTable.feetArmor);
+        drawBodyPart = false;
     }
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)

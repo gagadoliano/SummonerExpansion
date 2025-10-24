@@ -5,6 +5,7 @@ import necesse.engine.gameLoop.tickManager.TicksPerSecond;
 import necesse.engine.localization.message.GameMessage;
 import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.modifiers.ModifierValue;
+import necesse.engine.network.server.ServerClient;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.util.ComputedValue;
 import necesse.engine.util.GameMath;
@@ -53,9 +54,7 @@ public class SandWormBodyMinion extends FollowingWormMobBody<SandWormHeadMinion,
         return new LocalMessage("mob", "sandwormminion");
     }
 
-    public GameDamage getCollisionDamage(Mob target) {
-        return this.collisionDamage;
-    }
+    public GameDamage getCollisionDamage(Mob target, boolean fromPacket, ServerClient packetSubmitter) { return collisionDamage; }
 
     public void clientTick()
     {

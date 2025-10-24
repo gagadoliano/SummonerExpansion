@@ -21,7 +21,7 @@ public class BloodplateMask extends SetHelmetArmorItem
 
     public BloodplateMask()
     {
-        super(5, DamageTypeRegistry.SUMMON, 50, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, Rarity.UNCOMMON, "bloodplatemask", "bloodplatechestplate", "bloodplateboots", "bloodplatecowlsetbonus");
+        super(5, DamageTypeRegistry.SUMMON, 50, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, Rarity.UNCOMMON, "bloodplatemask", "bloodplatechestplate", "bloodplateboots", "bloodplatemasksetbonus");
         hairDrawOptions = HairDrawMode.OVER_HAIR;
         hairMaskTextureName = "bloodplatecowl_hairmask";
     }

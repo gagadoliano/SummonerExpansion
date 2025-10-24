@@ -6,10 +6,13 @@ import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
+import necesse.gfx.gameTooltips.StringTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
+
+import java.awt.*;
 
 public class BookRunic extends SummonToolItem
 {
@@ -44,7 +47,11 @@ public class BookRunic extends SummonToolItem
     public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard)
     {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
-        tooltips.add(Localization.translate("itemtooltip", "bookrunictip", "amount", getStackSize()));
+        tooltips.add(Localization.translate("itemtooltip", "bookrunictip"));
+        if (perspective.buffManager.hasBuff("runicsetbonus"))
+        {
+            tooltips.add(new StringTooltips(Localization.translate("itemtooltip", "polarheadtip2"), new Color(86, 80, 111)));
+        }
         tooltips.add(Localization.translate("itemtooltip", "secondarysummon"));
         tooltips.add(Localization.translate("itemtooltip", "minionactivecap", "amount", getMaxSummons(item, perspective)));
         return tooltips;

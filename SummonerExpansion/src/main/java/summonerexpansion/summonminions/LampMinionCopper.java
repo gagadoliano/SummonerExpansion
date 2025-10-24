@@ -1,6 +1,7 @@
 package summonerexpansion.summonminions;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
+import necesse.engine.network.server.ServerClient;
 import necesse.engine.registries.MobRegistry;
 import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.Mob;
@@ -39,9 +40,7 @@ public class LampMinionCopper extends FlyingAttackingFollowingMob
         selectBox = new Rectangle();
     }
 
-    public GameDamage getCollisionDamage(Mob target) {
-        return summonDamage;
-    }
+    public GameDamage getCollisionDamage(Mob target, boolean fromPacket, ServerClient packetSubmitter) { return summonDamage; }
 
     public int getCollisionKnockback(Mob target) {
         return 15;

@@ -18,7 +18,7 @@ public class SummonerWeapons
         ItemRegistry.registerItem("leafshotpack", new LeafShotPack(), 50, true);
         ItemRegistry.registerItem("cactusstaff", new CactusStaff(), 50, true);
         ItemRegistry.registerItem("royalhive", new RoyalHive(), 50, true);
-        ItemRegistry.registerItem("polarhead", new PolarHead(), 50, true);
+        ItemRegistry.registerItem("polarhead", new BearPolarHead(), 50, true);
         ItemRegistry.registerItem("bearhead", new BearHead(), 50, true);
         // Melee
         ItemRegistry.registerItem("wormbucket", new WormBucket(), 50, true);
@@ -78,10 +78,11 @@ public class SummonerWeapons
         // --Weapons T4--
 
         // Minion
-        ItemRegistry.registerItem("gemamethystshards", new AmethystShards(), 400, true);
-        ItemRegistry.registerItem("gemsapphireshards", new SapphireShards(), 400, true);
-        ItemRegistry.registerItem("gememeraldshards", new EmeraldShards(), 400, true);
-        ItemRegistry.registerItem("gemrubyshards", new RubyShards(), 400, true);
+        ItemRegistry.registerItem("gemamethystshards", new GemAmethystShards(), 400, true);
+        ItemRegistry.registerItem("gemsapphireshards", new GemSapphireShards(), 400, true);
+        ItemRegistry.registerItem("gememeraldshards", new GemEmeraldShards(), 400, true);
+        ItemRegistry.registerItem("gemtopazshards", new GemTopazShards(), 400, true);
+        ItemRegistry.registerItem("gemrubyshards", new GemRubyShards(), 400, true);
         // Melee
 
         // Ranged

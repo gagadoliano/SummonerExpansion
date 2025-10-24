@@ -13,6 +13,7 @@ import necesse.engine.network.server.ServerClient;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.util.GameBlackboard;
 import necesse.engine.util.GameRandom;
+import necesse.engine.util.LevelIdentifier;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
@@ -45,11 +46,7 @@ public class ShadowHorrorPortal extends ConsumableItem
         {
             return "inincursion";
         }
-        else if (!level.isIslandPosition())
-        {
-            return "notisland";
-        }
-        else if (!level.getServer().world.worldEntity.isNight())
+        else if (!level.getWorldEntity().isNight())
         {
             return "notnight";
         }
@@ -57,8 +54,8 @@ public class ShadowHorrorPortal extends ConsumableItem
         {
             ArrayList<Point> spawnPoints = new ArrayList();
             Mob mob = MobRegistry.getMob("riftportalmob", level);
-            int pTileX = player.getX() / 32;
-            int pTileY = player.getY() / 32;
+            int pTileX = player.getTileX();
+            int pTileY = player.getTileY();
             for(int i = -10; i <= 10; ++i)
             {
                 for(int j = -10; j <= 10; ++j)

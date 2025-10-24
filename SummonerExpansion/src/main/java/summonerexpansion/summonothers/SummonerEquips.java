@@ -14,7 +14,7 @@ import necesse.inventory.item.trinketItem.SimpleTrinketItem;
 import necesse.inventory.lootTable.presets.TrinketsLootTable;
 import summonerexpansion.summonarmor.*;
 import summonerexpansion.summonmounts.*;
-import summonerexpansion.summonsetbonus.*;
+import summonerexpansion.summonarmorsetbonus.*;
 import summonerexpansion.summontrinket.*;
 import summonerexpansion.summontrinketbuffs.*;
 
@@ -26,6 +26,7 @@ public class SummonerEquips
 
         // T1
         ItemRegistry.registerItem("bloodplatemask", new BloodplateMask(), 50, true);
+        BuffRegistry.registerBuff("bloodplatemasksetbonus", new BloodplateMaskSetBonus());
         ItemRegistry.registerItem("frostcrown", new FrostCrown(), 50, true);
         BuffRegistry.registerBuff("frostcrownsetbonus", new FrostCrownSetBonus());
         ItemRegistry.registerItem("copperminerhat", new CopperMinerHat(), 50, true);
@@ -54,6 +55,8 @@ public class SummonerEquips
         ItemRegistry.registerItem("shadowhorrorboots", new ShadowHorrorBoots(), 200, true);
         ItemRegistry.registerItem("shadowhorrorhood", new ShadowHorrorHood(), 200, true);
         BuffRegistry.registerBuff("shadowhorrorsetbonus", new ShadowHorrorSetBonus());
+        ItemRegistry.registerItem("agedsummonerhelmet", new AgedSummonerHelmet(), 200, true);
+        BuffRegistry.registerBuff("agedsummonersetbonus", new AgedSummonerSetBonus());
         // T4
         //ItemRegistry.registerItem("", new (), 400, true);
         //BuffRegistry.registerBuff("", new ());

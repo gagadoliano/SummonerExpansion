@@ -31,6 +31,7 @@ magiccopperlamp=Lâmpada mágica de cobre
 gemsapphireshards=Fragmentos de safira
 sandwormstaff=Cajado de verme da areia
 icewizardstaff=Cajado do Mago de Gelo
+gemtopazshards=Fragmentos de Topázio
 runebonestaff=Cajado de osso rúnico
 gemrubyshards=Fragmentos de rubi
 dryadessence=Essência de dríade
@@ -73,6 +74,7 @@ goblinsword=Espada Goblin
 mosquitobow=Arco Mosquito
 
 // Armor pieces
+agedsummonerhelmet=Capacete de Invocador Envelhecido
 leathersummonerhood=Capuz de Invocador de Couro
 bloodplatemask=Máscara de Placa de Sangue
 copperminerhat=Chapéu de mineiro de cobre
@@ -98,14 +100,18 @@ balancedsummonerboard=Tabuleiro de Invocador Balanceado
 challengerarmorpiece=Peça de armadura do desafiante
 essenceofcompanionship=Essência do Companheirismo
 frozenassassinscowl=Capuz de Assassino Congelado
+scryingmagicianscard=Cartão do Mágico Vidente
+calmminerslantern=Lanterna Calma do Mineiro
 shadowhorrorcape=Capa do Horror das Sombras
 frenzyhorrorcape=Capa de Horror Frenético
 necromancerarmor=Armadura de Necromante
+transplantedheart=Coração Transplantado
 demonicpolarclaw=Garra Polar Demoníaca
 doomshroomshield=Escudo de Ruínagumelo
 frenzystonering=Anel de Frenzystone
 summonergambit=Gambito do Invocador
 hystericalmirror=Espelho Histérico
+minerslantern=Lanterna do Mineiro
 jellyfishbowl=Tigela de água-viva
 spelltablet=Tablete de Feitiços
 inducingsatchel=Bolsa Indutora
@@ -116,10 +122,6 @@ giantbeet=Beterraba Gigante
 mesmersatchel=Bolsa Mesmer
 bonepile=Pilha de Ossos
 littleangel=Anjinho
-transplantedheart=Coração Transplantado
-scryingmagicianscard=Cartão do Mágico Vidente
-minerslantern=Lanterna do Mineiro
-calmminerslantern=Lanterna Calma do Mineiro
 
 // Potions
 minionattackspeedpotion=Poção de invocador de velocidade de ataque
@@ -171,27 +173,37 @@ fusedessences=Essências infundidas
 
 [itemtooltip]
 // Minion weapons
-runebonestafftip=Invoca um bruto rúnico que ataca os inimigos com um machado \nTem uma pequena chance de invocar um xamã rúnico \nNíveis de upgrade mais altos aumentam a chance de invocar um xamã
+// T1
 royalhivetip=Invoca uma abelha rainha que gera abelhas a cada 10 ataques \nA rainha aumenta sua regeneração de saúde durante o combate \nE as abelhas menores desaceleram os inimigos em 10%
-icewizardtip=Invoca um mago de gelo para disparar projéteis congelantes nos inimigos \nEles desaceleram dos inimigos em 30% e causam dano ao longo do tempo por 10 segundos
-amethystshardtip=Invoca um golem de ametista \nEste golem pode cristalizar inimigos \nGolems de ametista adicionais aumentam a chance de cristalizar
+polarheadtip=Invoca um urso polar que gradativamente desacelera os inimigos
+polarheadtip2=Dano aumentado em 20% e desacelera por mais tempo
+bearheadtip=Invoca um urso pardo que caça os inimigos \nCausa sangramento que reduz o dano dos inimigos em 20%
+bearheadtip2=Dano aumentado em 20% e sangramento dura mais tempo
 redspiderstafftip=Invoca aranhas vermelhas que realizam ataques corpo a corpo \nEnvenena os inimigos, causando 15 de dano ao longo de 5 segundos
+redspiderstafftip2=Duplica o dano de veneno de todas as fontes
+enchantedbrainonasticktip=Invoca um zumbi encantado e um arqueiro encantado \nEles reduzem a armadura do inimigo em 10
+cactusstafftip=Invoca um cacto móvel \nEle atira projéteis com perfuração aleatória
+magiccopperlamptip=Invoca uma lâmpada de cobre que brilha e ataca
+// T2
+runebonestafftip=Invoca um bruto rúnico que ataca os inimigos com um machado \nTem uma pequena chance de invocar um xamã rúnico \nNíveis de upgrade mais altos aumentam a chance de invocar um xamã
+icewizardtip=Invoca um mago de gelo para disparar projéteis congelantes nos inimigos \nEles desaceleram dos inimigos em 30% e causam dano ao longo do tempo por 10 segundos
+icewizardtip2=Dano aumentado em 20% e projéteis são mais rápidos
+goldpitchforktip=Invoca um fazendeiro que tem uma pequena chance de gerar trigo ou animais de fazenda ao atacar
+vampirewingstip=Invoca um vampiro que atira em inimigos
+vampirewingstip2=Dano aumentado em 30% e projéteis são mais rápidos
+magicgoldlamptip=Invoca uma lâmpada dupla de ouro que brilha e ataca \nQueima inimigos quando ataca
+lampminiondungeontip=Invoca um candelabro da masmorra \nQueima inimigos à noite
+// T3
+dryadessencetip=Invoca um carniçal \nEste carniçal deixa um rastro de dano \nVocêpode invocar até <amount> carniçais
+sandwormstafftip=Invoca um verme da areia para atacar os inimigos
+magictungstenlamptip=Invoca uma lâmpada de tungstênio que brilha e ataca
+// T4
+amethystshardtip=Invoca um golem de ametista \nEste golem pode cristalizar inimigos \nGolems de ametista adicionais aumentam a chance de cristalizar
 lampminioncastletip=Invoca um candelabro do castelo de aranha \nQueima e desacelera os inimigos \nOs efeitos ficam mais fortes à noite
 sapphireshardtip=Invoca um golem de safira \nEste golem invoca um glifo de safira em sua localização quando você tem essência de vida
 emeraldshardtip=Invoca um golem de esmeralda \nEste golem dispara um laser que perfura inimigos e ricocheteia nas paredes
-enchantedbrainonasticktip=Invoca um zumbi encantado e um arqueiro encantado \nEles reduzem a armadura do inimigo em 10
-goldpitchforktip=Invoca um fazendeiro que tem uma pequena chance de gerar trigo ou animais de fazenda ao atacar
-magicgoldlamptip=Invoca uma lâmpada dupla de ouro que brilha e ataca \nQueima inimigos quando ataca
 rubyshardtip=Invoca um golem de rubi \nEste golem atira fragmentos de cristal nos inimigos
-cactusstafftip=Invoca um cacto móvel \nEle atira projéteis com perfuração aleatória
-lampminiondungeontip=Invoca um candelabro da masmorra \nQueima inimigos à noite
-dryadessencetip=Invoca um carniçal \nEste carniçal deixa um rastro de dano \nVocêpode invocar até <amount> carniçais
-magictungstenlamptip=Invoca uma lâmpada de tungstênio que brilha e ataca
-magiccopperlamptip=Invoca uma lâmpada de cobre que brilha e ataca
-sandwormstafftip=Invoca um verme da areia para atacar os inimigos
-polarheadtip=Invoca um urso polar que desacelera os inimigos
-vampirewingstip=Invoca um vampiro que atira em inimigos
-bearheadtip=Invoca um urso pardo que caça os inimigos
+topazshardtip=Invoca um golem de topaz \nEste golem atira cristais que ricocheteiam e perfuram os inimigos
 
 // Sentry weapons
 bookmushroomtip=Invoca uma sentinela que desacelera inimigos e melhoram jogadores próximos \nA cada 10 segundos invoca um lacaio de cogumelo
@@ -199,15 +211,19 @@ xmastreetip=Invoca uma sentinela que afeta inimigos \nEles brilham e tomam mais 
 leafshotheatpacktip=Seus projéteis queimam os inimigos \nConsumível
 leafshotcoldpacktip=Seus projéteis gelam os inimigos \nConsumível
 leafshotpacktip=Seus projéteis envenenam os inimigos \nConsumível
-coffinsentrytip=Após 10 acertos, invoca um morcego da cripta
+coffinsentrytip=Após 10 acertos, invoca um morcego da cripta que causa 20% de dano
+coffinsentrytip2=Dano aumentado em 20%, projéteis são mais rápidos e morcegos causam 100% de dano
 caveglowsentrytip=Brilha no escuro
 
 // Secondary weapons
 bookmagmatip=Invoca slimes de magma que atacam inimigos muito próximos \nSe o alvo estiver sob algum efeito de queimadura, ele queimará para sempre
 magictoolstip=Invoca ferramentas mágicas \nEles fornecem um buff quando atacam que aumenta o alcance e velocidade de mineração em 20%
 explosivesnowballtip=Invoca um boneco de neve com chance de explodir quando ataca \nA explosão causa dano dobrado e afeta jogadores
+explosivesnowballtip2=Dano e tamanho da explosão aumentados
 bookrunictip=Invoca escudos rúnicos que orbitam você \nAumenta sua armadura quando atingem inimigos
-bookfrozentip=Invoca anões congelados que atiram lanças nos inimigos
+bookrunictip2=Efeito de armadura dura mais tempo
+bookfrozentip=Invoca anões congelados que atiram 10 lanças nos inimigos
+bookfrozentip2=Dano aumentado em 20%, projéteis são mais rápidos e anões podem jogar mais lanças
 bookbeetip=Invoca 3 abelhas \nElas desaceleram os inimigos em 10%
 
 // Melee weapons
@@ -228,8 +244,9 @@ iceblossomsentrytip=Jogadores próximos recebem armadura
 
 // Armor set bonus
 spiderbridesettip=Concede imunidade a lentidão \nAtaques de invocação envenenam o alvo por 25 de dano ao longo de 5 segundos \nPressione [input=setability] para invocar uma noiva aranha que atira veneno e teias
-bloodplateset=Após sofrer dano, sua regeneração de saúde é dobrada por 4 segundos \nOs lacaios vampiros dispararão projéteis que viajam mais rápido e causam +50% de dano
-frostcrownsettip=Ataques de invocação desaceleram e causam dano ao alvo em 15 de dano ao longo de 5 segundos
+agedsummonersettip=Aumenta a chance de acerto crítico de invocação e concede regeneração de resiliência quando com saúde máxima \nBloquear antes de ser atingido aumenta muito a regeneração de resistência
+bloodplatemasksettip=Após sofrer dano, sua regeneração de saúde é dobrada por 4 segundos \nMelhora os lacaios vampiros e caixão de vampiro
+frostcrownsettip=Ataques de invocação desaceleram e causam dano ao alvo em 15 de dano ao longo de 5 segundos \nMelhora as armas de gelo
 redspidersettip=Concede imunidade a lentidão e cegueira \nAtaques de invocação desaceleram inimigos
 shadowhelmetsettip=Ataques de invocação assombram o alvo por 25 de dano ao longo de 5 segundos
 horrorsettip=Chance de invocar espíritos de horror durante combate
@@ -240,13 +257,16 @@ plaguesettip=Periodicamente invoca ratos durante combate
 transplantedhearttip=Aumenta a regeneração de saúde durante combate em 0,75 \nAumenta a resiliência máxima em 10% \nTransforma metade de sua vida em resiliência \nRegenera resiliência quando estiver com a vida cheia \nRestaura 25% de vida ao receber dano fatal \nTempo de recarga: 5 minutos
 frenzyhorrorcapetip=+1 invocação máxima \nAumenta a velocidade de movimento em 20% \nGanha 4 de regeneração de saúde por segundo enquanto estiver abaixo de 50% de saúde \nGanha até +50% de dano de invocação com base na saúde perdida \nInvoca até 3 morcegos do horror ao receber dano
 essenceofcompanionshiptip=Aumenta o ganho de essência em 100% \nAumenta a duração da essência em 100% \nAumenta o dano e velocidade de movimento de invocação para cada invocação máxima não utilizada\nOs aumentos diminuem ligeiramente além da primeira invocação não utilizada
+scryingmagicianscardtip=+5 invocação máxima \nAumenta as estatísticas de mana \nAumenta a velocidade de invocação e a velocidade de ataque em 45% \nO dano mágico aumenta em 50% do dano de invocação \nInvoca múmias ao atacar inimigos com armas mágicas ou invocações
 balancedsummonerboardtip=Aumenta o dano de invocação em 15% \nRecebe 5% de dano de invocação por cada tipo diferente de lacaio que possuir \nAtaques de invocação causam lentidão, 7 de dano por segundo durante 5 segundos e aplicam 1 ponto de Assombração Dríade
 doomshroomshieldtip=Aumenta o dano de invocação em 10% \nAumenta o alcance de agressividade dos inimigos em 50% \nEquipe e pressione [input=trinketability] para explodir \nA explosão empurra os inimigos e os incendeia \nTempo de recarga de 10 segundos
 littleangeltip=Aperte [input=trinketability] para teletransportar \nMelhora suas estatísticas de invocador e investida \nSer atingido reseta suas cargas de investida instantaneamente \nGanhe 5 de resiliência sempre que usar uma investida
+minerslanterntip=Invoca um Fogo-Fátuo \nAumenta as estatísticas de mineração e construção \nAo minerar rochas, causa dano às rochas adjacentes \nDano de mineração aumenta o dano de invocação \nBalance para ativar efeito calmante
 necromancerarmortip=Melhora suas estatísticas de invocador \nGanhe dano e regeneração de saúde quande estiver com pouca saúde \nAtaques de invocação desaceleram inimigos \nInvoca até 3 morcegos do horror ao receber dano
 summonergambittip=+1 invocação máxima \n+10 armadura \n+50% dano de invocação \n-50% dano de outros tipos de dano \n+10% chance de crítico de invocação \nSó pode ser equipado no slot de habilidade.
 mesmersatcheltip=+1 invocação máxima \nAumenta o limite de energia em 100% \nAumenta a velocidade de invocação em 50% \nAumenta a velocidade de movimento em 25% \nIlumina a área ao seu redor
 challengeraptip=Aumenta a resiliência máxima em 65 \nDesacelera a degradação da resiliência em 75% \nAumenta o ganho de resiliência em 50% e aumenta para 100% durante batalhas contra chefes
+calmminerslanterntip=Invoca um Fogo-Fátuo \nAumenta as estatísticas de mineração e construção \nAo minerar rochas, causa dano às rochas adjacentes \nBalance para desativar efeito calmante
 necroticclawtip=Ataques de invocação desacelera inimigos \nAumenta a resistência a knockback \nAumenta a penetração de armadura em 25 \nAumenta o dano crítico de invocação em 25%
 frenzystoneringtip=Ganhe até +50% de dano de invocação com base na saúde perdida \nGanhe 4 de regeneração de saúde por segundo enquanto estiver abaixo de 50% de saúde
 frozenassassinscowltip=Aumenta a chance de invocação de acerto crítico em 15% \nAumenta o dano crítico de invocação em 30% \nAumenta o alcance de invocação em 20%
@@ -260,9 +280,6 @@ bonepiletip=Aumenta a penetração de armadura em 25 \nAumenta o dano crítico d
 hystericalmirrortip=+3 invocação máxima \nAumenta a velocidade de invocação em 45%
 mesmercharmtip=+1 invocação máxima \nAumenta o limite de energia em 80%
 jellyfishminiontip=Invoca uma água-viva que ataca os inimigos
-scryingmagicianscardtip=+5 invocação máxima \nAumenta as estatísticas de mana \nAumenta a velocidade de invocação e a velocidade de ataque em 45% \nO dano mágico aumenta em 50% do dano de invocação \nInvoca múmias ao atacar inimigos com armas mágicas ou invocações
-calmminerslanterntip=Invoca um Fogo-Fátuo \nAumenta as estatísticas de mineração e construção \nAo minerar rochas, causa dano às rochas adjacentes \nBalance para desativar efeito calmante
-minerslanterntip=Invoca um Fogo-Fátuo \nAumenta as estatísticas de mineração e construção \nAo minerar rochas, causa dano às rochas adjacentes \nDano de mineração aumenta o dano de invocação \nBalance para ativar efeito calmante
 
 // Potions buff info
 minionfarmtip=Diminui a velocidade de movimento em 80%, aumenta o alcance de coleta,taxa de geração de mobs, velocidade de invocação e o alcance dos lacios em 40%

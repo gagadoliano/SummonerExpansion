@@ -47,6 +47,12 @@ public class SummonerExpansion
     public void postInit()
     {
         SummonerRecipes.registerSummonRecipes();
+        SummonerRecipesArmor.registerSummonRecipes();
+        SummonerRecipesMount.registerSummonRecipes();
+        SummonerRecipesPotion.registerSummonRecipes();
+        SummonerRecipesWeapon.registerSummonRecipes();
+        SummonerRecipesTrinket.registerSummonRecipes();
+
         SummonerLoot.registerSummonLoot();
 
         Biome.defaultDeepCaveMobs

@@ -1,6 +1,7 @@
 package summonerexpansion.summonminions;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
+import necesse.engine.network.server.ServerClient;
 import necesse.engine.registries.BuffRegistry;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.sound.SoundEffect;
@@ -27,17 +28,23 @@ import java.util.List;
 public class BookRunicShieldMinion extends FlyingAttackingFollowingMob
 {
     public static GameTexture texture;
+    public static MaxHealthGetter MAX_HEALTH = new MaxHealthGetter(100, 150, 200, 250, 300);
 
     public BookRunicShieldMinion()
     {
         super(10);
+        difficultyChanges.setMaxHealth(MAX_HEALTH);
+        setArmor(10);
         setSpeed(100.0F);
         setFriction(2.0F);
+        isStatic = false;
         moveAccuracy = 5;
         collision = new Rectangle(-30, -30, 60, 60);
         hitBox = new Rectangle(-30, -30, 60, 60);
         selectBox = new Rectangle();
     }
+
+    public GameDamage getCollisionDamage(Mob target, boolean fromPacket, ServerClient packetSubmitter) { return summonDamage; }
 
     public void init()
     {
@@ -45,13 +52,11 @@ public class BookRunicShieldMinion extends FlyingAttackingFollowingMob
         ai = new BehaviourTreeAI(this, new PlayerFlyingFollowerCollisionChaserAI(0, summonDamage, 105, 500, 1000, 64), new FlyingAIMover());
     }
 
-    public GameDamage getCollisionDamage(Mob target) {
-        return summonDamage;
-    }
-
     public int getCollisionKnockback(Mob target) {
         return 105;
     }
+
+
 
     @Override
     public void handleCollisionHit(Mob target, GameDamage damage, int knockback)
@@ -61,8 +66,15 @@ public class BookRunicShieldMinion extends FlyingAttackingFollowingMob
         {
             target.isServerHit(damage, target.x - owner.x, target.y - owner.y, (float)knockback, this);
             collisionHitCooldowns.startCooldown(target);
-
-            ActiveBuff buff = new ActiveBuff(BuffRegistry.getBuff("runicshieldbuff"), target, 30F, this);
+            ActiveBuff buff;
+            if (getAttackOwner().buffManager.hasBuff("runicsetbonus"))
+            {
+                buff = new ActiveBuff(BuffRegistry.getBuff("runicshieldbuff"), target, 60F, this);
+            }
+            else
+            {
+                buff = new ActiveBuff(BuffRegistry.getBuff("runicshieldbuff"), target, 30F, this);
+            }
             getFollowingItemAttacker().addBuff(buff, true);
         }
     }

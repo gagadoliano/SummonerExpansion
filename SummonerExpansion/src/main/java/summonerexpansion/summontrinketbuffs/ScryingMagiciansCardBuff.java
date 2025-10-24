@@ -15,16 +15,14 @@ import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.TrinketBuff;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
-import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.DryadSpiritFollowingMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.trinketItem.TrinketItem;
-import summonerexpansion.summonminions.MummyMagicMinion;
-import summonerexpansion.summonminions.MummySummonMinion;
+import summonerexpansion.summonminions.TrinketMummyMagicMinion;
+import summonerexpansion.summonminions.TrinketMummySummonMinion;
 
 import java.awt.geom.Point2D;
-import java.util.function.BiConsumer;
 
 public class ScryingMagiciansCardBuff extends TrinketBuff
 {
@@ -92,7 +90,7 @@ public class ScryingMagiciansCardBuff extends TrinketBuff
         if (owner != null && owner.isServer())
         {
             int maxSummons = 2;
-            MummyMagicMinion summonedMob = (MummyMagicMinion) MobRegistry.getMob("mummymagicminion", owner.getLevel());
+            TrinketMummyMagicMinion summonedMob = (TrinketMummyMagicMinion) MobRegistry.getMob("mummymagicminion", owner.getLevel());
             ((ItemAttackerMob)owner).serverFollowersManager.addFollower("mummymagicdebuff", summonedMob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, (p) -> maxSummons, null, false);
             summonedMob.updateDamage(damage);
             Point2D.Float spawnPoint = SummonToolItem.findSpawnLocation(summonedMob, owner.getLevel(), owner.x, owner.y);
@@ -105,7 +103,7 @@ public class ScryingMagiciansCardBuff extends TrinketBuff
         if (owner != null && owner.isServer())
         {
             int maxSummons = 4;
-            MummySummonMinion summonedMob = (MummySummonMinion) MobRegistry.getMob("mummysummonminion", owner.getLevel());
+            TrinketMummySummonMinion summonedMob = (TrinketMummySummonMinion) MobRegistry.getMob("mummysummonminion", owner.getLevel());
             ((ItemAttackerMob)owner).serverFollowersManager.addFollower("mummysummondebuff", summonedMob, FollowPosition.PYRAMID, "summonedmob", 1.0F, (p) -> maxSummons, null, false);
             summonedMob.updateDamage(damage);
             Point2D.Float spawnPoint = SummonToolItem.findSpawnLocation(summonedMob, owner.getLevel(), owner.x, owner.y);

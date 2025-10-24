@@ -5,9 +5,12 @@ import necesse.engine.util.GameBlackboard;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.gfx.gameTooltips.ListGameTooltips;
+import necesse.gfx.gameTooltips.StringTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
+
+import java.awt.*;
 
 public class VampireCoffin extends SummonToolItem
 {
@@ -25,6 +28,10 @@ public class VampireCoffin extends SummonToolItem
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "sentrytip"));
         tooltips.add(Localization.translate("itemtooltip", "coffinsentrytip"));
+        if (perspective.buffManager.hasBuff("bloodplatecowlsetbonus"))
+        {
+            tooltips.add(new StringTooltips(Localization.translate("itemtooltip", "coffinsentrytip2"), new Color(180, 15, 50)));
+        }
         return tooltips;
     }
 }

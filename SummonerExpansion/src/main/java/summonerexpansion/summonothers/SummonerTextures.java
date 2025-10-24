@@ -41,6 +41,7 @@ public class SummonerTextures
         GolemAmethystMinion.texture = GameTexture.fromFile("mobs/golemamethystminion");
         GolemSapphireMinion.texture = GameTexture.fromFile("mobs/golemsapphireminion");
         GolemEmeraldMinion.texture = GameTexture.fromFile("mobs/golememeraldminion");
+        GolemTopazMinion.texture = GameTexture.fromFile("mobs/golemtopazminion");
         BookMagmaSlimeMinion.texture = GameTexture.fromFile("mobs/magmaslimeminion");
         LampMinionTungsten.texture = GameTexture.fromFile("mobs/lampminiontungsten");
         MagicPickaxeMinion.texture = GameTexture.fromFile("mobs/magicpickaxeminion");
@@ -48,10 +49,10 @@ public class SummonerTextures
         LampMinionDungeon.texture = GameTexture.fromFile("mobs/lampminiondungeon");
         FishHerringMinion.texture = GameTexture.fromFile("mobs/fishherringminion");
         GoblinChestMinion.texture = GameTexture.fromFile("mobs/goblinchestminion");
-        SpiderBrideMinion.texture = GameTexture.fromFile("mobs/spiderbrideminion");
+        SetSpiderBrideMinion.texture = GameTexture.fromFile("mobs/spiderbrideminion");
         HorrorBullMinion.texture = GameTexture.fromFile("mobs/horrorbullminion");
         HorrorWolfMinion.texture = GameTexture.fromFile("mobs/horrorwolfminion");
-        HorrorBabyMinion.texture = GameTexture.fromFile("mobs/horrorbabyminion");
+        SetHorrorBabyMinion.texture = GameTexture.fromFile("mobs/horrorbabyminion");
         LampMinionCopper.texture = GameTexture.fromFile("mobs/lampminioncopper");
         FishSalmonMinion.texture = GameTexture.fromFile("mobs/fishsalmonminion");
         GoblinHeadMinion.texture = GameTexture.fromFile("mobs/goblinheadminion");
@@ -60,14 +61,14 @@ public class SummonerTextures
         BearPolarMinion.texture = GameTexture.fromFile("mobs/bearpolarminion");
         GoblinLegMinion.texture = GameTexture.fromFile("mobs/goblinlegminion");
         FishTroutMinion.texture = GameTexture.fromFile("mobs/fishtroutminion");
-        HorrorBatMinion.texture = GameTexture.fromFile("mobs/horrorbatminion");
+        TrinketHorrorBatMinion.texture = GameTexture.fromFile("mobs/horrorbatminion");
         GolemRubyMinion.texture = GameTexture.fromFile("mobs/golemrubyminion");
         MagicAxeMinion.texture = GameTexture.fromFile("mobs/magicaxeminion");
         LampMinionGold.texture = GameTexture.fromFile("mobs/lampminiongold");
         BeeQueenMinion.texture = GameTexture.fromFile("mobs/beequeenminion");
         FishCarpMinion.texture = GameTexture.fromFile("mobs/fishcarpminion");
         CactusMinion.texture = GameTexture.fromFile("mobs/cactusminion");
-        MouseMinion.texture = GameTexture.fromFile("mobs/mouseminion");
+        SetMouseMinion.texture = GameTexture.fromFile("mobs/mouseminion");
         BearMinion.texture = GameTexture.fromFile("mobs/bearminion");
 
         // Worm
@@ -85,7 +86,7 @@ public class SummonerTextures
         CaveglowSentry.texture = GameTexture.fromFile("mobs/caveglowsentry");
         LeafShotSentry.texture = GameTexture.fromFile("mobs/leafshotsentry");
         XmasTreeSentry.texture = GameTexture.fromFile("mobs/xmastreesentry");
-        CoffinSentry.texture = GameTexture.fromFile("mobs/coffinsentry");
+        VampireCoffinSentry.texture = GameTexture.fromFile("mobs/coffinsentry");
 
         // Mobs
         HorrorSpiritBossMob.texture = GameTexture.fromFile("mobs/horrorspiritbossmob");

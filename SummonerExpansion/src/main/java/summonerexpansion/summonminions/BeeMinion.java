@@ -1,6 +1,7 @@
 package summonerexpansion.summonminions;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
+import necesse.engine.network.server.ServerClient;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.registries.BuffRegistry;
 import necesse.engine.util.GameRandom;
@@ -36,6 +37,8 @@ public class BeeMinion extends FlyingAttackingFollowingMob
         selectBox = new Rectangle();
     }
 
+    public GameDamage getCollisionDamage(Mob target, boolean fromPacket, ServerClient packetSubmitter) { return summonDamage; }
+
     public void init()
     {
         super.init();
@@ -51,8 +54,6 @@ public class BeeMinion extends FlyingAttackingFollowingMob
             remove();
         }
     }
-
-    public GameDamage getCollisionDamage(Mob target) { return summonDamage; }
 
     @Override
     public void handleCollisionHit(Mob target, GameDamage damage, int knockback)

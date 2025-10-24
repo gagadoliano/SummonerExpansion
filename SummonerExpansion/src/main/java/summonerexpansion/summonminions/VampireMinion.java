@@ -61,7 +61,7 @@ public class VampireMinion extends AttackingFollowingMob
                 if (mob.canAttack() && getAttackOwner().buffManager.hasBuff("bloodplatecowlsetbonus") && !mob.isBat)
                 {
                     mob.attack(target.getX(), target.getY(), false);
-                    Projectile projectile = ProjectileRegistry.getProjectile("bloodbolt", mob.getLevel(), mob.x, mob.y, target.x, target.y, 100F, 800, summonDamage.modFinalMultiplier(1.50F), mob);
+                    Projectile projectile = ProjectileRegistry.getProjectile("bloodbolt", mob.getLevel(), mob.x, mob.y, target.x, target.y, 100F, 800, summonDamage.modFinalMultiplier(1.30F), mob);
                     projectile.setTargetPrediction(target, -20.0F);
                     projectile.moveDist(40.0);
                     mob.getLevel().entityManager.projectiles.add(projectile);

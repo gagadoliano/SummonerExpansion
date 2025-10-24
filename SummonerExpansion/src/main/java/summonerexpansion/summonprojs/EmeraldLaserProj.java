@@ -22,10 +22,10 @@ public class EmeraldLaserProj extends LaserProjectile
     }
 
     public Color getParticleColor() {
-        return new Color(0, 191, 163);
+        return new Color(96, 164, 61);
     }
 
     public Trail getTrail() {
-        return new Trail(this, this.getLevel(), new Color(0, 191, 163), 12.0F, 500, 18.0F);
+        return new Trail(this, this.getLevel(), new Color(96, 164, 61), 12.0F, 500, 18.0F);
     }
 }
