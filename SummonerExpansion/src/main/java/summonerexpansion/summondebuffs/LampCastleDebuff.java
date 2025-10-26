@@ -48,7 +48,7 @@ public class LampCastleDebuff extends Buff
     public void serverTick(ActiveBuff buff)
     {
         super.serverTick(buff);
-        if (buff.owner.getLevel().getServer().world.worldEntity.isNight())
+        if (buff.owner.getLevel().getWorldEntity().isNight())
         {
             nightDebuff = true;
         }

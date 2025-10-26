@@ -36,7 +36,11 @@ public class ExplosiveSnowball extends SummonToolItem
     {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "explosivesnowballtip"));
-        if (perspective.buffManager.hasBuff("frostcrownsetbonus"))
+        if (perspective == null)
+        {
+            return tooltips;
+        }
+        else if (perspective.buffManager.hasBuff("frostcrownsetbonus"))
         {
             tooltips.add(new StringTooltips(Localization.translate("itemtooltip", "explosivesnowballtip2"), new Color(87, 189, 216)));
         }

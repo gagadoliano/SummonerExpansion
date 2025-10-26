@@ -38,7 +38,7 @@ public class SetSpiderBrideMinion extends AttackingFollowingMob
         setSpeed(30.0F);
         setFriction(3.0F);
         attackAnimTime = 500;
-        attackCooldown = 8000;
+        attackCooldown = 2000;
         collision = new Rectangle(-20, -20, 40, 40);
         hitBox = new Rectangle(-30, -25, 60, 50);
         selectBox = new Rectangle();
@@ -86,7 +86,7 @@ public class SetSpiderBrideMinion extends AttackingFollowingMob
     {
         super.serverTick();
         lifeTime++;
-        if (lifeTime >= 600)
+        if (lifeTime >= 300)
         {
             remove(0.0F, 0.0F, null, true);
         }

@@ -27,8 +27,8 @@ import java.util.LinkedList;
 public class SummonPlagueSetBonus extends SetBonusBuff
 {
     public int mouseTimer = 0;
-    public FloatUpgradeValue mouseDamage = (new FloatUpgradeValue(0.0F, 0.2F)).setBaseValue(30.0F).setUpgradedValue(1.0F, 50.0F);
-    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1.0F, 2);
+    public FloatUpgradeValue mouseDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(30F).setUpgradedValue(1.0F, 30F);
+    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1F, 2);
 
     public SummonPlagueSetBonus() {}
 
@@ -48,11 +48,12 @@ public class SummonPlagueSetBonus extends SetBonusBuff
             float count = attackerMob.serverFollowersManager.getFollowerCount("mouseminion");
             if (mouseTimer >= 300 && count <= 7)
             {
+                GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, mouseDamage.getValue(buff.getUpgradeTier()));
                 Level level = buff.owner.getLevel();
                 AttackingFollowingMob mob = (AttackingFollowingMob)MobRegistry.getMob("mouseminion", level);
                 attackerMob.serverFollowersManager.addFollower("mouseminion", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, (p) -> 8, null, false);
                 Point2D.Float spawnPoint = SummonToolItem.findSpawnLocation(mob, level, attackerMob.x, attackerMob.y);
-                mob.updateDamage(new GameDamage(DamageTypeRegistry.SUMMON, mouseDamage.getValue(buff.getUpgradeTier())));
+                mob.updateDamage(damage);
                 mob.setRemoveWhenNotInInventory(ItemRegistry.getItem("summonplaguemask"), CheckSlotType.HELMET);
                 mob.getLevel().entityManager.addMob(mob, spawnPoint.x, spawnPoint.y);
                 mouseTimer = 0;

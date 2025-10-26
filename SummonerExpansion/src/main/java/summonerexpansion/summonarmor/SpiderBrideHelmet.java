@@ -13,12 +13,12 @@ import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class SpiderBrideHelmet extends SetHelmetArmorItem
 {
-    public FloatUpgradeValue summonDmg = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1.0F, 0.20F);
-    public FloatUpgradeValue summonSpd = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1.0F, 0.20F);
+    public FloatUpgradeValue summonDmg = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1F, 0.20F).setUpgradedValue(10F, 0.30F);
+    public FloatUpgradeValue summonSpd = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1F, 0.20F).setUpgradedValue(10F, 0.30F);
 
     public SpiderBrideHelmet()
     {
-        super(19, DamageTypeRegistry.SUMMON, 600, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, Rarity.LEGENDARY, "spiderbridehelmet", "spiderbridechest", "spiderbrideboots", "spiderbridehelmetsetbonus");
+        super(19, DamageTypeRegistry.SUMMON, 600, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, Rarity.LEGENDARY, "spiderbridehelmet", "spiderbridechest", "spiderbrideboots", "spiderbridesetbonus");
         hairDrawOptions = HairDrawMode.NO_HEAD;
     }
 

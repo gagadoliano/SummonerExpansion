@@ -11,7 +11,7 @@ import necesse.inventory.lootTable.presets.FeetArmorLootTable;
 
 public class SpiderBrideBoots extends BootsArmorItem
 {
-    public FloatUpgradeValue speed = (new FloatUpgradeValue()).setBaseValue(0.20F).setUpgradedValue(1.0F, 0.25F);
+    public FloatUpgradeValue speed = (new FloatUpgradeValue()).setBaseValue(0.20F).setUpgradedValue(1F, 0.25F).setUpgradedValue(10F, 0.35F);
 
     public SpiderBrideBoots()
     {
@@ -21,6 +21,6 @@ public class SpiderBrideBoots extends BootsArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue(BuffModifiers.SPEED, this.speed.getValue(this.getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue(BuffModifiers.SPEED, speed.getValue(getUpgradeTier(item))));
     }
 }

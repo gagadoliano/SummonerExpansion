@@ -11,7 +11,7 @@ import necesse.inventory.lootTable.presets.BodyArmorLootTable;
 
 public class SummonPlagueRobe extends ChestArmorItem
 {
-    public FloatUpgradeValue damageSummon = (new FloatUpgradeValue()).setBaseValue(0.08F).setUpgradedValue(1, 0.12F).setUpgradedValue(2, 0.14F).setUpgradedValue(3, 0.16F).setUpgradedValue(4, 0.18F).setUpgradedValue(5, 0.20F);
+    public FloatUpgradeValue damageSummon = (new FloatUpgradeValue()).setBaseValue(0.08F).setUpgradedValue(1F, 0.12F).setUpgradedValue(10F, 0.30F);
 
     public SummonPlagueRobe()
     {

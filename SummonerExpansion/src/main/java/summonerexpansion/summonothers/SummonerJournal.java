@@ -5,7 +5,7 @@ import necesse.engine.registries.JournalRegistry;
 
 public class SummonerJournal
 {
-    public static void registerSummonerJournal()
+    public static void registerSummonJournal()
     {
         // Journal
         JournalEntry forestSurfaceJournal = JournalRegistry.getJournalEntry("forestsurface");

@@ -89,6 +89,7 @@ public class SummonerBuffs
 
         // Others Buffs
         BuffRegistry.registerBuff("summonedbeetminionbuff", new SummonedBeetMinionBuff());
+        BuffRegistry.registerBuff("summonedagedchampionminionbuff", new SummonedAgedChampionMinionBuff());
         BuffRegistry.registerBuff("summonedjellyfishminionbuff", new SummonedJellyfishMinionBuff());
     }
 }

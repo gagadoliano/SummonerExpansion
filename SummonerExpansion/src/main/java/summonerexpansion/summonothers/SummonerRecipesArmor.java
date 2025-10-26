@@ -1,5 +1,6 @@
 package summonerexpansion.summonothers;
 
+import necesse.engine.network.gameNetworkData.GNDItemMap;
 import necesse.engine.registries.RecipeTechRegistry;
 import necesse.inventory.recipe.Ingredient;
 import necesse.inventory.recipe.Recipe;
@@ -200,6 +201,17 @@ public class SummonerRecipesArmor
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "pharaohsmask",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("ancientstatue", 1),
+                        new Ingredient("rice", 10),
+                        new Ingredient("amethyst", 4)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "shadowhelmet",
                 1,
                 SUMMONTABLECRAFT3,
@@ -307,6 +319,39 @@ public class SummonerRecipesArmor
                 }
         ));
 
+        Recipes.registerModRecipe(new Recipe(
+                "ghostcaptainshat",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("captainshat", 1),
+                        new Ingredient("handcannon", 1),
+                        new Ingredient("spareboatparts", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "ghostcaptainsshirt",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("captainsshirt", 1),
+                        new Ingredient("cannonball", 50),
+                        new Ingredient("ectoplasm", 25)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "ghostcaptainsboots",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("captainsboots", 1),
+                        new Ingredient("ironbomb", 50),
+                        new Ingredient("ammobox", 1)
+                }
+        ));
+
         // Anvil
         Recipes.registerModRecipe(new Recipe(
                 "copperminerhat",
@@ -338,5 +383,15 @@ public class SummonerRecipesArmor
                 }
         ).showAfter("bloodplatecowl"));
 
+        Recipes.registerModRecipe(new Recipe(
+                "pharaohsmask",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("runiccrown", 1),
+                        new Ingredient("clothhat", 1),
+                        new Ingredient("amethyst", 5)
+                }
+        ).showAfter("pharaohsheaddress"));
     }
 }

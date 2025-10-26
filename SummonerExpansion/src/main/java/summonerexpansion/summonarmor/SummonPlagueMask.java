@@ -13,7 +13,7 @@ import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class SummonPlagueMask extends SetHelmetArmorItem
 {
-    public FloatUpgradeValue speedSummon = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1, 0.10F).setUpgradedValue(2, 0.15F).setUpgradedValue(3, 0.20F).setUpgradedValue(4, 0.25F).setUpgradedValue(5, 0.30F);
+    public FloatUpgradeValue speedSummon = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1F, 0.10F).setUpgradedValue(10F, 0.30F);
 
     public SummonPlagueMask()
     {

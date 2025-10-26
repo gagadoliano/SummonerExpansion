@@ -13,7 +13,7 @@ import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class ShadowHorrorHood extends SetHelmetArmorItem
 {
-    public FloatUpgradeValue critSummon = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1, 0.07F).setUpgradedValue(2, 0.09F).setUpgradedValue(3, 0.11F).setUpgradedValue(4, 0.13F).setUpgradedValue(5, 0.15F);
+    public FloatUpgradeValue critSummon = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1F, 0.07F).setUpgradedValue(10F, 0.15F);
 
     public ShadowHorrorHood()
     {

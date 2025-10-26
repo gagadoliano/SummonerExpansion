@@ -38,29 +38,32 @@ public class SummonerEquips
         ItemRegistry.registerItem("redspiderboots", new RedSpiderBoots(), 50, true);
         BuffRegistry.registerBuff("redspidersetbonus", new RedSpiderSetBonus());
         // T2
-        ItemRegistry.registerItem("summonplagueboots", new SummonPlagueBoots(), 100, true);
-        ItemRegistry.registerItem("summonplaguerobe", new SummonPlagueRobe(), 100, true);
         ItemRegistry.registerItem("summonplaguemask", new SummonPlagueMask(), 100, true);
+        ItemRegistry.registerItem("summonplaguerobe", new SummonPlagueRobe(), 100, true);
+        ItemRegistry.registerItem("summonplagueboots", new SummonPlagueBoots(), 100, true);
         BuffRegistry.registerBuff("summonplaguesetbonus", new SummonPlagueSetBonus());
+        ItemRegistry.registerItem("pharaohsmask", new PharaohsMask(), 100, true);
+        BuffRegistry.registerBuff("pharaohsmasksetbonus", new PharaohsMaskSetBonus());
         // T3
         ItemRegistry.registerItem("shadowhelmet", new ShadowHelmet(), 200, true);
         BuffRegistry.registerBuff("shadowhelmetsetbonus", new ShadowHelmetSetBonus());
         ItemRegistry.registerItem("spiderbridehelmet", new SpiderBrideHelmet(), 200, true);
         ItemRegistry.registerItem("spiderbridechest", new SpiderBrideChest(), 200, true);
         ItemRegistry.registerItem("spiderbrideboots", new SpiderBrideBoots(), 200, true);
-        BuffRegistry.registerBuff("spiderbridehelmetsetbonus", new SpiderBrideHelmetSetBonus());
         BuffRegistry.registerBuff("spiderbridesetbonus", new SpiderBrideSetBonus());
         BuffRegistry.registerBuff("spiderbridecooldown", new ShownCooldownBuff());
+        ItemRegistry.registerItem("shadowhorrorhood", new ShadowHorrorHood(), 200, true);
         ItemRegistry.registerItem("shadowhorrormantle", new ShadowHorrorMantle(), 200, true);
         ItemRegistry.registerItem("shadowhorrorboots", new ShadowHorrorBoots(), 200, true);
-        ItemRegistry.registerItem("shadowhorrorhood", new ShadowHorrorHood(), 200, true);
         BuffRegistry.registerBuff("shadowhorrorsetbonus", new ShadowHorrorSetBonus());
         ItemRegistry.registerItem("agedsummonerhelmet", new AgedSummonerHelmet(), 200, true);
         BuffRegistry.registerBuff("agedsummonersetbonus", new AgedSummonerSetBonus());
         // T4
-        //ItemRegistry.registerItem("", new (), 400, true);
-        //BuffRegistry.registerBuff("", new ());
-
+        ItemRegistry.registerItem("ghostcaptainshat", new GhostCaptainHat(), 400, true);
+        ItemRegistry.registerItem("ghostcaptainsshirt", new GhostCaptainShirt(), 400, true);
+        ItemRegistry.registerItem("ghostcaptainsboots", new GhostCaptainBoots(), 400, true);
+        BuffRegistry.registerBuff("ghostcaptainssetbonus", new GhostCaptainSetBonus());
+        BuffRegistry.registerBuff("ghostcaptainscooldown", new ShownCooldownBuff());
         // --Trinkets--
         // T1
         ItemRegistry.registerItem("mesmercharm", new SimpleTrinketItem(Item.Rarity.RARE, "mesmercharmbuff", 100, TrinketsLootTable.trinkets).addDisables("mesmertablet", "zephyrcharm"), 50, true);

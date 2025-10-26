@@ -32,7 +32,11 @@ public class BearPolarHead extends SummonToolItem
     {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "polarheadtip"));
-        if (perspective.buffManager.hasBuff("frostcrownsetbonus"))
+        if (perspective == null)
+        {
+            return tooltips;
+        }
+        else if (perspective.buffManager.hasBuff("frostcrownsetbonus"))
         {
             tooltips.add(new StringTooltips(Localization.translate("itemtooltip", "polarheadtip2"), new Color(87, 189, 216)));
         }

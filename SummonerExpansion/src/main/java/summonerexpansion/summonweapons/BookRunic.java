@@ -48,7 +48,11 @@ public class BookRunic extends SummonToolItem
     {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "bookrunictip"));
-        if (perspective.buffManager.hasBuff("runicsetbonus"))
+        if (perspective == null)
+        {
+            return tooltips;
+        }
+        else if (perspective.buffManager.hasBuff("runicsetbonus"))
         {
             tooltips.add(new StringTooltips(Localization.translate("itemtooltip", "polarheadtip2"), new Color(86, 80, 111)));
         }

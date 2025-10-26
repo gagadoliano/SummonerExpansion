@@ -80,13 +80,13 @@ public class SummonerTextures
         LeafShotColdSentry.texture = GameTexture.fromFile("mobs/leafshotcoldsentry");
         BookMushroomSentry.texture = GameTexture.fromFile("mobs/mushroomsentry");
         IceBlossomSentry.texture = GameTexture.fromFile("mobs/iceblossomsentry");
+        VampireCoffinSentry.texture = GameTexture.fromFile("mobs/coffinsentry");
         SunflowerSentry.texture = GameTexture.fromFile("mobs/sunflowersentry");
         HorrorSentry.texture = GameTexture.fromFile("mobs/horrorspikesentry");
         FiremoneSentry.texture = GameTexture.fromFile("mobs/firemonesentry");
         CaveglowSentry.texture = GameTexture.fromFile("mobs/caveglowsentry");
         LeafShotSentry.texture = GameTexture.fromFile("mobs/leafshotsentry");
         XmasTreeSentry.texture = GameTexture.fromFile("mobs/xmastreesentry");
-        VampireCoffinSentry.texture = GameTexture.fromFile("mobs/coffinsentry");
 
         // Mobs
         HorrorSpiritBossMob.texture = GameTexture.fromFile("mobs/horrorspiritbossmob");

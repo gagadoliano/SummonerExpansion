@@ -87,7 +87,7 @@ public class LampMinionDungeon extends FlyingAttackingFollowingMob
     public void serverTick()
     {
         super.serverTick();
-        if (getAttackOwner().getLevel().getServer().world.worldEntity.isNight())
+        if (getAttackOwner().getLevel().getWorldEntity().isNight())
         {
             nightDebuff = true;
         }

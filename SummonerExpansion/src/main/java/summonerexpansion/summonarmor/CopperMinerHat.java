@@ -13,7 +13,8 @@ import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class CopperMinerHat extends SetHelmetArmorItem
 {
-    public FloatUpgradeValue mineUp = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1.0F, 0.25F);
+    public FloatUpgradeValue mineUp = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1F, 0.20F).setUpgradedValue(10F, 0.50F);
+    public FloatUpgradeValue summonDamage = (new FloatUpgradeValue()).setBaseValue(0F).setUpgradedValue(1F, 0.20F).setUpgradedValue(10F, 0.50F);
 
     public CopperMinerHat()
     {
@@ -25,6 +26,6 @@ public class CopperMinerHat extends SetHelmetArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue(BuffModifiers.MINING_SPEED, mineUp.getValue(this.getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue(BuffModifiers.MINING_SPEED, mineUp.getValue(getUpgradeTier(item))), new ModifierValue(BuffModifiers.SUMMON_DAMAGE, summonDamage.getValue(getUpgradeTier(item))));
     }
 }

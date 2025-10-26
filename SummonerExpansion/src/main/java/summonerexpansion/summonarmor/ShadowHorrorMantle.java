@@ -11,7 +11,7 @@ import necesse.inventory.lootTable.presets.BodyArmorLootTable;
 
 public class ShadowHorrorMantle extends ChestArmorItem
 {
-    public FloatUpgradeValue damageSummon = (new FloatUpgradeValue()).setBaseValue(0.15F).setUpgradedValue(1, 0.20F).setUpgradedValue(2, 0.25F).setUpgradedValue(3, 0.30F).setUpgradedValue(4, 0.35F).setUpgradedValue(5, 0.40F);
+    public FloatUpgradeValue damageSummon = (new FloatUpgradeValue()).setBaseValue(0.15F).setUpgradedValue(1F, 0.20F).setUpgradedValue(10F, 0.40F);
 
     public ShadowHorrorMantle()
     {

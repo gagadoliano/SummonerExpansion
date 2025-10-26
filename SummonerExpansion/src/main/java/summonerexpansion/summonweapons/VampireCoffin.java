@@ -28,7 +28,11 @@ public class VampireCoffin extends SummonToolItem
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "sentrytip"));
         tooltips.add(Localization.translate("itemtooltip", "coffinsentrytip"));
-        if (perspective.buffManager.hasBuff("bloodplatecowlsetbonus"))
+        if (perspective == null)
+        {
+            return tooltips;
+        }
+        else if (perspective.buffManager.hasBuff("bloodplatecowlsetbonus"))
         {
             tooltips.add(new StringTooltips(Localization.translate("itemtooltip", "coffinsentrytip2"), new Color(180, 15, 50)));
         }

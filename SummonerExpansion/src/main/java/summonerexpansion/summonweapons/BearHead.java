@@ -32,7 +32,11 @@ public class BearHead extends SummonToolItem
     {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "bearheadtip"));
-        if (perspective.buffManager.hasBuff("frostcrownsetbonus"))
+        if (perspective == null)
+        {
+            return tooltips;
+        }
+        else if (perspective.buffManager.hasBuff("frostcrownsetbonus"))
         {
             tooltips.add(new StringTooltips(Localization.translate("itemtooltip", "leathersummonersetbonus"), new Color(206, 135, 70)));
         }

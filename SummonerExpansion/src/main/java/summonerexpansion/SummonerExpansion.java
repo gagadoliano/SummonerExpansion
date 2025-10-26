@@ -17,7 +17,7 @@ public class SummonerExpansion
         SummonerChallenges.registerSummonChallenges();
         SummonerProjectiles.registerSummonProjs();
         SummonerSettlers.registerSummonSettlers();
-        SummonerJournal.registerSummonerJournal();
+        SummonerJournal.registerSummonJournal();
         SummonerObjects.registerSummonObjects();
         SummonerWeapons.registerSummonWeapons();
         SummonerEquips.registerSummonEquips();
@@ -25,6 +25,7 @@ public class SummonerExpansion
         SummonerTiles.registerSummonTiles();
         SummonerTechs.registerSummonTechs();
         SummonerBuffs.registerSummonBuffs();
+        SummonerPerks.registerSummonPerks();
         SummonerMobs.registerSummonMobs();
 
         // Events

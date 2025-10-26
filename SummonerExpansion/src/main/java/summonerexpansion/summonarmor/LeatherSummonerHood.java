@@ -14,7 +14,7 @@ import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class LeatherSummonerHood extends SetHelmetArmorItem
 {
-    public FloatUpgradeValue summonAttackSpeed = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1, 0.25F).setUpgradedValue(5, 0.50F);
+    public FloatUpgradeValue summonAttackSpeed = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1, 0.25F).setUpgradedValue(10, 0.50F);
 
     public LeatherSummonerHood()
     {
@@ -24,6 +24,6 @@ public class LeatherSummonerHood extends SetHelmetArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue(BuffModifiers.SUMMON_ATTACK_SPEED, summonAttackSpeed.getValue(this.getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue(BuffModifiers.SUMMON_ATTACK_SPEED, summonAttackSpeed.getValue(getUpgradeTier(item))));
     }
 }

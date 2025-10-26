@@ -11,8 +11,8 @@ import necesse.inventory.lootTable.presets.FeetArmorLootTable;
 
 public class RedSpiderBoots extends BootsArmorItem
 {
-    public FloatUpgradeValue moveSpd = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1.0F, 0.25F);
-    public FloatUpgradeValue summonSpd = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1.0F, 0.20F);
+    public FloatUpgradeValue moveSpd = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1F, 0.25F).setUpgradedValue(10F, 0.35F);
+    public FloatUpgradeValue summonSpd = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1F, 0.20F).setUpgradedValue(10F, 0.35F);
 
     public RedSpiderBoots()
     {
@@ -21,6 +21,6 @@ public class RedSpiderBoots extends BootsArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue(BuffModifiers.SPEED, moveSpd.getValue(this.getUpgradeTier(item))), new ModifierValue(BuffModifiers.SUMMONS_SPEED, summonSpd.getValue(this.getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue(BuffModifiers.SPEED, moveSpd.getValue(getUpgradeTier(item))), new ModifierValue(BuffModifiers.SUMMONS_SPEED, summonSpd.getValue(getUpgradeTier(item))));
     }
 }

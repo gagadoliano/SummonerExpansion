@@ -4,6 +4,7 @@ import necesse.engine.localization.Localization;
 import necesse.engine.util.GameBlackboard;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
+import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.gfx.gameTooltips.StringTooltips;
 import necesse.inventory.InventoryItem;
@@ -27,7 +28,11 @@ public class VampireWings extends SummonToolItem
     {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "vampirewingstip"));
-        if (perspective.buffManager.hasBuff("bloodplatecowlsetbonus"))
+        if (perspective == null)
+        {
+            return tooltips;
+        }
+        else if (perspective.buffManager.hasBuff("bloodplatecowlsetbonus"))
         {
             tooltips.add(new StringTooltips(Localization.translate("itemtooltip", "vampirewingstip2"), new Color(180, 15, 50)));
         }

@@ -30,7 +30,7 @@ import java.util.LinkedList;
 
 public class ShadowHorrorSetBonus extends SetBonusBuff
 {
-    public FloatUpgradeValue horrorDamage = (new FloatUpgradeValue(0.0F, 0.2F)).setBaseValue(50.0F).setUpgradedValue(1.0F, 60.0F);
+    public FloatUpgradeValue horrorDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(40.0F).setUpgradedValue(1F, 40.0F);
     public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1.0F, 2);
 
     public ShadowHorrorSetBonus() {}
@@ -57,11 +57,12 @@ public class ShadowHorrorSetBonus extends SetBonusBuff
             float count = attackerMob.serverFollowersManager.getFollowerCount("horrorbabyminion");
             if (GameRandom.globalRandom.getChance(0.02F) && count <= 4)
             {
+                GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, horrorDamage.getValue(buff.getUpgradeTier()));
                 Level level = buff.owner.getLevel();
                 AttackingFollowingMob mob = (AttackingFollowingMob)MobRegistry.getMob("horrorbabyminion", level);
                 attackerMob.serverFollowersManager.addFollower("horrorbabyminion", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, (p) -> 5, null, false);
                 Point2D.Float spawnPoint = SummonToolItem.findSpawnLocation(mob, level, attackerMob.x, attackerMob.y);
-                mob.updateDamage(new GameDamage(DamageTypeRegistry.SUMMON, horrorDamage.getValue(buff.getUpgradeTier())));
+                mob.updateDamage(damage);
                 mob.setRemoveWhenNotInInventory(ItemRegistry.getItem("shadowhorrorhood"), CheckSlotType.HELMET);
                 mob.getLevel().entityManager.addMob(mob, spawnPoint.x, spawnPoint.y);
             }

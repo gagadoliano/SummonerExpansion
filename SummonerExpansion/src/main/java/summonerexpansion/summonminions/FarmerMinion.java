@@ -5,8 +5,6 @@ import necesse.engine.network.PacketReader;
 import necesse.engine.network.PacketWriter;
 import necesse.engine.network.gameNetworkData.GNDItemGameDamage;
 import necesse.engine.registries.MobRegistry;
-import necesse.engine.save.LoadData;
-import necesse.engine.save.SaveData;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
 import necesse.engine.util.GameRandom;
@@ -18,9 +16,7 @@ import necesse.entity.mobs.friendly.BoarMob;
 import necesse.entity.mobs.friendly.ChickenMob;
 import necesse.entity.mobs.friendly.PigMob;
 import necesse.entity.mobs.friendly.RoosterMob;
-import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
-import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.FlyingAttackingFollowingMob;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
 import necesse.gfx.*;
@@ -29,8 +25,6 @@ import necesse.gfx.drawOptions.DrawOptions;
 import necesse.gfx.drawOptions.human.HumanDrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.inventory.InventoryItem;
-import necesse.inventory.item.armorItem.cosmetics.misc.ShirtArmorItem;
-import necesse.inventory.item.armorItem.cosmetics.misc.ShoesArmorItem;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 
@@ -39,13 +33,10 @@ import java.util.List;
 
 public class FarmerMinion extends AttackingFollowingMob
 {
-    public HumanLook look = new HumanLook();
     public boolean shouldResetFacingPos;
     public float facingBuffer;
-    public InventoryItem helmet;
-    public InventoryItem chest;
-    public InventoryItem boots;
-    public int lookSeed;
+    protected HumanLook look;
+    protected int lookSeed;
 
     public FarmerMinion()
     {
@@ -61,26 +52,7 @@ public class FarmerMinion extends AttackingFollowingMob
         swimSinkOffset = -4;
         attackAnimTime = 600;
         attackCooldown = 900;
-    }
-
-    public void addSaveData(SaveData save)
-    {
-        super.addSaveData(save);
-        save.addInt("lookSeed", lookSeed);
-    }
-
-    public void applyLoadData(LoadData save)
-    {
-        super.applyLoadData(save);
-        lookSeed = save.getInt("lookSeed", lookSeed);
-        getLookSeed();
-        updateLook();
-    }
-
-    public void applySpawnPacket(PacketReader reader)
-    {
-        super.applySpawnPacket(reader);
-        lookSeed = reader.getNextInt();
+        look = new HumanLook();
         updateLook();
     }
 
@@ -88,6 +60,13 @@ public class FarmerMinion extends AttackingFollowingMob
     {
         super.setupSpawnPacket(writer);
         writer.putNextInt(lookSeed);
+    }
+
+    public void applySpawnPacket(PacketReader reader)
+    {
+        super.applySpawnPacket(reader);
+        lookSeed = reader.getNextInt();
+        updateLook();
     }
 
     public void init()
@@ -139,15 +118,12 @@ public class FarmerMinion extends AttackingFollowingMob
         });
     }
 
-    public void getSeededRandomGear()
-    {
-        helmet = new InventoryItem("farmerhat");
-        chest = new InventoryItem("farmershirt");
-        boots = new InventoryItem("farmershoes");
-    }
-
     public void updateLook()
     {
+        if (lookSeed == 0)
+        {
+            lookSeed = GameRandom.globalRandom.nextInt();
+        }
         GameRandom random = new GameRandom(lookSeed);
         HumanGender gender = random.getOneOfWeighted(HumanGender.class, 20, HumanGender.MALE, 20, HumanGender.FEMALE, 20, HumanGender.NEUTRAL);
         look.setSkin(random.getOneOf(0, 1, 2, 3, 13, 14, 17, 18));
@@ -159,7 +135,6 @@ public class FarmerMinion extends AttackingFollowingMob
             look.setFacialFeature(random.getIntBetween(1, 7));
         }
         look.setHairColor(random.getIntBetween(1, 25));
-        getSeededRandomGear();
     }
 
     public void getLookSeed()
@@ -185,45 +160,25 @@ public class FarmerMinion extends AttackingFollowingMob
         GameLight light = level.getLightLevel(x / 32, y / 32);
         int drawX = camera.getDrawX(x) - 22 - 10;
         int drawY = camera.getDrawY(y) - 44 - 7;
-        float animProgress = getAttackAnimProgress();
         int dir = getDir();
+        float animProgress = getAttackAnimProgress();
         Point sprite = getAnimSprite(x, y, dir);
         boolean inLiquid = inLiquid(x, y);
         if (inLiquid) {sprite.x = 0;}
         drawY += getBobbing(x, y);
         drawY += getLevel().getTile(x / 32, y / 32).getMobSinkingAmount(this);
         MaskShaderOptions swimMask = getSwimMaskShaderOptions(inLiquidFloat(x, y));
-        HumanDrawOptions humanOptions = (new HumanDrawOptions(level, look, false)).sprite(sprite).mask(swimMask).dir(dir).light(light);
-        if (inLiquid)
-        {
-            humanOptions.armSprite(2);
-            humanOptions.mask(MobRegistry.Textures.runeboundboat_mask[sprite.y % 4], 0, -7);
-        }
-        if (helmet != null)
-        {
-            humanOptions.helmet(helmet);
-        }
-        if (chest != null)
-        {
-            humanOptions.chestplate(chest);
-        }
-        else
-        {
-            humanOptions.chestplate(ShirtArmorItem.addColorData(new InventoryItem("shirt"), look.getShirtColor()));
-        }
-        if (boots != null)
-        {
-            humanOptions.boots(boots);
-        }
-        else
-        {
-            humanOptions.boots(ShoesArmorItem.addColorData(new InventoryItem("shoes"), look.getShoesColor()));
-        }
+        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, look, false)).sprite(sprite).dir(dir).mask(swimMask).light(light).helmet(new InventoryItem("farmerhat")).chestplate(new InventoryItem("farmershirt")).boots(new InventoryItem("farmershoes"));
         if (isAttacking)
         {
-            humanOptions.itemAttack(new InventoryItem("copperpitchfork"), null, animProgress, attackDir.x, attackDir.y);
+            humanDrawOptions.itemAttack(new InventoryItem("copperpitchfork"), null, animProgress, attackDir.x, attackDir.y);
         }
-        final DrawOptions drawOptions = humanOptions.pos(drawX, drawY);
+        if (inLiquid)
+        {
+            humanDrawOptions.armSprite(2);
+            humanDrawOptions.mask(MobRegistry.Textures.boat_mask[sprite.y % 4], 0, -7);
+        }
+        final DrawOptions drawOptions = humanDrawOptions.pos(drawX, drawY);
         final DrawOptions boat = inLiquid ? MobRegistry.Textures.steelBoat.initDraw().sprite(0, sprite.y, 64).light(light).pos(drawX, drawY + 7) : null;
         list.add(new MobDrawable() {
             public void draw(TickManager tickManager) {

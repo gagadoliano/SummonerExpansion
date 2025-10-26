@@ -14,7 +14,7 @@ import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class AgedSummonerHelmet extends SetHelmetArmorItem
 {
-    public FloatUpgradeValue resDecay = (new FloatUpgradeValue()).setBaseValue(-0.5F).setUpgradedValue(1.0F, -1.0F);
+    public FloatUpgradeValue resDecay = (new FloatUpgradeValue()).setBaseValue(-0.5F).setUpgradedValue(1F, -0.6F).setUpgradedValue(5F, -1F).setUpgradedValue(10F, -1F);
     public IntUpgradeValue maxSummon = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 3);
 
     public AgedSummonerHelmet()

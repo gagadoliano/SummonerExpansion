@@ -14,7 +14,7 @@ import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class RedSpiderHelmet extends SetHelmetArmorItem
 {
-    public IntUpgradeValue summonMax = (new IntUpgradeValue()).setBaseValue(2).setUpgradedValue(1, 3);
+    public IntUpgradeValue summonMax = (new IntUpgradeValue()).setBaseValue(2).setUpgradedValue(1F, 3).setUpgradedValue(10F, 4);
 
     public RedSpiderHelmet()
     {

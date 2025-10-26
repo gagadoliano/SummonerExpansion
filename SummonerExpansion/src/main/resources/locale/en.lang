@@ -80,6 +80,7 @@ copperminerhat=Copper Miner Hat
 bloodplatemask=Bloodplate Mask
 shadowhelmet=Shadow Helmet
 frostcrown=Frost Crown
+pharaohsmask=Pharaoh's Mask
 
 // Armor sets
 redspiderhelmet=Red Spider Helmet
@@ -94,6 +95,9 @@ shadowhorrorboots=Shadow Horror Boots
 spiderbridehelmet=Spider Bride Helmet
 spiderbridechest=Spider Bride Chest
 spiderbrideboots=Spider Bride Boots
+ghostcaptainshat=Ghost Captain's Hat
+ghostcaptainsshirt=Ghost Captain's Shirt
+ghostcaptainsboots=Ghost Captain's Boots
 
 // Trinkets
 essenceofcompanionship=Essence of Companionship
@@ -244,14 +248,16 @@ iceblossomsentrytip=This sentry gives nearby allies armor
 
 // Armor set bonus
 spiderbridesettip=Grants immunity to slows \nSummon attacks poison target for 25 damage over 5 seconds \nPress [input=setability] to summon a spider bride that shoots poison and webs
-agedsummonersettip=Increases summon crit chance and gives resilience regen when at full health \nBlocking just before being hit greatly increases stamina regen
+agedsummonersettip=Summons an aged champion when at full health \nBlocking just before being hit greatly increases stamina regen
 frostcrownsettip=Summon attacks slows and damages the target for 15 damage over 5 seconds \nImproves summon frost weapons
 bloodplatemasksettip=After taking damage, your health regen is doubled for 4 seconds \nImproves summon vampire weapons
+ghostcaptainssettip=Press [input=setability] to summon a ghost pirate ship that shoots cannonballs at foes
 redspidersettip=Grants immunity to slow and blindness \nSummon attacks slows foes
 shadowhelmetsettip=Summon attacks haunt target for 25 damage over 5 seconds
 copperminersettip=Increases the light of magic lamps and candles
 horrorsettip=Chance to summon horror spirits during combat
 plaguesettip=Periodically summons mouses during combat
+pharaohsmasksettip=Summons a locust when you kill a foe
 
 // Trinkets
 transplantedhearttip=Increases health regen during combat by 0.75 \nIncreases max resilience by 10% \nTurns half your health into resilience \nRegen resilience when at full health \nRestore 25% health when taking fatal damage\n5 minute cooldown
@@ -434,30 +440,36 @@ sunflowerbufft1=Stronger health regen while on combat
 goblinswordstack=Allows goblin summoning at 50 stacks
 woodtoolbuff=Increased mining range and mining speed
 horrorswordstack=Horror Sword attack speed buff
-summonedjellyfishminionbuff=Jellyfish Minion
 fishianstack=Summons a fishian at 100 stacks
 mushroombuff=Kills increases your max health
 sunflowerbuff=Health regen while on combat
 firemonebufft1=Stronger armor penetration
 honeybuff=Health regen while on combat
 iceblossombufft5=Armor and resilience
-summonedbeetminionbuff=Beet Minion
 iceblossombufft1=Stronger armor
 firemonebuff=Armor penetration
 runicshieldbuff=Runic Armor
 iceblossombuff=Armor
 
 // Debuffs
-horrorglaivecooldowndebuff=Horror Glaive Cooldown
 bleedingdebuff=-20% damage and 2 poison damage
-goblincooldowndebuff=Goblin Sword Cooldown
-spiderbridecooldown=Spider Bride Cooldown
 redspiderdebuff=2x Poison damage received
 redspiderpoisondebuff=Poison damage
 enchanteddebuff=-10 flat armor
 mosquitodebuff=-10% armor
 mushroomdebuff=20% slow
 honeydebuff=10% slow
+
+// Cooldowns
+horrorglaivecooldowndebuff=Horror Glaive Cooldown
+ghostcaptainscooldown=Ghost Captain Cooldown
+goblincooldowndebuff=Goblin Sword Cooldown
+spiderbridecooldown=Spider Bride Cooldown
+
+// Summons
+summonedagedchampionminionbuff=Aged Champion Minion
+summonedjellyfishminionbuff=Jellyfish Minion
+summonedbeetminionbuff=Beet Minion
 
 [journal]
 watergrasscollected=[item=watergrass] Collect 35 water grass
@@ -499,3 +511,7 @@ summontablecraft=Summoning Table
 summontablecraft2=Demonic Summoning Table
 summontablecraft3=Tungsten Summoning Table
 summontablecraft4=Fallen Summoning Table
+
+[incursion]
+horrorspiritreward=Nightmare Invasion
+horrorspiritrewarddesc=Incursions now have a chance to spawn Horror spirits

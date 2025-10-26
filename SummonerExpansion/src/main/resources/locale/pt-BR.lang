@@ -94,6 +94,9 @@ shadowhorrorhood=Capuz de Horror das Sombras
 spiderbridehelmet=Capacete da Noiva Aranha
 spiderbridechest=Peitoral da Noiva Aranha
 spiderbrideboots=Botas da Noiva Aranha
+ghostcaptainshat=Chapéu do Capitão Fantasma
+ghostcaptainsshirt=Camisa do Capitão Fantasma
+ghostcaptainsboots=Botas do Capitão Fantasma
 
 // Trinkets
 balancedsummonerboard=Tabuleiro de Invocador Balanceado
@@ -244,7 +247,7 @@ iceblossomsentrytip=Jogadores próximos recebem armadura
 
 // Armor set bonus
 spiderbridesettip=Concede imunidade a lentidão \nAtaques de invocação envenenam o alvo por 25 de dano ao longo de 5 segundos \nPressione [input=setability] para invocar uma noiva aranha que atira veneno e teias
-agedsummonersettip=Aumenta a chance de acerto crítico de invocação e concede regeneração de resiliência quando com saúde máxima \nBloquear antes de ser atingido aumenta muito a regeneração de resistência
+agedsummonersettip=Invoca um gladiador quando estiver com saúde máxima \nBloquear antes de ser atingido aumenta muito a regeneração de resistência
 bloodplatemasksettip=Após sofrer dano, sua regeneração de saúde é dobrada por 4 segundos \nMelhora os lacaios vampiros e caixão de vampiro
 frostcrownsettip=Ataques de invocação desaceleram e causam dano ao alvo em 15 de dano ao longo de 5 segundos \nMelhora as armas de gelo
 redspidersettip=Concede imunidade a lentidão e cegueira \nAtaques de invocação desaceleram inimigos
@@ -252,6 +255,7 @@ shadowhelmetsettip=Ataques de invocação assombram o alvo por 25 de dano ao lon
 horrorsettip=Chance de invocar espíritos de horror durante combate
 copperminersettip=Aumenta a claridade da luz de lâmpadas mágicas
 plaguesettip=Periodicamente invoca ratos durante combate
+ghostcaptainssetbonus=Pressione [input=setability] para invocar um navio pirata fantasma que atira bolas de canhão nos inimigos
 
 // Trinkets
 transplantedhearttip=Aumenta a regeneração de saúde durante combate em 0,75 \nAumenta a resiliência máxima em 10% \nTransforma metade de sua vida em resiliência \nRegenera resiliência quando estiver com a vida cheia \nRestaura 25% de vida ao receber dano fatal \nTempo de recarga: 5 minutos
@@ -441,23 +445,29 @@ woodbuff=Velocidade e alcance de mineração
 honeybuff=Regeneração de saúde em combate
 iceblossombufft5=Armadura e resiliência
 iceblossombufft1=Armadura mais forte
-summonedbeetminionbuff=Beterrabinha
 firemonebuff=Penetração de armadura
 runicshieldbuff=Armadura Rúnica
 iceblossombuff=Armadura
-summonedjellyfishminionbuff=Lacaio água-viva
 
 // Debuffs
 bleedingdebuff=-20% de dano e 2 de dano de veneno
 redspiderdebuff=2x Dano de Veneno recebido
-horrorglaivecooldowndebuff=Recarregando...
 enchantedDebuff=-10 de armadura absoluta
 redspiderpoisondebuff=Dano de Veneno
-goblincooldowndebuff=Recarregando...
-spiderbridecooldown=Recarregando...
 mosquitodebuff=-10% de armadura
 mushroomDebuff=20% lentidão
 honeyDebuff=10% lentidão
+
+// Cooldowns
+horrorglaivecooldowndebuff=Recarregando...
+ghostcaptainscooldown=Recarregando...
+goblincooldowndebuff=Recarregando...
+spiderbridecooldown=Recarregando...
+
+// Summons
+summonedagedchampionminionbuff=Lacaio Campeão Envelhecido
+summonedjellyfishminionbuff=Lacaio água-viva
+summonedbeetminionbuff=Lacaio Beterrabinha
 
 [journal]
 watergrasscollected=[item=watergrass] Colete 35 ervas d'água
