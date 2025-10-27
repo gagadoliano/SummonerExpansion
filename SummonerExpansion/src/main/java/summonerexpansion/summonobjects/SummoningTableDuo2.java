@@ -36,13 +36,13 @@ public class SummoningTableDuo2 extends CraftingStationObject
 
     public MultiTile getMultiTile(int rotation)
     {
-        return new SideMultiTile(0, 0, 1, 2, rotation, false, this.getID(), this.counterID);
+        return new SideMultiTile(0, 0, 1, 2, rotation, false, getID(), counterID);
     }
 
     public void loadTextures()
     {
         super.loadTextures();
-        this.texture = ObjectDamagedTextureArray.loadAndApplyOverlay(this, "objects/summoningtableduo");
+        texture = ObjectDamagedTextureArray.loadAndApplyOverlay(this, "objects/summoningtableduo");
     }
 
     public Rectangle getCollision(Level level, int x, int y, int rotation)
@@ -61,28 +61,35 @@ public class SummoningTableDuo2 extends CraftingStationObject
         }
     }
 
-    public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, Level level, int tileX, int tileY, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
+    public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, Level level, int tileX, int tileY, TickManager tickManager, GameCamera camera, PlayerMob perspective)
+    {
         GameLight light = level.getLightLevel(tileX, tileY);
         int drawX = camera.getTileDrawX(tileX);
         int drawY = camera.getTileDrawY(tileY);
         int rotation = level.getObjectRotation(tileX, tileY);
         GameTexture texture = this.texture.getDamagedTexture(this, level, tileX, tileY);
         final DrawOptionsList options = new DrawOptionsList();
-        if (rotation == 0) {
+        if (rotation == 0)
+        {
             options.add(texture.initDraw().sprite(0, 0, 32).light(light).pos(drawX, drawY - 32));
             options.add(texture.initDraw().sprite(0, 1, 32).light(light).pos(drawX, drawY));
-        } else if (rotation == 1) {
+        }
+        else if (rotation == 1)
+        {
             options.add(texture.initDraw().sprite(1, 5, 32).light(light).pos(drawX, drawY - 32));
             options.add(texture.initDraw().sprite(1, 6, 32).light(light).pos(drawX, drawY));
             int flameSprite = (int) (level.getWorldEntity().getWorldTime() % 1200L / 300L);
             options.add(texture.initDraw().sprite(flameSprite % 2, 7 + flameSprite / 2, 32).light(light).pos(drawX, drawY));
-        } else if (rotation == 2) {
+        }
+        else if (rotation == 2)
+        {
             options.add(texture.initDraw().sprite(1, 2, 32).light(light).pos(drawX, drawY));
-        } else {
+        }
+        else
+        {
             options.add(texture.initDraw().sprite(0, 3, 32).light(light).pos(drawX, drawY - 32));
             options.add(texture.initDraw().sprite(0, 4, 32).light(light).pos(drawX, drawY));
         }
-
         list.add(new LevelSortedDrawable(this, tileX, tileY)
         {
             public int getSortY() {

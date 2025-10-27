@@ -386,7 +386,7 @@ public class SummonerRecipesArmor
         Recipes.registerModRecipe(new Recipe(
                 "pharaohsmask",
                 1,
-                SUMMONTABLECRAFT2,
+                RecipeTechRegistry.DEMONIC_ANVIL,
                 new Ingredient[]{
                         new Ingredient("runiccrown", 1),
                         new Ingredient("clothhat", 1),

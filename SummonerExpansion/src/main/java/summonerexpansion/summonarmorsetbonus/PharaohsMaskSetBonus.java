@@ -10,6 +10,7 @@ import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.MobWasKilledEvent;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
+import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.setBonusBuffs.SetBonusBuff;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackSlot;
@@ -31,6 +32,7 @@ import java.util.LinkedList;
 
 public class PharaohsMaskSetBonus extends SetBonusBuff
 {
+    public IntUpgradeValue armorPen = (new IntUpgradeValue()).setBaseValue(5).setUpgradedValue(1F, 10).setUpgradedValue(10F, 20);
     public IntUpgradeValue maxLocustCount = (new IntUpgradeValue()).setBaseValue(2).setUpgradedValue(1F, 4).setUpgradedValue(10F, 10);
     public FloatUpgradeValue locustDamage = (new FloatUpgradeValue(0.0F, 0.2F)).setBaseValue(28.0F).setUpgradedValue(1.0F, 50.0F);
     public int locustCooldown;
@@ -42,6 +44,7 @@ public class PharaohsMaskSetBonus extends SetBonusBuff
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
     {
         locustCooldown = 30;
+        buff.setModifier(BuffModifiers.ARMOR_PEN_FLAT, armorPen.getValue(buff.getUpgradeTier()));
     }
 
     public void serverTick(ActiveBuff buff)

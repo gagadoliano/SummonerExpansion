@@ -29,6 +29,7 @@ public class AgedSummonerSetBonus extends SetBonusBuff
 {
     public IntUpgradeValue maxResilience = (new IntUpgradeValue()).setBaseValue(30).setUpgradedValue(1.0F, 30);
     public FloatUpgradeValue resilienceGain = (new FloatUpgradeValue()).setBaseValue(0.2F).setUpgradedValue(1.0F, 0.2F);
+    public FloatUpgradeValue summonSpeed = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(0.20F).setUpgradedValue(1.0F, 0.20F);
     public FloatUpgradeValue agedDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(25F).setUpgradedValue(1.0F, 25.0F);
 
     public AgedSummonerSetBonus() {}
@@ -37,6 +38,7 @@ public class AgedSummonerSetBonus extends SetBonusBuff
     {
         buff.setModifier(BuffModifiers.MAX_RESILIENCE_FLAT, maxResilience.getValue(buff.getUpgradeTier()));
         buff.setModifier(BuffModifiers.RESILIENCE_GAIN, resilienceGain.getValue(buff.getUpgradeTier()));
+        buff.setModifier(BuffModifiers.SUMMONS_SPEED, summonSpeed.getValue(buff.getUpgradeTier()));
     }
 
     public void clientTick(ActiveBuff buff) {
@@ -99,5 +101,11 @@ public class AgedSummonerSetBonus extends SetBonusBuff
         ListGameTooltips tooltips = super.getTooltip(ab, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "agedsummonersettip"));
         return tooltips;
+    }
+
+    public void addStatTooltips(LinkedList<ItemStatTip> list, ActiveBuff currentValues, ActiveBuff lastValues)
+    {
+        super.addStatTooltips(list, currentValues, lastValues);
+        currentValues.getModifierTooltipsBuilder(true, true).addLastValues(lastValues).buildToStatList(list);
     }
 }

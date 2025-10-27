@@ -13,7 +13,7 @@ import java.util.LinkedList;
 
 public class CopperMinerSetBonus extends SetBonusBuff
 {
-    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1.0F, 2);
+    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1F, 2).setUpgradedValue(10F, 3);
 
     public CopperMinerSetBonus() {}
 

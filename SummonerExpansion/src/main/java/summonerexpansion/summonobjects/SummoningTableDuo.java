@@ -5,6 +5,8 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
 import necesse.engine.gameLoop.tickManager.TickManager;
+import necesse.engine.localization.message.GameMessage;
+import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.registries.ObjectRegistry;
 import necesse.engine.sound.SoundSettings;
 import necesse.engine.sound.SoundSettingsRegistry;
@@ -40,6 +42,10 @@ public class SummoningTableDuo extends CraftingStationObject
         toolType = ToolType.ALL;
         isLightTransparent = true;
         hoverHitbox = new Rectangle(0, -16, 32, 48);
+    }
+
+    public GameMessage getNewLocalization() {
+        return new LocalMessage("object", "summoningtableduo");
     }
 
     public void loadTextures()

@@ -19,19 +19,23 @@ import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
+import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
 
 import java.awt.geom.Point2D;
+import java.util.LinkedList;
 
 public class GhostCaptainSetBonus extends SetBonusBuff implements BuffAbility
 {
     public FloatUpgradeValue ghostCaptainDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(50F).setUpgradedValue(1.0F, 50.0F);
+    public FloatUpgradeValue summonRange = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(10F).setUpgradedValue(1.0F, 10.0F);
 
     public GhostCaptainSetBonus() {}
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
     {
+        buff.setModifier(BuffModifiers.SUMMONS_TARGET_RANGE, summonRange.getValue(buff.getUpgradeTier()));
     }
 
     public void runAbility(PlayerMob player, ActiveBuff buff, Packet content)
@@ -63,5 +67,11 @@ public class GhostCaptainSetBonus extends SetBonusBuff implements BuffAbility
         ListGameTooltips tooltips = super.getTooltip(ab, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "ghostcaptainssettip"));
         return tooltips;
+    }
+
+    public void addStatTooltips(LinkedList<ItemStatTip> list, ActiveBuff currentValues, ActiveBuff lastValues)
+    {
+        super.addStatTooltips(list, currentValues, lastValues);
+        currentValues.getModifierTooltipsBuilder(true, true).addLastValues(lastValues).buildToStatList(list);
     }
 }

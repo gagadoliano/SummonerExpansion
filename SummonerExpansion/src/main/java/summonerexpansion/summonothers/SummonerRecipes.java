@@ -194,6 +194,17 @@ public class SummonerRecipes
                 }
         ));
 
+        // Walls
+        Recipes.registerModRecipe(new Recipe(
+                "empoweredrubyrock",
+                100,
+                RecipeTechRegistry.FALLEN_LANDSCAPING,
+                new Ingredient[]{
+                        new Ingredient("ruby", 10),
+                        new Ingredient("deepstone", 100)
+                }
+        ));
+
         // Boss summon
         Recipes.registerModRecipe(new Recipe(
                 "shadowhorrorportal",
