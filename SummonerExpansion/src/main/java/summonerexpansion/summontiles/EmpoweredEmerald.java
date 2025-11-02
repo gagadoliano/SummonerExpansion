@@ -23,12 +23,12 @@ public class EmpoweredEmerald extends TerrainSplatterTile
     public EmpoweredEmerald()
     {
         super(false, "empoweredemerald");
-        mapColor = new Color(92, 54, 62);
+        mapColor = new Color(0, 79, 99);
         canBeMined = true;
         drawRandom = new GameRandom();
         lightLevel = 50;
         tileHealth = 500;
-        lightHue = 337.0F;
+        lightHue = 190F;
     }
 
     public void tick(Mob mob, Level level, int x, int y)

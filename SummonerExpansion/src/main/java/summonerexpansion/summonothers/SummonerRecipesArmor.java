@@ -212,6 +212,28 @@ public class SummonerRecipesArmor
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "pharaohsrobe",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("runicchestplate", 1),
+                        new Ingredient("clothrobe", 10),
+                        new Ingredient("clothscraps", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "pharaohssandals",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("runicboots", 1),
+                        new Ingredient("clothboots", 10),
+                        new Ingredient("clothscraps", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "shadowhelmet",
                 1,
                 SUMMONTABLECRAFT3,
@@ -349,6 +371,38 @@ public class SummonerRecipesArmor
                         new Ingredient("captainsboots", 1),
                         new Ingredient("ironbomb", 50),
                         new Ingredient("ammobox", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "chefsummonerhat",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("chefsspecial", 1),
+                        new Ingredient("anytier2essence", 15)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "ravenlordsummonmask",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("vulturemask", 1),
+                        new Ingredient("ravenfeather", 15),
+                        new Ingredient("anytier2essence", 15)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "arcanicsummonhelmet",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("electrifiedmana", 15),
+                        new Ingredient("omnicrystal", 15),
+                        new Ingredient("pearlescentdiamond", 5)
                 }
         ));
 

@@ -13,7 +13,7 @@ public class MagicCopperLamp extends SummonToolItem
 {
     public MagicCopperLamp()
     {
-        super("lampminioncopper", FollowPosition.FLYING, 1, 200, SummonWeaponsLootTable.summonWeapons);
+        super("lampminioncopper", FollowPosition.CIRCLE_FAR, 1, 200, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.COMMON;
         attackDamage.setBaseValue(5.0F).setUpgradedValue(1, 25.0F);
         canBeUsedForRaids = true;

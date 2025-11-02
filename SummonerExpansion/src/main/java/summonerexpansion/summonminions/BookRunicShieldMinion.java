@@ -56,8 +56,6 @@ public class BookRunicShieldMinion extends FlyingAttackingFollowingMob
         return 105;
     }
 
-
-
     @Override
     public void handleCollisionHit(Mob target, GameDamage damage, int knockback)
     {

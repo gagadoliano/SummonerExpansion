@@ -1,6 +1,9 @@
 package summonerexpansion.summonarmorsetbonus;
 
 import necesse.engine.localization.Localization;
+import necesse.engine.localization.message.GameMessage;
+import necesse.engine.localization.message.GameMessageBuilder;
+import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.registries.DamageTypeRegistry;
 import necesse.engine.registries.ItemRegistry;
 import necesse.engine.registries.MobRegistry;
@@ -15,12 +18,14 @@ import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
+import necesse.inventory.item.DoubleItemStatTip;
 import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 import necesse.level.maps.Level;
 
+import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.LinkedList;
 
@@ -46,7 +51,7 @@ public class SummonPlagueSetBonus extends SetBonusBuff
             mouseTimer++;
             ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
             float count = attackerMob.serverFollowersManager.getFollowerCount("mouseminion");
-            if (mouseTimer >= 300 && count <= 7)
+            if (mouseTimer >= 600 && count <= 7)
             {
                 GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, mouseDamage.getValue(buff.getUpgradeTier()));
                 Level level = buff.owner.getLevel();
@@ -61,16 +66,31 @@ public class SummonPlagueSetBonus extends SetBonusBuff
         }
     }
 
-    public ListGameTooltips getTooltip(ActiveBuff ab, GameBlackboard blackboard)
-    {
-        ListGameTooltips tooltips = super.getTooltip(ab, blackboard);
-        tooltips.add(Localization.translate("itemtooltip", "plaguesettip"));
-        return tooltips;
-    }
-
     public void addStatTooltips(LinkedList<ItemStatTip> list, ActiveBuff currentValues, ActiveBuff lastValues)
     {
         super.addStatTooltips(list, currentValues, lastValues);
         currentValues.getModifierTooltipsBuilder(true, true).addLastValues(lastValues).buildToStatList(list);
+        float damage = mouseDamage.getValue(currentValues.getUpgradeTier());
+        if (currentValues.owner != null)
+        {
+            damage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
+        }
+        DoubleItemStatTip minionDamageTip = new DoubleItemStatTip(damage, 0)
+        {
+            public GameMessage toMessage(Color betterColor, Color worseColor, Color neutralColor, boolean showDifference)
+            {
+                return (new GameMessageBuilder()).append(new LocalMessage("itemtooltip", "plaguesettip")).append("\n").append(new LocalMessage("itemtooltip", "plaguesettip2", "damage", this.getReplaceValue(betterColor, worseColor, showDifference)));
+            }
+        };
+        if (lastValues != null)
+        {
+            float compareDamage = mouseDamage.getValue(lastValues.getUpgradeTier());
+            if (lastValues.owner != null)
+            {
+                compareDamage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
+            }
+            minionDamageTip.setCompareValue(compareDamage);
+        }
+        list.add(minionDamageTip);
     }
 }

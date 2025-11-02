@@ -13,7 +13,7 @@ public class MagicDungeonCandelabra extends SummonToolItem
 {
     public MagicDungeonCandelabra()
     {
-        super("lampminiondungeon", FollowPosition.FLYING, 1, 200, SummonWeaponsLootTable.summonWeapons);
+        super("lampminiondungeon", FollowPosition.CIRCLE_FAR, 1, 200, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.COMMON;
         attackDamage.setBaseValue(15.0F).setUpgradedValue(1, 65.0F);
         canBeUsedForRaids = true;

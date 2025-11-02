@@ -165,6 +165,46 @@ public class SummonerRecipes
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "empowerednewemerald",
+                10,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("emerald", 10),
+                        new Ingredient("deepstone", 100)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "empowerednewsapphire",
+                10,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("sapphire", 10),
+                        new Ingredient("deepstone", 100)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "empowerednewruby",
+                10,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("ruby", 10),
+                        new Ingredient("deepstone", 100)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "empoweredtopaz",
+                10,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("topaz", 10),
+                        new Ingredient("deepstone", 100)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "empoweredemerald",
                 10,
                 SUMMONTABLECRAFT4,

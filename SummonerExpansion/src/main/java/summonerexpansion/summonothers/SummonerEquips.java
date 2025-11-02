@@ -13,6 +13,7 @@ import necesse.inventory.item.Item;
 import necesse.inventory.item.trinketItem.SimpleTrinketItem;
 import necesse.inventory.lootTable.presets.TrinketsLootTable;
 import summonerexpansion.summonarmor.*;
+import summonerexpansion.summonminions.SetArcanicPylonSentry;
 import summonerexpansion.summonmounts.*;
 import summonerexpansion.summonarmorsetbonus.*;
 import summonerexpansion.summontrinket.*;
@@ -38,9 +39,9 @@ public class SummonerEquips
         ItemRegistry.registerItem("redspiderboots", new RedSpiderBoots(), 50, true);
         BuffRegistry.registerBuff("redspidersetbonus", new RedSpiderSetBonus());
         // T2
-        ItemRegistry.registerItem("summonplaguemask", new SummonPlagueMask(), 100, true);
-        ItemRegistry.registerItem("summonplaguerobe", new SummonPlagueRobe(), 100, true);
-        ItemRegistry.registerItem("summonplagueboots", new SummonPlagueBoots(), 100, true);
+        ItemRegistry.registerItem("summonplaguemask", new PlagueSummonerMask(), 100, true);
+        ItemRegistry.registerItem("summonplaguerobe", new PlagueSummonerRobe(), 100, true);
+        ItemRegistry.registerItem("summonplagueboots", new PlagueSummonerBoots(), 100, true);
         BuffRegistry.registerBuff("summonplaguesetbonus", new SummonPlagueSetBonus());
         ItemRegistry.registerItem("pharaohsmask", new PharaohsMask(), 100, true);
         BuffRegistry.registerBuff("pharaohsmasksetbonus", new PharaohsMaskSetBonus());
@@ -64,6 +65,14 @@ public class SummonerEquips
         ItemRegistry.registerItem("ghostcaptainsboots", new GhostCaptainBoots(), 400, true);
         BuffRegistry.registerBuff("ghostcaptainssetbonus", new GhostCaptainSetBonus());
         BuffRegistry.registerBuff("ghostcaptainscooldown", new ShownCooldownBuff());
+        ItemRegistry.registerItem("arcanicsummonhelmet", new ArcanicSummonerHelmet(), 400, true);
+        BuffRegistry.registerBuff("arcanicsummonsetbonus", new ArcanicSummonerSetBonus());
+        BuffRegistry.registerBuff("arcanicsummoncooldown", new ShownCooldownBuff());
+        ItemRegistry.registerItem("ravenlordsummonmask", new RavenlordSummonerMask(), 400, true);
+        BuffRegistry.registerBuff("ravenlordsummonsetbonus", new RavenlordSummonerSetBonus());
+        ItemRegistry.registerItem("chefsummonerhat", new ChefSummonerHat(), 400, true);
+        BuffRegistry.registerBuff("chefsummonerhatsetbonus", new ChefSummonerHatSetBonus());
+
         // --Trinkets--
         // T1
         ItemRegistry.registerItem("mesmercharm", new SimpleTrinketItem(Item.Rarity.RARE, "mesmercharmbuff", 100, TrinketsLootTable.trinkets).addDisables("mesmertablet", "zephyrcharm"), 50, true);
@@ -124,6 +133,8 @@ public class SummonerEquips
         BuffRegistry.registerBuff("jellyfishbowlbuff", new JellyfishBowlBuff());
         ItemRegistry.registerItem("giantbeet", new SimpleTrinketItem(Item.Rarity.RARE, "giantbeetbuff", 100, TrinketsLootTable.trinkets), 50, true);
         BuffRegistry.registerBuff("giantbeetbuff", new GiantBeetBuff());
+        ItemRegistry.registerItem("magicteapot", new SimpleTrinketItem(Item.Rarity.RARE, "magicteapotbuff", 100, TrinketsLootTable.trinkets), 50, true);
+        BuffRegistry.registerBuff("magicteapotbuff", new MagicTeaPotBuff());
 
         // Mounts
         ItemRegistry.registerItem("chieftainhat", new ChieftainHat(), 50, true);

@@ -36,10 +36,6 @@ public class BookFrozenMinion extends AttackingFollowingMob
 {
     public int throwLife = 0;
     public boolean hasHair;
-    public static GameTexture texture1;
-    public static GameTexture texture2;
-    public static GameTexture texture3;
-    public static GameTexture swapTexture;
 
     public BookFrozenMinion()
     {
@@ -93,7 +89,6 @@ public class BookFrozenMinion extends AttackingFollowingMob
             }
         });
         hasHair = (new GameRandom(this.getUniqueID())).nextSeeded(51).nextBoolean();
-        swapTexture = GameRandom.globalRandom.getOneOf(texture1, texture2, texture3);
     }
 
     public void serverTick()
@@ -116,16 +111,16 @@ public class BookFrozenMinion extends AttackingFollowingMob
     public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
     {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
-        GameLight light = level.getLightLevel(x / 32, y / 32);
+        GameLight light = level.getLightLevel(getTileCoordinate(x), getTileCoordinate(y));
         int drawX = camera.getDrawX(x) - 22 - 10;
         int drawY = camera.getDrawY(y) - 44 - 7;
         int dir = this.getDir();
         Point sprite = this.getAnimSprite(x, y, dir);
         drawY += this.getBobbing(x, y);
-        drawY += this.getLevel().getTile(x / 32, y / 32).getMobSinkingAmount(this);
+        drawY += level.getTile(getTileCoordinate(x), getTileCoordinate(y)).getMobSinkingAmount(this);
         float animProgress = this.getAttackAnimProgress();
         MaskShaderOptions swimMask = this.getSwimMaskShaderOptions(this.inLiquidFloat(x, y));
-        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, MobRegistry.Textures.frozenDwarf)).hairTexture(hasHair ? swapTexture : null).sprite(sprite).dir(dir).mask(swimMask).light(light).attackOffsets(dir == 3 ? 36 : 28, 23, 10, 15, 12, 4, 12);
+        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, MobRegistry.Textures.frozenDwarf)).hairTexture(this.hasHair ? MobRegistry.Textures.frozenDwarfHair : null).sprite(sprite).dir(dir).mask(swimMask).light(light).attackOffsets(dir == 3 ? 36 : 28, 23, 10, 15, 12, 4, 12);
         if (this.isAttacking)
         {
             ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).itemSprite(MobRegistry.Textures.frozenDwarf.body, 0, 9, 32).itemRotatePoint(4, 4).itemEnd().armSprite(MobRegistry.Textures.frozenDwarf.body, 0, 8, 32).swingRotation(animProgress).light(light);
@@ -147,9 +142,9 @@ public class BookFrozenMinion extends AttackingFollowingMob
     public void showAttack(int x, int y, int seed, boolean showAllDirections)
     {
         super.showAttack(x, y, seed, showAllDirections);
-        if (this.isClient()) {
+        if (this.isClient())
+        {
             SoundManager.playSound(GameResources.swing1, SoundEffect.effect(this).volume(0.5F));
         }
-
     }
 }

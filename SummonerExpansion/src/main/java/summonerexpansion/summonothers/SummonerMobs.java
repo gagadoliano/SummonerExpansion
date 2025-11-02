@@ -68,17 +68,20 @@ public class SummonerMobs
 
         // Armor Minions
         MobRegistry.registerMob("ghostcaptainsminion", SetGhostCaptainMinion.class, false);
-        MobRegistry.registerMob("agedchampionminion", AgedChampionMinion.class, false);
+        MobRegistry.registerMob("agedchampionminion", SetAgedChampionMinion.class, false);
         MobRegistry.registerMob("spiderbrideminion", SetSpiderBrideMinion.class, false);
         MobRegistry.registerMob("horrorbabyminion", SetHorrorBabyMinion.class, false);
-        MobRegistry.registerMob("mouseminion", SetMouseMinion.class, false);
+        MobRegistry.registerMob("ravenlordminion", SetRavenlordMinion.class, false);
         MobRegistry.registerMob("locustminion", SetLocustMinion.class, false);
+        MobRegistry.registerMob("mouseminion", SetMouseMinion.class, false);
+        MobRegistry.registerMob("chefminion", SetChefMinion.class, false);
 
         // Trinket Minions
         MobRegistry.registerMob("mummysummonminion", TrinketMummySummonMinion.class, false);
         MobRegistry.registerMob("mummymagicminion", TrinketMummyMagicMinion.class, false);
         MobRegistry.registerMob("horrorbatminion", TrinketHorrorBatMinion.class, false);
         MobRegistry.registerMob("jellyfishminion", PetJellyfishMinion.class, false);
+        MobRegistry.registerMob("teapotminion", PetTeaPotMinion.class, false);
         MobRegistry.registerMob("beetminion", PetBeetMinion.class, false);
 
         // Sentries
@@ -107,6 +110,9 @@ public class SummonerMobs
         MobRegistry.registerMob("leafshotcoldsentry", LeafShotColdSentry.class, false);
         MobRegistry.registerMob("leafshotheatsentry", LeafShotHeatSentry.class, false);
         MobRegistry.registerMob("leafshotsentry", LeafShotSentry.class, false);
+
+        // Armor Sentry
+        MobRegistry.registerMob("arcanicpylonsentry", SetArcanicPylonSentry.class, false);
 
         // Minions from minions
         MobRegistry.registerMob("batcryptminion", VampireBatCryptMinion.class, false);

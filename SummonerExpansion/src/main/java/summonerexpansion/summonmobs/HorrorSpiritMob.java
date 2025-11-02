@@ -56,11 +56,11 @@ public class HorrorSpiritMob extends FlyingHostileMob
     {
         super.init();
         GameDamage damage;
-        if (this.getLevel() instanceof IncursionLevel)
+        if (getLevel() instanceof IncursionLevel)
         {
-            this.setMaxHealth(550);
-            this.setHealthHidden(this.getMaxHealth());
-            this.setArmor(60);
+            setMaxHealth(550);
+            setHealthHidden(getMaxHealth());
+            setArmor(60);
             damage = incursionDamage;
         }
         else
@@ -68,7 +68,7 @@ public class HorrorSpiritMob extends FlyingHostileMob
             damage = baseDamage;
         }
 
-        this.ai = new BehaviourTreeAI(this, new CollisionPlayerChaserWandererAI(null, 600, damage, 100, 40000), new FlyingAIMover());
+        ai = new BehaviourTreeAI(this, new CollisionPlayerChaserWandererAI(null, 600, damage, 100, 40000), new FlyingAIMover());
     }
 
     public void spawnDeathParticles(float knockbackX, float knockbackY)
@@ -76,7 +76,7 @@ public class HorrorSpiritMob extends FlyingHostileMob
         for(int i = 0; i < 4; ++i)
         {
             int sprite = GameRandom.globalRandom.nextInt(4);
-            this.getLevel().entityManager.addParticle(new TopFleshParticle(this.getLevel(), texture, 4 + sprite % 2, sprite / 2, 32, this.x, this.y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
+            getLevel().entityManager.addParticle(new TopFleshParticle(getLevel(), texture, 4 + sprite % 2, sprite / 2, 32, x, y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
         }
     }
 
@@ -97,10 +97,10 @@ public class HorrorSpiritMob extends FlyingHostileMob
         int drawX = camera.getDrawX(x) - 32;
         int drawY = camera.getDrawY(y) - 48 + bobbing;
         int anim = Math.abs(GameUtils.getAnim(level.getWorldEntity().getTime(), 4, 1000) - 3);
-        DrawOptions body = texture.initDraw().sprite(0, anim, 64).mirror(this.moveX < 0.0F, false).alpha(0.7F).light(light).pos(drawX, drawY);
+        DrawOptions body = texture.initDraw().sprite(0, anim, 64).mirror(moveX < 0.0F, false).alpha(0.7F).light(light).pos(drawX, drawY);
         int minLight = 100;
-        DrawOptions eyes = texture.initDraw().sprite(1, anim, 64).mirror(this.moveX < 0.0F, false).alpha(0.7F).light(light.minLevelCopy((float)minLight)).pos(drawX, drawY);
-        this.addShadowDrawables(topList, level, x, y, light, camera);
+        DrawOptions eyes = texture.initDraw().sprite(1, anim, 64).mirror(moveX < 0.0F, false).alpha(0.7F).light(light.minLevelCopy((float)minLight)).pos(drawX, drawY);
+        addShadowDrawables(topList, level, x, y, light, camera);
         topList.add((tm) -> {
             body.draw();
             eyes.draw();

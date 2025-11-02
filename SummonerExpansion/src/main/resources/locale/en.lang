@@ -1,8 +1,12 @@
 [tile]
+empoweredsapphire=Ancient Empowered Sapphire Floor
+empoweredemerald=Ancient Empowered Emerald Floor
+empowerednewsapphire=Empowered Sapphire Floor
+empowerednewemerald=Empowered Emerald Floor
+empoweredruby=Ancient Empowered Ruby Floor
 empoweredamethyst=Empowered Amethyst Floor
-empoweredsapphire=Empowered Sapphire Floor
-empoweredemerald=Empowered Emerald Floor
-empoweredruby=Empowered Ruby Floor
+empowerednewruby=Empowered Ruby Floor
+empoweredtopaz=Empowered Topaz Floor
 
 [object]
 // Crafting stations
@@ -12,10 +16,17 @@ fallensummoningtableduo=Fallen Summoning Table
 summoningbookshelf=Summoning Bookshelf
 summoningtableduo=Summoning Table
 
-// Others
+// Plants
 overgrowthornssapling=Regenerative Thorns
-tanktrainingdummy=Tanky Training Dummy
+
+// Banners
 bannerofwater=Banner of Water
+
+// Walls
+empoweredrubyrock=Ancient Empowered Ruby Rock
+
+// Others
+tanktrainingdummy=Tanky Training Dummy
 
 [item]
 // Minion weapons
@@ -74,13 +85,16 @@ wormbucket=Worm Bucket
 mosquitobow=Mosquito Bow
 
 // Armor pieces
+arcanicsummonhelmet=Arcanic Summoner Helmet
+ravenlordsummonmask=Ravenlord Summoner Mask
 leathersummonerhood=Leather Summoner Hood
 agedsummonerhelmet=Aged Summoner Helmet
+chefsummonerhat=Chef Summoner Hat
 copperminerhat=Copper Miner Hat
 bloodplatemask=Bloodplate Mask
+pharaohsmask=Pharaoh's Mask
 shadowhelmet=Shadow Helmet
 frostcrown=Frost Crown
-pharaohsmask=Pharaoh's Mask
 
 // Armor sets
 redspiderhelmet=Red Spider Helmet
@@ -121,6 +135,7 @@ mesmersatchel=Mesmer Satchel
 jellyfishbowl=Jellyfish Bowl
 cactusemblem=Cactus Emblem
 necroticclaw=Necrotic Claw
+magicteapot=Magic Tea Pot
 littleangel=Little Angel
 spelltablet=Spell Tablet
 mesmercharm=Mesmer Charm
@@ -248,27 +263,39 @@ iceblossomsentrytip=This sentry gives nearby allies armor
 
 // Armor set bonus
 spiderbridesettip=Grants immunity to slows \nSummon attacks poison target for 25 damage over 5 seconds \nPress [input=setability] to summon a spider bride that shoots poison and webs
-agedsummonersettip=Summons an aged champion when at full health \nBlocking just before being hit greatly increases stamina regen
+spiderbridesettip2=Spider bride damage: <damage>
+agedsummonersettip=Blocking just before being hit greatly increases stamina regen \nSummons an aged champion when at full health
+agedsummonersettip2=Aged champion damage: <damage>
+ravenlordsummonsettip=Ravenlords spawn when moving, shooting feathers at foes and dealing damage based on your movement speed
+ravenlordsummonsettip2=Ravenlord damage: <damage>
 frostcrownsettip=Summon attacks slows and damages the target for 15 damage over 5 seconds \nImproves summon frost weapons
 bloodplatemasksettip=After taking damage, your health regen is doubled for 4 seconds \nImproves summon vampire weapons
 ghostcaptainssettip=Press [input=setability] to summon a ghost pirate ship that shoots cannonballs at foes
+ghostcaptainssettip2=Ghost captain damage: <damage>
+arcanicsummonsettip=Press [input=setability] to summon an Arcanic Pylon Sentry to zap your foes
+arcanicsummonsettip2=Arcanic pylon damage: <damage>
+pharaohsmasksettip=Summons a locust when you kill a foe \nYou can have up to <amount> locusts
+pharaohsmasksettip2=Locust damage: <damage>
+chefsummonerhattip=You can have 1 extra food buff \nSummons a Battle chef when taking damage
+chefsummonerhattip2=Battle Chef damage: <damage>
 redspidersettip=Grants immunity to slow and blindness \nSummon attacks slows foes
 shadowhelmetsettip=Summon attacks haunt target for 25 damage over 5 seconds
 copperminersettip=Increases the light of magic lamps and candles
-horrorsettip=Chance to summon horror spirits during combat
+horrorsettip=Chance to summon minor horror spirits during combat
+horrorsettip2=Horror spirit damage: <damage>
 plaguesettip=Periodically summons mouses during combat
-pharaohsmasksettip=Summons a locust when you kill a foe
+plaguesettip2=Mouse damage: <damage>
 
 // Trinkets
 transplantedhearttip=Increases health regen during combat by 0.75 \nIncreases max resilience by 10% \nTurns half your health into resilience \nRegen resilience when at full health \nRestore 25% health when taking fatal damage\n5 minute cooldown
 littleangeltip=Equip and press [input=trinketability] to blink forward \nIncreases your summon and dash stats \nBeing hit while you have a Dash Cooldown refreshes your dash instantly \nGain 5 resilience whenever you use a dash trinket
 frenzyhorrorcapetip=+1 max summon \nIncreases movement speed by 20% \nGain 4 health regen per second while below 50% health \nGain up to +50% summon damage based on missing health \nSummons up to 3 horror bats when taking damage
 essenceofcompanionshiptip=Increases life essence gain by 100% \nIncreases life essence duration 100% \nIncreases summon damage and speed greatly for each unused summon\nThe increases diminish slightly beyond first unused summon
-minerslanterntip=Summons a Will-o'-Wisp \nIncreases mining and building stats \nMining rocks deals cleave damage to other nearby rocks \nIncreases summon damage is increased by mining damage \nSwing to turn on calming effect
+calmminerslanterntip=Summons a Will-o'-Wisp \nIncreases mining and building stats \nMining rocks deals cleave damage to other nearby rocks \nSummon damage is increased by mining damage \nSwing to turn off calming effect
+minerslanterntip=Summons a Will-o'-Wisp \nIncreases mining and building stats \nMining rocks deals cleave damage to other nearby rocks \nSummon damage is increased by mining damage \nSwing to turn on calming effect
 doomshroomshieldtip=Increases summon damage by 10% \nIncreases aggro range by 50% \nEquip and press [input=trinketability] to explode \nThe explosion pushes away foes and set them ablaze \n10 seconds cooldown
 scryingmagicianscardtip=+5 max summons \nIncreases mana stats \nIncreases summon speed and attack speed by 45% \nMagic damage increases by 50% of summon damage \nSummons mummies with summon or magic attacks
 balancedsummonerboardtip=Increases summon damage by 15% \nGain 5% increased summon damage for each different summon you have \nSummon attacks slow foes, deals 35 damage over 5 seconds
-calmminerslanterntip=Summons a Will-o'-Wisp \nIncreases mining and building stats \nMining rocks deals cleave damage to other nearby rocks \nSwing to turn off calming effect
 summonergambittip=+1 max summon \n+10 armor \n+50% summon damage \n-50% non-summon damage \n+10% summon crit chance \nCan only be equipped in the ability trinket slot.
 necromancerarmortip=Improves your summoner stats \nGain damage and hp regen on low health \nSummon attacks slows foes \nSummons up to 3 horror bats when taking damage
 mesmersatcheltip=+1 max summons \nIncreases stamina cap by 100% \nIncreases summon speed by 50% \nIncreases movement speed by 25% \nLights up the area around you
@@ -278,14 +305,17 @@ frenzystoneringtip=Gain up to +50% summon damage based on missing health \nGain 
 frozenassassinscowltip=Increases summon crit chance by 15% \nIncreases summon crit damage by 20% \nIncreases summon range by 20%
 shadowhorrorcapetip=+1 max summon \nIncreases movement speed by 20% \nSummons up to 3 horror bats when taking damage
 inducingsatcheltip=Increases summon speed by 40% \nIncreases movement speed by 20% \nLights up the area around you
-beetminiontip=Summons a beet minion that throws beets at foes \nThese beets have 10% chance to drop on missed hits
 spelltablettip=+2 max summons \nIncreases max mana by 60% \nIncreases summon and magic attack speed by 30%
 cactusemblemtip=Damages attackers back \nIt's damage multiply with max summons slots
 bonepiletip=Increases armor penetration by 25 \nIncreases summon crit damage by 25%
 demonicpolarclawtip=Summon attacks slows foes \nIncreases knockback resistance
 hystericalmirrortip=+3 max summons \nIncreases summon speed by 45%
-jellyfishminiontip=Summons a jellyfish minion that attack foes
 mesmercharmtip=+1 Max Summons \nIncreases Stamina Cap by 80%
+
+// Pet trinkets
+beetminiontip=Increases mining speed by 20% \nSummons a beet minion that throws beets at foes \nThown beets have 10% chance to drop on missed hits
+jellyfishminiontip=Grants immunity to blindness \nSummons a jellyfish minion that attack foes
+teapotminiontip=You can have 1 extra food buff \nSummons a magic tea pot that attack foes
 
 // Potions buff
 minionfarmtip=Decreases movement but increases pickup range by 50, mob spawn rate by 50%, summon speed and range by 40%
@@ -318,8 +348,9 @@ shadowbagtip=Stores tools and weapons picked up
 // Tiles
 empoweredsapphiretip=Increases the speed of player and settlers by 50% \nIncreases summon crit chance and summon crit damage by 10%
 empoweredemeraldtip=Increases the speed of player and settlers by 50% \nIncreases max mana and mana regen during combat by 10%
-empoweredamethysttip=Increases the speed of player and settlers by 50% \nIncreases max resilience and resilience regen by 10%
+empoweredamethysttip=Increases the speed of player and settlers by 50% \nnIncreases summon target range and knockback by 10%
 empoweredrubytip=Increases the speed of player and settlers by 50% \nIncreases summon speed and summon attack speed by 10%
+empoweredtopaztip=Increases the speed of player and settlers by 50% \nIncreases max resilience and resilience regen by 10%
 
 // Others
 minionspacetakentip=Each summon takes up <amount> summon slots
@@ -333,49 +364,42 @@ chargetip=Charge: <amount>%
 
 [mob]
 // Minions
-enchantedbabyzombiearcher=Enchanted Baby Zombie Archer Minion
+enchantedbabyzombiearcherminion=Enchanted Baby Zombie Archer Minion
+enchantedbabyzombieminion=Enchanted Baby Zombie Minion
 lampminioncastle=Spider Castle Candelabra Minion
-enchantedbabyzombie=Enchanted Baby Zombie Minion
 lampminiondungeon=Dungeon Candelabra Minion
 golemsapphireminion=Sapphire Golem Minion
 golemamethystminion=Amethyst Golem Minion
 golememeraldminion=Emerald Golem Minion
-tungstenlampminion=Tungsten Lamp Minion
-goldlampminion=Double Gold Lamp Minion
+lampminiontungsten=Tungsten Lamp Minion
+lampminiongold=Double Gold Lamp Minion
 spiritghoulminion=Spirit Ghoul Minion
 runerangedminion=Runic Shaman Minion
-copperlampminion=Copper Lamp Minion
+golemtopazminion=Topaz Golem Minion
+lampminioncopper=Copper Lamp Minion
 runemeleeminion=Runic Brute Minion
 golemrubyminion=Ruby Golem Minion
 icewizardminion=Ice Wizard Minion
 redspiderminion=Red Spider Minion
-sandwormminion=Sand Worm Minion
 beequeenminion=Bee Queen Minion
 vampireminion=Vampire Minion
 bearpolarminion=Polar Minion
 cactusminion=Cactus Minion
+farmerminion=Farmer Minion
 bearminion=Bear Minion
 
-// Sentry
-leafshotheatsentry=Fire Leaf Shooter Sentry
-leafshotcoldsentry=Ice Leaf Shooter Sentry
-xmastreesentry=Christmas Tree Sentry
-leafshotsentry=Leaf Shooter Sentry
-mushroomsentry=Mushroom Sentry
-caveglowsentry=Caveglow Sentry
-coffinsentry=Coffin Sentry
-
-// Sentry minions
-batcryptminion=Crypt Bat Minion
-mushroomminion=Mushroom Minion
-beeminion=Bee Minion
+// Worm
+sandwormheadminion=Sand Worm Minion
+sandwormbodyminion=Sand Worm Minion
 
 // Secondary minions
 explosivesnowmanminion=Explosive Snowman Minion
 magicpickaxeminion=Magic Pickaxe Minion
 frozendwarfminion=Frozen Dwarf Minion
 runicshieldminion=Runic Shield Minion
+magmaslimeminion=Magma Slime Minion
 magicaxeminion=Magic Axe Minion
+beebookminion=Bee Minion
 
 // Melee minions
 horrorcrawlingzombieminion=Horror Crawling Zombie Minion
@@ -391,22 +415,54 @@ goblinlegminion=Goblin Leg Minion
 fishcarpminion=Fish Carp Minion
 fishianminion=Fishian Minion
 
-// Melee sentry minions
-horrorspikesentry=Horror Spike Sentry
-
 // Range minions
 mosquitobowminion=Mosquito Minion
 
+// Armor minions
+ghostcaptainsminion=Ghost Captain Minion
+agedchampionminion=Aged Champion Minion
+spiderbrideminion=Spider Bride Minion
+horrorbabyminion=Horror Ghost Minion
+locustminion=Locust Minion
+mouseminion=Mouse Minion
+
+// Trinket minions
+mummysummonminion=Mummy Minion
+mummymagicminion=Magic Mummy Minion
+teapotminion=Magic Tea Pot Minion
+horrorbatminion=Horror Bat Minion
+jellyfishminion=Jellyfish Minion
+beetminion=Beet Minion
+
+// Sentry
+xmastreesentry=Christmas Tree Sentry
+mushroomsentry=Mushroom Sentry
+caveglowsentry=Caveglow Sentry
+coffinsentry=Coffin Sentry
+
+// Melee sentry minions
+horrorspikesentry=Horror Spike Sentry
+
 // Magic sentry minions
+iceblossomsentry5=Ice Blossom Sentry
+iceblossomsentry1=Ice Blossom Sentry
 iceblossomsentry=Ice Blossom Sentry
+sunflowersentry5=Sunflower Sentry
+sunflowersentry1=Sunflower Sentry
 sunflowersentry=Sunflower Sentry
+firemonesentry5=Firemone Sentry
+firemonesentry1=Firemone Sentry
 firemonesentry=Firemone Sentry
 
-// Equipment minions
-horrorbatminion=Horror Bat Minion
-mouseminion=Mouse Minion
-beetminion=Beet Minion
-jellyfishminion=Jellyfish Minion
+// Consumable sentry
+leafshotheatsentry=Fire Leaf Shooter Sentry
+leafshotcoldsentry=Ice Leaf Shooter Sentry
+leafshotsentry=Leaf Shooter Sentry
+
+// Minions from minions
+batcryptminion=Crypt Bat Minion
+mushroomminion=Mushroom Minion
+beeminion=Bee Minion
 
 // Mounts
 cavelingminecart=Caveling Minecart
@@ -462,12 +518,14 @@ honeydebuff=10% slow
 
 // Cooldowns
 horrorglaivecooldowndebuff=Horror Glaive Cooldown
+arcanicsummoncooldown=Arcanic Summoner Cooldown
 ghostcaptainscooldown=Ghost Captain Cooldown
 goblincooldowndebuff=Goblin Sword Cooldown
 spiderbridecooldown=Spider Bride Cooldown
 
 // Summons
 summonedagedchampionminionbuff=Aged Champion Minion
+summonedteapotminionbuff=Magic Tea Pot Minion
 summonedjellyfishminionbuff=Jellyfish Minion
 summonedbeetminionbuff=Beet Minion
 

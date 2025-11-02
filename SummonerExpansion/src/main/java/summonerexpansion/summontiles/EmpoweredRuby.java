@@ -28,7 +28,7 @@ public class EmpoweredRuby extends TerrainSplatterTile
         drawRandom = new GameRandom();
         lightLevel = 50;
         tileHealth = 500;
-        lightHue = 337.0F;
+        lightHue = 337F;
     }
 
     public void tick(Mob mob, Level level, int x, int y)

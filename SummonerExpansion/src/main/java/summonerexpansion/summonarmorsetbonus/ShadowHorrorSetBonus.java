@@ -1,6 +1,9 @@
 package summonerexpansion.summonarmorsetbonus;
 
 import necesse.engine.localization.Localization;
+import necesse.engine.localization.message.GameMessage;
+import necesse.engine.localization.message.GameMessageBuilder;
+import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.registries.DamageTypeRegistry;
 import necesse.engine.registries.ItemRegistry;
 import necesse.engine.registries.MobRegistry;
@@ -18,6 +21,7 @@ import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.entity.particle.Particle;
 import necesse.gfx.gameTooltips.ListGameTooltips;
+import necesse.inventory.item.DoubleItemStatTip;
 import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
@@ -69,16 +73,31 @@ public class ShadowHorrorSetBonus extends SetBonusBuff
         }
     }
 
-    public ListGameTooltips getTooltip(ActiveBuff ab, GameBlackboard blackboard)
-    {
-        ListGameTooltips tooltips = super.getTooltip(ab, blackboard);
-        tooltips.add(Localization.translate("itemtooltip", "horrorsettip"));
-        return tooltips;
-    }
-
     public void addStatTooltips(LinkedList<ItemStatTip> list, ActiveBuff currentValues, ActiveBuff lastValues)
     {
         super.addStatTooltips(list, currentValues, lastValues);
         currentValues.getModifierTooltipsBuilder(true, true).addLastValues(lastValues).buildToStatList(list);
+        float damage = horrorDamage.getValue(currentValues.getUpgradeTier());
+        if (currentValues.owner != null)
+        {
+            damage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
+        }
+        DoubleItemStatTip minionDamageTip = new DoubleItemStatTip(damage, 0)
+        {
+            public GameMessage toMessage(Color betterColor, Color worseColor, Color neutralColor, boolean showDifference)
+            {
+                return (new GameMessageBuilder()).append(new LocalMessage("itemtooltip", "horrorsettip")).append("\n").append(new LocalMessage("itemtooltip", "horrorsettip2", "damage", this.getReplaceValue(betterColor, worseColor, showDifference)));
+            }
+        };
+        if (lastValues != null)
+        {
+            float compareDamage = horrorDamage.getValue(lastValues.getUpgradeTier());
+            if (lastValues.owner != null)
+            {
+                compareDamage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
+            }
+            minionDamageTip.setCompareValue(compareDamage);
+        }
+        list.add(minionDamageTip);
     }
 }

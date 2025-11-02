@@ -1,6 +1,9 @@
 package summonerexpansion.summonarmorsetbonus;
 
 import necesse.engine.localization.Localization;
+import necesse.engine.localization.message.GameMessage;
+import necesse.engine.localization.message.GameMessageBuilder;
+import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.network.Packet;
 import necesse.engine.registries.BuffRegistry;
 import necesse.engine.registries.DamageTypeRegistry;
@@ -19,17 +22,22 @@ import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
+import necesse.inventory.item.DoubleItemStatTip;
 import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
+import summonerexpansion.summonminions.SetGhostCaptainMinion;
 
+import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.LinkedList;
 
 public class GhostCaptainSetBonus extends SetBonusBuff implements BuffAbility
 {
     public FloatUpgradeValue ghostCaptainDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(50F).setUpgradedValue(1.0F, 50.0F);
-    public FloatUpgradeValue summonRange = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(10F).setUpgradedValue(1.0F, 10.0F);
+    public FloatUpgradeValue summonRange = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(0.10F).setUpgradedValue(1.0F, 0.15F);
+    public IntUpgradeValue minionDuration = (new IntUpgradeValue()).setBaseValue(300).setUpgradedValue(1F, 400).setUpgradedValue(10F, 1200);
 
     public GhostCaptainSetBonus() {}
 
@@ -46,14 +54,14 @@ public class GhostCaptainSetBonus extends SetBonusBuff implements BuffAbility
         {
             GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, ghostCaptainDamage.getValue(buff.getUpgradeTier()));
             ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
-            AttackingFollowingMob mob = (AttackingFollowingMob) MobRegistry.getMob("ghostcaptainsminion", buff.owner.getLevel());
-            attackerMob.serverFollowersManager.addFollower("ghostcaptainsbuff", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1F, 1, null, false);
+            SetGhostCaptainMinion mob = new SetGhostCaptainMinion();
+            attackerMob.serverFollowersManager.addFollower("ghostcaptainsbuff", mob, FollowPosition.WIDE_CIRCLE_MOVEMENT, "summonedmob", 1F, 1, null, false);
             Point2D.Float spawnPoint = SummonToolItem.findSpawnLocation(mob, buff.owner.getLevel(), attackerMob.x, attackerMob.y);
             mob.updateDamage(damage);
+            mob.lifeTime = minionDuration.getValue(buff.getUpgradeTier());
             mob.setRemoveWhenNotInInventory(ItemRegistry.getItem("ghostcaptainshat"), CheckSlotType.HELMET);
-            mob.getLevel().entityManager.addMob(mob, spawnPoint.x, spawnPoint.y);
+            attackerMob.getLevel().entityManager.addMob(mob, spawnPoint.x, spawnPoint.y);
         }
-
         player.buffManager.addBuff(new ActiveBuff(BuffRegistry.getBuff("ghostcaptainscooldown"), player, cooldown, null), false);
     }
 
@@ -73,5 +81,27 @@ public class GhostCaptainSetBonus extends SetBonusBuff implements BuffAbility
     {
         super.addStatTooltips(list, currentValues, lastValues);
         currentValues.getModifierTooltipsBuilder(true, true).addLastValues(lastValues).buildToStatList(list);
+        float damage = ghostCaptainDamage.getValue(currentValues.getUpgradeTier());
+        if (currentValues.owner != null)
+        {
+            damage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
+        }
+        DoubleItemStatTip minionDamageTip = new DoubleItemStatTip(damage, 0)
+        {
+            public GameMessage toMessage(Color betterColor, Color worseColor, Color neutralColor, boolean showDifference)
+            {
+                return (new GameMessageBuilder()).append(new LocalMessage("itemtooltip", "ghostcaptainssettip2", "damage", this.getReplaceValue(betterColor, worseColor, showDifference)));
+            }
+        };
+        if (lastValues != null)
+        {
+            float compareDamage = ghostCaptainDamage.getValue(lastValues.getUpgradeTier());
+            if (lastValues.owner != null)
+            {
+                compareDamage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
+            }
+            minionDamageTip.setCompareValue(compareDamage);
+        }
+        list.add(minionDamageTip);
     }
 }

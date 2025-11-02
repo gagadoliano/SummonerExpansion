@@ -23,12 +23,12 @@ public class EmpoweredSapphire extends TerrainSplatterTile
     public EmpoweredSapphire()
     {
         super(false, "empoweredsapphire");
-        mapColor = new Color(92, 54, 62);
+        mapColor = new Color(0, 94, 114);
         canBeMined = true;
         drawRandom = new GameRandom();
         lightLevel = 50;
         tileHealth = 500;
-        lightHue = 337.0F;
+        lightHue = 191F;
     }
 
     public void tick(Mob mob, Level level, int x, int y)

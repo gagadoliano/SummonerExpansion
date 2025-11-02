@@ -18,7 +18,7 @@ public class MagicGoldLamp extends SummonToolItem
 
     public MagicGoldLamp()
     {
-        super("lampminiongold", FollowPosition.FLYING, 2f, 400, SummonWeaponsLootTable.summonWeapons);
+        super("lampminiongold", FollowPosition.CIRCLE_FAR, 2f, 400, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.COMMON;
         attackDamage.setBaseValue(10.0F).setUpgradedValue(1, 40.0F);
         goldlampSpace.setBaseValue(2).setUpgradedValue(5.0F, 1);

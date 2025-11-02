@@ -30,9 +30,6 @@ public class SummonerTextures
         fishianMinion = new HumanTexture(GameTexture.fromFile("mobs/fishianminion"), GameTexture.fromFile("mobs/fishianminionarms_left"), GameTexture.fromFile("mobs/fishianminionarms_right"));
 
         // Hair
-        BookFrozenMinion.texture1 = GameTexture.fromFile("mobs/frozendwarfminionhair1");
-        BookFrozenMinion.texture2 = GameTexture.fromFile("mobs/frozendwarfminionhair2");
-        BookFrozenMinion.texture3 = GameTexture.fromFile("mobs/frozendwarfminionhair3");
 
         // Minions
         HorrorCrawlingZombieMinion.texture = GameTexture.fromFile("mobs/horrorcrawlingzombieminion");
@@ -49,10 +46,8 @@ public class SummonerTextures
         LampMinionDungeon.texture = GameTexture.fromFile("mobs/lampminiondungeon");
         FishHerringMinion.texture = GameTexture.fromFile("mobs/fishherringminion");
         GoblinChestMinion.texture = GameTexture.fromFile("mobs/goblinchestminion");
-        SetSpiderBrideMinion.texture = GameTexture.fromFile("mobs/spiderbrideminion");
         HorrorBullMinion.texture = GameTexture.fromFile("mobs/horrorbullminion");
         HorrorWolfMinion.texture = GameTexture.fromFile("mobs/horrorwolfminion");
-        SetHorrorBabyMinion.texture = GameTexture.fromFile("mobs/horrorbabyminion");
         LampMinionCopper.texture = GameTexture.fromFile("mobs/lampminioncopper");
         FishSalmonMinion.texture = GameTexture.fromFile("mobs/fishsalmonminion");
         GoblinHeadMinion.texture = GameTexture.fromFile("mobs/goblinheadminion");
@@ -61,14 +56,12 @@ public class SummonerTextures
         BearPolarMinion.texture = GameTexture.fromFile("mobs/bearpolarminion");
         GoblinLegMinion.texture = GameTexture.fromFile("mobs/goblinlegminion");
         FishTroutMinion.texture = GameTexture.fromFile("mobs/fishtroutminion");
-        TrinketHorrorBatMinion.texture = GameTexture.fromFile("mobs/horrorbatminion");
         GolemRubyMinion.texture = GameTexture.fromFile("mobs/golemrubyminion");
         MagicAxeMinion.texture = GameTexture.fromFile("mobs/magicaxeminion");
         LampMinionGold.texture = GameTexture.fromFile("mobs/lampminiongold");
         BeeQueenMinion.texture = GameTexture.fromFile("mobs/beequeenminion");
         FishCarpMinion.texture = GameTexture.fromFile("mobs/fishcarpminion");
         CactusMinion.texture = GameTexture.fromFile("mobs/cactusminion");
-        SetMouseMinion.texture = GameTexture.fromFile("mobs/mouseminion");
         BearMinion.texture = GameTexture.fromFile("mobs/bearminion");
 
         // Worm
@@ -88,6 +81,15 @@ public class SummonerTextures
         LeafShotSentry.texture = GameTexture.fromFile("mobs/leafshotsentry");
         XmasTreeSentry.texture = GameTexture.fromFile("mobs/xmastreesentry");
 
+        // Armor
+        SetSpiderBrideMinion.texture = GameTexture.fromFile("mobs/spiderbrideminion");
+        SetHorrorBabyMinion.texture = GameTexture.fromFile("mobs/horrorbabyminion");
+        SetMouseMinion.texture = GameTexture.fromFile("mobs/mouseminion");
+
+        // Trinket
+        TrinketHorrorBatMinion.texture = GameTexture.fromFile("mobs/horrorbatminion");
+        PetTeaPotMinion.texture = GameTexture.fromFile("mobs/teapotminion");
+
         // Mobs
         HorrorSpiritBossMob.texture = GameTexture.fromFile("mobs/horrorspiritbossmob");
         HorrorSpiritMob.texture = GameTexture.fromFile("mobs/horrorspiritmob");
@@ -97,16 +99,16 @@ public class SummonerTextures
         RiftPortalMob.texture = GameTexture.fromFile("mobs/riftportalmob");
         RiftPortalMob.icon =  GameTexture.fromFile("mobicons/riftportalicon");
 
-        // Mounts
+        // Mount
         CavelingMinecartMount.texture =  GameTexture.fromFile("mobs/cavelingminecart");
         CavelingMinecart.texture =  GameTexture.fromFile("mobs/cavelingminecart");
         ChiefSummonMount.texture =  GameTexture.fromFile("mobs/chiefsummonmount");
 
-        // Particles
+        // Particle
         GameTexture MosquitoBowTexture = GameTexture.fromFile("particles/mosquitobowpool");
         MosquitoBowVisual = GameResources.particlesTextureGenerator.addTexture(MosquitoBowTexture);
         
-        // Masks
+        // Mask
         MouseSummonMount.texture_mask =  GameTexture.fromFile("mobs/chiefsummonmount_mask");
         ChiefSummonMount.texture_mask =  GameTexture.fromFile("mobs/chiefsummonmount_mask");
     }

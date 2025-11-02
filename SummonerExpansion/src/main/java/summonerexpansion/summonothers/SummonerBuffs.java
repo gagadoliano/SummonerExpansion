@@ -78,18 +78,20 @@ public class SummonerBuffs
         BuffRegistry.registerBuff("fishianstack", new FishianStackBuff());
 
         // Floor buffs
-        BuffRegistry.registerBuff("amethystfloorbuff", new AmethystFloorBuff());
-        BuffRegistry.registerBuff("sapphirefloorbuff", new SapphireFloorBuff());
-        BuffRegistry.registerBuff("emeraldfloorbuff", new EmeraldFloorBuff());
-        BuffRegistry.registerBuff("rubyfloorbuff", new RubyFloorBuff());
+        BuffRegistry.registerBuff("amethystfloorbuff", new FloorAmethystBuff());
+        BuffRegistry.registerBuff("sapphirefloorbuff", new FloorSapphireBuff());
+        BuffRegistry.registerBuff("emeraldfloorbuff", new FloorEmeraldBuff());
+        BuffRegistry.registerBuff("topazfloorbuff", new FloorTopazBuff());
+        BuffRegistry.registerBuff("rubyfloorbuff", new FloorRubyBuff());
 
         // Others Debuffs
         BuffRegistry.registerBuff("mummysummondebuff", new MummySummonDebuff());
         BuffRegistry.registerBuff("mummymagicdebuff", new MummyMagicDebuff());
 
-        // Others Buffs
-        BuffRegistry.registerBuff("summonedbeetminionbuff", new SummonedBeetMinionBuff());
+        // Summon count Buffs
         BuffRegistry.registerBuff("summonedagedchampionminionbuff", new SummonedAgedChampionMinionBuff());
         BuffRegistry.registerBuff("summonedjellyfishminionbuff", new SummonedJellyfishMinionBuff());
+        BuffRegistry.registerBuff("summonedteapotminionbuff", new SummonedTeaPotMinionBuff());
+        BuffRegistry.registerBuff("summonedbeetminionbuff", new SummonedBeetMinionBuff());
     }
 }

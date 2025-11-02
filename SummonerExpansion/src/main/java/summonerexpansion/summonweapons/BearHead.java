@@ -36,9 +36,9 @@ public class BearHead extends SummonToolItem
         {
             return tooltips;
         }
-        else if (perspective.buffManager.hasBuff("frostcrownsetbonus"))
+        else if (perspective.buffManager.hasBuff("leathersummonersetbonus"))
         {
-            tooltips.add(new StringTooltips(Localization.translate("itemtooltip", "leathersummonersetbonus"), new Color(206, 135, 70)));
+            tooltips.add(new StringTooltips(Localization.translate("itemtooltip", "bearheadtip2"), new Color(206, 135, 70)));
         }
         tooltips.add(Localization.translate("itemtooltip", "minionspacetakentip", "amount", (int) getSummonSpaceTaken(item, perspective)));
         return tooltips;

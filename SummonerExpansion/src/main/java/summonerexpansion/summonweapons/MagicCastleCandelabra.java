@@ -13,7 +13,7 @@ public class MagicCastleCandelabra extends SummonToolItem
 {
     public MagicCastleCandelabra()
     {
-        super("lampminioncastle", FollowPosition.FLYING, 1, 200, SummonWeaponsLootTable.summonWeapons);
+        super("lampminioncastle", FollowPosition.CIRCLE_FAR, 1, 200, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.COMMON;
         attackDamage.setBaseValue(50.0F).setUpgradedValue(1, 75.0F);
         canBeUsedForRaids = true;

@@ -28,6 +28,7 @@ import java.util.List;
 
 public class SetGhostCaptainMinion extends FlyingAttackingFollowingMob
 {
+    public int lifeStart = 0;
     public int lifeTime = 0;
     public Trail trail;
     public float moveAngle;
@@ -60,8 +61,8 @@ public class SetGhostCaptainMinion extends FlyingAttackingFollowingMob
     public void serverTick()
     {
         super.serverTick();
-        lifeTime++;
-        if (lifeTime >= 300)
+        lifeStart++;
+        if (lifeStart >= lifeTime)
         {
             remove(0.0F, 0.0F, null, true);
         }

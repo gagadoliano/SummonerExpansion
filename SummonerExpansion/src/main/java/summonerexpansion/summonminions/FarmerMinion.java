@@ -43,7 +43,6 @@ public class FarmerMinion extends AttackingFollowingMob
         super(10);
         setSpeed(50.0F);
         setFriction(3.0F);
-        getLookSeed();
         collision = new Rectangle(-10, -7, 20, 14);
         hitBox = new Rectangle(-14, -12, 28, 24);
         selectBox = new Rectangle();
@@ -53,6 +52,7 @@ public class FarmerMinion extends AttackingFollowingMob
         attackAnimTime = 600;
         attackCooldown = 900;
         look = new HumanLook();
+        getLookSeed();
         updateLook();
     }
 

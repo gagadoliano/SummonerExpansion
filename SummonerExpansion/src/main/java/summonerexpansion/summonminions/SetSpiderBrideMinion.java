@@ -30,6 +30,7 @@ import java.util.List;
 public class SetSpiderBrideMinion extends AttackingFollowingMob
 {
     public static GameTexture texture;
+    public int lifeStart = 0;
     public int lifeTime = 0;
 
     public SetSpiderBrideMinion()
@@ -85,8 +86,8 @@ public class SetSpiderBrideMinion extends AttackingFollowingMob
     public void serverTick()
     {
         super.serverTick();
-        lifeTime++;
-        if (lifeTime >= 300)
+        lifeStart++;
+        if (lifeStart >= lifeTime)
         {
             remove(0.0F, 0.0F, null, true);
         }

@@ -8,10 +8,7 @@ import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.Buff;
 import necesse.entity.particle.Particle;
-import necesse.entity.particle.ParticleOption;
 import necesse.gfx.GameResources;
-import necesse.gfx.ThemeColorRegistry;
-import necesse.gfx.drawOptions.texture.SharedTextureDrawOptions;
 
 import java.awt.*;
 

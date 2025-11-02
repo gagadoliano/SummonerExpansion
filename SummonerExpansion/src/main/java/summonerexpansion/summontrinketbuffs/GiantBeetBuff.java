@@ -8,6 +8,7 @@ import necesse.entity.mobs.*;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffManager;
+import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.TrinketBuff;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
@@ -25,7 +26,9 @@ public class GiantBeetBuff extends TrinketBuff
 
     public GiantBeetBuff() {}
 
-    public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
+    public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
+    {
+        buff.setModifier(BuffModifiers.MINING_SPEED, 0.20F);
     }
 
     public void serverTick(ActiveBuff buff)

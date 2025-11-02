@@ -45,7 +45,7 @@ public class CaveglowSentry extends AttackingFollowingMob
                 if (mob.canAttack())
                 {
                     mob.attack(target.getX(), target.getY(), false);
-                    Projectile projectile = ProjectileRegistry.getProjectile("caveglowproj", mob.getLevel(), mob.x, mob.y, target.x, target.y, 80.0F, 900, CaveglowSentry.this.summonDamage, mob);
+                    Projectile projectile = ProjectileRegistry.getProjectile("caveglowproj", mob.getLevel(), mob.x, mob.y, target.x, target.y, 80.0F, 900, summonDamage, mob);
                     projectile.setTargetPrediction(target, -20.0F);
                     projectile.moveDist(20.0);
                     mob.getLevel().entityManager.projectiles.add(projectile);

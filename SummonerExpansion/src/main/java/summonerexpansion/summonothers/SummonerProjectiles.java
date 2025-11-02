@@ -23,9 +23,10 @@ public class SummonerProjectiles
         ProjectileRegistry.registerProjectile("leafheatballproj", LeafHeatBallProj.class, "leafheatballproj", "bolt_shadow");
         ProjectileRegistry.registerProjectile("leafballproj", LeafBallProj.class, "leafballproj", "bolt_shadow");
         ProjectileRegistry.registerProjectile("cactusproj", CactusProj.class, "cactusproj", "cactusproj_shadow");
-        ProjectileRegistry.registerProjectile("emeraldlaserproj", EmeraldLaserProj.class, null, null);
+        ProjectileRegistry.registerProjectile("emeraldlaserproj", GolemEmeraldLaserProj.class, null, null);
         ProjectileRegistry.registerProjectile("runeboneproj", RuneBoneProj.class, null, null);
         ProjectileRegistry.registerProjectile("beetproj", BeetProj.class, "beetproj", null);
+        ProjectileRegistry.registerProjectile("teapotproj", TeaPotProj.class, null, null);
 
         // Sentry Projectiles
         ProjectileRegistry.registerProjectile("caveglowproj", CaveglowProj.class, "caveglowproj", "caveglowproj_shadow");

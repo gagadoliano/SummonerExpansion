@@ -1,8 +1,8 @@
 [tile]
-empoweredamethyst=Piso Ametista Empoderado
-empoweredsapphire=Piso Safira Empoderado
-empoweredemerald=Piso Esmeralda Empoderado
-empoweredruby=Piso Rubi Empoderado
+empoweredamethyst=Piso de Ametista Empoderado
+empoweredsapphire=Piso Ancião de Safira Empoderado
+empoweredemerald=Piso Ancião de Esmeralda Empoderado
+empoweredruby=Piso Ancião de Rubi Empoderado
 
 [object]
 // Crafting stations
@@ -12,10 +12,17 @@ fallensummoningtableduo=Mesa de Invocação Caída
 summoningbookshelf=Estante de invocação
 summoningtableduo=Mesa de Invocação
 
+// Plants
+overgrowthornssapling=Espinhos regenerativos
+
+// Banners
+bannerofwater=Bandeira de água
+
+// Walls
+empoweredrubyrock=Parede Anciã de Rubi Empoderado
+
 // Others
 tanktrainingdummy=Boneco de treinamento metálico
-overgrowthornssapling=Espinhos regenerativos
-bannerofwater=Bandeira de água
 
 [item]
 // Minion weapons
@@ -79,6 +86,7 @@ leathersummonerhood=Capuz de Invocador de Couro
 bloodplatemask=Máscara de Placa de Sangue
 copperminerhat=Chapéu de mineiro de cobre
 shadowhelmet=Capacete das Sombras
+pharaohsmask=Mascara do faraó
 frostcrown=Coroa de Gelo
 
 // Armor sets
@@ -250,12 +258,13 @@ spiderbridesettip=Concede imunidade a lentidão \nAtaques de invocação envenen
 agedsummonersettip=Invoca um gladiador quando estiver com saúde máxima \nBloquear antes de ser atingido aumenta muito a regeneração de resistência
 bloodplatemasksettip=Após sofrer dano, sua regeneração de saúde é dobrada por 4 segundos \nMelhora os lacaios vampiros e caixão de vampiro
 frostcrownsettip=Ataques de invocação desaceleram e causam dano ao alvo em 15 de dano ao longo de 5 segundos \nMelhora as armas de gelo
+ghostcaptainssetbonus=Pressione [input=setability] para invocar um navio pirata fantasma que atira bolas de canhão nos inimigos
 redspidersettip=Concede imunidade a lentidão e cegueira \nAtaques de invocação desaceleram inimigos
 shadowhelmetsettip=Ataques de invocação assombram o alvo por 25 de dano ao longo de 5 segundos
+pharaohsmasksettip=Invoca um gafanhoto quando você mata um inimigo
 horrorsettip=Chance de invocar espíritos de horror durante combate
 copperminersettip=Aumenta a claridade da luz de lâmpadas mágicas
 plaguesettip=Periodicamente invoca ratos durante combate
-ghostcaptainssetbonus=Pressione [input=setability] para invocar um navio pirata fantasma que atira bolas de canhão nos inimigos
 
 // Trinkets
 transplantedhearttip=Aumenta a regeneração de saúde durante combate em 0,75 \nAumenta a resiliência máxima em 10% \nTransforma metade de sua vida em resiliência \nRegenera resiliência quando estiver com a vida cheia \nRestaura 25% de vida ao receber dano fatal \nTempo de recarga: 5 minutos

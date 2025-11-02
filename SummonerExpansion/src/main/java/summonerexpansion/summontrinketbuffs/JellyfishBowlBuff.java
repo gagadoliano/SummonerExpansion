@@ -29,7 +29,9 @@ public class JellyfishBowlBuff extends TrinketBuff
     
     public JellyfishBowlBuff() {}
 
-    public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
+    public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
+    {
+        buff.setMaxModifier(BuffModifiers.BLINDNESS, 0F);
     }
 
     public void serverTick(ActiveBuff buff)

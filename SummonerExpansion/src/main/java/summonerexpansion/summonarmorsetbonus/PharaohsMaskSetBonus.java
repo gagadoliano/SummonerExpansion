@@ -1,6 +1,9 @@
 package summonerexpansion.summonarmorsetbonus;
 
 import necesse.engine.localization.Localization;
+import necesse.engine.localization.message.GameMessage;
+import necesse.engine.localization.message.GameMessageBuilder;
+import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.network.gameNetworkData.GNDItemMap;
 import necesse.engine.registries.DamageTypeRegistry;
 import necesse.engine.registries.MobRegistry;
@@ -20,12 +23,14 @@ import necesse.entity.projectile.Projectile;
 import necesse.entity.projectile.RicochetableProjectile;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
+import necesse.inventory.item.DoubleItemStatTip;
 import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.toolItem.ToolItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 
+import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -64,27 +69,42 @@ public class PharaohsMaskSetBonus extends SetBonusBuff
             float count = attackerMob.serverFollowersManager.getFollowerCount("locustminion");
             if (count < maxLocustCount.getValue(buff.getUpgradeTier()) && locustCooldown >= 30)
             {
-                GameDamage explosionDamge = new GameDamage(DamageTypeRegistry.SUMMON, locustDamage.getValue(buff.getUpgradeTier()));
+                GameDamage explosionDamage = new GameDamage(DamageTypeRegistry.SUMMON, locustDamage.getValue(buff.getUpgradeTier()));
                 AttackingFollowingMob locust = (AttackingFollowingMob) MobRegistry.getMob("locustminion", attackerMob.getLevel());
                 (attackerMob).serverFollowersManager.addFollower("locustminion", locust, FollowPosition.WALK_CLOSE, "summonedlocust", 1.0F, 10, null, false);
                 Point2D.Float spawnPoint = SummonToolItem.findSpawnLocation(locust, attackerMob.getLevel(), attackerMob.x, attackerMob.y);
-                locust.updateDamage(explosionDamge);
+                locust.updateDamage(explosionDamage);
                 attackerMob.getLevel().entityManager.addMob(locust, spawnPoint.x, spawnPoint.y);
                 locustCooldown = 0;
             }
         }
     }
 
-    public ListGameTooltips getTooltip(ActiveBuff ab, GameBlackboard blackboard)
-    {
-        ListGameTooltips tooltips = super.getTooltip(ab, blackboard);
-        tooltips.add(Localization.translate("itemtooltip", "pharaohsmasksettip", "value", maxLocustCount.getValue(ab.getUpgradeTier())));
-        return tooltips;
-    }
-
     public void addStatTooltips(LinkedList<ItemStatTip> list, ActiveBuff currentValues, ActiveBuff lastValues)
     {
         super.addStatTooltips(list, currentValues, lastValues);
         currentValues.getModifierTooltipsBuilder(true, true).addLastValues(lastValues).buildToStatList(list);
+        float damage = locustDamage.getValue(currentValues.getUpgradeTier());
+        if (currentValues.owner != null)
+        {
+            damage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
+        }
+        DoubleItemStatTip minionDamageTip = new DoubleItemStatTip(damage, 0)
+        {
+            public GameMessage toMessage(Color betterColor, Color worseColor, Color neutralColor, boolean showDifference)
+            {
+                return (new GameMessageBuilder()).append(Localization.translate("itemtooltip", "pharaohsmasksettip", "amount", maxLocustCount.getValue(currentValues.getUpgradeTier()))).append("\n").append(new LocalMessage("itemtooltip", "pharaohsmasksettip2", "damage", this.getReplaceValue(betterColor, worseColor, showDifference)));
+            }
+        };
+        if (lastValues != null)
+        {
+            float compareDamage = locustDamage.getValue(lastValues.getUpgradeTier());
+            if (lastValues.owner != null)
+            {
+                compareDamage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
+            }
+            minionDamageTip.setCompareValue(compareDamage);
+        }
+        list.add(minionDamageTip);
     }
 }

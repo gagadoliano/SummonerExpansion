@@ -3,6 +3,9 @@ package summonerexpansion.summonarmorsetbonus;
 import java.awt.*;
 import java.util.LinkedList;
 import necesse.engine.localization.Localization;
+import necesse.engine.localization.message.GameMessage;
+import necesse.engine.localization.message.GameMessageBuilder;
+import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.registries.DamageTypeRegistry;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.util.GameBlackboard;
@@ -20,6 +23,7 @@ import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
+import necesse.inventory.item.DoubleItemStatTip;
 import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
@@ -96,16 +100,31 @@ public class AgedSummonerSetBonus extends SetBonusBuff
         }
     }
 
-    public ListGameTooltips getTooltip(ActiveBuff ab, GameBlackboard blackboard)
-    {
-        ListGameTooltips tooltips = super.getTooltip(ab, blackboard);
-        tooltips.add(Localization.translate("itemtooltip", "agedsummonersettip"));
-        return tooltips;
-    }
-
     public void addStatTooltips(LinkedList<ItemStatTip> list, ActiveBuff currentValues, ActiveBuff lastValues)
     {
         super.addStatTooltips(list, currentValues, lastValues);
         currentValues.getModifierTooltipsBuilder(true, true).addLastValues(lastValues).buildToStatList(list);
+        float damage = agedDamage.getValue(currentValues.getUpgradeTier());
+        if (currentValues.owner != null)
+        {
+            damage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
+        }
+        DoubleItemStatTip minionDamageTip = new DoubleItemStatTip(damage, 0)
+        {
+            public GameMessage toMessage(Color betterColor, Color worseColor, Color neutralColor, boolean showDifference)
+            {
+                return (new GameMessageBuilder()).append(new LocalMessage("itemtooltip", "agedsummonersettip")).append("\n").append(new LocalMessage("itemtooltip", "agedsummonersettip2", "damage", this.getReplaceValue(betterColor, worseColor, showDifference)));
+            }
+        };
+        if (lastValues != null)
+        {
+            float compareDamage = agedDamage.getValue(lastValues.getUpgradeTier());
+            if (lastValues.owner != null)
+            {
+                compareDamage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
+            }
+            minionDamageTip.setCompareValue(compareDamage);
+        }
+        list.add(minionDamageTip);
     }
 }

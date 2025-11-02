@@ -32,7 +32,7 @@ public class GolemTopazMinion extends AttackingFollowingMob
         collision = new Rectangle(-10, -7, 20, 14);
         hitBox = new Rectangle(-14, -12, 28, 24);
         selectBox = new Rectangle();
-        attackCooldown = 4000;
+        attackCooldown = 3000;
         swimMaskMove = 32;
         swimMaskOffset = -6;
         swimSinkOffset = -4;

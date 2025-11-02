@@ -1,11 +1,13 @@
 package summonerexpansion.summonarmorsetbonus;
 
 import necesse.engine.localization.Localization;
+import necesse.engine.localization.message.GameMessage;
+import necesse.engine.localization.message.GameMessageBuilder;
+import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.network.Packet;
 import necesse.engine.registries.BuffRegistry;
 import necesse.engine.registries.DamageTypeRegistry;
 import necesse.engine.registries.ItemRegistry;
-import necesse.engine.registries.MobRegistry;
 import necesse.engine.util.GameBlackboard;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.buffs.ActiveBuff;
@@ -16,20 +18,23 @@ import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.setBonusBuffs.SetBonusBu
 import necesse.entity.mobs.itemAttacker.CheckSlotType;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
-import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
+import necesse.inventory.item.DoubleItemStatTip;
 import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
+import summonerexpansion.summonminions.SetSpiderBrideMinion;
 
+import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.LinkedList;
 
 public class SpiderBrideSetBonus extends SetBonusBuff implements BuffAbility
 {
-    public FloatUpgradeValue spiderDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(35F).setUpgradedValue(1.0F, 35.0F);
-    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1.0F, 2);
+    public FloatUpgradeValue spiderDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(35F).setUpgradedValue(1F, 35.0F);
+    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1F, 2).setUpgradedValue(10F, 3);
+    public IntUpgradeValue minionDuration = (new IntUpgradeValue()).setBaseValue(300).setUpgradedValue(1F, 400).setUpgradedValue(10F, 1200);
 
     public SpiderBrideSetBonus() {}
 
@@ -56,14 +61,14 @@ public class SpiderBrideSetBonus extends SetBonusBuff implements BuffAbility
         {
             GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, spiderDamage.getValue(buff.getUpgradeTier()));
             ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
-            AttackingFollowingMob mob = (AttackingFollowingMob) MobRegistry.getMob("spiderbrideminion", buff.owner.getLevel());
+            SetSpiderBrideMinion mob = new SetSpiderBrideMinion();
             attackerMob.serverFollowersManager.addFollower("spiderbridebuff", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1F, 1, null, false);
             Point2D.Float spawnPoint = SummonToolItem.findSpawnLocation(mob, buff.owner.getLevel(), attackerMob.x, attackerMob.y);
             mob.updateDamage(damage);
+            mob.lifeTime = minionDuration.getValue(buff.getUpgradeTier());
             mob.setRemoveWhenNotInInventory(ItemRegistry.getItem("spiderbridehelmet"), CheckSlotType.HELMET);
-            mob.getLevel().entityManager.addMob(mob, spawnPoint.x, spawnPoint.y);
+            attackerMob.getLevel().entityManager.addMob(mob, spawnPoint.x, spawnPoint.y);
         }
-
         player.buffManager.addBuff(new ActiveBuff(BuffRegistry.getBuff("spiderbridecooldown"), player, cooldown, null), false);
     }
 
@@ -83,5 +88,27 @@ public class SpiderBrideSetBonus extends SetBonusBuff implements BuffAbility
     {
         super.addStatTooltips(list, currentValues, lastValues);
         currentValues.getModifierTooltipsBuilder(true, false).addLastValues(lastValues).excludeLimits(BuffModifiers.SLOW).buildToStatList(list);
+        float damage = spiderDamage.getValue(currentValues.getUpgradeTier());
+        if (currentValues.owner != null)
+        {
+            damage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
+        }
+        DoubleItemStatTip minionDamageTip = new DoubleItemStatTip(damage, 0)
+        {
+            public GameMessage toMessage(Color betterColor, Color worseColor, Color neutralColor, boolean showDifference)
+            {
+                return (new GameMessageBuilder()).append(new LocalMessage("itemtooltip", "spiderbridesettip2", "damage", this.getReplaceValue(betterColor, worseColor, showDifference)));
+            }
+        };
+        if (lastValues != null)
+        {
+            float compareDamage = spiderDamage.getValue(lastValues.getUpgradeTier());
+            if (lastValues.owner != null)
+            {
+                compareDamage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
+            }
+            minionDamageTip.setCompareValue(compareDamage);
+        }
+        list.add(minionDamageTip);
     }
 }

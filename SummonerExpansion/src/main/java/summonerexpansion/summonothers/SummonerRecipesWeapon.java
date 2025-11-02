@@ -175,7 +175,7 @@ public class SummonerRecipesWeapon
                 new Ingredient[]{
                         new Ingredient("honey", 5),
                         new Ingredient("furfish", 15),
-                        new Ingredient("wool", 15)
+                        new Ingredient("grizzlycub", 1)
                 }
         ));
 
