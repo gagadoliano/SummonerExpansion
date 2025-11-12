@@ -4,16 +4,20 @@ import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.registries.ProjectileRegistry;
 import necesse.engine.util.GameRandom;
+import necesse.engine.util.GameUtils;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerChaserAI;
+import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.FlyingAttackingFollowingMob;
+import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
 import necesse.entity.projectile.Projectile;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
+import necesse.gfx.drawOptions.texture.TextureDrawOptionsEnd;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
@@ -46,10 +50,12 @@ public class VampireCoffinSentry extends AttackingFollowingMob
         {
             public boolean attackTarget(VampireCoffinSentry mob, Mob target)
             {
+                float projVel = getAttackOwner().buffManager.getModifier(BuffModifiers.PROJECTILE_VELOCITY);
+
                 if (mob.canAttack() && getAttackOwner().buffManager.hasBuff("bloodplatecowlsetbonus"))
                 {
                     mob.attack(target.getX(), target.getY(), false);
-                    Projectile projectile = ProjectileRegistry.getProjectile("bloodbolt", mob.getLevel(), mob.x, mob.y, target.x, target.y, 120F, 900, summonDamage.modFinalMultiplier(1.20F), mob);
+                    Projectile projectile = ProjectileRegistry.getProjectile("bloodbolt", mob.getLevel(), mob.x, mob.y, target.x, target.y, (120.0F * projVel), 900, summonDamage.modFinalMultiplier(1.20F), mob);
                     projectile.setTargetPrediction(target, -20.0F);
                     projectile.moveDist(40.0);
                     mob.getLevel().entityManager.projectiles.add(projectile);
@@ -59,7 +65,7 @@ public class VampireCoffinSentry extends AttackingFollowingMob
                 else if (mob.canAttack())
                 {
                     mob.attack(target.getX(), target.getY(), false);
-                    Projectile projectile = ProjectileRegistry.getProjectile("bloodbolt", mob.getLevel(), mob.x, mob.y, target.x, target.y, 80F, 900, summonDamage, mob);
+                    Projectile projectile = ProjectileRegistry.getProjectile("bloodbolt", mob.getLevel(), mob.x, mob.y, target.x, target.y, (80.0F * projVel), 900, summonDamage, mob);
                     projectile.setTargetPrediction(target, -20.0F);
                     projectile.moveDist(20.0);
                     mob.getLevel().entityManager.projectiles.add(projectile);
@@ -98,21 +104,37 @@ public class VampireCoffinSentry extends AttackingFollowingMob
 
     public void spawnDeathParticles(float knockbackX, float knockbackY)
     {
-        for(int i = 0; i < 10; ++i)
+        for(int i = 0; i < 4; ++i)
         {
-            this.getLevel().entityManager.addParticle(this.x, this.y, Particle.GType.COSMETIC).movesConstantAngle((float) GameRandom.globalRandom.nextInt(360), (float)GameRandom.globalRandom.getIntBetween(5, 20)).color(new Color(51, 51, 51));
+            this.getLevel().entityManager.addParticle(new FleshParticle(this.getLevel(), texture, i, 8, 32, this.x, this.y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
         }
     }
 
-    protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
+    public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
     {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
-        GameLight light = level.getLightLevel(x / 32, y / 32);
-        int drawX = camera.getDrawX(x) - 16;
-        int drawY = camera.getDrawY(y) - 20;
-        DrawOptions body = texture.initDraw().light(light).rotate(this.moveAngle, 16, 20).pos(drawX, drawY);
-        topList.add((tm) -> {
-            body.draw();
+        GameLight light = level.getLightLevel(getTileCoordinate(x), getTileCoordinate(y)).minLevelCopy(100.0F);
+        int drawX = camera.getDrawX(x) - 32;
+        int drawY = camera.getDrawY(y) - 55;
+        int dir = this.getDir();
+        Point sprite = this.getAnimSprite(x, y, dir);
+        drawY = (int)((float)drawY);
+        drawY += level.getTile(getTileCoordinate(x), getTileCoordinate(y)).getMobSinkingAmount(this);
+        final TextureDrawOptionsEnd drawOptions = texture.initDraw().sprite(sprite.x, sprite.y, 64).light(light).pos(drawX, drawY);
+        list.add(new MobDrawable() {
+            public void draw(TickManager tickManager) {
+                drawOptions.draw();
+            }
         });
+        this.addShadowDrawables(tileList, level, x, y, light, camera);
+    }
+
+    public Point getAnimSprite(int x, int y, int dir)
+    {
+        return new Point(GameUtils.getAnim(this.getWorldEntity().getTime(), 4, 100*60), dir);
+    }
+
+    public int getRockSpeed() {
+        return 50*60;
     }
 }

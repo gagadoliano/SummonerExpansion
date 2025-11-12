@@ -4,6 +4,7 @@ import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
 import necesse.engine.util.GameRandom;
+import necesse.engine.util.GameUtils;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.ConfusedPlayerChaserWandererAI;
@@ -44,9 +45,9 @@ public class HorrorSpiritBossMob extends FlyingHostileMob
         setKnockbackModifier(0.2F);
         moveAccuracy = 10;
         attackCooldown = 3000;
-        collision = new Rectangle(0, 0, 68, 108);
-        hitBox = new Rectangle(0, 0, 68, 108);
-        selectBox = new Rectangle(0, 0, 68, 108);
+        collision = new Rectangle(-50, -60, 108, 108);
+        hitBox = new Rectangle(-50, -60, 108, 108);
+        selectBox = new Rectangle(-50, -60, 108, 108);
     }
 
     public void init()
@@ -102,10 +103,12 @@ public class HorrorSpiritBossMob extends FlyingHostileMob
     protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
     {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
-        GameLight light = level.getLightLevel(x / 32, y / 32);
-        int drawX = camera.getDrawX(x);
-        int drawY = camera.getDrawY(y);
-        DrawOptions body = texture.initDraw().light(light).rotate(moveAngle, 0, 0).pos(drawX, drawY);
+        GameLight light = level.getLightLevel(getTileCoordinate(x), getTileCoordinate(y));
+        int drawX = camera.getDrawX(x) - 50;
+        int drawY = camera.getDrawY(y) - 60;
+        int dir = this.getDir();
+        int frame = GameUtils.getAnim(this.getWorldEntity().getTime(), 4, 750);
+        DrawOptions body = texture.initDraw().sprite(frame, 0, 108).size(108, 108).light(light).mirror(dir == 0, false).pos(drawX, drawY);
         topList.add((tm) -> {
             body.draw();
         });

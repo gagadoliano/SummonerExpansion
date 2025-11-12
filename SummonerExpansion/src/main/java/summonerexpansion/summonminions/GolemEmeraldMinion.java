@@ -6,6 +6,7 @@ import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerChaserAI;
+import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
@@ -45,10 +46,12 @@ public class GolemEmeraldMinion extends AttackingFollowingMob
         {
             public boolean attackTarget(GolemEmeraldMinion mob, Mob target)
             {
+                float projVel = getAttackOwner().buffManager.getModifier(BuffModifiers.PROJECTILE_VELOCITY);
+
                 if (mob.canAttack())
                 {
                     mob.attack(target.getX(), target.getY(), false);
-                    Projectile projectile = ProjectileRegistry.getProjectile("emeraldlaserproj", mob.getLevel(), mob.x, mob.y, target.x, target.y, 80.0F, 600, GolemEmeraldMinion.this.summonDamage, mob);
+                    Projectile projectile = ProjectileRegistry.getProjectile("emeraldlaserproj", mob.getLevel(), mob.x, mob.y, target.x, target.y, (80.0F * projVel), 600, GolemEmeraldMinion.this.summonDamage, mob);
                     projectile.setTargetPrediction(target, -20.0F);
                     projectile.moveDist(40.0);
                     mob.getLevel().entityManager.projectiles.add(projectile);

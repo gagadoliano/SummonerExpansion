@@ -33,7 +33,7 @@ public class BearPolarMinion extends AttackingFollowingMob
         setFriction(3.0F);
         collision = new Rectangle(-10, -7, 20, 14);
         hitBox = new Rectangle(-20, -16, 40, 32);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(-20, -50, 40, 55);
         swimMaskMove = 32;
         swimMaskOffset = -48;
         swimSinkOffset = -8;
@@ -84,7 +84,8 @@ public class BearPolarMinion extends AttackingFollowingMob
         }
     }
 
-    public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
+    public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
+    {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
         GameLight light = level.getLightLevel(x / 32, y / 32);
         int drawX = camera.getDrawX(x) - 64;
@@ -105,7 +106,8 @@ public class BearPolarMinion extends AttackingFollowingMob
         this.addShadowDrawables(tileList, level, x, y, light, camera);
     }
 
-    protected TextureDrawOptions getShadowDrawOptions(int x, int y, GameLight light, GameCamera camera) {
+    protected TextureDrawOptions getShadowDrawOptions(int x, int y, GameLight light, GameCamera camera)
+    {
         GameTexture shadowTexture = MobRegistry.Textures.polarBear_shadow;
         int drawX = camera.getDrawX(x) - 64;
         int drawY = camera.getDrawY(y) - 128 + 36;
@@ -113,7 +115,8 @@ public class BearPolarMinion extends AttackingFollowingMob
         return shadowTexture.initDraw().sprite(0, this.getDir(), 128).light(light).pos(drawX, drawY);
     }
 
-    public int getRockSpeed() {
+    public int getRockSpeed()
+    {
         return 10;
     }
 }

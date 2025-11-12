@@ -26,7 +26,8 @@ public class SummonerMobs
         MobRegistry.registerMob("runemeleeminion", RuneMeleeMinion.class, false);
         MobRegistry.registerMob("golemrubyminion", GolemRubyMinion.class, false);
         MobRegistry.registerMob("bearpolarminion", BearPolarMinion.class, false);
-        MobRegistry.registerMob("redspiderminion", RedSpiderMinion.class, false);
+        MobRegistry.registerMob("redspidermeleeminion", RedSpiderMeleeMinion.class, false);
+        MobRegistry.registerMob("redspiderrangeminion", RedSpiderRangeMinion.class, false);
         MobRegistry.registerMob("lampminiongold", LampMinionGold.class, false);
         MobRegistry.registerMob("beequeenminion", BeeQueenMinion.class, false);
         MobRegistry.registerMob("vampireminion", VampireMinion.class, false);
@@ -80,9 +81,6 @@ public class SummonerMobs
         MobRegistry.registerMob("mummysummonminion", TrinketMummySummonMinion.class, false);
         MobRegistry.registerMob("mummymagicminion", TrinketMummyMagicMinion.class, false);
         MobRegistry.registerMob("horrorbatminion", TrinketHorrorBatMinion.class, false);
-        MobRegistry.registerMob("jellyfishminion", PetJellyfishMinion.class, false);
-        MobRegistry.registerMob("teapotminion", PetTeaPotMinion.class, false);
-        MobRegistry.registerMob("beetminion", PetBeetMinion.class, false);
 
         // Sentries
         MobRegistry.registerMob("mushroomsentry", BookMushroomSentry.class, false);
@@ -120,7 +118,7 @@ public class SummonerMobs
         MobRegistry.registerMob("beeminion", BeeMinion.class, false);
 
         // Mobs
-        MobRegistry.registerMob("riftportalmob", RiftPortalMob.class, true, true);
+        MobRegistry.registerMob("riftportalmob", BossRiftPortalMob.class, true, true);
         MobRegistry.registerMob("horrorspiritbossmob", HorrorSpiritBossMob.class, true);
         MobRegistry.registerMob("horrorspiritmob", HorrorSpiritMob.class, true);
         MobRegistry.registerMob("woodmob", WoodMob.class, true);

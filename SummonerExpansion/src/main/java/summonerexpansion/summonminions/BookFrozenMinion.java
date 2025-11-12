@@ -13,6 +13,7 @@ import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerChaserAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerCollisionChaserAI;
 import necesse.entity.mobs.buffs.ActiveBuff;
+import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.FlyingAttackingFollowingMob;
 import necesse.entity.particle.FleshParticle;
@@ -44,7 +45,7 @@ public class BookFrozenMinion extends AttackingFollowingMob
         setFriction(3.0F);
         collision = new Rectangle(-10, -7, 20, 14);
         hitBox = new Rectangle(-14, -12, 28, 24);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(-14, -35, 28, 42);
         swimMaskMove = 14;
         swimMaskOffset = -2;
         swimSinkOffset = -4;
@@ -59,10 +60,12 @@ public class BookFrozenMinion extends AttackingFollowingMob
         {
             public boolean attackTarget(BookFrozenMinion mob, Mob target)
             {
+                float projVel = getAttackOwner().buffManager.getModifier(BuffModifiers.PROJECTILE_VELOCITY);
+
                 if (mob.canAttack() && getAttackOwner().buffManager.hasBuff("frostcrownsetbonus"))
                 {
                     mob.attack(target.getX(), target.getY(), false);
-                    Projectile projectile = ProjectileRegistry.getProjectile("iceminionjavelinproj", mob.getLevel(), mob.x, mob.y, target.x, target.y, 120.0F, 600, summonDamage.modFinalMultiplier(1.20F), mob);
+                    Projectile projectile = ProjectileRegistry.getProjectile("iceminionjavelinproj", mob.getLevel(), mob.x, mob.y, target.x, target.y, (120.0F * projVel), 600, summonDamage.modFinalMultiplier(1.20F), mob);
                     projectile.setTargetPrediction(target, -20.0F);
                     projectile.moveDist(120.0);
                     mob.getLevel().entityManager.projectiles.add(projectile);
@@ -75,7 +78,7 @@ public class BookFrozenMinion extends AttackingFollowingMob
                 else if (mob.canAttack())
                 {
                     mob.attack(target.getX(), target.getY(), false);
-                    Projectile projectile = ProjectileRegistry.getProjectile("iceminionjavelinproj", mob.getLevel(), mob.x, mob.y, target.x, target.y, 80.0F, 480, summonDamage, mob);
+                    Projectile projectile = ProjectileRegistry.getProjectile("iceminionjavelinproj", mob.getLevel(), mob.x, mob.y, target.x, target.y, (80.0F * projVel), 480, summonDamage, mob);
                     projectile.setTargetPrediction(target, -20.0F);
                     projectile.moveDist(80.0);
                     mob.getLevel().entityManager.projectiles.add(projectile);

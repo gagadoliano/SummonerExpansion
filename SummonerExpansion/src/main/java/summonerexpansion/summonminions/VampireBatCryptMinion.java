@@ -31,7 +31,7 @@ public class VampireBatCryptMinion extends FlyingAttackingFollowingMob
         setSwimSpeed(1.0F);
         collision = new Rectangle(-10, -7, 20, 14);
         hitBox = new Rectangle(-14, -12, 28, 24);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(-14, -41, 28, 40);
     }
 
     public GameDamage getCollisionDamage(Mob target, boolean fromPacket, ServerClient packetSubmitter) { return summonDamage; }

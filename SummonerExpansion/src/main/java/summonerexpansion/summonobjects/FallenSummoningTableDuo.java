@@ -6,8 +6,10 @@ import necesse.engine.localization.message.GameMessage;
 import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.registries.ObjectRegistry;
 import necesse.inventory.item.Item;
+import necesse.inventory.recipe.Ingredient;
 import necesse.inventory.recipe.Tech;
 import necesse.level.gameObject.ObjectDamagedTextureArray;
+import necesse.level.gameObject.container.CraftingStationUpgrade;
 
 import static summonerexpansion.summonothers.SummonerTechs.SUMMONTABLECRAFT;
 import static summonerexpansion.summonothers.SummonerTechs.SUMMONTABLECRAFT2;
@@ -30,6 +32,11 @@ public class FallenSummoningTableDuo extends SummoningTableDuo
     {
         super.loadTextures();
         texture = ObjectDamagedTextureArray.loadAndApplyOverlay(this, "objects/fallensummoningtableduo");
+    }
+
+    public CraftingStationUpgrade getStationUpgrade()
+    {
+        return null;
     }
 
     public Tech[] getCraftingTechs() {return new Tech[]{SUMMONTABLECRAFT4, SUMMONTABLECRAFT3, SUMMONTABLECRAFT2, SUMMONTABLECRAFT};}

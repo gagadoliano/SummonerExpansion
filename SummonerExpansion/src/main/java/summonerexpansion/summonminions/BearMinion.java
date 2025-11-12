@@ -33,7 +33,7 @@ public class BearMinion extends AttackingFollowingMob
         setFriction(3.0F);
         collision = new Rectangle(-10, -7, 20, 14);
         hitBox = new Rectangle(-20, -16, 40, 32);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(-20, -50, 40, 55);
         swimMaskMove = 32;
         swimMaskOffset = -55;
         swimSinkOffset = -8;

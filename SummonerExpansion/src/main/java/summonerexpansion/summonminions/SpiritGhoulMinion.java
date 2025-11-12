@@ -46,7 +46,6 @@ import java.util.stream.Stream;
 
 public class SpiritGhoulMinion extends AttackingFollowingMob
 {
-    //public int stackHits;
     public static GameTexture texture;
     protected double distanceRanSinceLastPoolSpawn;
 
@@ -59,7 +58,7 @@ public class SpiritGhoulMinion extends AttackingFollowingMob
         moveAccuracy = 8;
         collision = new Rectangle(-12, -5, 24, 20);
         hitBox = new Rectangle(-16, -8, 32, 26);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(-20, -20, 40, 40);
         swimMaskMove = 16;
         swimMaskOffset = 0;
         swimSinkOffset = -4;
@@ -94,6 +93,22 @@ public class SpiritGhoulMinion extends AttackingFollowingMob
         });
     }
 
+    public void serverTick()
+    {
+        super.serverTick();
+        if (!inLiquid())
+        {
+            double distanceRan = getDistanceRan();
+            double poolSpawnRunDistance = 16.0;
+            if (distanceRan - distanceRanSinceLastPoolSpawn > poolSpawnRunDistance)
+            {
+                RuneSpiritPoolEvent event = new RuneSpiritPoolEvent(this, (int)x, (int)y, GameRandom.globalRandom, summonDamage.modFinalMultiplier(0.5F), 4.0F);
+                getLevel().entityManager.addLevelEvent(event);
+                distanceRanSinceLastPoolSpawn = distanceRan;
+            }
+        }
+    }
+
     public static void spawnDryadSpirit(Mob owner)
     {
         if (owner != null && owner.isServer())
@@ -110,7 +125,7 @@ public class SpiritGhoulMinion extends AttackingFollowingMob
     {
         for(int i = 0; i < 4; ++i)
         {
-            getLevel().entityManager.addParticle(new FleshParticle(getLevel(), MobRegistry.Textures.spiritGhoul.body, i, 8, 32, x, y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
+            getLevel().entityManager.addParticle(new FleshParticle(getLevel(), texture, i, 8, 32, x, y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
         }
     }
 
@@ -125,7 +140,7 @@ public class SpiritGhoulMinion extends AttackingFollowingMob
         drawY += getBobbing(x, y);
         drawY += getLevel().getTile(x / 32, y / 32).getMobSinkingAmount(this);
         final MaskShaderOptions swimMask = getSwimMaskShaderOptions(inLiquidFloat(x, y));
-        final DrawOptions body = MobRegistry.Textures.spiritGhoul.body.initDraw().sprite(sprite.x, sprite.y, 64).addMaskShader(swimMask).light(light).pos(drawX, drawY);
+        final DrawOptions body = texture.initDraw().sprite(sprite.x, sprite.y, 64).addMaskShader(swimMask).light(light).pos(drawX, drawY);
         list.add(new MobDrawable()
         {
             public void draw(TickManager tickManager)
@@ -148,21 +163,5 @@ public class SpiritGhoulMinion extends AttackingFollowingMob
     public Stream<ModifierValue<?>> getDefaultModifiers()
     {
         return Stream.of((new ModifierValue(BuffModifiers.FRICTION, 0.0F)).min(0.75F));
-    }
-
-    public void serverTick()
-    {
-        super.serverTick();
-        if (!inLiquid())
-        {
-            double distanceRan = getDistanceRan();
-            double poolSpawnRunDistance = 16.0;
-            if (distanceRan - distanceRanSinceLastPoolSpawn > poolSpawnRunDistance)
-            {
-                RuneSpiritPoolEvent event = new RuneSpiritPoolEvent(this, (int)x, (int)y, GameRandom.globalRandom, summonDamage.modFinalMultiplier(0.5F), 4.0F);
-                getLevel().entityManager.addLevelEvent(event);
-                distanceRanSinceLastPoolSpawn = distanceRan;
-            }
-        }
     }
 }

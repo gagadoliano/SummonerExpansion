@@ -33,5 +33,27 @@ public class SummonerRecipesMount
                         new Ingredient("resistancepotion", 5)
                 }
         ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "minivultureegg",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("vulturemask", 1),
+                        new Ingredient("ancientfeather", 1),
+                        new Ingredient("egg", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "cavelingminecart",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("minecart", 1),
+                        new Ingredient("stone", 250),
+                        new Ingredient("itemattractor", 1)
+                }
+        ));
     }
 }

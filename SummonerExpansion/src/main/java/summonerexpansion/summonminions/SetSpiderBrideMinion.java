@@ -42,7 +42,7 @@ public class SetSpiderBrideMinion extends AttackingFollowingMob
         attackCooldown = 2000;
         collision = new Rectangle(-20, -20, 40, 40);
         hitBox = new Rectangle(-30, -25, 60, 50);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(-40, -45, 80, 60);
         swimMaskMove = 20;
         swimMaskOffset = -24;
         swimSinkOffset = 0;
@@ -51,7 +51,7 @@ public class SetSpiderBrideMinion extends AttackingFollowingMob
     public void init()
     {
         super.init();
-        this.ai = new BehaviourTreeAI<>(this, new PlayerFollowerChaserAI<SetSpiderBrideMinion>(600, 300, true, false, 900, 100)
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerChaserAI<SetSpiderBrideMinion>(600, 300, true, false, 900, 100)
         {
             public boolean attackTarget(SetSpiderBrideMinion mob, Mob target)
             {

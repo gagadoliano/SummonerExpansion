@@ -35,6 +35,7 @@ public class SetArcanicPylonSentry extends AttackingFollowingMob
 {
     public int lifeTime = 0;
     public int lifeStart = 0;
+    public static GameTexture texture;
 
     public SetArcanicPylonSentry()
     {
@@ -114,7 +115,7 @@ public class SetArcanicPylonSentry extends AttackingFollowingMob
     {
         for(int i = 0; i < 6; ++i)
         {
-            getLevel().entityManager.addParticle(new FleshParticle(getLevel(), MobRegistry.Textures.arcanicPylon, GameRandom.globalRandom.nextInt(5), 8, 32, x, y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
+            getLevel().entityManager.addParticle(new FleshParticle(getLevel(), texture, GameRandom.globalRandom.nextInt(5), 8, 32, x, y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
         }
     }
 
@@ -129,7 +130,6 @@ public class SetArcanicPylonSentry extends AttackingFollowingMob
         drawY += getBobbing(x, y);
         drawY += getLevel().getTile(x / 32, y / 32).getMobSinkingAmount(this);
         final MaskShaderOptions swimMask = getSwimMaskShaderOptions(inLiquidFloat(x, y));
-        GameTexture texture = MobRegistry.Textures.arcanicPylon;
         final DrawOptions options = texture.initDraw().sprite(sprite.x, sprite.y, 64).addMaskShader(swimMask).light(light).pos(drawX, drawY);
         list.add(new MobDrawable() {
             public void draw(TickManager tickManager) {

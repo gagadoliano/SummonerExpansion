@@ -16,6 +16,7 @@ import necesse.entity.projectile.SparklerProjectile;
 import necesse.gfx.GameResources;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
+import necesse.gfx.drawOptions.texture.TextureDrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
@@ -72,16 +73,39 @@ public class PetTeaPotMinion extends FlyingAttackingFollowingMob
     protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
     {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
-        GameLight light = level.getLightLevel(x / 32, y / 32);
-        int drawX = camera.getDrawX(x) - 16;
-        int drawY = camera.getDrawY(y) - 10;
-        DrawOptions body = texture.initDraw().sprite(0, 0, 32).light(light).pos(drawX, drawY);
-        topList.add((tm) -> {
-            body.draw();
-        });
-        DrawOptions shadow = MobRegistry.Textures.rubyShield_shadow.initDraw().sprite(0, 0, 32).light(light).pos(drawX, drawY + 10);
-        tileList.add((tm) -> {
-            shadow.draw();
-        });
+        GameLight light = level.getLightLevel(getTileCoordinate(x), getTileCoordinate(y));
+        int drawX = camera.getDrawX(x) - 32;
+        int drawY = camera.getDrawY(y) - 32 - 16;
+        int dir = this.getDir();
+        long time = level.getWorldEntity().getTime() % 350L;
+        int sprite;
+        if (time < 100L)
+        {
+            sprite = 0;
+        }
+        else if (time < 200L)
+        {
+            sprite = 1;
+        }
+        else if (time < 300L)
+        {
+            sprite = 2;
+        }
+        else
+        {
+            sprite = 3;
+        }
+        float rotate = this.dx / 10.0F;
+        DrawOptions options = texture.initDraw().sprite(sprite, 0, 64).light(light).mirror(dir == 0, false).rotate(rotate, 32, 32).pos(drawX, drawY);
+        topList.add((tm) -> options.draw());
+        this.addShadowDrawables(tileList, level, x, y, light, camera);
+    }
+
+    protected TextureDrawOptions getShadowDrawOptions(Level level, int x, int y, GameLight light, GameCamera camera)
+    {
+        GameTexture shadowTexture = MobRegistry.Textures.vultureHatchling_shadow;
+        int drawX = camera.getDrawX(x) - shadowTexture.getWidth() / 2;
+        int drawY = camera.getDrawY(y) - shadowTexture.getHeight() / 2 + 13;
+        return shadowTexture.initDraw().light(light).pos(drawX, drawY);
     }
 }

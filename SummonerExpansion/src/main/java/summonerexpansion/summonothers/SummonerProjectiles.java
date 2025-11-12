@@ -32,6 +32,9 @@ public class SummonerProjectiles
         ProjectileRegistry.registerProjectile("caveglowproj", CaveglowProj.class, "caveglowproj", "caveglowproj_shadow");
         ProjectileRegistry.registerProjectile("horrorsentryproj", HorrorSentryProj.class, null, null);
 
+        // Mount Projectiles
+        ProjectileRegistry.registerProjectile("mountvultureproj", MountVultureProj.class, "hatchlingfeather", "hatchlingfeather_shadow");
+
         // Mob Projectiles
         ProjectileRegistry.registerProjectile("woodmobproj", WoodMobProj.class, null, null);
     }

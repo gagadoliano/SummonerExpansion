@@ -39,7 +39,7 @@ public class ExplosiveSnowmanMinion extends AttackingFollowingMob
         attackCooldown = 1000;
         collision = new Rectangle(-10, -7, 20, 14);
         hitBox = new Rectangle(-12, -14, 24, 24);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(-16, -30, 32, 36);
         swimMaskMove = 12;
         swimMaskOffset = 4;
         swimSinkOffset = 0;

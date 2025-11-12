@@ -8,6 +8,7 @@ import necesse.engine.sound.SoundManager;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerChaserAI;
+import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
@@ -39,7 +40,7 @@ public class EnchantedBabyZombieArcherMinion extends AttackingFollowingMob
         attackCooldown = 1050;
         collision = new Rectangle(-10, -7, 20, 14);
         hitBox = new Rectangle(-12, -14, 24, 24);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(-16, -30, 32, 36);
         swimMaskMove = 12;
         swimMaskOffset = 0;
         swimSinkOffset = 0;
@@ -52,10 +53,12 @@ public class EnchantedBabyZombieArcherMinion extends AttackingFollowingMob
         {
             public boolean attackTarget(EnchantedBabyZombieArcherMinion mob, Mob target)
             {
+                float projVel = getAttackOwner().buffManager.getModifier(BuffModifiers.PROJECTILE_VELOCITY);
+
                 if (mob.canAttack())
                 {
                     mob.attack(target.getX(), target.getY(), false);
-                    Projectile projectile = ProjectileRegistry.getProjectile("zombiearrow", mob.getLevel(), mob.x, mob.y, target.x, target.y, 80.0F, 640, summonDamage, mob);
+                    Projectile projectile = ProjectileRegistry.getProjectile("zombiearrow", mob.getLevel(), mob.x, mob.y, target.x, target.y, (80.0F * projVel), 640, summonDamage, mob);
                     projectile.setTargetPrediction(target, -20.0F);
                     projectile.moveDist(20.0);
                     mob.getLevel().entityManager.projectiles.add(projectile);

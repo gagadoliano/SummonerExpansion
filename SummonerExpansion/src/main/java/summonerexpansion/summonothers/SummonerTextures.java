@@ -18,8 +18,6 @@ public class SummonerTextures
 
     public static GameTextureSection MosquitoBowVisual;
 
-    public static GameTexture[] cavelingminecart_mask;
-
     public static void initResources()
     {
         // Human textures
@@ -46,6 +44,7 @@ public class SummonerTextures
         LampMinionDungeon.texture = GameTexture.fromFile("mobs/lampminiondungeon");
         FishHerringMinion.texture = GameTexture.fromFile("mobs/fishherringminion");
         GoblinChestMinion.texture = GameTexture.fromFile("mobs/goblinchestminion");
+        SpiritGhoulMinion.texture = GameTexture.fromFile("mobs/spiritghoulminion");
         HorrorBullMinion.texture = GameTexture.fromFile("mobs/horrorbullminion");
         HorrorWolfMinion.texture = GameTexture.fromFile("mobs/horrorwolfminion");
         LampMinionCopper.texture = GameTexture.fromFile("mobs/lampminioncopper");
@@ -69,6 +68,7 @@ public class SummonerTextures
         SandWormBodyMinion.texture = GameTexture.fromFile("mobs/sandwormminion");
 
         // Sentry
+        SetArcanicPylonSentry.texture = GameTexture.fromFile("mobs/arcanicpylonsentry");
         LeafShotHeatSentry.texture = GameTexture.fromFile("mobs/leafshotheatsentry");
         LeafShotColdSentry.texture = GameTexture.fromFile("mobs/leafshotcoldsentry");
         BookMushroomSentry.texture = GameTexture.fromFile("mobs/mushroomsentry");
@@ -96,20 +96,16 @@ public class SummonerTextures
         WoodMob.texture = GameTexture.fromFile("mobs/woodmob");
 
         // Boss
-        RiftPortalMob.texture = GameTexture.fromFile("mobs/riftportalmob");
-        RiftPortalMob.icon =  GameTexture.fromFile("mobicons/riftportalicon");
-
-        // Mount
-        CavelingMinecartMount.texture =  GameTexture.fromFile("mobs/cavelingminecart");
-        CavelingMinecart.texture =  GameTexture.fromFile("mobs/cavelingminecart");
-        ChiefSummonMount.texture =  GameTexture.fromFile("mobs/chiefsummonmount");
+        BossRiftPortalMob.texture = GameTexture.fromFile("mobs/riftportalmob");
+        BossRiftPortalMob.icon =  GameTexture.fromFile("mobicons/riftportalicon");
 
         // Particle
         GameTexture MosquitoBowTexture = GameTexture.fromFile("particles/mosquitobowpool");
         MosquitoBowVisual = GameResources.particlesTextureGenerator.addTexture(MosquitoBowTexture);
-        
+
+        // Mount
+        CavelingMinecartMount.texture =  GameTexture.fromFile("mobs/cavelingminecart");
+
         // Mask
-        MouseSummonMount.texture_mask =  GameTexture.fromFile("mobs/chiefsummonmount_mask");
-        ChiefSummonMount.texture_mask =  GameTexture.fromFile("mobs/chiefsummonmount_mask");
     }
 }

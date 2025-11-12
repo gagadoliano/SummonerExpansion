@@ -9,6 +9,7 @@ import necesse.engine.network.Packet;
 import necesse.engine.registries.BuffRegistry;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.util.GameRandom;
+import necesse.engine.util.GameUtils;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffModifiers;
@@ -18,6 +19,9 @@ import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
+import necesse.gfx.drawOptions.human.HumanDrawOptions;
+import necesse.gfx.drawOptions.itemAttack.ItemAttackDrawOptions;
+import necesse.gfx.drawOptions.texture.TextureDrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
@@ -29,8 +33,6 @@ import java.util.stream.Stream;
 
 public class ChiefSummonMount extends MountFollowingMob implements ActiveMountAbility
 {
-    public static GameTexture texture;
-    public static GameTexture texture_mask;
     protected int ChiefAxeCharge = 0;
 
     public ChiefSummonMount()
@@ -38,10 +40,12 @@ public class ChiefSummonMount extends MountFollowingMob implements ActiveMountAb
         super(100);
         setSpeed(60.0F);
         setFriction(3F);
-        setSwimSpeed(0F);
         collision = new Rectangle(-10, -7, 20, 14);
         hitBox = new Rectangle(-26, -24, 52, 48);
         selectBox = new Rectangle(-19, -52, 38, 64);
+        swimMaskMove = 20;
+        swimMaskOffset = -20;
+        swimSinkOffset = 0;
     }
 
     public void onActiveMountAbilityStarted(PlayerMob player, Packet content)
@@ -75,7 +79,7 @@ public class ChiefSummonMount extends MountFollowingMob implements ActiveMountAb
 
     public boolean canRunMountAbility(PlayerMob player, Packet content)
     {
-        return player.isServer() && !Settings.strictServerAuthority ? true : StaminaBuff.canStartStaminaUsage(player);
+        return player.isServer() && !Settings.strictServerAuthority || StaminaBuff.canStartStaminaUsage(player);
     }
 
     public void serverTick()
@@ -83,7 +87,12 @@ public class ChiefSummonMount extends MountFollowingMob implements ActiveMountAb
         super.serverTick();
         if (ChiefAxeCharge > 0)
         {
+            setSpeed(90.0F);
             --ChiefAxeCharge;
+        }
+        else
+        {
+            setSpeed(60.0F);
         }
     }
 
@@ -92,7 +101,12 @@ public class ChiefSummonMount extends MountFollowingMob implements ActiveMountAb
         super.clientTick();
         if (ChiefAxeCharge > 0)
         {
+            setSpeed(90.0F);
             --ChiefAxeCharge;
+        }
+        else
+        {
+            setSpeed(60.0F);
         }
     }
 
@@ -110,64 +124,60 @@ public class ChiefSummonMount extends MountFollowingMob implements ActiveMountAb
         }
     }
 
-    @Override
-    public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
+    protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
     {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
-        GameLight light = level.getLightLevel(x / 32, y / 32);
+        GameLight light = level.getLightLevel(getTileCoordinate(x), getTileCoordinate(y));
         int drawX = camera.getDrawX(x) - 64;
         int drawY = camera.getDrawY(y) - 86;
-        int dir = getDir();
-        Point sprite = getAnimSprite(x, y, dir);
-        drawY += getBobbing(x, y);
-        drawY += getLevel().getTile(x / 32, y / 32).getMobSinkingAmount(this);
-        final DrawOptions options = texture.initDraw().sprite(sprite.x, sprite.y, 128).light(light).pos(drawX - 2, drawY);
-        list.add(new MobDrawable()
+        int dir = this.getDir();
+        Point sprite = this.getAnimSprite(x, y, dir);
+        drawY += this.getBobbing(x, y);
+        drawY += level.getTile(getTileCoordinate(x), getTileCoordinate(y)).getMobSinkingAmount(this);
+        Point armCenterPos;
+        if (dir == 0)
         {
-            @Override
-            public void draw(TickManager tickManager) {
-            }
-
-            @Override
-            public void drawBehindRider(TickManager tickManager) {
-                options.draw();
-            }
-        });
-    }
-
-    @Override
-    public Point getSpriteOffset(int spriteX, int spriteY)
-    {
-        Point point = new Point(0, 0);
-        if (isAccelerating() && (spriteX == 1 || spriteX == 2))
-        {
-            point.y = -5;
+            armCenterPos = new Point(70, 20);
         }
-        point.x += getRiderDrawXOffset();
-        point.y += getRiderDrawYOffset() + 12;
-        return point;
-    }
-
-    @Override
-    public int getRiderDrawYOffset()
-    {
-        PlayerMob player = (PlayerMob) getFollowingMob();
-        if (player != null)
+        else if (dir == 1)
         {
-            return -25;
+            armCenterPos = new Point(53, 23);
+        }
+        else if (dir == 2)
+        {
+            armCenterPos = new Point(41, 22);
         }
         else
         {
-            return 0;
+            armCenterPos = new Point(73, 25);
         }
+        MaskShaderOptions swimMask = this.getSwimMaskShaderOptions(this.inLiquidFloat(x, y));
+        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, MobRegistry.Textures.chieftain)).sprite(sprite, 128).size(128, 128).mask(swimMask).dir(dir).light(light).attackOffsets(armCenterPos.x, armCenterPos.y, 20, 30, 25, 0, 30);
+        final DrawOptions drawOptions = humanDrawOptions.pos(drawX, drawY);
+        list.add(new MobDrawable() {
+            public void draw(TickManager tickManager) {
+                drawOptions.draw();
+            }
+        });
+        this.addShadowDrawables(tileList, level, x, y, light, camera);
     }
 
-    public GameTexture getRiderMask() {
-        return texture_mask;
+    protected TextureDrawOptions getShadowDrawOptions(Level level, int x, int y, GameLight light, GameCamera camera)
+    {
+        GameTexture shadowTexture = MobRegistry.Textures.human_big_shadow;
+        int res = shadowTexture.getHeight();
+        int drawX = camera.getDrawX(x) - res / 2;
+        int drawY = camera.getDrawY(y) - res / 2;
+        drawY += this.getBobbing(x, y);
+        return shadowTexture.initDraw().sprite(this.getDir(), 0, res).light(light).pos(drawX, drawY);
     }
 
     public int getRockSpeed() {
-        return 50;
+        return 30;
+    }
+
+    public boolean shouldDrawRider() {
+        return false;
     }
 
     public Stream<ModifierValue<?>> getDefaultRiderModifiers()

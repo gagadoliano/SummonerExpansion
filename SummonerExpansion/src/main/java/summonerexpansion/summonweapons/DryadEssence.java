@@ -24,7 +24,7 @@ public class DryadEssence extends SummonToolItem
         super("spiritghoulminion", FollowPosition.WALK_CLOSE, 1F, 800, SummonWeaponsLootTable.summonWeapons);
         rarity = Rarity.COMMON;
         attackDamage.setBaseValue(45.0F).setUpgradedValue(1, 90.0F);
-        canBeUsedForRaids = true;
+        canBeUsedForRaids = false;
         maxSummons.setBaseValue(1).setUpgradedValue(1,2).setUpgradedValue(10,6);
     }
 

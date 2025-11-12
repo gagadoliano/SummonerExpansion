@@ -48,10 +48,18 @@ public class SummonerExpansion
     public void postInit()
     {
         SummonerRecipes.registerSummonRecipes();
+
         SummonerRecipesArmor.registerSummonRecipes();
+
         SummonerRecipesMount.registerSummonRecipes();
+
         SummonerRecipesPotion.registerSummonRecipes();
-        SummonerRecipesWeapon.registerSummonRecipes();
+
+        SummonerRecipesWeapon.registerSummonRecipesAnvil();
+        SummonerRecipesWeapon.registerSummonRecipesBookcase();
+        SummonerRecipesWeapon.registerSummonRecipesWorkstation();
+        SummonerRecipesWeapon.registerSummonRecipesSummontable();
+
         SummonerRecipesTrinket.registerSummonRecipes();
 
         SummonerLoot.registerSummonLoot();

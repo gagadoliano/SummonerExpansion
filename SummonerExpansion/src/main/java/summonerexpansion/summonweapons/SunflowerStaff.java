@@ -3,6 +3,7 @@ package summonerexpansion.summonweapons;
 import necesse.engine.localization.Localization;
 import necesse.engine.network.gameNetworkData.GNDItemMap;
 import necesse.engine.registries.DamageTypeRegistry;
+import necesse.engine.registries.EnchantmentRegistry;
 import necesse.engine.registries.ProjectileRegistry;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
@@ -17,6 +18,9 @@ import necesse.entity.projectile.modifiers.ResilienceOnHitProjectileModifier;
 import necesse.gfx.GameResources;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
+import necesse.inventory.enchants.Enchantable;
+import necesse.inventory.enchants.ItemEnchantment;
+import necesse.inventory.enchants.ToolItemEnchantment;
 import necesse.inventory.item.ItemInteractAction;
 import necesse.inventory.item.toolItem.projectileToolItem.magicProjectileToolItem.MagicProjectileToolItem;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
@@ -25,6 +29,8 @@ import necesse.level.maps.Level;
 import summonerexpansion.summonminions.SunflowerSentry;
 import summonerexpansion.summonminions.SunflowerSentryT1;
 import summonerexpansion.summonminions.SunflowerSentryT5;
+
+import java.util.Set;
 
 public class SunflowerStaff extends MagicProjectileToolItem implements ItemInteractAction
 {
@@ -100,6 +106,21 @@ public class SunflowerStaff extends MagicProjectileToolItem implements ItemInter
             }
         }
         return item;
+    }
+
+    public ToolItemEnchantment getRandomEnchantment(GameRandom random, InventoryItem item)
+    {
+        return Enchantable.getRandomEnchantment(random, EnchantmentRegistry.magicItemEnchantments, this.getEnchantmentID(item), ToolItemEnchantment.class);
+    }
+
+    public boolean isValidEnchantment(InventoryItem item, ItemEnchantment enchantment)
+    {
+        return EnchantmentRegistry.magicItemEnchantments.contains(enchantment.getID());
+    }
+
+    public Set<Integer> getValidEnchantmentIDs(InventoryItem item)
+    {
+        return EnchantmentRegistry.magicItemEnchantments;
     }
 
     @Override

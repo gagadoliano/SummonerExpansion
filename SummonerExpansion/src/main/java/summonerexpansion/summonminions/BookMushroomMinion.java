@@ -29,7 +29,7 @@ import java.util.List;
 public class BookMushroomMinion extends AttackingFollowingMob
 {
     public static GameTexture texture;
-    public static MaxHealthGetter MAX_HEALTH = new MaxHealthGetter(350, 400, 450, 500, 550);
+    public static MaxHealthGetter MAX_HEALTH = new MaxHealthGetter(35, 40, 45, 50, 55);
 
     public BookMushroomMinion()
     {
@@ -67,9 +67,9 @@ public class BookMushroomMinion extends AttackingFollowingMob
 
     public void spawnDeathParticles(float knockbackX, float knockbackY)
     {
-        for(int i = 0; i < 5; ++i)
+        for(int i = 0; i < 6; ++i)
         {
-            getLevel().entityManager.addParticle(new FleshParticle(getLevel(), texture, i, 6, 32, x, y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
+            this.getLevel().entityManager.addParticle(new FleshParticle(this.getLevel(), texture, i, 8, 32, this.x, this.y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
         }
     }
 

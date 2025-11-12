@@ -1,18 +1,11 @@
 package summonerexpansion.summonmounts;
 
-import necesse.engine.Settings;
 import necesse.engine.gameLoop.tickManager.TickManager;
-import necesse.engine.input.Control;
 import necesse.engine.localization.Localization;
 import necesse.engine.modifiers.ModifierValue;
-import necesse.engine.network.Packet;
-import necesse.engine.registries.BuffRegistry;
 import necesse.engine.registries.MobRegistry;
-import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.*;
-import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffModifiers;
-import necesse.entity.mobs.buffs.staticBuffs.StaminaBuff;
 import necesse.entity.mobs.summon.summonFollowingMob.mountFollowingMob.MountFollowingMob;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
@@ -20,7 +13,6 @@ import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
 import necesse.gfx.drawOptions.texture.TextureDrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
-import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 
@@ -30,8 +22,6 @@ import java.util.stream.Stream;
 
 public class MouseSummonMount extends MountFollowingMob
 {
-    public static GameTexture texture_mask;
-
     public MouseSummonMount()
     {
         super(100);
@@ -84,43 +74,16 @@ public class MouseSummonMount extends MountFollowingMob
         });
     }
 
-    @Override
-    public Point getSpriteOffset(int spriteX, int spriteY)
-    {
-        Point point = new Point(0, 0);
-        if (isAccelerating() && (spriteX == 1 || spriteX == 2))
-        {
-            point.y = -5;
-        }
-        point.x += getRiderDrawXOffset();
-        point.y += getRiderDrawYOffset() + 12;
-        return point;
-    }
-
-    @Override
-    public int getRiderDrawYOffset()
-    {
-        PlayerMob player = (PlayerMob) getFollowingMob();
-        if (player != null)
-        {
-            return -25;
-        }
-        else
-        {
-            return 0;
-        }
-    }
-
-    public GameTexture getRiderMask() {
-        return texture_mask;
-    }
-
     public int getRockSpeed() {
-        return 7;
+        return 20;
+    }
+
+    public boolean shouldDrawRider() {
+        return false;
     }
 
     public Stream<ModifierValue<?>> getDefaultRiderModifiers()
     {
-        return Stream.of(new ModifierValue(BuffModifiers.INVISIBILITY, true), new ModifierValue(BuffModifiers.INTIMIDATED, true), new ModifierValue(BuffModifiers.TARGET_RANGE, -0.80F));
+        return Stream.of(new ModifierValue(BuffModifiers.INTIMIDATED, true), new ModifierValue(BuffModifiers.TARGET_RANGE, -0.80F));
     }
 }

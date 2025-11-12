@@ -28,7 +28,7 @@ import java.util.List;
 public class BookRunicShieldMinion extends FlyingAttackingFollowingMob
 {
     public static GameTexture texture;
-    public static MaxHealthGetter MAX_HEALTH = new MaxHealthGetter(100, 150, 200, 250, 300);
+    public static MaxHealthGetter MAX_HEALTH = new MaxHealthGetter(10, 15, 20, 25, 30);
 
     public BookRunicShieldMinion()
     {

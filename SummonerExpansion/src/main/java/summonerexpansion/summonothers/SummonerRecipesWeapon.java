@@ -9,9 +9,8 @@ import static summonerexpansion.summonothers.SummonerTechs.*;
 
 public class SummonerRecipesWeapon
 {
-    public static void registerSummonRecipes()
+    public static void registerSummonRecipesWorkstation()
     {
-        // Workstation
         Recipes.registerModRecipe(new Recipe(
                 "magictools",
                 1,
@@ -22,8 +21,10 @@ public class SummonerRecipesWeapon
                         new Ingredient("anysapling", 4)
                 }
         ));
+    }
 
-        // Anvil
+    public static void registerSummonRecipesAnvil()
+    {
         Recipes.registerModRecipe(new Recipe(
                 "magiccopperlamp",
                 1,
@@ -77,8 +78,10 @@ public class SummonerRecipesWeapon
                         new Ingredient("spideritearrow", 50)
                 }
         ));
+    }
 
-        // Bookcase
+    public static void registerSummonRecipesBookcase()
+    {
         Recipes.registerModRecipe(new Recipe(
                 "bookbee",
                 1,
@@ -133,8 +136,10 @@ public class SummonerRecipesWeapon
                         new Ingredient("book", 1)
                 }
         ));
+    }
 
-        // Summon table weapons
+    public static void registerSummonRecipesSummontable()
+    {
         // T1
         Recipes.registerModRecipe(new Recipe(
                 "magictools",
@@ -144,6 +149,26 @@ public class SummonerRecipesWeapon
                         new Ingredient("woodpickaxe", 1),
                         new Ingredient("woodaxe", 1),
                         new Ingredient("anysapling", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "magiccopperlamp",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("copperbar", 2),
+                        new Ingredient("oillantern", 1),
+                        new Ingredient("torch", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "spiderstaff",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("cavespidergland", 10)
                 }
         ));
 
@@ -191,6 +216,17 @@ public class SummonerRecipesWeapon
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "brainonastick",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("spoiledfood", 25),
+                        new Ingredient("rawmutton", 4),
+                        new Ingredient("beef", 4)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "enchantedbrainonastick",
                 1,
                 SUMMONTABLECRAFT,
@@ -209,6 +245,17 @@ public class SummonerRecipesWeapon
                         new Ingredient("sandtile", 10),
                         new Ingredient("thorns", 25),
                         new Ingredient("cactussapling", 50)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "magicbranch",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("pinelog", 50),
+                        new Ingredient("frostshard", 5),
+                        new Ingredient("snowball", 200)
                 }
         ));
 
@@ -273,6 +320,17 @@ public class SummonerRecipesWeapon
 
         // T2
         Recipes.registerModRecipe(new Recipe(
+                "magicgoldlamp",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("goldbar", 6),
+                        new Ingredient("oillantern", 1),
+                        new Ingredient("torch", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "vampirewings",
                 1,
                 SUMMONTABLECRAFT2,
@@ -280,6 +338,17 @@ public class SummonerRecipesWeapon
                         new Ingredient("batwing", 10),
                         new Ingredient("healthregenpotion", 1),
                         new Ingredient("demonicbar", 2)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "frostpiercer",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("frostshard", 10),
+                        new Ingredient("icejavelin", 100),
+                        new Ingredient("sparegemstones", 1)
                 }
         ));
 
@@ -296,6 +365,17 @@ public class SummonerRecipesWeapon
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "sentientsword",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("demonicsword", 1),
+                        new Ingredient("runestone", 15),
+                        new Ingredient("revivalpotion", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "runebonestaff",
                 1,
                 SUMMONTABLECRAFT2,
@@ -307,6 +387,17 @@ public class SummonerRecipesWeapon
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "magicdungeoncandelabra",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("dungeoncandelabra", 1),
+                        new Ingredient("magicstilts", 1),
+                        new Ingredient("voidshard", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "icewizardstaff",
                 1,
                 SUMMONTABLECRAFT2,
@@ -314,6 +405,28 @@ public class SummonerRecipesWeapon
                         new Ingredient("voidmissile", 1),
                         new Ingredient("voidshard", 12),
                         new Ingredient("frostshard", 6)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "slimecanister",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("ivybar", 15),
+                        new Ingredient("swampsludge", 10),
+                        new Ingredient("spikedfossil", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "necroticbow",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("ivybar", 15),
+                        new Ingredient("swampsludge", 10),
+                        new Ingredient("voidshard", 25)
                 }
         ));
 
@@ -330,6 +443,91 @@ public class SummonerRecipesWeapon
         ));
 
         // T3
+        Recipes.registerModRecipe(new Recipe(
+                "magictungstenlamp",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("tungstenbar", 10),
+                        new Ingredient("oillantern", 1),
+                        new Ingredient("torch", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "reanimationbow",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("necroticbow", 10),
+                        new Ingredient("bone", 80),
+                        new Ingredient("ectoplasm", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "rubyshields",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("ruby", 10),
+                        new Ingredient("hardenedshield", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "caveglowstaff",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("caveglow", 5),
+                        new Ingredient("tungstenore", 15),
+                        new Ingredient("fertilizer", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "dryadessence",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("essenceofprolonging", 1),
+                        new Ingredient("essenceofperspective", 1),
+                        new Ingredient("dryadlog", 100)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "dryadbranch",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("amber", 10),
+                        new Ingredient("dryadlog", 25),
+                        new Ingredient("dryadsapling", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "cryostaff",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("glacialbar", 10),
+                        new Ingredient("glacialshard", 20)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "sandwormstaff",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("wormcarapace", 100),
+                        new Ingredient("ancientfossilore", 25)
+                }
+        ));
+
         Recipes.registerModRecipe(new Recipe(
                 "horrorscythe",
                 1,
@@ -390,39 +588,77 @@ public class SummonerRecipesWeapon
                 }
         ));
 
-        Recipes.registerModRecipe(new Recipe(
-                "caveglowstaff",
-                1,
-                SUMMONTABLECRAFT3,
-                new Ingredient[]{
-                        new Ingredient("caveglow", 5),
-                        new Ingredient("tungstenore", 15),
-                        new Ingredient("fertilizer", 5)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "sandwormstaff",
-                1,
-                SUMMONTABLECRAFT3,
-                new Ingredient[]{
-                        new Ingredient("wormcarapace", 100),
-                        new Ingredient("ancientfossilore", 25)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "dryadessence",
-                1,
-                SUMMONTABLECRAFT3,
-                new Ingredient[]{
-                        new Ingredient("essenceofprolonging", 1),
-                        new Ingredient("essenceofperspective", 1),
-                        new Ingredient("dryadlog", 100)
-                }
-        ));
-
         // T4
+        Recipes.registerModRecipe(new Recipe(
+                "reaperscall",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("shadowessence", 20)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "swampsgrasp",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("bioessence", 20)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "skeletonstaff",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("primordialessence", 20)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "orbofslimes",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("slimeessence", 5),
+                        new Ingredient("slimematter", 15),
+                        new Ingredient("slimeum", 15)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "phantomcaller",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("bloodessence", 5),
+                        new Ingredient("nightsteelbar", 15),
+                        new Ingredient("phantomdust", 15)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "empresscommand",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("spideressence", 5),
+                        new Ingredient("spideritebar", 15),
+                        new Ingredient("spidervenom", 15)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "magiccastlecandelabra",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("spidercastlecandelabra", 1),
+                        new Ingredient("spideritearrow", 50)
+                }
+        ));
+        
         Recipes.registerModRecipe(new Recipe(
                 "vampirecoffin",
                 1,
@@ -431,6 +667,17 @@ public class SummonerRecipesWeapon
                         new Ingredient("cryptstone", 125),
                         new Ingredient("vampirewings", 1),
                         new Ingredient("bloodvolley", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "crystallizedskull",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("ruby", 10),
+                        new Ingredient("pearlescentdiamond", 15),
+                        new Ingredient("omnicrystal", 15)
                 }
         ));
 
@@ -486,6 +733,16 @@ public class SummonerRecipesWeapon
                         new Ingredient("topaz", 20),
                         new Ingredient("pearlescentdiamond", 5),
                         new Ingredient("omnicrystal", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "eyeofthevoid",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("ascendedshard", 25),
+                        new Ingredient("voidvessel", 1)
                 }
         ));
     }

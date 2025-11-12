@@ -13,7 +13,9 @@ import necesse.inventory.item.Item;
 import necesse.inventory.item.trinketItem.SimpleTrinketItem;
 import necesse.inventory.lootTable.presets.TrinketsLootTable;
 import summonerexpansion.summonarmor.*;
-import summonerexpansion.summonminions.SetArcanicPylonSentry;
+import summonerexpansion.summonminions.PetBeetMinion;
+import summonerexpansion.summonminions.PetJellyfishMinion;
+import summonerexpansion.summonminions.PetTeaPotMinion;
 import summonerexpansion.summonmounts.*;
 import summonerexpansion.summonarmorsetbonus.*;
 import summonerexpansion.summontrinket.*;
@@ -59,6 +61,8 @@ public class SummonerEquips
         BuffRegistry.registerBuff("shadowhorrorsetbonus", new ShadowHorrorSetBonus());
         ItemRegistry.registerItem("agedsummonerhelmet", new AgedSummonerHelmet(), 200, true);
         BuffRegistry.registerBuff("agedsummonersetbonus", new AgedSummonerSetBonus());
+        ItemRegistry.registerItem("sharpshootersummonhat", new SharpshooterSummonHat(), 200, true);
+        BuffRegistry.registerBuff("sharpshootersummonsetbonus", new SharpshooterSummonSetBonus());
         // T4
         ItemRegistry.registerItem("ghostcaptainshat", new GhostCaptainHat(), 400, true);
         ItemRegistry.registerItem("ghostcaptainsshirt", new GhostCaptainShirt(), 400, true);
@@ -131,19 +135,23 @@ public class SummonerEquips
         // Challenge
         ItemRegistry.registerItem("jellyfishbowl", new SimpleTrinketItem(Item.Rarity.RARE, "jellyfishbowlbuff", 100, TrinketsLootTable.trinkets), 50, true);
         BuffRegistry.registerBuff("jellyfishbowlbuff", new JellyfishBowlBuff());
+        MobRegistry.registerMob("jellyfishminion", PetJellyfishMinion.class, false);
         ItemRegistry.registerItem("giantbeet", new SimpleTrinketItem(Item.Rarity.RARE, "giantbeetbuff", 100, TrinketsLootTable.trinkets), 50, true);
         BuffRegistry.registerBuff("giantbeetbuff", new GiantBeetBuff());
+        MobRegistry.registerMob("beetminion", PetBeetMinion.class, false);
         ItemRegistry.registerItem("magicteapot", new SimpleTrinketItem(Item.Rarity.RARE, "magicteapotbuff", 100, TrinketsLootTable.trinkets), 50, true);
         BuffRegistry.registerBuff("magicteapotbuff", new MagicTeaPotBuff());
+        MobRegistry.registerMob("teapotminion", PetTeaPotMinion.class, false);
 
         // Mounts
         ItemRegistry.registerItem("chieftainhat", new ChieftainHat(), 50, true);
         MobRegistry.registerMob("chiefsummonmount", ChiefSummonMount.class, false);
-        BuffRegistry.registerBuff("chiefbuff", new ChiefBuff());
+        BuffRegistry.registerBuff("chiefbuff", new MountChiefBuff());
         ItemRegistry.registerItem("magiccheese", new MagicCheese(), 50, true);
         MobRegistry.registerMob("mousesummonmount", MouseSummonMount.class, false);
         ItemRegistry.registerItem("cavelingminecart", new CavelingMinecartItem(), 50, true);
-        MobRegistry.registerMob("cavelingminecartmount", MinecartMountMob.class, false, false, new LocalMessage("mob", "cavelingminecart"), null);
-        MobRegistry.registerMob("cavelingminecart", CavelingMinecart.class, false);
+        MobRegistry.registerMob("cavelingminecartmount", CavelingMinecartMount.class, false);
+        ItemRegistry.registerItem("minivultureegg", new MiniVultureEgg(), 50, true);
+        MobRegistry.registerMob("vulturesummonmount", VultureSummonMount.class, false);
     }
 }

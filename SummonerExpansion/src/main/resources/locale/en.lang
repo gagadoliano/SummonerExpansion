@@ -171,6 +171,7 @@ bannerofmana=Banner of Mana
 
 // Mounts
 cavelingminecart=Caveling Minecart
+minivultureegg=Mini Vulture Egg
 chieftainhat=Chieftain Hat
 magiccheese=Magic Cheese
 
@@ -183,6 +184,8 @@ purehorror=Pure Horror
 // Foods
 rottenbread=Rotten Bread
 berrytrio=Berry Trio
+caveglowjam=Caveglow Jam
+pigbanquet=Pig Banquet
 
 // Bags
 shadowhorrorbag=Shadow Horror Bag
@@ -193,14 +196,14 @@ fusedessences=Infused essences
 [itemtooltip]
 // Minion weapons
 // T1
+redspiderstafftip=Summons melee red spiders and every other summon is ranged \nMelee spiders poison foes for 15 damage over 5 seconds \nRanged spiders spits projectiles that leaves damaging pools
+redspiderstafftip2=Melee spiders doubles poison damage from all sources \nRanged spiders deals double damage
 royalhivetip=Summons a bee queen that spawn bees every 10 hits \nThe queen increases your health regen while on combat \nAnd the smaller bees slows foes by 10%
-polarheadtip=Summons a polar bear that causes a stacking slow debuff that goes up to 25%
-polarheadtip2=Deals 20% more damage and slow debuff lasts longer
 bearheadtip=Summons a grizzly bear that attack foes \nHit foes will start bleeding, causing damage and lowering their damage by 20%
 bearheadtip2=Deals 20% more damage and bleed debuff lasts longer
-redspiderstafftip=Summons baby red spiders that do melee attacks \nPoison foes for 15 damage over 5 seconds
-redspiderstafftip2=Doubles poison damage from all sources
 enchantedbrainonasticktip=Summons 2 enchanted zombies \nMelee zombies reduces foe's armor by 10
+polarheadtip=Summons a polar bear that causes a stacking slow debuff that goes up to 25%
+polarheadtip2=Deals 20% more damage and slow debuff lasts longer
 cactusstafftip=Summons a cactus minion \nIt shoots projectiles with random piercing
 magiccopperlamptip=Summons a copper lamp that glows and attack
 // T2
@@ -225,7 +228,7 @@ topazshardtip=Summons a topaz golem \nThis golem shoots crystals that bounces an
 rubyshardtip=Summons a ruby golem \nThis golem shoots crystal shards at foes
 
 // Sentry weapons
-bookmushroomtip=Summons a sentry that slows nearby foes and buffs nearby players \nEvery 10 seconds summons a mushroom minion
+bookmushroomtip=Summons a sentry that slows nearby foes and buffs nearby players \nSummons mushroom minions over time
 xmastreetip=Summons a sentry that debuffs nearby foes \nThey glow and takes 20% increased damage from all sources
 caveglowsentrytip=The sentry glows and shoot projectiles that can pierce and bounce once
 coffinsentrytip=Every 10 shoots summons a crypt bat that does 20% of the coffins damage
@@ -262,7 +265,7 @@ firemonesentrytip=This sentry gives nearby allies armor penetration
 iceblossomsentrytip=This sentry gives nearby allies armor
 
 // Armor set bonus
-spiderbridesettip=Grants immunity to slows \nSummon attacks poison target for 25 damage over 5 seconds \nPress [input=setability] to summon a spider bride that shoots poison and webs
+spiderbridesettip=Grants immunity to slows \nSummon attacks poison target for 25 damage over 5 seconds \nPress [input=setability] to summon a spider bride that spits poison and webs
 spiderbridesettip2=Spider bride damage: <damage>
 agedsummonersettip=Blocking just before being hit greatly increases stamina regen \nSummons an aged champion when at full health
 agedsummonersettip2=Aged champion damage: <damage>
@@ -313,7 +316,7 @@ hystericalmirrortip=+3 max summons \nIncreases summon speed by 45%
 mesmercharmtip=+1 Max Summons \nIncreases Stamina Cap by 80%
 
 // Pet trinkets
-beetminiontip=Increases mining speed by 20% \nSummons a beet minion that throws beets at foes \nThown beets have 10% chance to drop on missed hits
+beetminiontip=Increases mining speed by 20% \nSummons a beet minion that throws beets at foes \nThrown beets have 10% chance to drop on missed hits
 jellyfishminiontip=Grants immunity to blindness \nSummons a jellyfish minion that attack foes
 teapotminiontip=You can have 1 extra food buff \nSummons a magic tea pot that attack foes
 
@@ -327,9 +330,10 @@ minionrangetip=Increases summon range by 50%
 minionspeedtip=Increases summon speed by 20%
 
 // Mounts
-chieftainhattip=Tranforms you into a chieftain that can't swim \nIncreases your health, armor and max minion slots \nHold [input=trinketability] to boost yourself at the cost of stamina \nThis boost increases your damage, hp regen and prevents knockback and slow
+chieftainhattip=Tranforms you into a chieftain \nIncreases your health, armor and max minion slots \nHold [input=trinketability] to increase your armor and speed
 magiccheesetip=Tranforms you into a mouse \nPrevents you from using items \nGreatly decreases your target range, making foes ignore you
-cavelingminecarttip=Can only be placed on tracks \nIncreases your item pickup range
+minivultureeggtip=Tranforms you into a vulture \nPress [input=trinketability] to shoot feathers
+cavelingminecarttip=Can move only on tracks \nIncreases your item pickup range
 
 // Boss desc
 horrorportaltip=Summons an army of horror spirits
@@ -355,18 +359,17 @@ empoweredtopaztip=Increases the speed of player and settlers by 50% \nIncreases 
 // Others
 minionspacetakentip=Each summon takes up <amount> summon slots
 clicksentrytip=Press [input=mouse2] to summon a sentry
-cavelingmounttip=You can't use <mount> as an mount!
 sentrytip=Summons a sentry that shoots at foes
 minionactivecap=Capped at <amount> minions
-lifestealtip=Heals on hit by <amount> hp
 storedshadowtip=Stored items: <items>
-chargetip=Charge: <amount>%
 
 [mob]
 // Minions
 enchantedbabyzombiearcherminion=Enchanted Baby Zombie Archer Minion
 enchantedbabyzombieminion=Enchanted Baby Zombie Minion
 lampminioncastle=Spider Castle Candelabra Minion
+redspiderrangeminion=Ranged Red Spider Minion
+redspidermeleeminion=Melee Red Spider Minion
 lampminiondungeon=Dungeon Candelabra Minion
 golemsapphireminion=Sapphire Golem Minion
 golemamethystminion=Amethyst Golem Minion
@@ -380,7 +383,6 @@ lampminioncopper=Copper Lamp Minion
 runemeleeminion=Runic Brute Minion
 golemrubyminion=Ruby Golem Minion
 icewizardminion=Ice Wizard Minion
-redspiderminion=Red Spider Minion
 beequeenminion=Bee Queen Minion
 vampireminion=Vampire Minion
 bearpolarminion=Polar Minion
@@ -427,11 +429,11 @@ locustminion=Locust Minion
 mouseminion=Mouse Minion
 
 // Trinket minions
-mummysummonminion=Mummy Minion
 mummymagicminion=Magic Mummy Minion
 teapotminion=Magic Tea Pot Minion
 horrorbatminion=Horror Bat Minion
 jellyfishminion=Jellyfish Minion
+mummysummonminion=Mummy Minion
 beetminion=Beet Minion
 
 // Sentry
@@ -466,8 +468,9 @@ beeminion=Bee Minion
 
 // Mounts
 cavelingminecart=Caveling Minecart
-chiefsummonmount=Chieftain Armor
-mousesummonmount=Mouse Disguise
+chiefsummonmount=Chieftain Form
+mousesummonmount=Mouse Form
+vulturesummonmount=Vulture Form
 
 // Boss
 riftportalmob=Horror Rift Portal

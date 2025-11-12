@@ -11,11 +11,8 @@ public class SummonerWeapons
 
         // Minion
         ItemRegistry.registerItem("enchantedbrainonastick", new EnchantedBrainOnAStick(), 50, true);
-        ItemRegistry.registerItem("leafshotheatpack", new LeafShotHeatPack(), 50, true);
-        ItemRegistry.registerItem("leafshotcoldpack", new LeafShotColdPack(), 50, true);
         ItemRegistry.registerItem("magiccopperlamp", new MagicCopperLamp(), 50, true);
         ItemRegistry.registerItem("redspiderstaff", new RedSpiderStaff(), 50, true);
-        ItemRegistry.registerItem("leafshotpack", new LeafShotPack(), 50, true);
         ItemRegistry.registerItem("cactusstaff", new CactusStaff(), 50, true);
         ItemRegistry.registerItem("royalhive", new RoyalHive(), 50, true);
         ItemRegistry.registerItem("polarhead", new BearPolarHead(), 50, true);
@@ -28,6 +25,10 @@ public class SummonerWeapons
         ItemRegistry.registerItem("iceblossomstaff", new IceBlossomStaff(), 50, true);
         ItemRegistry.registerItem("sunflowerstaff", new SunflowerStaff(), 50, true);
         ItemRegistry.registerItem("firemonestaff", new FiremoneStaff(), 50, true);
+        // Throwing
+        ItemRegistry.registerItem("leafshotheatpack", new LeafShotHeatPack(), 50, true);
+        ItemRegistry.registerItem("leafshotcoldpack", new LeafShotColdPack(), 50, true);
+        ItemRegistry.registerItem("leafshotpack", new LeafShotPack(), 50, true);
 
         // Secondary
         ItemRegistry.registerItem("explosivesnowball", new ExplosiveSnowball(), 50, true);

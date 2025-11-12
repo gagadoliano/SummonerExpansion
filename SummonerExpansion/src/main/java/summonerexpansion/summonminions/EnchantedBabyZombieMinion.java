@@ -35,7 +35,7 @@ public class EnchantedBabyZombieMinion extends AttackingFollowingMob
         setFriction(2.0F);
         collision = new Rectangle(-10, -7, 20, 14);
         hitBox = new Rectangle(-12, -14, 24, 24);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(-16, -30, 32, 36);
         swimMaskMove = 12;
         swimMaskOffset = 0;
         swimSinkOffset = 0;

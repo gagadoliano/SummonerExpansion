@@ -54,9 +54,9 @@ public class WoodMob extends FlyingHostileMob
         setArmor(10);
         moveAccuracy = 20;
         attackCooldown = 4000;
-        collision = new Rectangle(0, 0, 24, 32);
-        hitBox = new Rectangle(0, 0, 24, 32);
-        selectBox = new Rectangle(0, 0, 24, 32);
+        collision = new Rectangle(-18, -25, 36, 36);
+        hitBox = new Rectangle(-18, -25, 36, 36);
+        selectBox = new Rectangle(-18, -25, 36, 36);
         particleTypes = new ParticleTypeSwitcher(Particle.GType.COSMETIC, Particle.GType.IMPORTANT_COSMETIC, Particle.GType.COSMETIC);
     }
 
@@ -69,7 +69,7 @@ public class WoodMob extends FlyingHostileMob
         {
             setMaxHealth(500);
             setHealthHidden(getMaxHealth());
-            setArmor(20);
+            setArmor(50);
             damage = incursionDamage;
         }
         else
@@ -96,11 +96,9 @@ public class WoodMob extends FlyingHostileMob
         super.clientTick();
         if (GameRandom.globalRandom.getChance(0.2F))
         {
-            float particleX = (x + 20) + GameRandom.globalRandom.floatGaussian() * 5.0F;
-            float particleY = (y + 20) + GameRandom.globalRandom.floatGaussian() * 10.0F;
             float moveX = GameRandom.globalRandom.floatGaussian() * 10.0F;
             float moveY = GameRandom.globalRandom.floatGaussian() * 10.0F;
-            this.getLevel().entityManager.addParticle(particleX, particleY, particleTypes.next()).sprite(GameResources.magicSparkParticles.sprite(GameRandom.globalRandom.nextInt(4), 0, 32)).sizeFades(10, 20).movesFriction(moveX, moveY, 0.8F).color(new Color(14, 99, 29)).givesLight(190.0F, 0.9F).height(0.0F).ignoreLight(true).lifeTime(500);
+            this.getLevel().entityManager.addParticle(x, y, particleTypes.next()).sprite(GameResources.magicSparkParticles.sprite(GameRandom.globalRandom.nextInt(4), 0, 32)).sizeFades(10, 20).movesFriction(moveX, moveY, 0.8F).color(new Color(14, 99, 29)).givesLight(190.0F, 0.9F).height(0.0F).ignoreLight(true).lifeTime(500);
         }
     }
 
@@ -112,12 +110,31 @@ public class WoodMob extends FlyingHostileMob
     protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
     {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
-        GameLight light = level.getLightLevel(x / 32, y / 32);
-        int drawX = camera.getDrawX(x);
-        int drawY = camera.getDrawY(y);
-        DrawOptions body = texture.initDraw().light(light).rotate(moveAngle, 0, 0).pos(drawX, drawY);
-        topList.add((tm) -> {
-            body.draw();
-        });
+        GameLight light = level.getLightLevel(getTileCoordinate(x), getTileCoordinate(y));
+        int drawX = camera.getDrawX(x) - 32;
+        int drawY = camera.getDrawY(y) - 32 - 16;
+        int dir = this.getDir();
+        long time = level.getWorldEntity().getTime() % 350L;
+        int sprite;
+        if (time < 100L)
+        {
+            sprite = 0;
+        }
+        else if (time < 200L)
+        {
+            sprite = 1;
+        }
+        else if (time < 300L)
+        {
+            sprite = 2;
+        }
+        else
+        {
+            sprite = 3;
+        }
+        float rotate = this.dx / 10.0F;
+        DrawOptions options = texture.initDraw().sprite(sprite, 0, 64).light(light).mirror(dir == 0, false).rotate(rotate, 32, 32).pos(drawX, drawY);
+        topList.add((tm) -> options.draw());
+        this.addShadowDrawables(tileList, level, x, y, light, camera);
     }
 }

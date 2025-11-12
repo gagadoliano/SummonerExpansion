@@ -290,5 +290,25 @@ public class SummonerRecipes
                         new Ingredient("spoiledfood", 4)
                 }
         ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "caveglowjam",
+                1,
+                RecipeTechRegistry.COOKING_STATION,
+                new Ingredient[]{
+                        new Ingredient("glassbottle", 1),
+                        new Ingredient("caveglow", 2),
+                        new Ingredient("sugar", 4)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "pigbanquet",
+                1,
+                RecipeTechRegistry.COOKING_STATION,
+                new Ingredient[]{
+                        new Ingredient("rawpork", 12)
+                }
+        ));
     }
 }

@@ -37,7 +37,7 @@ public class BowMosquitoMinion extends FlyingAttackingFollowingMob
         setFriction(2.0F);
         collision = new Rectangle(-9, -7, 18, 14);
         hitBox = new Rectangle(-20, -34, 40, 32);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(-13, -16, 26, 30);
     }
 
     public GameDamage getCollisionDamage(Mob target, boolean fromPacket, ServerClient packetSubmitter) { return summonDamage; }

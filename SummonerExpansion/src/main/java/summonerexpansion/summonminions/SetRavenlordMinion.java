@@ -40,7 +40,7 @@ public class SetRavenlordMinion extends AttackingFollowingMob
         attackCooldown = 1500;
         collision = new Rectangle(-10, -7, 20, 14);
         hitBox = new Rectangle(-14, -12, 28, 24);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(-14, -41, 28, 48);
         swimMaskMove = 16;
         swimMaskOffset = -2;
         swimSinkOffset = -4;

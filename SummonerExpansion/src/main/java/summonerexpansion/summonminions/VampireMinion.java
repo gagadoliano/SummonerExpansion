@@ -10,6 +10,7 @@ import necesse.engine.util.GameUtils;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerChaserAI;
+import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
@@ -45,7 +46,7 @@ public class VampireMinion extends AttackingFollowingMob
         attackCooldown = 1200;
         collision = new Rectangle(-10, -7, 20, 14);
         hitBox = new Rectangle(-14, -12, 28, 24);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(-14, -41, 28, 48);
         swimMaskMove = 16;
         swimMaskOffset = -2;
         swimSinkOffset = -4;
@@ -58,10 +59,12 @@ public class VampireMinion extends AttackingFollowingMob
         {
             public boolean attackTarget(VampireMinion mob, Mob target)
             {
+                float projVel = getAttackOwner().buffManager.getModifier(BuffModifiers.PROJECTILE_VELOCITY);
+
                 if (mob.canAttack() && getAttackOwner().buffManager.hasBuff("bloodplatecowlsetbonus") && !mob.isBat)
                 {
                     mob.attack(target.getX(), target.getY(), false);
-                    Projectile projectile = ProjectileRegistry.getProjectile("bloodbolt", mob.getLevel(), mob.x, mob.y, target.x, target.y, 100F, 800, summonDamage.modFinalMultiplier(1.30F), mob);
+                    Projectile projectile = ProjectileRegistry.getProjectile("bloodbolt", mob.getLevel(), mob.x, mob.y, target.x, target.y, (100.0F * projVel), 800, summonDamage.modFinalMultiplier(1.30F), mob);
                     projectile.setTargetPrediction(target, -20.0F);
                     projectile.moveDist(40.0);
                     mob.getLevel().entityManager.projectiles.add(projectile);
@@ -70,7 +73,7 @@ public class VampireMinion extends AttackingFollowingMob
                 else if (mob.canAttack() && !mob.isBat)
                 {
                     mob.attack(target.getX(), target.getY(), false);
-                    Projectile projectile = ProjectileRegistry.getProjectile("bloodbolt", mob.getLevel(), mob.x, mob.y, target.x, target.y, 80F, 640, summonDamage, mob);
+                    Projectile projectile = ProjectileRegistry.getProjectile("bloodbolt", mob.getLevel(), mob.x, mob.y, target.x, target.y, (80.0F * projVel), 640, summonDamage, mob);
                     projectile.setTargetPrediction(target, -20.0F);
                     projectile.moveDist(20.0);
                     mob.getLevel().entityManager.projectiles.add(projectile);

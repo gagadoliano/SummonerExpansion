@@ -32,7 +32,7 @@ public class SetMouseMinion extends AttackingFollowingMob
         setFriction(1.0F);
         collision = new Rectangle(-10, -7, 20, 14);
         hitBox = new Rectangle(-12, -14, 24, 24);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(-13, -18, 26, 28);
         swimMaskMove = 6;
         swimMaskOffset = 30;
         swimSinkOffset = 0;

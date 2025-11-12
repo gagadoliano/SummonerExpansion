@@ -217,7 +217,7 @@ rubyshardtip=Invoca um golem de rubi \nEste golem atira fragmentos de cristal no
 topazshardtip=Invoca um golem de topaz \nEste golem atira cristais que ricocheteiam e perfuram os inimigos
 
 // Sentry weapons
-bookmushroomtip=Invoca uma sentinela que desacelera inimigos e melhoram jogadores próximos \nA cada 10 segundos invoca um lacaio de cogumelo
+bookmushroomtip=Invoca uma sentinela que desacelera inimigos e melhoram jogadores próximos \nPeriodicamente invoca um lacaio de cogumelo
 xmastreetip=Invoca uma sentinela que afeta inimigos \nEles brilham e tomam mais 20% de dano
 leafshotheatpacktip=Seus projéteis queimam os inimigos \nConsumível
 leafshotcoldpacktip=Seus projéteis gelam os inimigos \nConsumível

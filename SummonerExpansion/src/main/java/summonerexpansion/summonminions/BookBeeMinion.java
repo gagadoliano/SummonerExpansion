@@ -9,6 +9,7 @@ import necesse.engine.util.GameUtils;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerCollisionChaserAI;
+import necesse.entity.mobs.ai.behaviourTree.util.FlyingAIMover;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.FlyingAttackingFollowingMob;
 import necesse.gfx.camera.GameCamera;
@@ -41,20 +42,17 @@ public class BookBeeMinion extends FlyingAttackingFollowingMob
     public void init()
     {
         super.init();
-        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI(800, summonDamage, 5, 500, 1000, 64));
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI(800, summonDamage, 5, 500, 1000, 64), new FlyingAIMover());
     }
 
     @Override
     public void handleCollisionHit(Mob target, GameDamage damage, int knockback)
     {
         Mob owner = this.getAttackOwner();
-
-        BeeHitCount++;
-        if (BeeHitCount >= 10)
+        if (++BeeHitCount >= 10)
         {
             remove();
         }
-
         if (owner != null && target != null)
         {
             ActiveBuff buff = new ActiveBuff(BuffRegistry.getBuff("honeydebuff"), target, 600F, this);

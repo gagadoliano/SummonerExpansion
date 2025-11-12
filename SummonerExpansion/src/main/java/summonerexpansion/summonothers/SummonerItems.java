@@ -32,8 +32,10 @@ public class SummonerItems
         ItemRegistry.registerItem("fusedessences", new TrinketSlotsIncreaseItem(8), 500.0F, true, true);
 
         // Foods
-        ItemRegistry.registerItem("rottenbread", (new FoodConsumableItem(250, Item.Rarity.NORMAL, Settler.FOOD_SIMPLE, 10, 1200, new ModifierValue(BuffModifiers.MAX_HEALTH, -0.20F), new ModifierValue(BuffModifiers.MAX_SUMMONS, 1))).spoilDuration(500), 0F, true);
-        ItemRegistry.registerItem("berrytrio", (new FoodConsumableItem(250, Item.Rarity.NORMAL, Settler.FOOD_SIMPLE, 10, 1200, new ModifierValue(BuffModifiers.SUMMON_CRIT_CHANCE, 0.05F), new ModifierValue(BuffModifiers.SUMMON_CRIT_DAMAGE, 0.05F), new ModifierValue(BuffModifiers.SUMMON_ATTACK_SPEED, 0.05F))).spoilDuration(500), 10, true);
+        ItemRegistry.registerItem("pigbanquet", (new FoodConsumableItem(250, Item.Rarity.UNCOMMON, Settler.FOOD_FINE, 25, 1200, new ModifierValue<>(BuffModifiers.SPEED, -0.20F), new ModifierValue<>(BuffModifiers.ARMOR, 0.10F), new ModifierValue<>(BuffModifiers.SUMMON_CRIT_DAMAGE, 0.10F))).spoilDuration(500), 30F, true);
+        ItemRegistry.registerItem("caveglowjam", (new FoodConsumableItem(250, Item.Rarity.UNCOMMON, Settler.FOOD_FINE, 20, 1200, new ModifierValue<>(BuffModifiers.EMITS_LIGHT, true), new ModifierValue<>(BuffModifiers.SUMMON_DAMAGE, 0.10F))).spoilDuration(500), 20F, true);
+        ItemRegistry.registerItem("rottenbread", (new FoodConsumableItem(250, Item.Rarity.NORMAL, Settler.FOOD_SIMPLE, 10, 1200, new ModifierValue<>(BuffModifiers.MAX_HEALTH, -0.20F), new ModifierValue<>(BuffModifiers.MAX_SUMMONS, 1))).spoilDuration(500), 0F, true);
+        ItemRegistry.registerItem("berrytrio", (new FoodConsumableItem(250, Item.Rarity.NORMAL, Settler.FOOD_SIMPLE, 10, 1200, new ModifierValue<>(BuffModifiers.SUMMON_CRIT_CHANCE, 0.05F), new ModifierValue<>(BuffModifiers.SUMMON_CRIT_DAMAGE, 0.05F), new ModifierValue(BuffModifiers.SUMMON_ATTACK_SPEED, 0.05F))).spoilDuration(500), 10F, true);
 
         // Banners
         ItemRegistry.registerItem("bannerofresilience", new BannerItem(Item.Rarity.COMMON, 480, (m) -> SummonerBuffs.SummonerBanners.RESILIENCEBOOST), 200.0F, true);

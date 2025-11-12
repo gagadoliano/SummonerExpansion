@@ -3,6 +3,7 @@ package summonerexpansion.summonminions;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.registries.BuffRegistry;
 import necesse.engine.registries.ProjectileRegistry;
+import necesse.engine.util.GameUtils;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerChaserAI;
@@ -16,6 +17,7 @@ import necesse.entity.particle.Particle;
 import necesse.entity.projectile.Projectile;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
+import necesse.gfx.drawOptions.texture.TextureDrawOptionsEnd;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
@@ -116,21 +118,37 @@ public class FiremoneSentry extends AttackingFollowingMob implements OEVicinityB
 
     public void spawnDeathParticles(float knockbackX, float knockbackY)
     {
-        for(int i = 0; i < 5; ++i)
+        for(int i = 0; i < 4; ++i)
         {
-            getLevel().entityManager.addParticle(new FleshParticle(getLevel(), texture, i, 0, 32, x, y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
+            this.getLevel().entityManager.addParticle(new FleshParticle(this.getLevel(), texture, i, 8, 32, this.x, this.y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
         }
     }
 
-    protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
+    public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
     {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
-        GameLight light = level.getLightLevel(x / 32, y / 32);
-        int drawX = camera.getDrawX(x) - 16;
-        int drawY = camera.getDrawY(y) - 20;
-        DrawOptions body = texture.initDraw().light(light).rotate(this.moveAngle, 16, 20).pos(drawX, drawY);
-        topList.add((tm) -> {
-            body.draw();
+        GameLight light = level.getLightLevel(getTileCoordinate(x), getTileCoordinate(y)).minLevelCopy(100.0F);
+        int drawX = camera.getDrawX(x) - 32;
+        int drawY = camera.getDrawY(y) - 55;
+        int dir = this.getDir();
+        Point sprite = this.getAnimSprite(x, y, dir);
+        drawY = (int)((float)drawY);
+        drawY += level.getTile(getTileCoordinate(x), getTileCoordinate(y)).getMobSinkingAmount(this);
+        final TextureDrawOptionsEnd drawOptions = texture.initDraw().sprite(sprite.x, sprite.y, 64).light(light).pos(drawX, drawY);
+        list.add(new MobDrawable() {
+            public void draw(TickManager tickManager) {
+                drawOptions.draw();
+            }
         });
+        this.addShadowDrawables(tileList, level, x, y, light, camera);
+    }
+
+    public Point getAnimSprite(int x, int y, int dir)
+    {
+        return new Point(GameUtils.getAnim(this.getWorldEntity().getTime(), 4, 100*60), dir);
+    }
+
+    public int getRockSpeed() {
+        return 50*60;
     }
 }

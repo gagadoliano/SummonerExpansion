@@ -15,7 +15,6 @@ public class MagicCheese extends MountItem
         rarity = Rarity.RARE;
     }
 
-    @Override
     public ListGameTooltips getTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard)
     {
         ListGameTooltips tooltips = super.getTooltips(item, perspective, blackboard);

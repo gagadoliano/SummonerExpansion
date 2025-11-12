@@ -16,6 +16,7 @@ import necesse.gfx.drawOptions.DrawOptionsList;
 import necesse.gfx.drawables.LevelSortedDrawable;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
+import necesse.inventory.item.Item;
 import necesse.inventory.item.toolItem.ToolType;
 import necesse.inventory.recipe.Ingredient;
 import necesse.inventory.recipe.Tech;
@@ -41,6 +42,7 @@ public class SummoningTableDuo extends CraftingStationObject
         mapColor = new Color(98, 0, 0);
         toolType = ToolType.ALL;
         isLightTransparent = true;
+        rarity = Item.Rarity.COMMON;
         hoverHitbox = new Rectangle(0, -16, 32, 48);
     }
 

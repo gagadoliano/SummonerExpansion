@@ -57,7 +57,7 @@ public class SetLocustMinion extends FlyingAttackingFollowingMob
         this.setFriction(1.0F);
         this.collision = new Rectangle(-5, 2, 10, 16);
         this.hitBox = new Rectangle(-8, 4, 16, 14);
-        this.selectBox = new Rectangle();
+        this.selectBox = new Rectangle(-14, -14, 28, 36);
         this.bodyColor = Color.WHITE;
         this.angryColorMiddle = new Color(68, 211, 255);
         this.angryColorMax = new Color(27, 83, 255);
