@@ -2,14 +2,17 @@ package summonerexpansion;
 
 import necesse.level.maps.biomes.Biome;
 import necesse.level.maps.biomes.swamp.SwampBiome;
-import summonerexpansion.summonobjects.*;
-import summonerexpansion.summonothers.*;
+import summonerexpansion.codes.summonregistry.*;
 import necesse.engine.modLoader.annotations.ModEntry;
-import necesse.engine.registries.*;
+import summonerexpansion.summonrecipes.*;
 
 @ModEntry
 public class SummonerExpansion
 {
+    public void preInit()
+    {
+    }
+
     public void init()
     {
         // Registry
@@ -17,27 +20,18 @@ public class SummonerExpansion
         SummonerChallenges.registerSummonChallenges();
         SummonerProjectiles.registerSummonProjs();
         SummonerSettlers.registerSummonSettlers();
-        SummonerJournal.registerSummonJournal();
         SummonerObjects.registerSummonObjects();
         SummonerWeapons.registerSummonWeapons();
         SummonerEquips.registerSummonEquips();
+        SummonerEvents.registerSummonEvents();
         SummonerItems.registerSummonItems();
         SummonerTiles.registerSummonTiles();
         SummonerTechs.registerSummonTechs();
         SummonerBuffs.registerSummonBuffs();
         SummonerPerks.registerSummonPerks();
         SummonerMobs.registerSummonMobs();
-
-        // Events
-        LevelEventRegistry.registerEvent("snowmanexplosionlevelevent", SnowmanExplosionLevelEvent.class);
-        LevelEventRegistry.registerEvent("mosquitobowevent", MosquitoBowEvent.class);
-        LevelEventRegistry.registerEvent("doomshroomevent", DoomShroomEvent.class);
-
-        // Duo Objects
-        SummoningTableDuo.registerSummoningTable();
-        DemonicSummoningTableDuo.registerDemonicSummoningTable();
-        TungstenSummoningTableDuo.registerTungstenSummoningTable();
-        FallenSummoningTableDuo.registerFallenSummoningTable();
+        SummonerFoes.registerSummonFoes();
+        SummonerPresets.registerSummonPresets();
     }
 
     public void initResources()
@@ -48,20 +42,15 @@ public class SummonerExpansion
     public void postInit()
     {
         SummonerRecipes.registerSummonRecipes();
-
-        SummonerRecipesArmor.registerSummonRecipes();
-
-        SummonerRecipesMount.registerSummonRecipes();
-
         SummonerRecipesPotion.registerSummonRecipes();
-
+        SummonerJournal.registerSummonJournal();
         SummonerRecipesWeapon.registerSummonRecipesAnvil();
         SummonerRecipesWeapon.registerSummonRecipesBookcase();
         SummonerRecipesWeapon.registerSummonRecipesWorkstation();
         SummonerRecipesWeapon.registerSummonRecipesSummontable();
-
+        SummonerRecipesArmor.registerSummonRecipes();
         SummonerRecipesTrinket.registerSummonRecipes();
-
+        SummonerRecipesMount.registerSummonRecipes();
         SummonerLoot.registerSummonLoot();
 
         Biome.defaultDeepCaveMobs

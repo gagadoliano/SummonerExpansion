@@ -23,7 +23,7 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.level.maps.Level;
 import necesse.level.maps.LevelObjectHit;
 import necesse.level.maps.light.GameLight;
-import summonerexpansion.summonothers.MosquitoBowEvent;
+import summonerexpansion.codes.summonevents.MosquitoBowEvent;
 
 import java.awt.*;
 import java.awt.geom.Point2D;

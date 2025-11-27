@@ -15,12 +15,14 @@ demonicsummoningtableduo=Demonic Summoning Table
 fallensummoningtableduo=Fallen Summoning Table
 summoningbookshelf=Summoning Bookshelf
 summoningtableduo=Summoning Table
+arcanicconverter=Arcanic Converter
 
 // Plants
 overgrowthornssapling=Regenerative Thorns
 
-// Banners
+// Auras
 bannerofwater=Banner of Water
+caveglowlamp=Caveglow Lamp
 
 // Walls
 empoweredrubyrock=Ancient Empowered Ruby Rock
@@ -33,6 +35,7 @@ tanktrainingdummy=Tanky Training Dummy
 magiccastlecandelabra=Magic Spider Castle Candelabra
 enchantedbrainonastick=Enchanted Brain On A Stick
 magicdungeoncandelabra=Magic Dungeon Candelabra
+yinyangninjastar=Yin Yang Ninjastar
 magictungstenlamp=Magic Tungsten Lamp
 magicgoldlamp=Magic Gold Double Lamp
 gemamethystshards=Amethyst Shards
@@ -67,7 +70,10 @@ bookmushroom=Mushroom Book
 
 // Secondary weapons
 explosivesnowball=Explosive Snowball
-magictools=Magic Wood Tools
+magicwoodtools=Magic Wood Tools
+magiccoppertools=Magic Copper Tools
+magicirontools=Magic Iron Tools
+magicgoldtools=Magic Gold Tools
 bookfrozen=Frozen Book
 bookmagma=Magma Book
 bookrunic=Runic Book
@@ -95,6 +101,7 @@ bloodplatemask=Bloodplate Mask
 pharaohsmask=Pharaoh's Mask
 shadowhelmet=Shadow Helmet
 frostcrown=Frost Crown
+sharpshootersummonhat=Sharpshooter Summoner Hat
 
 // Armor sets
 redspiderhelmet=Red Spider Helmet
@@ -112,6 +119,9 @@ spiderbrideboots=Spider Bride Boots
 ghostcaptainshat=Ghost Captain's Hat
 ghostcaptainsshirt=Ghost Captain's Shirt
 ghostcaptainsboots=Ghost Captain's Boots
+sailorsummonhat=Summoner Sailor Hat
+sailorsummonshirt=Summoner Sailor Shirt
+sailorsummonshoes=Summoner Sailor Shoes
 
 // Trinkets
 essenceofcompanionship=Essence of Companionship
@@ -150,6 +160,7 @@ minioncritpotion=Summon Critical Damage Potion
 minionfarmpotion=Summon Farming Potion
 minionrangepotion=Summon Range Potion
 minionspeedpotion=Summon Speed Potion
+minionequinoxpotion=Summon Equinox Potion
 
 // Potions buffs
 minioncritchancebuff=Summon Critical Chance Buff
@@ -159,6 +170,7 @@ minioncritbuff=Summon Critical Damage Buff
 minionfarmbuff=Summon Farming Buff
 minionrangebuff=Summon Range Buff
 minionspeedbuff=Summon Speed Buff
+minionequinoxbuff=Summon Equinox Buff
 
 // Banners
 bannerofresilience=Banner of Resilience
@@ -216,9 +228,10 @@ vampirewingstip2=Shoots faster projectiles that does 30% more damage
 lampminiondungeontip=Summons a dungeon candelabra \nBurn foes at night
 magicgoldlamptip=Summons a double gold lamp that glows and attack \nBurn foes on hit
 // T3
-dryadessencetip=Summons a slow moving ghoul \nThis ghoul leaves a damaging trail \nYou can summon up to <amount> ghouls
+dryadessencetip=Summons a slow moving ghoul \nThis ghoul leaves a damaging trail
 sandwormstafftip=Summons a sand worm to attack foes
 magictungstenlamptip=Summons a tungsten lamp that glows and attack \nBurn foes on hit
+yinyangstartip=Summons ninjas that throwns ninja stars at foes \nUses ninja stars as ammo
 // T4
 amethystshardtip=Summons an amethyst golem \nThis golem can crystallize foes \nAdditional amethyst golems increases the chance to crystallize
 sapphireshardtip=Summons a sapphire golem \nThis golem summons a sapphire glyph at your location when you have life essence
@@ -239,9 +252,12 @@ leafshotpacktip=It's projectiles poison foes \nConsumable
 
 // Secondary weapons
 explosivesnowballtip=Summons a snowman with a chance to explode on hit \nThe explosion does increased damage and can hurt players
-explosivesnowballtip2=Increased explosion damage and area of effect
+explosivesnowballtip2=Increased explosion damage, knockback and area of effect \nExplosions don't damage players
 bookmagmatip=Summons magma slimes that attacks very close foes \nIf the target is under a burn effect, it will last forever
-magictoolstip=Summons magic tools \nThey provide a stacking buff on hit that increases mining range and mining speed
+woodtoolstip=Summons magic wood tools \nThey provide a stacking buff on hit that increases mining range and mining speed
+coppertoolstip=Summons magic copper tools \nThey provide a stacking buff on hit that increases mining range and mining speed
+irontoolstip=Summons magic iron tools \nThey provide a stacking buff on hit that increases mining range and mining speed
+goldtoolstip=Summons magic gold tools \nThey provide a stacking buff on hit that increases mining range and mining speed
 bookrunictip=Summons runic shields that orbit you \nIncreases your armor with a stacking buff when they hit foes
 bookrunictip2=Armor buff lasts longer
 bookfrozentip=Summons frozen dwarfs that throws 10 ice javelins that slows foes by 30%
@@ -269,14 +285,18 @@ spiderbridesettip=Grants immunity to slows \nSummon attacks poison target for 25
 spiderbridesettip2=Spider bride damage: <damage>
 agedsummonersettip=Blocking just before being hit greatly increases stamina regen \nSummons an aged champion when at full health
 agedsummonersettip2=Aged champion damage: <damage>
-ravenlordsummonsettip=Ravenlords spawn when moving, shooting feathers at foes and dealing damage based on your movement speed
+ravenlordsummonsettip=Summons ravenlords while moving, shooting feathers at foes and dealing damage based on your movement speed
 ravenlordsummonsettip2=Ravenlord damage: <damage>
 frostcrownsettip=Summon attacks slows and damages the target for 15 damage over 5 seconds \nImproves summon frost weapons
 bloodplatemasksettip=After taking damage, your health regen is doubled for 4 seconds \nImproves summon vampire weapons
+sharpshootersummonsettip=Summons a sharpshooter that shoots bullets \nTheir bullets ricochets to others foes on kill
+sharpshootersummonsettip2=Sharpshooter damage: <damage>
 ghostcaptainssettip=Press [input=setability] to summon a ghost pirate ship that shoots cannonballs at foes
 ghostcaptainssettip2=Ghost captain damage: <damage>
 arcanicsummonsettip=Press [input=setability] to summon an Arcanic Pylon Sentry to zap your foes
 arcanicsummonsettip2=Arcanic pylon damage: <damage>
+sailorsettip=Summons sailors while mounted that deals damage based on your projectile velocity
+sailorsettip2=Sailor damage: <damage>
 pharaohsmasksettip=Summons a locust when you kill a foe \nYou can have up to <amount> locusts
 pharaohsmasksettip2=Locust damage: <damage>
 chefsummonerhattip=You can have 1 extra food buff \nSummons a Battle chef when taking damage
@@ -284,7 +304,7 @@ chefsummonerhattip2=Battle Chef damage: <damage>
 redspidersettip=Grants immunity to slow and blindness \nSummon attacks slows foes
 shadowhelmetsettip=Summon attacks haunt target for 25 damage over 5 seconds
 copperminersettip=Increases the light of magic lamps and candles
-horrorsettip=Chance to summon minor horror spirits during combat
+horrorsettip=Summons minor horror spirits during combat
 horrorsettip2=Horror spirit damage: <damage>
 plaguesettip=Periodically summons mouses during combat
 plaguesettip2=Mouse damage: <damage>
@@ -321,6 +341,7 @@ jellyfishminiontip=Grants immunity to blindness \nSummons a jellyfish minion tha
 teapotminiontip=You can have 1 extra food buff \nSummons a magic tea pot that attack foes
 
 // Potions buff
+minionequinoxtip=Increases summon damage and movement speed during the day \nIncreases armor and max health during the night
 minionfarmtip=Decreases movement but increases pickup range by 50, mob spawn rate by 50%, summon speed and range by 40%
 minioncloserangetip=Decreases summon range by 80% and increases summon speed and attack speed by 20%
 minioncritchancetip=Increases summon critical chance by 10%
@@ -343,8 +364,10 @@ purehorrortip=Used to craft nightmare equipments
 
 // Objects
 overgrowthornstip=Can be placed on mud tiles \nGrows harmless thorns over time that can be harvested
-bannerofwatertip=Allows water walking \nGreatly increases your world view and travel range
+bannerofwatertip=Allows water walking \nIncreases your fishing power and lines
+caveglowlamptip=Have a high glow radius \nBuffs your summon and mining range
 tanktrainingdummytip=A stronger training dummy with 1000 armor
+arcanicconvertertip=Converts items into other items \nEach side have it's own inventory
 
 // Bags
 shadowbagtip=Stores tools and weapons picked up
@@ -352,7 +375,7 @@ shadowbagtip=Stores tools and weapons picked up
 // Tiles
 empoweredsapphiretip=Increases the speed of player and settlers by 50% \nIncreases summon crit chance and summon crit damage by 10%
 empoweredemeraldtip=Increases the speed of player and settlers by 50% \nIncreases max mana and mana regen during combat by 10%
-empoweredamethysttip=Increases the speed of player and settlers by 50% \nnIncreases summon target range and knockback by 10%
+empoweredamethysttip=Increases the speed of player and settlers by 50% \nIncreases summon target range and knockback by 10%
 empoweredrubytip=Increases the speed of player and settlers by 50% \nIncreases summon speed and summon attack speed by 10%
 empoweredtopaztip=Increases the speed of player and settlers by 50% \nIncreases max resilience and resilience regen by 10%
 
@@ -479,6 +502,11 @@ riftportalmob=Horror Rift Portal
 horrorspiritbossmob=Ancient Horror Spirit
 horrorspiritmob=Horror Spirit
 woodmob=Wooden Idol
+horrorspiritcultmelee=Horror Spirit Cultist
+horrorspiritcultmagic=Horror Spirit Cultist
+horrorspiritcultrange=Horror Spirit Cultist
+horrorspiritcultsummon=Horror Spirit Cultist
+horrorspiritcultminion=Horror Spirit
 
 // Settlers
 druidhuman=Druid

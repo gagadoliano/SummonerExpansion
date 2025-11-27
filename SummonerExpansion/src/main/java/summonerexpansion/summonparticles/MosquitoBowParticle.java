@@ -4,7 +4,6 @@ import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.particle.Particle;
-import necesse.gfx.GameResources;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
 import necesse.gfx.drawables.LevelSortedDrawable;
@@ -14,7 +13,7 @@ import necesse.level.maps.light.GameLight;
 
 import java.util.List;
 
-import static summonerexpansion.summonothers.SummonerTextures.MosquitoBowVisual;
+import static summonerexpansion.codes.summonregistry.SummonerTextures.MosquitoBowVisual;
 
 public class MosquitoBowParticle extends Particle
 {

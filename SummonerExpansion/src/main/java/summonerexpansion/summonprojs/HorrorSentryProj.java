@@ -13,7 +13,7 @@ import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawables.LevelSortedDrawable;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.level.maps.Level;
-import summonerexpansion.summonminions.HorrorSentry;
+import summonerexpansion.mobs.summonminions.meleeminions.HorrorSentry;
 
 import java.awt.geom.Point2D;
 import java.util.List;

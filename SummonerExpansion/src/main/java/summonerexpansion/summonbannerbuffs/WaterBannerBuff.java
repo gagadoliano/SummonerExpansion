@@ -13,8 +13,8 @@ public class WaterBannerBuff extends VicinityBuff
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
     {
-        buff.setModifier(BuffModifiers.BIOME_VIEW_DISTANCE, 5);
-        buff.setModifier(BuffModifiers.TRAVEL_DISTANCE, 5);
+        buff.setModifier(BuffModifiers.FISHING_LINES, 2);
+        buff.setModifier(BuffModifiers.FISHING_POWER, 20);
         buff.setModifier(BuffModifiers.WATER_WALKING, true);
     }
 
