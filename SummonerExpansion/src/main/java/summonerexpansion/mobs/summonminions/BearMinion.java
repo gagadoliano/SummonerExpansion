@@ -18,6 +18,7 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import summonerexpansion.codes.registry.SummonerBuffs;
 
 import java.awt.*;
 import java.util.List;
@@ -66,11 +67,11 @@ public class BearMinion extends AttackingFollowingMob
             ActiveBuff buff;
             if (getAttackOwner().buffManager.hasBuff("leathersummonersetbonus"))
             {
-                buff = new ActiveBuff(BuffRegistry.getBuff("bleedingdebuff"), target, 20F, this);
+                buff = new ActiveBuff(SummonerBuffs.SummonerDebuffs.BLEEDINGPOISON, target, 20F, this);
             }
             else
             {
-                buff = new ActiveBuff(BuffRegistry.getBuff("bleedingdebuff"), target, 10F, this);
+                buff = new ActiveBuff(SummonerBuffs.SummonerDebuffs.BLEEDINGPOISON, target, 10F, this);
             }
             target.addBuff(buff, true);
         }

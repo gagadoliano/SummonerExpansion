@@ -28,7 +28,7 @@ import necesse.level.maps.light.GameLight;
 import necesse.level.maps.multiTile.MultiTile;
 import necesse.level.maps.multiTile.SideMultiTile;
 
-import static summonerexpansion.codes.summonregistry.SummonerTechs.*;
+import static summonerexpansion.codes.registry.SummonerTechs.*;
 
 public class SummoningTableDuo extends CraftingStationObject
 {

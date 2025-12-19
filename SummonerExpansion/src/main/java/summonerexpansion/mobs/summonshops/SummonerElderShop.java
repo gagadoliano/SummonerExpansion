@@ -4,7 +4,7 @@ import necesse.engine.modLoader.annotations.ModConstructorPatch;
 import necesse.entity.mobs.friendly.human.ElderHumanMob;
 import necesse.entity.mobs.friendly.human.humanShop.SellingShopItem;
 import net.bytebuddy.asm.Advice;
-import summonerexpansion.codes.summonregistry.SummonerChallenges;
+import summonerexpansion.codes.registry.SummonerChallenges;
 
 @ModConstructorPatch(target = ElderHumanMob.class, arguments = {})
 public class SummonerElderShop

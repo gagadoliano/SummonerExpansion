@@ -25,7 +25,7 @@ import necesse.level.gameObject.ObjectDamagedTextureArray;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 import necesse.level.maps.regionSystem.RegionType;
-import summonerexpansion.codes.summonentity.TankTrainingDummyObjectEntity;
+import summonerexpansion.codes.entity.TankTrainingDummyObjectEntity;
 
 public class TankTrainingDummyObject extends GameObject
 {

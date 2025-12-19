@@ -30,7 +30,7 @@ import necesse.level.maps.IncursionLevel;
 import necesse.level.maps.Level;
 import necesse.level.maps.levelBuffManager.LevelModifiers;
 import necesse.level.maps.light.GameLight;
-import summonerexpansion.summonprojs.HorrorWaveProj;
+import summonerexpansion.allprojs.HorrorWaveProj;
 
 import java.awt.*;
 import java.util.List;

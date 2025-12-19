@@ -20,7 +20,7 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
-import summonerexpansion.codes.summonevents.*;
+import summonerexpansion.codes.events.*;
 
 import java.awt.*;
 import java.util.List;

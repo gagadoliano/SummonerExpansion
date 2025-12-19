@@ -10,6 +10,8 @@ import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerChaserAI;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.FlyingAttackingFollowingMob;
+import necesse.entity.particle.FleshParticle;
+import necesse.entity.particle.Particle;
 import necesse.gfx.GameResources;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
@@ -18,7 +20,7 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
-import summonerexpansion.summonprojs.TeaPotProj;
+import summonerexpansion.allprojs.TeaPotProj;
 
 import java.awt.*;
 import java.util.List;
@@ -64,6 +66,14 @@ public class PetTeaPotMinion extends FlyingAttackingFollowingMob
     public void playDeathSound()
     {
         SoundManager.playSound(GameResources.shatter1, SoundEffect.effect(this).volume(0.5F));
+    }
+
+    public void spawnDeathParticles(float knockbackX, float knockbackY)
+    {
+        for(int i = 0; i < 5; ++i)
+        {
+            getLevel().entityManager.addParticle(new FleshParticle(this.getLevel(), texture, i, 2, 32, x, y, 10.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
+        }
     }
 
     protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)

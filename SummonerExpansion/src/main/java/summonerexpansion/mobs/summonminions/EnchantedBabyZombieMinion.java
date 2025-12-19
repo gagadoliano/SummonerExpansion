@@ -3,7 +3,6 @@ package summonerexpansion.mobs.summonminions;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.network.server.ServerClient;
 import necesse.engine.registries.MobRegistry;
-import necesse.engine.registries.BuffRegistry;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerCollisionChaserAI;
@@ -20,11 +19,12 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import summonerexpansion.codes.registry.SummonerBuffs;
 
 import java.awt.*;
 import java.util.List;
 
-import static summonerexpansion.codes.summonregistry.SummonerTextures.enchantedBabyZombieMinion;
+import static summonerexpansion.codes.registry.SummonerTextures.enchantedBabyZombieMinion;
 
 public class EnchantedBabyZombieMinion extends AttackingFollowingMob
 {
@@ -55,7 +55,7 @@ public class EnchantedBabyZombieMinion extends AttackingFollowingMob
         Mob owner = getAttackOwner();
         if (owner != null && target != null)
         {
-            ActiveBuff buff = new ActiveBuff(BuffRegistry.getBuff("enchanteddebuff"), target, 60F, this);
+            ActiveBuff buff = new ActiveBuff(SummonerBuffs.SummonerDebuffs.ENCHANTEDWEAK, target, 60F, this);
             target.addBuff(buff, true);
         }
     }

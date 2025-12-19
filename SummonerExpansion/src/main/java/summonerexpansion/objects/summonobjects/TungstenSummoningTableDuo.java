@@ -11,7 +11,7 @@ import necesse.inventory.recipe.Ingredient;
 import necesse.inventory.recipe.Tech;
 import necesse.level.gameObject.container.CraftingStationUpgrade;
 
-import static summonerexpansion.codes.summonregistry.SummonerTechs.*;
+import static summonerexpansion.codes.registry.SummonerTechs.*;
 
 public class TungstenSummoningTableDuo extends SummoningTableDuo
 {

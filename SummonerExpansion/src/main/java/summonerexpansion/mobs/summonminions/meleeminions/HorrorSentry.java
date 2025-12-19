@@ -18,7 +18,7 @@ import necesse.gfx.gameTexture.GameTexture;
 import necesse.gfx.gameTexture.GameTextureSection;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
-import summonerexpansion.summonprojs.HorrorSentryProj;
+import summonerexpansion.allprojs.HorrorSentryProj;
 
 import java.awt.*;
 import java.util.List;

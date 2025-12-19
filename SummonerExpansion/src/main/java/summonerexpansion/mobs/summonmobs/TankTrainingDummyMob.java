@@ -13,7 +13,7 @@ import necesse.gfx.GameResources;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.level.maps.Level;
-import summonerexpansion.codes.summonentity.TankTrainingDummyObjectEntity;
+import summonerexpansion.codes.entity.TankTrainingDummyObjectEntity;
 
 import java.awt.*;
 import java.util.List;

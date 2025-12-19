@@ -51,7 +51,7 @@ public class HorrorBullMinion extends AttackingFollowingMob
         lifeTime++;
         if (lifeTime >= 1200)
         {
-            remove(0.0F, 0.0F, (Attacker)null, true);
+            remove(0.0F, 0.0F, null, true);
         }
     }
 

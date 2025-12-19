@@ -22,6 +22,7 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import summonerexpansion.codes.registry.SummonerBuffs;
 
 import java.awt.*;
 import java.util.List;
@@ -60,7 +61,7 @@ public class BookMushroomMinion extends AttackingFollowingMob
         Mob owner = getAttackOwner();
         if (owner != null && target != null)
         {
-            ActiveBuff buff = new ActiveBuff(BuffRegistry.getBuff("mushroomdebuff"), target, 60F, this);
+            ActiveBuff buff = new ActiveBuff(SummonerBuffs.SummonerDebuffs.MUSHROOMSLOW, target, 60F, this);
             target.addBuff(buff, true);
         }
     }

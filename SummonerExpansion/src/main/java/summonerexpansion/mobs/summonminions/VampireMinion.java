@@ -23,7 +23,7 @@ import necesse.level.maps.light.GameLight;
 import java.awt.*;
 import java.util.List;
 
-import static summonerexpansion.codes.summonregistry.SummonerTextures.vampireMinion;
+import static summonerexpansion.codes.registry.SummonerTextures.vampireMinion;
 
 public class VampireMinion extends AttackingFollowingMob
 {

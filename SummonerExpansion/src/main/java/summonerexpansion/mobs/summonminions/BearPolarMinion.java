@@ -18,6 +18,7 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import summonerexpansion.codes.registry.SummonerBuffs;
 
 import java.awt.*;
 import java.util.List;
@@ -65,12 +66,12 @@ public class BearPolarMinion extends AttackingFollowingMob
         {
             if (getAttackOwner().buffManager.hasBuff("frostcrownsetbonus"))
             {
-                ActiveBuff buff = new ActiveBuff(BuffRegistry.getBuff("polarsnowdebuff"), target, 15F, this);
+                ActiveBuff buff = new ActiveBuff(SummonerBuffs.SummonerDebuffs.POLARSLOW, target, 15F, this);
                 target.addBuff(buff, true);
             }
             else
             {
-                ActiveBuff buff = new ActiveBuff(BuffRegistry.getBuff("polarsnowdebuff"), target, 5F, this);
+                ActiveBuff buff = new ActiveBuff(SummonerBuffs.SummonerDebuffs.POLARSLOW, target, 5F, this);
                 target.addBuff(buff, true);
             }
         }

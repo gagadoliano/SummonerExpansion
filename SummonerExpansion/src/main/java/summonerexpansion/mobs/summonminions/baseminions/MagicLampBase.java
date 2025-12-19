@@ -26,8 +26,6 @@ import java.util.List;
 
 public class MagicLampBase extends FlyingAttackingFollowingMob
 {
-    public static GameTexture texture;
-
     public MagicLampBase()
     {
         super(10);
@@ -54,42 +52,6 @@ public class MagicLampBase extends FlyingAttackingFollowingMob
             target.isServerHit(damage, target.x - owner.x, target.y - owner.y, (float)knockback, this);
             collisionHitCooldowns.startCooldown(target);
         }
-    }
-
-    public void spawnDeathParticles(float knockbackX, float knockbackY)
-    {
-        for(int i = 0; i < 5; ++i)
-        {
-            getLevel().entityManager.addParticle(new FleshParticle(this.getLevel(), texture, i, 2, 32, x, y, 10.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
-        }
-    }
-
-    protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
-    {
-        super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
-        GameLight light = level.getLightLevel(x / 32, y / 32);
-        int drawX = camera.getDrawX(x) - 32;
-        int drawY = camera.getDrawY(y) - 32 - 16;
-        int dir = this.getDir();
-        long time = level.getWorldEntity().getTime() % 350L;
-        byte sprite;
-        if (time < 100L)
-        {
-            sprite = 0;
-        } else if (time < 200L)
-        {
-            sprite = 1;
-        } else if (time < 300L)
-        {
-            sprite = 2;
-        } else
-        {
-            sprite = 3;
-        }
-        float rotate = dx / 10.0F;
-        DrawOptions options = texture.initDraw().sprite(sprite, 0, 64).light(light).mirror(dir == 0, false).rotate(rotate, 32, 32).pos(drawX, drawY);
-        topList.add((tm) -> {options.draw();});
-        addShadowDrawables(tileList, level, x, y, light, camera);
     }
 
     protected TextureDrawOptions getShadowDrawOptions(int x, int y, GameLight light, GameCamera camera)

@@ -23,7 +23,7 @@ import necesse.inventory.recipe.Recipes;
 import necesse.level.gameObject.StaticMultiObject;
 import necesse.level.maps.Level;
 import necesse.level.maps.levelData.settlementData.SettlementWorkstationObject;
-import summonerexpansion.codes.summonentity.ArcanicConverterObjectEntity;
+import summonerexpansion.codes.entity.ArcanicConverterObjectEntity;
 
 import java.awt.*;
 import java.util.ArrayList;

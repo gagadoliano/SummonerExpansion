@@ -27,7 +27,7 @@ import necesse.level.maps.light.GameLight;
 import java.awt.*;
 import java.util.List;
 
-import static summonerexpansion.codes.summonregistry.SummonerTextures.enchantedBabyZombieArcherMinion;
+import static summonerexpansion.codes.registry.SummonerTextures.enchantedBabyZombieArcherMinion;
 
 public class EnchantedBabyZombieArcherMinion extends AttackingFollowingMob
 {
@@ -58,7 +58,7 @@ public class EnchantedBabyZombieArcherMinion extends AttackingFollowingMob
                 if (mob.canAttack())
                 {
                     mob.attack(target.getX(), target.getY(), false);
-                    Projectile projectile = ProjectileRegistry.getProjectile("zombiearrow", mob.getLevel(), mob.x, mob.y, target.x, target.y, (80.0F * projVel), 640, summonDamage, mob);
+                    Projectile projectile = ProjectileRegistry.getProjectile("enchantedarrowproj", mob.getLevel(), mob.x, mob.y, target.x, target.y, (80.0F * projVel), 640, summonDamage, mob);
                     projectile.setTargetPrediction(target, -20.0F);
                     projectile.moveDist(20.0);
                     mob.getLevel().entityManager.projectiles.add(projectile);

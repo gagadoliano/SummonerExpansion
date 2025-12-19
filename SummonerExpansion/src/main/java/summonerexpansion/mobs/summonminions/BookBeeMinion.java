@@ -18,6 +18,7 @@ import necesse.gfx.drawOptions.texture.TextureDrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import summonerexpansion.codes.registry.SummonerBuffs;
 
 import java.awt.*;
 import java.util.List;
@@ -55,7 +56,7 @@ public class BookBeeMinion extends FlyingAttackingFollowingMob
         }
         if (owner != null && target != null)
         {
-            ActiveBuff buff = new ActiveBuff(BuffRegistry.getBuff("honeydebuff"), target, 600F, this);
+            ActiveBuff buff = new ActiveBuff(SummonerBuffs.SummonerDebuffs.HONEYSLOW, target, 60F, this);
             target.addBuff(buff, true);
         }
     }

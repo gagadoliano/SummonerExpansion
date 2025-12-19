@@ -26,18 +26,32 @@ public class DruidHumanMob extends HumanShop
         setSwimSpeed(1.0F);
         equipmentInventory.setItem(6, new InventoryItem("woodstaff"));
 
+        // Consumables
         shop.addSellingItem("leafshotpack", new SellingShopItem(100, 5)).setStaticPriceBasedOnHappiness(800, 1500).addKilledMobRequirement("swampzombie");
         shop.addSellingItem("leafshotcoldpack", new SellingShopItem(100, 5)).setStaticPriceBasedOnHappiness(800, 1500).addKilledMobRequirement("trapperzombie");
         shop.addSellingItem("leafshotheatpack", new SellingShopItem(100, 5)).setStaticPriceBasedOnHappiness(800, 1500).addKilledMobRequirement("enchantedzombie");
+        // Summon weapons
         shop.addSellingItem("cactusstaff", new SellingShopItem()).setStaticPriceBasedOnHappiness(1600, 2000);
         shop.addSellingItem("stabbybush", new SellingShopItem()).setStaticPriceBasedOnHappiness(800, 2000).addRandomAvailableRequirement(0.20F);
         shop.addSellingItem("bashybush", new SellingShopItem()).setStaticPriceBasedOnHappiness(1500, 3000).addKilledMobRequirement("voidwizard");
+        shop.addSellingItem("dryadbranch", new SellingShopItem()).setStaticPriceBasedOnHappiness(2500, 4000).addKilledMobRequirement("thecursedcrone");
+        shop.addSellingItem("caveglowlamp", new SellingShopItem()).setStaticPriceBasedOnHappiness(50, 200).addKilledMobRequirement("skeleton");
+        // Claw weapons
+        shop.addSellingItem("druidleatherclaw", new SellingShopItem()).setStaticPriceBasedOnHappiness(200, 1100);
+        shop.addSellingItem("druidpolarclaw", new SellingShopItem()).setStaticPriceBasedOnHappiness(300, 1200).addKilledMobRequirement("polarbear");
+        shop.addSellingItem("druiddemonclaw", new SellingShopItem()).setStaticPriceBasedOnHappiness(400, 1300).addKilledMobRequirement("evilsprotector");
+        shop.addSellingItem("druidspiderclaw", new SellingShopItem()).setStaticPriceBasedOnHappiness(500, 1400).addKilledMobRequirement("queenspider");
+        shop.addSellingItem("druidnecroticclaw", new SellingShopItem()).setStaticPriceBasedOnHappiness(600, 1500).addKilledMobRequirement("evilwitch");
+        shop.addSellingItem("druidvultureclaw", new SellingShopItem()).setStaticPriceBasedOnHappiness(700, 1600).addKilledMobRequirement("ancientvulture");
+        shop.addSellingItem("druidancestorclaw", new SellingShopItem()).setStaticPriceBasedOnHappiness(800, 1700).addKilledMobRequirement("ancientskeletonmage");
+        shop.addSellingItem("druidprimordialclaws", new SellingShopItem()).setStaticPriceBasedOnHappiness(900, 1800).addKilledMobRequirement("sageandgrit");
+        shop.addSellingItem("druidfallendragonclaw", new SellingShopItem()).setStaticPriceBasedOnHappiness(1000, 1900).addKilledMobRequirement("fallenwizard");
+        // Magic weapons
         shop.addSellingItem("sunflowerstaff", new SellingShopItem()).setStaticPriceBasedOnHappiness(600, 1200).addRandomAvailableRequirement(0.20F);
         shop.addSellingItem("iceblossomstaff", new SellingShopItem()).setStaticPriceBasedOnHappiness(600, 1200).addRandomAvailableRequirement(0.20F);
         shop.addSellingItem("firemonestaff", new SellingShopItem()).setStaticPriceBasedOnHappiness(600, 1200).addRandomAvailableRequirement(0.20F);
-        shop.addSellingItem("dryadbranch", new SellingShopItem()).setStaticPriceBasedOnHappiness(2500, 4000).addKilledMobRequirement("thecursedcrone");
-        shop.addSellingItem("caveglowlamp", new SellingShopItem()).setStaticPriceBasedOnHappiness(50, 200).addKilledMobRequirement("skeleton");
 
+        // Sell items
         shop.addBuyingItem("redflowerpatch", new BuyingShopItem()).setPriceBasedOnHappiness(10, 2, 3);
         shop.addBuyingItem("blueflowerpatch", new BuyingShopItem()).setPriceBasedOnHappiness(10, 2, 3);
         shop.addBuyingItem("whiteflowerpatch", new BuyingShopItem()).setPriceBasedOnHappiness(10, 2, 3);

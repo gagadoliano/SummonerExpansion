@@ -20,7 +20,7 @@ import necesse.inventory.item.Item;
 import necesse.level.gameObject.*;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
-import summonerexpansion.codes.summonentity.BannerOfWaterObjectEntity;
+import summonerexpansion.codes.entity.BannerOfWaterObjectEntity;
 
 import java.awt.*;
 import java.util.List;

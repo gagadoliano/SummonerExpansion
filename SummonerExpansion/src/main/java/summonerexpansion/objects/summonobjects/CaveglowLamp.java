@@ -15,7 +15,7 @@ import necesse.inventory.item.toolItem.ToolType;
 import necesse.level.gameObject.GameObject;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
-import summonerexpansion.codes.summonentity.CaveglowLampObjectEntity;
+import summonerexpansion.codes.entity.CaveglowLampObjectEntity;
 
 import java.awt.*;
 import java.util.List;

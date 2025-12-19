@@ -22,7 +22,7 @@ import necesse.level.gameObject.container.CraftingStationObject;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 
-import static summonerexpansion.codes.summonregistry.SummonerTechs.*;
+import static summonerexpansion.codes.registry.SummonerTechs.*;
 
 public class SummoningBookshelf extends CraftingStationObject
 {

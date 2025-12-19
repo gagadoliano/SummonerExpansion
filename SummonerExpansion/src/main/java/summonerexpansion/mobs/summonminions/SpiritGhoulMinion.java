@@ -24,7 +24,7 @@ import necesse.gfx.gameTexture.GameTexture;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
-import summonerexpansion.codes.summonevents.SpiritGhoulPoolEvent;
+import summonerexpansion.codes.events.SpiritGhoulPoolEvent;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -54,7 +54,7 @@ public class SpiritGhoulMinion extends AttackingFollowingMob
     public void init()
     {
         super.init();
-        ai = new BehaviourTreeAI(this, new PlayerFollowerCollisionChaserAI<SpiritGhoulMinion>(600, summonDamage, 50, 900, 800, 100)
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI<SpiritGhoulMinion>(600, summonDamage, 50, 900, 800, 100)
         {
             public boolean attackTarget(SpiritGhoulMinion mob, Mob target)
             {

@@ -18,12 +18,12 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
-import summonerexpansion.summonprojs.IceWizardProj;
+import summonerexpansion.allprojs.IceWizardProj;
 
 import java.awt.*;
 import java.util.List;
 
-import static summonerexpansion.codes.summonregistry.SummonerTextures.iceWizardMinion;
+import static summonerexpansion.codes.registry.SummonerTextures.iceWizardMinion;
 
 public class IceWizardMinion extends AttackingFollowingMob
 {

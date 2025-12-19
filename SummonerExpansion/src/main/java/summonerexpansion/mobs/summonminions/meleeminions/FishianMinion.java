@@ -31,7 +31,7 @@ import java.awt.*;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static summonerexpansion.codes.summonregistry.SummonerTextures.fishianMinion;
+import static summonerexpansion.codes.registry.SummonerTextures.fishianMinion;
 
 public class FishianMinion extends AttackingFollowingMob
 {

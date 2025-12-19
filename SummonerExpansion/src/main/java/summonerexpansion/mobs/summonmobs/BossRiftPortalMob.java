@@ -2,6 +2,7 @@ package summonerexpansion.mobs.summonmobs;
 
 import necesse.engine.eventStatusBars.EventStatusBarManager;
 import necesse.engine.gameLoop.tickManager.TickManager;
+import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.network.PacketReader;
 import necesse.engine.network.PacketWriter;
 import necesse.engine.network.client.Client;
@@ -19,6 +20,7 @@ import necesse.entity.mobs.ai.behaviourTree.AINode;
 import necesse.entity.mobs.ai.behaviourTree.AINodeResult;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.Blackboard;
+import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.BossNearbyBuff;
 import necesse.entity.mobs.hostile.bosses.BossMob;
 import necesse.entity.mobs.hostile.bosses.FlyingBossMob;
@@ -40,6 +42,7 @@ import necesse.level.maps.light.GameLight;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class BossRiftPortalMob extends FlyingBossMob
 {
@@ -238,6 +241,11 @@ public class BossRiftPortalMob extends FlyingBossMob
     public GameTooltips getMapTooltips()
     {
         return new StringTooltips(getDisplayName() + " " + getHealth() + "/" + getMaxHealth());
+    }
+
+    public Stream<ModifierValue<?>> getDefaultModifiers()
+    {
+        return Stream.of((new ModifierValue<>(BuffModifiers.SLOW, 0.0F)).max(0F), (new ModifierValue<>(BuffModifiers.POISON_DAMAGE, 0F)).max(0F), (new ModifierValue<>(BuffModifiers.FIRE_DAMAGE, 0F)).max(0F), (new ModifierValue<>(BuffModifiers.FROST_DAMAGE, 0F)).max(0F));
     }
 
     public class RiftPortalAINode<T extends Mob> extends AINode<T>

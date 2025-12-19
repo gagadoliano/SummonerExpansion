@@ -18,7 +18,6 @@ import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
-import necesse.entity.projectile.CrazedRavenFeatherProjectile;
 import necesse.entity.projectile.Projectile;
 import necesse.gfx.GameResources;
 import necesse.gfx.camera.GameCamera;
@@ -28,12 +27,11 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.inventory.InventoryItem;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
-import summonerexpansion.summonprojs.NinjaStarYangProj;
 
 import java.awt.*;
 import java.util.List;
 
-import static summonerexpansion.codes.summonregistry.SummonerTextures.ninjaMinion;
+import static summonerexpansion.codes.registry.SummonerTextures.ninjaMinion;
 
 public class YangNinjaMinion extends AttackingFollowingMob
 {

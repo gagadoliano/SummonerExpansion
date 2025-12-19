@@ -18,7 +18,7 @@ import necesse.level.maps.light.GameLight;
 import java.awt.*;
 import java.util.List;
 
-import static necesse.engine.registries.MobRegistry.Textures.beetCaveCroppler;
+import static necesse.engine.registries.MobRegistry.Textures.beetCroppler;
 
 public class PetBeetMinion extends AttackingFollowingMob
 {
@@ -64,7 +64,7 @@ public class PetBeetMinion extends AttackingFollowingMob
     {
         for(int i = 0; i < 4; ++i)
         {
-            getLevel().entityManager.addParticle(new FleshParticle(getLevel(), beetCaveCroppler.body, i, 8, 32, x, y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
+            getLevel().entityManager.addParticle(new FleshParticle(getLevel(), beetCroppler.body, i, 8, 32, x, y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
         }
     }
 
@@ -79,7 +79,7 @@ public class PetBeetMinion extends AttackingFollowingMob
         drawY += this.getBobbing(x, y);
         drawY += this.getLevel().getTile(x / 32, y / 32).getMobSinkingAmount(this);
         final MaskShaderOptions swimMask = this.getSwimMaskShaderOptions(this.inLiquidFloat(x, y));
-        final DrawOptions drawOptions = beetCaveCroppler.body.initDraw().sprite(sprite.x, sprite.y, 64).addMaskShader(swimMask).light(light).pos(drawX, drawY);
+        final DrawOptions drawOptions = beetCroppler.body.initDraw().sprite(sprite.x, sprite.y, 64).addMaskShader(swimMask).light(light).pos(drawX, drawY);
         list.add(new MobDrawable() {
             public void draw(TickManager tickManager) {
                 swimMask.use();

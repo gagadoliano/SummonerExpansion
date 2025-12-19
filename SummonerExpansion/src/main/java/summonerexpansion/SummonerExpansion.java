@@ -2,9 +2,9 @@ package summonerexpansion;
 
 import necesse.level.maps.biomes.Biome;
 import necesse.level.maps.biomes.swamp.SwampBiome;
-import summonerexpansion.codes.summonregistry.*;
+import summonerexpansion.codes.registry.*;
 import necesse.engine.modLoader.annotations.ModEntry;
-import summonerexpansion.summonrecipes.*;
+import summonerexpansion.allrecipes.*;
 
 @ModEntry
 public class SummonerExpansion
@@ -20,18 +20,20 @@ public class SummonerExpansion
         SummonerChallenges.registerSummonChallenges();
         SummonerProjectiles.registerSummonProjs();
         SummonerSettlers.registerSummonSettlers();
+        SummonerMapIcon.registerSummonMapIcons();
+        SummonerPresets.registerSummonPresets();
         SummonerObjects.registerSummonObjects();
         SummonerWeapons.registerSummonWeapons();
         SummonerEquips.registerSummonEquips();
         SummonerEvents.registerSummonEvents();
+        SummonerBuffs.registerSummonDebuffs();
+        SummonerBuffs.registerSummonBuffs();
         SummonerItems.registerSummonItems();
         SummonerTiles.registerSummonTiles();
         SummonerTechs.registerSummonTechs();
-        SummonerBuffs.registerSummonBuffs();
         SummonerPerks.registerSummonPerks();
         SummonerMobs.registerSummonMobs();
         SummonerFoes.registerSummonFoes();
-        SummonerPresets.registerSummonPresets();
     }
 
     public void initResources()
@@ -44,10 +46,7 @@ public class SummonerExpansion
         SummonerRecipes.registerSummonRecipes();
         SummonerRecipesPotion.registerSummonRecipes();
         SummonerJournal.registerSummonJournal();
-        SummonerRecipesWeapon.registerSummonRecipesAnvil();
-        SummonerRecipesWeapon.registerSummonRecipesBookcase();
-        SummonerRecipesWeapon.registerSummonRecipesWorkstation();
-        SummonerRecipesWeapon.registerSummonRecipesSummontable();
+        SummonerRecipesWeapon.registerAllSummonWeapons();
         SummonerRecipesArmor.registerSummonRecipes();
         SummonerRecipesTrinket.registerSummonRecipes();
         SummonerRecipesMount.registerSummonRecipes();

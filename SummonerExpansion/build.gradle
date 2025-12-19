@@ -7,8 +7,8 @@ plugins {
 
 project.ext.modID = "gagadoliano.summonerexpansion" // The unique id of your mod. Must be all lowercase and cannot use special characters.
 project.ext.modName = "Summoner Expansion" // The display name of your mod.
-project.ext.modVersion = "5.6" // Your current builds version. Must follow the xx.xx... format.
-project.ext.gameVersion = "1.0.3" // The target game version.
+project.ext.modVersion = "6.0" // Your current builds version. Must follow the xx.xx... format.
+project.ext.gameVersion = "1.1" // The target game version.
 project.ext.modDescription = "A summoner expansion mod" // Short description of what your mod is.
 project.ext.author = "Gagadoliano" // Your name
 

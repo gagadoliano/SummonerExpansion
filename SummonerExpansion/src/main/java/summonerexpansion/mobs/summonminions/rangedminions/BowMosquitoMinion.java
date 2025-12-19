@@ -3,7 +3,6 @@ package summonerexpansion.mobs.summonminions.rangedminions;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.network.server.ServerClient;
 import necesse.engine.registries.MobRegistry;
-import necesse.engine.registries.BuffRegistry;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
@@ -19,6 +18,7 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import summonerexpansion.codes.registry.SummonerBuffs;
 
 import java.awt.*;
 import java.util.List;
@@ -61,7 +61,7 @@ public class BowMosquitoMinion extends FlyingAttackingFollowingMob
 
         if (owner != null && target != null)
         {
-            ActiveBuff buff = new ActiveBuff(BuffRegistry.getBuff("mosquitodebuff"), target, 60F, this);
+            ActiveBuff buff = new ActiveBuff(SummonerBuffs.SummonerDebuffs.MOSQUITOWEAK, target, 60F, this);
             target.addBuff(buff, true);
         }
     }
