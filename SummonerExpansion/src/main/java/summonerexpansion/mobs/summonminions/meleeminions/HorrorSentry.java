@@ -19,18 +19,19 @@ import necesse.gfx.gameTexture.GameTextureSection;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 import summonerexpansion.allprojs.HorrorSentryProj;
+import summonerexpansion.mobs.summonminions.baseminions.SentryBase;
 
 import java.awt.*;
 import java.util.List;
 
-public class HorrorSentry extends AttackingFollowingMob
+public class HorrorSentry extends SentryBase
 {
     public static GameTexture texture;
     public int lifeTime = 0;
 
     public HorrorSentry()
     {
-        super(100);
+        super(3000F, 1000F);
         setSpeed(0.0F);
         setFriction(3.0F);
         setKnockbackModifier(0.0F);
@@ -56,7 +57,7 @@ public class HorrorSentry extends AttackingFollowingMob
                     mob.getLevel().entityManager.projectiles.add(projectile);
                     return true;
                 }
-                    else
+                else
                 {
                     return false;
                 }
@@ -87,8 +88,6 @@ public class HorrorSentry extends AttackingFollowingMob
             this.getAttackAnimProgress();
         }
     }
-
-    public boolean canBePushed(Mob other) {return false;}
 
     public void spawnDeathParticles(float knockbackX, float knockbackY)
     {

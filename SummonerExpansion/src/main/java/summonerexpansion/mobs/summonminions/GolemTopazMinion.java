@@ -11,12 +11,14 @@ import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.Attac
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
 import necesse.entity.projectile.Projectile;
+import necesse.entity.projectile.boomerangProjectile.AnchorBoomerangProjectile;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import summonerexpansion.allprojs.GolemTopazProj;
 
 import java.awt.*;
 import java.util.List;
@@ -42,7 +44,7 @@ public class GolemTopazMinion extends AttackingFollowingMob
     public void init()
     {
         super.init();
-        this.ai = new BehaviourTreeAI(this, new PlayerFollowerChaserAI<GolemTopazMinion>(600, 600, true, false, 900, 80)
+        this.ai = new BehaviourTreeAI<>(this, new PlayerFollowerChaserAI<GolemTopazMinion>(600, 600, true, false, 900, 80)
         {
             public boolean attackTarget(GolemTopazMinion mob, Mob target)
             {
@@ -51,12 +53,14 @@ public class GolemTopazMinion extends AttackingFollowingMob
                 if (mob.canAttack())
                 {
                     mob.attack(target.getX(), target.getY(), false);
-                    Projectile projectile = ProjectileRegistry.getProjectile("topazgolemswirl", mob.getLevel(), mob.x, mob.y, target.x, target.y, (80.0F * projVel), 600, summonDamage, mob);
+                    Projectile projectile = new GolemTopazProj(mob.getLevel(), mob.x, mob.y, target.x, target.y, (100.0F * projVel), 2000, summonDamage, 50, mob);
                     projectile.setTargetPrediction(target, -20.0F);
                     projectile.moveDist(40.0);
                     mob.getLevel().entityManager.projectiles.add(projectile);
                     return true;
-                } else {
+                }
+                else
+                {
                     return false;
                 }
             }

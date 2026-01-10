@@ -18,12 +18,13 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import summonerexpansion.mobs.summonminions.baseminions.SentryBase;
 
 import java.awt.*;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class FiremoneSentry extends AttackingFollowingMob implements OEVicinityBuff
+public class FiremoneSentry extends SentryBase implements OEVicinityBuff
 {
     public int flowerRange = 500;
     public static GameTexture texture;
@@ -31,9 +32,7 @@ public class FiremoneSentry extends AttackingFollowingMob implements OEVicinityB
 
     public FiremoneSentry()
     {
-        super(10);
-        setSpeed(0.0F);
-        setFriction(0F);
+        super(3000F, 1000F);
         collision = new Rectangle(0, 0, 34, 54);
         hitBox = new Rectangle(0, 0, 34, 54);
         selectBox = new Rectangle();
@@ -42,7 +41,7 @@ public class FiremoneSentry extends AttackingFollowingMob implements OEVicinityB
     public void init()
     {
         super.init();
-        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI(0, null, 0, 0, 90000, 64));
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI<>(0, null, 0, 0, 90000, 64));
     }
 
     public Buff[] getBuffs()
@@ -105,10 +104,6 @@ public class FiremoneSentry extends AttackingFollowingMob implements OEVicinityB
     @Override
     public Mob getFirstAttackOwner() {
         return this;
-    }
-
-    public boolean canBePushed(Mob other) {
-        return false;
     }
 
     public void spawnDeathParticles(float knockbackX, float knockbackY)

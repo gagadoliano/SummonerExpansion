@@ -15,8 +15,8 @@ import necesse.inventory.lootTable.presets.IncursionHeadArmorLootTable;
 
 public class RavenlordSummonerMask extends SetHelmetArmorItem
 {
-    public IntUpgradeValue maxSummon = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1F, 2).setUpgradedValue(10F, 4);
-    public FloatUpgradeValue walkSpeed = (new FloatUpgradeValue()).setBaseValue(0.25F).setUpgradedValue(1F, 0.30F).setUpgradedValue(10F, 0.50F);
+    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1F, 2).setUpgradedValue(10F, 4);
+    public FloatUpgradeValue speed = (new FloatUpgradeValue()).setBaseValue(0.25F).setUpgradedValue(1F, 0.30F).setUpgradedValue(10F, 0.50F);
 
     public RavenlordSummonerMask(int enchantCost, Item.Rarity rarityTier)
     {
@@ -27,6 +27,6 @@ public class RavenlordSummonerMask extends SetHelmetArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue(BuffModifiers.MAX_SUMMONS, maxSummon.getValue(getUpgradeTier(item))), new ModifierValue(BuffModifiers.SPEED, walkSpeed.getValue(getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.MAX_SUMMONS, maxSummons.getValue(getUpgradeTier(item))), new ModifierValue<>(BuffModifiers.SPEED, speed.getValue(getUpgradeTier(item))));
     }
 }

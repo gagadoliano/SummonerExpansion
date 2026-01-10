@@ -50,7 +50,7 @@ public class GolemSapphireMinion extends AttackingFollowingMob
     public void init()
     {
         super.init();
-        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI(600, summonDamage, 30, 600, 900, 80));
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI<>(600, summonDamage, 30, 600, 900, 80));
     }
 
     @Override
@@ -60,7 +60,7 @@ public class GolemSapphireMinion extends AttackingFollowingMob
         if (owner != null && target != null && owner.buffManager.getStacks(BuffRegistry.LIFE_ESSENCE) >= 1)
         {
             SapphireGlyphEvent event = this.getSapphireGlyphEvent(getLevel(), (int)owner.x, (int)owner.y, owner, new InventoryItem("gemsapphireshards"), GameRandom.globalRandom.nextSeeded(1));
-            getLevel().entityManager.addLevelEvent(event);
+            getLevel().entityManager.events.add(event);
         }
     }
 

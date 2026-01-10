@@ -10,24 +10,23 @@ import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerCollisionChaserA
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.staticBuffs.Buff;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
-import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.entity.objectEntity.interfaces.OEVicinityBuff;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
 import necesse.gfx.camera.GameCamera;
-import necesse.gfx.drawOptions.DrawOptions;
 import necesse.gfx.drawOptions.texture.TextureDrawOptionsEnd;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import summonerexpansion.mobs.summonminions.baseminions.SentryBase;
 
 import java.awt.*;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class BookMushroomSentry extends AttackingFollowingMob implements OEVicinityBuff
+public class BookMushroomSentry extends SentryBase implements OEVicinityBuff
 {
     public static GameTexture texture;
     public float moveAngle;
@@ -37,11 +36,7 @@ public class BookMushroomSentry extends AttackingFollowingMob implements OEVicin
 
     public BookMushroomSentry()
     {
-        super(10);
-        setSpeed(0.0F);
-        setFriction(0F);
-        attackAnimTime = 750;
-        attackCooldown = 2000;
+        super(2000F, 750F);
         collision = new Rectangle(0, 0, 86, 62);
         hitBox = new Rectangle(0, 0, 86, 62);
         selectBox = new Rectangle();
@@ -50,7 +45,7 @@ public class BookMushroomSentry extends AttackingFollowingMob implements OEVicin
     public void init()
     {
         super.init();
-        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI(150, summonDamage, 1, 500, 64000, 64));
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI<>(150, summonDamage, 1, 500, 64000, 64));
     }
 
     public Buff[] getBuffs()
@@ -140,14 +135,6 @@ public class BookMushroomSentry extends AttackingFollowingMob implements OEVicin
     @Override
     public Mob getFirstAttackOwner() {
         return this;
-    }
-
-    public boolean canBePushed(Mob other) {
-        return false;
-    }
-
-    public boolean canPushMob(Mob other){
-        return false;
     }
 
     public void spawnDeathParticles(float knockbackX, float knockbackY)

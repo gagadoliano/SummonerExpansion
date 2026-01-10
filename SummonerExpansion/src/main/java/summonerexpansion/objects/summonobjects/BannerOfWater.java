@@ -40,7 +40,8 @@ public class BannerOfWater extends GameObject
         isLightTransparent = true;
         rarity = Item.Rarity.RARE;
         drawRandom = new GameRandom();
-        setItemCategory("objects", "misc");
+        setItemCategory("objects", "decorations", "banners");
+        setCraftingCategory("objects", "decorations", "banners");
     }
 
     public void loadTextures()

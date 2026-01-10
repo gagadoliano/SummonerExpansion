@@ -8,13 +8,13 @@ public class SnowmanSetLevelEvent extends SnowmanExplosionLevelEvent
 {
     public SnowmanSetLevelEvent()
     {
-        this(0.0F, 0.0F, 100, new GameDamage(100.0F), false, 0, (Mob)null);
+        this(0.0F, 0.0F, 100, new GameDamage(100.0F), false, 0, null);
     }
 
     public SnowmanSetLevelEvent(float x, float y, int range, GameDamage damage, boolean destructive, int toolTier, Mob owner)
     {
         super(x, y, range, damage, destructive, toolTier, owner);
-        this.knockback = 150;
+        knockback = 150;
     }
 
     protected boolean canHitMob(Mob target)

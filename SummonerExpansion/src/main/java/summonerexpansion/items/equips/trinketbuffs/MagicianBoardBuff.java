@@ -19,11 +19,13 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.gfx.gameTooltips.SpacerGameTooltip;
 import necesse.gfx.gameTooltips.StringTooltips;
 import necesse.inventory.InventoryItem;
+import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.trinketItem.TrinketItem;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
+import java.util.LinkedList;
 
 import static summonerexpansion.items.equips.trinketbuffs.ScryingMagiciansCardBuff.spawnMagicMummy;
 import static summonerexpansion.items.equips.trinketbuffs.ScryingMagiciansCardBuff.spawnSummonMummy;

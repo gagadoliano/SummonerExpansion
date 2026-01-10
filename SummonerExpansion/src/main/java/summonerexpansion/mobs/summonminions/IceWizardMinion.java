@@ -6,6 +6,7 @@ import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerChaserAI;
+import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
@@ -49,16 +50,18 @@ public class IceWizardMinion extends AttackingFollowingMob
         {
             public boolean attackTarget(IceWizardMinion mob, Mob target)
             {
+                float projVel = getAttackOwner().buffManager.getModifier(BuffModifiers.PROJECTILE_VELOCITY);
+
                 if (mob.canAttack() && !mob.isAccelerating() && !mob.hasCurrentMovement() && getAttackOwner().buffManager.hasBuff("frostcrownsetbonus"))
                 {
                     mob.attack(target.getX(), target.getY(), false);
-                    mob.getLevel().entityManager.projectiles.add(new IceWizardProj(mob.x, mob.y, target.x, target.y, summonDamage.modFinalMultiplier(1.20F), mob));
+                    mob.getLevel().entityManager.projectiles.add(new IceWizardProj(mob.x, mob.y, target.x, target.y, (100.0F * projVel), summonDamage.modFinalMultiplier(1.20F), mob));
                     return true;
                 }
                 else if (mob.canAttack() && !mob.isAccelerating() && !mob.hasCurrentMovement())
                 {
                     mob.attack(target.getX(), target.getY(), false);
-                    mob.getLevel().entityManager.projectiles.add(new IceWizardProj(mob.x, mob.y, target.x, target.y, summonDamage, mob));
+                    mob.getLevel().entityManager.projectiles.add(new IceWizardProj(mob.x, mob.y, target.x, target.y, (80.0F * projVel), summonDamage, mob));
                     return true;
                 }
                 else

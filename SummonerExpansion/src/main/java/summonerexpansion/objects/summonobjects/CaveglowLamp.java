@@ -27,28 +27,29 @@ public class CaveglowLamp extends GameObject
     public CaveglowLamp()
     {
         super(new Rectangle(11, 11, 10, 10));
-        this.mapColor = new Color(0, 200, 200);
-        this.displayMapTooltip = true;
-        this.lightLevel = 300;
-        this.objectHealth = 1;
-        this.stackSize = 500;
-        this.toolType = ToolType.ALL;
-        this.isLightTransparent = true;
-        this.setItemCategory("objects", "lighting");
-        this.setCraftingCategory("objects", "lighting");
-        this.roomProperties.add("lights");
-        this.canPlaceOnShore = true;
-        this.replaceCategories.add("torch");
-        this.canReplaceCategories.add("torch");
-        this.canReplaceCategories.add("furniture");
-        this.canReplaceCategories.add("column");
-        this.replaceRotations = false;
+        mapColor = new Color(0, 200, 200);
+        displayMapTooltip = true;
+        lightLevel = 300;
+        objectHealth = 1;
+        stackSize = 500;
+        toolType = ToolType.ALL;
+        isLightTransparent = true;
+        setItemCategory("objects", "lighting");
+        setCraftingCategory("objects", "lighting");
+        roomProperties.add("lights");
+        canPlaceOnShore = true;
+        replaceCategories.add("torch");
+        canReplaceCategories.add("torch");
+        canReplaceCategories.add("furniture");
+        canReplaceCategories.add("column");
+        replaceRotations = false;
+        shouldReturnOnDeletedLevels = false;
     }
 
     public void loadTextures()
     {
         super.loadTextures();
-        this.texture = GameTexture.fromFile("objects/" + this.getStringID());
+        texture = GameTexture.fromFile("objects/" + getStringID());
     }
 
     public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, Level level, int tileX, int tileY, TickManager tickManager, GameCamera camera, PlayerMob perspective)
@@ -56,8 +57,8 @@ public class CaveglowLamp extends GameObject
         GameLight light = level.getLightLevel(tileX, tileY);
         int drawX = camera.getTileDrawX(tileX);
         int drawY = camera.getTileDrawY(tileY);
-        boolean active = this.isActive(level, tileX, tileY);
-        final TextureDrawOptions options = this.texture.initDraw().sprite(0, active ? 0 : 1, 32, 96).addObjectDamageOverlay(this, level, tileX, tileY).light(light).pos(drawX, drawY - this.texture.getHeight() / 2 + 32);
+        boolean active = isActive(level, tileX, tileY);
+        final TextureDrawOptions options = texture.initDraw().sprite(0, active ? 0 : 1, 32, 96).addObjectDamageOverlay(this, level, tileX, tileY).light(light).pos(drawX, drawY - texture.getHeight() / 2 + 32);
         list.add(new LevelSortedDrawable(this, tileX, tileY)
         {
             public int getSortY()
@@ -75,12 +76,12 @@ public class CaveglowLamp extends GameObject
     {
         int drawX = camera.getTileDrawX(tileX);
         int drawY = camera.getTileDrawY(tileY);
-        this.texture.initDraw().sprite(0, 0, 32, this.texture.getHeight() / 2).alpha(alpha).draw(drawX, drawY - this.texture.getHeight() / 2 + 32);
+        texture.initDraw().sprite(0, 0, 32, texture.getHeight() / 2).alpha(alpha).draw(drawX, drawY - texture.getHeight() / 2 + 32);
     }
 
     public int getLightLevel(Level level, int layerID, int tileX, int tileY)
     {
-        return this.isActive(level, tileX, tileY) ? this.lightLevel : 0;
+        return isActive(level, tileX, tileY) ? lightLevel : 0;
     }
 
     public ObjectEntity getNewObjectEntity(Level level, int x, int y)
@@ -98,13 +99,13 @@ public class CaveglowLamp extends GameObject
     public boolean isActive(Level level, int x, int y)
     {
         byte rotation = level.getObjectRotation(x, y);
-        return this.getMultiTile(rotation).streamIDs(x, y).noneMatch((c) -> level.wireManager.isWireActiveAny(c.tileX, c.tileY));
+        return getMultiTile(rotation).streamIDs(x, y).noneMatch((c) -> level.wireManager.isWireActiveAny(c.tileX, c.tileY));
     }
 
     public void onWireUpdate(Level level, int layerID, int tileX, int tileY, int wireID, boolean active)
     {
         byte rotation = level.getObjectRotation(tileX, tileY);
-        Rectangle rect = this.getMultiTile(rotation).getTileRectangle(tileX, tileY);
+        Rectangle rect = getMultiTile(rotation).getTileRectangle(tileX, tileY);
         level.lightManager.updateStaticLight(rect.x, rect.y, rect.x + rect.width - 1, rect.y + rect.height - 1, true);
     }
 }

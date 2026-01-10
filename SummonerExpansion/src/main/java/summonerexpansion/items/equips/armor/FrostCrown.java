@@ -14,7 +14,7 @@ import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class FrostCrown extends SetHelmetArmorItem
 {
-    public FloatUpgradeValue summonDamage = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1, 0.15F).setUpgradedValue(10, 0.50F);
+    public FloatUpgradeValue summonDMG = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1, 0.15F).setUpgradedValue(10, 0.50F);
 
     public FrostCrown(int enchantCost, Item.Rarity rarityTier)
     {
@@ -25,6 +25,6 @@ public class FrostCrown extends SetHelmetArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.SUMMON_DAMAGE, summonDamage.getValue(getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.SUMMON_DAMAGE, summonDMG.getValue(getUpgradeTier(item))));
     }
 }

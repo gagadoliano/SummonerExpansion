@@ -23,7 +23,7 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
-import summonerexpansion.allprojs.CopperSetProj;
+import summonerexpansion.allprojs.armorprojs.CopperSetProj;
 import summonerexpansion.codes.registry.SummonerBuffs;
 import summonerexpansion.codes.registry.SummonerEquips;
 
@@ -31,7 +31,7 @@ import java.util.LinkedList;
 
 public class CopperMinerSetBonus extends SetBonusBuff implements BuffAbility
 {
-    public FloatUpgradeValue fireDamage = (new FloatUpgradeValue()).setBaseValue(0F).setUpgradedValue(1, 50.0F).setUpgradedValue(10, 100.0F);
+    public FloatUpgradeValue abilityDamage = (new FloatUpgradeValue()).setBaseValue(0F).setUpgradedValue(1, 50.0F).setUpgradedValue(10, 100.0F);
     public FloatUpgradeValue summonRange = (new FloatUpgradeValue()).setBaseValue(0F).setUpgradedValue(1, 0.20F).setUpgradedValue(10, 0.80F);
     public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 4);
     protected int abilityCooldown = 6;
@@ -78,7 +78,7 @@ public class CopperMinerSetBonus extends SetBonusBuff implements BuffAbility
 
     public boolean canRunAbility(PlayerMob player, ActiveBuff buff, Packet content)
     {
-        return player.buffManager.getStacks(BuffRegistry.SUMMONED_MOB) > 0 && !buff.owner.buffManager.hasBuff(SummonerEquips.SummonerArmorBuffs.COPPERSET_COOLDOWN) && !buff.owner.buffManager.hasBuff(SummonerBuffs.SummonBuffs.COPPERSET_CONSECUTIVE);
+        return abilityDamage.getValue(buff.getUpgradeTier()) > 0 && player.buffManager.getStacks(BuffRegistry.SUMMONED_MOB) > 0 && !buff.owner.buffManager.hasBuff(SummonerEquips.SummonerArmorBuffs.COPPERSET_COOLDOWN) && !buff.owner.buffManager.hasBuff(SummonerBuffs.SummonBuffs.COPPERSET_CONSECUTIVE);
     }
 
     public void runAbility(PlayerMob player, ActiveBuff buff, Packet content)
@@ -109,7 +109,7 @@ public class CopperMinerSetBonus extends SetBonusBuff implements BuffAbility
             {
                 Mob chosenMob = firstMob.mob;
                 timeBetweenShots = (int)((double)timeBetweenShots - GameMath.max((double)timeBetweenShots * 0.02, 8.0F));
-                GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, fireDamage.getValue(ab.getUpgradeTier()));
+                GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, abilityDamage.getValue(ab.getUpgradeTier()));
                 float velocity = 150.0F * ab.owner.buffManager.getModifier(BuffModifiers.PROJECTILE_VELOCITY);
                 CopperSetProj projectile = new CopperSetProj(ab.owner.getLevel(), ab.owner, firstMob.mob.x, firstMob.mob.y, (float)targetX, (float)targetY, velocity, 800, damage, 0);
                 ab.owner.getLevel().entityManager.projectiles.add(projectile);
@@ -130,7 +130,7 @@ public class CopperMinerSetBonus extends SetBonusBuff implements BuffAbility
     {
         ListGameTooltips tooltips = super.getTooltip(ab, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "copperminersettip"));
-        if (fireDamage.getValue(ab.getUpgradeTier()) > 0)
+        if (abilityDamage.getValue(ab.getUpgradeTier()) > 0)
         {
             tooltips.add(Localization.translate("itemtooltip", "copperminersettip2"));
         }

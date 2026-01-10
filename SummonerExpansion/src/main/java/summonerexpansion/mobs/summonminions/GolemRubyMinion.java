@@ -50,7 +50,7 @@ public class GolemRubyMinion extends AttackingFollowingMob
                 if (mob.canAttack())
                 {
                     mob.attack(target.getX(), target.getY(), false);
-                    Projectile projectile = ProjectileRegistry.getProjectile("crystalminionproj", mob.getLevel(), mob.x, mob.y, target.x, target.y, (150.0F * projVel), 600, summonDamage, mob);
+                    Projectile projectile = ProjectileRegistry.getProjectile("rubygolemproj", mob.getLevel(), mob.x, mob.y, target.x, target.y, (150.0F * projVel), 600, summonDamage, mob);
                     projectile.setTargetPrediction(target, -20.0F);
                     projectile.moveDist(100.0);
                     mob.getLevel().entityManager.projectiles.add(projectile);

@@ -23,7 +23,7 @@ import java.util.LinkedList;
 
 public class ChefSummonerHatSetBonus extends SetBonusBuff
 {
-    public FloatUpgradeValue chefDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(50F).setUpgradedValue(1.0F, 50F);
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(50F).setUpgradedValue(1.0F, 50F);
     public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1F, 2);
     public IntUpgradeValue maxFood = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1F, 1).setUpgradedValue(10F, 2);
     public IntUpgradeValue minionDuration = (new IntUpgradeValue()).setBaseValue(300).setUpgradedValue(1F, 400).setUpgradedValue(10F, 1200);
@@ -44,7 +44,7 @@ public class ChefSummonerHatSetBonus extends SetBonusBuff
         {
             SetChefMinion mob = new SetChefMinion();
             attackerMob.serverFollowersManager.addFollower("summonedchefbuff", mob, FollowPosition.LARGE_PYRAMID, "summonedmob", 1.0F, 3, null, false);
-            mob.updateDamage(new GameDamage(DamageTypeRegistry.SUMMON, chefDamage.getValue(buff.getUpgradeTier())));
+            mob.updateDamage(new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier())));
             mob.lifeTime = minionDuration.getValue(buff.getUpgradeTier());
             attackerMob.getLevel().entityManager.addMob(mob, attackerMob.x, attackerMob.y);
         }
@@ -54,7 +54,7 @@ public class ChefSummonerHatSetBonus extends SetBonusBuff
     {
         super.addStatTooltips(list, currentValues, lastValues);
         currentValues.getModifierTooltipsBuilder(true, true).addLastValues(lastValues).buildToStatList(list);
-        float damage = chefDamage.getValue(currentValues.getUpgradeTier());
+        float damage = minionDamage.getValue(currentValues.getUpgradeTier());
         if (currentValues.owner != null)
         {
             damage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
@@ -68,7 +68,7 @@ public class ChefSummonerHatSetBonus extends SetBonusBuff
         };
         if (lastValues != null)
         {
-            float compareDamage = chefDamage.getValue(lastValues.getUpgradeTier());
+            float compareDamage = minionDamage.getValue(lastValues.getUpgradeTier());
             if (lastValues.owner != null)
             {
                 compareDamage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);

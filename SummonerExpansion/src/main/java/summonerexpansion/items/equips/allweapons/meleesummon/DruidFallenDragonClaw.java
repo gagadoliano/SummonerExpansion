@@ -19,7 +19,7 @@ import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 import necesse.inventory.lootTable.presets.CloseRangeWeaponsLootTable;
 import necesse.level.maps.Level;
 import summonerexpansion.codes.registry.SummonerBuffs;
-import summonerexpansion.mobs.summonminions.meleeminions.ClawDemonPortalSentry;
+import summonerexpansion.items.equips.allweapons.basesummon.DruidClaw;
 import summonerexpansion.mobs.summonminions.wormminions.FallenDragonHeadMinion;
 
 import java.awt.*;

@@ -8,17 +8,28 @@ import necesse.inventory.lootTable.lootItem.LootItem;
 import necesse.inventory.lootTable.lootItem.LootItemList;
 import necesse.inventory.lootTable.lootItem.RotationLootItem;
 import necesse.inventory.lootTable.presets.*;
+import necesse.level.maps.biomes.swamp.SwampBiome;
 
 public class SummonerLoot
 {
     public static LootTable trainingPlainBarrel1 = new LootTable();
     public static LootTable trainingPlainBarrel2 = new LootTable();
     public static LootTable smallHorrorChest = new LootTable();
+    public static LootTable woodenIdolPedal = new LootTable();
+    public static LootTable sunkenChestLoot = new LootTable();
+    public static LootTable beehiveChest = new LootTable();
     public static LootTable druidDresser = new LootTable();
     public static LootTable druidFisher = new LootTable();
-    public static LootTable woodenIdolPedal = new LootTable();
 
     public static void registerSummonLoot()
+    {
+        SummonerLoot.registerSummonChestLoot();
+        SummonerLoot.registerSummonBagLoot();
+        SummonerLoot.registerSummonDropLoot();
+        SummonerLoot.registerSummonFishLoot();
+    }
+
+    public static void registerSummonChestLoot()
     {
         // Mod chest table
         trainingPlainBarrel1.items.addAll(
@@ -62,12 +73,25 @@ public class SummonerLoot
                         new LootItem("woodenidol")
                 )
         );
+        beehiveChest.items.addAll(
+                new LootItemList(
+                        new ChanceLootItem(0.80f, "apiaryframe"),
+                        new ChanceLootItem(0.50f, "yellowflowerpatch"),
+                        new ChanceLootItem(0.50f, "redflowerpatch"),
+                        new ChanceLootItem(0.50f, "purpleflowerpatch"),
+                        new ChanceLootItem(0.50f, "blueflowerpatch"),
+                        new ChanceLootItem(0.50f, "whiteflowerpatch"),
+                        new ChanceLootItem(0.40f, "honeybee"),
+                        ChanceLootItem.between(0.80f, "honey", 1, 10),
+                        ChanceLootItem.between(0.40f, "honey", 1, 10),
+                        ChanceLootItem.between(0.60f, "honey", 1, 10),
+                        ChanceLootItem.between(0.20f, "honey", 1, 10)
+                )
+        );
 
         // Vanilla chest table
         CaveChestLootTable.basicMainItems.items.add(new ChanceLootItem(0.02f, "magiccopperlamp"));
-
         CaveChestLootTable.plainsMainItems.items.add(new ChanceLootItem(0.01f, "royalhive"));
-
         TempleChestLootTable.mainItems.items.add(new ChanceLootItem(0.01f, "sandwormstaff"));
 
         LootTablePresets.alchemistChest.items.addAll(
@@ -81,7 +105,28 @@ public class SummonerLoot
                         ChanceLootItem.between(0.01f, "minionattackspeedpotion", 1, 3)
                 )
         );
+    }
 
+    public static void registerSummonBagLoot()
+    {
+        sunkenChestLoot.items.addAll(
+                new LootItemList(
+                        ChanceLootItem.between(1.00f, "coin", 1, 100),
+                        ChanceLootItem.between(0.80f, "titaniumore", 1, 10),
+                        ChanceLootItem.between(0.60f, "swampsludge", 1, 10),
+                        ChanceLootItem.between(0.40f, "swamplarva", 1, 4),
+                        ChanceLootItem.between(0.30f, "mapfragment", 1, 10),
+                        ChanceLootItem.between(0.20f, "enchantingscroll", 1, 2),
+                        ChanceLootItem.between(0.15f, "brokencoppertool", 1, 5),
+                        ChanceLootItem.between(0.10f, "brokenirontool", 1, 5),
+                        ChanceLootItem.between(0.05f, "recallscroll", 1, 10),
+                        ChanceLootItem.between(0.02f, "stinkflask", 1, 1)
+                )
+        );
+    }
+
+    public static void registerSummonDropLoot()
+    {
         // Drops
         EnchantedZombieMob.lootTable.items.add(
                 new ChanceLootItem(0.05F, "spoiledfood", 4)
@@ -94,5 +139,10 @@ public class SummonerLoot
         EnchantedCrawlingZombieMob.lootTable.items.add(
                 new ChanceLootItem(0.05F, "spoiledfood", 4)
         );
+    }
+
+    public static void registerSummonFishLoot()
+    {
+        SwampBiome.defaultCaveFish.addWater(5, "sunkenchest");
     }
 }

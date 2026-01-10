@@ -24,7 +24,7 @@ import java.awt.*;
 public class RedSpiderHelmet extends SetHelmetArmorItem
 {
     private GameTexture lightTexture;
-    public IntUpgradeValue summonMax = (new IntUpgradeValue()).setBaseValue(2).setUpgradedValue(1F, 3).setUpgradedValue(10F, 4);
+    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(2).setUpgradedValue(1F, 3).setUpgradedValue(10F, 4);
 
     public RedSpiderHelmet(int enchantCost, Item.Rarity rarityTier)
     {
@@ -34,7 +34,7 @@ public class RedSpiderHelmet extends SetHelmetArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.MAX_SUMMONS, summonMax.getValue(getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.MAX_SUMMONS, maxSummons.getValue(getUpgradeTier(item))));
     }
 
     protected void loadArmorTexture()

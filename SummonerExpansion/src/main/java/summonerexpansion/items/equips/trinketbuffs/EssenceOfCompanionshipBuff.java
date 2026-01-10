@@ -9,7 +9,10 @@ import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.TrinketBuff;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
+import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.trinketItem.TrinketItem;
+
+import java.util.LinkedList;
 
 public class EssenceOfCompanionshipBuff extends TrinketBuff
 {

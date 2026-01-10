@@ -114,7 +114,7 @@ public class SetLocustMinion extends FlyingAttackingFollowingMob
     public void handleCollisionHit(Mob target, GameDamage damage, int knockback)
     {
         LocustDeathSplashEvent event = new LocustDeathSplashEvent(this.x, this.y, 128, this.summonDamage, 0.0F, this.getAttackOwner(), this.angryProgress <= 0.5F ? this.angryColorMiddle : this.bodyColor);
-        this.getLevel().entityManager.addLevelEvent(event);
+        this.getLevel().entityManager.events.add(event);
         this.remove(0.0F, 0.0F, null, true);
     }
 

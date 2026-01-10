@@ -19,7 +19,8 @@ import necesse.inventory.item.ItemCategory;
 import necesse.inventory.item.toolItem.projectileToolItem.gunProjectileToolItem.GunProjectileToolItem;
 import necesse.inventory.lootTable.lootItem.OneOfLootItems;
 import necesse.level.maps.Level;
-import summonerexpansion.mobs.summonminions.*;
+import summonerexpansion.mobs.summonminions.rangedminions.YangNinjaMinion;
+import summonerexpansion.mobs.summonminions.rangedminions.YinNinjaMinion;
 
 import java.awt.geom.Point2D;
 import java.util.Collections;
@@ -40,7 +41,7 @@ public class YinYangNinjastar extends GunProjectileToolItem
         attackDamage.setBaseValue(40.0F).setUpgradedValue(1, 100F);
         setItemCategory("equipment", "weapons", "summonweapons");
         setItemCategory(ItemCategory.equipmentManager, "weapons", "summonweapons");
-        setItemCategory(ItemCategory.craftingManager, "equipment", "weapons", "summonweapons");
+        setItemCategory(ItemCategory.craftingManager, "equipment", "weapons", "rangedweapons");
         keyWords.add("summon");
     }
 
@@ -124,6 +125,11 @@ public class YinYangNinjastar extends GunProjectileToolItem
 
     public boolean animDrawBehindHand(InventoryItem item) {
         return false;
+    }
+
+    protected void addAmmoTooltips(ListGameTooltips tooltips, InventoryItem item)
+    {
+        tooltips.add(Localization.translate("itemtooltip", "yinyangstartip2"));
     }
 
     public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard)

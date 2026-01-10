@@ -28,20 +28,20 @@ import necesse.gfx.gameTexture.GameTexture;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import summonerexpansion.mobs.summonminions.baseminions.SentryBase;
 
 import java.awt.*;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class LeafShotColdSentry extends AttackingFollowingMob
+public class LeafShotColdSentry extends SentryBase
 {
     public static GameTexture texture;
 
     public LeafShotColdSentry()
     {
-        super(10);
-        setSpeed(0.0F);
-        setFriction(3.0F);
+        super(3000F, 1000F);
+        setFriction(2.0F);
         setKnockbackModifier(0.0F);
         collision = new Rectangle(-10, -7, 20, 14);
         hitBox = new Rectangle(-14, -12, 28, 24);
@@ -90,10 +90,6 @@ public class LeafShotColdSentry extends AttackingFollowingMob
         {
             getAttackAnimProgress();
         }
-    }
-
-    public boolean canBePushed(Mob other) {
-        return false;
     }
 
     public void spawnDeathParticles(float knockbackX, float knockbackY)

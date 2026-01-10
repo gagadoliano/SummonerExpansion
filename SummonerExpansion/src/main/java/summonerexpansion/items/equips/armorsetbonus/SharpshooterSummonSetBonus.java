@@ -4,6 +4,7 @@ import necesse.engine.localization.message.GameMessage;
 import necesse.engine.localization.message.GameMessageBuilder;
 import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.registries.DamageTypeRegistry;
+import necesse.engine.registries.ItemRegistry;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.util.GameRandom;
 import necesse.engine.util.GameUtils;
@@ -12,6 +13,7 @@ import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.setBonusBuffs.SetBonusBuff;
+import necesse.entity.mobs.itemAttacker.CheckSlotType;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
@@ -20,7 +22,7 @@ import necesse.inventory.item.DoubleItemStatTip;
 import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
 import necesse.level.maps.Level;
-import summonerexpansion.allprojs.SharpshooterProj;
+import summonerexpansion.allprojs.armorprojs.SharpshooterProj;
 
 import java.awt.*;
 import java.util.Comparator;
@@ -28,14 +30,14 @@ import java.util.LinkedList;
 
 public class SharpshooterSummonSetBonus extends SetBonusBuff
 {
-    public FloatUpgradeValue summonSpeed = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(0.15F).setUpgradedValue(1.0F, 0.20F);
-    public FloatUpgradeValue shooterDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(25F).setUpgradedValue(1.0F, 25.0F);
+    public FloatUpgradeValue summonAttackSpeed = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(0.15F).setUpgradedValue(1.0F, 0.20F);
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(25F).setUpgradedValue(1.0F, 25.0F);
 
     public SharpshooterSummonSetBonus() {}
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
     {
-        buff.setModifier(BuffModifiers.SUMMON_ATTACK_SPEED, summonSpeed.getValue(buff.getUpgradeTier()));
+        buff.setModifier(BuffModifiers.SUMMON_ATTACK_SPEED, summonAttackSpeed.getValue(buff.getUpgradeTier()));
     }
 
     public void serverTick(ActiveBuff buff)
@@ -47,11 +49,12 @@ public class SharpshooterSummonSetBonus extends SetBonusBuff
             float count = attackerMob.serverFollowersManager.getFollowerCount("summonedsharpshooterbuff");
             if (count <= 0.0F)
             {
-                GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, shooterDamage.getValue(buff.getUpgradeTier()));
+                GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier()));
                 Level level = buff.owner.getLevel();
                 AttackingFollowingMob mob = (AttackingFollowingMob) MobRegistry.getMob("sharpshooterminion", level);
                 attackerMob.serverFollowersManager.addFollower("summonedsharpshooterbuff", mob, FollowPosition.WALK_CLOSE, "summonedsharpshooterbuff", 1.0F, 1, null, false);
                 mob.updateDamage(damage);
+                mob.setRemoveWhenNotInInventory(ItemRegistry.getItem("sharpshootersummonhat"), CheckSlotType.HELMET);
                 Point spawnPoint = new Point(attackerMob.getX() + GameRandom.globalRandom.getIntBetween(-5, 5), attackerMob.getY() + GameRandom.globalRandom.getIntBetween(-5, 5));
                 level.entityManager.addMob(mob, (float)spawnPoint.x, (float)spawnPoint.y);
             }
@@ -98,7 +101,7 @@ public class SharpshooterSummonSetBonus extends SetBonusBuff
     {
         super.addStatTooltips(list, currentValues, lastValues);
         currentValues.getModifierTooltipsBuilder(true, true).addLastValues(lastValues).buildToStatList(list);
-        float damage = shooterDamage.getValue(currentValues.getUpgradeTier());
+        float damage = minionDamage.getValue(currentValues.getUpgradeTier());
         if (currentValues.owner != null)
         {
             damage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
@@ -112,7 +115,7 @@ public class SharpshooterSummonSetBonus extends SetBonusBuff
         };
         if (lastValues != null)
         {
-            float compareDamage = shooterDamage.getValue(lastValues.getUpgradeTier());
+            float compareDamage = minionDamage.getValue(lastValues.getUpgradeTier());
             if (lastValues.owner != null)
             {
                 compareDamage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);

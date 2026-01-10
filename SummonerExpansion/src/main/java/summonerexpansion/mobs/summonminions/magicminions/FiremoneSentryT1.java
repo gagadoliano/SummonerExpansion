@@ -37,11 +37,6 @@ public class FiremoneSentryT1 extends FiremoneSentry implements OEVicinityBuff
         return true;
     }
 
-    public Predicate<Mob> buffMobsFilter()
-    {
-        return (m) -> m.isHuman && !m.isSummoned && !m.isHostile;
-    }
-
     public void applyBuffs(Mob mob)
     {
         Buff[] var2 = this.getBuffs();
@@ -53,14 +48,6 @@ public class FiremoneSentryT1 extends FiremoneSentry implements OEVicinityBuff
                 mob.buffManager.addBuff(ab, false);
             }
         }
-    }
-
-    public void tickVicinityBuff(Mob mob)
-    {
-        Level level = mob.getLevel();
-        int posX = (int) mob.x;
-        int posY = (int) mob.y;
-        tickVicinityBuff(level, posX, posY);
     }
 
     public void clientTick()

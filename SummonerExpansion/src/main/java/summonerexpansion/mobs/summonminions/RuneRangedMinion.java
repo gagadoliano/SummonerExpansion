@@ -100,7 +100,7 @@ public class RuneRangedMinion extends AttackingFollowingMob
                 {
                     mob.attack(target.getX(), target.getY(), false);
                     InventoryItem attackItem = new InventoryItem("brutesbattleaxe");
-                    RuneRangedMinion.this.getLevel().entityManager.addLevelEvent(new ToolItemMobAbilityEvent(RuneRangedMinion.this, GameRandom.globalRandom.nextInt(), attackItem, mob.getX(), mob.getY(), RuneRangedMinion.this.attackAnimTime, RuneRangedMinion.this.attackAnimTime));
+                    RuneRangedMinion.this.getLevel().entityManager.events.add(new ToolItemMobAbilityEvent(RuneRangedMinion.this, GameRandom.globalRandom.nextInt(), attackItem, mob.getX(), mob.getY(), RuneRangedMinion.this.attackAnimTime, RuneRangedMinion.this.attackAnimTime));
                     Projectile projectile = ProjectileRegistry.getProjectile("runeboneproj", mob.getLevel(), mob.x, mob.y, target.x, target.y, 80.0F, 640, RuneRangedMinion.this.summonDamage, mob);
                     mob.getLevel().entityManager.projectiles.add(projectile);
                     return true;

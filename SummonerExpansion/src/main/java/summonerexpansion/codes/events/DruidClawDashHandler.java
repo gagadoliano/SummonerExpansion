@@ -25,7 +25,7 @@ import necesse.gfx.ui.HUD;
 import necesse.inventory.InventoryItem;
 import necesse.level.maps.hudManager.HudDrawElement;
 import summonerexpansion.codes.registry.SummonerBuffs;
-import summonerexpansion.items.equips.allweapons.meleesummon.DruidClaw;
+import summonerexpansion.items.equips.allweapons.basesummon.DruidClaw;
 
 import java.awt.*;
 import java.awt.geom.Point2D;

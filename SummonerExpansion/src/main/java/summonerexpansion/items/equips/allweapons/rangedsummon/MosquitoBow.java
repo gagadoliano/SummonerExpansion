@@ -24,7 +24,7 @@ import necesse.level.maps.CollisionFilter;
 import necesse.level.maps.Level;
 import necesse.level.maps.LevelObjectHit;
 import summonerexpansion.mobs.summonminions.rangedminions.BowMosquitoMinion;
-import summonerexpansion.allprojs.MosquitoBowProj;
+import summonerexpansion.allprojs.rangedprojs.MosquitoBowProj;
 
 import java.awt.*;
 import java.awt.geom.Point2D;

@@ -12,7 +12,7 @@ import necesse.inventory.lootTable.presets.BodyArmorLootTable;
 
 public class PlagueSummonerRobe extends ChestArmorItem
 {
-    public FloatUpgradeValue damageSummon = (new FloatUpgradeValue()).setBaseValue(0.08F).setUpgradedValue(1F, 0.12F).setUpgradedValue(10F, 0.30F);
+    public FloatUpgradeValue summonDMG = (new FloatUpgradeValue()).setBaseValue(0.08F).setUpgradedValue(1F, 0.12F).setUpgradedValue(10F, 0.30F);
 
     public PlagueSummonerRobe(int enchantCost, Item.Rarity rarityTier)
     {
@@ -21,6 +21,6 @@ public class PlagueSummonerRobe extends ChestArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.SUMMON_DAMAGE, damageSummon.getValue(getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.SUMMON_DAMAGE, summonDMG.getValue(getUpgradeTier(item))));
     }
 }

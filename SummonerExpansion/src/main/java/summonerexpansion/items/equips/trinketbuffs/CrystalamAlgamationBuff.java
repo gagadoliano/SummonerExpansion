@@ -18,8 +18,8 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.ToolItem;
 import necesse.inventory.item.trinketItem.TrinketItem;
 import necesse.level.maps.Level;
-import summonerexpansion.allprojs.*;
-import summonerexpansion.items.equips.allweapons.meleesummon.DruidClaw;
+import summonerexpansion.allprojs.trinketprojs.*;
+import summonerexpansion.items.equips.allweapons.basesummon.DruidClaw;
 
 import java.awt.geom.Point2D;
 

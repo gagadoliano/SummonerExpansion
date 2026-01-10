@@ -15,8 +15,8 @@ import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class SharpshooterSummonHat extends SetHelmetArmorItem
 {
-    public IntUpgradeValue maxSummon = (new IntUpgradeValue()).setBaseValue(2).setUpgradedValue(1F, 3).setUpgradedValue(10F, 4);
-    public FloatUpgradeValue critSummon = (new FloatUpgradeValue()).setBaseValue(0.15F).setUpgradedValue(1F, 0.20F).setUpgradedValue(10F, 0.35F);
+    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(2).setUpgradedValue(1F, 3).setUpgradedValue(10F, 4);
+    public FloatUpgradeValue summonCritDamage = (new FloatUpgradeValue()).setBaseValue(0.15F).setUpgradedValue(1F, 0.20F).setUpgradedValue(10F, 0.35F);
 
     public SharpshooterSummonHat(int enchantCost, Item.Rarity rarityTier)
     {
@@ -26,6 +26,6 @@ public class SharpshooterSummonHat extends SetHelmetArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue(BuffModifiers.MAX_SUMMONS, maxSummon.getValue(getUpgradeTier(item))), new ModifierValue(BuffModifiers.SUMMON_CRIT_DAMAGE, critSummon.getValue(getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.MAX_SUMMONS, maxSummons.getValue(getUpgradeTier(item))), new ModifierValue<>(BuffModifiers.SUMMON_CRIT_DAMAGE, summonCritDamage.getValue(getUpgradeTier(item))));
     }
 }

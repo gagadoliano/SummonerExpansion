@@ -56,7 +56,7 @@ public class BearMinion extends AttackingFollowingMob
     public void init()
     {
         super.init();
-        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI(500, summonDamage, 30, 800, 640, 100));
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI<>(500, summonDamage, 30, 800, 640, 100));
     }
 
     public void handleCollisionHit(Mob target, GameDamage damage, int knockback)
@@ -67,11 +67,11 @@ public class BearMinion extends AttackingFollowingMob
             ActiveBuff buff;
             if (getAttackOwner().buffManager.hasBuff("leathersummonersetbonus"))
             {
-                buff = new ActiveBuff(SummonerBuffs.SummonerDebuffs.BLEEDINGPOISON, target, 20F, this);
+                buff = new ActiveBuff(SummonerBuffs.SummonerDebuffs.BEARBLEEDING, target, 20F, this);
             }
             else
             {
-                buff = new ActiveBuff(SummonerBuffs.SummonerDebuffs.BLEEDINGPOISON, target, 10F, this);
+                buff = new ActiveBuff(SummonerBuffs.SummonerDebuffs.BEARBLEEDING, target, 10F, this);
             }
             target.addBuff(buff, true);
         }

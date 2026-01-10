@@ -78,7 +78,7 @@ public class SetRavenlordMinion extends AttackingFollowingMob
             entityManager.projectiles.add(duoProjectile);
         }
 
-        entityManager.addLevelEventHidden(new WaitForSecondsEvent(0.5F)
+        entityManager.events.addHidden(new WaitForSecondsEvent(0.5F)
         {
             public void onWaitOver()
             {
@@ -87,7 +87,7 @@ public class SetRavenlordMinion extends AttackingFollowingMob
                 entityManager.projectiles.add(singleProjectile);
             }
         });
-        entityManager.addLevelEventHidden(new WaitForSecondsEvent(1.0F)
+        entityManager.events.addHidden(new WaitForSecondsEvent(1.0F)
         {
             public void onWaitOver()
             {

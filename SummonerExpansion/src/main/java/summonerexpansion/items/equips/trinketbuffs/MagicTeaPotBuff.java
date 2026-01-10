@@ -16,10 +16,12 @@ import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
+import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.trinketItem.TrinketItem;
 import necesse.level.maps.Level;
 
 import java.awt.*;
+import java.util.LinkedList;
 
 public class MagicTeaPotBuff extends TrinketBuff
 {

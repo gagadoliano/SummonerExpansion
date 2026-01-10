@@ -9,6 +9,7 @@ public class SummonerFoes
     {
         // Surface
         MobRegistry.registerMob("woodmob", WoodMob.class, true);
+        MobRegistry.registerMob("honeybeeguardmob", HoneyBeeGuardMob.class, true);
 
         // Cave
 

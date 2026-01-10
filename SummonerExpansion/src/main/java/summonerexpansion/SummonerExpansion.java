@@ -11,6 +11,7 @@ public class SummonerExpansion
 {
     public void preInit()
     {
+        new SummonerModifiers();
     }
 
     public void init()
@@ -24,6 +25,7 @@ public class SummonerExpansion
         SummonerPresets.registerSummonPresets();
         SummonerObjects.registerSummonObjects();
         SummonerWeapons.registerSummonWeapons();
+        SummonerPackets.registerSummonPackets();
         SummonerEquips.registerSummonEquips();
         SummonerEvents.registerSummonEvents();
         SummonerBuffs.registerSummonDebuffs();
@@ -34,6 +36,7 @@ public class SummonerExpansion
         SummonerPerks.registerSummonPerks();
         SummonerMobs.registerSummonMobs();
         SummonerFoes.registerSummonFoes();
+        SummonerMissions.registerSummonMissions();
     }
 
     public void initResources()
@@ -47,7 +50,7 @@ public class SummonerExpansion
         SummonerRecipesPotion.registerSummonRecipes();
         SummonerJournal.registerSummonJournal();
         SummonerRecipesWeapon.registerAllSummonWeapons();
-        SummonerRecipesArmor.registerSummonRecipes();
+        SummonerRecipesArmor.registerSummonArmorRecipes();
         SummonerRecipesTrinket.registerSummonRecipes();
         SummonerRecipesMount.registerSummonRecipes();
         SummonerLoot.registerSummonLoot();
@@ -56,6 +59,6 @@ public class SummonerExpansion
                 .add(10, "horrorspiritmob");
 
         SwampBiome.surfaceMobs
-                .add(1, "woodmob");
+                .addLimited(1, "woodmob", 1, 50*50);
     }
 }

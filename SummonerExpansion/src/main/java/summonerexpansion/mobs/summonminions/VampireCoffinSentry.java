@@ -22,11 +22,12 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import summonerexpansion.mobs.summonminions.baseminions.SentryBase;
 
 import java.awt.*;
 import java.util.List;
 
-public class VampireCoffinSentry extends AttackingFollowingMob
+public class VampireCoffinSentry extends SentryBase
 {
     public static GameTexture texture;
     public float moveAngle;
@@ -34,10 +35,7 @@ public class VampireCoffinSentry extends AttackingFollowingMob
 
     public VampireCoffinSentry()
     {
-        super(10);
-        setSpeed(0.0F);
-        setFriction(0F);
-        attackCooldown = 2000;
+        super(2000F, 1000F);
         collision = new Rectangle(0, 0, 32, 64);
         hitBox = new Rectangle(0, 0, 32, 64);
         selectBox = new Rectangle();
@@ -99,8 +97,6 @@ public class VampireCoffinSentry extends AttackingFollowingMob
             coffinCharge = 0;
         }
     }
-
-    public boolean canBePushed(Mob other) {return false;}
 
     public void spawnDeathParticles(float knockbackX, float knockbackY)
     {

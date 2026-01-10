@@ -33,8 +33,8 @@ import java.util.LinkedList;
 
 public class ArcanicSummonerSetBonus  extends SetBonusBuff implements BuffAbility
 {
-    public FloatUpgradeValue pylonDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(40F).setUpgradedValue(1F, 40F);
-    public FloatUpgradeValue summonDamage = (new FloatUpgradeValue()).setBaseValue(0.20F).setUpgradedValue(1F, 0.20F).setUpgradedValue(10F, 1.00F);
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(40F).setUpgradedValue(1F, 40F);
+    public FloatUpgradeValue summonDMG = (new FloatUpgradeValue()).setBaseValue(0.20F).setUpgradedValue(1F, 0.20F).setUpgradedValue(10F, 1.00F);
     public IntUpgradeValue minionDuration = (new IntUpgradeValue()).setBaseValue(300).setUpgradedValue(1F, 400).setUpgradedValue(10F, 1200);
 
     public ArcanicSummonerSetBonus() {}
@@ -43,7 +43,7 @@ public class ArcanicSummonerSetBonus  extends SetBonusBuff implements BuffAbilit
     {
         if (buff.owner.buffManager.hasBuff(BuffRegistry.Debuffs.MANA_EXHAUSTION))
         {
-            buff.setModifier(BuffModifiers.SUMMON_DAMAGE, summonDamage.getValue(buff.getUpgradeTier()));
+            buff.setModifier(BuffModifiers.SUMMON_DAMAGE, summonDMG.getValue(buff.getUpgradeTier()));
         }
     }
 
@@ -53,7 +53,7 @@ public class ArcanicSummonerSetBonus  extends SetBonusBuff implements BuffAbilit
 
         if (player.isServer())
         {
-            GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, pylonDamage.getValue(buff.getUpgradeTier()));
+            GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier()));
             ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
             SetArcanicPylonSentry mob = new SetArcanicPylonSentry();
             attackerMob.serverFollowersManager.addFollower("summonedarcanicsummonbuff", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1F, 1, null, false);
@@ -82,7 +82,7 @@ public class ArcanicSummonerSetBonus  extends SetBonusBuff implements BuffAbilit
     {
         super.addStatTooltips(list, currentValues, lastValues);
         currentValues.getModifierTooltipsBuilder(true, true).addLastValues(lastValues).buildToStatList(list);
-        float damage = pylonDamage.getValue(currentValues.getUpgradeTier());
+        float damage = minionDamage.getValue(currentValues.getUpgradeTier());
         if (currentValues.owner != null)
         {
             damage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
@@ -96,7 +96,7 @@ public class ArcanicSummonerSetBonus  extends SetBonusBuff implements BuffAbilit
         };
         if (lastValues != null)
         {
-            float compareDamage = pylonDamage.getValue(lastValues.getUpgradeTier());
+            float compareDamage = minionDamage.getValue(lastValues.getUpgradeTier());
             if (lastValues.owner != null)
             {
                 compareDamage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);

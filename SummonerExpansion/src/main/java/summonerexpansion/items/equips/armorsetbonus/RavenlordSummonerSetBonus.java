@@ -4,12 +4,14 @@ import necesse.engine.localization.message.GameMessage;
 import necesse.engine.localization.message.GameMessageBuilder;
 import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.registries.DamageTypeRegistry;
+import necesse.engine.registries.ItemRegistry;
 import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.setBonusBuffs.SetBonusBuff;
+import necesse.entity.mobs.itemAttacker.CheckSlotType;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.inventory.item.DoubleItemStatTip;
@@ -23,8 +25,8 @@ import java.util.LinkedList;
 public class RavenlordSummonerSetBonus extends SetBonusBuff
 {
     public FloatUpgradeValue moveMod = (new FloatUpgradeValue(0F, 0F)).setBaseValue(0.80F).setUpgradedValue(1.0F, 0.60F).setUpgradedValue(10F, 0.0F);
-    public FloatUpgradeValue featherDamage = (new FloatUpgradeValue(0.0F, 0.2F)).setBaseValue(50.0F).setUpgradedValue(1.0F, 50.0F);
-    public static int FEATHER_SPAWN_RUN_DISTANCE = 2800;
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0.0F, 0.2F)).setBaseValue(50.0F).setUpgradedValue(1.0F, 50.0F);
+    public static int speedDistance = 2800;
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
     {
@@ -40,7 +42,7 @@ public class RavenlordSummonerSetBonus extends SetBonusBuff
         {
             double distanceRan = owner.getDistanceRan();
             double distanceRanSinceLastFeatherSpawn = buff.getGndData().getDouble("distanceRan");
-            if (distanceRan - distanceRanSinceLastFeatherSpawn > (double)FEATHER_SPAWN_RUN_DISTANCE)
+            if (distanceRan - distanceRanSinceLastFeatherSpawn > (double)speedDistance)
             {
                 this.summonFeather(buff, (ItemAttackerMob)owner);
                 buff.getGndData().setDouble("distanceRan", distanceRan);
@@ -54,7 +56,8 @@ public class RavenlordSummonerSetBonus extends SetBonusBuff
         {
             SetRavenlordMinion mob = new SetRavenlordMinion();
             itemAttacker.serverFollowersManager.addFollower("summonedravenlordbuff", mob, FollowPosition.LARGE_PYRAMID, "summonedmob", 1.0F, 6, null, false);
-            mob.updateDamage(new GameDamage(DamageTypeRegistry.SUMMON, featherDamage.getValue(buff.getUpgradeTier())));
+            mob.updateDamage(new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier())));
+            mob.setRemoveWhenNotInInventory(ItemRegistry.getItem("ravenlordsummonmask"), CheckSlotType.HELMET);
             itemAttacker.getLevel().entityManager.addMob(mob, itemAttacker.x, itemAttacker.y);
         }
     }
@@ -68,7 +71,7 @@ public class RavenlordSummonerSetBonus extends SetBonusBuff
     {
         super.addStatTooltips(list, currentValues, lastValues);
         currentValues.getModifierTooltipsBuilder(true, true).addLastValues(lastValues).buildToStatList(list);
-        float damage = this.featherDamage.getValue(currentValues.getUpgradeTier());
+        float damage = this.minionDamage.getValue(currentValues.getUpgradeTier());
         if (currentValues.owner != null)
         {
             damage = getFinalDamage(currentValues.owner, damage) * GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
@@ -82,7 +85,7 @@ public class RavenlordSummonerSetBonus extends SetBonusBuff
         };
         if (lastValues != null)
         {
-            float compareDamage = this.featherDamage.getValue(lastValues.getUpgradeTier());
+            float compareDamage = this.minionDamage.getValue(lastValues.getUpgradeTier());
             if (lastValues.owner != null)
             {
                 compareDamage = getFinalDamage(lastValues.owner, compareDamage) * GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);

@@ -2,7 +2,6 @@ package summonerexpansion.mobs.summonminions.trinketminions;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.network.server.ServerClient;
-import necesse.engine.registries.MobRegistry;
 import necesse.engine.seasons.GameSeasons;
 import necesse.engine.seasons.SeasonalHat;
 import necesse.engine.util.GameRandom;
@@ -22,6 +21,8 @@ import necesse.level.maps.light.GameLight;
 
 import java.awt.*;
 import java.util.List;
+
+import static summonerexpansion.codes.registry.SummonerTextures.mummySummonMinion;
 
 public class TrinketMummySummonMinion extends AttackingFollowingMob
 {
@@ -47,7 +48,7 @@ public class TrinketMummySummonMinion extends AttackingFollowingMob
     public void init()
     {
         super.init();
-        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI(500, summonDamage, 30, 500, 640, 64));
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI<>(500, summonDamage, 30, 500, 640, 64));
         hat = GameSeasons.getHat(new GameRandom(getUniqueID()));
     }
 
@@ -65,11 +66,12 @@ public class TrinketMummySummonMinion extends AttackingFollowingMob
     {
         for(int i = 0; i < 4; ++i)
         {
-            this.getLevel().entityManager.addParticle(new FleshParticle(this.getLevel(), MobRegistry.Textures.mummy.body, GameRandom.globalRandom.nextInt(5), 8, 32, this.x, this.y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
+            this.getLevel().entityManager.addParticle(new FleshParticle(this.getLevel(), mummySummonMinion.body, GameRandom.globalRandom.nextInt(5), 8, 32, this.x, this.y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
         }
     }
 
-    public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
+    public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
+    {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
         GameLight light = level.getLightLevel(x / 32, y / 32);
         int drawX = camera.getDrawX(x) - 22 - 10;
@@ -79,7 +81,7 @@ public class TrinketMummySummonMinion extends AttackingFollowingMob
         drawY += this.getBobbing(x, y);
         drawY += this.getLevel().getTile(x / 32, y / 32).getMobSinkingAmount(this);
         MaskShaderOptions swimMask = this.getSwimMaskShaderOptions(this.inLiquidFloat(x, y));
-        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, MobRegistry.Textures.mummy)).sprite(sprite).dir(dir).mask(swimMask).light(light);
+        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, mummySummonMinion)).sprite(sprite).dir(dir).mask(swimMask).light(light);
         if (this.hat != null)
         {
             humanDrawOptions.hatTexture(this.hat.getDrawOptions(), ArmorItem.HairDrawMode.NO_HAIR);

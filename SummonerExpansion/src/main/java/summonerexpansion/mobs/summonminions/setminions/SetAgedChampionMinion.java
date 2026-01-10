@@ -63,7 +63,7 @@ public class SetAgedChampionMinion extends AttackingFollowingMob
     {
         super.init();
         updateLook();
-        ai = new BehaviourTreeAI(this, new PlayerFollowerCollisionChaserAI<SetAgedChampionMinion>(500, summonDamage, 60, 1000, 900, 80)
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI<SetAgedChampionMinion>(500, summonDamage, 60, 1000, 900, 80)
         {
             public boolean attackTarget(SetAgedChampionMinion mob, Mob target)
             {
@@ -72,7 +72,7 @@ public class SetAgedChampionMinion extends AttackingFollowingMob
                     mob.attack(target.getX(), target.getY(), true);
                     InventoryItem attackItem = new InventoryItem("agedchampionsword");
                     attackItem.getGndData().setItem("damage", new GNDItemGameDamage(summonDamage));
-                    SetAgedChampionMinion.this.getLevel().entityManager.addLevelEvent(new ToolItemMobAbilityEvent(SetAgedChampionMinion.this, GameRandom.globalRandom.nextInt(), attackItem, mob.getX(), mob.getY(), SetAgedChampionMinion.this.attackAnimTime, SetAgedChampionMinion.this.attackAnimTime));
+                    SetAgedChampionMinion.this.getLevel().entityManager.events.add(new ToolItemMobAbilityEvent(SetAgedChampionMinion.this, GameRandom.globalRandom.nextInt(), attackItem, mob.getX(), mob.getY(), SetAgedChampionMinion.this.attackAnimTime, SetAgedChampionMinion.this.attackAnimTime));
                     return true;
                 }
                 else

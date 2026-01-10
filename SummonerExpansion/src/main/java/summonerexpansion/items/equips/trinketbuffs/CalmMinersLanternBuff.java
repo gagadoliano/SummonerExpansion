@@ -18,6 +18,7 @@ import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
+import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.toolItem.ToolDamageItem;
 import necesse.inventory.item.trinketItem.TrinketItem;
 import necesse.level.gameObject.GameObject;
@@ -31,6 +32,7 @@ import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 public class CalmMinersLanternBuff extends TrinketBuff
 {

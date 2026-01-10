@@ -14,8 +14,8 @@ import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class SpiderBrideHelmet extends SetHelmetArmorItem
 {
-    public FloatUpgradeValue summonDmg = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1F, 0.20F).setUpgradedValue(10F, 0.30F);
-    public FloatUpgradeValue summonSpd = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1F, 0.20F).setUpgradedValue(10F, 0.30F);
+    public FloatUpgradeValue summonDMG = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1F, 0.20F).setUpgradedValue(10F, 0.30F);
+    public FloatUpgradeValue summonSpeed = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1F, 0.20F).setUpgradedValue(10F, 0.30F);
 
     public SpiderBrideHelmet(int enchantCost, Item.Rarity rarityTier)
     {
@@ -25,6 +25,6 @@ public class SpiderBrideHelmet extends SetHelmetArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.SUMMON_CRIT_DAMAGE, summonDmg.getValue(getUpgradeTier(item))), new ModifierValue<>(BuffModifiers.SUMMON_ATTACK_SPEED, summonSpd.getValue(getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.SUMMON_CRIT_DAMAGE, summonDMG.getValue(getUpgradeTier(item))), new ModifierValue<>(BuffModifiers.SUMMON_ATTACK_SPEED, summonSpeed.getValue(getUpgradeTier(item))));
     }
 }

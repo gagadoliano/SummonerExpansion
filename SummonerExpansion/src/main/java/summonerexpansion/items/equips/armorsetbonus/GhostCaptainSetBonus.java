@@ -33,7 +33,7 @@ import java.util.LinkedList;
 
 public class GhostCaptainSetBonus extends SetBonusBuff implements BuffAbility
 {
-    public FloatUpgradeValue ghostCaptainDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(50F).setUpgradedValue(1.0F, 50.0F);
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(50F).setUpgradedValue(1.0F, 50.0F);
     public FloatUpgradeValue summonRange = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(0.10F).setUpgradedValue(1.0F, 0.15F);
     public IntUpgradeValue minionDuration = (new IntUpgradeValue()).setBaseValue(300).setUpgradedValue(1F, 400).setUpgradedValue(10F, 1200);
 
@@ -50,7 +50,7 @@ public class GhostCaptainSetBonus extends SetBonusBuff implements BuffAbility
 
         if (player.isServer())
         {
-            GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, ghostCaptainDamage.getValue(buff.getUpgradeTier()));
+            GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier()));
             ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
             SetGhostCaptainMinion mob = new SetGhostCaptainMinion();
             attackerMob.serverFollowersManager.addFollower("summonedghostcaptainsbuff", mob, FollowPosition.WIDE_CIRCLE_MOVEMENT, "summonedmob", 1F, 1, null, false);
@@ -79,7 +79,7 @@ public class GhostCaptainSetBonus extends SetBonusBuff implements BuffAbility
     {
         super.addStatTooltips(list, currentValues, lastValues);
         currentValues.getModifierTooltipsBuilder(true, true).addLastValues(lastValues).buildToStatList(list);
-        float damage = ghostCaptainDamage.getValue(currentValues.getUpgradeTier());
+        float damage = minionDamage.getValue(currentValues.getUpgradeTier());
         if (currentValues.owner != null)
         {
             damage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
@@ -93,7 +93,7 @@ public class GhostCaptainSetBonus extends SetBonusBuff implements BuffAbility
         };
         if (lastValues != null)
         {
-            float compareDamage = ghostCaptainDamage.getValue(lastValues.getUpgradeTier());
+            float compareDamage = minionDamage.getValue(lastValues.getUpgradeTier());
             if (lastValues.owner != null)
             {
                 compareDamage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);

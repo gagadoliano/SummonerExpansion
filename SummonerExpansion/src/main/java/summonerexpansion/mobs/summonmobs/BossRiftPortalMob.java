@@ -22,7 +22,6 @@ import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.Blackboard;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.BossNearbyBuff;
-import necesse.entity.mobs.hostile.bosses.BossMob;
 import necesse.entity.mobs.hostile.bosses.FlyingBossMob;
 import necesse.entity.particle.Particle;
 import necesse.entity.particle.SmokePuffParticle;
@@ -99,7 +98,7 @@ public class BossRiftPortalMob extends FlyingBossMob
     {
         super.init();
         lifeTime = 0L;
-        ai = new BehaviourTreeAI(this, new BossRiftPortalMob.RiftPortalAINode());
+        ai = new BehaviourTreeAI<>(this, new BossRiftPortalMob.RiftPortalAINode<>());
     }
 
     public void tickMovement(float delta)
@@ -250,7 +249,7 @@ public class BossRiftPortalMob extends FlyingBossMob
 
     public class RiftPortalAINode<T extends Mob> extends AINode<T>
     {
-        private ArrayList<Mob> spawnedMobs = new ArrayList();
+        private ArrayList<Mob> spawnedMobs = new ArrayList<>();
         public RiftPortalAINode() {}
 
         protected void onRootSet(AINode<T> root, T mob, Blackboard<T> blackboard)

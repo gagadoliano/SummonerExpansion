@@ -15,8 +15,8 @@ import necesse.inventory.lootTable.presets.IncursionHeadArmorLootTable;
 
 public class GhostCaptainHat extends SetHelmetArmorItem
 {
-    public IntUpgradeValue maxMinion = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1F, 2).setUpgradedValue(10F, 4);
-    public FloatUpgradeValue attackSpeedSummon = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1F, 0.15F).setUpgradedValue(10F, 0.25F);
+    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1F, 2).setUpgradedValue(10F, 4);
+    public FloatUpgradeValue summonAttackSpeed = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1F, 0.15F).setUpgradedValue(10F, 0.25F);
 
     public GhostCaptainHat(int enchantCost, Item.Rarity rarityTier)
     {
@@ -28,6 +28,6 @@ public class GhostCaptainHat extends SetHelmetArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.MAX_SUMMONS, maxMinion.getValue(getUpgradeTier(item))), new ModifierValue<>(BuffModifiers.SUMMON_ATTACK_SPEED, attackSpeedSummon.getValue(getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.MAX_SUMMONS, maxSummons.getValue(getUpgradeTier(item))), new ModifierValue<>(BuffModifiers.SUMMON_ATTACK_SPEED, summonAttackSpeed.getValue(getUpgradeTier(item))));
     }
 }

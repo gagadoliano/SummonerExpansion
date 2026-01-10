@@ -57,7 +57,7 @@ public class HorrorGlaive extends GlaiveToolItem implements ItemInteractAction
         super.showAttack(level, x, y, attackerMob, attackHeight, item, animAttack, seed, mapContent);
         if (level.isClient())
         {
-            level.entityManager.addLevelEventHidden(new GlaiveShowAttackEvent(attackerMob, x, y, seed, 10.0F) {
+            level.entityManager.events.add(new GlaiveShowAttackEvent(attackerMob, x, y, seed, 10.0F) {
                 public void tick(float angle)
                 {
                     GameRandom gameRandom = new GameRandom();

@@ -28,8 +28,8 @@ import java.util.LinkedList;
 
 public class SummonPlagueSetBonus extends SetBonusBuff
 {
-    public int mouseTimer = 0;
-    public FloatUpgradeValue mouseDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(30F).setUpgradedValue(1.0F, 30F);
+    public int summonTimer = 0;
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(30F).setUpgradedValue(1.0F, 30F);
     public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1F, 2);
 
     public SummonPlagueSetBonus() {}
@@ -45,12 +45,12 @@ public class SummonPlagueSetBonus extends SetBonusBuff
         super.serverTick(buff);
         if (buff.owner.isItemAttacker && buff.owner.isInCombat())
         {
-            mouseTimer++;
+            summonTimer++;
             ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
             float count = attackerMob.serverFollowersManager.getFollowerCount("summonedmousebuff");
-            if (mouseTimer >= 600 && count <= 7)
+            if (summonTimer >= 600 && count <= 7)
             {
-                GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, mouseDamage.getValue(buff.getUpgradeTier()));
+                GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier()));
                 Level level = buff.owner.getLevel();
                 AttackingFollowingMob mob = (AttackingFollowingMob)MobRegistry.getMob("mouseminion", level);
                 attackerMob.serverFollowersManager.addFollower("summonedmousebuff", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, (p) -> 8, null, false);
@@ -58,7 +58,7 @@ public class SummonPlagueSetBonus extends SetBonusBuff
                 mob.updateDamage(damage);
                 mob.setRemoveWhenNotInInventory(ItemRegistry.getItem("summonplaguemask"), CheckSlotType.HELMET);
                 mob.getLevel().entityManager.addMob(mob, spawnPoint.x, spawnPoint.y);
-                mouseTimer = 0;
+                summonTimer = 0;
             }
         }
     }
@@ -67,7 +67,7 @@ public class SummonPlagueSetBonus extends SetBonusBuff
     {
         super.addStatTooltips(list, currentValues, lastValues);
         currentValues.getModifierTooltipsBuilder(true, true).addLastValues(lastValues).buildToStatList(list);
-        float damage = mouseDamage.getValue(currentValues.getUpgradeTier());
+        float damage = minionDamage.getValue(currentValues.getUpgradeTier());
         if (currentValues.owner != null)
         {
             damage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
@@ -81,7 +81,7 @@ public class SummonPlagueSetBonus extends SetBonusBuff
         };
         if (lastValues != null)
         {
-            float compareDamage = mouseDamage.getValue(lastValues.getUpgradeTier());
+            float compareDamage = minionDamage.getValue(lastValues.getUpgradeTier());
             if (lastValues.owner != null)
             {
                 compareDamage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);

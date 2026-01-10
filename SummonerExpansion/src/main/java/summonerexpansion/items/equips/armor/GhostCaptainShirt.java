@@ -12,7 +12,7 @@ import necesse.inventory.lootTable.presets.BodyArmorLootTable;
 
 public class GhostCaptainShirt extends ChestArmorItem
 {
-    public FloatUpgradeValue damageSummon = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1, 0.15F).setUpgradedValue(10, 0.30F);
+    public FloatUpgradeValue summonDMG = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1, 0.15F).setUpgradedValue(10, 0.30F);
 
     public GhostCaptainShirt(int enchantCost, Item.Rarity rarityTier)
     {
@@ -22,6 +22,6 @@ public class GhostCaptainShirt extends ChestArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.SUMMON_DAMAGE, damageSummon.getValue(getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.SUMMON_DAMAGE, summonDMG.getValue(getUpgradeTier(item))));
     }
 }

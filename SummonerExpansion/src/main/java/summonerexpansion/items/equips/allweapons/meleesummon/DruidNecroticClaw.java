@@ -13,6 +13,7 @@ import necesse.inventory.item.ItemInteractAction;
 import necesse.inventory.lootTable.presets.CloseRangeWeaponsLootTable;
 import necesse.level.maps.Level;
 import summonerexpansion.codes.registry.SummonerBuffs;
+import summonerexpansion.items.equips.allweapons.basesummon.DruidClaw;
 
 import java.awt.*;
 

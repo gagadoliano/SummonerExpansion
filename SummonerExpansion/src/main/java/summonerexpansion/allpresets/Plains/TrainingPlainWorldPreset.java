@@ -25,10 +25,10 @@ public class TrainingPlainWorldPreset extends WorldPreset
         int total = getTotalBiomePoints(random, presetsRegion, BiomeRegistry.PLAINS, 0.001F);
         for (int i = 0; i < total; i++)
         {
-            final Point tile = findRandomBiomePresetTile(random, presetsRegion, generatorStack, BiomeRegistry.PLAINS, 20, size, new String[] { "loot", "villages" }, (tileX, tileY) -> (!generatorStack.isSurfaceExpensiveWater(tileX, tileY) && generatorStack.getLazyBiomeID(tileX, tileY) == BiomeRegistry.PLAINS.getID()));
+            final Point tile = findRandomBiomePresetTile(random, presetsRegion, generatorStack, BiomeRegistry.PLAINS, 20, size, new String[] { "loot" }, (tileX, tileY) -> (!generatorStack.isSurfaceExpensiveWater(tileX, tileY) && generatorStack.getLazyBiomeID(tileX, tileY) == BiomeRegistry.PLAINS.getID()));
             if (tile != null)
             {
-                presetsRegion.addPreset(this, tile.x, tile.y, size, new String[]{"loot", "villages"},
+                presetsRegion.addPreset(this, tile.x, tile.y, size, new String[]{"loot"},
                         (random1, level, timer) ->
                         {
                             WorldPreset.ensureRegionsAreGenerated(level, tile.x, tile.y, size.width, size.height);

@@ -18,48 +18,29 @@ import necesse.inventory.item.toolItem.projectileToolItem.throwToolItem.boomeran
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
+import summonerexpansion.items.equips.allweapons.basesummon.BaseBoomerangWeapon;
 
 import java.util.Set;
 
-public class WormBucket extends BoomerangToolItem
+public class WormBucket extends BaseBoomerangWeapon
 {
-    public IntUpgradeValue wormAmount = (new IntUpgradeValue()).setBaseValue(1);
+    public IntUpgradeValue boomerangAmount = (new IntUpgradeValue()).setBaseValue(1);
 
-    public WormBucket(int enchantCost, Item.Rarity rarityTier)
+    public WormBucket(int enchantCost, Item.Rarity rarityTier, String projID)
     {
-        super(enchantCost, SummonWeaponsLootTable.summonWeapons, "wormproj");
-        keyWords.add("summon");
-        setItemCategory("equipment", "weapons", "summonweapons");
-        setItemCategory(ItemCategory.equipmentManager, "weapons", "summonweapons");
-        rarity = rarityTier;
-        damageType = DamageTypeRegistry.SUMMON;
+        super(enchantCost, rarityTier, projID);
         attackDamage.setBaseValue(10.0F).setUpgradedValue(1, 35.0F);
         attackAnimTime.setBaseValue(300).setUpgradedValue(1, 280);
         resilienceGain.setBaseValue(0.5F).setUpgradedValue(1, 1.5F).setUpgradedValue(10, 2.0F);
         attackRange.setBaseValue(400);
         velocity.setBaseValue(100).setUpgradedValue(1, 120);
-        wormAmount.setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(3, 3).setUpgradedValue(10, 4);
+        boomerangAmount.setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 4);
         canBeUsedForRaids = true;
-    }
-
-    public ToolItemEnchantment getRandomEnchantment(GameRandom random, InventoryItem item)
-    {
-        return Enchantable.getRandomEnchantment(random, EnchantmentRegistry.meleeItemEnchantments, this.getEnchantmentID(item), ToolItemEnchantment.class);
-    }
-
-    public boolean isValidEnchantment(InventoryItem item, ItemEnchantment enchantment)
-    {
-        return EnchantmentRegistry.meleeItemEnchantments.contains(enchantment.getID());
-    }
-
-    public Set<Integer> getValidEnchantmentIDs(InventoryItem item)
-    {
-        return EnchantmentRegistry.meleeItemEnchantments;
     }
 
     public String canAttack(Level level, int x, int y, ItemAttackerMob attackerMob, InventoryItem item)
     {
-        return attackerMob.getBoomerangsUsage() < wormAmount.getValue(getUpgradeTier(item)) ? null : "";
+        return attackerMob.getBoomerangsUsage() < boomerangAmount.getValue(getUpgradeTier(item)) ? null : "";
     }
 
     @Override

@@ -28,26 +28,25 @@ import java.util.LinkedList;
 public class PharaohsMaskSetBonus extends SetBonusBuff
 {
     public IntUpgradeValue armorPen = (new IntUpgradeValue()).setBaseValue(5).setUpgradedValue(1F, 10).setUpgradedValue(10F, 20);
-    public IntUpgradeValue maxLocustCount = (new IntUpgradeValue()).setBaseValue(2).setUpgradedValue(1F, 4).setUpgradedValue(10F, 10);
-    public FloatUpgradeValue locustDamage = (new FloatUpgradeValue(0.0F, 0.2F)).setBaseValue(28.0F).setUpgradedValue(1.0F, 50.0F);
-    public int locustCooldown;
+    public IntUpgradeValue minionGroupSize = (new IntUpgradeValue()).setBaseValue(2).setUpgradedValue(1F, 4).setUpgradedValue(10F, 10);
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0.0F, 0.2F)).setBaseValue(28.0F).setUpgradedValue(1.0F, 50.0F);
+    public int summonTimer;
 
-    public PharaohsMaskSetBonus()
-    {
+    public PharaohsMaskSetBonus() {
     }
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
     {
-        locustCooldown = 30;
+        summonTimer = 30;
         buff.setModifier(BuffModifiers.ARMOR_PEN_FLAT, armorPen.getValue(buff.getUpgradeTier()));
     }
 
     public void serverTick(ActiveBuff buff)
     {
         super.serverTick(buff);
-        if (locustCooldown < 30)
+        if (summonTimer < 30)
         {
-            locustCooldown++;
+            summonTimer++;
         }
     }
 
@@ -57,15 +56,15 @@ public class PharaohsMaskSetBonus extends SetBonusBuff
         if (buff.owner.isItemAttacker)
         {
             float count = attackerMob.serverFollowersManager.getFollowerCount("summonedlocustbuff");
-            if (count < maxLocustCount.getValue(buff.getUpgradeTier()) && locustCooldown >= 30)
+            if (count < minionGroupSize.getValue(buff.getUpgradeTier()) && summonTimer >= 30)
             {
-                GameDamage explosionDamage = new GameDamage(DamageTypeRegistry.SUMMON, locustDamage.getValue(buff.getUpgradeTier()));
+                GameDamage explosionDamage = new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier()));
                 AttackingFollowingMob locust = (AttackingFollowingMob) MobRegistry.getMob("locustminion", attackerMob.getLevel());
                 (attackerMob).serverFollowersManager.addFollower("summonedlocustbuff", locust, FollowPosition.WALK_CLOSE, "summonedlocust", 1.0F, 10, null, false);
                 Point2D.Float spawnPoint = SummonToolItem.findSpawnLocation(locust, attackerMob.getLevel(), attackerMob.x, attackerMob.y);
                 locust.updateDamage(explosionDamage);
                 attackerMob.getLevel().entityManager.addMob(locust, spawnPoint.x, spawnPoint.y);
-                locustCooldown = 0;
+                summonTimer = 0;
             }
         }
     }
@@ -74,7 +73,7 @@ public class PharaohsMaskSetBonus extends SetBonusBuff
     {
         super.addStatTooltips(list, currentValues, lastValues);
         currentValues.getModifierTooltipsBuilder(true, true).addLastValues(lastValues).buildToStatList(list);
-        float damage = locustDamage.getValue(currentValues.getUpgradeTier());
+        float damage = minionDamage.getValue(currentValues.getUpgradeTier());
         if (currentValues.owner != null)
         {
             damage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
@@ -83,12 +82,12 @@ public class PharaohsMaskSetBonus extends SetBonusBuff
         {
             public GameMessage toMessage(Color betterColor, Color worseColor, Color neutralColor, boolean showDifference)
             {
-                return (new GameMessageBuilder()).append(Localization.translate("itemtooltip", "pharaohsmasksettip", "amount", maxLocustCount.getValue(currentValues.getUpgradeTier()))).append("\n").append(new LocalMessage("itemtooltip", "pharaohsmasksettip2", "damage", this.getReplaceValue(betterColor, worseColor, showDifference)));
+                return (new GameMessageBuilder()).append(Localization.translate("itemtooltip", "pharaohsmasksettip", "amount", minionGroupSize.getValue(currentValues.getUpgradeTier()))).append("\n").append(new LocalMessage("itemtooltip", "pharaohsmasksettip2", "damage", this.getReplaceValue(betterColor, worseColor, showDifference)));
             }
         };
         if (lastValues != null)
         {
-            float compareDamage = locustDamage.getValue(lastValues.getUpgradeTier());
+            float compareDamage = minionDamage.getValue(lastValues.getUpgradeTier());
             if (lastValues.owner != null)
             {
                 compareDamage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);

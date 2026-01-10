@@ -12,7 +12,6 @@ public class BeetPlaceJournalChallenge extends ObjectsPlacedJournalChallenge
         super(20, "beetseed");
     }
 
-    @Override
     public void onObjectPlaced(GameObject object, Level level, int layerID, int tileX, int tileY, int objectRotation, ServerClient client)
     {
         if (level.isCave)

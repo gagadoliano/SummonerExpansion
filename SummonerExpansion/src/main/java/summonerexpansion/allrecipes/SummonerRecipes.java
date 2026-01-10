@@ -20,6 +20,21 @@ public class SummonerRecipes
         SummonerRecipes.registerSummonStatRecipes();
         SummonerRecipes.registerSummonFoodRecipes();
         SummonerRecipes.registerSummonConverterRecipes();
+        SummonerRecipes.registerSummonToolsRecipes();
+    }
+
+    public static void registerSummonToolsRecipes()
+    {
+        Recipes.registerModRecipe(new Recipe(
+                "ancientwoodfishingrod",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("ancientlog", 10),
+                        new Ingredient("ironbar", 2),
+                        new Ingredient("ancienttreesapling", 1)
+                }
+        ).showAfter("woodfishingrod"));
     }
 
     public static void registerSummonObjectRecipes()
@@ -180,6 +195,45 @@ public class SummonerRecipes
                         new Ingredient("electrifiedmana", 1)
                 }
         ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "arcanicchest",
+                1,
+                RecipeTechRegistry.FALLEN_CARPENTER,
+                new Ingredient[]{
+                        new Ingredient("anystone", 20),
+                        new Ingredient("electrifiedmana", 2)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "beehivechest",
+                1,
+                RecipeTechRegistry.CARPENTER,
+                new Ingredient[]{
+                        new Ingredient("honey", 10),
+                        new Ingredient("queenbee", 1)
+                }
+        ));
+
+        // Fences
+        Recipes.registerModRecipe(new Recipe(
+                "ancientwoodfence",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("ancientlog", 2)
+                }
+        ).showAfter("banditfencegate"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "ancientwoodfencegate",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("ancientlog", 4)
+                }
+        ).showAfter("ancientwoodfence"));
     }
 
     public static void registerSummonBannerRecipes()
@@ -260,6 +314,15 @@ public class SummonerRecipes
 
     public static void registerSummonTilesRecipes()
     {
+        Recipes.registerModRecipe(new Recipe(
+                "beehivefloor",
+                50,
+                RecipeTechRegistry.CARPENTER,
+                new Ingredient[]{
+                        new Ingredient("honey", 10),
+                }
+        ));
+
         Recipes.registerModRecipe(new Recipe(
                 "empoweredamethyst",
                 10,
@@ -368,12 +431,71 @@ public class SummonerRecipes
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "druidhousemap",
+                1,
+                RecipeTechRegistry.TUNGSTEN_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("mapfragment", 4),
+                        new Ingredient("ancientlog", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "horrorcultmap",
+                1,
+                RecipeTechRegistry.FALLEN_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("mapfragment", 4),
+                        new Ingredient("purehorror", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "titaniumnodemap",
+                1,
+                RecipeTechRegistry.FALLEN_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("mapfragment", 4),
+                        new Ingredient("titaniumbar", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "beehivemap",
+                1,
+                RecipeTechRegistry.FALLEN_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("mapfragment", 4),
+                        new Ingredient("honey", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "ancientforestmap",
+                1,
+                RecipeTechRegistry.FALLEN_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("mapfragment", 4),
+                        new Ingredient("ancientlog", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "myceliumworm",
                 1,
                 RecipeTechRegistry.CAVEGLOW_ALCHEMY,
                 new Ingredient[]{
                         new Ingredient("myceliumore", 1),
                         new Ingredient("wormbait", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "titaniumbar",
+                1,
+                RecipeTechRegistry.FORGE,
+                new Ingredient[]{
+                        new Ingredient("titaniumore", 4)
                 }
         ));
     }
@@ -398,6 +520,7 @@ public class SummonerRecipes
                 1,
                 SUMMONTABLECRAFT4,
                 new Ingredient[]{
+                        new Ingredient("ascendedshard", 5),
                         new Ingredient("shadowessence", 5),
                         new Ingredient("cryoessence", 5),
                         new Ingredient("bioessence", 5),

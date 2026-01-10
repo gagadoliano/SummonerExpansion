@@ -29,7 +29,7 @@ public class FarmerMinion extends HumanToolBase
     {
         super.init();
         updateLook();
-        ai = new BehaviourTreeAI(this, new PlayerFollowerCollisionChaserAI<FarmerMinion>(500, summonDamage, 50, 800, 900, 60) 
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI<FarmerMinion>(500, summonDamage, 50, 800, 900, 60)
         {
             public boolean attackTarget(FarmerMinion mob, Mob target) 
             {
@@ -38,7 +38,7 @@ public class FarmerMinion extends HumanToolBase
                     mob.attack(target.getX(), target.getY(), true);
                     InventoryItem attackItem = new InventoryItem("coppersword");
                     attackItem.getGndData().setItem("damage", new GNDItemGameDamage(summonDamage));
-                    FarmerMinion.this.getLevel().entityManager.addLevelEvent(new ToolItemMobAbilityEvent(FarmerMinion.this, GameRandom.globalRandom.nextInt(), attackItem, mob.getX(), mob.getY(), FarmerMinion.this.attackAnimTime, FarmerMinion.this.attackAnimTime));
+                    FarmerMinion.this.getLevel().entityManager.events.add(new ToolItemMobAbilityEvent(FarmerMinion.this, GameRandom.globalRandom.nextInt(), attackItem, mob.getX(), mob.getY(), FarmerMinion.this.attackAnimTime, FarmerMinion.this.attackAnimTime));
 
                     if (GameRandom.globalRandom.nextInt(100) <= 10)
                     {

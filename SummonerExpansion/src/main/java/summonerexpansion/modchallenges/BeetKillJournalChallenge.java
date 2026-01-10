@@ -7,8 +7,9 @@ import necesse.level.maps.Level;
 
 public class BeetKillJournalChallenge extends MobsKilledJournalChallenge
 {
-    public BeetKillJournalChallenge() {
-        super(20, "beetcavecroppler");
+    public BeetKillJournalChallenge()
+    {
+        super(20, "cropplerbeet");
     }
 
     public void onMobKilled(ServerClient serverClient, Mob mob)

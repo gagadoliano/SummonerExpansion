@@ -7,6 +7,7 @@ import necesse.engine.localization.message.GameMessage;
 import necesse.engine.localization.message.GameMessageBuilder;
 import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.registries.DamageTypeRegistry;
+import necesse.engine.registries.ItemRegistry;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.registries.BuffRegistry;
 import necesse.engine.util.GameRandom;
@@ -17,6 +18,7 @@ import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffManager;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.setBonusBuffs.SetBonusBuff;
+import necesse.entity.mobs.itemAttacker.CheckSlotType;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
@@ -31,7 +33,7 @@ public class AgedSummonerSetBonus extends SetBonusBuff
     public IntUpgradeValue maxResilience = (new IntUpgradeValue()).setBaseValue(30).setUpgradedValue(1.0F, 30);
     public FloatUpgradeValue resilienceGain = (new FloatUpgradeValue()).setBaseValue(0.2F).setUpgradedValue(1.0F, 0.2F);
     public FloatUpgradeValue summonSpeed = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(0.20F).setUpgradedValue(1.0F, 0.20F);
-    public FloatUpgradeValue agedDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(25F).setUpgradedValue(1.0F, 25.0F);
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(25F).setUpgradedValue(1.0F, 25.0F);
 
     public AgedSummonerSetBonus() {}
 
@@ -51,11 +53,12 @@ public class AgedSummonerSetBonus extends SetBonusBuff
             float count = attackerMob.serverFollowersManager.getFollowerCount("summonedagedchampionbuff");
             if (count <= 0.0F)
             {
-                GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, agedDamage.getValue(buff.getUpgradeTier()));
+                GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier()));
                 Level level = buff.owner.getLevel();
                 AttackingFollowingMob mob = (AttackingFollowingMob) MobRegistry.getMob("agedchampionminion", level);
                 attackerMob.serverFollowersManager.addFollower("summonedagedchampionbuff", mob, FollowPosition.WALK_CLOSE, "summonedagedchampionminionbuff", 1.0F, 1, null, false);
                 mob.updateDamage(damage);
+                mob.setRemoveWhenNotInInventory(ItemRegistry.getItem("agedsummonerhelmet"), CheckSlotType.HELMET);
                 Point spawnPoint = new Point(attackerMob.getX() + GameRandom.globalRandom.getIntBetween(-5, 5), attackerMob.getY() + GameRandom.globalRandom.getIntBetween(-5, 5));
                 level.entityManager.addMob(mob, (float)spawnPoint.x, (float)spawnPoint.y);
             }
@@ -92,7 +95,7 @@ public class AgedSummonerSetBonus extends SetBonusBuff
     {
         super.addStatTooltips(list, currentValues, lastValues);
         currentValues.getModifierTooltipsBuilder(true, true).addLastValues(lastValues).buildToStatList(list);
-        float damage = agedDamage.getValue(currentValues.getUpgradeTier());
+        float damage = minionDamage.getValue(currentValues.getUpgradeTier());
         if (currentValues.owner != null)
         {
             damage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
@@ -106,7 +109,7 @@ public class AgedSummonerSetBonus extends SetBonusBuff
         };
         if (lastValues != null)
         {
-            float compareDamage = agedDamage.getValue(lastValues.getUpgradeTier());
+            float compareDamage = minionDamage.getValue(lastValues.getUpgradeTier());
             if (lastValues.owner != null)
             {
                 compareDamage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);

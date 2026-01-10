@@ -20,7 +20,7 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
-import summonerexpansion.allprojs.TeaPotProj;
+import summonerexpansion.allprojs.trinketprojs.TeaPotProj;
 
 import java.awt.*;
 import java.util.List;

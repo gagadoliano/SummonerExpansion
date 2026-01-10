@@ -134,6 +134,18 @@ public class SummonerRecipesTrinket
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "strangecookpot",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("cookingpot", 1),
+                        new Ingredient("frogleg", 20),
+                        new Ingredient("swamplarva", 10),
+                        new Ingredient("healthpotion", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "mesmersatchel",
                 1,
                 SUMMONTABLECRAFT4,

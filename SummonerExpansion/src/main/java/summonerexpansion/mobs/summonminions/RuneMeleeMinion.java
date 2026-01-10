@@ -95,7 +95,7 @@ public class RuneMeleeMinion extends AttackingFollowingMob
             baseTile = new Point(getX() / 32, getY() / 32);
         }
         updateLook();
-        ai = new BehaviourTreeAI(this, new PlayerFollowerCollisionChaserAI<RuneMeleeMinion>(500, summonDamage, 50, 800, 900, 60) 
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI<RuneMeleeMinion>(500, summonDamage, 50, 800, 900, 60)
         {
             public boolean attackTarget(RuneMeleeMinion mob, Mob target) 
             {
@@ -104,7 +104,7 @@ public class RuneMeleeMinion extends AttackingFollowingMob
                     mob.attack(target.getX(), target.getY(), true);
                     InventoryItem attackItem = new InventoryItem("brutesbattleaxe");
                     attackItem.getGndData().setItem("damage", new GNDItemGameDamage(summonDamage));
-                    RuneMeleeMinion.this.getLevel().entityManager.addLevelEvent(new ToolItemMobAbilityEvent(RuneMeleeMinion.this, GameRandom.globalRandom.nextInt(), attackItem, mob.getX(), mob.getY(), RuneMeleeMinion.this.attackAnimTime, RuneMeleeMinion.this.attackAnimTime));
+                    RuneMeleeMinion.this.getLevel().entityManager.events.add(new ToolItemMobAbilityEvent(RuneMeleeMinion.this, GameRandom.globalRandom.nextInt(), attackItem, mob.getX(), mob.getY(), RuneMeleeMinion.this.attackAnimTime, RuneMeleeMinion.this.attackAnimTime));
                     return true;
                 }
                 else

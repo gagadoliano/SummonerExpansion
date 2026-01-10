@@ -25,11 +25,11 @@ import java.util.LinkedList;
 
 public class SailorSummonSetBonus extends SetBonusBuff
 {
-    public FloatUpgradeValue speed = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1.0F, 0.10F);
-    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1.0F, 2);
-    public FloatUpgradeValue sailorDamage = (new FloatUpgradeValue(0.0F, 0.2F)).setBaseValue(20.0F).setUpgradedValue(1.0F, 50.0F);
-    public IntUpgradeValue sailorGroupSize = (new IntUpgradeValue()).setBaseValue(2).setUpgradedValue(1.0F, 4).setUpgradedValue(10F, 12);
-    public int sailorTimer = 0;
+    public FloatUpgradeValue speed = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1, 0.10F);
+    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2);
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue()).setBaseValue(10F).setUpgradedValue(1, 20F).setUpgradedValue(10, 50F);
+    public IntUpgradeValue minionGroupSize = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1.0F, 2).setUpgradedValue(10F, 10);
+    public int summonTimer = 0;
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
     {
@@ -43,22 +43,22 @@ public class SailorSummonSetBonus extends SetBonusBuff
         Mob owner = buff.owner;
         if (owner.isItemAttacker && owner.isRiding())
         {
-            sailorTimer++;
-            if (sailorTimer >= 300)
+            summonTimer++;
+            if (summonTimer >= 300)
             {
                 summonSailor(buff, (ItemAttackerMob)owner);
-                sailorTimer = 0;
+                summonTimer = 0;
             }
         }
     }
 
     private void summonSailor(ActiveBuff buff, ItemAttackerMob itemAttacker)
     {
-        if (itemAttacker.isServer() && itemAttacker.serverFollowersManager.getFollowerCount("summonedsetsailorbuff") < sailorGroupSize.getValue(buff.getUpgradeTier()))
+        if (itemAttacker.isServer() && itemAttacker.serverFollowersManager.getFollowerCount("summonedsetsailorbuff") < minionGroupSize.getValue(buff.getUpgradeTier()))
         {
             SetSailorMinion mob = new SetSailorMinion();
-            itemAttacker.serverFollowersManager.addFollower("summonedsetsailorbuff", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, 12, null, false);
-            mob.updateDamage(new GameDamage(DamageTypeRegistry.SUMMON, sailorDamage.getValue(buff.getUpgradeTier())));
+            itemAttacker.serverFollowersManager.addFollower("summonedsetsailorbuff", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, 10, null, false);
+            mob.updateDamage(new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier())));
             mob.setRemoveWhenNotInInventory(ItemRegistry.getItem("sailorsummonhat"), CheckSlotType.HELMET);
             itemAttacker.getLevel().entityManager.addMob(mob, itemAttacker.x, itemAttacker.y);
         }
@@ -73,12 +73,12 @@ public class SailorSummonSetBonus extends SetBonusBuff
     {
         super.addStatTooltips(list, currentValues, lastValues);
         currentValues.getModifierTooltipsBuilder(true, true).addLastValues(lastValues).buildToStatList(list);
-        float damage = sailorDamage.getValue(currentValues.getUpgradeTier());
+        float damage = minionDamage.getValue(currentValues.getUpgradeTier());
         if (currentValues.owner != null)
         {
             damage = getFinalDamage(currentValues.owner, damage) * GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
         }
-        DoubleItemStatTip sailorDamageTip = new DoubleItemStatTip(damage, 0)
+        DoubleItemStatTip minionDamageTip = new DoubleItemStatTip(damage, 0)
         {
             public GameMessage toMessage(Color betterColor, Color worseColor, Color neutralColor, boolean showDifference)
             {
@@ -87,14 +87,14 @@ public class SailorSummonSetBonus extends SetBonusBuff
         };
         if (lastValues != null)
         {
-            float compareDamage = sailorDamage.getValue(lastValues.getUpgradeTier());
+            float compareDamage = minionDamage.getValue(lastValues.getUpgradeTier());
             if (lastValues.owner != null)
             {
                 compareDamage = getFinalDamage(lastValues.owner, compareDamage) * GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
             }
 
-            sailorDamageTip.setCompareValue(compareDamage);
+            minionDamageTip.setCompareValue(compareDamage);
         }
-        list.add(sailorDamageTip);
+        list.add(minionDamageTip);
     }
 }

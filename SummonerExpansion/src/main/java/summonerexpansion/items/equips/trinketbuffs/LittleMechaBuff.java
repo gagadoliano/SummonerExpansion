@@ -17,9 +17,11 @@ import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.TrinketBuff;
 import necesse.entity.particle.Particle;
 import necesse.gfx.GameResources;
+import necesse.inventory.item.ItemStatTip;
 import necesse.level.maps.Level;
 
 import java.awt.geom.Point2D;
+import java.util.LinkedList;
 
 public class LittleMechaBuff extends TrinketBuff implements BuffAbility
 {

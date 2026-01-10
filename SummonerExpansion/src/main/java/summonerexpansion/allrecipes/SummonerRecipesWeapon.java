@@ -28,7 +28,7 @@ public class SummonerRecipesWeapon
                         new Ingredient("woodaxe", 1),
                         new Ingredient("anysapling", 4)
                 }
-        ));
+        ).showAfter("woodboomerang"));
     }
 
     public static void registerSummonRecipesAnvil()
@@ -513,6 +513,28 @@ public class SummonerRecipesWeapon
                 }
         ));
 
+        Recipes.registerModRecipe(new Recipe(
+                "globeboomerang",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("glass", 50),
+                        new Ingredient("cabbage", 15),
+                        new Ingredient("blueberry", 35)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "applewalkingstick",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("apple", 50),
+                        new Ingredient("applesapling", 5),
+                        new Ingredient("sprucelog", 150)
+                }
+        ));
+
         // T3
         Recipes.registerModRecipe(new Recipe(
                 "magictungstenlamp",
@@ -669,6 +691,18 @@ public class SummonerRecipesWeapon
                         new Ingredient("myceliumore", 12),
                         new Ingredient("deepswampstone", 35),
                         new Ingredient("reeds", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "pinewoodstaff",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("dredgingstaff", 1),
+                        new Ingredient("emerald", 1),
+                        new Ingredient("pinelog", 130),
+                        new Ingredient("pinesapling", 12)
                 }
         ));
 

@@ -71,7 +71,7 @@ public class SetGhostCaptainMinion extends FlyingAttackingFollowingMob
     public void init()
     {
         super.init();
-        ai = new BehaviourTreeAI(this, new PlayerFollowerChaserAI<SetGhostCaptainMinion>(576, 320, false, false, 9000, 100)
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerChaserAI<SetGhostCaptainMinion>(576, 320, false, false, 9000, 100)
         {
             public boolean attackTarget(SetGhostCaptainMinion mob, Mob target)
             {

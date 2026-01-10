@@ -3,6 +3,7 @@ package summonerexpansion.allprojs;
 import java.awt.Color;
 import java.util.List;
 import necesse.engine.gameLoop.tickManager.TickManager;
+import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.projectile.boomerangProjectile.SpinningProjectile;
@@ -21,6 +22,19 @@ public class GolemTopazProj extends SpinningProjectile
 {
     public GolemTopazProj() {}
 
+    public GolemTopazProj(Level level, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback, Mob owner)
+    {
+        this.setLevel(level);
+        this.x = x;
+        this.y = y;
+        this.setTarget(targetX, targetY);
+        this.speed = speed;
+        this.setDistance(distance);
+        this.setDamage(damage);
+        this.knockback = knockback;
+        this.setOwner(owner);
+    }
+
     public void init()
     {
         super.init();
@@ -28,8 +42,6 @@ public class GolemTopazProj extends SpinningProjectile
         this.height = 18.0F;
         this.bouncing = 20;
         this.piercing = 5;
-        this.distance = 2000;
-        this.speed = 140.0F;
     }
 
     public Color getParticleColor() {
@@ -51,23 +63,31 @@ public class GolemTopazProj extends SpinningProjectile
     public void doHitLogic(Mob mob, LevelObjectHit object, float x, float y)
     {
         super.doHitLogic(mob, object, x, y);
+        if (mob != null)
+        {
+            setDamage(getDamage().addDamage(10f));
+        }
+        else
+        {
+            setDamage(getDamage().addDamage(20f));
+        }
     }
 
     public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, OrderableDrawables overlayList, Level level, TickManager tickManager, GameCamera camera, PlayerMob perspective)
     {
-        if (!this.removed())
+        if (!removed())
         {
             GameLight light = level.getLightLevel(this);
-            int drawX = camera.getDrawX(this.x) - this.texture.getWidth() / 2;
-            int drawY = camera.getDrawY(this.y) - this.texture.getHeight() / 2;
-            final TextureDrawOptions options = this.texture.initDraw().light(light).rotate(this.getAngle(), this.texture.getWidth() / 2, this.texture.getHeight() / 2).pos(drawX, drawY - (int)this.getHeight());
+            int drawX = camera.getDrawX(x) - texture.getWidth() / 2;
+            int drawY = camera.getDrawY(y) - texture.getHeight() / 2;
+            final TextureDrawOptions options = texture.initDraw().light(light).rotate(getAngle(), texture.getWidth() / 2, texture.getHeight() / 2).pos(drawX, drawY - (int)getHeight());
             list.add(new EntityDrawable(this)
             {
                 public void draw(TickManager tickManager) {
                     options.draw();
                 }
             });
-            this.addShadowDrawables(tileList, drawX, drawY, light, this.getAngle(), this.shadowTexture.getHeight() / 2);
+            addShadowDrawables(tileList, drawX, drawY, light, getAngle(), shadowTexture.getHeight() / 2);
         }
     }
 

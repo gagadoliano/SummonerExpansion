@@ -59,12 +59,12 @@ public class ExplosiveSnowmanMinion extends AttackingFollowingMob
             if (getAttackOwner().buffManager.hasBuff("frostcrownsetbonus"))
             {
                 SnowmanSetLevelEvent explosionLevelEvent = new SnowmanSetLevelEvent(x, y, 250, new GameDamage(summonDamage.damage * 3.0F), false, 0, this);
-                getLevel().entityManager.addLevelEvent(explosionLevelEvent);
+                getLevel().entityManager.events.add(explosionLevelEvent);
             }
             else
             {
                 SnowmanExplosionLevelEvent explosionLevelEvent = new SnowmanExplosionLevelEvent(x, y, 150, new GameDamage(summonDamage.damage * 2.0F), false, 0, this);
-                getLevel().entityManager.addLevelEvent(explosionLevelEvent);
+                getLevel().entityManager.events.add(explosionLevelEvent);
             }
 
             remove(0.0F, 0.0F, null, true);

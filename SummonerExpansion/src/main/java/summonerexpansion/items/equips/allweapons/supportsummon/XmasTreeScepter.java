@@ -12,9 +12,9 @@ import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.Attac
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.Item;
-import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
+import summonerexpansion.items.equips.allweapons.basesummon.BaseSupportWeapon;
 
 public class XmasTreeScepter extends BaseSupportWeapon
 {

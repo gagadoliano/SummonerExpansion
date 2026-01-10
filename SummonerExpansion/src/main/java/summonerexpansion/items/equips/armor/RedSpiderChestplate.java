@@ -12,7 +12,7 @@ import necesse.inventory.lootTable.presets.BodyArmorLootTable;
 
 public class RedSpiderChestplate extends ChestArmorItem
 {
-    public FloatUpgradeValue summonSpd = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1F, 0.20F).setUpgradedValue(10F, 0.40F);
+    public FloatUpgradeValue summonSpeed = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1F, 0.20F).setUpgradedValue(10F, 0.40F);
 
     public RedSpiderChestplate(int enchantCost, Item.Rarity rarityTier)
     {
@@ -21,6 +21,6 @@ public class RedSpiderChestplate extends ChestArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.SUMMONS_SPEED, summonSpd.getValue(getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.SUMMONS_SPEED, summonSpeed.getValue(getUpgradeTier(item))));
     }
 }

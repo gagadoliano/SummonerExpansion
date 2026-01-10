@@ -90,7 +90,7 @@ public class SpiritGhoulMinion extends AttackingFollowingMob
             if (distanceRan - distanceRanSinceLastPoolSpawn > poolSpawnRunDistance)
             {
                 SpiritGhoulPoolEvent event = new SpiritGhoulPoolEvent(this, (int)x, (int)y, GameRandom.globalRandom, summonDamage.modFinalMultiplier(0.5F), 4.0F);
-                getLevel().entityManager.addLevelEvent(event);
+                getLevel().entityManager.events.add(event);
                 distanceRanSinceLastPoolSpawn = distanceRan;
             }
         }

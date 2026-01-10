@@ -19,11 +19,12 @@ import necesse.gfx.drawOptions.DrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import summonerexpansion.mobs.summonminions.baseminions.SentryBase;
 
 import java.awt.*;
 import java.util.List;
 
-public class ClawDemonPortalSentry extends AttackingFollowingMob
+public class ClawDemonPortalSentry extends SentryBase
 {
     public float moveAngle;
     public int portalCharge;
@@ -31,10 +32,7 @@ public class ClawDemonPortalSentry extends AttackingFollowingMob
 
     public ClawDemonPortalSentry()
     {
-        super(10);
-        setSpeed(0.0F);
-        setFriction(0F);
-        attackCooldown = 2000;
+        super(2000F, 1000F);
         collision = new Rectangle(-10, -12, 20, 20);
         hitBox = new Rectangle(-15, -17, 30, 30);
         selectBox = new Rectangle(-18, -58, 36, 58);
@@ -85,8 +83,6 @@ public class ClawDemonPortalSentry extends AttackingFollowingMob
             remove(0.0F, 0.0F, null, true);
         }
     }
-
-    public boolean canBePushed(Mob other) {return false;}
 
     public void spawnDeathParticles(float knockbackX, float knockbackY)
     {

@@ -29,7 +29,7 @@ import necesse.level.maps.Level;
 
 public class BloodplateMaskSetBonus extends SetBonusBuff
 {
-    public FloatUpgradeValue batDamage = (new FloatUpgradeValue()).setBaseValue(0F).setUpgradedValue(1, 20.0F).setUpgradedValue(10, 100.0F);
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue()).setBaseValue(0F).setUpgradedValue(1, 20.0F).setUpgradedValue(10, 100.0F);
     public FloatUpgradeValue summonSpeed = (new FloatUpgradeValue()).setBaseValue(0).setUpgradedValue(1, 0.20F).setUpgradedValue(10, 0.80F);
     public IntUpgradeValue maxHealth = (new IntUpgradeValue()).setBaseValue(0).setUpgradedValue(1, 20).setUpgradedValue(10, 100);
 
@@ -53,13 +53,13 @@ public class BloodplateMaskSetBonus extends SetBonusBuff
     public void onHasKilledTarget(ActiveBuff buff, MobWasKilledEvent event)
     {
         super.onHasKilledTarget(buff, event);
-        if (batDamage.getValue(buff.getUpgradeTier()) > 0 && event.target.isHostile && buff.owner.isItemAttacker && buff.owner.getHealthPercent() <= 0.50F)
+        if (minionDamage.getValue(buff.getUpgradeTier()) > 0 && event.target.isHostile && buff.owner.isItemAttacker && buff.owner.getHealthPercent() <= 0.50F)
         {
             ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
             float count = attackerMob.serverFollowersManager.getFollowerCount("bloodplatesetbuff");
             if (count <= 0.0F)
             {
-                GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, batDamage.getValue(buff.getUpgradeTier()));
+                GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier()));
                 Level level = buff.owner.getLevel();
                 AttackingFollowingMob mob = (AttackingFollowingMob) MobRegistry.getMob("batsetminion", level);
                 attackerMob.serverFollowersManager.addFollower("bloodplatesetbuff", mob, FollowPosition.FLYING_CIRCLE, "summonedmob", 1F, 1, null, false);
@@ -82,7 +82,7 @@ public class BloodplateMaskSetBonus extends SetBonusBuff
     {
         ListGameTooltips tooltips = super.getTooltip(ab, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "bloodplatemasksettip"));
-        if (batDamage.getValue(ab.getUpgradeTier()) > 0)
+        if (minionDamage.getValue(ab.getUpgradeTier()) > 0)
         {
             tooltips.add(Localization.translate("itemtooltip", "bloodplatemasksettip2"));
         }

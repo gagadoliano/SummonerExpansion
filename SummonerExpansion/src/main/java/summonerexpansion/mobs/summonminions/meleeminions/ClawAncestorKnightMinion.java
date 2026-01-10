@@ -23,6 +23,8 @@ import necesse.level.maps.light.GameLight;
 import java.awt.*;
 import java.util.List;
 
+import static summonerexpansion.codes.registry.SummonerTextures.ancestorKnightMinion;
+
 public class ClawAncestorKnightMinion extends AncestorFollowingMob
 {
     private int hitCount;
@@ -85,7 +87,7 @@ public class ClawAncestorKnightMinion extends AncestorFollowingMob
         drawY += getBobbing(x, y);
         drawY += getLevel().getTile(x / 32, y / 32).getMobSinkingAmount(this);
         MaskShaderOptions swimMask = getSwimMaskShaderOptions(inLiquidFloat(x, y));
-        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, MobRegistry.Textures.ancestorKnight)).sprite(sprite).mask(swimMask).dir(dir).light(light).alpha(0.5F);
+        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, ancestorKnightMinion)).sprite(sprite).mask(swimMask).dir(dir).light(light).alpha(0.5F);
         if (isAttacking)
         {
             humanDrawOptions.itemAttack(new InventoryItem("ancestorsword"), null, animProgress, attackDir.x, attackDir.y).alpha(0.25F);

@@ -13,6 +13,7 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.Item;
 import necesse.inventory.item.baitItem.BaitItem;
+import necesse.inventory.item.matItem.MatItem;
 import necesse.inventory.item.miscItem.BannerItem;
 import necesse.inventory.item.placeableItem.consumableItem.TrinketSlotsIncreaseItem;
 import necesse.inventory.item.placeableItem.consumableItem.food.FoodConsumableItem;
@@ -29,6 +30,9 @@ public class SummonerItems
     public static void registerSummonItems()
     {
         // Materials
+        ItemRegistry.registerItem("ancientlog", (new MatItem(500, "anylog")).setItemCategory("materials", "logs"), 2.0F, true);
+        ItemRegistry.registerItem("titaniumbar", (new MatItem(250, Item.Rarity.RARE)).setItemCategory("materials", "bars"), 4.0F, true);
+        ItemRegistry.registerItem("titaniumore", (new MatItem(500, Item.Rarity.RARE)).setItemCategory("materials", "ore"), 1.0F, true);
         ItemRegistry.registerItem("purehorror", new PureHorror(), 50, true);
 
         // Boss Summon
@@ -37,10 +41,14 @@ public class SummonerItems
         // Bags
         ItemRegistry.registerItem("shadowhorrorbag", new ShadowHorrorBag(), 50, true);
 
+        // Loot Bag
+        ItemRegistry.registerItem("sunkenchest", new SunkenChest(), 50, true);
+
         // Stat increases
         ItemRegistry.registerItem("fusedessences", new TrinketSlotsIncreaseItem(9), 500.0F, true, true);
 
-        // Bait
+        // Fishing
+        ItemRegistry.registerItem("ancientwoodfishingrod", new AncientWoodFishingRod(), 40.0F, true);
         ItemRegistry.registerItem("myceliumworm", new BaitItem(true, 50), 20.0F, true);
 
         // Foods
@@ -84,6 +92,9 @@ public class SummonerItems
         BuffRegistry.registerBuff("minionequinoxbuff", new MinionEquinoxBuff());
 
         // Maps
+        ItemRegistry.registerItem("ancientforestmap", new WorldPresetMapItem(Item.Rarity.RARE, LevelIdentifier.SURFACE_IDENTIFIER, 800, "ancientforesticon", new LocalMessage("biome", "ancientforestminibiome"), "ancientforestminibiome"), 40f, true);
+        ItemRegistry.registerItem("beehivemap", new WorldPresetMapItem(Item.Rarity.RARE, LevelIdentifier.SURFACE_IDENTIFIER, 800, "beehivechesticon", new LocalMessage("biome", "beehivearea"), "beehivearea"), 40f, true);
+        ItemRegistry.registerItem("titaniumnodemap", new WorldPresetMapItem(Item.Rarity.RARE, LevelIdentifier.CAVE_IDENTIFIER, 800, "titaniumicon", new LocalMessage("biome", "titaniumorenode"), "titaniumorenode"), 40f, true);
         ItemRegistry.registerItem("druidhousemap", new WorldPresetMapItem(Item.Rarity.RARE, LevelIdentifier.SURFACE_IDENTIFIER, 800, "druidhomeicon", new LocalMessage("biome", "druidswamphouse"), "druidswamphouse", "druidswamphouseduo", "druidswamphouseside", "druidswamphouseloot", "druidswamphousecave", "druidswamphousealtar"), 40f, true);
         ItemRegistry.registerItem("horrorcultmap", new WorldPresetMapItem(Item.Rarity.RARE, LevelIdentifier.DEEP_CAVE_IDENTIFIER, 800, "horrorculticon", new LocalMessage("biome", "horrorsmallarena"), "horrorsmallarena")
         {
@@ -94,5 +105,8 @@ public class SummonerItems
                 return tooltips;
             }
         }, 40f, true);
+
+        // Critters
+        ItemRegistry.registerItem("honeybeeguardmob", new SummonBugHostileSpawnItem("honeybeeguardmob"), 10, true);
     }
 }

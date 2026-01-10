@@ -22,21 +22,20 @@ import necesse.gfx.gameTexture.GameTexture;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import summonerexpansion.mobs.summonminions.baseminions.SentryBase;
 
 import java.awt.*;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class XmasTreeSentry extends AttackingFollowingMob implements OEVicinityBuff
+public class XmasTreeSentry extends SentryBase implements OEVicinityBuff
 {
     public static GameTexture texture;
     public float moveAngle;
 
     public XmasTreeSentry()
     {
-        super(10);
-        setSpeed(0.0F);
-        setFriction(0F);
+        super(3000F, 1000F);
         collision = new Rectangle(0, 0, 54, 100);
         hitBox = new Rectangle(0, 0, 54, 100);
         selectBox = new Rectangle();
@@ -45,7 +44,7 @@ public class XmasTreeSentry extends AttackingFollowingMob implements OEVicinityB
     public void init()
     {
         super.init();
-        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI(0, null, 0, 0, 90000, 64));
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI<>(0, null, 0, 0, 90000, 64));
     }
 
     public Buff[] getBuffs() {
@@ -107,10 +106,6 @@ public class XmasTreeSentry extends AttackingFollowingMob implements OEVicinityB
     @Override
     public Mob getFirstAttackOwner() {
         return this;
-    }
-
-    public boolean canBePushed(Mob other) {
-        return false;
     }
 
     public void spawnDeathParticles(float knockbackX, float knockbackY)

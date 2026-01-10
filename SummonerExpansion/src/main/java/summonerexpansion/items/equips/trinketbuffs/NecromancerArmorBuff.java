@@ -18,8 +18,10 @@ import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.FlyingAttackingFollowingMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
+import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.trinketItem.TrinketItem;
 
+import java.util.LinkedList;
 import java.util.function.BiConsumer;
 
 public class NecromancerArmorBuff extends TrinketBuff
@@ -103,7 +105,7 @@ public class NecromancerArmorBuff extends TrinketBuff
         {
             ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
             FlyingAttackingFollowingMob mob = (FlyingAttackingFollowingMob) MobRegistry.getMob("horrorbatminion", buff.owner.getLevel());
-            attackerMob.serverFollowersManager.addFollower("horrorcapebuff", mob, FollowPosition.FLYING_CIRCLE, "summonedmob", 1.0F, 3, (BiConsumer)null, false);
+            attackerMob.serverFollowersManager.addFollower("horrorcapebuff", mob, FollowPosition.FLYING_CIRCLE, "summonedmob", 1.0F, 3, null, false);
             mob.updateDamage(damage);
             mob.getLevel().entityManager.addMob(mob, buff.owner.x, buff.owner.y);
         }

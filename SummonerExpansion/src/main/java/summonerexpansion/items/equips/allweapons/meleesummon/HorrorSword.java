@@ -47,7 +47,6 @@ public class HorrorSword extends SwordToolItem
         tierTwoEssencesUpgradeRequirement = "purehorror";
     }
 
-    @Override
     public void hitMob(InventoryItem item, ToolItemMobAbilityEvent event, Level level, Mob target, Mob attacker)
     {
         super.hitMob(item, event, level, target, attacker);
@@ -76,7 +75,6 @@ public class HorrorSword extends SwordToolItem
         return item;
     }
 
-    @Override
     public int getAttackAnimTime(InventoryItem item, ItemAttackerMob attackerMob)
     {
         int horrorBuff = attackerMob.buffManager.getStacks(BuffRegistry.getBuff("horrorswordstack"));
@@ -86,7 +84,6 @@ public class HorrorSword extends SwordToolItem
         return super.getAttackAnimTime(item, attackerMob);
     }
 
-    @Override
     public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard)
     {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);

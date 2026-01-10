@@ -17,11 +17,12 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import summonerexpansion.mobs.summonminions.baseminions.SentryBase;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
 
-public class SetArcanicPylonSentry extends AttackingFollowingMob
+public class SetArcanicPylonSentry extends SentryBase
 {
     public int lifeTime = 0;
     public int lifeStart = 0;
@@ -29,7 +30,7 @@ public class SetArcanicPylonSentry extends AttackingFollowingMob
 
     public SetArcanicPylonSentry()
     {
-        super(10);
+        super(3000F, 1000F);
         setSpeed(0F);
         setFriction(0F);
         collision = new Rectangle(-10, -7, 20, 14);
@@ -38,7 +39,6 @@ public class SetArcanicPylonSentry extends AttackingFollowingMob
         swimMaskMove = 16;
         swimMaskOffset = -2;
         swimSinkOffset = -4;
-        attackCooldown = 3000;
     }
 
     public void init()
@@ -51,7 +51,7 @@ public class SetArcanicPylonSentry extends AttackingFollowingMob
                 if (mob.canAttack())
                 {
                     mob.attack(target.getX(), target.getY(), false);
-                    mob.getLevel().entityManager.addLevelEvent(new ArcanicPylonLightningLevelEvent(mob, 300, summonDamage.getTotalDamage(target, mob, 1F), target.getPositionPoint()));
+                    mob.getLevel().entityManager.events.addHidden(new ArcanicPylonLightningLevelEvent(mob, 300, summonDamage.getTotalDamage(target, mob, 1F), target.getPositionPoint()));
                     return true;
                 }
                 else
@@ -95,10 +95,6 @@ public class SetArcanicPylonSentry extends AttackingFollowingMob
                 getLevel().entityManager.addParticle(startX, startY, Particle.GType.IMPORTANT_COSMETIC).sprite(GameResources.puffParticles.sprite(GameRandom.globalRandom.nextInt(5), 0, 12)).sizeFades(10, 16).rotates().heightMoves(startHeight, endHeight).movesConstant(-speed, 0.0F).color(color).fadesAlphaTime(100, 50).lifeTime(lifeTime);
             }
         }
-    }
-
-    public boolean canBePushed(Mob other) {
-        return false;
     }
 
     public void spawnDeathParticles(float knockbackX, float knockbackY)

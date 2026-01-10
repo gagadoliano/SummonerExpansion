@@ -15,8 +15,8 @@ import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class AgedSummonerHelmet extends SetHelmetArmorItem
 {
-    public FloatUpgradeValue resDecay = (new FloatUpgradeValue()).setBaseValue(-0.5F).setUpgradedValue(1F, -0.6F).setUpgradedValue(5F, -1F).setUpgradedValue(10F, -1F);
-    public IntUpgradeValue maxSummon = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 3);
+    public FloatUpgradeValue resilienceDecay = (new FloatUpgradeValue()).setBaseValue(-0.5F).setUpgradedValue(1F, -0.6F).setUpgradedValue(5F, -1F).setUpgradedValue(10F, -1F);
+    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 3);
 
     public AgedSummonerHelmet(int enchantCost, Item.Rarity rarityTier)
     {
@@ -26,6 +26,6 @@ public class AgedSummonerHelmet extends SetHelmetArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue(BuffModifiers.SUMMON_CRIT_CHANCE, 0.10F), new ModifierValue(BuffModifiers.MAX_SUMMONS, maxSummon.getValue(getUpgradeTier(item))), new ModifierValue(BuffModifiers.RESILIENCE_DECAY, resDecay.getValue(getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.SUMMON_CRIT_CHANCE, 0.10F), new ModifierValue<>(BuffModifiers.MAX_SUMMONS, maxSummons.getValue(getUpgradeTier(item))), new ModifierValue<>(BuffModifiers.RESILIENCE_DECAY, resilienceDecay.getValue(getUpgradeTier(item))));
     }
 }

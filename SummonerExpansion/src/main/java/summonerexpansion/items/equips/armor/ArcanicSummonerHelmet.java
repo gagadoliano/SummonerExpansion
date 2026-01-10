@@ -27,7 +27,7 @@ public class ArcanicSummonerHelmet extends SetHelmetArmorItem
     private GameTexture lightTexture;
     public FloatUpgradeValue summonRange = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1F, 0.20F).setUpgradedValue(10F, 0.30F);
     public FloatUpgradeValue summonCritDamage = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1F, 0.10F).setUpgradedValue(10F, 0.30F);
-    public IntUpgradeValue maxSummon = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 3);
+    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 3);
 
     public ArcanicSummonerHelmet(int enchantCost, Item.Rarity rarityTier)
     {
@@ -37,7 +37,7 @@ public class ArcanicSummonerHelmet extends SetHelmetArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.SUMMON_CRIT_DAMAGE, summonCritDamage.getValue(getUpgradeTier(item))), new ModifierValue<>(BuffModifiers.SUMMONS_TARGET_RANGE, summonRange.getValue(getUpgradeTier(item))),  new ModifierValue<>(BuffModifiers.MAX_SUMMONS, maxSummon.getValue(getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.SUMMON_CRIT_DAMAGE, summonCritDamage.getValue(getUpgradeTier(item))), new ModifierValue<>(BuffModifiers.SUMMONS_TARGET_RANGE, summonRange.getValue(getUpgradeTier(item))),  new ModifierValue<>(BuffModifiers.MAX_SUMMONS, maxSummons.getValue(getUpgradeTier(item))));
     }
 
     protected void loadArmorTexture()

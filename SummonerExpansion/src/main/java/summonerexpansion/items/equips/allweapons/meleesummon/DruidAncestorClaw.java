@@ -11,17 +11,15 @@ import necesse.entity.mobs.buffs.staticBuffs.Buff;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackSlot;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
-import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AncestorKnightFollowingMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.Item;
 import necesse.inventory.item.ItemInteractAction;
-import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 import necesse.inventory.lootTable.presets.CloseRangeWeaponsLootTable;
 import necesse.level.maps.Level;
 import summonerexpansion.codes.registry.SummonerBuffs;
+import summonerexpansion.items.equips.allweapons.basesummon.DruidClaw;
 import summonerexpansion.mobs.summonminions.meleeminions.ClawAncestorKnightMinion;
-import summonerexpansion.mobs.summonminions.meleeminions.ClawDemonPortalSentry;
 
 import java.awt.*;
 

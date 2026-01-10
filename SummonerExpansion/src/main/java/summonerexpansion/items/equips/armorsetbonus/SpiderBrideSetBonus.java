@@ -32,7 +32,7 @@ import java.util.LinkedList;
 
 public class SpiderBrideSetBonus extends SetBonusBuff implements BuffAbility
 {
-    public FloatUpgradeValue spiderDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(35F).setUpgradedValue(1F, 35.0F);
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(35F).setUpgradedValue(1F, 35.0F);
     public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1F, 2).setUpgradedValue(10F, 3);
     public IntUpgradeValue minionDuration = (new IntUpgradeValue()).setBaseValue(300).setUpgradedValue(1F, 400).setUpgradedValue(10F, 1200);
 
@@ -59,7 +59,7 @@ public class SpiderBrideSetBonus extends SetBonusBuff implements BuffAbility
 
         if (player.isServer())
         {
-            GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, spiderDamage.getValue(buff.getUpgradeTier()));
+            GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier()));
             ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
             SetSpiderBrideMinion mob = new SetSpiderBrideMinion();
             attackerMob.serverFollowersManager.addFollower("summonedspiderbridebuff", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1F, 1, null, false);
@@ -88,7 +88,7 @@ public class SpiderBrideSetBonus extends SetBonusBuff implements BuffAbility
     {
         super.addStatTooltips(list, currentValues, lastValues);
         currentValues.getModifierTooltipsBuilder(true, false).addLastValues(lastValues).excludeLimits(BuffModifiers.SLOW).buildToStatList(list);
-        float damage = spiderDamage.getValue(currentValues.getUpgradeTier());
+        float damage = minionDamage.getValue(currentValues.getUpgradeTier());
         if (currentValues.owner != null)
         {
             damage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
@@ -102,7 +102,7 @@ public class SpiderBrideSetBonus extends SetBonusBuff implements BuffAbility
         };
         if (lastValues != null)
         {
-            float compareDamage = spiderDamage.getValue(lastValues.getUpgradeTier());
+            float compareDamage = minionDamage.getValue(lastValues.getUpgradeTier());
             if (lastValues.owner != null)
             {
                 compareDamage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);

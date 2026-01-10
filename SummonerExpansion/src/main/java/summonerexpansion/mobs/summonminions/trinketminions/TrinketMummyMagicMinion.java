@@ -1,7 +1,6 @@
 package summonerexpansion.mobs.summonminions.trinketminions;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
-import necesse.engine.registries.MobRegistry;
 import necesse.engine.registries.ProjectileRegistry;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
@@ -25,6 +24,8 @@ import necesse.level.maps.light.GameLight;
 
 import java.awt.*;
 import java.util.List;
+
+import static summonerexpansion.codes.registry.SummonerTextures.mummyMagicMinion;
 
 public class TrinketMummyMagicMinion extends AttackingFollowingMob
 {
@@ -99,7 +100,7 @@ public class TrinketMummyMagicMinion extends AttackingFollowingMob
     {
         for(int i = 0; i < 4; ++i)
         {
-            getLevel().entityManager.addParticle(new FleshParticle(this.getLevel(), MobRegistry.Textures.mummyMage.body, GameRandom.globalRandom.nextInt(5), 8, 32, this.x, this.y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
+            getLevel().entityManager.addParticle(new FleshParticle(this.getLevel(), mummyMagicMinion.body, GameRandom.globalRandom.nextInt(5), 8, 32, this.x, this.y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
         }
     }
 
@@ -114,11 +115,11 @@ public class TrinketMummyMagicMinion extends AttackingFollowingMob
         drawY += this.getBobbing(x, y);
         drawY += this.getLevel().getTile(x / 32, y / 32).getMobSinkingAmount(this);
         MaskShaderOptions swimMask = this.getSwimMaskShaderOptions(this.inLiquidFloat(x, y));
-        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, MobRegistry.Textures.mummyMage)).sprite(sprite).dir(dir).mask(swimMask).light(light);
+        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, mummyMagicMinion)).sprite(sprite).dir(dir).mask(swimMask).light(light);
         float animProgress = this.getAttackAnimProgress();
         if (isAttacking)
         {
-            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).armSprite(MobRegistry.Textures.mummyMage.body, 0, 8, 32).swingRotation(animProgress).light(light);
+            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).armSprite(mummyMagicMinion.body, 0, 8, 32).swingRotation(animProgress).light(light);
             humanDrawOptions.attackAnim(attackOptions, animProgress);
         }
         final DrawOptions drawOptions = humanDrawOptions.pos(drawX, drawY);

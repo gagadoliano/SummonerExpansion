@@ -16,6 +16,16 @@ public class SummonerMobs
 {
     public static void registerSummonMobs()
     {
+        SummonerMobs.registerSummonWeaponMinions();
+        SummonerMobs.registerSummonArmorMinions();
+        SummonerMobs.registerSummonTrinketMinions();
+        SummonerMobs.registerSummonBase();
+        SummonerMobs.registerSummonSettlers();
+        SummonerMobs.registerSummonEntity();
+    }
+
+    public static void registerSummonWeaponMinions()
+    {
         // Minions
         MobRegistry.registerMob("enchantedbabyzombiearcherminion", EnchantedBabyZombieArcherMinion.class, false);
         MobRegistry.registerMob("enchantedbabyzombieminion", EnchantedBabyZombieMinion.class, false);
@@ -41,32 +51,32 @@ public class SummonerMobs
         MobRegistry.registerMob("cactusminion", CactusMinion.class, false);
         MobRegistry.registerMob("farmerminion", FarmerMinion.class, false);
         MobRegistry.registerMob("bearminion", BearMinion.class, false);
-        MobRegistry.registerMob("yangninjaminion", YangNinjaMinion.class, false);
-        MobRegistry.registerMob("yinninjaminion", YinNinjaMinion.class, false);
 
         // Worm Minions
-        MobRegistry.registerMob("sandwormheadminion", SandWormHeadMinion.class, false);
-        MobRegistry.registerMob("sandwormbodyminion", SandWormBodyMinion.class, false);
         MobRegistry.registerMob("fallendragonheadminion", FallenDragonHeadMinion.class, false);
         MobRegistry.registerMob("fallendragonbodyminion", FallenDragonBodyMinion.class, false);
+        MobRegistry.registerMob("sandwormheadminion", SandWormHeadMinion.class, false);
+        MobRegistry.registerMob("sandwormbodyminion", SandWormBodyMinion.class, false);
 
         // Secondary Minions
         MobRegistry.registerMob("explosivesnowmanminion", ExplosiveSnowmanMinion.class, false);
         MobRegistry.registerMob("runicshieldminion", BookRunicShieldMinion.class, false);
         MobRegistry.registerMob("magmaslimeminion", BookMagmaSlimeMinion.class, false);
         MobRegistry.registerMob("frozendwarfminion", BookFrozenMinion.class, false);
-        MobRegistry.registerMob("woodpickminion", WoodPickMinion.class, false);
-        MobRegistry.registerMob("woodaxeminion", WoodAxeMinion.class, false);
         MobRegistry.registerMob("copperpickminion", CopperPickMinion.class, false);
         MobRegistry.registerMob("copperaxeminion", CopperAxeMinion.class, false);
+        MobRegistry.registerMob("woodpickminion", WoodPickMinion.class, false);
         MobRegistry.registerMob("ironpickminion", IronPickMinion.class, false);
-        MobRegistry.registerMob("ironaxeminion", IronAxeMinion.class, false);
         MobRegistry.registerMob("goldpickminion", GoldPickMinion.class, false);
+        MobRegistry.registerMob("woodaxeminion", WoodAxeMinion.class, false);
+        MobRegistry.registerMob("ironaxeminion", IronAxeMinion.class, false);
         MobRegistry.registerMob("goldaxeminion", GoldAxeMinion.class, false);
         MobRegistry.registerMob("beebookminion", BookBeeMinion.class, false);
 
         // Melee Minions
         MobRegistry.registerMob("horrorcrawlingzombieminion", HorrorCrawlingZombieMinion.class, false);
+        MobRegistry.registerMob("clawancestorknightminion", ClawAncestorKnightMinion.class, false);
+        MobRegistry.registerMob("clawdemonportalminion", ClawDemonPortalMinion.class, false);
         MobRegistry.registerMob("fishmackerelminion", FishMackerelMinion.class, false);
         MobRegistry.registerMob("fishherringminion", FishHerringMinion.class, false);
         MobRegistry.registerMob("goblinchestminion", GoblinChestMinion.class, false);
@@ -78,31 +88,18 @@ public class SummonerMobs
         MobRegistry.registerMob("fishtroutminion", FishTroutMinion.class, false);
         MobRegistry.registerMob("fishcarpminion", FishCarpMinion.class, false);
         MobRegistry.registerMob("fishianminion", FishianMinion.class, false);
-        MobRegistry.registerMob("clawancestorknightminion", ClawAncestorKnightMinion.class, false);
-        MobRegistry.registerMob("clawdemonportalminion", ClawDemonPortalMinion.class, false);
+        MobRegistry.registerMob("planetmarsproj", PlanetMarsMinion.class, false);
+        MobRegistry.registerMob("planetneptuneproj", PlanetNeptuneMinion.class, false);
+        MobRegistry.registerMob("planetsaturnproj", PlanetSaturnMinion.class, false);
+        MobRegistry.registerMob("planetvenusproj", PlanetVenusMinion.class, false);
 
         // Range Minions
         MobRegistry.registerMob("mosquitobowminion", BowMosquitoMinion.class, false);
+        MobRegistry.registerMob("yangninjaminion", YangNinjaMinion.class, false);
+        MobRegistry.registerMob("yinninjaminion", YinNinjaMinion.class, false);
 
         // Magic Minions
-
-        // Armor Minions
-        MobRegistry.registerMob("ghostcaptainsminion", SetGhostCaptainMinion.class, false);
-        MobRegistry.registerMob("sharpshooterminion", SetSharpshooterMinion.class, false);
-        MobRegistry.registerMob("agedchampionminion", SetAgedChampionMinion.class, false);
-        MobRegistry.registerMob("spiderbrideminion", SetSpiderBrideMinion.class, false);
-        MobRegistry.registerMob("horrorbabyminion", SetHorrorBabyMinion.class, false);
-        MobRegistry.registerMob("ravenlordminion", SetRavenlordMinion.class, false);
-        MobRegistry.registerMob("locustminion", SetLocustMinion.class, false);
-        MobRegistry.registerMob("sailorminion", SetSailorMinion.class, false);
-        MobRegistry.registerMob("mouseminion", SetMouseMinion.class, false);
-        MobRegistry.registerMob("chefminion", SetChefMinion.class, false);
-        MobRegistry.registerMob("batsetminion", SetBatMinion.class, false);
-
-        // Trinket Minions
-        MobRegistry.registerMob("mummysummonminion", TrinketMummySummonMinion.class, false);
-        MobRegistry.registerMob("mummymagicminion", TrinketMummyMagicMinion.class, false);
-        MobRegistry.registerMob("horrorbatminion", TrinketHorrorBatMinion.class, false);
+        MobRegistry.registerMob("pinewoodminion", PineWoodMinion.class, false);
 
         // Sentries
         MobRegistry.registerMob("mushroomsentry", BookMushroomSentry.class, false);
@@ -132,23 +129,67 @@ public class SummonerMobs
         MobRegistry.registerMob("leafshotheatsentry", LeafShotHeatSentry.class, false);
         MobRegistry.registerMob("leafshotsentry", LeafShotSentry.class, false);
 
-        // Armor Sentry
-        MobRegistry.registerMob("arcanicpylonsentry", SetArcanicPylonSentry.class, false);
-
         // Minions from minions
         MobRegistry.registerMob("batcryptminion", VampireBatCryptMinion.class, false);
         MobRegistry.registerMob("mushroomminion", BookMushroomMinion.class, false);
         MobRegistry.registerMob("beeminion", BeeMinion.class, false);
+    }
 
-        // Settlers
-        MobRegistry.registerMob("druidhuman", DruidHumanMob.class, true);
+    public static void registerSummonArmorMinions()
+    {
+        // Armor Minions
+        MobRegistry.registerMob("settitaniumsummonminion", SetTitaniumSummonMinion.class, false);
+        MobRegistry.registerMob("settitaniumrangedminion", SetTitaniumRangedMinion.class, false);
+        MobRegistry.registerMob("settitaniummagicminion", SetTitaniumMagicMinion.class, false);
+        MobRegistry.registerMob("settitaniummeleeminion", SetTitaniumMeleeMinion.class, false);
 
-        // Others
-        MobRegistry.registerMob("tanktrainingdummy", TankTrainingDummyMob.class, false, false, new LocalMessage("object", "trainingdummy"), null);
+        MobRegistry.registerMob("ghostcaptainsminion", SetGhostCaptainMinion.class, false);
+        MobRegistry.registerMob("sharpshooterminion", SetSharpshooterMinion.class, false);
+        MobRegistry.registerMob("agedchampionminion", SetAgedChampionMinion.class, false);
+        MobRegistry.registerMob("slimewarriorminion", SetSlimeWarriorMinion.class, false);
+        MobRegistry.registerMob("spiderbrideminion", SetSpiderBrideMinion.class, false);
+        MobRegistry.registerMob("horrorbabyminion", SetHorrorBabyMinion.class, false);
+        MobRegistry.registerMob("slimemageminion", SetSlimeMageMinion.class, false);
+        MobRegistry.registerMob("ravenlordminion", SetRavenlordMinion.class, false);
+        MobRegistry.registerMob("setcloudminion", SetCloudMinion.class, false);
+        MobRegistry.registerMob("locustminion", SetLocustMinion.class, false);
+        MobRegistry.registerMob("sailorminion", SetSailorMinion.class, false);
+        MobRegistry.registerMob("mouseminion", SetMouseMinion.class, false);
+        MobRegistry.registerMob("batsetminion", SetBatMinion.class, false);
+        MobRegistry.registerMob("chefminion", SetChefMinion.class, false);
 
+        // Armor Sentry
+        MobRegistry.registerMob("arcanicpylonsentry", SetArcanicPylonSentry.class, false);
+    }
+
+    public static void registerSummonTrinketMinions()
+    {
+        // T1
+        // T2
+        // T3
+        MobRegistry.registerMob("mummysummonminion", TrinketMummySummonMinion.class, false);
+        MobRegistry.registerMob("mummymagicminion", TrinketMummyMagicMinion.class, false);
+        MobRegistry.registerMob("horrorbatminion", TrinketHorrorBatMinion.class, false);
+        // T4
+    }
+
+    public static void registerSummonBase()
+    {
         // Base
         MobRegistry.registerMob("magictoolbase", MagicToolBase.class, false, false, false);
         MobRegistry.registerMob("humantoolbase", HumanToolBase.class, false, false, false);
         MobRegistry.registerMob("magiclampbase", MagicLampBase.class, false, false, false);
+    }
+
+    public static void registerSummonSettlers()
+    {
+        // Swamp
+        MobRegistry.registerMob("druidhuman", DruidHumanMob.class, true);
+    }
+
+    public static void registerSummonEntity()
+    {
+        // Dummy
+        MobRegistry.registerMob("tanktrainingdummy", TankTrainingDummyMob.class, false, false, new LocalMessage("object", "trainingdummy"), null);
     }
 }

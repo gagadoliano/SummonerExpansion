@@ -9,7 +9,13 @@ import static summonerexpansion.codes.registry.SummonerTechs.*;
 
 public class SummonerRecipesArmor
 {
-    public static void registerSummonRecipes()
+    public static void registerSummonArmorRecipes()
+    {
+        SummonerRecipesArmor.registerSummonTable();
+        SummonerRecipesArmor.registerSummonAnvil();
+    }
+
+    public static void registerSummonTable()
     {
         // Summon table
         Recipes.registerModRecipe(new Recipe(
@@ -97,6 +103,39 @@ public class SummonerRecipesArmor
                 new Ingredient[]{
                         new Ingredient("cavespidergland", 6),
                         new Ingredient("clay", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "rainsummonhat",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("rainhat", 1),
+                        new Ingredient("fishingpotion", 1),
+                        new Ingredient("swamplarva", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "rainsummoncoat",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("raincoat", 1),
+                        new Ingredient("fishingpotion", 1),
+                        new Ingredient("anglersbait", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "rainsummonboots",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("rainboots", 1),
+                        new Ingredient("fishingpotion", 1),
+                        new Ingredient("wormbait", 5)
                 }
         ));
 
@@ -314,6 +353,60 @@ public class SummonerRecipesArmor
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "titaniummeleehelmet",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("titaniumbar", 12)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "titaniumrangedhelmet",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("titaniumbar", 12)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "titaniummagichelmet",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("titaniumbar", 12)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "titaniumsummonhelmet",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("titaniumbar", 12)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "titaniumchestplate",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("titaniumbar", 15)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "titaniumboots",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("titaniumbar", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "ivycirclet",
                 1,
                 SUMMONTABLECRAFT2,
@@ -399,7 +492,7 @@ public class SummonerRecipesArmor
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
                         new Ingredient("runicchestplate", 1),
-                        new Ingredient("clothrobe", 10),
+                        new Ingredient("clothrobe", 1),
                         new Ingredient("clothscraps", 5)
                 }
         ));
@@ -410,7 +503,7 @@ public class SummonerRecipesArmor
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
                         new Ingredient("runicboots", 1),
-                        new Ingredient("clothboots", 10),
+                        new Ingredient("clothboots", 1),
                         new Ingredient("clothscraps", 5)
                 }
         ));
@@ -809,6 +902,39 @@ public class SummonerRecipesArmor
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "slimehood",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("slimematter", 12),
+                        new Ingredient("slimeum", 12),
+                        new Ingredient("slimestone", 48)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "slimechestplate",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("slimematter", 16),
+                        new Ingredient("slimeum", 16),
+                        new Ingredient("slimestone", 64)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "slimeboots",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("slimematter", 8),
+                        new Ingredient("slimeum", 8),
+                        new Ingredient("slimestone", 24)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "nightsteelcirclet",
                 1,
                 SUMMONTABLECRAFT4,
@@ -975,7 +1101,10 @@ public class SummonerRecipesArmor
                         new Ingredient("anytier2essence", 15)
                 }
         ));
+    }
 
+    public static void registerSummonAnvil()
+    {
         // Anvil
         Recipes.registerModRecipe(new Recipe(
                 "copperminerhat",
@@ -1067,5 +1196,15 @@ public class SummonerRecipesArmor
                         new Ingredient("omnicrystal", 14)
                 }
         ).showAfter("arcanichelmet"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "slimehood",
+                1,
+                RecipeTechRegistry.FALLEN_ANVIL,
+                new Ingredient[]{
+                        new Ingredient("slimematter", 24),
+                        new Ingredient("slimeum", 24)
+                }
+        ).showAfter("slimehat"));
     }
 }

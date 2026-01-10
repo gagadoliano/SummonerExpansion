@@ -1,7 +1,6 @@
 package summonerexpansion.items.equips.allweapons.meleesummon;
 
 import necesse.engine.localization.Localization;
-import necesse.engine.registries.BuffRegistry;
 import necesse.engine.util.GameBlackboard;
 import necesse.entity.levelEvent.mobAbilityLevelEvent.ToolItemMobAbilityEvent;
 import necesse.entity.mobs.Mob;
@@ -14,6 +13,7 @@ import necesse.inventory.item.ItemInteractAction;
 import necesse.inventory.lootTable.presets.CloseRangeWeaponsLootTable;
 import necesse.level.maps.Level;
 import summonerexpansion.codes.registry.SummonerBuffs;
+import summonerexpansion.items.equips.allweapons.basesummon.DruidClaw;
 
 public class DruidLeatherClaw extends DruidClaw implements ItemInteractAction
 {

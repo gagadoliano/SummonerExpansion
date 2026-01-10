@@ -14,7 +14,7 @@ import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class PlagueSummonerMask extends SetHelmetArmorItem
 {
-    public FloatUpgradeValue speedSummon = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1F, 0.10F).setUpgradedValue(10F, 0.30F);
+    public FloatUpgradeValue summonSpeed = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1F, 0.10F).setUpgradedValue(10F, 0.30F);
 
     public PlagueSummonerMask(int enchantCost, Item.Rarity rarityTier)
     {
@@ -24,6 +24,6 @@ public class PlagueSummonerMask extends SetHelmetArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.MAX_SUMMONS, 1), new ModifierValue<>(BuffModifiers.SUMMONS_SPEED, speedSummon.getValue(getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.MAX_SUMMONS, 1), new ModifierValue<>(BuffModifiers.SUMMONS_SPEED, summonSpeed.getValue(getUpgradeTier(item))));
     }
 }

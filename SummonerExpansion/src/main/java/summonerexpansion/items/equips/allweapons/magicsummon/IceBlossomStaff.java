@@ -2,39 +2,27 @@ package summonerexpansion.items.equips.allweapons.magicsummon;
 
 import necesse.engine.localization.Localization;
 import necesse.engine.network.gameNetworkData.GNDItemMap;
-import necesse.engine.registries.DamageTypeRegistry;
-import necesse.engine.registries.EnchantmentRegistry;
-import necesse.engine.registries.ProjectileRegistry;
-import necesse.engine.sound.SoundEffect;
-import necesse.engine.sound.SoundManager;
 import necesse.engine.util.GameBlackboard;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackSlot;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
-import necesse.entity.projectile.Projectile;
 import necesse.entity.projectile.modifiers.ResilienceOnHitProjectileModifier;
-import necesse.gfx.GameResources;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
-import necesse.inventory.enchants.Enchantable;
-import necesse.inventory.enchants.ItemEnchantment;
-import necesse.inventory.enchants.ToolItemEnchantment;
 import necesse.inventory.item.Item;
-import necesse.inventory.item.ItemCategory;
 import necesse.inventory.item.ItemInteractAction;
-import necesse.inventory.item.toolItem.projectileToolItem.magicProjectileToolItem.MagicProjectileToolItem;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
-import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
+import summonerexpansion.allprojs.magicprojs.IceBlossomProj;
+import summonerexpansion.items.equips.allweapons.basesummon.BaseMagicWeapon;
 import summonerexpansion.mobs.summonminions.magicminions.*;
-
-import java.util.Set;
 
 public class IceBlossomStaff extends BaseMagicWeapon implements ItemInteractAction
 {
-    public IntUpgradeValue sentryLevel = (new IntUpgradeValue()).setBaseValue(2);
+    protected IntUpgradeValue sentryLevel = (new IntUpgradeValue()).setBaseValue(1);
+    protected IntUpgradeValue ricochets = (new IntUpgradeValue()).setBaseValue(1);
 
     public IceBlossomStaff(int enchantCost, Item.Rarity rarityTier)
     {
@@ -42,21 +30,22 @@ public class IceBlossomStaff extends BaseMagicWeapon implements ItemInteractActi
         attackDamage.setBaseValue(25.0F).setUpgradedValue(1, 155F);
         manaCost.setBaseValue(1.75F).setUpgradedValue(1, 4F);
         resilienceGain.setBaseValue(0).setUpgradedValue(1, 1F);
+        knockback.setBaseValue(20);
         attackAnimTime.setBaseValue(800);
         attackRange.setBaseValue(700).setUpgradedValue(1, 1000);
         velocity.setBaseValue(60).setUpgradedValue(1, 70).setUpgradedValue(5, 150);
         sentryLevel.setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(5, 3);
-        knockback.setBaseValue(20);
+        ricochets.setBaseValue(2).setUpgradedValue(1, 4).setUpgradedValue(10, 10);
         canBeUsedForRaids = false;
     }
 
     public InventoryItem onAttack(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight, InventoryItem item, ItemAttackSlot slot, int animAttack, int seed, GNDItemMap mapContent)
     {
-        Projectile projectile = ProjectileRegistry.getProjectile("iceblossomproj", level, attackerMob.x, attackerMob.y, (float)x, (float)y, (float)getProjectileVelocity(item, attackerMob), getAttackRange(item), getAttackDamage(item), getKnockback(item, attackerMob), attackerMob);
-        projectile.setModifier(new ResilienceOnHitProjectileModifier(getResilienceGain(item)));
         GameRandom random = new GameRandom(seed);
+        IceBlossomProj projectile = new IceBlossomProj(level, attackerMob, attackerMob.x, attackerMob.y, (float)x, (float)y, (float)getProjectileVelocity(item, attackerMob), getAttackRange(item), getAttackDamage(item), getKnockback(item, attackerMob), ricochets.getValue(getUpgradeTier(item)));
+        projectile.setModifier(new ResilienceOnHitProjectileModifier(getResilienceGain(item)));
         projectile.resetUniqueID(random);
-        attackerMob.addAndSendAttackerProjectile(projectile, 20);
+        attackerMob.addAndSendAttackerProjectile(projectile, 55);
         consumeMana(attackerMob, item);
         return item;
     }

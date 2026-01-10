@@ -24,7 +24,7 @@ import java.awt.*;
 public class ShadowHorrorHood extends SetHelmetArmorItem
 {
     private GameTexture lightTexture;
-    public FloatUpgradeValue critSummon = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1F, 0.07F).setUpgradedValue(10F, 0.15F);
+    public FloatUpgradeValue summonCritChance = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1F, 0.07F).setUpgradedValue(10F, 0.15F);
 
     public ShadowHorrorHood(int enchantCost, Item.Rarity rarityTier)
     {
@@ -35,7 +35,7 @@ public class ShadowHorrorHood extends SetHelmetArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.MAX_SUMMONS, 1), new ModifierValue<>(BuffModifiers.SUMMON_CRIT_CHANCE, critSummon.getValue(getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.MAX_SUMMONS, 1), new ModifierValue<>(BuffModifiers.SUMMON_CRIT_CHANCE, summonCritChance.getValue(getUpgradeTier(item))));
     }
 
     protected void loadArmorTexture()

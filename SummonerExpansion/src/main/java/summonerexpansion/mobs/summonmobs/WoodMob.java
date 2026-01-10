@@ -77,7 +77,7 @@ public class WoodMob extends FlyingHostileMob
             damage = baseDamage;
         }
 
-        ai = new BehaviourTreeAI(this, new ConfusedPlayerChaserWandererAI<WoodMob>(null, 600, 200, 100, false, true)
+        ai = new BehaviourTreeAI<>(this, new ConfusedPlayerChaserWandererAI<WoodMob>(null, 600, 200, 100, false, true)
         {
             public boolean attackTarget(WoodMob mob, Mob target)
             {

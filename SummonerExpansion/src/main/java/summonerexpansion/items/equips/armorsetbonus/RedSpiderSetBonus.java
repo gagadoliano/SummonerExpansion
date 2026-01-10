@@ -24,8 +24,8 @@ public class RedSpiderSetBonus extends SetBonusBuff
     public FloatUpgradeValue slowDuration = (new FloatUpgradeValue()).setBaseValue(5F).setUpgradedValue(1, 10F).setUpgradedValue(10, 30F);
     public FloatUpgradeValue summonDMG = (new FloatUpgradeValue()).setBaseValue(0F).setUpgradedValue(1, 0.10F).setUpgradedValue(10, 0.40F);
     public FloatUpgradeValue summonAttackSpeed = (new FloatUpgradeValue()).setBaseValue(0F).setUpgradedValue(1, 0.10F).setUpgradedValue(10, 0.40F);
-    public FloatUpgradeValue spiderDamage = (new FloatUpgradeValue()).setBaseValue(0F).setUpgradedValue(1, 10F).setUpgradedValue(10, 50F);
-    public int spitCooldown = 0;
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue()).setBaseValue(0F).setUpgradedValue(1, 10F).setUpgradedValue(10, 50F);
+    public int summonTimer = 0;
 
     public RedSpiderSetBonus() {}
 
@@ -43,12 +43,12 @@ public class RedSpiderSetBonus extends SetBonusBuff
         if (!event.wasPrevented && event.damageType == DamageTypeRegistry.SUMMON)
         {
             event.target.buffManager.addBuff(new ActiveBuff(BuffRegistry.Debuffs.SPIDER_WEB_SLOW, event.target, slowDuration.getValue(buff.getUpgradeTier()), event.attacker), event.target.isServer());
-            if (event.isCrit && spitCooldown >= 300)
+            if (event.isCrit && summonTimer >= 300 && minionDamage.getValue(buff.getUpgradeTier()) > 0)
             {
-                GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, spiderDamage.getValue(buff.getUpgradeTier()));
+                GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier()));
                 CaveSpiderSpitEvent spiderEvent = new CaveSpiderSpitEvent(buff.owner, (int)event.target.x, (int)event.target.y, GameRandom.globalRandom, GiantCaveSpiderMob.Variant.BLACK, damage, Integer.MAX_VALUE);
                 buff.owner.getLevel().entityManager.events.add(spiderEvent);
-                spitCooldown = 0;
+                summonTimer = 0;
             }
         }
     }
@@ -56,9 +56,9 @@ public class RedSpiderSetBonus extends SetBonusBuff
     public void serverTick(ActiveBuff buff)
     {
         super.serverTick(buff);
-        if (spitCooldown < 600)
+        if (summonTimer < 600)
         {
-            spitCooldown++;
+            summonTimer++;
         }
     }
 

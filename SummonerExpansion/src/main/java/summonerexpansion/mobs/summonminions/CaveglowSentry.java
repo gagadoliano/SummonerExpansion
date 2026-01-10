@@ -16,21 +16,19 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import summonerexpansion.mobs.summonminions.baseminions.SentryBase;
 
 import java.awt.*;
 import java.util.List;
 
-public class CaveglowSentry extends AttackingFollowingMob
+public class CaveglowSentry extends SentryBase
 {
     public static GameTexture texture;
     public float moveAngle;
 
     public CaveglowSentry()
     {
-        super(10);
-        setSpeed(0.0F);
-        setFriction(0F);
-        attackCooldown = 3000;
+        super(3000F, 1000F);
         collision = new Rectangle(0, 0, 30, 68);
         hitBox = new Rectangle(0, 0, 30, 68);
         selectBox = new Rectangle();
@@ -39,12 +37,11 @@ public class CaveglowSentry extends AttackingFollowingMob
     public void init()
     {
         super.init();
-        this.ai = new BehaviourTreeAI<>(this, new PlayerFollowerChaserAI<CaveglowSentry>(900, 900, false, false, 90000, 64)
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerChaserAI<CaveglowSentry>(900, 900, false, false, 90000, 64)
         {
             public boolean attackTarget(CaveglowSentry mob, Mob target)
             {
                 float projVel = getAttackOwner().buffManager.getModifier(BuffModifiers.PROJECTILE_VELOCITY);
-
                 if (mob.canAttack())
                 {
                     mob.attack(target.getX(), target.getY(), false);
@@ -53,7 +50,9 @@ public class CaveglowSentry extends AttackingFollowingMob
                     projectile.moveDist(20.0);
                     mob.getLevel().entityManager.projectiles.add(projectile);
                     return true;
-                } else {
+                }
+                else
+                {
                     return false;
                 }
             }
@@ -66,15 +65,11 @@ public class CaveglowSentry extends AttackingFollowingMob
         getLevel().lightManager.refreshParticleLightFloat(x, y, 180.0F, 0.5F, 165);
     }
 
-    public boolean canBePushed(Mob other) {
-        return false;
-    }
-
     public void spawnDeathParticles(float knockbackX, float knockbackY)
     {
         for(int i = 0; i < 20; ++i)
         {
-            this.getLevel().entityManager.addParticle(this.x, this.y, Particle.GType.COSMETIC).movesConstantAngle((float) GameRandom.globalRandom.nextInt(360), (float)GameRandom.globalRandom.getIntBetween(5, 20)).color(new Color(85, 182, 125));
+            getLevel().entityManager.addParticle(x, y, Particle.GType.COSMETIC).movesConstantAngle((float) GameRandom.globalRandom.nextInt(360), (float)GameRandom.globalRandom.getIntBetween(5, 20)).color(new Color(85, 182, 125));
         }
     }
 
@@ -84,7 +79,7 @@ public class CaveglowSentry extends AttackingFollowingMob
         GameLight light = level.getLightLevel(x / 32, y / 32);
         int drawX = camera.getDrawX(x) - 16;
         int drawY = camera.getDrawY(y) - 20;
-        DrawOptions body = texture.initDraw().light(light).rotate(this.moveAngle, 15, 30).pos(drawX, drawY);
+        DrawOptions body = texture.initDraw().light(light).rotate(moveAngle, 15, 30).pos(drawX, drawY);
         topList.add((tm) -> {
             body.draw();
         });

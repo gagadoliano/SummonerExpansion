@@ -31,7 +31,7 @@ import java.util.LinkedList;
 
 public class ShadowHorrorSetBonus extends SetBonusBuff
 {
-    public FloatUpgradeValue horrorDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(40.0F).setUpgradedValue(1F, 40.0F);
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(40.0F).setUpgradedValue(1F, 40.0F);
     public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1.0F, 2);
 
     public ShadowHorrorSetBonus() {}
@@ -58,7 +58,7 @@ public class ShadowHorrorSetBonus extends SetBonusBuff
             float count = attackerMob.serverFollowersManager.getFollowerCount("summonedhorrorbabybuff");
             if (GameRandom.globalRandom.getChance(0.02F) && count <= 4)
             {
-                GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, horrorDamage.getValue(buff.getUpgradeTier()));
+                GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier()));
                 Level level = buff.owner.getLevel();
                 AttackingFollowingMob mob = (AttackingFollowingMob)MobRegistry.getMob("horrorbabyminion", level);
                 attackerMob.serverFollowersManager.addFollower("summonedhorrorbabybuff", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, (p) -> 5, null, false);
@@ -74,7 +74,7 @@ public class ShadowHorrorSetBonus extends SetBonusBuff
     {
         super.addStatTooltips(list, currentValues, lastValues);
         currentValues.getModifierTooltipsBuilder(true, true).addLastValues(lastValues).buildToStatList(list);
-        float damage = horrorDamage.getValue(currentValues.getUpgradeTier());
+        float damage = minionDamage.getValue(currentValues.getUpgradeTier());
         if (currentValues.owner != null)
         {
             damage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
@@ -88,7 +88,7 @@ public class ShadowHorrorSetBonus extends SetBonusBuff
         };
         if (lastValues != null)
         {
-            float compareDamage = horrorDamage.getValue(lastValues.getUpgradeTier());
+            float compareDamage = minionDamage.getValue(lastValues.getUpgradeTier());
             if (lastValues.owner != null)
             {
                 compareDamage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);

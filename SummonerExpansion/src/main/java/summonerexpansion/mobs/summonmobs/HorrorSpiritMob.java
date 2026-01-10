@@ -68,7 +68,7 @@ public class HorrorSpiritMob extends FlyingHostileMob
             damage = baseDamage;
         }
 
-        ai = new BehaviourTreeAI(this, new CollisionPlayerChaserWandererAI(null, 600, damage, 100, 40000), new FlyingAIMover());
+        ai = new BehaviourTreeAI<>(this, new CollisionPlayerChaserWandererAI<>(null, 600, damage, 100, 40000), new FlyingAIMover());
     }
 
     public void spawnDeathParticles(float knockbackX, float knockbackY)

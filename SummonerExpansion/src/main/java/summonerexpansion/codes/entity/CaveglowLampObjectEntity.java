@@ -8,7 +8,8 @@ import summonerexpansion.codes.registry.SummonerBuffs;
 
 public class CaveglowLampObjectEntity extends StandaloneBannerObjectEntity
 {
-    public CaveglowLampObjectEntity(Level level, int x, int y) {
+    public CaveglowLampObjectEntity(Level level, int x, int y)
+    {
         super(level, "caveglowlamp", x, y);
     }
 
