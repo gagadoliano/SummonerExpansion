@@ -29,6 +29,9 @@ public class SummonerMobs
         // Minions
         MobRegistry.registerMob("enchantedbabyzombiearcherminion", EnchantedBabyZombieArcherMinion.class, false);
         MobRegistry.registerMob("enchantedbabyzombieminion", EnchantedBabyZombieMinion.class, false);
+        MobRegistry.registerMob("butterflygreenminion", BookGreenButterflyMinion.class, false);
+        MobRegistry.registerMob("butterflyblueminion", BookBlueButterflyMinion.class, false);
+        MobRegistry.registerMob("butterflyredminion", BookRedButterflyMinion.class, false);
         MobRegistry.registerMob("redspidermeleeminion", RedSpiderMeleeMinion.class, false);
         MobRegistry.registerMob("redspiderrangeminion", RedSpiderRangeMinion.class, false);
         MobRegistry.registerMob("golemamethystminion", GolemAmethystMinion.class, false);
@@ -102,11 +105,12 @@ public class SummonerMobs
         MobRegistry.registerMob("pinewoodminion", PineWoodMinion.class, false);
 
         // Sentries
+        MobRegistry.registerMob("clawdemonportalsentry", ClawDemonPortalSentry.class, false);
         MobRegistry.registerMob("mushroomsentry", BookMushroomSentry.class, false);
         MobRegistry.registerMob("coffinsentry", VampireCoffinSentry.class, false);
         MobRegistry.registerMob("caveglowsentry", CaveglowSentry.class, false);
         MobRegistry.registerMob("xmastreesentry", XmasTreeSentry.class, false);
-        MobRegistry.registerMob("clawdemonportalsentry", ClawDemonPortalSentry.class, false);
+        MobRegistry.registerMob("coffebeamsentry", CoffeBeamSentry.class, false);
 
         // Melee Sentries
         MobRegistry.registerMob("horrorspikesentry", HorrorSentry.class, false);
@@ -114,13 +118,7 @@ public class SummonerMobs
         // Ranged Sentries
 
         // Magic Sentries
-        MobRegistry.registerMob("iceblossomsentryt5", IceBlossomSentryT5.class, false);
-        MobRegistry.registerMob("iceblossomsentryt1", IceBlossomSentryT1.class, false);
-        MobRegistry.registerMob("sunflowersentryt5", SunflowerSentryT5.class, false);
-        MobRegistry.registerMob("sunflowersentryt1", SunflowerSentryT1.class, false);
         MobRegistry.registerMob("iceblossomsentry", IceBlossomSentry.class, false);
-        MobRegistry.registerMob("firemonesentryt5", FiremoneSentryT5.class, false);
-        MobRegistry.registerMob("firemonesentryt1", FiremoneSentryT1.class, false);
         MobRegistry.registerMob("sunflowersentry", SunflowerSentry.class, false);
         MobRegistry.registerMob("firemonesentry", FiremoneSentry.class, false);
 
@@ -179,6 +177,8 @@ public class SummonerMobs
         MobRegistry.registerMob("magictoolbase", MagicToolBase.class, false, false, false);
         MobRegistry.registerMob("humantoolbase", HumanToolBase.class, false, false, false);
         MobRegistry.registerMob("magiclampbase", MagicLampBase.class, false, false, false);
+        MobRegistry.registerMob("butterflybase", ButterflyBase.class, false, false, false);
+        MobRegistry.registerMob("sentrybase", SentryBase.class, false, false, false);
     }
 
     public static void registerSummonSettlers()

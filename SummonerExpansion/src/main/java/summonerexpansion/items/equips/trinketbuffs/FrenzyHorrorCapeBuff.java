@@ -18,11 +18,7 @@ import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.FlyingAttackingFollowingMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
-import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.trinketItem.TrinketItem;
-
-import java.util.LinkedList;
-import java.util.function.BiConsumer;
 
 public class FrenzyHorrorCapeBuff extends TrinketBuff
 {
@@ -32,21 +28,21 @@ public class FrenzyHorrorCapeBuff extends TrinketBuff
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
     {
-        this.updateBuff(buff);
-        this.isImportant = true;
+        updateBuff(buff);
+        isImportant = true;
         buff.setModifier(BuffModifiers.SPEED, 0.20F);
     }
 
     public void serverTick(ActiveBuff buff)
     {
-        this.updateBuff(buff);
-        this.updateActiveBuff(buff);
+        updateBuff(buff);
+        updateActiveBuff(buff);
     }
 
     public void clientTick(ActiveBuff buff)
     {
-        this.updateBuff(buff);
-        this.updateActiveBuff(buff);
+        updateBuff(buff);
+        updateActiveBuff(buff);
     }
 
     public void updateActiveBuff(ActiveBuff buff)

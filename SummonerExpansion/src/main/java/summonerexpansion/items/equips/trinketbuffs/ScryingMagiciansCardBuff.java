@@ -19,14 +19,12 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.gfx.gameTooltips.SpacerGameTooltip;
 import necesse.gfx.gameTooltips.StringTooltips;
 import necesse.inventory.InventoryItem;
-import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.trinketItem.TrinketItem;
 import summonerexpansion.mobs.summonminions.trinketminions.*;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
-import java.util.LinkedList;
 
 public class ScryingMagiciansCardBuff extends TrinketBuff
 {
@@ -63,7 +61,6 @@ public class ScryingMagiciansCardBuff extends TrinketBuff
 
     public void onHasAttacked(ActiveBuff buff, MobWasHitEvent event)
     {
-        super.onHasAttacked(buff, event);
         if (!event.wasPrevented)
         {
             if (event.damageType == DamageTypeRegistry.MAGIC)

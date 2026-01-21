@@ -317,7 +317,7 @@ public class SummonerRecipes
         Recipes.registerModRecipe(new Recipe(
                 "beehivefloor",
                 50,
-                RecipeTechRegistry.CARPENTER,
+                RecipeTechRegistry.LANDSCAPING,
                 new Ingredient[]{
                         new Ingredient("honey", 10),
                 }
@@ -406,6 +406,46 @@ public class SummonerRecipes
 
     public static void registerSummonWallRecipes()
     {
+        Recipes.registerModRecipe(new Recipe(
+                "empoweredsapphirerock",
+                100,
+                RecipeTechRegistry.FALLEN_LANDSCAPING,
+                new Ingredient[]{
+                        new Ingredient("sapphire", 10),
+                        new Ingredient("deepstone", 100)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "empoweredamethystrock",
+                100,
+                RecipeTechRegistry.FALLEN_LANDSCAPING,
+                new Ingredient[]{
+                        new Ingredient("amethyst", 10),
+                        new Ingredient("deepstone", 100)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "empoweredemeraldrock",
+                100,
+                RecipeTechRegistry.FALLEN_LANDSCAPING,
+                new Ingredient[]{
+                        new Ingredient("emerald", 10),
+                        new Ingredient("deepstone", 100)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "empoweredtopazrock",
+                100,
+                RecipeTechRegistry.FALLEN_LANDSCAPING,
+                new Ingredient[]{
+                        new Ingredient("topaz", 10),
+                        new Ingredient("deepstone", 100)
+                }
+        ));
+
         Recipes.registerModRecipe(new Recipe(
                 "empoweredrubyrock",
                 100,
@@ -556,6 +596,16 @@ public class SummonerRecipes
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "livingsharksoup",
+                1,
+                RecipeTechRegistry.COOKING_POT,
+                new Ingredient[]{
+                        new Ingredient("sharkscales", 4),
+                        new Ingredient("sharktooth", 2)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "caveglowjam",
                 1,
                 RecipeTechRegistry.COOKING_STATION,
@@ -572,6 +622,17 @@ public class SummonerRecipes
                 RecipeTechRegistry.COOKING_STATION,
                 new Ingredient[]{
                         new Ingredient("rawpork", 12)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "spicycoffee",
+                1,
+                RecipeTechRegistry.COOKING_STATION,
+                new Ingredient[]{
+                        new Ingredient("groundcoffee", 6),
+                        new Ingredient("chilipepper", 2),
+                        new Ingredient("milk", 1)
                 }
         ));
     }

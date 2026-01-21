@@ -9,8 +9,8 @@ import net.bytebuddy.asm.Advice;
 public class SummonerFarmerShop
 {
     @Advice.OnMethodExit
-    static void onExit(@Advice.This FarmerHumanMob farmerNPC)
+    static void onExit(@Advice.This FarmerHumanMob NPC)
     {
-        farmerNPC.shop.addSellingItem("goldpitchfork",  new SellingShopItem()).setStaticPriceBasedOnHappiness(1500, 5000, 1000).addQuestTierCompletedRequirement("swampguardian");
+        NPC.shop.addSellingItem("goldpitchfork",  new SellingShopItem()).setStaticPriceBasedOnHappiness(1500, 5000, 1000).addQuestTierCompletedRequirement("swampguardian");
     }
 }

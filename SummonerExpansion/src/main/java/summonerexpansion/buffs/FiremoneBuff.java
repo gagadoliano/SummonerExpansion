@@ -19,10 +19,10 @@ public class FiremoneBuff extends Buff
         isImportant = true;
     }
 
-    @Override
     public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber)
     {
-        activeBuff.setModifier(BuffModifiers.ARMOR_PEN_FLAT, 10);
+        activeBuff.setModifier(BuffModifiers.ARMOR_PEN_FLAT, 2);
+        activeBuff.setModifier(BuffModifiers.PROJECTILE_VELOCITY, 0.02F);
     }
 
     public void clientTick(ActiveBuff buff)
@@ -32,6 +32,11 @@ public class FiremoneBuff extends Buff
             Mob owner = buff.owner;
             owner.getLevel().entityManager.addParticle(owner.x + (float)(GameRandom.globalRandom.nextGaussian() * 6.0), owner.y + (float)(GameRandom.globalRandom.nextGaussian() * 8.0), Particle.GType.IMPORTANT_COSMETIC).movesConstant(owner.dx / 2.0F, owner.dy / 2.0F).color(new Color(225, 58, 1)).givesLight(40F, 0.3F).height(16.0F);
         }
+    }
+
+    public int getStackSize(ActiveBuff buff)
+    {
+        return 100;
     }
 
     public boolean shouldDrawDuration(ActiveBuff buff) {

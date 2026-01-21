@@ -62,7 +62,6 @@ public class LeafShotColdPack extends SettlerIgnoredThrowToolItem
         return item;
     }
 
-    @Override
     public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard)
     {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);

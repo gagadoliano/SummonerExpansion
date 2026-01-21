@@ -4,12 +4,15 @@ import necesse.engine.registries.ItemRegistry;
 import necesse.engine.registries.TileRegistry;
 import necesse.inventory.item.placeableItem.tileItem.GrassSeedItem;
 import necesse.level.gameTile.SimpleFloorTile;
+import summonerexpansion.items.miscitems.*;
 import summonerexpansion.objects.summontiles.*;
 
 import java.awt.*;
 
 public class SummonerTiles
 {
+    public static int liquidHoneyID;
+
     public static void registerSummonTiles()
     {
         // Terrain tiles
@@ -26,5 +29,9 @@ public class SummonerTiles
         TileRegistry.registerTile("empowerednewemerald", new EmpoweredNewEmerald(), 10, true);
         TileRegistry.registerTile("empowerednewruby", new EmpoweredNewRuby(), 10, true);
         TileRegistry.registerTile("empoweredtopaz", new EmpoweredTopaz(), 10, true);
+
+        // Liquid tiles
+        liquidHoneyID = TileRegistry.registerTile("liquidhoneytile", new LiquidHoneyTile(), 20, true);
+        ItemRegistry.registerItem("infinitehoneybucket", new InfiniteHoneyBucketItem(), 250.0F, true);
     }
 }

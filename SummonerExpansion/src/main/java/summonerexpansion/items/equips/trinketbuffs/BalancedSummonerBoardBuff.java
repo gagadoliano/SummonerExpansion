@@ -17,13 +17,11 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.gfx.gameTooltips.SpacerGameTooltip;
 import necesse.gfx.gameTooltips.StringTooltips;
 import necesse.inventory.InventoryItem;
-import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.trinketItem.TrinketItem;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
-import java.util.LinkedList;
 
 public class BalancedSummonerBoardBuff extends TrinketBuff
 {
@@ -36,7 +34,6 @@ public class BalancedSummonerBoardBuff extends TrinketBuff
 
     public void onHasAttacked(ActiveBuff buff, MobWasHitEvent event)
     {
-        super.onHasAttacked(buff, event);
         if (!event.wasPrevented && event.damageType == DamageTypeRegistry.SUMMON)
         {
             event.target.buffManager.addBuff(new ActiveBuff(BuffRegistry.Debuffs.FROSTBURN, event.target, 10.0F, event.attacker), event.target.isServer());

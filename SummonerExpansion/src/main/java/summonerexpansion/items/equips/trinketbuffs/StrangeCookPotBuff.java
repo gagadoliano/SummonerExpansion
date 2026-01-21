@@ -27,7 +27,6 @@ public class StrangeCookPotBuff extends TrinketBuff
 
     public void onHasAttacked(ActiveBuff buff, MobWasHitEvent event)
     {
-        super.onHasAttacked(buff, event);
         float splashRange = buff.owner.buffManager.getModifier(BuffModifiers.SUMMONS_TARGET_RANGE);
         if (!event.wasPrevented && event.damageType == DamageTypeRegistry.SUMMON && GameRandom.globalRandom.getChance(0.10F))
         {

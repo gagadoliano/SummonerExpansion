@@ -43,7 +43,7 @@ public class BookBeeMinion extends FlyingAttackingFollowingMob
     public void init()
     {
         super.init();
-        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI(800, summonDamage, 5, 500, 1000, 64), new FlyingAIMover());
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerCollisionChaserAI<>(800, summonDamage, 5, 500, 1000, 64), new FlyingAIMover());
     }
 
     @Override

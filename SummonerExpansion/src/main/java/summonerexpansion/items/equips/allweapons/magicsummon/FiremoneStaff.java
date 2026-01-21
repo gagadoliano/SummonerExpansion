@@ -22,7 +22,6 @@ import summonerexpansion.mobs.summonminions.magicminions.*;
 public class FiremoneStaff extends BaseMagicWeapon implements ItemInteractAction
 {
     public IntUpgradeValue childProjs = (new IntUpgradeValue());
-    public IntUpgradeValue sentryLevel = (new IntUpgradeValue());
 
     public FiremoneStaff(int enchantCost, Item.Rarity rarityTier)
     {
@@ -34,7 +33,6 @@ public class FiremoneStaff extends BaseMagicWeapon implements ItemInteractAction
         attackAnimTime.setBaseValue(800);
         attackRange.setBaseValue(600).setUpgradedValue(1, 1000);
         velocity.setBaseValue(80).setUpgradedValue(1, 90).setUpgradedValue(5, 150);
-        sentryLevel.setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(5, 3);
         childProjs.setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 3);
         canBeUsedForRaids = false;
     }
@@ -59,31 +57,13 @@ public class FiremoneStaff extends BaseMagicWeapon implements ItemInteractAction
     {
         if (attackerMob.isServer())
         {
-            if (sentryLevel.getValue(getUpgradeTier(item)) == 1)
-            {
-                FiremoneSentry mob1 = new FiremoneSentry();
-                attackerMob.serverFollowersManager.addFollower("firemonesentry", mob1, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
-                attackerMob.getLevel().entityManager.addMob(mob1, attackerMob.x, attackerMob.y);
-            }
-
-            if (sentryLevel.getValue(getUpgradeTier(item)) == 2)
-            {
-                FiremoneSentryT1 mob2 = new FiremoneSentryT1();
-                attackerMob.serverFollowersManager.addFollower("firemonesentryt1", mob2, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
-                attackerMob.getLevel().entityManager.addMob(mob2, attackerMob.x, attackerMob.y);
-            }
-
-            if (sentryLevel.getValue(getUpgradeTier(item)) > 2)
-            {
-                FiremoneSentryT5 mob3 = new FiremoneSentryT5();
-                attackerMob.serverFollowersManager.addFollower("firemonesentryt5", mob3, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
-                attackerMob.getLevel().entityManager.addMob(mob3, attackerMob.x, attackerMob.y);
-            }
+            FiremoneSentry mob1 = new FiremoneSentry();
+            attackerMob.serverFollowersManager.addFollower("firemonesentry", mob1, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
+            attackerMob.getLevel().entityManager.addMob(mob1, attackerMob.x, attackerMob.y);
         }
         return item;
     }
 
-    @Override
     public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard)
     {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);

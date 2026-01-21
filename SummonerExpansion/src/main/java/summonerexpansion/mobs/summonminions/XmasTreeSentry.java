@@ -103,7 +103,6 @@ public class XmasTreeSentry extends SentryBase implements OEVicinityBuff
         tickVicinityBuff(this);
     }
 
-    @Override
     public Mob getFirstAttackOwner() {
         return this;
     }

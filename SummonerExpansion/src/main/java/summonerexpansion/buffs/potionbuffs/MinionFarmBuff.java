@@ -14,7 +14,6 @@ public class MinionFarmBuff extends SimplePotionBuff
         shouldSave = true;
     }
 
-    @Override
     public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber)
     {
         activeBuff.setModifier(BuffModifiers.SPEED, -0.80f);

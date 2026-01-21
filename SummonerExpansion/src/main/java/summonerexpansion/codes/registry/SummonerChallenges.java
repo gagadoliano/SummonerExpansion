@@ -1,6 +1,7 @@
 package summonerexpansion.codes.registry;
 
 import necesse.engine.journal.*;
+import necesse.engine.quest.KillMobsQuest;
 import necesse.engine.registries.JournalChallengeRegistry;
 import necesse.inventory.lootTable.LootTable;
 import necesse.inventory.lootTable.lootItem.LootItem;
@@ -10,6 +11,7 @@ import summonerexpansion.modchallenges.*;
 public class SummonerChallenges
 {
     public static LootTable SUMMON_FOREST_SURFACE_REWARD = new LootTable((new LootItemList(new LootItem("bannerofwater"))).setCustomListName("object", "bannerofwater"));
+    public static LootTable SUMMON_FOREST_SURFACE_REWARD2 = new LootTable(new LootItem("minionsunflowerpotion"));
     public static LootTable SUMMON_FOREST_CAVE_REWARD = new LootTable(new LootItem("giantbeet"));
     public static LootTable SUMMON_FOREST_DEEP_CAVE_REWARD = new LootTable(new LootItem("giantonion"));
     public static LootTable SUMMON_SNOW_SURFACE_REWARD = new LootTable(new LootItem("xmastreescepter"));
@@ -22,6 +24,7 @@ public class SummonerChallenges
     public static LootTable SUMMON_DESERT_CAVE_REWARD = new LootTable(new LootItem("giantcarrot"));
 
     public static int SUMMON_FOREST_SURFACE_CHALLENGES_ID;
+    public static int SUMMON_FOREST_SURFACE_CHALLENGES_ID2;
     public static int SUMMON_FOREST_CAVE_CHALLENGES_ID;
     public static int SUMMON_FOREST_DEEP_CAVE_CHALLENGES_ID;
     public static int SUMMON_SNOW_SURFACE_CHALLENGES_ID;
@@ -43,12 +46,15 @@ public class SummonerChallenges
     public static int SWIM_COLLECT_ID;
     public static int BUCKET_CRAFT_ID;
     public static int DUCK_KILL_ID;
+    public static int UPGRADE_TIER1_ID;
+    public static int UPGRADE_TIER2_ID;
+    public static int UPGRADE_TIER3_ID;
+    public static int UPGRADE_TIER4_ID;
     public static int BEET_KILL_ID;
     public static int BEET_PLACE_ID;
     public static int SEED_COLLECT_ID;
     public static int ONION_KILL_ID;
     public static int ONION_PLACE_ID;
-
     public static int SNOWMAN_COLLECT_ID;
     public static int XMASWREATH_COLLECT_ID;
     public static int XMASTREE_PLACE_ID;
@@ -57,16 +63,13 @@ public class SummonerChallenges
     public static int POTATO_PLACE_ID;
     public static int PUMPKIN_KILL_ID;
     public static int PUMPKIN_PLACE_ID;
-
     public static int TRAP_REVERSE_COLLECT_ID;
     public static int TRAP_CHICKEN_COLLECT_ID;
     public static int TRAP_BOUNCY_COLLECT_ID;
-
     public static int FIREFLY_COLLECT_ID;
     public static int EGG_PLACE_ID;
     public static int KATANA_DESTROY_ID;
     public static int WHITEFLOWER_PLACE_ID;
-
     public static int SPORE_KILL_ID;
     public static int MUSHROOM_COLLECT_ID;
     public static int MUD_COLLECT_ID;
@@ -74,7 +77,6 @@ public class SummonerChallenges
     public static int SHELL_DESTROY_ID;
     public static int BAMBOO_COLLECT_ID;
     public static int FISHIAN_KILL_ID;
-
     public static int CARROT_KILL_ID;
     public static int CARROT_PLACE_ID;
 
@@ -87,6 +89,12 @@ public class SummonerChallenges
         LANTERN_PLACE_ID = registerChallenge("lanternplaced", new ObjectsPlacedJournalChallenge(5, "waterlantern"));
         WATERGRASS_COLLECT_ID = registerChallenge("watergrasscollected", new PickupItemsJournalChallenge(35, true, "watergrass"));
         SUMMON_FOREST_SURFACE_CHALLENGES_ID = registerChallenge("summonforestsurface", (new MultiJournalChallenge(WATERGRASS_COLLECT_ID, SWIM_COLLECT_ID, LANTERN_PLACE_ID, BUCKET_CRAFT_ID, DUCK_KILL_ID)).setReward(SUMMON_FOREST_SURFACE_REWARD));
+
+        UPGRADE_TIER1_ID = registerChallenge("upgradetier1", new DefeatMobJournalChallenge("swampguardian"));
+        UPGRADE_TIER2_ID = registerChallenge("upgradetier2", new DefeatMobJournalChallenge("piratecaptain"));
+        UPGRADE_TIER3_ID = registerChallenge("upgradetier3", new DefeatMobJournalChallenge("pestwarden"));
+        UPGRADE_TIER4_ID = registerChallenge("upgradetier4", new DefeatMobJournalChallenge("fallenwizard"));
+        SUMMON_FOREST_SURFACE_CHALLENGES_ID2 = registerChallenge("summonupgradeforestsurface", (new MultiJournalChallenge(UPGRADE_TIER1_ID, UPGRADE_TIER2_ID, UPGRADE_TIER3_ID, UPGRADE_TIER4_ID)).setReward(SUMMON_FOREST_SURFACE_REWARD2));
 
         //Forest cave
         BEET_KILL_ID = registerChallenge("beetkilled", new BeetKillJournalChallenge());
@@ -161,7 +169,7 @@ public class SummonerChallenges
 
         //Desert deep cave
 
-        //Village
+        //Pirate Village
 
         //Temple
 

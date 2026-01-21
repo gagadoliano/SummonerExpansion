@@ -19,10 +19,10 @@ public class IceBlossomBuff extends Buff
         isImportant = true;
     }
 
-    @Override
     public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber)
     {
-        activeBuff.setModifier(BuffModifiers.ARMOR_FLAT, 5);
+        activeBuff.setModifier(BuffModifiers.ARMOR_FLAT, 2);
+        activeBuff.setModifier(BuffModifiers.MAX_RESILIENCE_FLAT, 2);
     }
 
     public void clientTick(ActiveBuff buff)
@@ -32,6 +32,11 @@ public class IceBlossomBuff extends Buff
             Mob owner = buff.owner;
             owner.getLevel().entityManager.addParticle(owner.x + (float)(GameRandom.globalRandom.nextGaussian() * 6.0), owner.y + (float)(GameRandom.globalRandom.nextGaussian() * 8.0), Particle.GType.IMPORTANT_COSMETIC).movesConstant(owner.dx / 2.0F, owner.dy / 2.0F).color(new Color(36, 174, 214)).givesLight(40F, 0.3F).height(16.0F);
         }
+    }
+
+    public int getStackSize(ActiveBuff buff)
+    {
+        return 100;
     }
 
     public boolean shouldDrawDuration(ActiveBuff buff) {

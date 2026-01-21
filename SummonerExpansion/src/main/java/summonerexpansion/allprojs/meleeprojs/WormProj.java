@@ -71,7 +71,7 @@ public class WormProj extends FollowingProjectile
     {
         super.doHitLogic(mob, object, x, y);
         ItemAttackerMob attackerMob = (ItemAttackerMob)getOwner();
-        if (mob != null && this.isServer())
+        if (mob != null && isServer())
         {
             AttackingFollowingMob mobFish = (AttackingFollowingMob)MobRegistry.getMob("fishcarpminion", getLevel());
 

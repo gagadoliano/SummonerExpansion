@@ -10,17 +10,18 @@ import summonerexpansion.codes.registry.SummonerChallenges;
 public class SummonerElderShop
 {
     @Advice.OnMethodExit
-    static void onExit(@Advice.This ElderHumanMob elderMan)
+    static void onExit(@Advice.This ElderHumanMob NPC)
     {
-        elderMan.shop.addSellingItem("bannerofwater",  new SellingShopItem()).setRandomPrice(2500, 3000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_FOREST_SURFACE_CHALLENGES_ID);
-        elderMan.shop.addSellingItem("giantbeet",  new SellingShopItem()).setRandomPrice(500, 2000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_FOREST_CAVE_CHALLENGES_ID);
-        elderMan.shop.addSellingItem("giantonion",  new SellingShopItem()).setRandomPrice(500, 2000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_FOREST_DEEP_CAVE_CHALLENGES_ID);
-        elderMan.shop.addSellingItem("xmastreescepter",  new SellingShopItem()).setRandomPrice(500, 2000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_SNOW_SURFACE_CHALLENGES_ID);
-        elderMan.shop.addSellingItem("giantpotato",  new SellingShopItem()).setRandomPrice(500, 2000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_SNOW_CAVE_CHALLENGES_ID);
-        elderMan.shop.addSellingItem("giantpumpkin",  new SellingShopItem()).setRandomPrice(500, 2000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_SNOW_DEEP_CAVE_CHALLENGES_ID);
-        elderMan.shop.addSellingItem("silvergoblet",  new SellingShopItem()).setRandomPrice(500, 2000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_PLAINS_SURFACE_CHALLENGES_ID);
-        elderMan.shop.addSellingItem("doomshroomshield",  new SellingShopItem()).setRandomPrice(500, 2000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_SWAMP_CAVE_CHALLENGES_ID);
-        elderMan.shop.addSellingItem("jellyfishbowl",  new SellingShopItem()).setRandomPrice(500, 2000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_SWAMP_DEEP_CAVE_CHALLENGES_ID);
-        elderMan.shop.addSellingItem("giantcarrot",  new SellingShopItem()).setRandomPrice(500, 2000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_DESERT_CAVE_CHALLENGES_ID);
+        NPC.shop.addSellingItem("bannerofwater",  new SellingShopItem()).setRandomPrice(2500, 3000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_FOREST_SURFACE_CHALLENGES_ID);
+        NPC.shop.addSellingItem("giantbeet",  new SellingShopItem()).setRandomPrice(500, 2000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_FOREST_CAVE_CHALLENGES_ID);
+        NPC.shop.addSellingItem("giantonion",  new SellingShopItem()).setRandomPrice(500, 2000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_FOREST_DEEP_CAVE_CHALLENGES_ID);
+        NPC.shop.addSellingItem("xmastreescepter",  new SellingShopItem()).setRandomPrice(500, 2000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_SNOW_SURFACE_CHALLENGES_ID);
+        NPC.shop.addSellingItem("giantpotato",  new SellingShopItem()).setRandomPrice(500, 2000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_SNOW_CAVE_CHALLENGES_ID);
+        NPC.shop.addSellingItem("giantpumpkin",  new SellingShopItem()).setRandomPrice(500, 2000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_SNOW_DEEP_CAVE_CHALLENGES_ID);
+        NPC.shop.addSellingItem("glyphtrapheal",  new SellingShopItem()).setRandomPrice(500, 2000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_DUNGEON_CHALLENGES_ID);
+        NPC.shop.addSellingItem("silvergoblet",  new SellingShopItem()).setRandomPrice(500, 2000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_PLAINS_SURFACE_CHALLENGES_ID);
+        NPC.shop.addSellingItem("doomshroomshield",  new SellingShopItem()).setRandomPrice(500, 2000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_SWAMP_CAVE_CHALLENGES_ID);
+        NPC.shop.addSellingItem("jellyfishbowl",  new SellingShopItem()).setRandomPrice(500, 2000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_SWAMP_DEEP_CAVE_CHALLENGES_ID);
+        NPC.shop.addSellingItem("giantcarrot",  new SellingShopItem()).setRandomPrice(500, 2000).addJournalChallengeCompleteRequirement(SummonerChallenges.SUMMON_DESERT_CAVE_CHALLENGES_ID);
     }
 }

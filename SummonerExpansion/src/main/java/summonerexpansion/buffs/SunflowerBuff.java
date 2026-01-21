@@ -19,10 +19,10 @@ public class SunflowerBuff extends Buff
         isImportant = true;
     }
 
-    @Override
     public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber)
     {
-        activeBuff.setModifier(BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, 0.05F);
+        activeBuff.setModifier(BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, 0.04F);
+        activeBuff.setModifier(BuffModifiers.HEALTH_REGEN_FLAT, 0.05F);
     }
 
     public void clientTick(ActiveBuff buff)
@@ -32,6 +32,11 @@ public class SunflowerBuff extends Buff
             Mob owner = buff.owner;
             owner.getLevel().entityManager.addParticle(owner.x + (float)(GameRandom.globalRandom.nextGaussian() * 6.0), owner.y + (float)(GameRandom.globalRandom.nextGaussian() * 8.0), Particle.GType.IMPORTANT_COSMETIC).movesConstant(owner.dx / 2.0F, owner.dy / 2.0F).color(new Color(226, 177, 0)).givesLight(40F, 0.3F).height(16.0F);
         }
+    }
+
+    public int getStackSize(ActiveBuff buff)
+    {
+        return 100;
     }
 
     public boolean shouldDrawDuration(ActiveBuff buff) {

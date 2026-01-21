@@ -7,9 +7,6 @@ import necesse.entity.mobs.buffs.BuffAbility;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.TrinketBuff;
-import necesse.inventory.item.ItemStatTip;
-
-import java.util.LinkedList;
 
 public class SummonerGambitBuff extends TrinketBuff implements BuffAbility
 {

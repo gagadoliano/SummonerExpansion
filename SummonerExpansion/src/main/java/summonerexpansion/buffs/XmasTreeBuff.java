@@ -34,7 +34,7 @@ public class XmasTreeBuff extends Buff
         if (buff.owner.isVisible())
         {
             Mob owner = buff.owner;
-            AtomicReference<Float> currentAngle = new AtomicReference(GameRandom.globalRandom.nextFloat() * 360.0F);
+            AtomicReference<Float> currentAngle = new AtomicReference<>(GameRandom.globalRandom.nextFloat() * 360.0F);
             float distance = 20.0F;
             owner.getLevel().entityManager.addParticle(owner.x + GameMath.sin(currentAngle.get()) * distance, owner.y + GameMath.cos(currentAngle.get()) * distance * 0.75F, Particle.GType.CRITICAL).color(new Color(255, 221, 0)).height(0.0F).moves((pos, delta, lifeTime, timeAlive, lifePercent) -> {
                 float angle = currentAngle.accumulateAndGet(delta * 50.0F / 250.0F, Float::sum);

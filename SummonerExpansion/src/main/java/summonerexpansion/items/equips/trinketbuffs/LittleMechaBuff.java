@@ -17,11 +17,9 @@ import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.TrinketBuff;
 import necesse.entity.particle.Particle;
 import necesse.gfx.GameResources;
-import necesse.inventory.item.ItemStatTip;
 import necesse.level.maps.Level;
 
 import java.awt.geom.Point2D;
-import java.util.LinkedList;
 
 public class LittleMechaBuff extends TrinketBuff implements BuffAbility
 {
@@ -33,17 +31,14 @@ public class LittleMechaBuff extends TrinketBuff implements BuffAbility
         buff.setModifier(BuffModifiers.RESILIENCE_DECAY, -0.75F);
         buff.setModifier(BuffModifiers.MAX_RESILIENCE, 0.10F);
         buff.setModifier(BuffModifiers.ARMOR_FLAT, 10);
-
         buff.setModifier(BuffModifiers.DASH_STACKS, 3);
         buff.setModifier(BuffModifiers.DASH_COOLDOWN, -0.25F);
-
         buff.setModifier(BuffModifiers.MAX_SUMMONS, 1);
         buff.setModifier(BuffModifiers.SUMMON_CRIT_CHANCE, 0.10F);
         buff.setModifier(BuffModifiers.SUMMON_DAMAGE, 0.50F);
         buff.setModifier(BuffModifiers.MELEE_DAMAGE, -0.80F);
         buff.setModifier(BuffModifiers.RANGED_DAMAGE, -0.80F);
         buff.setModifier(BuffModifiers.MAGIC_DAMAGE, -0.80F);
-
         eventSubscriber.subscribeEvent(BuffAddedEvent.class, (event) ->
         {
             if (event.ab.buff == BuffRegistry.Debuffs.DASH_COOLDOWN && buff.owner.isServer())
@@ -52,8 +47,8 @@ public class LittleMechaBuff extends TrinketBuff implements BuffAbility
                 buff.owner.sendResiliencePacket(false);
             }
         });
-
-        eventSubscriber.subscribeEvent(MobBeforeDamageOverTimeTakenEvent.class, (event) -> {
+        eventSubscriber.subscribeEvent(MobBeforeDamageOverTimeTakenEvent.class, (event) ->
+        {
             if (runLifeLineLogic(buff, event.getExpectedHealth()))
             {
                 event.prevent();
@@ -87,7 +82,6 @@ public class LittleMechaBuff extends TrinketBuff implements BuffAbility
             buff.getGndData().setInt("lastMaxHealth", nextMaxHealth);
             buff.owner.buffManager.forceUpdateBuffs();
         }
-
         Mob owner = buff.owner;
         if (owner.getHealth() < owner.getMaxHealth())
         {
@@ -110,7 +104,6 @@ public class LittleMechaBuff extends TrinketBuff implements BuffAbility
 
     public void onBeforeHitCalculated(ActiveBuff buff, MobBeforeHitCalculatedEvent event)
     {
-        super.onBeforeHitCalculated(buff, event);
         if (this.runLifeLineLogic(buff, event.getExpectedHealth()))
         {
             event.prevent();
@@ -153,7 +146,6 @@ public class LittleMechaBuff extends TrinketBuff implements BuffAbility
                     float speed = dir.x * range * 250.0F / (float)lifeTime;
                     buff.owner.getLevel().entityManager.addParticle(buff.owner, startX, startY, Particle.GType.IMPORTANT_COSMETIC).sprite(GameResources.puffParticles.sprite(GameRandom.globalRandom.nextInt(5), 0, 12)).sizeFades(24, 48).rotates().heightMoves(startHeight, endHeight).movesConstant(-speed, 0.0F).fadesAlphaTime(100, 50).lifeTime(lifeTime);
                 }
-
                 SoundManager.playSound(GameResources.magicbolt4, SoundEffect.effect(buff.owner).volume(0.2F).pitch(GameRandom.globalRandom.getFloatBetween(1.9F, 2.1F)));
                 SoundManager.playSound(GameResources.magicbolt1, SoundEffect.effect(buff.owner).volume(0.2F).pitch(GameRandom.globalRandom.getFloatBetween(1.9F, 2.1F)));
             }

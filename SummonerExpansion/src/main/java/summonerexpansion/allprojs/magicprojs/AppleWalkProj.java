@@ -130,9 +130,12 @@ public class AppleWalkProj extends FollowingProjectile
     public void onHit(Mob mob, LevelObjectHit object, float x, float y, boolean fromPacket, ServerClient packetSubmitter)
     {
         super.onHit(mob, object, x, y, fromPacket, packetSubmitter);
-        if (getOwner().isPlayer)
+        if (getOwner() != null)
         {
-            getOwner().buffManager.addBuff(new ActiveBuff(SummonerBuffs.SummonBuffs.APPLEWALKBUFF, getOwner(), 5.0F, null), false);
+            if (getOwner().isPlayer)
+            {
+                getOwner().buffManager.addBuff(new ActiveBuff(SummonerBuffs.SummonBuffs.APPLEWALKBUFF, getOwner(), 5.0F, null), false);
+            }
         }
     }
 

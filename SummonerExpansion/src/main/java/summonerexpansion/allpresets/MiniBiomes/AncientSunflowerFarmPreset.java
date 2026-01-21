@@ -1,7 +1,6 @@
 package summonerexpansion.allpresets.MiniBiomes;
 
 import necesse.engine.util.GameRandom;
-import necesse.inventory.InventoryItem;
 import necesse.level.maps.presets.Preset;
 
 import java.util.concurrent.atomic.AtomicInteger;

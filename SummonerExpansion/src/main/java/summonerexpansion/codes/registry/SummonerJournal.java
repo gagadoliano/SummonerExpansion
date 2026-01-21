@@ -10,6 +10,7 @@ public class SummonerJournal
         // Journal
         JournalEntry forestSurfaceJournal = JournalRegistry.getJournalEntry("forestsurface");
         forestSurfaceJournal.addEntryChallenges(SummonerChallenges.SUMMON_FOREST_SURFACE_CHALLENGES_ID);
+        forestSurfaceJournal.addEntryChallenges(SummonerChallenges.SUMMON_FOREST_SURFACE_CHALLENGES_ID2);
 
         JournalEntry forestCaveJournal = JournalRegistry.getJournalEntry("forestcave");
         forestCaveJournal.addEntryChallenges(SummonerChallenges.SUMMON_FOREST_CAVE_CHALLENGES_ID);

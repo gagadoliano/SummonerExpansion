@@ -7,6 +7,7 @@ import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
+import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.FlyingAttackingFollowingMob;
 import necesse.entity.particle.ParticleOption;
 import necesse.entity.projectile.followingProjectile.FollowingProjectile;
@@ -56,31 +57,32 @@ public class GlobeBoomerangProj extends FollowingProjectile
     public void doHitLogic(Mob mob, LevelObjectHit object, float x, float y)
     {
         super.doHitLogic(mob, object, x, y);
-        if (mob != null && this.isServer())
+        ItemAttackerMob attackerMob = (ItemAttackerMob)getOwner();
+        if (mob != null && isServer())
         {
-            FlyingAttackingFollowingMob mobPlanet = (FlyingAttackingFollowingMob)MobRegistry.getMob("planetmarsproj", getFirstAttackOwner().getLevel());
-            float count = getFirstPlayerOwner().serverFollowersManager.getFollowerCount("summonedplanetminion");
+            FlyingAttackingFollowingMob mobPlanet = (FlyingAttackingFollowingMob)MobRegistry.getMob("planetmarsproj", getLevel());
+            float count = attackerMob.serverFollowersManager.getFollowerCount("summonedplanetminion");
             if (count < 3F)
             {
                 switch (GameRandom.globalRandom.nextInt(4))
                 {
                     case 0:
-                        mobPlanet = (FlyingAttackingFollowingMob)MobRegistry.getMob("planetmarsproj", getFirstAttackOwner().getLevel());
+                        mobPlanet = (FlyingAttackingFollowingMob)MobRegistry.getMob("planetmarsproj", getLevel());
                         break;
 
                     case 1:
-                        mobPlanet = (FlyingAttackingFollowingMob)MobRegistry.getMob("planetneptuneproj", getFirstAttackOwner().getLevel());
+                        mobPlanet = (FlyingAttackingFollowingMob)MobRegistry.getMob("planetneptuneproj", getLevel());
                         break;
 
                     case 2:
-                        mobPlanet = (FlyingAttackingFollowingMob)MobRegistry.getMob("planetsaturnproj", getFirstAttackOwner().getLevel());
+                        mobPlanet = (FlyingAttackingFollowingMob)MobRegistry.getMob("planetsaturnproj", getLevel());
                         break;
 
                     case 3:
-                        mobPlanet = (FlyingAttackingFollowingMob)MobRegistry.getMob("planetvenusproj", getFirstAttackOwner().getLevel());
+                        mobPlanet = (FlyingAttackingFollowingMob)MobRegistry.getMob("planetvenusproj", getLevel());
                         break;
                 }
-                getFirstPlayerOwner().serverFollowersManager.addFollower("summonedplanetminion", mobPlanet, FollowPosition.WIDE_CIRCLE_MOVEMENT, "summonedmob", 1.0F, (p) -> 3, null, false);
+                attackerMob.serverFollowersManager.addFollower("summonedplanetminion", mobPlanet, FollowPosition.WIDE_CIRCLE_MOVEMENT, "summonedmob", 1.0F, (p) -> 3, null, false);
                 mobPlanet.updateDamage(getDamage());
                 mobPlanet.getLevel().entityManager.addMob(mobPlanet, mob.x, mob.y);
             }

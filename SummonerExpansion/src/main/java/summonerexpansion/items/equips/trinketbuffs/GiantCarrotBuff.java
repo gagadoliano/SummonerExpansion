@@ -34,7 +34,6 @@ public class GiantCarrotBuff extends TrinketBuff
 
     public void serverTick(ActiveBuff buff)
     {
-        super.serverTick(buff);
         if (buff.owner.isItemAttacker)
         {
             ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
@@ -53,7 +52,6 @@ public class GiantCarrotBuff extends TrinketBuff
 
     public void onRemoved(ActiveBuff buff)
     {
-        super.onRemoved(buff);
         BuffManager buffManager = buff.owner.buffManager;
         if (buff.owner.isServer() && buffManager.hasBuff("summonedcarrotminionbuff"))
         {

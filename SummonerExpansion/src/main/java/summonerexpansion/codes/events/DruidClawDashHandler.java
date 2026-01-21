@@ -45,9 +45,9 @@ public class DruidClawDashHandler  extends MousePositionAttackHandler
     protected int endAttackBuffer;
     protected HudDrawElement hudDrawElement;
 
-    public DruidClawDashHandler(ItemAttackerMob attackerMob, ItemAttackSlot slot, InventoryItem item, DruidClaw clawItem, int chargeTime, Color particleColors, int seed)
+    public DruidClawDashHandler(ItemAttackerMob attackerMob, ItemAttackSlot slot, InventoryItem item, DruidClaw clawItem, int chargeTime, Color particleColors, int seed, int startTargetX, int startTargetY)
     {
-        super(attackerMob, slot, 20);
+        super(attackerMob, slot, 20, startTargetX, startTargetY);
         this.item = item;
         this.clawItem = clawItem;
         this.chargeTime = chargeTime;
@@ -207,7 +207,6 @@ public class DruidClawDashHandler  extends MousePositionAttackHandler
             {
                 ((PlayerMob)attackerMob).constantAttack = true;
             }
-
             InventoryItem attackItem = item.copy();
             attackItem.getGndData().setBoolean("sliceDash", true);
             attackItem.getGndData().setFloat("chargePercent", chargePercent);

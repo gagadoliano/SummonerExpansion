@@ -21,20 +21,20 @@ public class FrenzystoneRingBuff extends TrinketBuff
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
     {
-        this.updateBuff(buff);
-        this.isImportant = true;
+        updateBuff(buff);
+        isImportant = true;
     }
 
     public void serverTick(ActiveBuff buff)
     {
-        this.updateBuff(buff);
-        this.updateActiveBuff(buff);
+        updateBuff(buff);
+        updateActiveBuff(buff);
     }
 
     public void clientTick(ActiveBuff buff)
     {
-        this.updateBuff(buff);
-        this.updateActiveBuff(buff);
+        updateBuff(buff);
+        updateActiveBuff(buff);
     }
 
     public void updateActiveBuff(ActiveBuff buff)
@@ -44,7 +44,8 @@ public class FrenzystoneRingBuff extends TrinketBuff
         {
             ActiveBuff activeBuff = new ActiveBuff(BuffRegistry.BLOODSTONE_RING_REGEN_ACTIVE_BUFF, buff.owner, 4.0F, (Attacker)null);
             buff.owner.buffManager.addBuff(activeBuff, true);
-        } else if (healthPercent >= 0.5F && buff.owner.buffManager.hasBuff(BuffRegistry.BLOODSTONE_RING_REGEN_ACTIVE_BUFF))
+        }
+        else if (healthPercent >= 0.5F && buff.owner.buffManager.hasBuff(BuffRegistry.BLOODSTONE_RING_REGEN_ACTIVE_BUFF))
         {
             buff.owner.buffManager.removeBuff(BuffRegistry.BLOODSTONE_RING_REGEN_ACTIVE_BUFF, true);
         }

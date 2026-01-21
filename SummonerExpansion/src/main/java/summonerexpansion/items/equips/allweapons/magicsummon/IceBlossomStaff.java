@@ -21,7 +21,6 @@ import summonerexpansion.mobs.summonminions.magicminions.*;
 
 public class IceBlossomStaff extends BaseMagicWeapon implements ItemInteractAction
 {
-    protected IntUpgradeValue sentryLevel = (new IntUpgradeValue()).setBaseValue(1);
     protected IntUpgradeValue ricochets = (new IntUpgradeValue()).setBaseValue(1);
 
     public IceBlossomStaff(int enchantCost, Item.Rarity rarityTier)
@@ -34,7 +33,6 @@ public class IceBlossomStaff extends BaseMagicWeapon implements ItemInteractActi
         attackAnimTime.setBaseValue(800);
         attackRange.setBaseValue(700).setUpgradedValue(1, 1000);
         velocity.setBaseValue(60).setUpgradedValue(1, 70).setUpgradedValue(5, 150);
-        sentryLevel.setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(5, 3);
         ricochets.setBaseValue(2).setUpgradedValue(1, 4).setUpgradedValue(10, 10);
         canBeUsedForRaids = false;
     }
@@ -59,31 +57,13 @@ public class IceBlossomStaff extends BaseMagicWeapon implements ItemInteractActi
     {
         if (attackerMob.isServer())
         {
-            if (sentryLevel.getValue(getUpgradeTier(item)) == 1)
-            {
-                IceBlossomSentry mob1 = new IceBlossomSentry();
-                attackerMob.serverFollowersManager.addFollower("iceblossomsentry", mob1, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
-                attackerMob.getLevel().entityManager.addMob(mob1, attackerMob.x, attackerMob.y);
-            }
-
-            if (sentryLevel.getValue(getUpgradeTier(item)) == 2)
-            {
-                IceBlossomSentryT1 mob2 = new IceBlossomSentryT1();
-                attackerMob.serverFollowersManager.addFollower("iceblossomsentryt1", mob2, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
-                attackerMob.getLevel().entityManager.addMob(mob2, attackerMob.x, attackerMob.y);
-            }
-
-            if (sentryLevel.getValue(getUpgradeTier(item)) > 2)
-            {
-                IceBlossomSentryT5 mob3 = new IceBlossomSentryT5();
-                attackerMob.serverFollowersManager.addFollower("iceblossomsentryt5", mob3, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
-                attackerMob.getLevel().entityManager.addMob(mob3, attackerMob.x, attackerMob.y);
-            }
+            IceBlossomSentry mob1 = new IceBlossomSentry();
+            attackerMob.serverFollowersManager.addFollower("iceblossomsentry", mob1, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
+            attackerMob.getLevel().entityManager.addMob(mob1, attackerMob.x, attackerMob.y);
         }
         return item;
     }
 
-    @Override
     public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard)
     {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);

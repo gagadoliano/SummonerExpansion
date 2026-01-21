@@ -9,11 +9,8 @@ import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.TrinketBuff;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
-import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.trinketItem.TrinketItem;
 import summonerexpansion.codes.registry.SummonerModifiers;
-
-import java.util.LinkedList;
 
 public class CompanionSatchelsBuff extends TrinketBuff
 {
@@ -26,16 +23,15 @@ public class CompanionSatchelsBuff extends TrinketBuff
         activeBuff.setModifier(BuffModifiers.LIFE_ESSENCE_GAIN, 0.50F);
         activeBuff.setModifier(BuffModifiers.LIFE_ESSENCE_DURATION, 1.0F);
         activeBuff.setModifier(BuffModifiers.SPEED, 0.10F);
-
         activeBuff.setModifier(SummonerModifiers.EMITS_SUMMON_LIGHT, true);
     }
 
     public void clientTick(ActiveBuff buff) {
-        this.updateModifiers(buff);
+        updateModifiers(buff);
     }
 
     public void serverTick(ActiveBuff buff) {
-        this.updateModifiers(buff);
+        updateModifiers(buff);
     }
 
     public void updateModifiers(ActiveBuff buff)

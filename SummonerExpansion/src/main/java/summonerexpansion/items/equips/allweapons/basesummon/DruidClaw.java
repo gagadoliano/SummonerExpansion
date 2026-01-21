@@ -440,7 +440,7 @@ public class DruidClaw extends SwordToolItem implements ItemInteractAction
             float animModifier = (float)GameMath.lerp(Math.min(Math.pow(stacksPercent * 2.0F, 0.5F), 1.0F), 8L, 1L);
             int animTime = (int)((float)getAttackAnimTime(item, attackerMob) * animModifier);
             mapContent.setBoolean("chargeUp", true);
-            attackerMob.startAttackHandler(new DruidClawDashHandler(attackerMob, slot, item, this, animTime, new Color(190, 220, 220), seed));
+            attackerMob.startAttackHandler(new DruidClawDashHandler(attackerMob, slot, item, this, animTime, new Color(190, 220, 220), seed, x, y));
             return item;
         }
         else
@@ -492,7 +492,7 @@ public class DruidClaw extends SwordToolItem implements ItemInteractAction
         float animModifier = (float)GameMath.lerp(Math.min(Math.pow(stacksPercent * 2.0F, 0.5F), 1.0F), 8L, 1L);
         int animTime = (int)((float)getAttackAnimTime(item, attackerMob) * animModifier);
         mapContent.setBoolean("chargeUp", true);
-        attackerMob.startAttackHandler((new DruidClawDashHandler(attackerMob, slot, item, this, animTime, new Color(190, 220, 220), seed)).startFromInteract());
+        attackerMob.startAttackHandler((new DruidClawDashHandler(attackerMob, slot, item, this, animTime, new Color(190, 220, 220), seed, x, y)).startFromInteract());
         return item;
     }
 

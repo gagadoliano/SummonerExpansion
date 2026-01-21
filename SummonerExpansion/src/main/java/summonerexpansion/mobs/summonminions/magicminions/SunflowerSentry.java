@@ -2,13 +2,13 @@ package summonerexpansion.mobs.summonminions.magicminions;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.registries.BuffRegistry;
+import necesse.engine.registries.JournalChallengeRegistry;
 import necesse.engine.util.GameUtils;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerCollisionChaserAI;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.staticBuffs.Buff;
-import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.entity.objectEntity.interfaces.OEVicinityBuff;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
@@ -24,6 +24,8 @@ import java.awt.*;
 import java.util.List;
 import java.util.function.Predicate;
 
+import static summonerexpansion.codes.registry.SummonerChallenges.*;
+
 public class SunflowerSentry extends SentryBase implements OEVicinityBuff
 {
     public int flowerRange = 500;
@@ -35,7 +37,7 @@ public class SunflowerSentry extends SentryBase implements OEVicinityBuff
         super(3000F, 1000F);
         collision = new Rectangle(0, 0, 34, 66);
         hitBox = new Rectangle(0, 0, 34, 66);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(0, 0, 34, 66);
     }
 
     public void init()
@@ -73,10 +75,29 @@ public class SunflowerSentry extends SentryBase implements OEVicinityBuff
         Buff[] var2 = this.getBuffs();
         for (Buff buff : var2)
         {
-            if (buff != null)
+            if (buff != null && getClient() != null)
             {
-                ActiveBuff ab = new ActiveBuff(buff, mob, 120, this);
-                mob.buffManager.addBuff(ab, false);
+                ActiveBuff ab = new ActiveBuff(buff, mob, 1F, this);
+                if (JournalChallengeRegistry.getChallenge(UPGRADE_TIER4_ID).isCompleted(getClient()))
+                {
+                    mob.buffManager.addBuff(ab, false).setStacks(20, 60, getAttackOwner());
+                }
+                else if (JournalChallengeRegistry.getChallenge(UPGRADE_TIER3_ID).isCompleted(getClient()))
+                {
+                    mob.buffManager.addBuff(ab, false).setStacks(10, 60, getAttackOwner());
+                }
+                else if (JournalChallengeRegistry.getChallenge(UPGRADE_TIER2_ID).isCompleted(getClient()))
+                {
+                    mob.buffManager.addBuff(ab, false).setStacks(6, 60, getAttackOwner());
+                }
+                else if (JournalChallengeRegistry.getChallenge(UPGRADE_TIER1_ID).isCompleted(getClient()))
+                {
+                    mob.buffManager.addBuff(ab, false).setStacks(4, 60, getAttackOwner());
+                }
+                else
+                {
+                    mob.buffManager.addBuff(ab, false).setStacks(1, 60, getAttackOwner());
+                }
             }
         }
     }
@@ -101,7 +122,6 @@ public class SunflowerSentry extends SentryBase implements OEVicinityBuff
         tickVicinityBuff(this);
     }
 
-    @Override
     public Mob getFirstAttackOwner() {
         return this;
     }

@@ -27,9 +27,9 @@ public class DruidHumanMob extends HumanShop
         equipmentInventory.setItem(6, new InventoryItem("woodstaff"));
 
         // Consumables
-        shop.addSellingItem("leafshotpack", new SellingShopItem(100, 5)).setStaticPriceBasedOnHappiness(800, 1500).addKilledMobRequirement("swampzombie");
-        shop.addSellingItem("leafshotcoldpack", new SellingShopItem(100, 5)).setStaticPriceBasedOnHappiness(800, 1500).addKilledMobRequirement("trapperzombie");
-        shop.addSellingItem("leafshotheatpack", new SellingShopItem(100, 5)).setStaticPriceBasedOnHappiness(800, 1500).addKilledMobRequirement("enchantedzombie");
+        shop.addSellingItem("leafshotpack", new SellingShopItem(100, 5)).setStaticPriceBasedOnHappiness(500, 1500).addKilledMobRequirement("swampzombie");
+        shop.addSellingItem("leafshotcoldpack", new SellingShopItem(100, 5)).setStaticPriceBasedOnHappiness(500, 1500).addKilledMobRequirement("trapperzombie");
+        shop.addSellingItem("leafshotheatpack", new SellingShopItem(100, 5)).setStaticPriceBasedOnHappiness(500, 1500).addKilledMobRequirement("enchantedzombie");
         // Summon weapons
         shop.addSellingItem("cactusstaff", new SellingShopItem()).setStaticPriceBasedOnHappiness(1600, 2000);
         shop.addSellingItem("stabbybush", new SellingShopItem()).setStaticPriceBasedOnHappiness(800, 2000).addRandomAvailableRequirement(0.20F);
@@ -50,6 +50,12 @@ public class DruidHumanMob extends HumanShop
         shop.addSellingItem("sunflowerstaff", new SellingShopItem()).setStaticPriceBasedOnHappiness(600, 1200).addRandomAvailableRequirement(0.20F);
         shop.addSellingItem("iceblossomstaff", new SellingShopItem()).setStaticPriceBasedOnHappiness(600, 1200).addRandomAvailableRequirement(0.20F);
         shop.addSellingItem("firemonestaff", new SellingShopItem()).setStaticPriceBasedOnHappiness(600, 1200).addRandomAvailableRequirement(0.20F);
+        shop.addSellingItem("thornstaff", new SellingShopItem()).setStaticPriceBasedOnHappiness(800, 2000).addKilledMobRequirement("evilsprotector");
+        shop.addSellingItem("applewalkingstick", new SellingShopItem()).setStaticPriceBasedOnHappiness(1000, 2000).addKilledMobRequirement("swampguardian");
+        shop.addSellingItem("pinewoodstaff", new SellingShopItem()).setStaticPriceBasedOnHappiness(1000, 4000).addKilledMobRequirement("pestwarden");
+        // Trinkets
+        shop.addSellingItem("flowerbrooch", new SellingShopItem()).setStaticPriceBasedOnHappiness(200, 800).addRandomAvailableRequirement(0.20F);
+        shop.addSellingItem("cactusemblem", new SellingShopItem()).setStaticPriceBasedOnHappiness(200, 800).addRandomAvailableRequirement(0.20F);
 
         // Sell items
         shop.addBuyingItem("redflowerpatch", new BuyingShopItem()).setPriceBasedOnHappiness(10, 2, 3);

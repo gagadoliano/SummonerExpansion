@@ -23,9 +23,9 @@ import summonerexpansion.items.equips.allweapons.basesummon.DruidClaw;
 
 import java.awt.geom.Point2D;
 
-public class CrystalamAlgamationBuff extends TrinketBuff
+public class CrystalAmalgamationBuff extends TrinketBuff
 {
-    public CrystalamAlgamationBuff() {}
+    public CrystalAmalgamationBuff() {}
 
     public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber) {
     }
@@ -52,7 +52,6 @@ public class CrystalamAlgamationBuff extends TrinketBuff
                     int offsetDistance = random.getIntBetween(30, 50);
                     Point2D.Float offset = new Point2D.Float(dir.x * (float)offsetDistance, dir.y * (float)offsetDistance);
                     float velocity = 150.0F * attackerMob.buffManager.getModifier(BuffModifiers.PROJECTILE_VELOCITY);
-
                     if (random.getChance(0.5F))
                     {
                         offset = GameMath.getPerpendicularPoint(offset, (float)random.getIntBetween(-60, 60), dir);
@@ -71,7 +70,6 @@ public class CrystalamAlgamationBuff extends TrinketBuff
                         CrystalSapphireTrinketProj projectile = new CrystalSapphireTrinketProj(level, attackerMob, attackerMob.x + offset.x, attackerMob.y + offset.y, (float)targetX, (float)targetY, velocity * random.getFloatBetween(0.5f, 1.5f), 500, finalDamage, 0);
                         level.entityManager.projectiles.add(projectile);
                     }
-
                     if (random.getChance(0.5F))
                     {
                         offset = GameMath.getPerpendicularPoint(offset, (float)random.getIntBetween(-60, 60), dir);
@@ -90,7 +88,6 @@ public class CrystalamAlgamationBuff extends TrinketBuff
                         CrystalTrinketProj projectile = new CrystalTrinketProj(level, attackerMob, attackerMob.x + offset.x, attackerMob.y + offset.y, (float)targetX, (float)targetY, velocity * random.getFloatBetween(0.5f, 1.5f), 500, finalDamage, 0);
                         level.entityManager.projectiles.add(projectile);
                     }
-
                     if (random.getChance(0.5F))
                     {
                         offset = GameMath.getPerpendicularPoint(offset, (float)random.getIntBetween(-60, 60), dir);
@@ -109,7 +106,6 @@ public class CrystalamAlgamationBuff extends TrinketBuff
                         CrystalSapphireTrinketProj projectile = new CrystalSapphireTrinketProj(level, attackerMob, attackerMob.x + offset.x, attackerMob.y + offset.y, (float)targetX, (float)targetY, velocity * random.getFloatBetween(0.5f, 1.5f), 500, finalDamage, 0);
                         level.entityManager.projectiles.add(projectile);
                     }
-
                     if (random.getChance(0.5F))
                     {
                         offset = GameMath.getPerpendicularPoint(offset, (float)random.getIntBetween(-60, 60), dir);

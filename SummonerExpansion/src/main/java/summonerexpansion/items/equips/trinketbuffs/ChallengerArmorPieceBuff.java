@@ -27,7 +27,7 @@ public class ChallengerArmorPieceBuff extends TrinketBuff
 
     public void clientTick(ActiveBuff buff)
     {
-        this.updateModifiers(buff);
+        updateModifiers(buff);
         if (buff.owner.isVisible() && buff.owner.buffManager.hasBuff(BuffRegistry.BOSS_NEARBY))
         {
             Mob owner = buff.owner;
@@ -36,7 +36,7 @@ public class ChallengerArmorPieceBuff extends TrinketBuff
     }
 
     public void serverTick(ActiveBuff buff) {
-        this.updateModifiers(buff);
+        updateModifiers(buff);
     }
 
     public void updateModifiers(ActiveBuff buff)

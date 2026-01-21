@@ -22,8 +22,6 @@ import summonerexpansion.mobs.summonminions.magicminions.*;
 
 public class SunflowerStaff extends BaseMagicWeapon implements ItemInteractAction
 {
-    public IntUpgradeValue sentryLevel = (new IntUpgradeValue()).setBaseValue(2);
-
     public SunflowerStaff(int enchantCost, Item.Rarity rarityTier)
     {
         super(enchantCost, rarityTier);
@@ -33,7 +31,6 @@ public class SunflowerStaff extends BaseMagicWeapon implements ItemInteractActio
         attackAnimTime.setBaseValue(800);
         attackRange.setBaseValue(500).setUpgradedValue(1, 1000);
         velocity.setBaseValue(70).setUpgradedValue(1, 80).setUpgradedValue(5, 150);
-        sentryLevel.setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(5, 3);
         knockback.setBaseValue(5);
         canBeUsedForRaids = false;
     }
@@ -58,31 +55,13 @@ public class SunflowerStaff extends BaseMagicWeapon implements ItemInteractActio
     {
         if (attackerMob.isServer())
         {
-            if (sentryLevel.getValue(getUpgradeTier(item)) == 1)
-            {
-                SunflowerSentry mob1 = new SunflowerSentry();
-                attackerMob.serverFollowersManager.addFollower("sunflowersentry", mob1, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
-                attackerMob.getLevel().entityManager.addMob(mob1, attackerMob.x, attackerMob.y);
-            }
-
-            if (sentryLevel.getValue(getUpgradeTier(item)) == 2)
-            {
-                SunflowerSentryT1 mob2 = new SunflowerSentryT1();
-                attackerMob.serverFollowersManager.addFollower("sunflowersentryt1", mob2, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
-                attackerMob.getLevel().entityManager.addMob(mob2, attackerMob.x, attackerMob.y);
-            }
-
-            if (sentryLevel.getValue(getUpgradeTier(item)) > 2)
-            {
-                SunflowerSentryT5 mob3 = new SunflowerSentryT5();
-                attackerMob.serverFollowersManager.addFollower("sunflowersentryt5", mob3, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
-                attackerMob.getLevel().entityManager.addMob(mob3, attackerMob.x, attackerMob.y);
-            }
+            SunflowerSentry mob1 = new SunflowerSentry();
+            attackerMob.serverFollowersManager.addFollower("sunflowersentry", mob1, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
+            attackerMob.getLevel().entityManager.addMob(mob1, attackerMob.x, attackerMob.y);
         }
         return item;
     }
 
-    @Override
     public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard)
     {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);

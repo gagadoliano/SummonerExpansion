@@ -30,9 +30,10 @@ public class SummonerItems
     public static void registerSummonItems()
     {
         // Materials
-        ItemRegistry.registerItem("ancientlog", (new MatItem(500, "anylog")).setItemCategory("materials", "logs"), 2.0F, true);
-        ItemRegistry.registerItem("titaniumbar", (new MatItem(250, Item.Rarity.RARE)).setItemCategory("materials", "bars"), 4.0F, true);
-        ItemRegistry.registerItem("titaniumore", (new MatItem(500, Item.Rarity.RARE)).setItemCategory("materials", "ore"), 1.0F, true);
+        ItemRegistry.registerItem("fossilhoney", (new MatItem(999, Item.Rarity.UNCOMMON)).setItemCategory("materials", "mobdrops"), 1, true);
+        ItemRegistry.registerItem("ancientlog", (new MatItem(500, "anylog")).setItemCategory("materials", "logs"), 2, true);
+        ItemRegistry.registerItem("titaniumbar", (new MatItem(250, Item.Rarity.RARE)).setItemCategory("materials", "bars"), 4, true);
+        ItemRegistry.registerItem("titaniumore", (new MatItem(500, Item.Rarity.RARE)).setItemCategory("materials", "ore"), 1, true);
         ItemRegistry.registerItem("purehorror", new PureHorror(), 50, true);
 
         // Boss Summon
@@ -52,10 +53,12 @@ public class SummonerItems
         ItemRegistry.registerItem("myceliumworm", new BaitItem(true, 50), 20.0F, true);
 
         // Foods
+        ItemRegistry.registerItem("berrytrio", (new FoodConsumableItem(250, Item.Rarity.NORMAL, Settler.FOOD_SIMPLE, 10, 1200, new ModifierValue<>(BuffModifiers.SUMMON_CRIT_CHANCE, 0.05F), new ModifierValue<>(BuffModifiers.SUMMON_CRIT_DAMAGE, 0.05F), new ModifierValue<>(BuffModifiers.SUMMON_ATTACK_SPEED, 0.05F))).spoilDuration(500), 10F, true);
         ItemRegistry.registerItem("pigbanquet", (new FoodConsumableItem(250, Item.Rarity.UNCOMMON, Settler.FOOD_FINE, 25, 1200, new ModifierValue<>(BuffModifiers.SPEED, -0.20F), new ModifierValue<>(BuffModifiers.ARMOR, 0.10F), new ModifierValue<>(BuffModifiers.SUMMON_CRIT_DAMAGE, 0.10F))).spoilDuration(500), 30F, true);
+        ItemRegistry.registerItem("spicycoffee", (new FoodConsumableItem(250, Item.Rarity.EPIC, Settler.FOOD_FINE, 25, 1800, new ModifierValue<>(SummonerModifiers.TRANSFORMATION_SPEED, 0.45F), new ModifierValue<>(BuffModifiers.SUMMON_ATTACK_SPEED, 0.20F))).spoilDuration(500), 60F, true);
         ItemRegistry.registerItem("caveglowjam", (new FoodConsumableItem(250, Item.Rarity.UNCOMMON, Settler.FOOD_FINE, 20, 1200, new ModifierValue<>(BuffModifiers.EMITS_LIGHT, true), new ModifierValue<>(BuffModifiers.SUMMON_DAMAGE, 0.10F))).spoilDuration(500), 20F, true);
         ItemRegistry.registerItem("rottenbread", (new FoodConsumableItem(250, Item.Rarity.NORMAL, Settler.FOOD_SIMPLE, 10, 1200, new ModifierValue<>(BuffModifiers.MAX_HEALTH, -0.20F), new ModifierValue<>(BuffModifiers.MAX_SUMMONS, 1))).spoilDuration(500), 0F, true);
-        ItemRegistry.registerItem("berrytrio", (new FoodConsumableItem(250, Item.Rarity.NORMAL, Settler.FOOD_SIMPLE, 10, 1200, new ModifierValue<>(BuffModifiers.SUMMON_CRIT_CHANCE, 0.05F), new ModifierValue<>(BuffModifiers.SUMMON_CRIT_DAMAGE, 0.05F), new ModifierValue<>(BuffModifiers.SUMMON_ATTACK_SPEED, 0.05F))).spoilDuration(500), 10F, true);
+        ItemRegistry.registerItem("livingsharksoup", (new FoodConsumableItem(250, Item.Rarity.NORMAL, Settler.FOOD_FINE, 20, 1200, new ModifierValue<>(BuffModifiers.SWIM_SPEED, 0.20F), new ModifierValue<>(SummonerModifiers.TRANSFORMATION_SPEED, 0.20F))).spoilDuration(500), 10F, true);
 
         // Banners
         ItemRegistry.registerItem("bannerofresilience", new BannerItem(Item.Rarity.COMMON, 480, (m) -> SummonerBuffs.SummonerBanners.RESILIENCEBOOST), 200, true);
@@ -90,6 +93,8 @@ public class SummonerItems
         BuffRegistry.registerBuff("minionfarmbuff", new MinionFarmBuff());
         ItemRegistry.registerItem("minionequinoxpotion", new MinionEquinoxPotion(), 10, true);
         BuffRegistry.registerBuff("minionequinoxbuff", new MinionEquinoxBuff());
+        ItemRegistry.registerItem("minionsunflowerpotion", new MinionSunflowerPotion(), 10, true);
+        BuffRegistry.registerBuff("minionsunflowerbuff", new MinionSunflowerBuff());
 
         // Maps
         ItemRegistry.registerItem("ancientforestmap", new WorldPresetMapItem(Item.Rarity.RARE, LevelIdentifier.SURFACE_IDENTIFIER, 800, "ancientforesticon", new LocalMessage("biome", "ancientforestminibiome"), "ancientforestminibiome"), 40f, true);

@@ -32,7 +32,6 @@ import necesse.level.maps.Level;
 
 import java.awt.geom.Point2D;
 import java.util.*;
-import java.util.function.BiConsumer;
 
 public class BaseSupportWeapon extends ToolItem
 {
@@ -53,10 +52,7 @@ public class BaseSupportWeapon extends ToolItem
         this.damageType = DamageTypeRegistry.SUMMON;
         this.attackAnimTime.setBaseValue(400);
         this.setItemCategory("equipment", "weapons", "summonweapons");
-        if (this instanceof ItemAttackerWeaponItem)
-        {
-            this.setItemCategory(ItemCategory.equipmentManager, "weapons", "summonweapons");
-        }
+        this.setItemCategory(ItemCategory.equipmentManager, "weapons", "summonweapons");
         this.setItemCategory(ItemCategory.craftingManager, "equipment", "weapons", "summonweapons");
         this.keyWords.add("summon");
         this.attackXOffset = 4;
@@ -219,7 +215,7 @@ public class BaseSupportWeapon extends ToolItem
     public void summonServerMob(ItemAttackerMob attackerMob, ToolItemSummonedMob mob, int x, int y, int attackHeight, InventoryItem item)
     {
         Mob castedMob = (Mob)mob;
-        attackerMob.serverFollowersManager.addFollower(this.summonType, castedMob, this.followPosition, "summonedmob", this.getSummonSpaceTaken(item, attackerMob), (p) -> this.getMaxSummons(item, p), (BiConsumer)null, false);
+        attackerMob.serverFollowersManager.addFollower(this.summonType, castedMob, this.followPosition, "summonedmob", this.getSummonSpaceTaken(item, attackerMob), (p) -> this.getMaxSummons(item, p), null, false);
         Point2D.Float spawnPoint = this.findSpawnLocation(mob, castedMob.getLevel(), x, y, attackHeight, attackerMob, item);
         mob.updateDamage(this.getAttackDamage(item));
         mob.setEnchantment(this.getEnchantment(item));

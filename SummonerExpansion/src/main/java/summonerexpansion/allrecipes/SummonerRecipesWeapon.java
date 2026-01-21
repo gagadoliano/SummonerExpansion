@@ -135,6 +135,18 @@ public class SummonerRecipesWeapon
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "bookbutterfly",
+                1,
+                SUMMONBOOKCRAFT,
+                new Ingredient[]{
+                        new Ingredient("butterflyred", 3),
+                        new Ingredient("butterflyblue", 3),
+                        new Ingredient("butterflygreen", 3),
+                        new Ingredient("book", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "bookmagma",
                 1,
                 SUMMONBOOKCRAFT,
@@ -375,6 +387,16 @@ public class SummonerRecipesWeapon
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "spidersummonsword",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("woodsword", 1),
+                        new Ingredient("cavespidergland", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "wormbucket",
                 1,
                 SUMMONTABLECRAFT,
@@ -532,6 +554,17 @@ public class SummonerRecipesWeapon
                         new Ingredient("apple", 50),
                         new Ingredient("applesapling", 5),
                         new Ingredient("sprucelog", 150)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "thornstaff",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("thorns", 35),
+                        new Ingredient("mushroom", 15),
+                        new Ingredient("swampsludge", 5)
                 }
         ));
 

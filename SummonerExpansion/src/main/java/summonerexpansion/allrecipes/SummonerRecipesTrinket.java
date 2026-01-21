@@ -10,7 +10,14 @@ public class SummonerRecipesTrinket
 {
     public static void registerSummonRecipes()
     {
-        // Summon table
+        SummonerRecipesTrinket.registerSummonRecipesT1();
+        SummonerRecipesTrinket.registerSummonRecipesT2();
+        SummonerRecipesTrinket.registerSummonRecipesT3();
+        SummonerRecipesTrinket.registerSummonRecipesT4();
+    }
+
+    public static void registerSummonRecipesT1()
+    {
         Recipes.registerModRecipe(new Recipe(
                 "mesmercharm",
                 1,
@@ -18,6 +25,16 @@ public class SummonerRecipesTrinket
                 new Ingredient[]{
                         new Ingredient("mesmertablet", 1),
                         new Ingredient("zephyrcharm", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "lightningamulet",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("lightninghammer", 1),
+                        new Ingredient("voidshard", 15)
                 }
         ));
 
@@ -30,7 +47,10 @@ public class SummonerRecipesTrinket
                         new Ingredient("thornspotion", 1)
                 }
         ));
+    }
 
+    public static void registerSummonRecipesT2()
+    {
         Recipes.registerModRecipe(new Recipe(
                 "demonicpolarclaw",
                 1,
@@ -52,6 +72,17 @@ public class SummonerRecipesTrinket
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "overchargedvoidshards",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("voidshard", 50),
+                        new Ingredient("manapotion", 10),
+                        new Ingredient("manaregenpotion", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "inducingsatchel",
                 1,
                 SUMMONTABLECRAFT2,
@@ -62,12 +93,37 @@ public class SummonerRecipesTrinket
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "geniewish",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("genielamp", 1),
+                        new Ingredient("goldbar", 10),
+                        new Ingredient("coin", 999)
+                }
+        ));
+    }
+
+    public static void registerSummonRecipesT3()
+    {
+        Recipes.registerModRecipe(new Recipe(
                 "shadowhorrorcape",
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
                         new Ingredient("vampiresgift", 1),
                         new Ingredient("purehorror", 10)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "galvanicamulet",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("lightningamulet", 1),
+                        new Ingredient("runestone", 15),
+                        new Ingredient("tungstenbar", 10)
                 }
         ));
 
@@ -144,7 +200,10 @@ public class SummonerRecipesTrinket
                         new Ingredient("healthpotion", 5)
                 }
         ));
+    }
 
+    public static void registerSummonRecipesT4()
+    {
         Recipes.registerModRecipe(new Recipe(
                 "mesmersatchel",
                 1,

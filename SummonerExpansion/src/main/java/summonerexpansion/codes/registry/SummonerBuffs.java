@@ -4,10 +4,12 @@ import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.registries.BuffRegistry;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.*;
-import summonerexpansion.buffs.bannerbuffs.*;
 import summonerexpansion.buffs.*;
+import summonerexpansion.buffs.bannerbuffs.*;
 import summonerexpansion.buffs.debuffs.*;
 import summonerexpansion.buffs.followerbuffs.*;
+import summonerexpansion.buffs.tilebuffs.*;
+import summonerexpansion.buffs.trinketbuffs.*;
 
 import java.awt.*;
 
@@ -38,20 +40,31 @@ public class SummonerBuffs
 
     public static class SummonBuffs
     {
-        public static Buff CLAW_DASH_STACKS;
+        // Weapons
         public static Buff CLAW_DASH_COOLDOWN;
+        public static Buff CLAW_DASH_STACKS;
         public static Buff CLAWVULTURESPEED;
         public static Buff CLAWSPIDERWEB;
         public static Buff CLAWANCESTOR;
-        public static Buff CLAWDEMON;
         public static Buff CLAWFALLEN;
+        public static Buff CLAWDEMON;
 
         public static Buff APPLEWALKBUFF;
         public static Buff PINEWOODBUFF;
-        public static Buff CLOUDSPEEDBUFF;
-        public static Buff HEALGLYPH;
-
+        public static Buff COFFEBUFF;
+        // Armors
         public static Buff COPPERSET_CONSECUTIVE;
+        public static Buff SHARKLAVAFRENZY;
+        public static Buff CLOUDSPEEDBUFF;
+        // Trinkets
+        public static Buff ADAPTIVEALIENSTACKS;
+        public static Buff GENIECRITSTACKS;
+        // Traps
+        public static Buff HEALGLYPH;
+        // Liquids
+        public static Buff LIQUIDHONEYSTACKS;
+        // Generic
+
 
         public SummonBuffs() {
         }
@@ -63,22 +76,23 @@ public class SummonerBuffs
         public static Buff LAMPDUNGEONFIRE;
         public static Buff REDSPIDERPOISON;
         public static Buff LAMPCASTLEFIRE;
-        public static Buff BEARBLEEDING;
-        public static Buff REDSPIDERARMOR;
         public static Buff BOOKFROZENSLOW;
         public static Buff ICEWIZARDFROST;
         public static Buff ENCHANTEDWEAK;
         public static Buff MOSQUITOWEAK;
         public static Buff MUSHROOMSLOW;
         public static Buff LAMPGOLDFIRE;
+        public static Buff BEARBLEEDING;
         public static Buff HONEYSLOW;
         public static Buff POLARSLOW;
-        public static Buff WATERWEAK;
 
         public static Buff TRINKETMUMMYSUMMON;
         public static Buff TRINKETMUMMYMAGIC;
 
+        public static Buff REDSPIDERARMOR;
         public static Buff COPPERSETFIRE;
+        public static Buff SHARKLAVABLEED;
+        public static Buff WATERWEAK;
 
         public static Buff CLAWPOLARSLOW;
         public static Buff CLAWLEATHERWEAK;
@@ -120,17 +134,12 @@ public class SummonerBuffs
         BuffRegistry.registerBuff("honeybuff", new HoneyBuff());
 
         // Sentry Buffs
-        BuffRegistry.registerBuff("iceblossombufft5", new IceBlossomBuffT5());
-        BuffRegistry.registerBuff("iceblossombufft1", new IceBlossomBuffT1());
-        BuffRegistry.registerBuff("sunflowerbufft5", new SunflowerBuffT5());
-        BuffRegistry.registerBuff("sunflowerbufft1", new SunflowerBuffT1());
-        BuffRegistry.registerBuff("firemonebufft5", new FiremoneBuffT5());
-        BuffRegistry.registerBuff("firemonebufft1", new FiremoneBuffT1());
         BuffRegistry.registerBuff("iceblossombuff", new IceBlossomBuff());
         BuffRegistry.registerBuff("sunflowerbuff", new SunflowerBuff());
         BuffRegistry.registerBuff("firemonebuff", new FiremoneBuff());
         BuffRegistry.registerBuff("mushroombuff", new MushroomBuff());
         BuffRegistry.registerBuff("xmastreebuff", new XmasTreeBuff());
+        BuffRegistry.registerBuff("coffebeambuff", SummonBuffs.COFFEBUFF = new SimpleDebuff(new Color(121, 49, 33), "coffebeambuff", new ModifierValue<>(SummonerModifiers.SENTRY_ATTACK_SPEED, 0.60F)));
 
         // Melee Buffs
         BuffRegistry.registerBuff("horrorglaivecooldowndebuff", new ShownItemCooldownBuff(1, true, "items/horrorglaive"));
@@ -158,9 +167,17 @@ public class SummonerBuffs
         BuffRegistry.registerBuff("topazfloorbuff", new FloorTopazBuff());
         BuffRegistry.registerBuff("rubyfloorbuff", new FloorRubyBuff());
 
+        // Liquids Buffs
+        BuffRegistry.registerBuff("liquidhoneybuff", SummonBuffs.LIQUIDHONEYSTACKS = new LiquidHoneyBuff());
+
         // Armor Sets Buffs
         BuffRegistry.registerBuff("coppersetconsecutive", SummonBuffs.COPPERSET_CONSECUTIVE = new CopperSetConsecutiveBuff());
+        BuffRegistry.registerBuff("sharklavafrenzybuff", SummonBuffs.SHARKLAVAFRENZY = new SharkLavaFrenzyBuff());
         BuffRegistry.registerBuff("cloudspeedbuff", SummonBuffs.CLOUDSPEEDBUFF = new CloudSpeedBuff());
+
+        // Trinket Buffs
+        BuffRegistry.registerBuff("geniecritbuff", SummonBuffs.GENIECRITSTACKS = new GenieCritBuff());
+        BuffRegistry.registerBuff("adaptivealienbuff", SummonBuffs.ADAPTIVEALIENSTACKS = new AdaptiveAlienBuff());
 
         // Summon Count Buffs
         BuffRegistry.registerBuff("summonedtitaniumminionbuff", new SummonedTitaniumMinionBuff());
@@ -186,7 +203,6 @@ public class SummonerBuffs
         BuffRegistry.registerBuff("lamptungstendebuff", SummonerDebuffs.LAMPTUNGSTENFIRE = new LampTungstenDebuff());
         BuffRegistry.registerBuff("lampdungeondebuff", SummonerDebuffs.LAMPDUNGEONFIRE = new LampDungeonDebuff());
         BuffRegistry.registerBuff("bearbleedingdebuff", SummonerDebuffs.BEARBLEEDING = new BearBleedingDebuff());
-        BuffRegistry.registerBuff("redspiderdebuff", SummonerDebuffs.REDSPIDERARMOR = new RedSpiderSetDebuff());
         BuffRegistry.registerBuff("lampcastledebuff", SummonerDebuffs.LAMPCASTLEFIRE = new LampCastleDebuff());
         BuffRegistry.registerBuff("frozenbookdebuff", SummonerDebuffs.BOOKFROZENSLOW = new FrozenBookDebuff());
         BuffRegistry.registerBuff("icewizarddebuff", SummonerDebuffs.ICEWIZARDFROST = new IceWizardDebuff());
@@ -194,7 +210,6 @@ public class SummonerBuffs
         BuffRegistry.registerBuff("mosquitodebuff", SummonerDebuffs.MOSQUITOWEAK = new MosquitoDebuff());
         BuffRegistry.registerBuff("lampgolddebuff", SummonerDebuffs.LAMPGOLDFIRE = new LampGoldDebuff());
         BuffRegistry.registerBuff("polarslowdebuff", SummonerDebuffs.POLARSLOW = new PolarSlowDebuff());
-        BuffRegistry.registerBuff("waterweakdebuff", SummonerDebuffs.WATERWEAK = new WaterWeakDebuff());
         BuffRegistry.registerBuff("honeydebuff", SummonerDebuffs.HONEYSLOW = new HoneyDebuff());
 
         // Sentry Debuffs
@@ -212,6 +227,9 @@ public class SummonerBuffs
 
         // Armor Set Debuffs
         BuffRegistry.registerBuff("coppersetfiredebuff", SummonerDebuffs.COPPERSETFIRE = new CopperSetFireDebuff());
+        BuffRegistry.registerBuff("redspiderdebuff", SummonerDebuffs.REDSPIDERARMOR = new RedSpiderSetDebuff());
+        BuffRegistry.registerBuff("sharklavadebuff", SummonerDebuffs.SHARKLAVABLEED = new SharkLavaDebuff());
+        BuffRegistry.registerBuff("waterweakdebuff", SummonerDebuffs.WATERWEAK = new WaterWeakDebuff());
 
         // Generic Debuffs
         BuffRegistry.registerBuff("summongenericweaknessdebuff", SummonerDebuffs.SUMMON_GENERIC_WEAKNESS = new SimpleDebuff(new Color(98, 104, 113), "summongenericweaknessdebuff", new ModifierValue<>(BuffModifiers.INCOMING_DAMAGE_MOD, 1.2F)));

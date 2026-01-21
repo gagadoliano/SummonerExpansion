@@ -13,7 +13,6 @@ import summonerexpansion.mobs.summonminions.trinketminions.*;
 import summonerexpansion.mobs.summonminions.wormminions.*;
 import summonerexpansion.mobs.summonmobs.*;
 
-import static necesse.engine.registries.MobRegistry.Textures.fromFiles;
 import static necesse.gfx.GameResources.particlesTextureGenerator;
 
 public class SummonerTextures
@@ -35,6 +34,12 @@ public class SummonerTextures
     public static GameTexture titaniumMagicMinion;
     public static GameTexture titaniumRangedMinion;
     public static GameTexture titaniumMeleeMinion;
+    public static GameTexture butterflyRedMinion;
+    public static GameTexture butterflyGreenMinion;
+    public static GameTexture butterflyBlueMinion;
+
+    // Sentry
+    public static GameTexture coffebeamSentry;
 
     // Shadows
     public static GameTexture titaniumMeleeMinion_shadow;
@@ -49,6 +54,7 @@ public class SummonerTextures
     public static GameTexture titaniumLightningGlyph;
     public static GameTexture SpiritGhoulPool;
     public static GameTexture PineWoodSpike;
+    public static GameTexture thornSpike;
 
     public static MobTexture honeyBeeGuard;
 
@@ -103,6 +109,11 @@ public class SummonerTextures
         HorrorBullMinion.texture = GameTexture.fromFile("mobs/horrorbullminion");
         HorrorWolfMinion.texture = GameTexture.fromFile("mobs/horrorwolfminion");
 
+        PlanetMarsMinion.texture = GameTexture.fromFile("mobs/planetmarsproj");
+        PlanetNeptuneMinion.texture = GameTexture.fromFile("mobs/planetneptuneproj");
+        PlanetSaturnMinion.texture = GameTexture.fromFile("mobs/planetsaturnproj");
+        PlanetVenusMinion.texture = GameTexture.fromFile("mobs/planetvenusproj");
+
         ExplosiveSnowmanMinion.texture = GameTexture.fromFile("mobs/explosivesnowmanminion");
         GoblinChestMinion.texture = GameTexture.fromFile("mobs/goblinchestminion");
         SpiritGhoulMinion.texture = GameTexture.fromFile("mobs/spiritghoulminion");
@@ -113,11 +124,9 @@ public class SummonerTextures
         CactusMinion.texture = GameTexture.fromFile("mobs/cactusminion");
         BearMinion.texture = GameTexture.fromFile("mobs/bearminion");
         pineWoodMinion = GameTexture.fromFile("mobs/pinewoodminion");
-
-        PlanetMarsMinion.texture = GameTexture.fromFile("mobs/planetmarsproj");
-        PlanetNeptuneMinion.texture = GameTexture.fromFile("mobs/planetneptuneproj");
-        PlanetSaturnMinion.texture = GameTexture.fromFile("mobs/planetsaturnproj");
-        PlanetVenusMinion.texture = GameTexture.fromFile("mobs/planetvenusproj");
+        butterflyRedMinion = GameTexture.fromFile("mobs/butterflyredminion");
+        butterflyGreenMinion = GameTexture.fromFile("mobs/butterflygreenminion");
+        butterflyBlueMinion = GameTexture.fromFile("mobs/butterflyblueminion");
 
         // Worm
         SandWormHeadMinion.texture = GameTexture.fromFile("mobs/sandwormminion");
@@ -137,6 +146,7 @@ public class SummonerTextures
         CaveglowSentry.texture = GameTexture.fromFile("mobs/caveglowsentry");
         LeafShotSentry.texture = GameTexture.fromFile("mobs/leafshotsentry");
         XmasTreeSentry.texture = GameTexture.fromFile("mobs/xmastreesentry");
+        coffebeamSentry = GameTexture.fromFile("mobs/coffebeamsentry");
 
         // Armor
         SetArcanicPylonSentry.texture = GameTexture.fromFile("mobs/arcanicpylonsentry");
@@ -177,6 +187,7 @@ public class SummonerTextures
         MosquitoBowVisual = particlesTextureGenerator.addTexture(MosquitoBowTexture);
         SpiritGhoulPool = GameTexture.fromFile("particles/spiritghoulpool");
         PineWoodSpike = GameTexture.fromFile("particles/pinestaffspikes");
+        thornSpike = GameTexture.fromFile("particles/thornspikes");
 
         // Mount
         CavelingMinecartMount.texture = GameTexture.fromFile("mobs/cavelingminecart");

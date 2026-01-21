@@ -16,12 +16,10 @@ import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
-import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.trinketItem.TrinketItem;
 import necesse.level.maps.Level;
 
 import java.awt.*;
-import java.util.LinkedList;
 
 public class MagicTeaPotBuff extends TrinketBuff
 {
@@ -36,7 +34,6 @@ public class MagicTeaPotBuff extends TrinketBuff
 
     public void serverTick(ActiveBuff buff)
     {
-        super.serverTick(buff);
         if (buff.owner.isItemAttacker)
         {
             ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
@@ -55,7 +52,6 @@ public class MagicTeaPotBuff extends TrinketBuff
 
     public void onRemoved(ActiveBuff buff)
     {
-        super.onRemoved(buff);
         BuffManager buffManager = buff.owner.buffManager;
         if (buff.owner.isServer() && buffManager.hasBuff("summonedteapotminionbuff"))
         {

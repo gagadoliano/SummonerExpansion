@@ -4,6 +4,7 @@ import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.Buff;
+import summonerexpansion.codes.registry.SummonerModifiers;
 
 public class MountChiefBuff extends Buff
 {
@@ -21,5 +22,6 @@ public class MountChiefBuff extends Buff
         activeBuff.setMaxModifier(BuffModifiers.KNOCKBACK_INCOMING_MOD, 0f);
         activeBuff.setModifier(BuffModifiers.ARMOR_FLAT, 10);
         activeBuff.setModifier(BuffModifiers.ARMOR, 0.10f);
+        activeBuff.setModifier(SummonerModifiers.TRANSFORMATION_SPEED, 0.50f);
     }
 }

@@ -22,7 +22,6 @@ public class CactusEmblemBuff extends TrinketBuff
 
     public void onWasHit(ActiveBuff buff, MobWasHitEvent event)
     {
-        super.onWasHit(buff, event);
         if (!event.wasPrevented && buff.owner.isServer())
         {
             Mob attackOwner = event.attacker != null ? event.attacker.getAttackOwner() : null;

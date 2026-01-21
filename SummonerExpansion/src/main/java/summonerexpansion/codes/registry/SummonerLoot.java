@@ -8,6 +8,7 @@ import necesse.inventory.lootTable.lootItem.LootItem;
 import necesse.inventory.lootTable.lootItem.LootItemList;
 import necesse.inventory.lootTable.lootItem.RotationLootItem;
 import necesse.inventory.lootTable.presets.*;
+import necesse.level.maps.biomes.forest.ForestBiome;
 import necesse.level.maps.biomes.swamp.SwampBiome;
 
 public class SummonerLoot
@@ -93,6 +94,7 @@ public class SummonerLoot
         CaveChestLootTable.basicMainItems.items.add(new ChanceLootItem(0.02f, "magiccopperlamp"));
         CaveChestLootTable.plainsMainItems.items.add(new ChanceLootItem(0.01f, "royalhive"));
         TempleChestLootTable.mainItems.items.add(new ChanceLootItem(0.01f, "sandwormstaff"));
+        FishianBarrelLootTable.mainItems.items.add(new ChanceLootItem(0.50f, "fishianeggs"));
 
         LootTablePresets.alchemistChest.items.addAll(
                 new LootItemList(
@@ -128,6 +130,10 @@ public class SummonerLoot
     public static void registerSummonDropLoot()
     {
         // Drops
+        FrostSentryMob.lootTable.items.add(
+                new ChanceLootItem(0.15F, "frostsentrycore", 1)
+        );
+
         EnchantedZombieMob.lootTable.items.add(
                 new ChanceLootItem(0.05F, "spoiledfood", 4)
         );
@@ -143,6 +149,7 @@ public class SummonerLoot
 
     public static void registerSummonFishLoot()
     {
+        ForestBiome.defaultSurfaceFish.addSaltWater(2, "timeworncoins");
         SwampBiome.defaultCaveFish.addWater(5, "sunkenchest");
     }
 }

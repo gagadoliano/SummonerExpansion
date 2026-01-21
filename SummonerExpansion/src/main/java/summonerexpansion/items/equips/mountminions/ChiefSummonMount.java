@@ -27,7 +27,7 @@ import java.awt.*;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class ChiefSummonMount extends BaseTransformMount implements ActiveMountAbility
+public class ChiefSummonMount extends BaseActiveTransformMount implements ActiveMountAbility
 {
     protected int ChiefAxeCharge = 0;
 
@@ -59,13 +59,9 @@ public class ChiefSummonMount extends BaseTransformMount implements ActiveMountA
             {
                 return false;
             }
-
             player.buffManager.addBuff(new ActiveBuff(BuffRegistry.getBuff("chiefbuff"), player, 1F, this), true);
         }
         return !isRunningClient || Control.TRINKET_ABILITY.isDown();
-    }
-
-    public void onActiveMountAbilityUpdate(PlayerMob player, Packet content) {
     }
 
     public void onActiveMountAbilityStopped(PlayerMob player) {
@@ -82,12 +78,7 @@ public class ChiefSummonMount extends BaseTransformMount implements ActiveMountA
         super.serverTick();
         if (ChiefAxeCharge > 0)
         {
-            setSpeed(90.0F);
             --ChiefAxeCharge;
-        }
-        else
-        {
-            setSpeed(60.0F);
         }
     }
 
@@ -96,12 +87,7 @@ public class ChiefSummonMount extends BaseTransformMount implements ActiveMountA
         super.clientTick();
         if (ChiefAxeCharge > 0)
         {
-            setSpeed(90.0F);
             --ChiefAxeCharge;
-        }
-        else
-        {
-            setSpeed(60.0F);
         }
     }
 

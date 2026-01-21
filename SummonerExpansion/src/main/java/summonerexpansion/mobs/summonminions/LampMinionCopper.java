@@ -32,6 +32,12 @@ public class LampMinionCopper extends MagicLampBase
         setFriction(1.0F);
     }
 
+    public void init()
+    {
+        super.init();
+        ai = new BehaviourTreeAI<>(this, new PlayerFlyingFollowerCollisionChaserAI<>(200, null, 15, 500, 640, 64), new FlyingAIMover());
+    }
+
     public void handleCollisionHit(Mob target, GameDamage damage, int knockback)
     {
         Mob owner = this.getAttackOwner();
@@ -40,12 +46,6 @@ public class LampMinionCopper extends MagicLampBase
             target.isServerHit(damage, target.x - owner.x, target.y - owner.y, (float)knockback, this);
             collisionHitCooldowns.startCooldown(target);
         }
-    }
-
-    public void init()
-    {
-        super.init();
-        ai = new BehaviourTreeAI<>(this, new PlayerFlyingFollowerCollisionChaserAI(200, null, 15, 500, 640, 64), new FlyingAIMover());
     }
 
     public void clientTick()

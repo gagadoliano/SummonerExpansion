@@ -16,7 +16,7 @@ public class BeeMinion extends BookBeeMinion
     public void init()
     {
         super.init();
-        ai = new BehaviourTreeAI<>(this, new PlayerFlyingFollowerCollisionChaserAI(1000, summonDamage, 5, 500, 9000, 64), new FlyingAIMover());
+        ai = new BehaviourTreeAI<>(this, new PlayerFlyingFollowerCollisionChaserAI<>(1000, summonDamage, 5, 500, 9000, 64), new FlyingAIMover());
     }
 
     public void serverTick()

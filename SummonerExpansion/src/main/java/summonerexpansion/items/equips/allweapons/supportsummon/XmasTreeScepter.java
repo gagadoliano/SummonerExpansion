@@ -36,10 +36,10 @@ public class XmasTreeScepter extends BaseSupportWeapon
         summonServerMob(attackerMob, mob1, x, y, attackHeight, item);
     }
 
-    @Override
     public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard)
     {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
+        tooltips.add(Localization.translate("itemtooltip", "supportsentrytip"));
         tooltips.add(Localization.translate("itemtooltip", "xmastreetip"));
         return tooltips;
     }

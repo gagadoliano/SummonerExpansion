@@ -6,7 +6,7 @@ import summonerexpansion.items.equips.allweapons.*;
 import summonerexpansion.items.equips.allweapons.magicsummon.*;
 import summonerexpansion.items.equips.allweapons.meleesummon.*;
 import summonerexpansion.items.equips.allweapons.rangedsummon.*;
-import summonerexpansion.items.equips.allweapons.supportsummon.XmasTreeScepter;
+import summonerexpansion.items.equips.allweapons.supportsummon.*;
 
 public class SummonerWeapons
 {
@@ -24,6 +24,7 @@ public class SummonerWeapons
         ItemRegistry.registerItem("bearhead", new BearHead(100, Item.Rarity.COMMON), 50, true);
         // Melee
         ItemRegistry.registerItem("wormbucket", new WormBucket(100, Item.Rarity.COMMON, "wormproj"), 50, true);
+        ItemRegistry.registerItem("spidersummonsword", new SpiderSummonSword(100, Item.Rarity.COMMON), 50, true);
         ItemRegistry.registerItem("druidleatherclaw", new DruidLeatherClaw(100, Item.Rarity.COMMON), 50, true);
         ItemRegistry.registerItem("druidpolarclaw", new DruidPolarClaw(100, Item.Rarity.COMMON), 50, true);
         // Ranged
@@ -41,6 +42,7 @@ public class SummonerWeapons
         ItemRegistry.registerItem("magicirontools", new MagicIronTools(100, Item.Rarity.COMMON), 50, true);
         ItemRegistry.registerItem("magicgoldtools", new MagicGoldTools(100, Item.Rarity.COMMON), 50, true);
         ItemRegistry.registerItem("magicwoodtools", new MagicWoodTools(100, Item.Rarity.COMMON), 50, true);
+        ItemRegistry.registerItem("bookbutterfly", new BookButterfly(100, Item.Rarity.COMMON), 50, true);
         ItemRegistry.registerItem("bookmagma", new BookMagma(100, Item.Rarity.COMMON), 50, true);
         ItemRegistry.registerItem("bookbee", new BookBee(100, Item.Rarity.COMMON), 50, true);
         // Sentry
@@ -65,6 +67,7 @@ public class SummonerWeapons
         // Ranged
         // Magic
         ItemRegistry.registerItem("applewalkingstick", new AppleWalkingStick(200, Item.Rarity.UNCOMMON), 100, true);
+        ItemRegistry.registerItem("thornstaff", new ThornStaff(200, Item.Rarity.UNCOMMON), 100, true);
         // Secondary
         ItemRegistry.registerItem("bookfrozen", new BookFrozen(200, Item.Rarity.UNCOMMON), 100, true);
         ItemRegistry.registerItem("bookrunic", new BookRunic(200, Item.Rarity.UNCOMMON), 100, true);
@@ -91,6 +94,7 @@ public class SummonerWeapons
         ItemRegistry.registerItem("pinewoodstaff", new PineWoodStaff(400, Item.Rarity.RARE), 200, true);
         // Secondary
         // Sentry
+        ItemRegistry.registerItem("coffebeampack", new CoffeBeamPack(Item.Rarity.RARE), 200, true);
 
         // --Weapons T4--
 
@@ -103,6 +107,7 @@ public class SummonerWeapons
         // Melee
         ItemRegistry.registerItem("druidfallendragonclaw", new DruidFallenDragonClaw(800, Item.Rarity.EPIC), 400, true);
         // Ranged
+        // Magic
         // Secondary
         // Sentry
         ItemRegistry.registerItem("caveglowstaff", new CaveglowStaff(800, Item.Rarity.EPIC), 400, true);

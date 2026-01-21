@@ -1,7 +1,6 @@
 package summonerexpansion.codes.registry;
 
 import necesse.engine.registries.ProjectileRegistry;
-import necesse.entity.projectile.WaterboltProjectile;
 import summonerexpansion.allprojs.*;
 import summonerexpansion.allprojs.armorprojs.*;
 import summonerexpansion.allprojs.foeprojs.*;
@@ -36,6 +35,7 @@ public class SummonerProjectiles
         ProjectileRegistry.registerProjectile("clawdemonproj", ClawDemonProj.class, "evilsprotector2", "evilsprotector2_shadow");
         ProjectileRegistry.registerProjectile("globeboomerangproj", GlobeBoomerangProj.class, "globeboomerangproj", null);
         ProjectileRegistry.registerProjectile("wormproj", WormProj.class, "wormproj", "wormproj_shadow");
+        ProjectileRegistry.registerProjectile("spiderswordproj", SpiderSwordProj.class, null, null);
 
         // Ranged Minion Projectiles
         ProjectileRegistry.registerProjectile("mosquitobowproj", MosquitoBowProj.class, "mosquitobowarrow", "nightpiercerarrow_shadow");
@@ -47,6 +47,7 @@ public class SummonerProjectiles
         ProjectileRegistry.registerProjectile("sunflowerproj", SunflowerProj.class, "sunflowerproj", "sunflowerproj_shadow");
         ProjectileRegistry.registerProjectile("firemoneproj", FiremoneProj.class, "firemoneproj", "firemoneproj_shadow");
         ProjectileRegistry.registerProjectile("applewalkproj", AppleWalkProj.class, "applewalkproj", null);
+        ProjectileRegistry.registerProjectile("thornspikes", ThornSpikesProj.class, null, null);
 
         // Mount Projectiles
         ProjectileRegistry.registerProjectile("mountcryptboltproj", MountCryptBoltProj.class, "cryptvampirebolt", "cryptvampirebolt_shadow");

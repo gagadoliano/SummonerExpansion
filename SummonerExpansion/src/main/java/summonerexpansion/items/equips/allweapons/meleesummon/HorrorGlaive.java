@@ -57,37 +57,34 @@ public class HorrorGlaive extends GlaiveToolItem implements ItemInteractAction
         super.showAttack(level, x, y, attackerMob, attackHeight, item, animAttack, seed, mapContent);
         if (level.isClient())
         {
-            level.entityManager.events.add(new GlaiveShowAttackEvent(attackerMob, x, y, seed, 10.0F) {
-                public void tick(float angle)
-                {
-                    GameRandom gameRandom = new GameRandom();
-                    float colorModifier = gameRandom.getFloatBetween(0.0F, 1.0F);
-                    Color randomColor = HorrorGlaive.this.getParticleColor(colorModifier);
-                    Point2D.Float angleDir = this.getAngleDir(angle);
-                    this.level.entityManager.addParticle(this.attackMob.x + angleDir.x * 85.0F + (float)this.attackMob.getCurrentAttackDrawXOffset(), this.attackMob.y + angleDir.y * 85.0F + (float)this.attackMob.getCurrentAttackDrawYOffset(), Particle.GType.COSMETIC).sprite(GameResources.bubbleParticle.sprite(0, 0, 12)).color(randomColor).movesConstant(angleDir.x * 40.0F, angleDir.y * 40.0F).lifeTime(400);
-                    this.level.entityManager.addParticle(this.attackMob.x - angleDir.x * 85.0F + (float)this.attackMob.getCurrentAttackDrawXOffset(), this.attackMob.y - angleDir.y * 85.0F + (float)this.attackMob.getCurrentAttackDrawYOffset(), Particle.GType.COSMETIC).sprite(GameResources.bubbleParticle.sprite(0, 0, 12)).color(randomColor).movesConstant(angleDir.x * -40.0F, angleDir.y * -40.0F).lifeTime(400);
-                }
-            });
-        }
-    }
-
-    public InventoryItem onAttack(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight, InventoryItem item, ItemAttackSlot slot, int animAttack, int seed, GNDItemMap mapContent)
-    {
-        if (attackerMob.buffManager.getStacks(BuffRegistry.getBuff("horrorglaivestack")) >= 100)
-        {
-            int particleCount = 25;
-            GameRandom random = GameRandom.globalRandom;
-            ParticleTypeSwitcher typeSwitcher = new ParticleTypeSwitcher(Particle.GType.CRITICAL, Particle.GType.IMPORTANT_COSMETIC, Particle.GType.COSMETIC);
-            float anglePerParticle = 360.0F / (float)particleCount;
-            for(int i = 0; i < particleCount; ++i)
+            if (attackerMob.buffManager.getStacks(BuffRegistry.getBuff("horrorglaivestack")) >= 100)
             {
-                int angle = (int)((float)i * anglePerParticle + random.nextFloat() * anglePerParticle);
-                float dx = (float)Math.sin(Math.toRadians(angle)) * 50.0F;
-                float dy = (float)Math.cos(Math.toRadians(angle)) * 50.0F;
-                attackerMob.getLevel().entityManager.addParticle(attackerMob, typeSwitcher.next()).sprite(GameResources.magicSparkParticles.sprite(random.nextInt(4), 0, 22)).sizeFades(22, 44).movesFriction(dx * 2.0F, dy * 2.0F, 0.8F).color(new Color(98, 0, 0)).givesLight(247.0F, 0.3F).heightMoves(0.0F, 30.0F).lifeTime(1500);
+                level.entityManager.events.addHidden(new GlaiveShowAttackEvent(attackerMob, x, y, seed, 10.0F)
+                {
+                    public void tick(float angle)
+                    {
+                        Point2D.Float angleDir = getAngleDir(angle);
+                        level.entityManager.addParticle(attackMob.x + angleDir.x * 85.0F + (float)attackMob.getCurrentAttackDrawXOffset(), attackMob.y + angleDir.y * 85.0F + (float)attackMob.getCurrentAttackDrawYOffset(), Particle.GType.COSMETIC).sprite(GameResources.magicSparkParticles.sprite(0, 0, 12)).color(new Color(98, 0, 0)).movesConstant(angleDir.x * 40.0F, angleDir.y * 40.0F).lifeTime(400);
+                        level.entityManager.addParticle(attackMob.x - angleDir.x * 85.0F + (float)attackMob.getCurrentAttackDrawXOffset(), attackMob.y - angleDir.y * 85.0F + (float)attackMob.getCurrentAttackDrawYOffset(), Particle.GType.COSMETIC).sprite(GameResources.magicSparkParticles.sprite(0, 0, 12)).color(new Color(98, 0, 0)).movesConstant(angleDir.x * -40.0F, angleDir.y * -40.0F).lifeTime(400);
+                    }
+                });
+            }
+            else
+            {
+                level.entityManager.events.addHidden(new GlaiveShowAttackEvent(attackerMob, x, y, seed, 10.0F)
+                {
+                    public void tick(float angle)
+                    {
+                        GameRandom gameRandom = new GameRandom();
+                        float colorModifier = gameRandom.getFloatBetween(0.0F, 1.0F);
+                        Color randomColor = getParticleColor(colorModifier);
+                        Point2D.Float angleDir = getAngleDir(angle);
+                        level.entityManager.addParticle(attackMob.x + angleDir.x * 85.0F + (float)attackMob.getCurrentAttackDrawXOffset(), attackMob.y + angleDir.y * 85.0F + (float)attackMob.getCurrentAttackDrawYOffset(), Particle.GType.COSMETIC).sprite(GameResources.bubbleParticle.sprite(0, 0, 12)).color(randomColor).movesConstant(angleDir.x * 40.0F, angleDir.y * 40.0F).lifeTime(400);
+                        level.entityManager.addParticle(attackMob.x - angleDir.x * 85.0F + (float)attackMob.getCurrentAttackDrawXOffset(), attackMob.y - angleDir.y * 85.0F + (float)attackMob.getCurrentAttackDrawYOffset(), Particle.GType.COSMETIC).sprite(GameResources.bubbleParticle.sprite(0, 0, 12)).color(randomColor).movesConstant(angleDir.x * -40.0F, angleDir.y * -40.0F).lifeTime(400);
+                    }
+                });
             }
         }
-        return super.onAttack(level, x, y, attackerMob, attackHeight, item, slot, animAttack, seed, mapContent);
     }
 
     public void hitMob(InventoryItem item, ToolItemMobAbilityEvent event, Level level, Mob target, Mob attacker)
@@ -117,8 +114,8 @@ public class HorrorGlaive extends GlaiveToolItem implements ItemInteractAction
         {
             HorrorSentry mob1 = new HorrorSentry();
             attackerMob.serverFollowersManager.addFollower("summonedhorrorspikesentry", mob1, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, 5, null, false);
-            mob1.updateDamage(this.getAttackDamage(item));
-            mob1.setEnchantment(this.getEnchantment(item));
+            mob1.updateDamage(getAttackDamage(item));
+            mob1.setEnchantment(getEnchantment(item));
             attackerMob.getLevel().entityManager.addMob(mob1, attackerMob.x, attackerMob.y);
 
             attackerMob.buffManager.removeBuff("horrorglaivestack", true);
@@ -131,7 +128,6 @@ public class HorrorGlaive extends GlaiveToolItem implements ItemInteractAction
         return new Color((int)(10.0F * (1.0F + 1.8F * modifier)), (int)(10.0F * (1.0F + 0.3F * modifier)), (int)(10.0F * (1.0F + 0.2F * modifier)));
     }
 
-    @Override
     public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard)
     {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);

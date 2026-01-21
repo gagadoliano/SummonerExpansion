@@ -5,7 +5,6 @@ import necesse.engine.registries.BuffRegistry;
 import necesse.engine.registries.DamageTypeRegistry;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.util.GameMath;
-import necesse.entity.mobs.Attacker;
 import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.MobWasHitEvent;
 import necesse.entity.mobs.PlayerMob;
@@ -18,11 +17,7 @@ import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.FlyingAttackingFollowingMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
-import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.trinketItem.TrinketItem;
-
-import java.util.LinkedList;
-import java.util.function.BiConsumer;
 
 public class NecromancerArmorBuff extends TrinketBuff
 {
@@ -32,8 +27,8 @@ public class NecromancerArmorBuff extends TrinketBuff
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
     {
-        this.updateBuff(buff);
-        this.isImportant = true;
+        updateBuff(buff);
+        isImportant = true;
         buff.setModifier(BuffModifiers.PROJECTILE_VELOCITY, 0.50F);
         buff.setModifier(BuffModifiers.KNOCKBACK_INCOMING_MOD, 0F);
         buff.setModifier(BuffModifiers.SUMMON_CRIT_CHANCE, 0.10F);
@@ -43,19 +38,18 @@ public class NecromancerArmorBuff extends TrinketBuff
 
     public void serverTick(ActiveBuff buff)
     {
-        this.updateBuff(buff);
-        this.updateActiveBuff(buff);
+        updateBuff(buff);
+        updateActiveBuff(buff);
     }
 
     public void clientTick(ActiveBuff buff)
     {
-        this.updateBuff(buff);
-        this.updateActiveBuff(buff);
+        updateBuff(buff);
+        updateActiveBuff(buff);
     }
 
     public void onHasAttacked(ActiveBuff buff, MobWasHitEvent event)
     {
-        super.onHasAttacked(buff, event);
         if (!event.wasPrevented && event.damageType == DamageTypeRegistry.SUMMON)
         {
             event.target.buffManager.addBuff(new ActiveBuff(BuffRegistry.Debuffs.CHILLED, event.target, 10.0F, event.attacker), event.target.isServer());
@@ -100,7 +94,6 @@ public class NecromancerArmorBuff extends TrinketBuff
 
     public void onWasHit(ActiveBuff buff, MobWasHitEvent event)
     {
-        super.onWasHit(buff, event);
         if (!event.wasPrevented && buff.owner.isServer())
         {
             ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
