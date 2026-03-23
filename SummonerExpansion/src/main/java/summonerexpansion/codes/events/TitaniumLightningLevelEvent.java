@@ -8,8 +8,8 @@ import necesse.entity.levelEvent.mobAbilityLevelEvent.MobAbilityLevelEvent;
 import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.Mob;
 import necesse.entity.particle.Particle;
-import summonerexpansion.allprojs.armorprojs.TitaniumLightningProj;
-import summonerexpansion.particles.TitaniumLightningGlyphParticle;
+import summonerexpansion.codes.particles.TitaniumLightningGlyphParticle;
+import summonerexpansion.projectiles.armorset.TitaniumLightningProj;
 
 import java.awt.*;
 
@@ -82,6 +82,5 @@ public class TitaniumLightningLevelEvent extends MobAbilityLevelEvent
             lightingProjectile.resetUniqueID((new GameRandom(this.getUniqueID())).nextSeeded(67));
             this.getLevel().entityManager.projectiles.addHidden(lightingProjectile);
         }
-
     }
 }

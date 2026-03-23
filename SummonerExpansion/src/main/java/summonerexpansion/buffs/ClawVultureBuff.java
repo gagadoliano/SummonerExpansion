@@ -14,7 +14,6 @@ public class ClawVultureBuff extends Buff
         shouldSave = true;
     }
 
-    @Override
     public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber)
     {
         if (activeBuff.owner.buffManager.getStacks(this) >= 6)

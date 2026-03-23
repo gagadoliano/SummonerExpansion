@@ -15,7 +15,7 @@ import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.gfx.GameResources;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.Item;
-import summonerexpansion.items.equips.allweapons.magicsummon.AppleWalkingStick;
+import summonerexpansion.items.weapons.magic.AppleWalkingStick;
 
 public class AppleWalkingStickHandler extends MousePositionAttackHandler
 {

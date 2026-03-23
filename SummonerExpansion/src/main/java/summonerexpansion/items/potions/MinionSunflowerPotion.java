@@ -7,13 +7,13 @@ import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
 import necesse.engine.util.GameBlackboard;
 import necesse.engine.util.GameRandom;
-import necesse.entity.mobs.Attacker;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.staticBuffs.Buff;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.particle.Particle;
 import necesse.gfx.GameResources;
+import necesse.gfx.gameTexture.GameTexture;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.ItemCategory;
@@ -79,5 +79,9 @@ public class MinionSunflowerPotion extends ConsumableItem
 
     public String getTranslatedTypeName() {
         return Localization.translate("item", "flask");
+    }
+
+    protected void loadItemTextures() {
+        itemTexture = GameTexture.fromFile("items/potions/" + getStringID());
     }
 }

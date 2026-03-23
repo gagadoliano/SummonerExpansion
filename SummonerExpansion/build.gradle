@@ -7,7 +7,7 @@ plugins {
 
 project.ext.modID = "gagadoliano.summonerexpansion" // The unique id of your mod. Must be all lowercase and cannot use special characters.
 project.ext.modName = "Summoner Expansion" // The display name of your mod.
-project.ext.modVersion = "6.6" // Your current builds version. Must follow the xx.xx... format.
+project.ext.modVersion = "7.1" // Your current builds version. Must follow the xx.xx... format.
 project.ext.gameVersion = "1.1.1" // The target game version.
 project.ext.modDescription = "A summoner expansion mod" // Short description of what your mod is.
 project.ext.author = "Gagadoliano" // Your name
@@ -68,7 +68,7 @@ dependencies {
     implementation fileTree("./mods/") // Add all mods located in local mods folder
 
     // Add any third party library dependencies here. Remember to use libDepends, so that they will be added to your jar on build
-    // These are some examples:
+    // These are some items:
 //    libDepends group: 'com.google.guava', name: 'guava', version: '31.1-jre'
 //    libDepends files("path/to/library/jar.jar")
 }

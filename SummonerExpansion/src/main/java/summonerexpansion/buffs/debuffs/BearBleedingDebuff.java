@@ -11,7 +11,6 @@ public class BearBleedingDebuff extends BleedDebuff
         return 5.0F;
     }
 
-    @Override
     public void init(ActiveBuff buff, BuffEventSubscriber buffEventSubscriber)
     {
         buff.setModifier(BuffModifiers.BLEED_DAMAGE_FLAT, getDamagePerSecond(buff));

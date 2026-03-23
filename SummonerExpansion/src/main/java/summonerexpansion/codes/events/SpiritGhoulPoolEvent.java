@@ -9,7 +9,7 @@ import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.MobHitCooldowns;
 import necesse.entity.particle.Particle;
 import necesse.level.maps.LevelObjectHit;
-import summonerexpansion.particles.SpiritGhoulParticle;
+import summonerexpansion.codes.particles.SpiritGhoulParticle;
 
 import java.awt.*;
 

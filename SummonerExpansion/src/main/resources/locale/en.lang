@@ -58,6 +58,9 @@ stuffedbird=Bird Plush
 woodenidol=Wooden Idol
 beetstatue=Beet Statue
 
+// Item Decorations
+sandtemplemonkstatue=Sand Temple Monk Statue
+
 // Furniture
 arcanicdisplay=Arcanic Display
 arcanicchest=Arcanic Chest
@@ -95,7 +98,6 @@ enchantedbrainonastick=Enchanted Brain On A Stick
 magicdungeoncandelabra=Magic Dungeon Candelabra
 magictungstenlamp=Magic Tungsten Lamp
 magicgoldlamp=Magic Gold Double Lamp
-yinyangninjastar=Yin Yang Ninjastar
 gemamethystshards=Amethyst Shards
 gemsapphireshards=Sapphire Shards
 magiccopperlamp=Magic Copper Lamp
@@ -154,9 +156,11 @@ horrorglaive=Horror Glaive
 goblinsword=Goblin Sword
 horrorsword=Horror Sword
 wormbucket=Worm Bucket
+ramnunchucks=Ram Nunchucks
 
 // Range weapons
 mosquitobow=Mosquito Bow
+yinyangninjastar=Yin Yang Ninjastar
 
 // Magic weapons
 applewalkingstick=Apple Walking Stick
@@ -263,6 +267,7 @@ overchargedvoidshards=Overcharged Void Shards
 frostsentrycore=Frost Sentry Core
 flowerbrooch=Flower Brooch
 alienparasite=Adaptive Alien Parasite
+sandtemplemonkhead=Sand Temple Monk Head
 
 // Potions
 minioncritchancepotion=Summon Critical Chance Potion
@@ -296,8 +301,14 @@ bannerofstamina=Banner of Stamina
 bannerofmana=Banner of Mana
 
 // Mounts
+forestspectorhands=Forest Spector Hands
+frozendwarfbeard=Frozen Dwarf Beard
 cavelingminecart=Caveling Minecart
+sharkdivingmask=Shark Diving Mask
+swampdwellerbow=Swamp Dweller Bow
 minivultureegg=Mini Vulture Egg
+cavespidergoo=Black Spider Goo
+snowwolftail=Snow Wolf Tail
 bouncingbone=Bouncing Bone
 chieftainhat=Chieftain Hat
 magiccheese=Magic Cheese
@@ -308,24 +319,41 @@ cryptfangs=Crypt Fangs
 shadowhorrorportal=Shadow Horror Portal
 
 // Materials
+sandgiantscorpiontail=Giant Sand Scorpion Tail
 ancientgrassseed=Ancient Grass Seed
 fossilhoney=Fossilized Honey
 titaniumore=Titanium Ore
 titaniumbar=Titanium Bar
 ancientlog=Ancient Log
 purehorror=Pure Horror
+sharklavascales=Lava Shark Scale
 
 // Fishing
 ancientwoodfishingrod=Ancient Wood Fishing Rod
 myceliumworm=Myscelium Worm Bait
+inspectorclouseau=Inspector Clouseau
+runicfish=Runic Fish
+tinyorca=Tiny Orca
+waterzombie=Baby Water Zombie
+shadowcreature=Shadow Creature
 
 // Foods
-livingsharksoup=Living Shark Soup
-caveglowjam=Caveglow Jam
-rottenbread=Rotten Bread
-spicycoffee=Spicy Coffee
-pigbanquet=Pig Banquet
 berrytrio=Berry Trio
+rottenbread=Rotten Bread
+cookedworm=Cooked Worm
+cookedswampworm=Cooked Swamp Worm
+orcasugar=Orca Sugar
+rayjam=Ray Jam
+livingsharksoup=Living Shark Soup
+fullpicnicbasket=Full Picnic Basket
+enchantedgoblet=Enchanted Goblet
+runicmeal=Runic Meal
+waterzombiesoup=Baby Water Zombie Soup
+icecube=Ice Cube
+pigbanquet=Pig Banquet
+caveglowjam=Caveglow Jam
+spicycoffee=Spicy Coffee
+dragondonut=Dragon Donut
 
 // Bags
 shadowhorrorbag=Shadow Horror Bag
@@ -345,6 +373,7 @@ infinitehoneybucket=Infinite Honey Bucket
 
 // Critters
 honeybeeguardmob=Honey Bee Guard
+sandscorpionmob=Sand Scorpion
 
 // Stat item
 fusedessences=Infused Essences
@@ -356,7 +385,7 @@ supportweapon=Support Weapon
 // Minion weapons
 // T1
 redspiderstafftip=Summons melee red spiders and every other summon is ranged \nMelee spiders poison foes for 15 damage over 5 seconds \nRanged spiders spits projectiles that leaves damaging pools
-redspiderstafftip2=Melee spiders doubles poison damage from all sources \nRanged spiders deals double damage
+redspiderstafftip2=Melee spiders doubles the poison damage from all sources \nRanged spiders deals double damage
 royalhivetip=Summons a bee queen that spawn bees every 10 hits \nThe queen increases your health regen while on combat \nAnd the smaller bees slows foes by 10%
 bearheadtip=Summons a grizzly bear that attack foes \nHit foes will start bleeding, causing damage and lowering their damage by 20%
 bearheadtip2=Deals 20% more damage and bleed debuff lasts longer
@@ -365,6 +394,7 @@ polarheadtip=Summons a polar bear that causes a stacking slow debuff that goes u
 polarheadtip2=Deals 20% more damage and slow debuff lasts longer
 cactusstafftip=Summons a cactus minion \nIt shoots projectiles with random piercing
 magiccopperlamptip=Summons a copper lamp that glows and attack
+bookbutterflytip=Summons a type of butterfly depending on your biome \nEach butterfly have different stats
 // T2
 runebonestafftip=Summons a runebound brute that attack foes with an axe \nHave a small chance to summon a runebond shaman instead \nHigher upgrade tiers increases the summoning chance
 icewizardtip=Summons a ice wizard to shoot freezing projectiles that slow foes by 30% \nDeals frost damage over time and doubles the damage of all frost debuff on foes
@@ -377,8 +407,6 @@ vampirewingstip2=Shoots faster projectiles that does 30% more damage
 // T3
 magictungstenlamptip=Summons a tungsten lamp that glows and attack \nBurn foes on hit
 dryadessencetip=Summons a slow moving ghoul \nThis ghoul leaves a damaging trail
-yinyangstartip=Summons ninjas that throws ninja stars at foes
-yinyangstartip2=Requires ninja stars to use
 sandwormstafftip=Summons a sand worm to attack foes
 // T4
 amethystshardtip=Summons an amethyst golem \nThis golem can crystallize foes \nAdditional amethyst golems increases the chance to crystallize
@@ -409,14 +437,14 @@ irontoolstip=Summons magic iron tools \nThey provide a stacking buff on hit that
 goldtoolstip=Summons magic gold tools \nThey provide a stacking buff on hit that increases mining range and mining speed
 bookrunictip=Summons runic shields that orbit you \nIncreases your armor with a stacking buff when they hit foes
 bookrunictip2=Armor buff lasts longer
-bookbutterflytip=Summons a type of butterfly depending on your biome \nEach butterfly have different stats
 bookfrozentip=Summons frozen dwarfs that throws 10 ice javelins that slows foes by 30%
 bookfrozentip2=Shoots faster projectiles that does 20% more damage and have 50% chance to throw more javelins before dying
 bookbeetip=Summons 3 bees \nThey slows foes by 10%
 
 // Melee weapons
-horrorswordtip=Gains attack speed stacks by hitting foes \nAt max stacks summons a horror crawling zombie and resets to 0
+horrorswordtip=Gains attack speed stacks by hitting foes \nAt max stacks consume them to summons a horror crawling zombie
 horrorglaivetip=Charges the glaive by hitting foes \nUse [input=mouse2] when fully charged to summon a horror sentry
+ramnunchuckstip=Gains summon speed stacks by hitting foes \nAt max stacks consume them to summons a magic ram
 goblinswordtip=Charges the sword by hitting foes \nUse [input=mouse2] when fully charged to summon 3 goblins
 fishianspeartip=Charges the spear by hitting foes \nSummons a fishian on your next attack when fully charged
 globeboomerangtip=On hit summons up to 3 planets that orbits around you \nControllable when thrown
@@ -435,6 +463,8 @@ druidpolarclawtip=Slows by 30%
 
 // Range weapons
 mosquitobowtip=Shoots down arrows from above that leaves a damaging pool in it's wake \nEvery 20 hits summons a mosquito that reduces foes armor
+yinyangstartip=Summons ninjas that throws ninja stars at foes
+yinyangstartip2=Requires ninja stars to use
 
 // Magic weapons
 pinewoodstafftip=Summons a shock wave of pine wood spikes\nEach attack provides a stack \nPress [input=mouse2] to consume <amount> stacks and summon a pine minion
@@ -507,6 +537,7 @@ overchargedvstip=Increases max mana by 50 \nConverts damage taken into mana \nRe
 frostsentrycoretip=20% chance to freeze foes that hits you \nClaw weapons have 50% chance to summon frost spikes that deals 20% of the claw's damage
 geniewishtip=Decreases summon crit chance by 100% \nEvery 20 hits with summon weapons do a large critical hit
 demonicpolarclawtip=Summon attacks slows foes \nIncreases knockback resistance
+sandtemplemonkheadtip=Hitting foes gives tranquility stacks \nPress [input=trinketability] to consume half of the stacks to heal \nHealing gets stronger the less health you have \n20 seconds cooldown
 // T3
 strangecookpottip=You can have 1 extra food buff \nIncreases potion duration by 50% \nSummon attacks have 10% chance to create a healing explosion \nThe explosion range scales with summon target range
 summonergambittip=+1 max summon \n+10 armor \n+50% summon damage \n-50% non-summon damage \n+10% summon crit chance \nCan only be equipped in the ability trinket slot
@@ -540,7 +571,7 @@ pumpkinminiontip=Increases potion duration by 20% \nSummons a pumpkin minion tha
 carrotminiontip=Increases mining range by 20% \nSummons a carrot minion that throws piercing carrots at foes \nThrown carrots have 10% chance to drop on missed hits
 potatominiontip=Increases knockback by 20% \nSummons a potato minion that throws bouncing potatoes at foes \nThrown potatoes have 10% chance to drop on missed hits
 beetminiontip=Increases mining speed by 20% \nSummons a beet minion that throws beets at foes \nThrown beets have 10% chance to drop on missed hits
-onionminiontip=Increases speed by 20% \nSummons an onion minion that boomerang onion at foes \nThrown onion have 10% chance to drop on missed hits
+onionminiontip=Increases speed by 20% \nSummons an onion minion that throws boomerang onions at foes \nThrown onion have 10% chance to drop on missed hits
 jellyfishminiontip=Grants immunity to blindness \nSummons a jellyfish minion that attack foes
 silvergoblettip=Increases Armor by 15% to all nearby allies
 
@@ -563,6 +594,12 @@ magiccheesetip=Tranforms you into a mouse \nGreatly decreases your aggro range, 
 zombiearrowtip=Tranforms you into a zombie archer \nPress [input=trinketability] to shoot arrows
 minivultureeggtip=Tranforms you into a vulture \nPress [input=trinketability] to shoot feathers
 cavelingminecarttip=Can move only on tracks \nIncreases your item pickup range
+sharkdivingmasktip=Tranforms you into a shark \nPress [input=trinketability] to shoot waves
+cavespidergootip=Tranforms you into a giant black cave spider \nPress [input=trinketability] to spit poison
+frozendwarfbeardtip=Tranforms you into a frozen dwarf \nPress [input=trinketability] to throw frozen javelins
+forestspectorhandstip=Tranforms you into a forest spector \nPress [input=trinketability] to summon forest spectors
+swampdwellerbowtip=Tranforms you into a swamp dweller \nPress [input=trinketability] to shoot an arrow that splits into petals
+snowwolftailtip=Tranforms you into a snow wolf \nPress [input=trinketability] to summon wolfs
 
 // Boss desc
 horrorportaltip=Summons an army of horror spirits
@@ -591,6 +628,14 @@ horrorcultmaptip=The cult is found in the deep cave
 
 // Critters
 honeybeeguardmobtip=A hostile bee that can't be killed
+sandscorpionmobtip=Found in the sand temple
+
+// Fishing
+inspectorclouseautip=Found by fishing in ocean
+runicfishtip=Found by fishing in plains caves
+tinyorcatip=Found by fishing in ocean
+waterzombietip=Found by fishing in forest caves
+shadowcreaturetip=Found by fishing in forest deep caves
 
 // Tiles
 empoweredsapphiretip=Increases the speed of player and settlers by 50% \nIncreases summon crit chance and summon crit damage by 10%
@@ -722,18 +767,28 @@ mushroomminion=Mushroom Minion
 beeminion=Bee Minion
 
 // Mounts
+cavespidersummonmount=Giant Black Cave Spider Form
 cryptvampiresummonmount=Crypt Vampire Form
 skeletonthrowersummonmount=Skeleton Form
+frozendwarfsummonmount=Frozen Dwarf Form
+spectorsummonmount=Forest Spector Form
+dwellersummonmount=Swamp Dweller Form
 zombiearchersummonmount=Zombie Form
-cavelingminecart=Caveling Minecart
 vulturesummonmount=Vulture Form
 chiefsummonmount=Chieftain Form
 mousesummonmount=Mouse Form
+sharksummonmount=Shark Form
+wolfsummonmount=Wolf Form
+
+// Carts
+cavelingminecartmount=Caveling Minecart
+cavelingminecart=Caveling Minecart
 
 // Boss
 riftportalmob=Horror Rift Portal
 
 // Foes
+sandgiantscorpionmob=Giant Sand Temple Scorpion
 horrorspiritcultsummon=Horror Spirit Cultist
 horrorspiritcultmelee=Horror Spirit Cultist
 horrorspiritcultmagic=Horror Spirit Cultist
@@ -742,7 +797,11 @@ horrorspiritbossmob=Ancient Horror Spirit
 horrorspiritcultminion=Horror Spirit
 honeybeeguardmob=Honey Bee Guard
 horrorspiritmob=Horror Spirit
+lavacavesharkmob=Lava Shark
 woodmob=Wooden Idol
+
+// Critter
+sandscorpionmob=Sand Temple Scorpion
 
 // Settlers
 druidhumanname=<name> the Druid
@@ -767,6 +826,7 @@ horrorswordstack=Horror sword attack speed buff
 fishianstack=Summons a fishian at 100 stacks
 mushroombuff=Kills increases your max health
 coffebeambuff=Increased sentry attack speed
+ramnunchuckstack=Ram summon speed stack
 clawvulturebuff=Vulture claw speed buff
 honeybuff=Health regen while on combat
 sharklavafrenzybuff=Lava shark frenzy
@@ -779,6 +839,8 @@ clawdashstacks=Claw dash stacks
 runicshieldbuff=Runic armor
 healglyphbuff=Health regen
 sunflowerbuff=Health regen
+monkstacksbuff=Tranquility stacks
+
 // Debuffs
 summongenericdotdebuff=2x damage taken from elemental debuffs
 sharklavadebuff=Bleed and fire damage over time
@@ -797,16 +859,19 @@ honeydebuff=10% slow
 // Cooldowns
 horrorglaivecooldowndebuff=Horror Glaive Cooldown
 arcanicsummoncooldown=Arcanic Summoner Cooldown
+sandtemplemonkheadcooldown=Monk Head cooldown
 ghostcaptainscooldown=Ghost Captain Cooldown
 goblincooldowndebuff=Goblin Sword Cooldown
 spiderbridecooldown=Spider Bride Cooldown
 coppersetcooldown=Copper Set Cooldown
-clawdashcooldown=Claw Dash cooldown
+clawdashcooldown=Claw Dash Cooldown
 
 // Summons
 summonedagedchampionminionbuff=Aged Champion Minion
 summonedteapotminionbuff=Magic Tea Pot Minion
 summonedjellyfishminionbuff=Jellyfish Minion
+summonedsharpshooterbuff=Sharpshooter Minion
+summonedtitaniumminionbuff=Titanium Minion
 summonedpumpkinminionbuff=Pumpkin Minion
 summonedcarrotminionbuff=Carrot Minion
 summonedpotatominionbuff=Potato Minion
@@ -826,6 +891,7 @@ liquidhoneybuff=Swimming on honey
 [bufftooltip]
 liquidhoneytip=Movement slowed and health regen increased
 geniecrittip=At 20 stacks you do a large critical hit
+monkstackstip=Each stack increases your max stamina
 copperbufftip=<value> consecutive projectiles shot
 adaptivealientip=Increases with each boss kill
 
@@ -902,6 +968,10 @@ druidic=Druidic
 focused=Focused
 arcanic=Arcanic
 greedy=Greedy
+bloodthirsty=Bloodthirsty
+securely=Securely
+opportune=Opportune
+vexed=Vexed
 
 [tech]
 summontablecraft=Summoning Table

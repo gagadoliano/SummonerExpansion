@@ -21,11 +21,11 @@ import necesse.level.maps.light.GameLight;
 import java.awt.*;
 import java.awt.geom.Point2D;
 
-import static summonerexpansion.codes.registry.SummonerTextures.PineWoodSpike;
+import static summonerexpansion.codes.registries.RegistryParticlesTextures.pineWoodSpike;
 
 public class PineWoodStaffEvent extends WeaponShockWaveLevelEvent
 {
-    protected final GroundPillarList<PineWoodStaffEvent.PineWoodPillar> pillars = new GroundPillarList<>();
+    protected final GroundPillarList<PineWoodPillar> pillars = new GroundPillarList<>();
 
     public PineWoodStaffEvent() {
         super(30.0F, 20.0F, 5.0F);
@@ -41,7 +41,7 @@ public class PineWoodStaffEvent extends WeaponShockWaveLevelEvent
         super.init();
         if (isClient())
         {
-            level.entityManager.addPillarHandler(new GroundPillarHandler<PineWoodStaffEvent.PineWoodPillar>(pillars)
+            level.entityManager.addPillarHandler(new GroundPillarHandler<PineWoodPillar>(pillars)
             {
                 protected boolean canRemove() {
                     return isOver();
@@ -90,12 +90,12 @@ public class PineWoodStaffEvent extends WeaponShockWaveLevelEvent
             super(x, y, spawnDistance, spawnTime);
             mirror = GameRandom.globalRandom.nextBoolean();
             texture = null;
-            GameTexture pillarSprites = PineWoodSpike;
+            GameTexture pillarSprites = pineWoodSpike;
             if (pillarSprites != null)
             {
                 int res = pillarSprites.getHeight();
                 int sprite = GameRandom.globalRandom.nextInt(pillarSprites.getWidth() / res);
-                texture = (new GameTextureSection(PineWoodSpike)).sprite(sprite, 0, res);
+                texture = (new GameTextureSection(pineWoodSpike)).sprite(sprite, 0, res);
             }
             behaviour = new GroundPillar.TimedBehaviour(200, 100, 200);
         }

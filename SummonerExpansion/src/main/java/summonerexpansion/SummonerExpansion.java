@@ -1,64 +1,70 @@
 package summonerexpansion;
 
-import necesse.level.maps.biomes.Biome;
-import necesse.level.maps.biomes.swamp.SwampBiome;
-import summonerexpansion.codes.registry.*;
 import necesse.engine.modLoader.annotations.ModEntry;
-import summonerexpansion.allrecipes.*;
+import summonerexpansion.codes.registries.*;
+import summonerexpansion.codes.recipes.*;
 
 @ModEntry
 public class SummonerExpansion
 {
     public void preInit()
     {
-        new SummonerModifiers();
+        new RegistrySummonModifiers();
     }
 
     public void init()
     {
-        // Registry
-        SummonerEnchantments.registerSummonEnchantments();
-        SummonerChallenges.registerSummonChallenges();
-        SummonerProjectiles.registerSummonProjs();
-        SummonerSettlers.registerSummonSettlers();
-        SummonerMapIcon.registerSummonMapIcons();
-        SummonerPresets.registerSummonPresets();
-        SummonerObjects.registerSummonObjects();
-        SummonerWeapons.registerSummonWeapons();
-        SummonerPackets.registerSummonPackets();
-        SummonerEquips.registerSummonEquips();
-        SummonerEvents.registerSummonEvents();
-        SummonerBuffs.registerSummonDebuffs();
-        SummonerBuffs.registerSummonBuffs();
-        SummonerItems.registerSummonItems();
-        SummonerTiles.registerSummonTiles();
-        SummonerTechs.registerSummonTechs();
-        SummonerPerks.registerSummonPerks();
-        SummonerMobs.registerSummonMobs();
-        SummonerFoes.registerSummonFoes();
-        SummonerMissions.registerSummonMissions();
+        RegistryPackets.registerPackets();
+        RegistryEvents.registerEvents();
+        RegistryPerks.registerPerks();
+        RegistryBuffs.registerWeaponBuffs();
+        RegistryBuffs.registerBannerBuffs();
+        RegistryDebuffs.registerWeaponDebuffs();
+        RegistryDebuffs.registerGenericDebuffs();
+        RegistryEnchantments.registerSummonEnchantments();
+        RegistryChallenges.registerChallenges();
+        RegistryTechs.registerTechs();
+        RegistrySettlers.registerSettlers();
+        RegistryPresets.registerPresets();
+        RegistryTiles.registerTiles();
+        RegistryWalls.registerSummonObjects();
+        RegistryObjects.registerObjects();
+        RegistryEntityObjects.registerObjects();
+        RegistryMapIcon.registerMapIcons();
+        RegistryMobs.registerMobs();
+        RegistryMinions.registerMinions();
+        RegistryItems.registerItems();
+        RegistryWeapons.registerItems();
+        RegistryArmors.registerItems();
+        RegistryTrinkets.registerItems();
+        RegistryMounts.registerItems();
+        RegistryProjectiles.registerProjs();
+        RegistryMissions.registerMissions();
     }
 
     public void initResources()
     {
-        SummonerTextures.initResources();
+        RegistryMobTextures.initResources();
+        RegistryMinionTextures.initResources();
+        RegistryParticlesTextures.initResources();
     }
 
     public void postInit()
     {
-        SummonerRecipes.registerSummonRecipes();
-        SummonerRecipesPotion.registerSummonRecipes();
-        SummonerJournal.registerSummonJournal();
-        SummonerRecipesWeapon.registerAllSummonWeapons();
-        SummonerRecipesArmor.registerSummonArmorRecipes();
-        SummonerRecipesTrinket.registerSummonRecipes();
-        SummonerRecipesMount.registerSummonRecipes();
-        SummonerLoot.registerSummonLoot();
-
-        Biome.defaultDeepCaveMobs
-                .add(10, "horrorspiritmob");
-
-        SwampBiome.surfaceMobs
-                .addLimited(1, "woodmob", 1, 50*50);
+        RegistrySpawn.registerSpawn();
+        RegistryChestLoot.registerLoot();
+        RegistryJournal.registerJournal();
+        RegistryLootBag.registerLoot();
+        RegistryDropLoot.registerLoot();
+        RegistryFishLoot.registerLoot();
+        RegistryRecipeWeapons.registerRecipes();
+        RegistryRecipeArmors.registerRecipes();
+        RegistryRecipeTrinkets.registerRecipes();
+        RegistryRecipeMounts.registerRecipes();
+        RegistryRecipeObjects.registerRecipes();
+        RegistryRecipeConverter.registerRecipes();
+        RegistryRecipeFoods.registerRecipes();
+        RegistryRecipePotions.registerRecipes();
+        RegistryRecipeOthers.registerRecipes();
     }
 }

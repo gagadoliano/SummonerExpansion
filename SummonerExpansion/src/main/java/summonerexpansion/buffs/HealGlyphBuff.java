@@ -9,15 +9,16 @@ import necesse.entity.particle.Particle;
 import necesse.entity.particle.ParticleOption;
 import necesse.level.maps.Level;
 import summonerexpansion.codes.events.HealGlyphTrapEvent;
-import summonerexpansion.codes.registry.SummonerBuffs;
-import summonerexpansion.codes.registry.SummonerTextures;
+import summonerexpansion.codes.registries.RegistryParticlesTextures;
+
+import static summonerexpansion.codes.registries.RegistryObjects.ObjectBuffs.HEALGLYPH;
 
 public class HealGlyphBuff extends Buff
 {
     public HealGlyphBuff()
     {
-        this.isImportant = true;
-        this.canCancel = false;
+        isImportant = true;
+        canCancel = false;
     }
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
@@ -32,12 +33,12 @@ public class HealGlyphBuff extends Buff
             {
                 float offset = (float)i * 360.0F / (float)count;
                 float rotationSpeed = 0.15F;
-                ParticleOption particle = level.entityManager.addParticle(buff.owner, Particle.GType.IMPORTANT_COSMETIC).lifeTime(buff.getDurationLeft()).sprite(SummonerTextures.healGlyphParticles).color(HealGlyphTrapEvent.particleColor).givesLight(HealGlyphTrapEvent.particleHue, 0.6F).moves((pos, delta, lifeTime, timeAlive, lifePercent) -> {
+                ParticleOption particle = level.entityManager.addParticle(buff.owner, Particle.GType.IMPORTANT_COSMETIC).lifeTime(buff.getDurationLeft()).sprite(RegistryParticlesTextures.healGlyphParticles).color(HealGlyphTrapEvent.particleColor).givesLight(HealGlyphTrapEvent.particleHue, 0.6F).moves((pos, delta, lifeTime, timeAlive, lifePercent) -> {
                     pos.x = GameMath.cos((float)buff.owner.getTime() * rotationSpeed + offset) * 12.0F + 1.0F;
                     pos.y = GameMath.sin((float)buff.owner.getTime() * rotationSpeed + offset) * 10.0F - 5.0F;
                 }).size((options, lifeTime, timeAlive, lifePercent) ->
                 {
-                    ActiveBuff currentBuff = buff.owner.buffManager.getBuff(SummonerBuffs.SummonBuffs.HEALGLYPH);
+                    ActiveBuff currentBuff = buff.owner.buffManager.getBuff(HEALGLYPH);
                     if (currentBuff != null)
                     {
                         int size = (int)(6.0F * ((float)currentBuff.getDurationLeft() / (float)currentBuff.getDuration())) + 10;
@@ -51,7 +52,7 @@ public class HealGlyphBuff extends Buff
                 }).onDied((pos) -> level.entityManager.addParticle(buff.owner.x + pos.x, buff.owner.y + pos.y, Particle.GType.IMPORTANT_COSMETIC).color(HealGlyphTrapEvent.particleColor).givesLight(HealGlyphTrapEvent.particleHue, 0.8F).sizeFades(8, 8).lifeTime(500).movesFriction(pos.x, -10.0F, 1.0F));
                 particle.removeIf(() ->
                 {
-                    ActiveBuff currentBuff = buff.owner.buffManager.getBuff(SummonerBuffs.SummonBuffs.HEALGLYPH);
+                    ActiveBuff currentBuff = buff.owner.buffManager.getBuff(HEALGLYPH);
                     return currentBuff != buff;
                 });
             }

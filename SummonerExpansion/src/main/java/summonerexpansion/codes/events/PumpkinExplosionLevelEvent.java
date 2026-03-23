@@ -11,7 +11,7 @@ import necesse.entity.particle.Particle;
 import necesse.gfx.GameResources;
 import necesse.gfx.gameTexture.GameTextureSection;
 
-import static summonerexpansion.codes.registry.SummonerTextures.pumpkinExplosionParticles;
+import static summonerexpansion.codes.registries.RegistryParticlesTextures.pumpkinExplosionParticles;
 
 public class PumpkinExplosionLevelEvent extends ExplosionEvent
 {

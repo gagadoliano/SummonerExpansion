@@ -11,7 +11,8 @@ import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.toolItem.swordToolItem.greatswordToolItem.GreatswordToolItem;
-import summonerexpansion.mobs.summonminions.meleeminions.*;
+import summonerexpansion.mobs.minions.melee.HorrorBullMinion;
+import summonerexpansion.mobs.minions.melee.HorrorWolfMinion;
 
 import java.awt.geom.Point2D;
 import java.util.function.BiConsumer;

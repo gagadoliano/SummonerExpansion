@@ -24,19 +24,20 @@ import necesse.gfx.drawables.SortedDrawable;
 import necesse.gfx.ui.HUD;
 import necesse.inventory.InventoryItem;
 import necesse.level.maps.hudManager.HudDrawElement;
-import summonerexpansion.codes.registry.SummonerBuffs;
-import summonerexpansion.items.equips.allweapons.basesummon.DruidClaw;
+import summonerexpansion.items.weapons.base.BaseDruidClaw;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.List;
 
-public class DruidClawDashHandler  extends MousePositionAttackHandler
+import static summonerexpansion.codes.registries.RegistryBuffs.WeaponBuffs.CLAW_DASH_COOLDOWN;
+
+public class DruidClawDashHandler extends MousePositionAttackHandler
 {
     protected SoundPlayer clawChargeSoundPlayer;
     public int chargeTime;
     public boolean fullyCharged;
-    public DruidClaw clawItem;
+    public BaseDruidClaw clawItem;
     public long startTime;
     public InventoryItem item;
     public int seed;
@@ -45,7 +46,7 @@ public class DruidClawDashHandler  extends MousePositionAttackHandler
     protected int endAttackBuffer;
     protected HudDrawElement hudDrawElement;
 
-    public DruidClawDashHandler(ItemAttackerMob attackerMob, ItemAttackSlot slot, InventoryItem item, DruidClaw clawItem, int chargeTime, Color particleColors, int seed, int startTargetX, int startTargetY)
+    public DruidClawDashHandler(ItemAttackerMob attackerMob, ItemAttackSlot slot, InventoryItem item, BaseDruidClaw clawItem, int chargeTime, Color particleColors, int seed, int startTargetX, int startTargetY)
     {
         super(attackerMob, slot, 20, startTargetX, startTargetY);
         this.item = item;
@@ -215,7 +216,7 @@ public class DruidClawDashHandler  extends MousePositionAttackHandler
             chargePercent = Math.min(chargePercent, 1.0F);
             DruidClawDashLevelEvent event = new DruidClawDashLevelEvent(attackerMob, seed, dir.x, dir.y, getChargeDistance(chargePercent), (int)(200.0F * chargePercent), clawItem.getAttackDamage(item).modDamage(2.0F), clawItem.maxDashStacks.getValue(clawItem.getUpgradeTier(item)));
             attackerMob.addAndSendAttackerLevelEvent(event);
-            attackerMob.buffManager.addBuff(new ActiveBuff(SummonerBuffs.SummonBuffs.CLAW_DASH_COOLDOWN, attackerMob, 3.0F, null), attackerMob.isServer());
+            attackerMob.buffManager.addBuff(new ActiveBuff(CLAW_DASH_COOLDOWN, attackerMob, 3.0F, null), attackerMob.isServer());
             if (attackerMob.isClient())
             {
                 SoundManager.playSound(new SoundSettings(GameResources.swing1), attackerMob);
@@ -232,6 +233,6 @@ public class DruidClawDashHandler  extends MousePositionAttackHandler
     public float getChargeDistance(float chargePercent)
     {
         chargePercent = Math.min(chargePercent, 1.0F);
-        return chargePercent > 0.5F ? (chargePercent - 0.5F) * 2.0F * (float)clawItem.dashRange.getValue(clawItem.getUpgradeTier(item)) : 0.0F;
+        return chargePercent > 0.5F ? (chargePercent - 0.5F) * 2.0F * clawItem.dashRange.getValue(clawItem.getUpgradeTier(item)) : 0.0F;
     }
 }

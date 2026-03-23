@@ -3,9 +3,7 @@ package summonerexpansion.codes.patches;
 import necesse.engine.modLoader.annotations.ModMethodPatch;
 import necesse.inventory.lootTable.LootTable;
 import necesse.inventory.lootTable.lootItem.ChanceLootItem;
-import necesse.inventory.lootTable.lootItem.LootItem;
 import necesse.level.gameObject.CowSkeletonObject;
-import necesse.level.gameObject.SurfaceGrassObject;
 import necesse.level.maps.Level;
 import net.bytebuddy.asm.Advice;
 

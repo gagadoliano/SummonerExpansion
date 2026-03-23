@@ -22,7 +22,7 @@ public class DoomShroomEvent extends HitboxEffectEvent implements Attacker
 {
     public static float debuffDuration = 10.0F;
     private int lifeTime = 0;
-    private HashSet<Integer> hits = new HashSet();
+    private HashSet<Integer> hits = new HashSet<>();
 
     public DoomShroomEvent() {
     }
@@ -47,7 +47,7 @@ public class DoomShroomEvent extends HitboxEffectEvent implements Attacker
     {
         super.init();
         hitsObjects = false;
-        hits = new HashSet();
+        hits = new HashSet<>();
         if (owner != null)
         {
             SoundManager.playSound(GameResources.explosionHeavy, SoundEffect.effect(owner).volume(1.0F).pitch(0.8F));
@@ -116,11 +116,11 @@ public class DoomShroomEvent extends HitboxEffectEvent implements Attacker
 
     public PointSetAbstract<?> getRegionPositions()
     {
-        return this.owner != null ? this.owner.getRegionPositions() : super.getRegionPositions();
+        return owner != null ? owner.getRegionPositions() : super.getRegionPositions();
     }
 
     public Point getSaveToRegionPos()
     {
-        return this.owner != null ? new Point(this.level.regionManager.getRegionCoordByTile(this.owner.getTileX()), this.level.regionManager.getRegionCoordByTile(this.owner.getTileY())) : super.getSaveToRegionPos();
+        return owner != null ? new Point(level.regionManager.getRegionCoordByTile(owner.getTileX()), level.regionManager.getRegionCoordByTile(owner.getTileY())) : super.getSaveToRegionPos();
     }
 }

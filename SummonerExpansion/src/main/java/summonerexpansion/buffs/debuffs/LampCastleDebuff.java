@@ -20,7 +20,6 @@ public class LampCastleDebuff extends Buff
         isImportant = true;
     }
 
-    @Override
     public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber)
     {
         if (nightDebuff)
@@ -44,17 +43,8 @@ public class LampCastleDebuff extends Buff
         }
     }
 
-    @Override
     public void serverTick(ActiveBuff buff)
     {
-        super.serverTick(buff);
-        if (buff.owner.getLevel().getWorldEntity().isNight())
-        {
-            nightDebuff = true;
-        }
-        else
-        {
-            nightDebuff = false;
-        }
+        nightDebuff = buff.owner.getLevel().getWorldEntity().isNight();
     }
 }

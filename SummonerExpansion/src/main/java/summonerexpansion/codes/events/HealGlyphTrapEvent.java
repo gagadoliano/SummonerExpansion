@@ -1,6 +1,5 @@
 package summonerexpansion.codes.events;
 
-import necesse.engine.registries.BuffRegistry;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
 import necesse.engine.util.GameRandom;
@@ -9,10 +8,11 @@ import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.gfx.GameResources;
 import necesse.gfx.gameTexture.GameTexture;
-import summonerexpansion.codes.registry.SummonerBuffs;
-import summonerexpansion.codes.registry.SummonerTextures;
 
 import java.awt.*;
+
+import static summonerexpansion.codes.registries.RegistryObjects.ObjectBuffs.HEALGLYPH;
+import static summonerexpansion.codes.registries.RegistryParticlesTextures.healGlyphParticle;
 
 public class HealGlyphTrapEvent extends GlyphObjectTrapEvent
 {
@@ -29,7 +29,7 @@ public class HealGlyphTrapEvent extends GlyphObjectTrapEvent
 
     public GameTexture getParticleTexture()
     {
-        return SummonerTextures.healGlyphParticle;
+        return healGlyphParticle;
     }
 
     public Color getParticleColor()
@@ -49,6 +49,6 @@ public class HealGlyphTrapEvent extends GlyphObjectTrapEvent
 
     public void applyGlyphServer(Mob target)
     {
-        target.buffManager.addBuff(new ActiveBuff(SummonerBuffs.SummonBuffs.HEALGLYPH, target, 15000, null), true, true);
+        target.buffManager.addBuff(new ActiveBuff(HEALGLYPH, target, 15000, null), true, true);
     }
 }

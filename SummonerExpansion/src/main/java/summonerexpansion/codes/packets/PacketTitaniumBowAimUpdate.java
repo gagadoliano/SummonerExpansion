@@ -12,8 +12,9 @@ import necesse.engine.util.GameUtils;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.level.maps.Level;
-import summonerexpansion.codes.registry.SummonerEquips;
-import summonerexpansion.items.equips.armorsetbonus.TitaniumRangedSetBonus;
+import summonerexpansion.items.armors.armorsets.TitaniumRangedSetBonus;
+
+import static summonerexpansion.codes.registries.RegistryArmors.registerArmorSets.TITANIUMRANGEDSET;
 
 public class PacketTitaniumBowAimUpdate extends Packet
 {
@@ -46,7 +47,7 @@ public class PacketTitaniumBowAimUpdate extends Packet
         Mob mob = GameUtils.getLevelMob(mobUniqueID, level);
         if (mob != null)
         {
-            ActiveBuff buff = mob.buffManager.getBuff(SummonerEquips.SummonerArmorBuffs.TITANIUMRANGEDBUFF);
+            ActiveBuff buff = mob.buffManager.getBuff(TITANIUMRANGEDSET);
             if (buff != null)
             {
                 TitaniumRangedSetBonus.updateMousePos(buff, levelX, levelY);
