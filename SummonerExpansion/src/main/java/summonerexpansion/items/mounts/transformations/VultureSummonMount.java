@@ -1,6 +1,7 @@
 package summonerexpansion.items.mounts.transformations;
 
 import necesse.engine.GlobalData;
+import necesse.engine.Settings;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.network.Packet;
@@ -48,8 +49,8 @@ public class VultureSummonMount extends BaseTransformMount implements MountAbili
             if (camera == null) {
                 return;
             }
-            getFollowingMob().attack(camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), false);
-            getFollowingMob().getLevel().entityManager.projectiles.add(new MountVultureProj(x, y, camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), damage, getFollowingMob()));
+            player.attack(camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), false);
+            player.getLevel().entityManager.projectiles.add(new MountVultureProj(x, y, camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), damage, player));
             abilityCooldown = 10;
         }
     }

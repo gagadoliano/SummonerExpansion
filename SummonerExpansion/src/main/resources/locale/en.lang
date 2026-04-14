@@ -150,13 +150,14 @@ druidpolarclaw=Druid Polar Claw
 druiddemonclaw=Druid Demon Claw
 globeboomerang=Globe Boomerang
 spidersummonsword=Spider Sword
+webspiderwhip=Spider Web Whip
+ramnunchucks=Ram Nunchucks
 fishianspear=Fishian Spear
 horrorscythe=Horror Scythe
 horrorglaive=Horror Glaive
 goblinsword=Goblin Sword
 horrorsword=Horror Sword
 wormbucket=Worm Bucket
-ramnunchucks=Ram Nunchucks
 
 // Range weapons
 mosquitobow=Mosquito Bow
@@ -460,6 +461,7 @@ druidancestorclawtip=Summons an ancestor warrior
 druidleatherclawtip=20% increased damage taken
 druidnecroclawtip=Applies necrotic poison
 druidpolarclawtip=Slows by 30%
+webspiderwhiptip=20% chance to summon a spider on hit, up to 3
 
 // Range weapons
 mosquitobowtip=Shoots down arrows from above that leaves a damaging pool in it's wake \nEvery 20 hits summons a mosquito that reduces foes armor

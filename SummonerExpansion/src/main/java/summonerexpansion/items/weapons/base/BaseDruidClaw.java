@@ -7,7 +7,7 @@ import necesse.engine.sound.SoundSettings;
 import necesse.engine.util.GameBlackboard;
 import necesse.engine.util.GameMath;
 import necesse.engine.util.GameRandom;
-import necesse.entity.levelEvent.SwordCleanSliceAttackEvent;
+import necesse.entity.levelEvent.SwordCleanSliceAttackMobEvent;
 import necesse.entity.levelEvent.mobAbilityLevelEvent.ToolItemMobAbilityEvent;
 import necesse.entity.mobs.AttackAnimMob;
 import necesse.entity.mobs.Mob;
@@ -100,7 +100,6 @@ public class BaseDruidClaw extends SwordToolItem implements ItemInteractAction
     protected void loadAttackTexture()
     {
         super.loadAttackTexture();
-
         try
         {
             invertedAttackTexture = GameTexture.fromFileRaw("player/weapons/" + getStringID() + "_inverted");
@@ -108,6 +107,64 @@ public class BaseDruidClaw extends SwordToolItem implements ItemInteractAction
         catch (FileNotFoundException var2)
         {
             invertedAttackTexture = null;
+        }
+    }
+
+    public ItemAttackDrawOptions setupItemSpriteAttackDrawOptions(ItemAttackDrawOptions options, InventoryItem item, PlayerMob player, int mobDir, float attackDirX, float attackDirY, float attackProgress, Color itemColor)
+    {
+        if (item.getGndData().getBoolean("chargeUp"))
+        {
+            float chargePercent = Math.min(item.getGndData().getFloat("chargePercent"), 1.0F);
+            ItemAttackDrawOptions.AttackItemSprite itemSprite = options.itemSprite(this.getAttackSprite(item, player));
+            if (options.dir == 0)
+            {
+                itemSprite.itemRotateOffsetAdd(GameMath.lerp(chargePercent, 70.0F, 90.0F));
+                itemSprite.itemRotatePoint(this.attackXOffset + GameMath.lerp(chargePercent, 16, 18), this.attackYOffset - GameMath.lerp(chargePercent, 0, 4));
+            }
+            else if (options.dir == 2)
+            {
+                itemSprite.itemRotateOffsetAdd(GameMath.lerp(chargePercent, 150.0F, 170.0F));
+                itemSprite.itemRotatePoint(this.attackXOffset + GameMath.lerp(chargePercent, 22, 26), this.attackYOffset);
+            }
+            else
+            {
+                itemSprite.itemRotateOffsetAdd(GameMath.lerp(chargePercent, 120.0F, 140.0F));
+                itemSprite.itemRotatePoint(this.attackXOffset + GameMath.lerp(chargePercent, 20, 22), this.attackYOffset);
+            }
+            if (itemColor != null)
+            {
+                itemSprite.itemColor(itemColor);
+            }
+
+            return itemSprite.itemEnd();
+        }
+        else if (item.getGndData().getBoolean("sliceDash"))
+        {
+            ItemAttackDrawOptions.AttackItemSprite itemSprite = options.itemSprite(this.getAttackSprite(item, player));
+            if (options.dir == 0)
+            {
+                itemSprite.itemRotateOffsetAdd(90.0F);
+                itemSprite.itemRotatePoint(this.attackXOffset + 18, this.attackYOffset - 4);
+            }
+            else if (options.dir == 2)
+            {
+                itemSprite.itemRotateOffsetAdd(170.0F);
+                itemSprite.itemRotatePoint(this.attackXOffset + 26, this.attackYOffset);
+            }
+            else
+            {
+                itemSprite.itemRotateOffsetAdd(140.0F);
+                itemSprite.itemRotatePoint(this.attackXOffset + 22, this.attackYOffset);
+            }
+            if (itemColor != null)
+            {
+                itemSprite.itemColor(itemColor);
+            }
+            return itemSprite.itemEnd();
+        }
+        else
+        {
+            return super.setupItemSpriteAttackDrawOptions(options, item, player, mobDir, attackDirX, attackDirY, attackProgress, itemColor);
         }
     }
 
@@ -129,113 +186,23 @@ public class BaseDruidClaw extends SwordToolItem implements ItemInteractAction
         {
             if (drawOptions.dir == 2)
             {
-                drawOptions.rotation(GameMath.lerp(attackProgress, 0.0F, -170.0F));
+                drawOptions.rotation(GameMath.lerp(attackProgress, 0.0F, -270.0F));
             }
             else
             {
-                drawOptions.rotation(GameMath.lerp(attackProgress, 70.0F, -100.0F));
+                drawOptions.rotation(GameMath.lerp(attackProgress, 100.0F, -170.0F));
             }
-        }
-        else if (item.getGndData().getBoolean("slash"))
-        {
-            drawOptions.rotation(getSwingRotation(item, drawOptions.dir, attackProgress) - 60.0F - (float)(drawOptions.dir * 10));
         }
         else
         {
-            drawOptions.rotation(getSwingRotation(item, drawOptions.dir, attackProgress) - 10.0F - (float)(drawOptions.dir * 10));
+            super.setDrawAttackRotation(item, drawOptions, attackDirX, attackDirY, attackProgress);
         }
+
     }
 
-    public ItemAttackDrawOptions setupItemSpriteAttackDrawOptions(ItemAttackDrawOptions options, InventoryItem item, PlayerMob player, int mobDir, float attackDirX, float attackDirY, float attackProgress, Color itemColor)
+    public float getSwingRotationAngle(InventoryItem item, int dir)
     {
-        ItemAttackDrawOptions.AttackItemSprite itemSprite = options.itemSprite(getAttackSprite(item, player));
-        return applySpriteOffsets(options, item, itemSprite);
-    }
-
-    protected ItemAttackDrawOptions applySpriteOffsets(ItemAttackDrawOptions options, InventoryItem item, ItemAttackDrawOptions.AttackItemSprite itemSprite)
-    {
-        boolean chargeUp = item.getGndData().getBoolean("chargeUp");
-        boolean sliceDash = item.getGndData().getBoolean("sliceDash");
-        if (chargeUp || sliceDash)
-        {
-            if (options.dir == 0)
-            {
-                itemSprite.itemRotatePoint(12, 12);
-            }
-            else if (options.dir == 2)
-            {
-                itemSprite.itemRotatePoint(14, 14);
-            }
-            else
-            {
-                itemSprite.itemRotatePoint(14, 14);
-            }
-        }
-        if (chargeUp)
-        {
-            float chargePercent = Math.min(item.getGndData().getFloat("chargePercent"), 1.0F);
-            if (options.dir == 0)
-            {
-                itemSprite.itemRotateOffsetAdd(GameMath.lerp(chargePercent, 0.0F, 10.0F));
-            }
-            else if (options.dir == 2)
-            {
-                itemSprite.itemRotateOffsetAdd(GameMath.lerp(chargePercent, 0.0F, 70.0F));
-                options.addedArmRotationOffset(GameMath.lerp(chargePercent, 0.0F, 70.0F));
-            }
-            else
-            {
-                itemSprite.itemRotateOffsetAdd(GameMath.lerp(chargePercent, 0.0F, 60.0F));
-            }
-            return itemSprite.itemEnd();
-        }
-        else if (sliceDash)
-        {
-            if (options.dir == 0)
-            {
-                itemSprite.itemRotateOffsetAdd(10.0F);
-            }
-            else if (options.dir == 2)
-            {
-                itemSprite.itemRotateOffsetAdd(70.0F);
-                options.addedArmRotationOffset(70.0F);
-            }
-            else
-            {
-                itemSprite.itemRotateOffsetAdd(60.0F);
-            }
-            return itemSprite.itemEnd();
-        }
-        else
-        {
-            if (item.getGndData().getBoolean("slash"))
-            {
-                itemSprite.itemRotatePoint(14, 14);
-            }
-            else
-            {
-                options.addedArmRotationOffset(-50.0F);
-                if (options.dir != 0 && options.dir != 1)
-                {
-                    if (options.dir == 2)
-                    {
-                        itemSprite.itemRotatePoint(22, 0);
-                        itemSprite.itemRotateOffsetAdd(20.0F);
-                    }
-                    else
-                    {
-                        itemSprite.itemRotatePoint(18, 8);
-                        itemSprite.itemRotateOffsetAdd(-25.0F);
-                    }
-                }
-                else
-                {
-                    itemSprite.itemRotatePoint(18, 8);
-                    itemSprite.itemRotateOffsetAdd(-45.0F);
-                }
-            }
-            return itemSprite.itemEnd();
-        }
+        return 150.0F;
     }
 
     public float getSwingRotationOffset(InventoryItem item, int dir, float swingAngle)
@@ -253,6 +220,10 @@ public class BaseDruidClaw extends SwordToolItem implements ItemInteractAction
         {
             return item.getGndData().getBoolean("slash") ? offset : offset - 40.0F;
         }
+    }
+
+    public float getHitboxSwingAngle(InventoryItem item, int dir) {
+        return 150.0F;
     }
 
     public float getHitboxSwingAngleOffset(InventoryItem item, int dir, float swingAngle)
@@ -283,14 +254,15 @@ public class BaseDruidClaw extends SwordToolItem implements ItemInteractAction
 
     public GameSprite getAttackSprite(InventoryItem item, PlayerMob player)
     {
-        return (getAnimInverted(item) || item.getGndData().getBoolean("chargeUp") || item.getGndData().getBoolean("sliceDash")) && invertedAttackTexture != null ? new GameSprite(invertedAttackTexture) : super.getAttackSprite(item, player);
+        return (this.getAnimInverted(item) || item.getGndData().getBoolean("chargeUp") || item.getGndData().getBoolean("sliceDash")) && this.invertedAttackTexture != null ? new GameSprite(this.invertedAttackTexture) : super.getAttackSprite(item, player);
     }
 
     public void showClawAttack(Level level, final AttackAnimMob mob, final int seed, final InventoryItem item)
     {
-        level.entityManager.events.addHidden(new SwordCleanSliceAttackEvent(mob, seed, 12, null)
+        level.entityManager.events.addHidden(new SwordCleanSliceAttackMobEvent(mob, seed, 12)
         {
             Trail[] trails = null;
+
             public void tick(float angle, float currentAttackProgress)
             {
                 int attackRange = getAttackRange(item);
@@ -327,40 +299,41 @@ public class BaseDruidClaw extends SwordToolItem implements ItemInteractAction
                 }
 
                 Point2D.Float sliceDir = GameMath.getAngleDir(angle + (float)sliceDirOffset);
-                if (trails == null)
+                if (this.trails == null)
                 {
                     int fadeTime = strictTrailAngles ? 1000 : 500;
                     int trailCount = Math.max(1, (attackRange - minTrailRange - 10) / distancePerTrail);
-                    trails = new Trail[trailCount];
+                    this.trails = new Trail[trailCount];
 
-                    for(int i = 0; i < trails.length; ++i)
+                    for(int i = 0; i < this.trails.length; ++i)
                     {
-                        Trail trail = new Trail(getVector(currentAttackProgress, attackRange, i, distancePerTrail, base, dir, sliceDir), level, slashColor, fadeTime);
-                        trails[i] = trail;
+                        Trail trail = new Trail(this.getVector(currentAttackProgress, attackRange, i, distancePerTrail, base, dir, sliceDir), this.level, slashColor, fadeTime);
+                        this.trails[i] = trail;
                         trail.removeOnFadeOut = false;
                         trail.sprite = new GameSprite(GameResources.chains, 7, 0, 32);
-                        level.entityManager.addTrail(trail);
+                        this.level.entityManager.addTrail(trail);
                     }
                 }
                 else
                 {
-                    for(int i = 0; i < trails.length; ++i)
+                    for(int i = 0; i < this.trails.length; ++i)
                     {
                         if (strictTrailAngles)
                         {
-                            trails[i].addPointIfSameDirection(getVector(currentAttackProgress, attackRange, i, distancePerTrail, base, dir, sliceDir), 0.2F, 20.0F, 50.0F);
+                            this.trails[i].addPointIfSameDirection(this.getVector(currentAttackProgress, attackRange, i, distancePerTrail, base, dir, sliceDir), 0.2F, 20.0F, 50.0F);
                         }
                         else
                         {
-                            trails[i].addPoint(getVector(currentAttackProgress, attackRange, i, distancePerTrail, base, dir, sliceDir));
+                            this.trails[i].addPoint(this.getVector(currentAttackProgress, attackRange, i, distancePerTrail, base, dir, sliceDir));
                         }
                     }
                 }
+
             }
 
             public TrailVector getVector(float currentAttackProgress, int attackRange, int index, int distancePerTrail, Point2D.Float base, Point2D.Float dir, Point2D.Float sliceDir)
             {
-                float thickness = GameMath.lerp((float)index / (float)(trails.length - 1), 25.0F, 10.0F);
+                float thickness = GameMath.lerp((float)index / (float)(this.trails.length - 1), 25.0F, 10.0F);
                 if (currentAttackProgress < 0.33F)
                 {
                     thickness *= 3.0F * currentAttackProgress;
@@ -369,6 +342,7 @@ public class BaseDruidClaw extends SwordToolItem implements ItemInteractAction
                 {
                     thickness *= 3.0F * (1.0F - currentAttackProgress);
                 }
+
                 int distanceOffset = attackRange - index * distancePerTrail;
                 GameRandom random = (new GameRandom(seed)).nextSeeded(index + 5);
                 float xOffset = random.getFloatOffset(0.0F, 10.0F);
@@ -380,23 +354,22 @@ public class BaseDruidClaw extends SwordToolItem implements ItemInteractAction
             public void onDispose()
             {
                 super.onDispose();
-                if (trails != null)
+                if (this.trails != null)
                 {
-                    for(Trail trail : trails)
+                    for(Trail trail : this.trails)
                     {
                         trail.removeOnFadeOut = true;
                     }
                 }
-
             }
         });
     }
 
-    public int getFlatItemCooldownTime(InventoryItem item)
+    public int getFlatAttackCooldownTime(InventoryItem item)
     {
         if (!item.getGndData().getBoolean("chargeUp") && !item.getGndData().getBoolean("sliceDash"))
         {
-            return item.getGndData().getBoolean("slash") ? (int)((float)getFlatAttackAnimTime(item) * getSecondSliceAttackCooldownModifier()) : super.getFlatItemCooldownTime(item);
+            return item.getGndData().getBoolean("slash") ? (int)((float)this.getFlatAttackAnimTime(item) * this.getSecondSliceAttackCooldownModifier()) : super.getFlatAttackCooldownTime(item);
         }
         else
         {
@@ -410,12 +383,12 @@ public class BaseDruidClaw extends SwordToolItem implements ItemInteractAction
 
     public boolean canItemAttackerHitTarget(ItemAttackerMob attackerMob, float fromX, float fromY, Mob target, InventoryItem item)
     {
-        return itemAttackerHasLineOfSightToTarget(attackerMob, fromX, fromY, target, 5.0F);
+        return this.itemAttackerHasLineOfSightToTarget(attackerMob, fromX, fromY, target, 5.0F);
     }
 
     public int getItemAttackerAttackRange(ItemAttackerMob mob, InventoryItem item)
     {
-        return !mob.isPlayer && canDash(mob) ? (int)((float)dashRange.getValue(getUpgradeTier(item)) * 0.8F) : super.getItemAttackerAttackRange(mob, item);
+        return !mob.isPlayer && this.canDash(mob) ? (int)((float)this.dashRange.getValue(this.getUpgradeTier(item)) * 0.8F) : super.getItemAttackerAttackRange(mob, item);
     }
 
     public void showAttack(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight, InventoryItem item, int animAttack, int seed, GNDItemMap mapContent)
@@ -429,20 +402,20 @@ public class BaseDruidClaw extends SwordToolItem implements ItemInteractAction
             }
             if (level.isClient())
             {
-                showClawAttack(level, attackerMob, seed, item);
+                this.showClawAttack(level, attackerMob, seed, item);
             }
         }
     }
 
     public InventoryItem onAttack(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight, InventoryItem item, ItemAttackSlot slot, int animAttack, int seed, GNDItemMap mapContent)
     {
-        if (!attackerMob.isPlayer && canDash(attackerMob))
+        if (!attackerMob.isPlayer && this.canDash(attackerMob))
         {
-            float stacksPercent = (float)attackerMob.buffManager.getStacks(CLAW_DASH_STACKS) / (float)maxDashStacks.getValue(getUpgradeTier(item));
+            float stacksPercent = (float)attackerMob.buffManager.getStacks(CLAW_DASH_STACKS) / (float)this.maxDashStacks.getValue(this.getUpgradeTier(item));
             float animModifier = (float)GameMath.lerp(Math.min(Math.pow(stacksPercent * 2.0F, 0.5F), 1.0F), 8L, 1L);
-            int animTime = (int)((float)getAttackAnimTime(item, attackerMob) * animModifier);
+            int animTime = (int)((float)this.getAttackAnimTime(item, attackerMob) * animModifier);
             mapContent.setBoolean("chargeUp", true);
-            attackerMob.startAttackHandler(new DruidClawDashHandler(attackerMob, slot, item, this, animTime, new Color(190, 220, 220), seed, x, y));
+            attackerMob.startAttackHandler(new DruidClawDashHandler(attackerMob, slot, item, this, animTime, slashColor, seed, x, y));
             return item;
         }
         else
@@ -453,7 +426,7 @@ public class BaseDruidClaw extends SwordToolItem implements ItemInteractAction
             item.getGndData().setBoolean("sliceDash", false);
             if (animAttack == 0)
             {
-                int animTime = getAttackAnimTime(item, attackerMob);
+                int animTime = this.getAttackAnimTime(item, attackerMob);
                 ToolItemMobAbilityEvent event = new ToolItemMobAbilityEvent(attackerMob, seed, item, x - attackerMob.getX(), y - attackerMob.getY() + attackHeight, animTime, animTime, isSlash ? new HashMap<>() : null);
                 attackerMob.addAndSendAttackerLevelEvent(event);
             }
@@ -472,7 +445,7 @@ public class BaseDruidClaw extends SwordToolItem implements ItemInteractAction
 
     public boolean canLevelInteract(Level level, int x, int y, ItemAttackerMob attackerMob, InventoryItem item)
     {
-        return canDash(attackerMob);
+        return this.canDash(attackerMob);
     }
 
     public boolean canDash(ItemAttackerMob attackerMob)
@@ -490,18 +463,18 @@ public class BaseDruidClaw extends SwordToolItem implements ItemInteractAction
 
     public InventoryItem onLevelInteract(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight, InventoryItem item, ItemAttackSlot slot, int seed, GNDItemMap mapContent)
     {
-        float stacksPercent = (float)attackerMob.buffManager.getStacks(CLAW_DASH_STACKS) / (float)maxDashStacks.getValue(getUpgradeTier(item));
+        float stacksPercent = (float)attackerMob.buffManager.getStacks(CLAW_DASH_STACKS) / (float)this.maxDashStacks.getValue(this.getUpgradeTier(item));
         float animModifier = (float)GameMath.lerp(Math.min(Math.pow(stacksPercent * 2.0F, 0.5F), 1.0F), 8L, 1L);
-        int animTime = (int)((float)getAttackAnimTime(item, attackerMob) * animModifier);
+        int animTime = (int)((float)this.getAttackAnimTime(item, attackerMob) * animModifier);
         mapContent.setBoolean("chargeUp", true);
-        attackerMob.startAttackHandler((new DruidClawDashHandler(attackerMob, slot, item, this, animTime, new Color(190, 220, 220), seed, x, y)).startFromInteract());
+        attackerMob.startAttackHandler((new DruidClawDashHandler(attackerMob, slot, item, this, animTime, slashColor, seed, x, y)).startFromInteract());
         return item;
     }
 
     public ItemControllerInteract getControllerInteract(Level level, PlayerMob player, InventoryItem item, boolean beforeObjectInteract, int interactDir, LinkedList<Rectangle> mobInteractBoxes, LinkedList<Rectangle> tileInteractBoxes)
     {
         Point2D.Float controllerAimDir = player.getControllerAimDir();
-        Point levelPos = getControllerAttackLevelPos(level, controllerAimDir.x, controllerAimDir.y, player, item);
+        Point levelPos = this.getControllerAttackLevelPos(level, controllerAimDir.x, controllerAimDir.y, player, item);
         return new ItemControllerInteract(levelPos.x, levelPos.y)
         {
             public DrawOptions getDrawOptions(GameCamera camera) {

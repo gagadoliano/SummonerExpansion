@@ -29,7 +29,7 @@ public class GalvanicAmuletBuff extends TrinketBuff
 
     public void onHasAttacked(ActiveBuff buff, MobWasHitEvent event)
     {
-        if (event.damageType == DamageTypeRegistry.SUMMON && attackCooldown <= 0)
+        if (event.damageType == DamageTypeRegistry.SUMMON && attackCooldown <= 0 && !event.wasPrevented)
         {
             for (int i = 0; i < 3; i++)
             {

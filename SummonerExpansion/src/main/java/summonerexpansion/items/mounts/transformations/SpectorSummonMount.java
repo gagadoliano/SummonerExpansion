@@ -1,5 +1,6 @@
 package summonerexpansion.items.mounts.transformations;
 
+import necesse.engine.Settings;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.network.Packet;
@@ -50,7 +51,6 @@ public class SpectorSummonMount extends BaseTransformMount implements MountAbili
             mob1.updateDamage(damage);
             mob1.setRemoveWhenNotInInventory(ItemRegistry.getItem("forestspectorhands"), CheckSlotType.MOUNT);
             player.getLevel().entityManager.addMob(mob1, player.x, player.y);
-
             abilityCooldown = 30;
         }
     }

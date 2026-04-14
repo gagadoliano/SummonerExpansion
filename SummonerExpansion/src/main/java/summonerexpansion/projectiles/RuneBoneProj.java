@@ -4,6 +4,7 @@ import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.util.GameRandom;
 import necesse.engine.util.GroundPillar;
 import necesse.engine.util.GroundPillarList;
+import necesse.entity.Entity;
 import necesse.entity.manager.GroundPillarHandler;
 import necesse.entity.mobs.BoneSpikeMob;
 import necesse.entity.mobs.GameDamage;
@@ -30,15 +31,19 @@ public class RuneBoneProj extends Projectile
     protected int distanceBetweenSpikes = 30;
     protected int maxPillars;
     protected GameDamage damage;
+    protected Mob owner;
     private double distCounter;
     private double distBuffer;
-    private final GroundPillarList<RuneBonePillar> smallPillars = new GroundPillarList<>();
+    private final GroundPillarList<SmallBoneSpikePillar> smallPillars = new GroundPillarList<>();
 
-    public RuneBoneProj() {}
+    public RuneBoneProj() {
+    }
 
     public RuneBoneProj(Level level, Mob owner, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback, int maxPillars)
     {
         this.setLevel(level);
+        this.setOwner(owner);
+        this.owner = owner;
         this.x = x;
         this.y = y;
         this.setTarget(targetX, targetY);
@@ -57,16 +62,20 @@ public class RuneBoneProj extends Projectile
         this.setWidth(60.0F);
         if (this.isClient())
         {
-            this.getLevel().entityManager.addPillarHandler(new GroundPillarHandler<RuneBonePillar>(this.smallPillars)
+            this.getLevel().entityManager.addPillarHandler(new GroundPillarHandler<SmallBoneSpikePillar>(this.smallPillars)
             {
-                protected boolean canRemove() {
-                    return RuneBoneProj.this.removed();
+                protected boolean canRemove()
+                {
+                    return removed();
                 }
-                public double getCurrentDistanceMoved() {
-                    return RuneBoneProj.this.distCounter;
+
+                public double getCurrentDistanceMoved()
+                {
+                    return distCounter;
                 }
             });
         }
+
     }
 
     public Trail getTrail() {
@@ -86,7 +95,7 @@ public class RuneBoneProj extends Projectile
                 this.distBuffer -= this.distanceBetweenSpikes;
                 synchronized(this.smallPillars)
                 {
-                    this.smallPillars.add(new RuneBoneProj.RuneBonePillar((int)(this.x + GameRandom.globalRandom.floatGaussian() * 6.0F), (int)(this.y + GameRandom.globalRandom.floatGaussian() * 4.0F), this.distCounter, this.getLocalTime()));
+                    this.smallPillars.add(new SmallBoneSpikePillar((int)(this.x + GameRandom.globalRandom.floatGaussian() * 6.0F), (int)(this.y + GameRandom.globalRandom.floatGaussian() * 4.0F), this.distCounter, this.getLocalTime()));
                 }
             }
 
@@ -96,26 +105,30 @@ public class RuneBoneProj extends Projectile
     public void doHitLogic(Mob mob, LevelObjectHit object, float x, float y)
     {
         super.doHitLogic(mob, object, x, y);
-        if (getOwner() != null)
+        if (this.owner != null)
         {
-            List nearbySpikes = this.getNearbySpikes(this.getLevel(), getOwner());
-            if (nearbySpikes.size() >= this.maxPillars) {
-                for(int i = nearbySpikes.size(); i >= this.maxPillars; --i) {
+            List<BoneSpikeMob> nearbySpikes = this.getNearbySpikes(this.getLevel(), this.owner);
+            if (nearbySpikes.size() >= this.maxPillars)
+            {
+                for(int i = nearbySpikes.size(); i >= this.maxPillars; --i)
+                {
                     BoneSpikeMob mobToRemove = this.getBoneSpikeWithLowestDuration(nearbySpikes);
-                    if (mobToRemove != null) {
+                    if (mobToRemove != null)
+                    {
                         mobToRemove.forceDespawnSpike();
                     }
                 }
             }
         }
-        BoneSpikeMob boneSpike = new BoneSpikeMob(getOwner(), this.damage, this.getTime() + 9000L);
+
+        BoneSpikeMob boneSpike = new BoneSpikeMob(this.owner, this.damage, this.getTime() + 9000L);
         GameRandom random = new GameRandom(this.getUniqueID());
         boneSpike.setPos((float)((int)(x + random.floatGaussian() * 3.0F)), (float)((int)(y + random.floatGaussian() * 1.5F)), true);
         boneSpike.resetUniqueID(random);
         this.getLevel().entityManager.mobs.addHidden(boneSpike);
     }
 
-    public List getNearbySpikes(Level level, Mob owner)
+    public List<BoneSpikeMob> getNearbySpikes(Level level, Mob owner)
     {
         int checkInRange = 640;
         return level.entityManager.mobs.streamInRegionsInRange(owner.x, owner.y, checkInRange).filter((s) -> s instanceof BoneSpikeMob).map((s) -> (BoneSpikeMob)s).filter((s) -> s.mobOwner == owner).filter((s) -> s.getDistance(owner) <= (float)checkInRange).collect(Collectors.toList());
@@ -126,15 +139,20 @@ public class RuneBoneProj extends Projectile
         BoneSpikeMob mobToRemove = null;
         long longestDuration = 0L;
 
-        for (BoneSpikeMob nearbySpike : nearbySpikes) {
-            if (nearbySpike.isCracking) {
+        for(BoneSpikeMob nearbySpike : nearbySpikes)
+        {
+            if (nearbySpike.isCracking)
+            {
                 break;
             }
 
-            if (longestDuration == 0L) {
+            if (longestDuration == 0L)
+            {
                 longestDuration = nearbySpike.startCrackingTime;
                 mobToRemove = nearbySpike;
-            } else if (nearbySpike.startCrackingTime < longestDuration) {
+            }
+            else if (nearbySpike.startCrackingTime < longestDuration)
+            {
                 longestDuration = nearbySpike.startCrackingTime;
                 mobToRemove = nearbySpike;
             }
@@ -143,14 +161,15 @@ public class RuneBoneProj extends Projectile
         return mobToRemove;
     }
 
-    public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, OrderableDrawables overlayList, Level level, TickManager tickManager, GameCamera camera, PlayerMob perspective) {}
+    public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, OrderableDrawables overlayList, Level level, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
+    }
 
-    public static class RuneBonePillar extends GroundPillar
+    public static class SmallBoneSpikePillar extends GroundPillar
     {
         public GameTextureSection texture;
         public boolean mirror;
 
-        public RuneBonePillar(int x, int y, double spawnDistance, long spawnTime)
+        public SmallBoneSpikePillar(int x, int y, double spawnDistance, long spawnTime)
         {
             super(x, y, spawnDistance, spawnTime);
             this.mirror = GameRandom.globalRandom.nextBoolean();
@@ -158,9 +177,9 @@ public class RuneBoneProj extends Projectile
             this.behaviour = new GroundPillar.TimedBehaviour(750, 150, 150);
         }
 
-        public DrawOptions getDrawOptions(Level level, long currentTime, double distanceMoved, GameCamera camera)
+        public DrawOptions getDrawOptions(Level level, long currentTime, double distanceMoved, GameCamera camera, PlayerMob perspective)
         {
-            GameLight light = level.getLightLevel(this.x / 32, this.y / 32);
+            GameLight light = level.getLightLevel(Entity.getTileCoordinate(this.x), Entity.getTileCoordinate(this.y));
             int drawX = camera.getDrawX(this.x);
             int drawY = camera.getDrawY(this.y);
             double height = this.getHeight(currentTime, distanceMoved);

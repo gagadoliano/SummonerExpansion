@@ -105,23 +105,23 @@ public class FishianMinion extends AttackingFollowingMob
     public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
     {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
-        GameLight light = level.getLightLevel(x / 32, y / 32);
+        GameLight light = level.getLightLevel(getTileCoordinate(x), getTileCoordinate(y));
         int drawX = camera.getDrawX(x) - 22 - 10;
         int drawY = camera.getDrawY(y) - 44 - 7;
         int dir = getDir();
         float animProgress = getAttackAnimProgress();
         Point sprite = getAnimSprite(x, y, dir);
         drawY += getBobbing(x, y);
-        drawY += getLevel().getTile(x / 32, y / 32).getMobSinkingAmount(this);
+        drawY += level.getTile(getTileCoordinate(x), getTileCoordinate(y)).getMobSinkingAmount(this);
         MaskShaderOptions swimMask = getSwimMaskShaderOptions(inLiquidFloat(x, y));
-        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, fishianMinion)).sprite(sprite).dir(dir).mask(swimMask).light(light);
+        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, fishianMinion)).sprite(sprite).dir(dir).mask(swimMask).light(light).applyEnemyTracker(this, perspective);
         if (!isAttacking && canAttack())
         {
             humanDrawOptions.itemAttack(new InventoryItem("fishianwarriorhook"), null, animProgress, 0.0F, 0.0F);
         }
         else
         {
-            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).armSprite(fishianMinion.body, 0, 8, 32).pointRotation(attackDir.x, attackDir.y).light(light);
+            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).armSprite(fishianMinion.body, 0, 8, 32).pointRotation(attackDir.x, attackDir.y);
             humanDrawOptions.attackAnim(attackOptions, animProgress);
         }
         final DrawOptions drawOptions = humanDrawOptions.pos(drawX, drawY);

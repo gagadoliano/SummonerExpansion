@@ -90,9 +90,9 @@ public class RegistryObjects
 
         // Saplings
         ObjectRegistry.registerObject("ancienttree", new AncientTreeObject("ancienttree", "ancientlog", "ancienttreesapling", new Color(73, 28, 45), 45, 60, 110, "ancienttreeleaves"), 0, false, false, true);
-        ObjectRegistry.registerObject("ancienttreesapling", new BaseTreeSaplingObject("ancienttreesapling", "ancienttree", 1500, 2000, true), 5, true);
+        ObjectRegistry.registerObject("ancienttreesapling", new BaseTreeSaplingObject("ancienttreesapling", new Color(73, 28, 45), "ancienttree", 1500, 2000, true), 5, true);
         ObjectRegistry.registerObject("overgrowthorns", (new BaseFruitBushObject("overgrowthorns", "overgrowthornssapling", 900, 1800, "thorns", 5, 2, new Color(191, 90, 62))).setDebrisColor(new Color(114, 28, 3)), 0F, false, false, true);
-        ObjectRegistry.registerObject("overgrowthornssapling", new BaseFruitBushSaplingObject("overgrowthornssapling", "overgrowthorns", 1000, 2000, false, "mudtile"), 30, true);
+        ObjectRegistry.registerObject("overgrowthornssapling", new BaseFruitBushSaplingObject("overgrowthornssapling", new Color(191, 90, 62),"overgrowthorns", 1000, 2000, false, "mudtile"), 30, true);
 
         // Roots
         AncientRootObject.registerAncientRoot();

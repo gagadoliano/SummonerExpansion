@@ -95,32 +95,30 @@ public class DruidClawDashHandler extends MousePositionAttackHandler
             {
                 public void addDrawables(List<SortedDrawable> list, GameCamera camera, PlayerMob perspective)
                 {
-                    if (attackerMob.getAttackHandler() != DruidClawDashHandler.this)
+                if (attackerMob.getAttackHandler() != DruidClawDashHandler.this)
+                {
+                    remove();
+                }
+                else
+                {
+                    float distance = getChargeDistance(getChargePercent());
+                    if (distance > 0.0F)
                     {
-                        remove();
-                    }
-                    else
-                    {
-                        float distance = getChargeDistance(getChargePercent());
-                        if (distance > 0.0F)
+                        Point2D.Float dir = GameMath.normalize((float) lastX - attackerMob.x, (float) lastY - attackerMob.y);
+                        final DrawOptions drawOptions = HUD.getArrowHitboxIndicator(attackerMob.x, attackerMob.y, dir.x, dir.y, (int)distance, 50, startColor(), endColor(), edgeColor(), camera);
+                        list.add(new SortedDrawable()
                         {
-                            Point2D.Float dir = GameMath.normalize((float) lastX - attackerMob.x, (float) lastY - attackerMob.y);
-                            final DrawOptions drawOptions = HUD.getArrowHitboxIndicator(attackerMob.x, attackerMob.y, dir.x, dir.y, (int)distance, 50, startColor(), endColor(), edgeColor(), camera);
-                            list.add(new SortedDrawable()
+                            public int getPriority()
                             {
-                                public int getPriority()
-                                {
-                                    return 1000;
-                                }
-
-                                public void draw(TickManager tickManager)
-                                {
-                                    drawOptions.draw();
-                                }
-                            });
-                        }
-
+                                return 1000;
+                            }
+                            public void draw(TickManager tickManager)
+                            {
+                                drawOptions.draw();
+                            }
+                        });
                     }
+                }
                 }
             });
         }
@@ -214,7 +212,7 @@ public class DruidClawDashHandler extends MousePositionAttackHandler
             attackerMob.showAttackAndSendAttacker(attackItem, lastX, lastY, 0, seed);
             Point2D.Float dir = GameMath.normalize((float)lastX - attackerMob.x, (float)lastY - attackerMob.y);
             chargePercent = Math.min(chargePercent, 1.0F);
-            DruidClawDashLevelEvent event = new DruidClawDashLevelEvent(attackerMob, seed, dir.x, dir.y, getChargeDistance(chargePercent), (int)(200.0F * chargePercent), clawItem.getAttackDamage(item).modDamage(2.0F), clawItem.maxDashStacks.getValue(clawItem.getUpgradeTier(item)));
+            DruidClawDashLevelEvent event = new DruidClawDashLevelEvent(this.attackerMob, this.seed, dir.x, dir.y, this.getChargeDistance(chargePercent), (int)(200.0F * chargePercent), this.clawItem.getAttackDamage(this.item).modDamage(2.0F), this.clawItem.getResilienceGain(this.item), this.clawItem.maxDashStacks.getValue(this.clawItem.getUpgradeTier(this.item)));
             attackerMob.addAndSendAttackerLevelEvent(event);
             attackerMob.buffManager.addBuff(new ActiveBuff(CLAW_DASH_COOLDOWN, attackerMob, 3.0F, null), attackerMob.isServer());
             if (attackerMob.isClient())

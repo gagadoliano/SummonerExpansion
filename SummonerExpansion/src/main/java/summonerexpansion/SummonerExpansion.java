@@ -1,8 +1,11 @@
 package summonerexpansion;
 
 import necesse.engine.modLoader.annotations.ModEntry;
+import necesse.gfx.gameTexture.GameTexture;
 import summonerexpansion.codes.registries.*;
 import summonerexpansion.codes.recipes.*;
+
+import java.util.Map;
 
 @ModEntry
 public class SummonerExpansion
@@ -14,31 +17,31 @@ public class SummonerExpansion
 
     public void init()
     {
-        RegistryPackets.registerPackets();
-        RegistryEvents.registerEvents();
-        RegistryPerks.registerPerks();
-        RegistryBuffs.registerWeaponBuffs();
-        RegistryBuffs.registerBannerBuffs();
-        RegistryDebuffs.registerWeaponDebuffs();
-        RegistryDebuffs.registerGenericDebuffs();
-        RegistryEnchantments.registerSummonEnchantments();
-        RegistryChallenges.registerChallenges();
-        RegistryTechs.registerTechs();
-        RegistrySettlers.registerSettlers();
-        RegistryPresets.registerPresets();
         RegistryTiles.registerTiles();
-        RegistryWalls.registerSummonObjects();
         RegistryObjects.registerObjects();
         RegistryEntityObjects.registerObjects();
-        RegistryMapIcon.registerMapIcons();
-        RegistryMobs.registerMobs();
-        RegistryMinions.registerMinions();
+        RegistryWalls.registerSummonObjects();
+        RegistryBuffs.registerBannerBuffs();
+        RegistryBuffs.registerWeaponBuffs();
+        RegistryDebuffs.registerWeaponDebuffs();
+        RegistryDebuffs.registerGenericDebuffs();
+        RegistryTechs.registerTechs();
         RegistryItems.registerItems();
         RegistryWeapons.registerItems();
         RegistryArmors.registerItems();
         RegistryTrinkets.registerItems();
         RegistryMounts.registerItems();
+        RegistryEnchantments.registerSummonEnchantments();
+        RegistryMobs.registerMobs();
+        RegistryMinions.registerMinions();
+        RegistrySettlers.registerSettlers();
         RegistryProjectiles.registerProjs();
+        RegistryEvents.registerEvents();
+        RegistryPerks.registerPerks();
+        RegistryChallenges.registerChallenges();
+        RegistryMapIcon.registerMapIcons();
+        RegistryPresets.registerPresets();
+        RegistryPackets.registerPackets();
         RegistryMissions.registerMissions();
     }
 

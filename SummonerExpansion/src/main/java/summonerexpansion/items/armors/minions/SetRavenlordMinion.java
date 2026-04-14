@@ -136,8 +136,7 @@ public class SetRavenlordMinion extends AttackingFollowingMob
         }
     }
 
-    public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
-    {
+    public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
         GameLight light = level.getLightLevel(GameMath.getTileCoordinate(x), GameMath.getTileCoordinate(y));
         int drawX = camera.getDrawX(x) - 22 - 10;
@@ -147,13 +146,13 @@ public class SetRavenlordMinion extends AttackingFollowingMob
         drawY += this.getBobbing(x, y);
         drawY += this.getLevel().getTile(GameMath.getTileCoordinate(x), GameMath.getTileCoordinate(y)).getMobSinkingAmount(this);
         MaskShaderOptions swimMask = this.getSwimMaskShaderOptions(this.inLiquidFloat(x, y));
-        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, MobRegistry.Textures.crazedRaven)).sprite(sprite).dir(dir).mask(swimMask).light(light);
+        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, MobRegistry.Textures.crazedRaven)).sprite(sprite).dir(dir).mask(swimMask).light(light).applyEnemyTracker(this, perspective);
         float animProgress = this.getAttackAnimProgress();
-        if (this.isAttacking)
-        {
-            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).armSprite(MobRegistry.Textures.crazedRaven.body, 0, 8, 32).swingRotation(animProgress).light(light);
+        if (this.isAttacking) {
+            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).armSprite(MobRegistry.Textures.crazedRaven.body, 0, 8, 32).swingRotation(animProgress);
             humanDrawOptions.attackAnim(attackOptions, animProgress);
         }
+
         final DrawOptions drawOptions = humanDrawOptions.pos(drawX, drawY);
         list.add(new MobDrawable() {
             public void draw(TickManager tickManager) {

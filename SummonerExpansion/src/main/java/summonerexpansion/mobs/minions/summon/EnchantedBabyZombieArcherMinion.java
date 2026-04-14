@@ -23,6 +23,8 @@ import necesse.gfx.drawOptions.itemAttack.ItemAttackDrawOptions;
 import necesse.gfx.drawOptions.texture.TextureDrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
+import necesse.inventory.InventoryItem;
+import necesse.inventory.item.armorItem.ArmorItem;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 import summonerexpansion.mobs.minions.base.SummonWalkBase;
@@ -86,32 +88,23 @@ public class EnchantedBabyZombieArcherMinion extends SummonWalkBase
     public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
     {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
-        GameLight light = level.getLightLevel(x / 32, y / 32);
-        int drawX = camera.getDrawX(x) - 32;
+        GameLight light = level.getLightLevel(getTileCoordinate(x), getTileCoordinate(y));
+        int drawX = camera.getDrawX(x) - 22 - 10;
         int drawY = camera.getDrawY(y) - 44 - 7;
-        int dir = getDir();
-        Point sprite = getAnimSprite(x, y, dir);
-        drawY += getBobbing(x, y);
-        drawY += getLevel().getTile(x / 32, y / 32).getMobSinkingAmount(this);
-        float animProgress = getAttackAnimProgress();
-        MaskShaderOptions swimMask = getSwimMaskShaderOptions(inLiquidFloat(x, y));
-        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, enchantedBabyZombieArcherMinion)).sprite(sprite).mask(swimMask).dir(dir).light(light);
-        if (dir == 1 || dir == 3)
-        {
-            humanDrawOptions.attackArmPosOffset(2, 0);
-        }
-        if (isAttacking)
-        {
-            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).itemSprite(enchantedBabyZombieArcherMinion.body, 0, 9, 32).itemRotatePoint(20, 20).itemEnd().armSprite(MobRegistry.Textures.babyZombie.body, 0, 8, 32).pointRotation(attackDir.x, attackDir.y).light(light);
-            humanDrawOptions.attackAnim(attackOptions, animProgress);
-        }
+        int dir = this.getDir();
+        Point sprite = this.getAnimSprite(x, y, dir);
+        drawY += this.getBobbing(x, y);
+        drawY += level.getTile(getTileCoordinate(x), getTileCoordinate(y)).getMobSinkingAmount(this);
+        MaskShaderOptions swimMask = this.getSwimMaskShaderOptions(this.inLiquidFloat(x, y));
+        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, enchantedBabyZombieArcherMinion)).sprite(sprite).dir(dir).mask(swimMask).light(light).applyEnemyTracker(this, perspective);
+
         final DrawOptions drawOptions = humanDrawOptions.pos(drawX, drawY);
         list.add(new MobDrawable() {
             public void draw(TickManager tickManager) {
                 drawOptions.draw();
             }
         });
-        addShadowDrawables(tileList, level, x, y, light, camera);
+        this.addShadowDrawables(tileList, level, x, y, light, camera);
     }
 
     protected TextureDrawOptions getShadowDrawOptions(int x, int y, GameLight light, GameCamera camera)

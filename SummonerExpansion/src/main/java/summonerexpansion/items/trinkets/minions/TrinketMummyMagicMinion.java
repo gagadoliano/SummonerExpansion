@@ -110,19 +110,19 @@ public class TrinketMummyMagicMinion extends AttackingFollowingMob
     public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
     {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
-        GameLight light = level.getLightLevel(x / 32, y / 32);
+        GameLight light = level.getLightLevel(getTileCoordinate(x), getTileCoordinate(y));
         int drawX = camera.getDrawX(x) - 22 - 10;
         int drawY = camera.getDrawY(y) - 44 - 7;
         int dir = this.getDir();
         Point sprite = this.getAnimSprite(x, y, dir);
         drawY += this.getBobbing(x, y);
-        drawY += this.getLevel().getTile(x / 32, y / 32).getMobSinkingAmount(this);
+        drawY += level.getTile(getTileCoordinate(x), getTileCoordinate(y)).getMobSinkingAmount(this);
         MaskShaderOptions swimMask = this.getSwimMaskShaderOptions(this.inLiquidFloat(x, y));
-        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, mummyMagicMinion)).sprite(sprite).dir(dir).mask(swimMask).light(light);
+        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, mummyMagicMinion)).sprite(sprite).dir(dir).mask(swimMask).light(light).applyEnemyTracker(this, perspective);
         float animProgress = this.getAttackAnimProgress();
         if (isAttacking)
         {
-            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).armSprite(mummyMagicMinion.body, 0, 8, 32).swingRotation(animProgress).light(light);
+            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).armSprite(mummyMagicMinion.body, 0, 8, 32).swingRotation(animProgress);
             humanDrawOptions.attackAnim(attackOptions, animProgress);
         }
         final DrawOptions drawOptions = humanDrawOptions.pos(drawX, drawY);

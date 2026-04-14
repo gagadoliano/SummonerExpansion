@@ -11,9 +11,11 @@ import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
+import necesse.gfx.drawOptions.human.HumanDrawOptions;
 import necesse.gfx.drawOptions.itemAttack.ItemAttackDrawOptions;
 import necesse.gfx.drawOptions.texture.TextureDrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
+import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 
@@ -72,31 +74,24 @@ public class SetSlimeWarriorMinion extends AttackingFollowingMob
         GameLight light = level.getLightLevel(getTileCoordinate(x), getTileCoordinate(y));
         int drawX = camera.getDrawX(x) - 32;
         int drawY = camera.getDrawY(y) - 50;
-        int dir = getDir();
-        Point sprite = getAnimSprite(x, y, dir);
-        drawY += getBobbing(x, y);
+        int dir = this.getDir();
+        Point sprite = this.getAnimSprite(x, y, dir);
+        drawY += this.getBobbing(x, y);
         drawY += level.getTile(getTileCoordinate(x), getTileCoordinate(y)).getMobSinkingAmount(this);
-        final MaskShaderOptions swimMask = getSwimMaskShaderOptions(inLiquidFloat(x, y));
-        final DrawOptions options = MobRegistry.Textures.warriorSlime.body.initDraw().sprite(sprite.x, sprite.y, 64).addMaskShader(swimMask).light(light).pos(drawX, drawY);
-        float attackProgress = getAttackAnimProgress();
-        final DrawOptions arms;
-        if (isAttacking)
+        MaskShaderOptions swimMask = this.getSwimMaskShaderOptions(this.inLiquidFloat(x, y));
+        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, new HumanTexture(MobRegistry.Textures.warriorSlime.body, null, null))).sprite(sprite, 64).dir(dir).light(light).applyEnemyTracker(this, perspective).attackOffsets((dir == 3 ? 36 : 28) + swimMask.drawXOffset, 22 + swimMask.drawYOffset, 8, 15, 12, 4, 12);
+        float attackProgress = this.getAttackAnimProgress();
+        if (this.isAttacking)
         {
-            arms = ItemAttackDrawOptions.start(dir).armSprite(MobRegistry.Textures.warriorSlime.body, 0, 8, 32).setOffsets((dir == 3 ? 36 : 28) + swimMask.drawXOffset, 22 + swimMask.drawYOffset, 8, 15, 12, 4, 12).swingRotation(attackProgress).light(light).pos(drawX, drawY);
+            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).armSprite(MobRegistry.Textures.warriorSlime.body, 0, 8, 32).swingRotation(attackProgress);
+            humanDrawOptions.attackAnim(attackOptions, attackProgress);
         }
-        else
+        final DrawOptions drawOptions = humanDrawOptions.pos(drawX, drawY);
+        list.add(new MobDrawable()
         {
-            arms = null;
-        }
-        list.add(new MobDrawable() {
-            public void draw(TickManager tickManager) {
-                swimMask.use();
-                options.draw();
-                swimMask.stop();
-                if (arms != null) {
-                    arms.draw();
-                }
-
+            public void draw(TickManager tickManager)
+            {
+                drawOptions.draw();
             }
         });
         TextureDrawOptions shadow = MobRegistry.Textures.warriorSlime.shadow.initDraw().sprite(sprite.x, sprite.y, 64).light(light).pos(drawX, drawY);

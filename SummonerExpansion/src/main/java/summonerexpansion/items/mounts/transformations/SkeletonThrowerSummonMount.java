@@ -1,6 +1,7 @@
 package summonerexpansion.items.mounts.transformations;
 
 import necesse.engine.GlobalData;
+import necesse.engine.Settings;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.network.Packet;
@@ -19,6 +20,7 @@ import necesse.gfx.drawOptions.DrawOptions;
 import necesse.gfx.drawOptions.human.HumanDrawOptions;
 import necesse.gfx.drawOptions.itemAttack.ItemAttackDrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
+import necesse.inventory.item.armorItem.ArmorItem;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 import summonerexpansion.projectiles.mount.MountBounceBoneProj;
@@ -51,8 +53,8 @@ public class SkeletonThrowerSummonMount extends BaseTransformMount implements Mo
             if (camera == null) {
                 return;
             }
-            getFollowingMob().attack(camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), false);
-            getFollowingMob().getLevel().entityManager.projectiles.add(new MountBounceBoneProj(x, y, camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), damage, getFollowingMob()));
+            player.attack(camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), false);
+            player.getLevel().entityManager.projectiles.add(new MountBounceBoneProj(x, y, camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), damage, player));
             abilityCooldown = 10;
         }
     }
@@ -83,8 +85,7 @@ public class SkeletonThrowerSummonMount extends BaseTransformMount implements Mo
         }
     }
 
-    public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
-    {
+    public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
         GameLight light = level.getLightLevel(getTileCoordinate(x), getTileCoordinate(y));
         int drawX = camera.getDrawX(x) - 22 - 10;
@@ -94,13 +95,13 @@ public class SkeletonThrowerSummonMount extends BaseTransformMount implements Mo
         drawY += this.getBobbing(x, y);
         drawY += level.getTile(getTileCoordinate(x), getTileCoordinate(y)).getMobSinkingAmount(this);
         MaskShaderOptions swimMask = this.getSwimMaskShaderOptions(this.inLiquidFloat(x, y));
-        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, MobRegistry.Textures.skeleton)).sprite(sprite).dir(dir).mask(swimMask).light(light);
+        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, MobRegistry.Textures.skeleton)).sprite(sprite).dir(dir).mask(swimMask).light(light).applyEnemyTracker(this, perspective);
         float animProgress = this.getAttackAnimProgress();
-        if (this.isAttacking)
-        {
-            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).armSprite(MobRegistry.Textures.skeleton.body, 0, 8, 32).swingRotation(animProgress).light(light);
+        if (this.isAttacking) {
+            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).armSprite(MobRegistry.Textures.skeleton.body, 0, 8, 32).swingRotation(animProgress);
             humanDrawOptions.attackAnim(attackOptions, animProgress);
         }
+
         final DrawOptions drawOptions = humanDrawOptions.pos(drawX, drawY);
         list.add(new MobDrawable() {
             public void draw(TickManager tickManager) {
@@ -114,13 +115,12 @@ public class SkeletonThrowerSummonMount extends BaseTransformMount implements Mo
         return 20;
     }
 
-    public void showAttack(int x, int y, int seed, boolean showAllDirections)
-    {
+    public void showAttack(int x, int y, int seed, boolean showAllDirections) {
         super.showAttack(x, y, seed, showAllDirections);
-        if (this.isClient())
-        {
+        if (this.isClient()) {
             SoundManager.playSound(GameResources.swing2, SoundEffect.effect(this).volume(0.7F).pitch(1.2F));
         }
+
     }
 
     public Stream<ModifierValue<?>> getDefaultRiderModifiers()

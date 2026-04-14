@@ -1,6 +1,7 @@
 package summonerexpansion.items.mounts.transformations;
 
 import necesse.engine.GlobalData;
+import necesse.engine.Settings;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.network.Packet;
@@ -72,43 +73,42 @@ public class FrozenDwarfSummonMount extends BaseTransformMount implements MountA
         }
     }
 
-    public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
-    {
+    public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
+        super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
         GameLight light = level.getLightLevel(getTileCoordinate(x), getTileCoordinate(y));
         int drawX = camera.getDrawX(x) - 22 - 10;
         int drawY = camera.getDrawY(y) - 44 - 7;
-        int dir = getDir();
-        Point sprite = getAnimSprite(x, y, dir);
-        drawY += getBobbing(x, y);
+        int dir = this.getDir();
+        Point sprite = this.getAnimSprite(x, y, dir);
+        drawY += this.getBobbing(x, y);
         drawY += level.getTile(getTileCoordinate(x), getTileCoordinate(y)).getMobSinkingAmount(this);
-        float animProgress = getAttackAnimProgress();
-        MaskShaderOptions swimMask = getSwimMaskShaderOptions(inLiquidFloat(x, y));
-        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, MobRegistry.Textures.frozenDwarf)).hairTexture(hasHair ? MobRegistry.Textures.frozenDwarfHair : null).sprite(sprite).dir(dir).mask(swimMask).light(light).attackOffsets(dir == 3 ? 36 : 28, 23, 10, 15, 12, 4, 12);
-        if (isAttacking)
-        {
-            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).itemSprite(MobRegistry.Textures.frozenDwarf.body, 0, 9, 32).itemRotatePoint(4, 4).itemEnd().armSprite(MobRegistry.Textures.frozenDwarf.body, 0, 8, 32).swingRotation(animProgress).light(light);
+        float animProgress = this.getAttackAnimProgress();
+        MaskShaderOptions swimMask = this.getSwimMaskShaderOptions(this.inLiquidFloat(x, y));
+        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, MobRegistry.Textures.frozenDwarf)).hairTexture(this.hasHair ? MobRegistry.Textures.frozenDwarfHair : null).sprite(sprite).dir(dir).mask(swimMask).light(light).applyEnemyTracker(this, perspective).attackOffsets(dir == 3 ? 36 : 28, 23, 10, 15, 12, 4, 12);
+        if (this.isAttacking) {
+            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).itemSprite(MobRegistry.Textures.frozenDwarf.body, 0, 9, 32).itemRotatePoint(4, 4).itemEnd().armSprite(MobRegistry.Textures.frozenDwarf.body, 0, 8, 32).swingRotation(animProgress);
             humanDrawOptions.attackAnim(attackOptions, animProgress);
         }
+
         final DrawOptions drawOptions = humanDrawOptions.pos(drawX, drawY);
         list.add(new MobDrawable() {
             public void draw(TickManager tickManager) {
                 drawOptions.draw();
             }
         });
-        addShadowDrawables(tileList, level, x, y, light, camera);
+        this.addShadowDrawables(tileList, level, x, y, light, camera);
     }
 
     public int getRockSpeed() {
         return 20;
     }
 
-    public void showAttack(int x, int y, int seed, boolean showAllDirections)
-    {
+    public void showAttack(int x, int y, int seed, boolean showAllDirections) {
         super.showAttack(x, y, seed, showAllDirections);
-        if (isClient())
-        {
+        if (this.isClient()) {
             SoundManager.playSound(GameResources.swing1, SoundEffect.effect(this).volume(0.5F));
         }
+
     }
 
     public Stream<ModifierValue<?>> getDefaultRiderModifiers()

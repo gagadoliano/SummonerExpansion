@@ -5,16 +5,19 @@ import necesse.engine.util.GameRandom;
 import necesse.engine.util.GroundPillar;
 import necesse.engine.util.GroundPillarList;
 import necesse.entity.Entity;
+import necesse.entity.levelEvent.LevelEvent;
 import necesse.entity.manager.GroundPillarHandler;
 import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.projectile.Projectile;
 import necesse.entity.trails.Trail;
+import necesse.gfx.GameResources;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
 import necesse.gfx.drawables.LevelSortedDrawable;
 import necesse.gfx.drawables.OrderableDrawables;
+import necesse.gfx.gameTexture.GameTexture;
 import necesse.gfx.gameTexture.GameTextureSection;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
@@ -98,19 +101,27 @@ public class ThornSpikesProj extends Projectile
         public ThornPillar(int x, int y, double spawnDistance, long spawnTime)
         {
             super(x, y, spawnDistance, spawnTime);
-            mirror = GameRandom.globalRandom.nextBoolean();
-            texture = thornSpike == null ? null : GameRandom.globalRandom.getOneOf((new GameTextureSection(thornSpike)).sprite(0, 0, 48), (new GameTextureSection(thornSpike)).sprite(1, 0, 48), (new GameTextureSection(thornSpike)).sprite(2, 0, 48));
-            behaviour = new GroundPillar.TimedBehaviour(300, 200, 800);
+            this.mirror = GameRandom.globalRandom.nextBoolean();
+            this.texture = null;
+            GameTexture pillarSprites = thornSpike;
+            if (pillarSprites != null)
+            {
+                int res = pillarSprites.getHeight();
+                int sprite = GameRandom.globalRandom.nextInt(pillarSprites.getWidth() / res);
+                this.texture = (new GameTextureSection(thornSpike)).sprite(sprite, 0, res);
+            }
+
+            this.behaviour = new GroundPillar.TimedBehaviour(300, 200, 800);
         }
 
-        public DrawOptions getDrawOptions(Level level, long currentTime, double distanceMoved, GameCamera camera)
+        public DrawOptions getDrawOptions(Level level, long currentTime, double distanceMoved, GameCamera camera, PlayerMob perspective)
         {
-            GameLight light = level.getLightLevel(Entity.getTileCoordinate(x), Entity.getTileCoordinate(y));
-            int drawX = camera.getDrawX(x);
-            int drawY = camera.getDrawY(y);
-            double height = getHeight(currentTime, distanceMoved);
-            int endY = (int)(height * (double)texture.getHeight());
-            return texture.section(0, texture.getWidth(), 0, endY).initDraw().mirror(mirror, false).light(light).pos(drawX - texture.getWidth() / 2, drawY - endY);
+            GameLight light = level.getLightLevel(LevelEvent.getTileCoordinate(this.x), LevelEvent.getTileCoordinate(this.y));
+            int drawX = camera.getDrawX(this.x);
+            int drawY = camera.getDrawY(this.y);
+            double height = this.getHeight(currentTime, distanceMoved);
+            int endY = (int)(height * (double)this.texture.getHeight());
+            return this.texture.section(0, this.texture.getWidth(), 0, endY).initDraw().mirror(this.mirror, false).light(light).pos(drawX - this.texture.getWidth() / 2, drawY - endY);
         }
     }
 }

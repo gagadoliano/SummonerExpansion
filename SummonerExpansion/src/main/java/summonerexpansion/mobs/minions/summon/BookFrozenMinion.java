@@ -119,12 +119,13 @@ public class BookFrozenMinion extends AttackingFollowingMob
         drawY += level.getTile(getTileCoordinate(x), getTileCoordinate(y)).getMobSinkingAmount(this);
         float animProgress = this.getAttackAnimProgress();
         MaskShaderOptions swimMask = this.getSwimMaskShaderOptions(this.inLiquidFloat(x, y));
-        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, MobRegistry.Textures.frozenDwarf)).hairTexture(this.hasHair ? MobRegistry.Textures.frozenDwarfHair : null).sprite(sprite).dir(dir).mask(swimMask).light(light).attackOffsets(dir == 3 ? 36 : 28, 23, 10, 15, 12, 4, 12);
+        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, MobRegistry.Textures.frozenDwarf)).hairTexture(this.hasHair ? MobRegistry.Textures.frozenDwarfHair : null).sprite(sprite).dir(dir).mask(swimMask).light(light).applyEnemyTracker(this, perspective).attackOffsets(dir == 3 ? 36 : 28, 23, 10, 15, 12, 4, 12);
         if (this.isAttacking)
         {
-            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).itemSprite(MobRegistry.Textures.frozenDwarf.body, 0, 9, 32).itemRotatePoint(4, 4).itemEnd().armSprite(MobRegistry.Textures.frozenDwarf.body, 0, 8, 32).swingRotation(animProgress).light(light);
+            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).itemSprite(MobRegistry.Textures.frozenDwarf.body, 0, 9, 32).itemRotatePoint(4, 4).itemEnd().armSprite(MobRegistry.Textures.frozenDwarf.body, 0, 8, 32).swingRotation(animProgress);
             humanDrawOptions.attackAnim(attackOptions, animProgress);
         }
+
         final DrawOptions drawOptions = humanDrawOptions.pos(drawX, drawY);
         list.add(new MobDrawable() {
             public void draw(TickManager tickManager) {

@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\gradle",
+    "\\src",
+    "\\src\\main",
+    "\\src\\main\\java",
+    "\\src\\main\\java\\summonerexpansion",
+    "\\src\\main\\java\\summonerexpansion\\items",
+    "\\src\\main\\java\\summonerexpansion\\items\\weapons",
+    "\\src\\main\\java\\summonerexpansion\\items\\weapons\\base"
+  ],
+  "SelectedNode": "\\src\\main\\java\\summonerexpansion\\items\\weapons\\base\\BaseWhipWeapon.java",
+  "PreviewInSolutionExplorer": false
+}

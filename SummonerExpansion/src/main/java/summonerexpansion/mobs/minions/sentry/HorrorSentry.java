@@ -5,6 +5,7 @@ import necesse.engine.registries.MobRegistry;
 import necesse.engine.util.GameMath;
 import necesse.engine.util.GameRandom;
 import necesse.engine.util.GroundPillar;
+import necesse.entity.Entity;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.MobDrawable;
 import necesse.entity.mobs.PlayerMob;
@@ -149,17 +150,16 @@ public class HorrorSentry extends SentryBase
         public GameTextureSection texture2;
         public boolean mirror;
 
-        public HorrorPillar(int x, int y, double spawnDistance, long spawnTime)
-        {
+        public HorrorPillar(int x, int y, double spawnDistance, long spawnTime) {
             super(x, y, spawnDistance, spawnTime);
             this.mirror = GameRandom.globalRandom.nextBoolean();
-            this.texture2 = horrorSentry == null ? null : GameRandom.globalRandom.getOneOf((new GameTextureSection(horrorSentry)).sprite(1, 0, 32), (new GameTextureSection(horrorSentry)).sprite(2, 0, 32), (new GameTextureSection(horrorSentry)).sprite(3, 0, 32), (new GameTextureSection(horrorSentry)).sprite(4, 0, 32), (new GameTextureSection(horrorSentry)).sprite(5, 0, 32));
+            this.texture2 = MobRegistry.Textures.cryoQueen == null ? null : GameRandom.globalRandom.getOneOf((new GameTextureSection(horrorSentry)).sprite(1, 0, 32), (new GameTextureSection(horrorSentry)).sprite(2, 0, 32), (new GameTextureSection(horrorSentry)).sprite(3, 0, 32), (new GameTextureSection(horrorSentry)).sprite(4, 0, 32), (new GameTextureSection(horrorSentry)).sprite(5, 0, 32));
             this.behaviour = new GroundPillar.TimedBehaviour(300, 200, 800);
         }
 
-        public DrawOptions getDrawOptions(Level level, long currentTime, double distanceMoved, GameCamera camera)
+        public DrawOptions getDrawOptions(Level level, long currentTime, double distanceMoved, GameCamera camera, PlayerMob perspective)
         {
-            GameLight light = level.getLightLevel(this.x / 32, this.y / 32);
+            GameLight light = level.getLightLevel(Entity.getTileCoordinate(this.x), Entity.getTileCoordinate(this.y));
             int drawX = camera.getDrawX(this.x);
             int drawY = camera.getDrawY(this.y);
             double height = this.getHeight(currentTime, distanceMoved);

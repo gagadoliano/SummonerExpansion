@@ -149,6 +149,16 @@ public class RegistryRecipeWeapons
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "webspiderwhip",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("cavespidergland", 8),
+                        new Ingredient("wool", 6)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "spiderstaff",
                 1,
                 SUMMONTABLECRAFT,

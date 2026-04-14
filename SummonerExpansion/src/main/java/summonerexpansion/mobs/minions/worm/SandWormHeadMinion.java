@@ -88,42 +88,14 @@ public class SandWormHeadMinion extends AttackingFollowingWormMobHead<SandWormBo
         this.getLevel().entityManager.addParticle(new FleshParticle(this.getLevel(), sandWormHeadMinion, 2, GameRandom.globalRandom.nextInt(6), 32, this.x, this.y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
     }
 
-    protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
-    {
+    protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
-        if (this.isVisible())
-        {
+        if (this.isVisible()) {
             GameLight light = level.getLightLevel(this);
             int drawX = camera.getDrawX(x) - 32;
             int drawY = camera.getDrawY(y);
             float headAngle = GameMath.fixAngle(GameMath.getAngle(new Point2D.Float(this.dx, this.dy)));
-            final MobDrawable headDrawable = WormMobHead.getAngledDrawable(new GameSprite(sandWormHeadMinion, 0, 0, 64), null, light, (int)this.height, headAngle, drawX, drawY, 96);
-            new ComputedObjectValue<>(null, () -> 0.0);
-            ComputedObjectValue<GameLinkedList<WormMoveLine>.Element, Double> shoulderLine = WormMobHead.moveDistance(this.moveLines.getFirstElement(), 32.0);
-            final MobDrawable shoulderDrawable;
-            if (shoulderLine.object != null)
-            {
-                Point2D.Double shoulderPos = WormMobHead.linePos(shoulderLine);
-                GameLight shoulderLight = level.getLightLevel((int)(shoulderPos.x / 32.0), (int)(shoulderPos.y / 32.0));
-                int shoulderDrawX = camera.getDrawX((float)shoulderPos.x) - 32;
-                int shoulderDrawY = camera.getDrawY((float)shoulderPos.y);
-                float shoulderHeight = this.getWaveHeight(shoulderLine.object.object.movedDist + shoulderLine.get().floatValue());
-                float shoulderAngle = GameMath.fixAngle((float)GameMath.getAngle(new Point2D.Double((double)this.x - shoulderPos.x, (double)(this.y - this.height) - (shoulderPos.y - (double)shoulderHeight))));
-                shoulderDrawable = WormMobHead.getAngledDrawable(new GameSprite(sandWormHeadMinion, 0, 1, 64), null, shoulderLight, (int)shoulderHeight, shoulderAngle, shoulderDrawX, shoulderDrawY, 96);
-            }
-            else
-            {
-                shoulderDrawable = null;
-            }
-            topList.add(new MobDrawable() {
-                public void draw(TickManager tickManager) {
-                    if (shoulderDrawable != null) {
-                        shoulderDrawable.draw(tickManager);
-                    }
-
-                    headDrawable.draw(tickManager);
-                }
-            });
+            addAngledDrawable(list, this, new GameSprite(sandWormHeadMinion, 0, 0, 64), MobRegistry.Textures.sandWorm_mask, light, (int)this.height, headAngle, drawX, drawY, 64, perspective);
             this.addShadowDrawables(tileList, level, x, y, light, camera);
         }
     }

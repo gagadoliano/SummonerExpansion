@@ -27,9 +27,9 @@ public class DruidClawDashLevelEvent extends MobDashLevelEvent
     public DruidClawDashLevelEvent() {
     }
 
-    public DruidClawDashLevelEvent(Mob owner, int seed, float dirX, float dirY, float distance, int animTime, GameDamage damage, int maxStacks)
+    public DruidClawDashLevelEvent(Mob owner, int seed, float dirX, float dirY, float distance, int animTime, GameDamage damage, float resilienceGain, int maxStacks)
     {
-        super(owner, seed, dirX, dirY, distance, animTime, damage);
+        super(owner, seed, dirX, dirY, distance, animTime, damage, resilienceGain);
         this.maxStacks = maxStacks;
     }
 

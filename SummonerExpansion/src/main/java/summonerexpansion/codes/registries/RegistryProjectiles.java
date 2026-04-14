@@ -54,6 +54,8 @@ public class RegistryProjectiles
         ProjectileRegistry.registerProjectile("globeboomerangproj", GlobeBoomerangProj.class, "globeboomerangproj", null);
         ProjectileRegistry.registerProjectile("wormproj", WormProj.class, "wormproj", "wormproj_shadow");
         ProjectileRegistry.registerProjectile("spiderswordproj", SpiderSwordProj.class, null, null);
+        ProjectileRegistry.registerProjectile("whipbaseproj", WhipBaseProj.class, null, null);
+        ProjectileRegistry.registerProjectile("webwhipproj", WebWhipProj.class, null, null);
     }
 
     public static void registerRanged()

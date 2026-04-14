@@ -10,6 +10,7 @@ import necesse.entity.levelEvent.mobAbilityLevelEvent.WeaponShockWaveLevelEvent;
 import necesse.entity.manager.GroundPillarHandler;
 import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.Mob;
+import necesse.entity.mobs.PlayerMob;
 import necesse.gfx.GameResources;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
@@ -39,22 +40,22 @@ public class PineWoodStaffEvent extends WeaponShockWaveLevelEvent
     public void init()
     {
         super.init();
-        if (isClient())
+        if (this.isClient())
         {
-            level.entityManager.addPillarHandler(new GroundPillarHandler<PineWoodPillar>(pillars)
+            this.level.entityManager.addPillarHandler(new GroundPillarHandler<PineWoodPillar>(this.pillars)
             {
-                protected boolean canRemove() {
+                protected boolean canRemove()
+                {
                     return isOver();
                 }
-
                 public double getCurrentDistanceMoved() {
-                    return 0.0F;
+                    return (double)0.0F;
                 }
             });
-            if (owner != null)
+            if (this.owner != null)
             {
-                SoundManager.playSound(GameResources.shake, SoundEffect.effect(owner));
-                SoundManager.playSound(GameResources.stomp, SoundEffect.effect(owner).volume(0.5F));
+                SoundManager.playSound(GameResources.shake, SoundEffect.effect(this.owner));
+                SoundManager.playSound(GameResources.stomp, SoundEffect.effect(this.owner).volume(0.5F));
             }
         }
     }
@@ -64,16 +65,17 @@ public class PineWoodStaffEvent extends WeaponShockWaveLevelEvent
 
     protected void spawnHitboxParticles(float radius, float startAngle, float endAngle)
     {
-        if (isClient())
+        if (this.isClient())
         {
-            synchronized(pillars)
+            synchronized(this.pillars)
             {
-                for(Point2D.Float pos : getPositionsAlongHit(radius, startAngle, endAngle, 20.0F, false))
+                for(Point2D.Float pos : this.getPositionsAlongHit(radius, startAngle, endAngle, 20.0F, false))
                 {
-                    pillars.add(new PineWoodStaffEvent.PineWoodPillar((int)(pos.x + GameRandom.globalRandom.getFloatBetween(-10.0F, 10.0F)), (int)(pos.y + GameRandom.globalRandom.getFloatBetween(-10.0F, 10.0F)), radius, level.getWorldEntity().getLocalTime()));
+                    this.pillars.add(new PineWoodPillar((int)(pos.x + GameRandom.globalRandom.getFloatBetween(-10.0F, 10.0F)), (int)(pos.y + GameRandom.globalRandom.getFloatBetween(-10.0F, 10.0F)), (double)radius, this.level.getWorldEntity().getLocalTime()));
                 }
             }
         }
+
     }
 
     public int getPierceLimit() {
@@ -88,26 +90,27 @@ public class PineWoodStaffEvent extends WeaponShockWaveLevelEvent
         public PineWoodPillar(int x, int y, double spawnDistance, long spawnTime)
         {
             super(x, y, spawnDistance, spawnTime);
-            mirror = GameRandom.globalRandom.nextBoolean();
-            texture = null;
-            GameTexture pillarSprites = pineWoodSpike;
+            this.mirror = GameRandom.globalRandom.nextBoolean();
+            this.texture = null;
+            GameTexture pillarSprites = GameResources.ancientDredgingStaffPillars;
             if (pillarSprites != null)
             {
                 int res = pillarSprites.getHeight();
                 int sprite = GameRandom.globalRandom.nextInt(pillarSprites.getWidth() / res);
-                texture = (new GameTextureSection(pineWoodSpike)).sprite(sprite, 0, res);
+                this.texture = (new GameTextureSection(GameResources.ancientDredgingStaffPillars)).sprite(sprite, 0, res);
             }
-            behaviour = new GroundPillar.TimedBehaviour(200, 100, 200);
+
+            this.behaviour = new GroundPillar.TimedBehaviour(200, 100, 200);
         }
 
-        public DrawOptions getDrawOptions(Level level, long currentTime, double distanceMoved, GameCamera camera)
+        public DrawOptions getDrawOptions(Level level, long currentTime, double distanceMoved, GameCamera camera, PlayerMob perspective)
         {
-            GameLight light = level.getLightLevel(LevelEvent.getTileCoordinate(x), LevelEvent.getTileCoordinate(y));
-            int drawX = camera.getDrawX(x);
-            int drawY = camera.getDrawY(y);
-            double height = getHeight(currentTime, distanceMoved);
-            int endY = (int)(height * (double)texture.getHeight());
-            return texture.section(0, texture.getWidth(), 0, endY).initDraw().mirror(mirror, false).light(light).pos(drawX - texture.getWidth() / 2, drawY - endY);
+            GameLight light = level.getLightLevel(LevelEvent.getTileCoordinate(this.x), LevelEvent.getTileCoordinate(this.y));
+            int drawX = camera.getDrawX(this.x);
+            int drawY = camera.getDrawY(this.y);
+            double height = this.getHeight(currentTime, distanceMoved);
+            int endY = (int)(height * (double)this.texture.getHeight());
+            return this.texture.section(0, this.texture.getWidth(), 0, endY).initDraw().mirror(this.mirror, false).light(light).pos(drawX - this.texture.getWidth() / 2, drawY - endY);
         }
     }
 }

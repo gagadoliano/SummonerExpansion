@@ -3,16 +3,18 @@ package summonerexpansion.objects.nature;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.gameObject.TreeSaplingObject;
 
+import java.awt.*;
+
 public class BaseTreeSaplingObject extends TreeSaplingObject
 {
-    public BaseTreeSaplingObject(String textureName, String resultObjectStringID, int minGrowTimeInSeconds, int maxGrowTimeInSeconds, boolean addAnySaplingIngredient, String... additionalValidTiles)
+    public BaseTreeSaplingObject(String textureName, Color mapColor, String resultObjectStringID, int minGrowTimeInSeconds, int maxGrowTimeInSeconds, boolean addAnySaplingIngredient, String... additionalValidTiles)
     {
-        super(textureName, resultObjectStringID, minGrowTimeInSeconds, maxGrowTimeInSeconds, addAnySaplingIngredient, additionalValidTiles);
+        super(textureName, mapColor, resultObjectStringID, minGrowTimeInSeconds, maxGrowTimeInSeconds, addAnySaplingIngredient, additionalValidTiles);
     }
 
-    public BaseTreeSaplingObject(String textureName, String resultObjectStringID, int minGrowTimeInSeconds, int maxGrowTimeInSeconds, boolean addAnySaplingIngredient)
+    public BaseTreeSaplingObject(String textureName, Color mapColor, String resultObjectStringID, int minGrowTimeInSeconds, int maxGrowTimeInSeconds, boolean addAnySaplingIngredient)
     {
-        super(textureName, resultObjectStringID, minGrowTimeInSeconds, maxGrowTimeInSeconds, addAnySaplingIngredient, new String[0]);
+        super(textureName, mapColor, resultObjectStringID, minGrowTimeInSeconds, maxGrowTimeInSeconds, addAnySaplingIngredient, new String[0]);
     }
 
     public String getForestryResultObjectStringID() {

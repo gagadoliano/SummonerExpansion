@@ -120,6 +120,9 @@ public class RegistryMinions
         MobRegistry.registerMob("planetsaturnproj", PlanetSaturnMinion.class, false);
         MobRegistry.registerMob("planetvenusproj", PlanetVenusMinion.class, false);
         MobRegistry.registerMob("planetmarsproj", PlanetMarsMinion.class, false);
+        //Whip
+        MobRegistry.registerMob("whipspiderminion", WhipSpiderMinion.class, false);
+
     }
 
     public static void registerMagic()

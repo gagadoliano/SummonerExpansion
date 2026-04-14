@@ -38,7 +38,7 @@ public class RegistryEvents
         LevelEventRegistry.registerEvent("druidclawdashlevelevent", DruidClawDashLevelEvent.class);
         LevelEventRegistry.registerEvent("pinewoodstaffevent", PineWoodStaffEvent.class);
         LevelEventRegistry.registerEvent("mosquitobowevent", MosquitoBowEvent.class);
-
+        LevelEventRegistry.registerEvent("showwhipattackevent", ShowWhipAttackEvent.class);
     }
 
     public static void registerGlyph()

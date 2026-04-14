@@ -1,6 +1,7 @@
 package summonerexpansion.items.mounts.transformations;
 
 import necesse.engine.GlobalData;
+import necesse.engine.Settings;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.network.Packet;
@@ -11,6 +12,7 @@ import necesse.engine.sound.SoundSettings;
 import necesse.engine.util.GameUtils;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.buffs.BuffModifiers;
+import necesse.entity.mobs.buffs.staticBuffs.StaminaBuff;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
 import necesse.entity.particle.SmokePuffParticle;
@@ -53,8 +55,8 @@ public class CryptVampireSummonMount extends BaseTransformMount implements Mount
             if (camera == null) {
                 return;
             }
-            getFollowingMob().attack(camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), false);
-            getFollowingMob().getLevel().entityManager.projectiles.add(new MountCryptBoltProj(getLevel(), x, y, camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), damage, getFollowingMob()));
+            player.attack(camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), false);
+            player.getLevel().entityManager.projectiles.add(new MountCryptBoltProj(getLevel(), x, y, camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), damage, player));
             abilityCooldown = 10;
         }
     }
@@ -104,11 +106,11 @@ public class CryptVampireSummonMount extends BaseTransformMount implements Mount
         drawY += this.getBobbing(x, y);
         drawY += level.getTile(getTileCoordinate(x), getTileCoordinate(y)).getMobSinkingAmount(this);
         MaskShaderOptions swimMask = this.getSwimMaskShaderOptions(this.inLiquidFloat(x, y));
-        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, MobRegistry.Textures.cryptVampire)).sprite(sprite).dir(dir).mask(swimMask).light(light);
+        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, MobRegistry.Textures.cryptVampire)).sprite(sprite).dir(dir).mask(swimMask).light(light).applyEnemyTracker(this, perspective);
         float animProgress = this.getAttackAnimProgress();
         if (this.isAttacking)
         {
-            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).armSprite(MobRegistry.Textures.cryptVampire.body, 0, 8, 32).swingRotation(animProgress).light(light);
+            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).armSprite(MobRegistry.Textures.cryptVampire.body, 0, 8, 32).swingRotation(animProgress);
             humanDrawOptions.attackAnim(attackOptions, animProgress);
         }
         final DrawOptions drawOptions = humanDrawOptions.pos(drawX, drawY);

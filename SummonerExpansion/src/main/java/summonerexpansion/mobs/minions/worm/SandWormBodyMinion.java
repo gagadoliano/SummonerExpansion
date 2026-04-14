@@ -34,6 +34,7 @@ import static summonerexpansion.codes.registries.RegistryMinionTextures.sandWorm
 public class SandWormBodyMinion extends FollowingWormMobBody<SandWormHeadMinion, SandWormBodyMinion>
 {
     ParticleTypeSwitcher pTypeSwitcher;
+    public Point sprite;
     public int spriteY;
     private final TicksPerSecond particleSpawner;
     public ModifierValue<?>[] modifiers;
@@ -93,21 +94,13 @@ public class SandWormBodyMinion extends FollowingWormMobBody<SandWormHeadMinion,
         }
     }
 
-    protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
-    {
+    protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
-        if (this.isVisible())
-        {
+        if (this.isVisible()) {
             GameLight light = level.getLightLevel(this);
             int drawX = camera.getDrawX(x) - 32;
             int drawY = camera.getDrawY(y);
-            if (this.next != null)
-            {
-                Point2D.Float dir = new Point2D.Float(this.next.x - (float)x, this.next.y - this.next.height - ((float)y - this.height));
-                float angle = GameMath.fixAngle(GameMath.getAngle(dir));
-                MobDrawable drawOptions = WormMobHead.getAngledDrawable(new GameSprite(sandWormBodyMinion, 0, this.spriteY, 64), null, light, (int)this.height, angle, drawX, drawY, 96);
-                topList.add(drawOptions);
-            }
+            WormMobHead.addDrawable(list, this, new GameSprite(sandWormBodyMinion, this.sprite.x, this.sprite.y, 64), MobRegistry.Textures.sandWorm_mask, light, (int)this.height, drawX, drawY, 64, perspective);
             this.addShadowDrawables(tileList, level, x, y, light, camera);
         }
     }

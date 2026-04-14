@@ -43,15 +43,6 @@ public class RedSpiderHelmet extends SetHelmetArmorItem
         lightTexture = GameTexture.fromFile("player/armor/" + textureName + "_light");
     }
 
-    public DrawOptions getArmorDrawOptions(InventoryItem item, Level level, PlayerMob player, InventoryItem headItem, InventoryItem chestItem, InventoryItem feetItem, int spriteX, int spriteY, int spriteRes, int drawX, int drawY, int width, int height, boolean mirrorX, boolean mirrorY, GameLight light, float alpha, MaskShaderOptions mask)
-    {
-        DrawOptionsList options = new DrawOptionsList();
-        options.add(super.getArmorDrawOptions(item, level, player, headItem, chestItem, feetItem, spriteX, spriteY, spriteRes, drawX, drawY, width, height, mirrorX, mirrorY, light, alpha, mask));
-        Color col = getDrawColor(item, player);
-        options.add(lightTexture.initDraw().sprite(spriteX, spriteY, spriteRes).colorLight(col, light.minLevelCopy(150.0F)).alpha(alpha).size(width, height).mirror(mirrorX, mirrorY).addMaskShader(mask).pos(drawX, drawY));
-        return options;
-    }
-
     protected void loadItemTextures() {
         itemTexture = GameTexture.fromFile("items/armors/" + getStringID());
     }

@@ -86,21 +86,21 @@ public class IceWizardMinion extends SummonWalkBase
     public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
     {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
-        GameLight light = level.getLightLevel(x / 32, y / 32);
+        GameLight light = level.getLightLevel(getTileCoordinate(x), getTileCoordinate(y));
         int drawX = camera.getDrawX(x) - 22 - 10;
         int drawY = camera.getDrawY(y) - 44 - 8;
         int dir = this.getDir();
         Point sprite = this.getAnimSprite(x, y, dir);
         drawY += this.getBobbing(x, y);
-        drawY += this.getLevel().getTile(x / 32, y / 32).getMobSinkingAmount(this);
+        drawY += level.getTile(getTileCoordinate(x), getTileCoordinate(y)).getMobSinkingAmount(this);
         MaskShaderOptions swimMask = this.getSwimMaskShaderOptions(this.inLiquidFloat(x, y));
-        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, iceWizardMinion)).sprite(sprite).dir(dir).mask(swimMask).light(light);
+        HumanDrawOptions humanDrawOptions = (new HumanDrawOptions(level, iceWizardMinion)).sprite(sprite).dir(dir).mask(swimMask).light(light).applyEnemyTracker(this, perspective);
         float animProgress = this.getAttackAnimProgress();
-        if (this.isAttacking)
-        {
-            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).itemSprite(iceWizardMinion.body, 0, 9, 32).itemRotatePoint(3, 3).itemEnd().armSprite(iceWizardMinion.body, 0, 8, 32).swingRotation(animProgress).light(light);
+        if (this.isAttacking) {
+            ItemAttackDrawOptions attackOptions = ItemAttackDrawOptions.start(dir).itemSprite(iceWizardMinion.body, 0, 9, 32).itemRotatePoint(3, 3).itemEnd().armSprite(iceWizardMinion.body, 0, 8, 32).swingRotation(animProgress);
             humanDrawOptions.attackAnim(attackOptions, animProgress);
         }
+
         final DrawOptions drawOptions = humanDrawOptions.pos(drawX, drawY);
         list.add(new MobDrawable() {
             public void draw(TickManager tickManager) {
@@ -110,8 +110,7 @@ public class IceWizardMinion extends SummonWalkBase
         this.addShadowDrawables(tileList, level, x, y, light, camera);
     }
 
-    protected TextureDrawOptions getShadowDrawOptions(int x, int y, GameLight light, GameCamera camera)
-    {
+    protected TextureDrawOptions getShadowDrawOptions(Level level, int x, int y, GameLight light, GameCamera camera) {
         GameTexture shadowTexture = MobRegistry.Textures.voidApprentice_shadow;
         int drawX = camera.getDrawX(x) - shadowTexture.getWidth() / 2;
         int drawY = camera.getDrawY(y) - shadowTexture.getHeight() / 2;

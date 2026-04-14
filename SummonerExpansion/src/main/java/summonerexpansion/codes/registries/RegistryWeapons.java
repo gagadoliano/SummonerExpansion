@@ -40,6 +40,7 @@ public class RegistryWeapons
         ItemRegistry.registerItem("druidleatherclaw", new DruidLeatherClaw(100, Item.Rarity.COMMON), 50, true);
         ItemRegistry.registerItem("druidpolarclaw", new DruidPolarClaw(100, Item.Rarity.COMMON), 50, true);
         ItemRegistry.registerItem("ramnunchucks", new RamNunchucks(100, Item.Rarity.COMMON), 50, true);
+        ItemRegistry.registerItem("webspiderwhip", new WebSpiderWhip(100, Item.Rarity.COMMON), 50, true);
         // Ranged
         // Magic
         ItemRegistry.registerItem("iceblossomstaff", new IceBlossomStaff(100, Item.Rarity.COMMON), 50, true);
