@@ -1,9 +1,13 @@
 package summonerexpansion.objects.tiles;
 
+import necesse.engine.localization.Localization;
 import necesse.engine.registries.ObjectRegistry;
 import necesse.engine.util.GameMath;
 import necesse.engine.util.GameRandom;
+import necesse.entity.mobs.PlayerMob;
 import necesse.gfx.gameTexture.GameTextureSection;
+import necesse.gfx.gameTooltips.ListGameTooltips;
+import necesse.inventory.InventoryItem;
 import necesse.inventory.lootTable.LootTable;
 import necesse.inventory.lootTable.lootItem.ChanceLootItem;
 import necesse.level.gameObject.GameObject;
@@ -104,5 +108,12 @@ public class AncientGrassTile extends TerrainSplatterTile
 
     public int getTerrainPriority() {
         return 100;
+    }
+
+    public ListGameTooltips getItemTooltips(InventoryItem item, PlayerMob perspective)
+    {
+        ListGameTooltips tooltips = super.getItemTooltips(item, perspective);
+        tooltips.add(Localization.translate("itemtooltip", "ancientgrasstiletip"));
+        return tooltips;
     }
 }

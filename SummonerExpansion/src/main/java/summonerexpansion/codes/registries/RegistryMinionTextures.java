@@ -83,6 +83,9 @@ public class RegistryMinionTextures
     public static GameTexture sunflowerSentry;
     public static GameTexture iceBlossomSentry;
     public static GameTexture firemoneSentry;
+    public static GameTexture thornSentry;
+
+    public static GameTexture livingArmorMinion;
 
     // Armor
     public static GameTexture setCloudMinion;
@@ -184,6 +187,7 @@ public class RegistryMinionTextures
         sunflowerSentry = GameTexture.fromFile("mobs/minions/sentry/sunflowersentry");
         iceBlossomSentry = GameTexture.fromFile("mobs/minions/sentry/iceblossomsentry");
         firemoneSentry = GameTexture.fromFile("mobs/minions/sentry/firemonesentry");
+        thornSentry = GameTexture.fromFile("mobs/minions/sentry/thornsentry");
 
         horrorSentry = GameTexture.fromFile("mobs/minions/melee/horrorspikesentry");
 
@@ -207,6 +211,7 @@ public class RegistryMinionTextures
         setTitaniumMeleeMinion_shadow = GameTexture.fromFile("mobs/minions/armor/settitaniummeleeminion_shadow");
 
         // Trinket
+        livingArmorMinion = GameTexture.fromFile("mobs/minions/trinket/livingarmorstandminion");
         trinketHorrorBatMinion = GameTexture.fromFile("mobs/minions/trinket/horrorbatminion");
         petTeaPotMinion = GameTexture.fromFile("mobs/minions/trinket/teapotminion");
 

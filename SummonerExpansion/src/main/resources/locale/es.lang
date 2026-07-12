@@ -1,0 +1,1008 @@
+[tile]
+empoweredsapphire=Suelo de Zafiro Antiguo Fortalecido
+empoweredemerald=Suelo de Esmeralda Antigua Fortalecida
+empowerednewsapphire=Suelo de Zafiro Fortalecido
+empowerednewemerald=Suelo de Esmeralda Fortalecida
+empoweredruby=Suelo de Rubí Antiguo Fortalecido
+empoweredamethyst=Suelo de Amatista Fortalecida
+empowerednewruby=Suelo de Rubí Fortalecido
+empoweredtopaz=Suelo de Topacio Fortalecido
+ancientgrasstile=Suelo de Hierba Antigua
+liquidhoneytile=Miel Líquida
+beehivefloor=Suelo de Colmena
+
+[object]
+// Bancos de Trabajo
+tungstensummoningtableduo=Mesa de Invocación de Tungsteno
+demonicsummoningtableduo=Mesa de Invocación Demoníaca
+fallensummoningtableduo=Mesa de Invocación Caída
+summoningbookshelf=Estantería de Invocación
+arcanicconverter=Convertidor Árcano
+summoningtableduo=Mesa de Invocación
+
+// Plantas
+overgrowthornssapling=Brote de Espinas Regenerativas
+ancienttreesapling=Brote de Árbol Antiguo
+ancientwatergrass=Hierba Acuática Antigua
+ancienttallgrass=Hierba Alta Antigua
+overgrowthorns=Espinas Regenerativas
+ancientwoodroot=Raíz de Madera Antigua
+ancienttree=Árbol Antiguo
+
+// Auras
+bannerofwater=Estandarte del Agua
+caveglowlamp=Lámpara de Brillo de Cueva
+
+// Decoraciones
+mushroomminionstatue=Estatua de Esbirro Champiñón
+ascendedwizardstatue=Estatua de Mago Ascendido
+stuffedportalminion=Peluche de Esbirro del Portal
+stuffedfrostsentry=Peluche de Centinela de Escarcha
+apprendicestatue=Estatua de Aprendiz
+stuffedswampslug=Peluche de Babosa del Pantano
+fakevultureegg=Huevo Falso de Buitre
+stuffedscorpion=Peluche de Escorpión
+stuffedsquirrel=Peluche de Ardilla
+stuffedmosquito=Peluche de Mosquito
+stuffedbluebird=Peluche de Pájaro Azul
+stuffedcardinal=Peluche de Cardenal
+stuffedlocust=Peluche de Langosta
+stuffedspider=Peluche de Araña
+stuffedcanary=Peluche de Canario
+stuffedgoblin=Peluche de Goblin
+stuffedrabbit=Peluche de Conejo
+stuffedchick=Peluche de Pollito
+stuffedmouse=Peluche de Ratón
+stuffedfrog=Peluche de Rana
+stuffedbird=Peluche de Pájaro
+woodenidol=Ídolo de Madera
+beetstatue=Estatua de Remolacha
+
+// Decoraciones de Objetos
+sandtemplemonkstatue=Estatua de Monje del Templo de Arena
+
+// Muebles
+arcanicdisplay=Vitrina Árcana
+arcanicchest=Cofre Árcano
+beehivechest=Cofre de Colmena
+
+// Vallas
+ancientwoodfencegate=Puerta de Valla de Madera Antigua
+ancientwoodfence=Valla de Madera Antigua
+
+// Paredes
+empoweredsapphirerock=Roca de Zafiro Fortalecido
+empoweredamethystrock=Roca de Amatista Fortalecida
+empoweredemeraldrock=Roca de Esmeralda Fortalecida
+empoweredtopazrock=Roca de Topacio Fortalecido
+empoweredrubyrock=Roca de Rubí Fortalecido
+
+// Rocas
+titaniumrockswampmedium=Roca de Titanio Mediana del Pantano
+titaniumrockswampsmall=Roca de Titanio Pequeña del Pantano
+titaniumrockmedium=Roca de Titanio Mediana
+titaniumrocksmall=Roca de Titanio Pequeña
+titaniumrockbig=Roca de Titanio Grande
+titaniumore=Mineral de Titanio
+
+// Entidades
+tanktrainingdummy=Maniquí de Entrenamiento Tanque
+
+// Trampas
+glyphtrapheal=Trampa de Glifo de Cura
+
+[item]
+// Armas de Esbirros
+magiccastlecandelabra=Candelabro del Castillo Mágico de Araña
+enchantedbrainonastick=Cerebro Encantado en un Palo
+magicdungeoncandelabra=Candelabro de la Mazmorra Mágica
+magictungstenlamp=Lámpara Mágica de Tungsteno
+magicgoldlamp=Lámpara Doble Mágica de Oro
+gemamethystshards=Fragmentos de Amatista
+gemsapphireshards=Fragmentos de Zafiro
+magiccopperlamp=Lámpara Mágica de Cobre
+gememeraldshards=Fragmentos de Esmeralda
+redspiderstaff=Báculo de Araña Roja
+icewizardstaff=Báculo del Mago de Hielo
+sandwormstaff=Báculo del Gusano de Arena
+bookbutterfly=Libro de la Mariposa
+runebonestaff=Báculo de Hueso Rúnico
+goldpitchfork=Horca de Oro
+gemtopazshards=Fragmentos de Topacio
+bearhead=Cabeza de Oso Pardo
+vampirewings=Alas de Vampiro
+dryadessence=Esencia de Dríada
+gemrubyshards=Fragmentos de Rubí
+cactusstaff=Báculo de Cactus
+polarhead=Cabeza Polar
+royalhive=Colmena Real
+hungrymimic=Mímico Hambriento
+
+// Armas de Centinela
+leafshotheatpack=Paquete de Semillas de Lanzahojas de Fuego
+leafshotcoldpack=Paquete de Semillas de Lanzahojas de Hielo
+xmastreescepter=Cetro del Árbol de Navidad
+leafshotpack=Paquete de Semillas de Lanzahojas
+coffebeampack=Paquete de Semillas de Rayo de Café
+vampirecoffin=Ataúd de Vampiro
+caveglowstaff=Báculo de Brillo de Cueva
+bookmushroom=Libro del Champiñón
+
+// Armas Secundarias
+explosivesnowball=Bola de Nieve Explosiva
+magiccoppertools=Herramientas Mágicas de Cobre
+magicwoodtools=Herramientas Mágicas de Madera
+magicirontools=Herramientas Mágicas de Hierro
+magicgoldtools=Herramientas Mágicas de Oro
+bookfrozen=Libro Congelado
+bookmagma=Libro de Magma
+bookrunic=Libro Rúnico
+bookbee=Libro de la Abeja
+
+// Armas Cuerpo a Cuerpo
+druidfallendragonclaw=Garra de Dragón Caído del Druida
+druidprimordialclaws=Garras Primordiales del Druida
+druidnecroticclaw=Garra Necrótica del Druida
+druidancestorclaw=Garra Ancestral del Druida
+druidleatherclaw=Garra de Cuero del Druida
+druidvultureclaw=Garra de Buitre del Druida
+druidspiderclaw=Garra de Araña del Druida
+druidpolarclaw=Garra Polar del Druida
+druiddemonclaw=Garra Demoníaca del Druida
+globeboomerang=Bumerán Globo
+spidersummonsword=Espada de Invocación de Araña
+webspiderwhip=Látigo de Telaraña
+ramnunchucks=Nunchakus de Carnero
+fishianspear=Lanza del Pez
+horrorscythe=Guadaña del Horror
+horrorglaive=Glaive del Horror
+goblinsword=Espada Goblin
+horrorsword=Espada del Horror
+wormbucket=Cubo de Gusano
+
+// Armas de Largo Alcance
+mosquitobow=Arco del Mosquito
+yinyangninjastar=Estrella Ninja Yin Yang
+
+// Armas Mágicas
+applewalkingstick=Báculo Andante de Manzana
+iceblossomstaff=Báculo de Flor de Hielo
+sunflowerstaff=Báculo del Girasol
+pinewoodstaff=Báculo de Pino
+firemonestaff=Báculo de la Llama
+thornstaff=Báculo de Espinas
+
+// Piezas de Armadura
+sharpshootersummonhat=Sombrero de Invocador Tirador
+arcanicsummonhelmet=Casco de Invocador Árcano
+ravenlordsummonmask=Máscara de Invocador del Señor de los Cuervos
+leathersummonerhood=Caperuza de Invocador de Cuero
+agedsummonerhelmet=Casco de Invocador Envejecido
+chefsummonerhat=Sombrero de Invocador Chef
+copperminerhat=Sombrero de Minero de Cobre
+bloodplatemask=Máscara de Placa de Sangre
+pharaohsmask=Máscara del Faraón
+shadowhelmet=Casco de la Sombra
+frostcrown=Corona de Escarcha
+slimehood=Caperuza de Baba
+
+// Conjuntos de Armadura
+redspiderhelmet=Casco de Araña Roja
+redspiderchestplate=Peto de Araña Roja
+redspiderboots=Botas de Araña Roja
+rainsummonhat=Sombrero de Invocador de la Lluvia
+rainsummoncoat=Túnica de Invocador de la Lluvia
+rainsummonboots=Botas de Invocador de la Lluvia
+titaniummagichelmet=Casco Mágico de Titanio
+titaniummeleehelmet=Casco de Cuerpo a Cuerpo de Titanio
+titaniumrangedhelmet=Casco de Largo Alcance de Titanio
+titaniumsummonhelmet=Casco de Invocador de Titanio
+titaniumchestplate=Peto de Titanio
+titaniumboots=Botas de Titanio
+summonplaguemask=Máscara de Invocador de la Plaga
+summonplaguerobe=Túnica de Invocador de la Plaga
+summonplagueboots=Botas de Invocador de la Plaga
+shadowhorrorhood=Caperuza del Horror de las Sombras
+shadowhorrormantle=Manto del Horror de las Sombras
+shadowhorrorboots=Botas del Horror de las Sombras
+sharklavahelmet=Casco de Tiburón de Lava
+sharklavachestplate=Peto de Tiburón de Lava
+sharklavaboots=Botas de Tiburón de Lava
+spiderbridehelmet=Casco de la Novia Araña
+spiderbridechest=Peto de la Novia Araña
+spiderbrideboots=Botas de la Novia Araña
+ghostcaptainshat=Sombrero del Capitán Fantasma
+ghostcaptainsshirt=Camisa del Capitán Fantasma
+ghostcaptainsboots=Botas del Capitán Fantasma
+sailorsummonhat=Sombrero de Invocador Marinero
+sailorsummonshirt=Camisa de Invocador Marinero
+sailorsummonshoes=Zapatos de Invocador Marinero
+
+// Abalorios
+essenceofcompanionship=Esencia de la Compañía
+challengerarmorpiece=Pieza de Armadura del Desafiante
+balancedsummonerboard=Tablero de Invocador Equilibrado
+scryingmagicianscard=Tarjeta del Mago Vidente
+companionsatchels=Alforjes Gemelos del Compañero
+frozenassassinscowl=Capucha del Asesino Congelado
+crystalamalgamation=Amalgama de Cristal
+magicianboard=Tablero del Mago Equilibrado
+calmminerslantern=Linterna del Minero Calmado
+transplantedheart=Corazón Trasplantado
+doomshroomshield=Escudo del Champiñón de Perdición
+shadowhorrorcape=Capa del Horror de las Sombras
+demonicpolarclaw=Garra Polar Demoníaca
+frenzyhorrorcape=Capa del Horror Frenético
+strangecookpot=Olla de Cocina Extraña
+hystericalmirror=Espejo Histérico
+necromancerarmor=Armadura del Nigromante
+lightningamulet=Amuleto del Rayo
+frenzystonering=Anillo de Piedra Frenética
+inducingsatchel=Alforje Inductor
+galvanicamulet=Amuleto Galvánico
+summonergambit=Arriesgue del Invocador
+minerslantern=Linterna del Minero
+mesmersatchel=Alforje del Mesmer
+jellyfishbowl=Cuenco de Medusa
+timeworncoins=Monedas Gastadas por el Tiempo
+bagofbullets=Bolsa de Balas
+giantpumpkin=Calabaza Gigante
+silvergoblet=Cáliz de Plata
+cactusemblem=Emblema de Cactus
+necroticclaw=Garra Necrótica
+duelistdolls=Muñecos del Duelista
+magicteapot=Tetera Mágica
+bagofarrows=Bolsa de Flechas
+giantcarrot=Zanahoria Gigante
+giantpotato=Papa Gigante
+littleangel=Angelito
+littlemecha=Mequita
+spelltablet=Tabla de Hechizo
+mesmercharm=Amuleto del Mesmer
+fishianeggs=Huevos de Pez
+giantonion=Cebolla Gigante
+giantbeet=Remolacha Gigante
+bonepile=Montón de Huesos
+cowskull=Calavera de Vaca
+geniewish=Deseo del Genio
+overchargedvoidshards=Fragmentos del Vacío Sobrecargado
+frostsentrycore=Núcleo del Centinela de Escarcha
+flowerbrooch=Broche de Flor
+alienparasite=Parásito Alienígena Adaptativo
+sandtemplemonkhead=Cabeza del Monje del Templo de Arena
+livingarmorstand=Soporte de Armadura Vivo
+
+// Pociones
+minioncritchancepotion=Poción de Probabilidad de Crítico del Esbirro
+minionattackspeedpotion=Poción de Velocidad de Ataque del Esbirro
+minioncloserangepotion=Poción de Alcance Corto del Esbirro
+minioncritpotion=Poción de Daño Crítico del Esbirro
+minionsunflowerpotion=Poción del Girasol del Esbirro
+minionequinoxpotion=Poción del Equinoccio del Esbirro
+minionfarmpotion=Poción de Cultivo del Esbirro
+minionrangepotion=Poción de Alcance del Esbirro
+minionspeedpotion=Poción de Velocidad del Esbirro
+
+// Buffs de Pociones
+minioncritchancebuff=Beneficio de Probabilidad de Crítico del Esbirro
+minionattackspeedbuff=Beneficio de Velocidad de Ataque del Esbirro
+minioncloserangebuff=Beneficio de Alcance Corto del Esbirro
+minioncritbuff=Beneficio de Daño Crítico del Esbirro
+minionsunflowerbuff=Beneficio de la Poción del Girasol
+minionequinoxbuff=Beneficio del Equinoccio del Esbirro
+minionfarmbuff=Beneficio de Cultivo del Esbirro
+minionrangebuff=Beneficio de Alcance del Esbirro
+minionspeedbuff=Beneficio de Velocidad del Esbirro
+
+// Estandartes
+bannerofresilience=Estandarte de la Resiliencia
+bannerofbouncing=Estandarte del Rebote
+bannerofdashing=Estandarte del Arranque
+bannerofessence=Estandarte de la Esencia
+bannerofpicking=Estandarte de la Recolección
+bannerofstamina=Estandarte de la Resistencia
+bannerofmana=Estandarte del Maná
+
+// Monturas
+forestspectorhands=Manos del Espectro del Bosque
+frozendwarfbeard=Barba del Enano Congelado
+cavelingminecart=Vagoneta de Mina del Cavernícola
+sharkdivingmask=Máscara de Buceo de Tiburón
+swampdwellerbow=Arco del Habitante del Pantano
+minivultureegg=Huevo Miniatura de Buitre
+cavespidergoo=Pegajoso de Araña Negra
+snowwolftail=Cola de Lobo de Nieve
+bouncingbone=Hueso Saltarín
+chieftainhat=Sombrero del Jefe
+magiccheese=Queso Mágico
+zombiearrow=Flecha Zombi
+cryptfangs=Colmillos de la Cripta
+
+// Invocaciones de Jefes
+shadowhorrorportal=Portal del Horror de las Sombras
+
+// Materiales
+sandgiantscorpiontail=Cola de Escorpión Gigante de Arena
+ancientgrassseed=Semilla de Hierba Antigua
+fossilhoney=Miel Fosilizada
+titaniumore=Mineral de Titanio
+titaniumbar=Barra de Titanio
+ancientlog=Tronco Antiguo
+purehorror=Horror Puro
+sharklavascales=Escamas de Tiburón de Lava
+
+// Pesca
+ancientwoodfishingrod=Caña de Pescar de Madera Antigua
+myceliumworm=Cebo de Gusano de Micelio
+inspectorclouseau=Inspector Clouseau
+runicfish=Pez Rúnico
+tinyorca=Orca Minúscula
+waterzombie=Bebé Zombi Acuático
+shadowcreature=Criatura de las Sombras
+
+// Comidas
+berrytrio=Trío de Bayas
+rottenbread=Pan Podrido
+cookedworm=Gusano Cocido
+cookedswampworm=Gusano del Pantano Cocido
+orcasugar=Azúcar de Orca
+rayjam=Mermelada de Raya
+livingsharksoup=Sopa de Tiburón Vivo
+fullpicnicbasket=Cesta de Picnic Llena
+enchantedgoblet=Cáliz Encantado
+runicmeal=Comida Rúnica
+waterzombiesoup=Sopa de Bebé Zombi Acuático
+icecube=Cubo de Hielo
+pigbanquet=Banquete de Cerdo
+caveglowjam=Mermelada de Brillo de Cueva
+spicycoffee=Café Picante
+dragondonut=Donut del Dragón
+
+// Bolsas
+shadowhorrorbag=Bolsa del Horror de las Sombras
+
+// Bolsas de Botín
+sunkenchest=Cofre Hundido
+
+// Mapas
+horrorcultmap=Mapa del Culto del Horror de las Sombras
+ancientforestmap=Mapa del Bosque Antiguo
+titaniumnodemap=Mapa del Nodo de Titanio
+druidhousemap=Mapa de la Casa del Druida
+beehivemap=Mapa de la Colmena
+
+// Cubos
+infinitehoneybucket=Cubo de Miel Infinito
+
+// Criaturas
+honeybeeguardmob=Guardia Abeja de Miel
+sandscorpionmob=Escorpión de Arena
+
+// Objeto de Atributo
+fusedessences=Esencias Infundidas
+
+// Armas Base
+supportweapon=Arma de Apoyo
+
+[itemtooltip]
+// Armas de Esbirros
+// T1
+redspiderstafftip=Invoca arañas rojas cuerpo a cuerpo y cada otra invocación es a distancia \nLas arañas cuerpo a cuerpo envenenan enemigos causando 15 de daño por 5 segundos \nLas arañas a distancia escupen proyectiles que dejan charcos dañinos
+redspiderstafftip2=Las arañas cuerpo a cuerpo duplican el daño de veneno de todas las fuentes \nLas arañas a distancia causan daño doble
+royalhivetip=Invoca una abeja reina que genera abejas cada 10 golpes \nLa reina aumenta tu regeneración de vida durante el combate \nY las abejas más pequeñas ralentizan a los enemigos en un 10%
+bearheadtip=Invoca un oso pardo que ataca enemigos \nLos enemigos golpeados comenzarán a sangrar, causando daño y reduciendo su daño en un 20%
+bearheadtip2=Causa 20% más de daño y el efecto de sangrado dura más tiempo
+enchantedbrainonasticktip=Invoca 2 zombis encantados \nReducen la armadura del enemigo en 10 al golpear
+polarheadtip=Invoca un oso polar que causa un efecto de ralentización acumulativo de hasta 25%
+polarheadtip2=Causa 20% más de daño y el efecto de ralentización dura más tiempo
+cactusstafftip=Invoca un esbirro cactus \nDispara proyectiles con perforación aleatoria
+magiccopperlamptip=Invoca una lámpara de cobre que brilla y ataca
+bookbutterflytip=Invoca un tipo de mariposa dependiendo de tu bioma \nCada mariposa tiene estadísticas diferentes
+// T2
+runebonestafftip=Invoca un bruto rúnico que ataca enemigos con un hacha \nTiene una pequeña probabilidad de invocar un chamán rúnico en su lugar \nNiveles de mejora más altos aumentan la probabilidad de invocación
+icewizardtip=Invoca un mago de hielo para disparar proyectiles congelantes que ralentizan enemigos un 30% \nCausa daño de escarcha con el tiempo y duplica el daño de todos los efectos de escarcha en enemigos
+icewizardtip2=Dispara proyectiles más rápidos que causan 20% más de daño
+goldpitchforktip=Invoca un granjero que tiene una pequeña probabilidad de generar trigo o animales de granja al atacar
+magicgoldlamptip=Invoca una lámpara doble de oro que brilla y ataca \nQuema enemigos al golpear
+lampminiondungeontip=Invoca un candelabro de mazmorra \nQuema enemigos durante la noche
+vampirewingstip=Invoca un vampiro que dispara proyectiles de sangre a los enemigos
+vampirewingstip2=Dispara proyectiles más rápidos que causan 30% más de daño
+hungrymimictip=Usa todos tus espacios de invocación \nEl daño aumenta con cada espacio de invocación usado
+// T3
+magictungstenlamptip=Invoca una lámpara de tungsteno que brilla y ataca \nQuema enemigos al golpear
+dryadessencetip=Invoca un ghoul de movimiento lento \nEste ghoul deja un rastro dañino
+sandwormstafftip=Invoca un gusano de arena para atacar enemigos
+// T4
+amethystshardtip=Invoca un golem de amatista \nEste golem puede cristalizar enemigos \nGólems de amatista adicionales aumentan la probabilidad de cristalización
+sapphireshardtip=Invoca un golem de zafiro \nEste golem invoca un glifo de zafiro en tu ubicación cuando tienes esencia de vida
+lampminioncastletip=Invoca un candelabro de castillo de araña \nQuema y ralentiza enemigos \nLos efectos de debilidad se vuelven más fuertes durante la noche
+emeraldshardtip=Invoca un golem de esmeralda \nEste golem dispara un láser que perfora enemigos y rebota en paredes
+topazshardtip=Invoca un golem de topacio \nEste golem dispara cristales que rebotan y perforan enemigos
+rubyshardtip=Invoca un golem de rubí \nEste golem dispara fragmentos de cristal a los enemigos
+
+// Armas de Centinela
+bookmushroomtip=Invoca una centinela que ralentiza enemigos cercanos y mejora a jugadores cercanos \nInvoca esbirros champiñón con el tiempo
+xmastreetip=Aplica debilidad a enemigos cercanos \nBrillan y reciben un 20% más de daño de todas las fuentes
+caveglowsentrytip=La centinela brilla y dispara proyectiles que pueden perforar y rebotar una vez
+coffinsentrytip=Cada 10 disparos invoca un murciélago de cripta que causa el 20% del daño del ataúd
+coffinsentrytip2=Dispara proyectiles más rápidos que causan 20% más de daño y los murciélagos causan el 100% del daño en su lugar
+coffebeampacktip=Aumenta la velocidad de ataque de centinelas de jugadores cercanos \nConsumible
+leafshotcoldpacktip=Sus proyectiles enfrían enemigos \nConsumible
+leafshotheatpacktip=Sus proyectiles queman enemigos \nConsumible
+leafshotpacktip=Sus proyectiles envenenan enemigos \nConsumible
+
+// Armas Secundarias
+explosivesnowballtip=Invoca un muñeco de nieve con probabilidad de explotar al golpear \nLa explosión causa daño aumentado y puede dañar jugadores
+explosivesnowballtip2=Daño de explosión aumentado, retroceso y área de efecto \nLas explosiones no dañan a los jugadores
+coppertoolstip=Invoca herramientas mágicas de cobre \nProporcionan una mejora acumulativa al golpear que aumenta el alcance y la velocidad de minería
+bookmagmatip=Invoca slimes de magma que atacan enemigos muy cercanos \nSi el objetivo está bajo un efecto de quema, durará para siempre
+woodtoolstip=Invoca herramientas mágicas de madera \nProporcionan una mejora acumulativa al golpear que aumenta el alcance y la velocidad de minería
+irontoolstip=Invoca herramientas mágicas de hierro \nProporcionan una mejora acumulativa al golpear que aumenta el alcance y la velocidad de minería
+goldtoolstip=Invoca herramientas mágicas de oro \nProporcionan una mejora acumulativa al golpear que aumenta el alcance y la velocidad de minería
+bookrunictip=Invoca escudos rúnicos que orbitan a tu alrededor \nAumenta tu armadura con una mejora acumulativa cuando golpean enemigos
+bookrunictip2=La mejora de armadura dura más tiempo
+bookfrozentip=Invoca enanos congelados que lanzan 10 jabalinas de hielo que ralentizan enemigos un 30%
+bookfrozentip2=Dispara proyectiles más rápidos que causan 20% más de daño y tienen un 50% de probabilidad de lanzar más jabalinas antes de morir
+bookbeetip=Invoca 3 abejas \nRalentizan enemigos un 10%
+
+// Armas Cuerpo a Cuerpo
+horrorswordtip=Gana acumulaciones de velocidad de ataque al golpear enemigos \nCon acumulaciones máximas, consúmelas para invocar un zombi rastrero del horror
+horrorglaivetip=Carga el glaive al golpear enemigos \nUsa [input=mouse2] cuando esté completamente cargado para invocar una centinela del horror
+ramnunchuckstip=Gana acumulaciones de velocidad de invocación al golpear enemigos \nCon acumulaciones máximas, consúmelas para invocar un carnero mágico
+goblinswordtip=Carga la espada al golpear enemigos \nUsa [input=mouse2] cuando esté completamente cargado para invocar 3 goblins
+fishianspeartip=Carga la lanza al golpear enemigos \nInvoca un pez en tu próximo ataque cuando esté completamente cargado
+globeboomerangtip=Al golpear, invoca hasta 3 planetas que orbitan a tu alrededor \nControlable cuando se lanza
+horrorscythetip=Medio cargado para invocar hasta 3 lobos del horror \nCompletamente cargado para invocar un toro del horror
+druiddemonclawtip=Invoca un portal que dispara proyectiles y luego genera un demonio
+wormbuckettip=10% de probabilidad de invocar un pez al atacar enemigos
+druidspiderclawtip=Dispara un proyectil de telaraña para ralentizar enemigos un 40%
+druidfallendragonclawtip=Invoca hasta <amount> dragones caídos
+druidprimordialclawtip=Aumenta todo el daño con el tiempo en un 100%
+druidvultureclawtip=Aumenta tu velocidad de movimiento en un 25%
+spidersummonswordtip=Lanza polvo de veneno al atacar
+druidancestorclawtip=Invoca un guerrero ancestral
+druidleatherclawtip=20% más de daño recibido
+druidnecroclawtip=Aplica veneno necrótico
+druidpolarclawtip=Ralentiza un 30%
+webspiderwhiptip=20% de probabilidad de invocar una araña al golpear, hasta 3
+
+// Armas de Largo Alcance
+mosquitobowtip=Dispara flechas desde arriba que dejan un charco dañino a su paso \nCada 20 golpes invoca un mosquito que reduce la armadura de los enemigos
+yinyangstartip=Invoca ninjas que lanzan estrellas ninja a los enemigos
+yinyangstartip2=Requiere estrellas ninja para usar
+
+// Armas Mágicas
+pinewoodstafftip=Invoca una onda de choque de espinas de pino \nCada ataque proporciona una acumulación \nPresiona [input=mouse2] para consumir <amount> acumulaciones e invocar un esbirro de pino
+pinewoodstafftip2=Puedes tener hasta <amount> esbirros de pino
+applesticktip=Dispara una ráfaga de minas de manzana \nCada golpe aumenta tu daño de invocación
+sunflowersentrytip=Esta centinela da regeneración de vida a aliados cercanos durante el combate
+firemonesentrytip=Esta centinela da penetración de armadura a aliados cercanos
+iceblossomsentrytip=Esta centinela da armadura a aliados cercanos
+thornstafftip=Crea una línea de espinas
+
+// Bonificación de Conjunto de Armadura
+// T1
+rainsummonsettip=Aumenta aún más las líneas de pesca durante la lluvia \nInvoca una nube que empapa enemigos \nLos enemigos empapados reciben hasta un 20% más de daño
+rainsummonsettip2=Daño de la nube: <damage>
+bloodplatemasksettip=Después de recibir daño, tu regeneración de vida se duplica por 4 segundos \nMejora las armas de invocación de vampiro
+bloodplatemasksettip2=Con menos del 50% de vida ganas robo de vida e invocas un murciélago al matar
+frostcrownsettip=Los ataques de invocación ralentizan y causan 15 de daño al objetivo por 5 segundos \nMejora las armas de invocación de escarcha
+frostcrownsettip2=Las armas de invocación disparan un proyectil de carámbano que causa 25% de daño
+redspidersettip=Otorga inmunidad a ralentización y ceguera \nLos ataques de invocación ralentizan enemigos
+redspidersettip2=Los golpes críticos de invocación dejan charcos de veneno
+copperminersettip=Aumenta la luz de lámparas y velas mágicas
+copperminersettip2=Presiona [input=setability] para convertir tus esbirros en proyectiles guiados que incendian enemigos
+leathersettip=Mientras estás montado, tu daño de invocación aumenta
+// T2
+titaniumrangedtip=Invoca un arco de titanio que dispara flechas cuando atacas con arcos y armas de invocación \nSolo dispara mientras estás quieto \nCada disparo causa el 50% del daño del arma
+titaniummagictip=Invoca un báculo de titanio mientras estés por encima del 50% de maná \nInvoca rayos sobre enemigos
+pharaohsmasksettip=Invoca una langosta cuando matas un enemigo \nPuedes tener hasta <amount> langostas
+pharaohsmasksettip2=Daño de la langosta: <damage>
+titaniumsettip=Aumenta tu daño de invocación por cada espacio de inventario lleno
+titaniumsummontip=Invoca un lobo de titanio por cada 4 esbirros que tengas
+titaniummeleetip=Invoca una espada de titanio mientras estés por encima del 50% de vida
+plaguesettip=Invoca ratones periódicamente durante el combate
+plaguesettip2=Daño del ratón: <damage>
+// T3
+spiderbridesettip=Otorga inmunidad a ralentizaciones \nLos ataques de invocación envenenan al objetivo por 25 de daño por 5 segundos \nPresiona [input=setability] para invocar una novia araña que escupe veneno y telarañas
+spiderbridesettip2=Daño de la novia araña: <damage>
+agedsummonersettip=Bloquear justo antes de ser golpeado aumenta enormemente la regeneración de resistencia \nInvoca un campeón envejecido cuando tienes vida completa
+agedsummonersettip2=Daño del campeón envejecido: <damage>
+sharklavasettip=Los ataques de invocación sangran y queman enemigos por <value> de daño por <duration> segundos \nAcumulando hasta 10 veces
+sharklavasettip2=Ganas velocidad de movimiento y daño de invocación por cada enemigo sangrado recientemente \nEres inmune a lava y efectos de quemadura
+sharpshootersummonsettip=Invoca un tirador que dispara balas \nSus balas rebotan a otros enemigos al matar
+sharpshootersummonsettip2=Daño del tirador: <damage>
+shadowhelmetsettip=Los ataques de invocación atormentan al objetivo por 25 de daño por 5 segundos
+horrorsettip=Invoca espíritus menores del horror durante el combate
+horrorsettip2=Daño del espíritu del horror: <damage>
+// T4
+slimehoodsettip=Presiona [input=setability] para reducir todo el daño que recibes a 1 por 5 segundos,\npero recibes considerablemente más retroceso
+slimehoodsettip2=Invoca slimes magos y guerreros para atacar enemigos \nDaño del slime: <damage>
+ravenlordsummonsettip=Invoca señores de los cuervos mientras te mueves, disparando plumas a enemigos y causando daño basado en tu velocidad de movimiento
+ravenlordsummonsettip2=Daño del señor de los cuervos: <damage>
+ghostcaptainssettip=Presiona [input=setability] para invocar un barco pirata fantasma que dispara balas de cañón a enemigos
+ghostcaptainssettip2=Daño del capitán fantasma: <damage>
+arcanicsummonsettip=Presiona [input=setability] para invocar una Centinela de Pilar Árcano para electrocutar a tus enemigos
+arcanicsummonsettip2=Daño del pilar árcano: <damage>
+sailorsettip=Invoca marineros mientras estás montado que causan daño basado en la velocidad de tu proyectil
+sailorsettip2=Daño del marinero: <damage>
+chefsummonerhattip=Puedes tener 1 bono de comida extra \nInvoca un Chef de Batalla al recibir daño
+chefsummonerhattip2=Daño del Chef de Batalla: <damage>
+
+// Abalorios
+// T1
+flowerbroochtip=Aumenta la velocidad de ataque de centinelas en un 10% \nDisminuye tu rango de agresión en un 50% mientras no atacas
+cactusemblemtip=Devuelve daño a los atacantes \nEl daño se multiplica con los espacios máximos de esbirros
+lightningamulettip=Dispara ráfagas de rayos al atacar enemigos con armas de invocación
+lightningamulettip2=El rayo causa <damage> de daño
+timeworncoinstip=Cada 5 golpes recibidos suelta 5 monedas
+alienparasitetip=Aumenta el daño de invocación, daño crítico, resistencia máxima y maná a costa de vida máxima y resiliencia \nSe vuelve más fuerte después de cada muerte de jefe
+// T2
+overchargedvstip=Aumenta el maná máximo en 50 \nConvierte el daño recibido en maná \nReduce el daño recibido en un 10% cuando el maná está lleno \nAumenta el daño recibido en un 20% durante agotamiento de maná
+frostsentrycoretip=20% de probabilidad de congelar enemigos que te golpean \nLas armas de garra tienen un 50% de probabilidad de invocar picos de hielo que causan el 20% del daño de la garra
+geniewishtip=Disminuye la probabilidad de crítico de invocación en un 100% \nCada 20 golpes con armas de invocación causan un gran golpe crítico
+demonicpolarclawtip=Los ataques de invocación ralentizan enemigos \nAumenta la resistencia al retroceso
+sandtemplemonkheadtip=Golpear enemigos otorga acumulaciones de tranquilidad \nPresiona [input=trinketability] para consumir la mitad de las acumulaciones para curarte \nLa curación se vuelve más fuerte cuanto menos vida tienes \n20 segundos de recarga
+// T3
+strangecookpottip=Puedes tener 1 bono de comida extra \nAumenta la duración de pociones en un 50% \nLos ataques de invocación tienen un 10% de probabilidad de crear una explosión de curación \nEl alcance de la explosión escala con el alcance del objetivo de invocación
+summonergambittip=+1 esbirro máximo \n+10 armadura \n+50% daño de invocación \n-50% daño no-invocación \n+10% probabilidad de crítico de invocación \nSolo se puede equipar en la ranura de abalorio de habilidad
+challengeraptip=Aumenta la resiliencia máxima en 65 \nReduce la decadencia de resiliencia en un 75% \nAumenta la ganancia de resiliencia en un 50% y aumenta al 100% durante batallas contra jefes
+essenceofcompanionshiptip=Aumenta la ganancia de esencia de vida en un 50% y la duración en un 100% \nAumenta enormemente el daño y velocidad de invocación por cada espacio de invocación no usado
+fishianeggstip=Aumenta la duración de la esencia de vida en un 50% \nDisminuye la ganancia de esencia de vida en -50% \nCada acumulación de esencia de vida aumenta la resiliencia máxima
+galvanicamulettip=Aumenta la velocidad de ataque de invocación en un 20% \nDispara 3 ráfagas de rayos al atacar enemigos con armas de invocación
+galvanicamulettip2=El rayo causa <damage> de daño
+shadowhorrorcapetip=Aumenta la velocidad de movimiento en un 20% \nInvoca murciélagos del horror al recibir daño
+// T4
+calmminerslanterntip=Invoca un Fuego Fatuo \nAumenta estadísticas de minería y construcción \nMinar rocas causa daño en área a otras rocas cercanas \nEl daño de invocación aumenta con el daño de minería \nAgitar para desactivar el efecto calmante
+minerslanterntip=Invoca un Fuego Fatuo \nAumenta estadísticas de minería y construcción \nMinar rocas causa daño en área a otras rocas cercanas \nEl daño de invocación aumenta con el daño de minería \nAgitar para activar el efecto calmante
+bagofbulletstip=Reduce el uso de balas en un 75% \nAumenta el rebote de proyectiles en 10 \nAumenta la velocidad de ataque de invocación en un 20% \nReduce la penalización de movimiento de ataque \nExtiende el alcance de descubrimiento del mapa \nAgitar para cambiar a la bolsa de flechas
+bagofarrowstip=Reduce el uso de flechas en un 75% \nAumenta el retroceso causado en un 50% \nAumenta la velocidad del proyectil en un 20% \nReduce la penalización de movimiento de ataque \nExtiende el alcance de descubrimiento del mapa \nAgitar para cambiar a la bolsa de balas
+transplantedhearttip=Aumenta la resiliencia máxima y la regeneración de vida \nConvierte la mitad de tu vida en resiliencia \nRegenera resiliencia cuando tienes vida completa \nRestaura el 25% de vida al recibir daño fatal \n5 minutos de recarga
+frenzyhorrorcapetip=Aumenta la velocidad de movimiento en un 20% \nGanas 4 de regeneración de vida por segundo mientras estás por debajo del 50% de vida \nGanas hasta +50% de daño de invocación basado en la vida faltante \nInvoca murciélagos del horror al recibir daño
+balancedsummonerboardtip=Aumenta el daño de invocación en un 15% \nGanas un 5% de daño de invocación por cada invocación diferente que tengas \nLos ataques de invocación ralentizan enemigos y causan 35 de daño por 5 segundos
+companionsatchelstip=Aumenta estadísticas de invocación \nAumenta el límite de resistencia \nAumenta la ganancia y duración de la esencia de vida \nAumenta enormemente el daño y velocidad de invocación por cada espacio de invocación no usado
+magicianboardtip=Aumenta estadísticas de invocación y magia \nGanas un 5% de daño de invocación por cada invocación diferente que tengas \nLos ataques de invocación ralentizan enemigos y causan 35 de daño por 5 segundos
+scryingmagicianscardtip=+4 invocaciones máximas \nAumenta estadísticas de maná \nAumenta la velocidad de invocación y velocidad de ataque en un 45% \nEl daño mágico aumenta en un 50% de tu daño de invocación
+littleangeltip=Equipa y presiona [input=trinketability] para avanzar \nAumenta tus estadísticas de invocación y embestida \nSer golpeado reinicia la recarga de tu embestida
+necroticclawtip=Los ataques de invocación ralentizan enemigos \nAumenta la resistencia al retroceso \nAumenta la penetración de armadura en 20 \nAumenta el daño crítico de invocación en un 5%
+necromancerarmortip=Mejora tus estadísticas de invocador \nGanas daño y regeneración de vida con poca vida \nInvoca murciélagos del horror al recibir daño
+littlemechatip=Equipa y presiona [input=trinketability] para avanzar \nAumenta tus estadísticas de invocación, vida, resiliencia y embestida
+frenzystoneringtip=Ganas hasta +50% de daño de invocación basado en la vida faltante \nGanas 4 de regeneración de vida por segundo mientras estás por debajo del 50% de vida
+crystalamalgamationtip=Las armas de garra disparan 4 cristales que causan el 10% del daño de la garra cada uno
+teapotminiontip=Puedes tener 1 bono de comida extra \nInvoca una tetera mágica que ataca enemigos
+livingarmorstandtip=Aumenta la Armadura en 15 \nInvoca un soporte de armadura vivo \nCada pocos golpes causa daño adicional basado en el valor de tu armadura \nUsa 1 espacio de esbirros
+
+//Desafío
+doomshroomshieldtip=Aumenta el daño de invocación en un 10% \nAumenta el rango de agresión en un 50% \nEquipa y presiona [input=trinketability] para explotar \nLa explosión aleja enemigos y los incendia \n10 segundos de recarga
+pumpkinminiontip=Aumenta la duración de pociones en un 20% \nInvoca un esbirro calabaza que lanza calabazas explosivas a enemigos \nLas calabazas lanzadas tienen un 10% de probabilidad de caer en golpes fallidos
+carrotminiontip=Aumenta el rango de minería en un 20% \nInvoca un esbirro zanahoria que lanza zanahorias perforantes a enemigos \nLas zanahorias lanzadas tienen un 10% de probabilidad de caer en golpes fallidos
+potatominiontip=Aumenta el retroceso en un 20% \nInvoca un esbirro papa que lanza papas saltarinas a enemigos \nLas papas lanzadas tienen un 10% de probabilidad de caer en golpes fallidos
+beetminiontip=Aumenta la velocidad de minería en un 20% \nInvoca un esbirro remolacha que lanza remolachas a enemigos \nLas remolachas lanzadas tienen un 10% de probabilidad de caer en golpes fallidos
+onionminiontip=Aumenta la velocidad en un 20% \nInvoca un esbirro cebolla que lanza cebolas bumerán a enemigos \nLas cebolas lanzadas tienen un 10% de probabilidad de caer en golpes fallidos
+jellyfishminiontip=Otorga inmunidad a ceguera \nInvoca un esbirro medusa que ataca enemigos
+silvergoblettip=Aumenta la Armadura en un 15% para todos los aliados cercanos
+
+// Bonificaciones de Pociones
+minionequinoxtip=Aumenta el daño de invocación y velocidad de movimiento durante el día \nAumenta la armadura y vida máxima durante la noche
+sunflowerpotiontip=Aumenta la velocidad de ataque de centinelas en un 20% \nAumenta la capacidad de resistencia en un 50% \nOtorga inmunidad a ceguera
+minionfarmtip=Disminuye el movimiento pero aumenta el rango de recolección en 50, la tasa de aparición de mobs en un 50%, la velocidad de invocación y alcance en un 40%
+minioncloserangetip=Disminuye el alcance de invocación en un 80% y aumenta la velocidad de invocación y velocidad de ataque en un 20%
+minioncritchancetip=Aumenta la probabilidad de crítico de invocación en un 10%
+minionattackspeedtip=Aumenta la velocidad de ataque de invocación en un 20%
+minioncrittip=Aumenta el daño crítico de invocación en un 50%
+minionrangetip=Aumenta el alcance de invocación en un 50%
+minionspeedtip=Aumenta la velocidad de invocación en un 20%
+
+// Monturas
+chieftainhattip=Te transforma en un jefe \nAumenta tu vida, armadura y espacios máximos de esbirros \nMantén [input=trinketability] para aumentar tu armadura y velocidad
+bouncingbonetip=Te transforma en un lanzador de esqueletos \nPresiona [input=trinketability] para disparar huesos saltarines
+cryptfangstip=Te transforma en un vampiro de cripta \nPresiona [input=trinketability] para disparar proyectiles de sangre guiados
+magiccheesetip=Te transforma en un ratón \nDisminuye enormemente tu rango de agresión, haciendo que los enemigos te ignoren
+zombiearrowtip=Te transforma en un arquero zombi \nPresiona [input=trinketability] para disparar flechas
+minivultureeggtip=Te transforma en un buitre \nPresiona [input=trinketability] para disparar plumas
+cavelingminecarttip=Solo puede moverse en rieles \nAumenta tu rango de recolección de objetos
+sharkdivingmasktip=Te transforma en un tiburón \nPresiona [input=trinketability] para disparar olas
+cavespidergootip=Te transforma en una araña negra gigante de cueva \nPresiona [input=trinketability] para escupir veneno
+frozendwarfbeardtip=Te transforma en un enano congelado \nPresiona [input=trinketability] para lanzar jabalinas congeladas
+forestspectorhandstip=Te transforma en un espectro del bosque \nPresiona [input=trinketability] para invocar espectros del bosque
+swampdwellerbowtip=Te transforma en un habitante del pantano \nPresiona [input=trinketability] para disparar una flecha que se divide en pétalos
+snowwolftailtip=Te transforma en un lobo de nieve \nPresiona [input=trinketability] para invocar lobos
+
+// Descripción de Jefes
+horrorportaltip=Invoca un ejército de espíritus del horror
+
+// Materiales
+purehorrortip=Se usa para fabricar equipamiento de pesadilla
+
+// Objetos
+overgrowthornstip=Se puede colocar en bloques de barro \nCrecen espinas inofensivas con el tiempo que se pueden cosechar
+arcanicconvertertip=Convierte objetos en otros objetos \nCada lado tiene su propio inventario
+beehivechesttip=Puede almacenar hasta 20 objetos \nReduce la tasa de deterioro de objetos en un 50%
+bannerofwatertip=Permite caminar sobre el agua \nAumenta tu poder de pesca y líneas
+caveglowlamptip=Tiene un alto radio de brillo \nAumenta tu alcance de invocación y minería
+tanktrainingdummytip=Un maniquí de entrenamiento más fuerte con 1000 de armadura
+ascendedwizardstatuetip=Una reliquia de la victoria
+arcanicchesttip=Puede almacenar hasta 80 objetos
+
+// Bolsas
+shadowbagtip=Almacena herramientas y armas recogidas
+
+// Bolsas de Botín
+sunkenchesttip=Se encuentra en lagos de cuevas del pantano
+
+// Mapas
+horrorcultmaptip=El culto se encuentra en la cueva profunda
+
+// Criaturas
+honeybeeguardmobtip=Una abeja hostil que no puede ser asesinada
+sandscorpionmobtip=Se encuentra en el templo de arena
+
+// Pesca
+inspectorclouseautip=Se encuentra pescando en el océano
+runicfishtip=Se encuentra pescando en cuevas de las llanuras
+tinyorcatip=Se encuentra pescando en el océano
+waterzombietip=Se encuentra pescando en cuevas del bosque
+shadowcreaturetip=Se encuentra pescando en cuevas profundas del bosque
+
+// Suelos
+empoweredsapphiretip=Aumenta la velocidad del jugador y colonos en un 50% \nAumenta la probabilidad de crítico de invocación y el daño crítico de invocación en un 10%
+empoweredemeraldtip=Aumenta la velocidad del jugador y colonos en un 50% \nAumenta el maná máximo y la regeneración de maná durante el combate en un 10%
+empoweredamethysttip=Aumenta la velocidad del jugador y colonos en un 50% \nAumenta el alcance del objetivo de invocación y el retroceso en un 10%
+empoweredrubytip=Aumenta la velocidad del jugador y colonos en un 50% \nAumenta la velocidad de invocación y la velocidad de ataque de invocación en un 10%
+empoweredtopaztip=Aumenta la velocidad del jugador y colonos en un 50% \nAumenta la resiliencia máxima y la regeneración de resiliencia en un 10%
+ancientgrasstiletip=Crece hierba alta
+
+// Líquidos
+infhoneybuckettip=Almacena y recoge miel
+infhoneybucketplace=Colocar miel
+infhoneybucketpickup=Recoger miel
+
+// Otros
+clawweapontip=Mantén [input=mouse2] para cargar una embestida para atravesar enemigos \nPuedes embestir hasta <stacks> veces consecutivas \nDespués de golpear al mismo objetivo 6 veces, causa el siguiente efecto:
+mummytrinkettip=Aplica <value> acumulaciones de atormentamiento de momia al golpear. Con 50 acumulaciones de ataques de invocación o 10 acumulaciones de ataques mágicos, invoca un esbirro momia
+supportweapontip=Esta arma de apoyo tiene los siguientes efectos:
+minionspacetakentip=Cada invocación ocupa <amount> espacios de invocación
+clicksecondarytip=Presiona [input=mouse2] para invocar un esbirro
+clicksentrytip=Presiona [input=mouse2] para invocar una centinela
+sentrytip=Invoca una centinela que dispara a enemigos
+minionactivecap=Limitado a <amount> esbirros
+storedshadowtip=Objetos almacenados: <items>
+supportsentrytip=Invoca una centinela
+
+[mob]
+// Esbirros
+enchantedbabyzombiearcherminion=Esbirro Zombi Bebé Arquero Encantado
+enchantedbabyzombieminion=Esbirro Zombi Bebé Encantado
+lampminioncastle=Esbirro Candelabro del Castillo de Araña
+redspiderrangeminion=Esbirro Araña Roja a Distancia
+redspidermeleeminion=Esbirro Araña Roja Cuerpo a Cuerpo
+lampminiondungeon=Esbirro Candelabro de la Mazmorra
+golemsapphireminion=Esbirro Golem de Zafiro
+golemamethystminion=Esbirro Golem de Amatista
+golememeraldminion=Esbirro Golem de Esmeralda
+lampminiontungsten=Esbirro Lámpara de Tungsteno
+lampminiongold=Esbirro Lámpara Doble de Oro
+spiritghoulminion=Esbirro Ghoul Espiritual
+runerangedminion=Esbirro Chamán Rúnico
+golemtopazminion=Esbirro Golem de Topacio
+lampminioncopper=Esbirro Lámpara de Cobre
+runemeleeminion=Esbirro Bruto Rúnico
+golemrubyminion=Esbirro Golem de Rubí
+icewizardminion=Esbirro Mago de Hielo
+beequeenminion=Esbirro Abeja Reina
+vampireminion=Esbirro Vampiro
+bearpolarminion=Esbirro Oso Polar
+cactusminion=Esbirro Cactus
+farmerminion=Esbirro Granjero
+bearminion=Esbirro Oso
+
+// Gusano
+sandwormheadminion=Esbirro Cabeza de Gusano de Arena
+sandwormbodyminion=Esbirro Cuerpo de Gusano de Arena
+
+// Esbirros Secundarios
+explosivesnowmanminion=Esbirro Muñeco de Nieve Explosivo
+frozendwarfminion=Esbirro Enano Congelado
+runicshieldminion=Esbirro Escudo Rúnico
+magmaslimeminion=Esbirro Slime de Magma
+beebookminion=Esbirro Abeja
+
+// Esbirros Cuerpo a Cuerpo
+horrorcrawlingzombieminion=Esbirro Zombi Rastrero del Horror
+fishmackerelminion=Esbirro Pez Caballa
+fishherringminion=Esbirro Pez Arenque
+goblinchestminion=Esbirro Cofre Goblin
+fishsalmonminion=Esbirro Pez Salmón
+horrorwolfminion=Esbirro Lobo del Horror
+horrorbullminion=Esbirro Toro del Horror
+goblinheadminion=Esbirro Cabeza de Goblin
+fishtroutminion=Esbirro Pez Trucha
+goblinlegminion=Esbirro Pierna de Goblin
+fishcarpminion=Esbirro Pez Carpa
+fishianminion=Esbirro Pez
+
+// Esbirros a Distancia
+mosquitobowminion=Esbirro Mosquito
+
+// Esbirros de Armadura
+ghostcaptainsminion=Esbirro Capitán Fantasma
+agedchampionminion=Esbirro Campeón Envejecido
+spiderbrideminion=Esbirro Novia Araña
+horrorbabyminion=Esbirro Fantasma del Horror
+locustminion=Esbirro Langosta
+mouseminion=Esbirro Ratón
+
+// Esbirros de Abalorios
+mummymagicminion=Esbirro Momia Mágica
+teapotminion=Esbirro Tetera Mágica
+horrorbatminion=Esbirro Murciélago del Horror
+jellyfishminion=Esbirro Medusa
+mummysummonminion=Esbirro Momia
+pumpkinminion=Esbirro Calabaza
+carrotminion=Esbirro Zanahoria
+potatominion=Esbirro Papa
+onionminion=Esbirro Cebolla
+beetminion=Esbirro Remolacha
+
+// Centinela
+xmastreesentry=Centinela Árbol de Navidad
+mushroomsentry=Centinela Champiñón
+caveglowsentry=Centinela Brillo de Cueva
+coffinsentry=Centinela Ataúd
+
+// Esbirros de Centinela Cuerpo a Cuerpo
+horrorspikesentry=Centinela de Espinas del Horror
+
+// Esbirros de Centinela Mágica
+iceblossomsentry5=Centinela Flor de Hielo
+iceblossomsentry1=Centinela Flor de Hielo
+iceblossomsentry=Centinela Flor de Hielo
+sunflowersentry5=Centinela Girasol
+sunflowersentry1=Centinela Girasol
+sunflowersentry=Centinela Girasol
+firemonesentry5=Centinela Llama
+firemonesentry1=Centinela Llama
+firemonesentry=Centinela Llama
+
+// Centinela Consumible
+leafshotheatsentry=Centinela Lanzahojas de Fuego
+leafshotcoldsentry=Centinela Lanzahojas de Hielo
+leafshotsentry=Centinela Lanzahojas
+
+// Esbirros de Esbirros
+batcryptminion=Esbirro Murciélago de Cripta
+mushroomminion=Esbirro Champiñón
+beeminion=Esbirro Abeja
+
+// Monturas
+cavespidersummonmount=Forma de Araña Negra Gigante de Cueva
+cryptvampiresummonmount=Forma de Vampiro de Cripta
+skeletonthrowersummonmount=Forma de Esqueleto
+frozendwarfsummonmount=Forma de Enano Congelado
+spectorsummonmount=Forma de Espectro del Bosque
+dwellersummonmount=Forma de Habitante del Pantano
+zombiearchersummonmount=Forma de Zombi
+vulturesummonmount=Forma de Buitre
+chiefsummonmount=Forma de Jefe
+mousesummonmount=Forma de Ratón
+sharksummonmount=Forma de Tiburón
+wolfsummonmount=Forma de Lobo
+
+// Carros
+cavelingminecartmount=Vagoneta de Mina del Cavernícola
+cavelingminecart=Vagoneta de Mina del Cavernícola
+
+// Jefe
+riftportalmob=Portal de la Grieta del Horror
+
+// Enemigos
+sandgiantscorpionmob=Escorpión Gigante del Templo de Arena
+horrorspiritcultsummon=Invocador del Culto del Espíritu del Horror
+horrorspiritcultmelee=Cultista del Espíritu del Horror
+horrorspiritcultmagic=Cultista del Espíritu del Horror
+horrorspiritcultrange=Cultista del Espíritu del Horror
+horrorspiritbossmob=Espíritu del Horror Ancestral
+horrorspiritcultminion=Espíritu del Horror
+vampireminibossmob=Vampiro Poderoso
+honeybeeguardmob=Guardia Abeja de Miel
+horrorspiritmob=Espíritu del Horror
+lavacavesharkmob=Tiburón de Lava
+woodmob=Ídolo de Madera
+
+// Criatura
+sandscorpionmob=Escorpión del Templo de Arena
+
+// Colonos
+druidhumanname=<name> el Druida
+druidhuman=Druida
+
+[mobmsg]
+druidtalk1=¿Te interesan las artes de la invocación?
+druidtalk2=Los árboles son más habladores en mi ciudad natal
+druidtalk3=Estoy buscando sacrificios
+druidtalk4=¡Hola, mi aprendiz!
+
+[buff]
+// Buffs
+horrorglaivestack=Permite invocación de centinela del horror con 100 acumulaciones
+coppertoolbuff=Aumento de alcance y velocidad de minería
+firemonebuff=Penetración de armadura y velocidad de proyectil
+goblinswordstack=Permite invocación de goblins con 50 acumulaciones
+goldtoolbuff=Aumento de alcance y velocidad de minería
+irontoolbuff=Aumento de alcance y velocidad de minería
+woodtoolbuff=Aumento de alcance y velocidad de minería
+horrorswordstack=Buff de velocidad de ataque de la espada del horror
+fishianstack=Invoca un pez con 100 acumulaciones
+mushroombuff=Las muertes aumentan tu vida máxima
+coffebeambuff=Aumento de velocidad de ataque de centinelas
+ramnunchuckstack=Acumulación de velocidad de invocación del carnero
+clawvulturebuff=Buff de velocidad de la garra de buitre
+honeybuff=Regeneración de vida durante el combate
+sharklavafrenzybuff=Fiebre del tiburón de lava
+pinewoodbuff=Acumulaciones de esbirro de pino
+iceblossombuff=Armadura y resiliencia
+geniecritbuff=Acumulaciones críticas del genio
+adaptivealienbuff=Acumulaciones adaptativas
+silvergobletbuff=Aumento de armadura
+clawdashstacks=Acumulaciones de embestida de la garra
+runicshieldbuff=Armadura rúnica
+healglyphbuff=Regeneración de vida
+sunflowerbuff=Regeneración de vida
+monkstacksbuff=Acumulaciones de tranquilidad
+
+// Debuffs
+summongenericdotdebuff=2x daño recibido de debuffs elementales
+sharklavadebuff=Sangrado y daño de fuego con el tiempo
+bleedingdebuff=-20% de daño y 2 de daño de veneno
+summongenericweaknessdebuff=+20% de daño recibido
+summongenericrangedebuff=-50% de alcance del objetivo
+summongenerichealthdebuff=-20% de vida máxima
+redspiderdebuff=2x daño de veneno recibido
+waterweakdebuff=Aumento de daño recibido
+redspiderpoisondebuff=Daño de veneno
+enchanteddebuff=-10 de armadura plana
+mosquitodebuff=-10% de armadura
+mushroomdebuff=20% de ralentización
+honeydebuff=10% de ralentización
+
+// Recargas
+horrorglaivecooldowndebuff=Recarga del Glaive del Horror
+arcanicsummoncooldown=Recarga del Invocador Árcano
+sandtemplemonkheadcooldown=Recarga de la Cabeza de Monje
+ghostcaptainscooldown=Recarga del Capitán Fantasma
+goblincooldowndebuff=Recarga de la Espada Goblin
+spiderbridecooldown=Recarga de la Novia Araña
+coppersetcooldown=Recarga del Conjunto de Cobre
+clawdashcooldown=Recarga de la Embestida de la Garra
+
+// Invocaciones
+summonedlivingarmorstandminionbuff=Esbirro Soporte de Armadura Vivo
+summonedagedchampionminionbuff=Esbirro Campeón Envejecido
+summonedteapotminionbuff=Esbirro Tetera Mágica
+summonedjellyfishminionbuff=Esbirro Medusa
+summonedsharpshooterbuff=Esbirro Tirador
+summonedtitaniumminionbuff=Esbirro de Titanio
+summonedpumpkinminionbuff=Esbirro Calabaza
+summonedcarrotminionbuff=Esbirro Zanahoria
+summonedpotatominionbuff=Esbirro Papa
+summonedonionminionbuff=Esbirro Cebolla
+summonedcloudminionbuff=Esbirro Nube
+summonedbeetminionbuff=Esbirro Remolacha
+// Buffs Genéricos
+summongenericdotdebuff=2x daño recibido de debuffs elementales
+summongenericweaknessdebuff=Recibe 20% más de daño
+summongenericrangedebuff=-50% de alcance del objetivo
+summongenerichealthdebuff=-20% de vida máxima
+
+// Líquido
+liquidhoneybuff=Nadando en miel
+
+[bufftooltip]
+liquidhoneytip=Movimiento reducido y regeneración de vida aumentada
+geniecrittip=Con 20 acumulaciones causas un gran golpe crítico
+monkstackstip=Cada acumulación aumenta tu resistencia máxima
+copperbufftip=<value> proyectiles consecutivos disparados
+adaptivealientip=Aumenta con cada muerte de jefe
+
+[buffmodifiers]
+transformationspeed=<mod>% velocidad de transformación
+sentryattackspeed=<mod>% velocidad de ataque de centinela
+emitsummonlight=Emite luz más fuerte
+
+[journal]
+watergrasscollected=[item=watergrass] Recolecta 35 hierbas acuáticas
+lanternplaced=[item=waterlantern] Coloca 5 linternas acuáticas
+fincollected=[item=fins] Reúne un abalorio de aletas
+bucketcrafted=[item=bucket] Fabrica un cubo
+duckkilled=[mob=duck] Caza 20 patos
+upgradetier1=[mob=swampguardian] Derrota al Guardián del Pantano para mejorar tus centinelas de soporte mágico
+upgradetier2=[mob=piratecaptain] Derrota al Capitán Pirata para mejorar tus centinelas de soporte mágico
+upgradetier3=[mob=pestwarden] Derrota al Guardián de Plagas para mejorar tus centinelas de soporte mágico
+upgradetier4=[mob=fallenwizard] Derrota al Mago Caído para mejorar tus centinelas de soporte mágico
+beetkilled=[mob=cropplerbeet] Mata 20 remolachas aplastadoras de cueva
+beetplanted=[item=beetseed] Planta 20 semillas de remolacha en cuevas
+seedcollected=[item=wheatseed] Recolecta 50 semillas que se pueden encontrar en cuevas del bosque
+onionkilled=[mob=croppleronion] Mata 20 cebollas aplastadoras de cueva
+onionplanted=[item=onionseed] Planta 20 semillas de cebolla en cuevas
+
+snowmancollected=[item=snowmantrainingdummy] Fabrica un muñeco de nieve
+xmaswreathcollected=[item=christmaswreath] Reúne una corona de Navidad
+xmastreeplaced=[item=christmastree] Coloca un árbol de Navidad
+cookieeated=[item=cookies] Come una galleta
+potatokilled=[mob=cropplerpotato] Mata 20 papas aplastadoras de cueva
+potatoplanted=[item=potatoseed] Planta 20 semillas de papa en cuevas
+pumpkinkilled=[mob=cropplerpumpkin] Mata 20 calabazas aplastadoras de cueva
+pumpkinplanted=[item=pumpkinseed] Planta 20 semillas de calabaza en cuevas
+
+trapreversecollected=[item=glyphtrapreversedamage] Recolecta 3 trampas de daño inverso
+trapchickencollected=[item=glyphtrapchicken] Recolecta 3 trampas de pollo
+trapbouncycollected=[item=glyphtrapbounce] Recolecta 3 trampas de rebote
+
+fireflycollected=[mob=firefly] Captura una luciérnaga
+eggplaced=[item=friedegg] Come un huevo frito
+katanastonedestroyed=[item=katanastone] Recolecta una katana de una piedra
+whiteflowerplaced=[item=whiteflowerpatch] Coloca 15 flores blancas
+
+fishiankilled=[mob=fishianhookwarrior] Mata 40 peces en el pantano
+bamboocollected=[item=bamboo] Recolecta 100 bambúes
+shelldestroyed=[item=seashell] Recolecta 30 conchas marinas
+sporekilled=Destruye 10 esporas del pantano
+mushroomcollected=[item=mushroom] Recolecta 50 champiñones
+mudcollected=[item=mudtile] Recolecta 100 bloques de barro
+stinkflaskcollected=[item=stinkflask] Reúne un frasco apestoso
+
+carrotkilled=[mob=cropplercarrot] Mata 20 zanahorias aplastadoras de cueva
+carrotplanted=[item=carrotseed] Planta 20 semillas de zanahoria en cuevas
+
+[enchantment]
+// armas de invocación
+uncontrollable=Incontrolable
+incapacitated=Incapacitado
+unambiguous=Inequívoco
+definitive=Definitivo
+ferocious=Feroz
+frenzied=Enfurecido
+maniacal=Maníaco
+untamed=Indomado
+strict=Estricto
+fierce=Salvaje
+feral=Feral
+
+// equipamientos
+energetical=Energético
+sacrificial=Sacrificial
+weaponized=Armamentizado
+aggressive=Agressivo
+druidic=Drúidico
+focused=Enfocado
+arcanic=Árcano
+greedy=Codicioso
+bloodthirsty=Sanguinario
+securely=Seguro
+opportune=Oportuno
+vexed=Irritado
+
+[tech]
+summontablecraft=Mesa de Invocación
+summontablecraft2=Mesa de Invocación Demoníaca
+summontablecraft3=Mesa de Invocación de Tungsteno
+summontablecraft4=Mesa de Invocación Caída
+
+[incursion]
+horrorspiritrewarddesc=Las incursiones ahora tienen probabilidad de generar espíritus del Horror
+horrorspiritreward=Invasión de Pesadilla
+
+[biome]
+horrorsmallarena=Reunión del Culto del Horror de las Sombras
+vulturesmallarena=Santuario del Buitre Antiguo
+ancientforestminibiome=Bosque Antiguo
+druidswamphousecave=Casa del Druida en la Cueva
+christmasshrine=Santuario de Navidad
+druidswamphousealtar=Altar del Druida
+druidswamphouseside=Casa del Druida
+druidswamphouseloot=Casa del Druida
+druidswamphouseduo=Casa del Druida
+titaniumorenode=Nodo de Titanio
+druidswamphouse=Casa del Druida
+trainingplain=Área de Entrenamiento
+beehivearea=Área de la Colmena

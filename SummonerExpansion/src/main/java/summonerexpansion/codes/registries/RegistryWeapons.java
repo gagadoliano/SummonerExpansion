@@ -41,6 +41,7 @@ public class RegistryWeapons
         ItemRegistry.registerItem("druidpolarclaw", new DruidPolarClaw(100, Item.Rarity.COMMON), 50, true);
         ItemRegistry.registerItem("ramnunchucks", new RamNunchucks(100, Item.Rarity.COMMON), 50, true);
         ItemRegistry.registerItem("webspiderwhip", new WebSpiderWhip(100, Item.Rarity.COMMON), 50, true);
+        ItemRegistry.registerItem("mimesword", new MimeSword(100, Item.Rarity.COMMON), 50, true);
         // Ranged
         // Magic
         ItemRegistry.registerItem("iceblossomstaff", new IceBlossomStaff(100, Item.Rarity.COMMON), 50, true);
@@ -70,7 +71,8 @@ public class RegistryWeapons
         ItemRegistry.registerItem("magicgoldlamp", new BaseSummonWeapon(10F,40F,2F,100, FollowPosition.CIRCLE_FAR, Item.Rarity.UNCOMMON,"lampminiongold","magicgoldlamptip"), 100, true);
         ItemRegistry.registerItem("runebonestaff", new RuneboneStaff(200, Item.Rarity.UNCOMMON), 100, true);
         ItemRegistry.registerItem("goldpitchfork", new BaseSummonWeapon(30F,120F,2F,100, FollowPosition.WALK_CLOSE, Item.Rarity.UNCOMMON,"farmerminion","goldpitchforktip"), 100, true);
-        ItemRegistry.registerItem("vampirewings", new BaseSummonSetWeapon(20F,65F,1F,100, FollowPosition.WALK_CLOSE, Item.Rarity.UNCOMMON,"vampireminion","vampirewingstip", "bloodplatecowlsetbonus", new Color(180, 15, 50)), 100, true);
+        ItemRegistry.registerItem("vampirewings", new BaseSummonSetWeapon(20F,65F,1F,100, FollowPosition.WALK_CLOSE, Item.Rarity.UNCOMMON,"vampireminion","vampirewingstip", "bloodplatemasksetbonus", new Color(180, 15, 50)), 100, true);
+        ItemRegistry.registerItem("hungrymimic", new HungryMimic(200, Item.Rarity.UNCOMMON), 100, true);
         // Melee
         ItemRegistry.registerItem("globeboomerang", new GlobeBoomerang(200, Item.Rarity.COMMON, null), 50, true);
         ItemRegistry.registerItem("druidnecroticclaw", new DruidNecroticClaw(200, Item.Rarity.UNCOMMON), 100, true);
@@ -129,7 +131,7 @@ public class RegistryWeapons
         // Magic
         // Secondary
         // Sentry
-        ItemRegistry.registerItem("vampirecoffin", new BaseSummonSetWeapon(60F,80F,1F,800, FollowPosition.WALK_CLOSE, Item.Rarity.EPIC,"coffinsentry","coffinsentrytip", "bloodplatecowlsetbonus", new Color(180, 15, 50)), 400, true);
+        ItemRegistry.registerItem("vampirecoffin", new BaseSummonSetWeapon(60F,80F,1F,800, FollowPosition.WALK_CLOSE, Item.Rarity.EPIC,"coffinsentry","coffinsentrytip", "bloodplatemasksetbonus", new Color(180, 15, 50)), 400, true);
 
         // Challenge
         ItemRegistry.registerItem("xmastreescepter", new XmasTreeScepter(800, Item.Rarity.EPIC), 10, true);

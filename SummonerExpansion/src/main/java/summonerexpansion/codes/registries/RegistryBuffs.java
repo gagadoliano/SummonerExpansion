@@ -23,6 +23,7 @@ public class RegistryBuffs
         public static Buff GOLDTOOL;
         public static Buff RUNICSHIELD;
         public static Buff HONEYBEEBUFF;
+        public static Buff MIMICSPEEDBUFF;
 
         // Melee
         public static Buff CLAW_DASH_COOLDOWN;
@@ -35,6 +36,7 @@ public class RegistryBuffs
         public static Buff RAMSTACKS;
         public static Buff GOBLINSTACKS;
         public static Buff HORRORSWORDSTACKS;
+        public static Buff MIMESTACKS;
         public static Buff HORRORGLAIVESTACKS;
         public static Buff FISHIANSTACKS;
 
@@ -63,6 +65,7 @@ public class RegistryBuffs
         BuffRegistry.registerBuff("goldtoolbuff", WeaponBuffs.GOLDTOOL = new BaseStackingBuff(20, new ModifierValue<>(MINING_RANGE, 0.25f), new ModifierValue<>(MINING_SPEED, 0.04f)));
         BuffRegistry.registerBuff("runicshieldbuff", WeaponBuffs.RUNICSHIELD = new BaseStackingBuff(24, new ModifierValue<>(ARMOR_FLAT, 1)));
         BuffRegistry.registerBuff("honeybeebuff", WeaponBuffs.HONEYBEEBUFF = new BaseStackingBuff(10, new ModifierValue<>(COMBAT_HEALTH_REGEN, 0.02f)));
+        BuffRegistry.registerBuff("mimicspeedbuff", WeaponBuffs.MIMICSPEEDBUFF = new MimicSpeedBuff());
 
         // Melee
         BuffRegistry.registerBuff("clawdashcooldown", WeaponBuffs.CLAW_DASH_COOLDOWN = new ShownCooldownBuff());
@@ -70,6 +73,7 @@ public class RegistryBuffs
         BuffRegistry.registerBuff("ramnunchuckstack", WeaponBuffs.RAMSTACKS = new BaseStackingBuff(50, new ModifierValue<>(SUMMONS_SPEED, 0.01f)));
         BuffRegistry.registerBuff("goblinswordstack", WeaponBuffs.GOBLINSTACKS = new BaseStackingBuff(50, new ModifierValue<>(STAMINA_CAPACITY, 0.01f)));
         BuffRegistry.registerBuff("horrorswordstack", WeaponBuffs.HORRORSWORDSTACKS = new BaseStackingBuff(100, new ModifierValue<>(SUMMON_ATTACK_SPEED, 0.02f)));
+        BuffRegistry.registerBuff("mimestack", WeaponBuffs.MIMESTACKS = new BaseStackingBuff(50, new ModifierValue<>(SUMMON_CRIT_DAMAGE, 0.02f)));
         BuffRegistry.registerBuff("horrorglaivestack", WeaponBuffs.HORRORGLAIVESTACKS = new BaseStackingBuff(100, new ModifierValue<>(ARMOR_PEN, 0.01f)));
         BuffRegistry.registerBuff("fishianstack", WeaponBuffs.FISHIANSTACKS = new BaseStackingBuff(100, new ModifierValue<>(SWIM_SPEED, 0.01f)));
         BuffRegistry.registerBuff("clawdemonbuff", WeaponBuffs.CLAWDEMON = new BaseClawStackingBuff());

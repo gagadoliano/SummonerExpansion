@@ -29,13 +29,16 @@ public class GalvanicAmuletBuff extends TrinketBuff
 
     public void onHasAttacked(ActiveBuff buff, MobWasHitEvent event)
     {
-        if (event.damageType == DamageTypeRegistry.SUMMON && attackCooldown <= 0 && !event.wasPrevented)
+        if (buff.owner.getLevel().isServer())
         {
-            for (int i = 0; i < 3; i++)
+            if (event.damageType == DamageTypeRegistry.SUMMON && attackCooldown <= 0 && !event.wasPrevented)
             {
-                buff.owner.getLevel().entityManager.events.add(new GalvanicTrailEvent(buff.owner, damage, 0f, (int)buff.owner.x, (int)buff.owner.y, (int)event.target.x, (int)event.target.y, GameRandom.getIntBetween(GameRandom.globalRandom, 1, 100)));
+                for (int i = 0; i < 3; i++)
+                {
+                    buff.owner.getLevel().entityManager.events.add(new GalvanicTrailEvent(buff.owner, damage, 0f, (int) buff.owner.x, (int) buff.owner.y, (int) event.target.x, (int) event.target.y, GameRandom.getIntBetween(GameRandom.globalRandom, 1, 100)));
+                }
+                attackCooldown = 60;
             }
-            attackCooldown = 60;
         }
     }
 

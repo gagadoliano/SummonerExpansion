@@ -47,6 +47,16 @@ public class RegistryRecipeTrinkets
                         new Ingredient("thornspotion", 1)
                 }
         ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "livingarmorstand",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("resistancepotion", 5),
+                        new Ingredient("armorstand", 1)
+                }
+        ));
     }
 
     public static void registerTier2()
@@ -100,6 +110,28 @@ public class RegistryRecipeTrinkets
                         new Ingredient("genielamp", 1),
                         new Ingredient("goldbar", 10),
                         new Ingredient("coin", 999)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "bullhead",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("cowskull", 1),
+                        new Ingredient("beef", 12),
+                        new Ingredient("leather", 25)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "definitiveshell",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("cactusemblem", 1),
+                        new Ingredient("shellofretribution", 1),
+                        new Ingredient("guardianshell", 1)
                 }
         ));
     }
@@ -198,6 +230,18 @@ public class RegistryRecipeTrinkets
                         new Ingredient("frogleg", 20),
                         new Ingredient("swamplarva", 10),
                         new Ingredient("healthpotion", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "demoniccontract",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("demonicbar", 20),
+                        new Ingredient("ectoplasm", 10),
+                        new Ingredient("stackofpaper", 5),
+                        new Ingredient("bloodstains", 5)
                 }
         ));
     }

@@ -4,7 +4,6 @@ import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.localization.message.GameMessage;
 import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.network.server.ServerClient;
-import necesse.engine.registries.MobRegistry;
 import necesse.engine.util.ComputedObjectValue;
 import necesse.engine.util.GameLinkedList;
 import necesse.engine.util.GameMath;
@@ -17,10 +16,8 @@ import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.Attac
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
 import necesse.gfx.camera.GameCamera;
-import necesse.gfx.drawOptions.texture.TextureDrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameSprite;
-import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 
@@ -88,24 +85,41 @@ public class SandWormHeadMinion extends AttackingFollowingWormMobHead<SandWormBo
         this.getLevel().entityManager.addParticle(new FleshParticle(this.getLevel(), sandWormHeadMinion, 2, GameRandom.globalRandom.nextInt(6), 32, this.x, this.y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
     }
 
-    protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
+    protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
+    {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
-        if (this.isVisible()) {
+        if (this.isVisible())
+        {
             GameLight light = level.getLightLevel(this);
             int drawX = camera.getDrawX(x) - 32;
             int drawY = camera.getDrawY(y);
             float headAngle = GameMath.fixAngle(GameMath.getAngle(new Point2D.Float(this.dx, this.dy)));
-            addAngledDrawable(list, this, new GameSprite(sandWormHeadMinion, 0, 0, 64), MobRegistry.Textures.sandWorm_mask, light, (int)this.height, headAngle, drawX, drawY, 64, perspective);
+            final MobDrawable headDrawable = WormMobHead.getAngledDrawable(this, new GameSprite(sandWormHeadMinion, 0, 0, 64), null, light, (int)this.height, headAngle, drawX, drawY, 96, perspective);
+            new ComputedObjectValue<>(null, () -> (double)0.0F);
+            ComputedObjectValue<GameLinkedList<WormMoveLine>.Element, Double> shoulderLine = WormMobHead.moveDistance(this.moveLines.getFirstElement(), 32.0F);
+            final MobDrawable shoulderDrawable;
+            if (shoulderLine.object != null)
+            {
+                Point2D.Double shoulderPos = WormMobHead.linePos(shoulderLine);
+                GameLight shoulderLight = level.getLightLevel(GameMath.getTileCoordinate(shoulderPos.x), GameMath.getTileCoordinate(shoulderPos.y));
+                int shoulderDrawX = camera.getDrawX((float)shoulderPos.x) - 32;
+                int shoulderDrawY = camera.getDrawY((float)shoulderPos.y);
+                float shoulderHeight = this.getWaveHeight(((WormMoveLine)((GameLinkedList.Element)shoulderLine.object).object).movedDist + (shoulderLine.get()).floatValue());
+                float shoulderAngle = GameMath.fixAngle((float)GameMath.getAngle(new Point2D.Double((double)this.x - shoulderPos.x, (double)(this.y - this.height) - (shoulderPos.y - (double)shoulderHeight))));
+                shoulderDrawable = WormMobHead.getAngledDrawable(this, new GameSprite(sandWormHeadMinion, 0, 1, 64), null, shoulderLight, (int)shoulderHeight, shoulderAngle, shoulderDrawX, shoulderDrawY, 96, perspective);
+            }
+            else {shoulderDrawable = null;}
+
+            topList.add(new MobDrawable() {
+                public void draw(TickManager tickManager) {
+                    if (shoulderDrawable != null)
+                    {
+                        shoulderDrawable.draw(tickManager);
+                    }
+                    headDrawable.draw(tickManager);
+                }
+            });
             this.addShadowDrawables(tileList, level, x, y, light, camera);
         }
-    }
-
-    protected TextureDrawOptions getShadowDrawOptions(int x, int y, GameLight light, GameCamera camera)
-    {
-        GameTexture shadowTexture = MobRegistry.Textures.sandWorm_shadow;
-        int drawX = camera.getDrawX(x) - shadowTexture.getWidth() / 2;
-        int drawY = camera.getDrawY(y) - shadowTexture.getHeight() / 2;
-        drawY += this.getBobbing(x, y);
-        return shadowTexture.initDraw().light(light).pos(drawX, drawY);
     }
 }

@@ -61,6 +61,7 @@ public class RegistryMinions
         MobRegistry.registerMob("butterflygreenminion", BookGreenButterflyMinion.class, false);
         MobRegistry.registerMob("butterflyblueminion", BookBlueButterflyMinion.class, false);
         MobRegistry.registerMob("butterflyredminion", BookRedButterflyMinion.class, false);
+        MobRegistry.registerMob("hungrymimicminion", HungryMimicMinion.class, false);
         // Long range
         MobRegistry.registerMob("runerangedminion", RuneRangedMinion.class, false);
         MobRegistry.registerMob("redspiderrangeminion", RedSpiderRangeMinion.class, false);
@@ -99,10 +100,11 @@ public class RegistryMinions
         MobRegistry.registerMob("fallendragonbodyminion", FallenDragonBodyMinion.class, false);
         // Sword
         MobRegistry.registerMob("horrorcrawlingzombieminion", HorrorCrawlingZombieMinion.class, false);
-        MobRegistry.registerMob("ramminion", RamMinion.class, false);
         MobRegistry.registerMob("goblinheadminion", GoblinHeadMinion.class, false);
         MobRegistry.registerMob("goblinchestminion", GoblinChestMinion.class, false);
         MobRegistry.registerMob("goblinlegminion", GoblinLegMinion.class, false);
+        MobRegistry.registerMob("mimeminion", MimeMinion.class, false);
+        MobRegistry.registerMob("ramminion", RamMinion.class, false);
         // Great Sword
         MobRegistry.registerMob("horrorbullminion", HorrorBullMinion.class, false);
         MobRegistry.registerMob("horrorwolfminion", HorrorWolfMinion.class, false);
@@ -133,6 +135,7 @@ public class RegistryMinions
         MobRegistry.registerMob("iceblossomsentry", IceBlossomSentry.class, false);
         MobRegistry.registerMob("sunflowersentry", SunflowerSentry.class, false);
         MobRegistry.registerMob("firemonesentry", FiremoneSentry.class, false);
+        MobRegistry.registerMob("thornsentry", ThornSentry.class, false);
     }
 
     public static void registerRanged()

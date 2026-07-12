@@ -6,20 +6,17 @@ import necesse.engine.localization.message.GameMessage;
 import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.network.server.ServerClient;
-import necesse.engine.registries.MobRegistry;
 import necesse.engine.util.ComputedValue;
 import necesse.engine.util.GameMath;
 import necesse.engine.util.GameRandom;
 import necesse.entity.ParticleTypeSwitcher;
 import necesse.entity.mobs.*;
-import necesse.entity.mobs.hostile.bosses.FallenDragonBody;
 import necesse.entity.mobs.summon.FollowingWormMobBody;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameSprite;
-import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.gameObject.GameObject;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
@@ -94,19 +91,21 @@ public class FallenDragonBodyMinion extends FollowingWormMobBody<FallenDragonHea
         }
     }
 
-    protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
+    protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
+    {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
-        if (this.isVisible()) {
+        if (this.isVisible())
+        {
             GameLight light = level.getLightLevel(this);
             int drawX = camera.getDrawX(x) - 32;
             int drawY = camera.getDrawY(y);
-            if (this.next != null) {
+            if (this.next != null)
+            {
                 Point2D.Float dir = new Point2D.Float((this.next).x - (float)x, (this.next).y - (this.next).height - ((float)y - this.height));
                 float angle = GameMath.fixAngle(GameMath.getAngle(dir));
-                MobDrawable drawOptions = WormMobHead.getAngledDrawable(this, new GameSprite(MobRegistry.Textures.fallenWizardDragon, 0, this.spriteY, 64), (GameTexture)null, light, (int)this.height, angle, drawX, drawY, 96, perspective);
+                MobDrawable drawOptions = WormMobHead.getAngledDrawable(this, new GameSprite(fallenDragonBodyMinion, 0, this.spriteY, 64), null, light, (int)this.height, angle, drawX, drawY, 96, perspective);
                 topList.add(drawOptions);
             }
-
             this.addShadowDrawables(tileList, level, x, y, light, camera);
         }
     }

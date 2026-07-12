@@ -322,6 +322,17 @@ public class RegistryRecipeWeapons
                         new Ingredient("carp", 2)
                 }
         ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "mimesword",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("mimeberet", 1),
+                        new Ingredient("mimeshirt", 1),
+                        new Ingredient("mimeboots", 1)
+                }
+        ));
     }
 
     public static void registerTier2()
@@ -368,6 +379,16 @@ public class RegistryRecipeWeapons
                         new Ingredient("rope", 5),
                         new Ingredient("goldbar", 25),
                         new Ingredient("wheat", 50)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "hungrymimic",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("mimicchest", 1),
+                        new Ingredient("speedpotion", 5)
                 }
         ));
 

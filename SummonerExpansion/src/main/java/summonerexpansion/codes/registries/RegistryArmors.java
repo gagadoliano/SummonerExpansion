@@ -135,7 +135,7 @@ public class RegistryArmors
         BuffRegistry.registerBuff("agedsummonersetbonus", registerArmorSets.AGEDSET = new AgedSummonerSetBonus());
         ItemRegistry.registerItem("spiderbridehelmet", new SpiderBrideHelmet(400, Item.Rarity.RARE), 200, true);
         ItemRegistry.registerItem("spiderbridechest", new SpiderBrideChest(400, Item.Rarity.RARE), 200, true);
-        ItemRegistry.registerItem("spiderbrideboots", new BaseSummonShoes((new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1, 0.20F).setUpgradedValue(10, 0.40F),"spiderbrideboots",17,400, Item.Rarity.COMMON), 200, true);
+        ItemRegistry.registerItem("spiderbrideboots", new SpiderBrideBoots(400, Item.Rarity.RARE), 200, true);
         BuffRegistry.registerBuff("spiderbridesetbonus", registerArmorSets.SPIDERBRIDESET = new SpiderBrideSetBonus());
         BuffRegistry.registerBuff("spiderbridecooldown", registerArmorSets.SPIDERBRIDECOOLDOWN = new ShownCooldownBuff());
         ItemRegistry.registerItem("sharpshootersummonhat", new SharpshooterSummonHat(400, Item.Rarity.RARE), 200, true);

@@ -116,6 +116,7 @@ gemrubyshards=Ruby Shards
 cactusstaff=Cactus Staff
 polarhead=Polar Head
 royalhive=Royal Hive
+hungrymimic=Hungry Mimic
 
 // Sentry weapons
 leafshotheatpack=Fire Leaf Shooter Seed Pack
@@ -157,6 +158,7 @@ horrorscythe=Horror Scythe
 horrorglaive=Horror Glaive
 goblinsword=Goblin Sword
 horrorsword=Horror Sword
+mimesword=Mime Sword
 wormbucket=Worm Bucket
 
 // Range weapons
@@ -221,23 +223,30 @@ sailorsummonshoes=Summoner Sailor Shoes
 essenceofcompanionship=Essence of Companionship
 challengerarmorpiece=Challenger's Armor Piece
 balancedsummonerboard=Balanced Summoner Board
+overchargedvoidshards=Overcharged Void Shards
 scryingmagicianscard=Scrying Magician's Card
 companionsatchels=Companion's Twin Satchels
 frozenassassinscowl=Frozen Assassins Cowl
 crystalamalgamation=Crystal Amalgamation
+sandtemplemonkhead=Sand Temple Monk Head
 magicianboard=Balanced Magician's Board
 calmminerslantern=Calm Miner's Lantern
+alienparasite=Adaptive Alien Parasite
 transplantedheart=Transplanted Heart
 doomshroomshield=Doom Shroom Shield
 shadowhorrorcape=Shadow Horror Cape
 demonicpolarclaw=Demonic Polar Claw
 frenzyhorrorcape=Frenzy Horror Cape
+livingarmorstand=Living Armor Stand
 strangecookpot=Strange Cooking Pot
 hystericalmirror=Hysterical Mirror
 necromancerarmor=Necromancer Armor
+frostsentrycore=Frost Sentry Core
+definitiveshell=Definitive Shell
 lightningamulet=Lightning Amulet
 frenzystonering=Frenzystone Ring
 inducingsatchel=Inducing Satchel
+demoniccontract=Demonic Contract
 galvanicamulet=Galvanic Amulet
 summonergambit=Summoner Gambit
 minerslantern=Miner's Lantern
@@ -250,6 +259,7 @@ silvergoblet=Silver Goblet
 cactusemblem=Cactus Emblem
 necroticclaw=Necrotic Claw
 duelistdolls=Duelist Dolls
+flowerbrooch=Flower Brooch
 magicteapot=Magic Tea Pot
 bagofarrows=Bag Of Arrows
 giantcarrot=Giant Carrot
@@ -259,16 +269,12 @@ littlemecha=Little Mecha
 spelltablet=Spell Tablet
 mesmercharm=Mesmer Charm
 fishianeggs=Fishian Eggs
+geniewish=Genie's Wish
 giantonion=Giant Onion
 giantbeet=Giant Beet
 bonepile=Bone Pile
 cowskull=Cow Skull
-geniewish=Genie's Wish
-overchargedvoidshards=Overcharged Void Shards
-frostsentrycore=Frost Sentry Core
-flowerbrooch=Flower Brooch
-alienparasite=Adaptive Alien Parasite
-sandtemplemonkhead=Sand Temple Monk Head
+bullhead=Bull Head
 
 // Potions
 minioncritchancepotion=Summon Critical Chance Potion
@@ -405,6 +411,7 @@ magicgoldlamptip=Summons a double gold lamp that glows and attack \nBurn foes on
 lampminiondungeontip=Summons a dungeon candelabra \nBurn foes at night
 vampirewingstip=Summons a vampire that shoots blood bolts at foes
 vampirewingstip2=Shoots faster projectiles that does 30% more damage
+hungrymimictip=Uses all your summon slots \nDamage is increased with each summon slot used
 // T3
 magictungstenlamptip=Summons a tungsten lamp that glows and attack \nBurn foes on hit
 dryadessencetip=Summons a slow moving ghoul \nThis ghoul leaves a damaging trail
@@ -448,6 +455,7 @@ horrorglaivetip=Charges the glaive by hitting foes \nUse [input=mouse2] when ful
 ramnunchuckstip=Gains summon speed stacks by hitting foes \nAt max stacks consume them to summons a magic ram
 goblinswordtip=Charges the sword by hitting foes \nUse [input=mouse2] when fully charged to summon 3 goblins
 fishianspeartip=Charges the spear by hitting foes \nSummons a fishian on your next attack when fully charged
+mimeswordtip=Gains critical damage stacks by hitting foes \nAt max stacks consume them to summons a mime
 globeboomerangtip=On hit summons up to 3 planets that orbits around you \nControllable when thrown
 horrorscythetip=Half charge to summon up to 3 horror wolfs \nFully charge to summon a horror bull
 druiddemonclawtip=Summons a portal that shoots projectiles and then spawn a demon
@@ -529,7 +537,7 @@ chefsummonerhattip2=Battle Chef damage: <damage>
 // Trinkets
 // T1
 flowerbroochtip=Increases sentry attack speed by 10% \nDecreases your aggro range by 50% while not attacking
-cactusemblemtip=Damages attackers back \nIt's damage multiply with max summons slots
+cactusemblemtip=Returns damage to the attacker \nIt's damage multiply with max summons slots
 lightningamulettip=Shoots lightning bursts when attacking foes with summon weapons
 lightningamulettip2=The lightning deals <damage> damage
 timeworncoinstip=Every 5 hits taken drops 5 coins
@@ -540,6 +548,7 @@ frostsentrycoretip=20% chance to freeze foes that hits you \nClaw weapons have 5
 geniewishtip=Decreases summon crit chance by 100% \nEvery 20 hits with summon weapons do a large critical hit
 demonicpolarclawtip=Summon attacks slows foes \nIncreases knockback resistance
 sandtemplemonkheadtip=Hitting foes gives tranquility stacks \nPress [input=trinketability] to consume half of the stacks to heal \nHealing gets stronger the less health you have \n20 seconds cooldown
+definitiveshelltip=10 armor \nEquip and press [input=trinketability] to temporarily increase armor \nCounters attackers with poison for 40 damage over 5 seconds and returns damage \nYou can use it as an item to dash while also temporarily increasing your armor
 // T3
 strangecookpottip=You can have 1 extra food buff \nIncreases potion duration by 50% \nSummon attacks have 10% chance to create a healing explosion \nThe explosion range scales with summon target range
 summonergambittip=+1 max summon \n+10 armor \n+50% summon damage \n-50% non-summon damage \n+10% summon crit chance \nCan only be equipped in the ability trinket slot
@@ -548,6 +557,7 @@ essenceofcompanionshiptip=Increases life essence gain by 50% and duration by 100
 fishianeggstip=Increases life essence duration by 50% \nDecreases life essence gain by -50% \nEach life essence stack increases max resilience
 galvanicamulettip=Increases summon attack speed by 20% \nShoots 3 lightning bursts when attacking foes with summon weapons
 galvanicamulettip2=The lightning deals <damage> damage
+demoniccontracttip=Takes bleeding damage over time \nOn foe kill drops 10 coins around you \nBosses drops 250 coins instead
 shadowhorrorcapetip=Increases movement speed by 20% \nSummons horror bats when taking damage
 // T4
 calmminerslanterntip=Summons a Will-o'-Wisp \nIncreases mining and building stats \nMining rocks deals cleave damage to other nearby rocks \nSummon damage is increased by mining damage \nSwing to turn off calming effect
@@ -567,6 +577,8 @@ littlemechatip=Equip and press [input=trinketability] to blink forward \nIncreas
 frenzystoneringtip=Gain up to +50% summon damage based on missing health \nGain 4 health regen per second while below 50% health
 crystalamalgamationtip=Claw weapons shoots 4 crystals that deals 10% of the claw's damage each
 teapotminiontip=You can have 1 extra food buff \nSummons a magic tea pot that attack foes
+livingarmorstandtip=Increases armor by 15 \nSummons a living armor stand \nEvery few hits deals additional damage based on you armor value \nUses 1 minion slot
+
 //Challenge
 doomshroomshieldtip=Increases summon damage by 10% \nIncreases aggro range by 50% \nEquip and press [input=trinketability] to explode \nThe explosion pushes away foes and set them ablaze \n10 seconds cooldown
 pumpkinminiontip=Increases potion duration by 20% \nSummons a pumpkin minion that explosive pumpkin at foes \nThrown pumpkins have 10% chance to drop on missed hits
@@ -645,6 +657,7 @@ empoweredemeraldtip=Increases the speed of player and settlers by 50% \nIncrease
 empoweredamethysttip=Increases the speed of player and settlers by 50% \nIncreases summon target range and knockback by 10%
 empoweredrubytip=Increases the speed of player and settlers by 50% \nIncreases summon speed and summon attack speed by 10%
 empoweredtopaztip=Increases the speed of player and settlers by 50% \nIncreases max resilience and resilience regen by 10%
+ancientgrasstiletip=Grows tall grass
 
 // Liquids
 infhoneybuckettip=Holds and picks up honey
@@ -797,6 +810,7 @@ horrorspiritcultmagic=Horror Spirit Cultist
 horrorspiritcultrange=Horror Spirit Cultist
 horrorspiritbossmob=Ancient Horror Spirit
 horrorspiritcultminion=Horror Spirit
+vampireminibossmob=Powerful Vampire
 honeybeeguardmob=Honey Bee Guard
 horrorspiritmob=Horror Spirit
 lavacavesharkmob=Lava Shark
@@ -833,15 +847,16 @@ clawvulturebuff=Vulture claw speed buff
 honeybuff=Health regen while on combat
 sharklavafrenzybuff=Lava shark frenzy
 pinewoodbuff=Pine wood minion stacks
+caveglowlampbuff=Caveglow lamp buff
 iceblossombuff=Armor and resilience
 geniecritbuff=Genie critical stacks
+monkstacksbuff=Tranquility stacks
 adaptivealienbuff=Adaptive stacks
 silvergobletbuff=Increased armor
 clawdashstacks=Claw dash stacks
 runicshieldbuff=Runic armor
 healglyphbuff=Health regen
 sunflowerbuff=Health regen
-monkstacksbuff=Tranquility stacks
 
 // Debuffs
 summongenericdotdebuff=2x damage taken from elemental debuffs
@@ -869,6 +884,7 @@ coppersetcooldown=Copper Set Cooldown
 clawdashcooldown=Claw Dash Cooldown
 
 // Summons
+summonedlivingarmorstandminionbuff=Living Armor Stand Minion
 summonedagedchampionminionbuff=Aged Champion Minion
 summonedteapotminionbuff=Magic Tea Pot Minion
 summonedjellyfishminionbuff=Jellyfish Minion
@@ -880,7 +896,6 @@ summonedpotatominionbuff=Potato Minion
 summonedonionminionbuff=Onion Minion
 summonedcloudminionbuff=Cloud Minion
 summonedbeetminionbuff=Beet Minion
-
 // Generic Buffs
 summongenericdotdebuff=2x damage taken from elemental debuffs
 summongenericweaknessdebuff=Takes 20% more damage

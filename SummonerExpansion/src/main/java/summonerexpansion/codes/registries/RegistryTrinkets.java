@@ -10,6 +10,7 @@ import necesse.entity.mobs.buffs.staticBuffs.ShownCooldownBuff;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.SimpleTrinketBuff;
 import necesse.inventory.item.Item;
 import necesse.inventory.item.trinketItem.ShieldTrinketItem;
+import necesse.inventory.item.trinketItem.SimpleTrinketItem;
 import necesse.inventory.lootTable.presets.TrinketsLootTable;
 import summonerexpansion.items.trinkets.*;
 import summonerexpansion.items.trinkets.minions.*;
@@ -61,6 +62,10 @@ public class RegistryTrinkets
         BuffRegistry.registerBuff("flowerbroochbuff", new FlowerBroochBuff());
         ItemRegistry.registerItem("cactusemblem", new BaseTrinketItem(Item.Rarity.COMMON, "cactusemblembuff", 100, TrinketsLootTable.trinkets), 100, true);
         BuffRegistry.registerBuff("cactusemblembuff", new CactusEmblemBuff());
+        ItemRegistry.registerItem("livingarmorstand", new BaseTrinketItem(Item.Rarity.COMMON, "livingarmorstandbuff", 100, TrinketsLootTable.trinkets), 100, true);
+        BuffRegistry.registerBuff("livingarmorstandbuff", new LivingArmorStandBuff());
+        MobRegistry.registerMob("livingarmorstandminion", TrinketLivingArmorStandMinion.class, false);
+        BuffRegistry.registerBuff("summonedlivingarmorstandminionbuff", new SummonedLivingArmorStandMinionBuff());
     }
 
     public static void registerTier2()
@@ -75,6 +80,8 @@ public class RegistryTrinkets
         BuffRegistry.registerBuff("duelistdollsbuff", new SimpleTrinketBuff(new ModifierValue<>(SENTRY_ATTACK_SPEED, 0.20F), new ModifierValue<>(BuffModifiers.SUMMON_ATTACK_SPEED, 0.20F), new ModifierValue<>(BuffModifiers.TARGET_RANGE, 0.40F)));
         ItemRegistry.registerItem("cowskull", new BaseTrinketItem(Item.Rarity.UNCOMMON, "cowskullbuff", 200, TrinketsLootTable.trinkets), 200, true);
         BuffRegistry.registerBuff("cowskullbuff", new SimpleTrinketBuff(new ModifierValue<>(TRANSFORMATION_SPEED, 0.40F)));
+        ItemRegistry.registerItem("bullhead", new BaseTrinketItem(Item.Rarity.UNCOMMON, "bullheadbuff", 200, TrinketsLootTable.trinkets).addDisables("cowskull"), 200, true);
+        BuffRegistry.registerBuff("bullheadbuff", new SimpleTrinketBuff(new ModifierValue<>(TRANSFORMATION_SPEED, 0.50F), new ModifierValue<>(BuffModifiers.SPEED, 0.20F), new ModifierValue<>(BuffModifiers.MAX_SUMMONS, 1)));
         ItemRegistry.registerItem("geniewish", new BaseTrinketItem(Item.Rarity.UNCOMMON, "geniewishbuff", 200, TrinketsLootTable.trinkets), 200, true);
         BuffRegistry.registerBuff("geniewishbuff", new GenieWishBuff());
         BuffRegistry.registerBuff("geniecritbuff", TrinketBuffs.GENIECRITSTACKS = new GenieCritBuff());
@@ -86,6 +93,8 @@ public class RegistryTrinkets
         BuffRegistry.registerBuff("sandtemplemonkheadbuff", new SandTempleMonkHeadBuff());
         BuffRegistry.registerBuff("sandtemplemonkheadcooldown", new ShownCooldownBuff());
         BuffRegistry.registerBuff("monkstacksbuff", TrinketBuffs.MONKSTACKS = new MonkStacksBuff());
+        ItemRegistry.registerItem("definitiveshell", new DefinitiveShell(), 200, true);
+        BuffRegistry.registerBuff("definitiveshellbuff", new DefinitiveShellBuff());
     }
 
     public static void registerTier3()
@@ -111,6 +120,8 @@ public class RegistryTrinkets
         BuffRegistry.registerBuff("fishianeggsbuff", new FishianEggsBuff());
         ItemRegistry.registerItem("summonergambit", new SummonerGambit(400, Item.Rarity.RARE), 400, true);
         BuffRegistry.registerBuff("summonergambitbuff", new SummonerGambitBuff());
+        ItemRegistry.registerItem("demoniccontract", new BaseTrinketItem(Item.Rarity.RARE, "demoniccontractbuff", 400, TrinketsLootTable.trinkets), 400, true);
+        BuffRegistry.registerBuff("demoniccontractbuff", new DemonicContractBuff());
     }
 
     public static void registerTier4()

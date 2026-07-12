@@ -4,7 +4,6 @@ import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.localization.message.GameMessage;
 import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.network.server.ServerClient;
-import necesse.engine.registries.MobRegistry;
 import necesse.engine.util.ComputedObjectValue;
 import necesse.engine.util.GameLinkedList;
 import necesse.engine.util.GameMath;
@@ -19,7 +18,6 @@ import necesse.entity.particle.Particle;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameSprite;
-import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 
@@ -103,33 +101,31 @@ public class FallenDragonHeadMinion extends AttackingFollowingWormMobHead<Fallen
         if (this.isVisible())
         {
             GameLight light = level.getLightLevel(this);
-            int drawX = camera.getDrawX(this.x) - 32;
-            int drawY = camera.getDrawY(this.y);
+            int drawX = camera.getDrawX(x) - 32;
+            int drawY = camera.getDrawY(y);
             float headAngle = GameMath.fixAngle(GameMath.getAngle(new Point2D.Float(this.dx, this.dy)));
-            final MobDrawable headDrawable = WormMobHead.getAngledDrawable(this, new GameSprite(MobRegistry.Textures.fallenWizardDragon, 0, 0, 64), (GameTexture)null, light, (int)this.height, headAngle, drawX, drawY, 96, perspective);
+            final MobDrawable headDrawable = WormMobHead.getAngledDrawable(this, new GameSprite(fallenDragonHeadMinion, 0, 0, 64), null, light, (int)this.height, headAngle, drawX, drawY, 96, perspective);
             new ComputedObjectValue<>(null, () -> (double)0.0F);
-            ComputedObjectValue<GameLinkedList<WormMoveLine>.Element, Double> shoulderLine = WormMobHead.moveDistance(this.moveLines.getFirstElement(), (double)35.0F);
+            ComputedObjectValue<GameLinkedList<WormMoveLine>.Element, Double> shoulderLine = WormMobHead.moveDistance(this.moveLines.getFirstElement(), 32.0F);
             final MobDrawable shoulderDrawable;
             if (shoulderLine.object != null)
             {
                 Point2D.Double shoulderPos = WormMobHead.linePos(shoulderLine);
-                GameLight shoulderLight = level.getLightLevel(getTileCoordinate(shoulderPos.x), getTileCoordinate(shoulderPos.y));
+                GameLight shoulderLight = level.getLightLevel(GameMath.getTileCoordinate(shoulderPos.x), GameMath.getTileCoordinate(shoulderPos.y));
                 int shoulderDrawX = camera.getDrawX((float)shoulderPos.x) - 32;
                 int shoulderDrawY = camera.getDrawY((float)shoulderPos.y);
                 float shoulderHeight = this.getWaveHeight(((WormMoveLine)((GameLinkedList.Element)shoulderLine.object).object).movedDist + shoulderLine.get().floatValue());
                 float shoulderAngle = GameMath.fixAngle((float)GameMath.getAngle(new Point2D.Double((double)this.x - shoulderPos.x, (double)(this.y - this.height) - (shoulderPos.y - (double)shoulderHeight))));
-                shoulderDrawable = WormMobHead.getAngledDrawable(this, new GameSprite(MobRegistry.Textures.fallenWizardDragon, 0, 2, 64), null, shoulderLight, (int)shoulderHeight, shoulderAngle, shoulderDrawX, shoulderDrawY, 96, perspective);
+                shoulderDrawable = WormMobHead.getAngledDrawable(this, new GameSprite(fallenDragonHeadMinion, 0, 1, 64), null, shoulderLight, (int)shoulderHeight, shoulderAngle, shoulderDrawX, shoulderDrawY, 96, perspective);
             }
-            else
-            {
-                shoulderDrawable = null;
-            }
+            else {shoulderDrawable = null;}
+
             topList.add(new MobDrawable() {
                 public void draw(TickManager tickManager) {
-                    if (shoulderDrawable != null)
-                    {
+                    if (shoulderDrawable != null) {
                         shoulderDrawable.draw(tickManager);
                     }
+
                     headDrawable.draw(tickManager);
                 }
             });

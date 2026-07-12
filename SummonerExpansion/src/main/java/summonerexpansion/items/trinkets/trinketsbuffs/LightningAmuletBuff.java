@@ -26,10 +26,13 @@ public class LightningAmuletBuff extends TrinketBuff
 
     public void onHasAttacked(ActiveBuff buff, MobWasHitEvent event)
     {
-        if (event.damageType == DamageTypeRegistry.SUMMON && attackCooldown <= 0)
+        if (buff.owner.getLevel().isServer())
         {
-            buff.owner.getLevel().entityManager.events.add(new LightningTrailEvent(buff.owner, damage, 0f, (int)buff.owner.x, (int)buff.owner.y, (int)event.target.x, (int)event.target.y, GameRandom.getIntBetween(GameRandom.globalRandom, 1, 100)));
-            attackCooldown = 60;
+            if (event.damageType == DamageTypeRegistry.SUMMON && attackCooldown <= 0)
+            {
+                buff.owner.getLevel().entityManager.events.add(new LightningTrailEvent(buff.owner, damage, 0f, (int) buff.owner.x, (int) buff.owner.y, (int) event.target.x, (int) event.target.y, GameRandom.getIntBetween(GameRandom.globalRandom, 1, 100)));
+                attackCooldown = 60;
+            }
         }
     }
 

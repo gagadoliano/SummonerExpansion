@@ -29,11 +29,11 @@ public class HorrorSword extends BaseSummonSwordWeapon
     public HorrorSword(int enchantCost, Item.Rarity rarityTier)
     {
         super(enchantCost, rarityTier);
-        attackDamage.setBaseValue(40.0F).setUpgradedValue(1.0F, 65.0F);
+        attackDamage.setBaseValue(40).setUpgradedValue(1, 65);
         attackAnimTime.setBaseValue(800).setUpgradedValue(1, 600);
         resilienceGain.setBaseValue(0.5F).setUpgradedValue(1, 1.5F).setUpgradedValue(10, 4.0F);
-        attackRange.setBaseValue(50).setBaseValue(80);
-        knockback.setBaseValue(80).setBaseValue(100);
+        attackRange.setBaseValue(50).setUpgradedValue(1, 80);
+        knockback.setBaseValue(80).setUpgradedValue(1, 100);
         minionGroupSize.setBaseValue(2).setUpgradedValue(1, 4).setUpgradedValue(5, 6);
         tierTwoEssencesUpgradeRequirement = "purehorror";
     }

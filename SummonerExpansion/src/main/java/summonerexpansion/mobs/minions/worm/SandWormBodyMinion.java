@@ -16,10 +16,8 @@ import necesse.entity.mobs.summon.FollowingWormMobBody;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
 import necesse.gfx.camera.GameCamera;
-import necesse.gfx.drawOptions.texture.TextureDrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameSprite;
-import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.gameObject.GameObject;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
@@ -34,7 +32,6 @@ import static summonerexpansion.codes.registries.RegistryMinionTextures.sandWorm
 public class SandWormBodyMinion extends FollowingWormMobBody<SandWormHeadMinion, SandWormBodyMinion>
 {
     ParticleTypeSwitcher pTypeSwitcher;
-    public Point sprite;
     public int spriteY;
     private final TicksPerSecond particleSpawner;
     public ModifierValue<?>[] modifiers;
@@ -94,24 +91,23 @@ public class SandWormBodyMinion extends FollowingWormMobBody<SandWormHeadMinion,
         }
     }
 
-    protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
+    protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective)
+    {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
-        if (this.isVisible()) {
+        if (this.isVisible())
+        {
             GameLight light = level.getLightLevel(this);
             int drawX = camera.getDrawX(x) - 32;
             int drawY = camera.getDrawY(y);
-            WormMobHead.addDrawable(list, this, new GameSprite(sandWormBodyMinion, this.sprite.x, this.sprite.y, 64), MobRegistry.Textures.sandWorm_mask, light, (int)this.height, drawX, drawY, 64, perspective);
+            if (this.next != null)
+            {
+                Point2D.Float dir = new Point2D.Float((this.next).x - (float)x, (this.next).y - (this.next).height - ((float)y - this.height));
+                float angle = GameMath.fixAngle(GameMath.getAngle(dir));
+                MobDrawable drawOptions = WormMobHead.getAngledDrawable(this, new GameSprite(sandWormBodyMinion, 0, this.spriteY, 64), null, light, (int)this.height, angle, drawX, drawY, 96, perspective);
+                topList.add(drawOptions);
+            }
             this.addShadowDrawables(tileList, level, x, y, light, camera);
         }
-    }
-
-    protected TextureDrawOptions getShadowDrawOptions(int x, int y, GameLight light, GameCamera camera)
-    {
-        GameTexture shadowTexture = MobRegistry.Textures.sandWorm_shadow;
-        int drawX = camera.getDrawX(x) - shadowTexture.getWidth() / 2;
-        int drawY = camera.getDrawY(y) - shadowTexture.getHeight() / 2;
-        drawY += this.getBobbing(x, y);
-        return shadowTexture.initDraw().light(light).pos(drawX, drawY);
     }
 
     public Stream<ModifierValue<?>> getDefaultModifiers()

@@ -2,6 +2,7 @@ package summonerexpansion.codes.registries;
 
 import necesse.engine.registries.MobRegistry;
 import summonerexpansion.mobs.bosses.*;
+import summonerexpansion.mobs.cavemobs.*;
 import summonerexpansion.mobs.deepcavemobs.*;
 import summonerexpansion.mobs.surfacemobs.*;
 
@@ -29,6 +30,7 @@ public class RegistryMobs
 
         // Cave
         MobRegistry.registerMob("lavacavesharkmob", LavaCaveSharkMob.class, true);
+        MobRegistry.registerMob("vampireminibossmob", VampireMiniBossMob.class, true);
 
         // Deep cave
         MobRegistry.registerMob("horrorspiritmob", HorrorSpiritMob.class, true);
