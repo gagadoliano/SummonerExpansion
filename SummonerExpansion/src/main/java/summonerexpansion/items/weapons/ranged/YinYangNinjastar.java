@@ -30,8 +30,11 @@ import java.util.LinkedHashSet;
 public class YinYangNinjastar extends GunProjectileToolItem
 {
     public static LinkedHashSet<String> NINJA_AMMO_TYPES = new LinkedHashSet<>(Collections.singletonList("ninjastar"));
-    public int ninjaStack;
-    public int alterType = 0;
+
+    // Kept in the item's GND data rather than in fields, because Necesse registers one
+    // Item instance per id and shares it between every player on the server.
+    private static final String GND_NINJA_STACK = "ninjastack";
+    private static final String GND_ALTER_TYPE = "altertype";
 
     public YinYangNinjastar(int enchantCost, OneOfLootItems lootTableCategory)
     {
@@ -79,8 +82,10 @@ public class YinYangNinjastar extends GunProjectileToolItem
 
                 if (shouldFire)
                 {
-                    if (++ninjaStack >= 2)
+                    int ninjaStack = item.getGndData().getInt(GND_NINJA_STACK, 0) + 1;
+                    if (ninjaStack >= 2)
                     {
+                        int alterType = item.getGndData().getInt(GND_ALTER_TYPE, 0);
                         if (alterType > 0)
                         {
                             YangNinjaMinion mob = new YangNinjaMinion();
@@ -107,7 +112,9 @@ public class YinYangNinjastar extends GunProjectileToolItem
                             alterType++;
                             ninjaStack = 0;
                         }
+                        item.getGndData().setInt(GND_ALTER_TYPE, alterType);
                     }
+                    item.getGndData().setInt(GND_NINJA_STACK, ninjaStack);
                 }
             }
             else
