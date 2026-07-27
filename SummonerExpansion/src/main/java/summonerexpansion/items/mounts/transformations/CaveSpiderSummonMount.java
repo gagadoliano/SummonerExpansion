@@ -1,6 +1,5 @@
 package summonerexpansion.items.mounts.transformations;
 
-import necesse.engine.GlobalData;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.network.Packet;
@@ -48,12 +47,12 @@ public class CaveSpiderSummonMount extends BaseTransformMount implements MountAb
     {
         if (isServer())
         {
-            GameCamera camera = GlobalData.getCurrentState().getCamera();
-            if (camera == null) {
+            Point aim = readAimTarget(content);
+            if (aim == null) {
                 return;
             }
-            player.attack(camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), false);
-            Point point = ProjectileToolItem.controlledRangePosition(GameRandom.globalRandom, player.getX(), player.getY(), camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), Math.max(320, 10), 32, 16);
+            player.attack(aim.x, aim.y, false);
+            Point point = ProjectileToolItem.controlledRangePosition(GameRandom.globalRandom, player.getX(), player.getY(), aim.x, aim.y, Math.max(320, 10), 32, 16);
             int pointDistance = (int)player.getDistance((float)point.x, (float)point.y);
             player.getLevel().entityManager.projectiles.add(new CaveSpiderSpitProjectile(variant, x, y, (float)point.x, (float)point.y, damage, player, pointDistance));
             abilityCooldown = 30;
