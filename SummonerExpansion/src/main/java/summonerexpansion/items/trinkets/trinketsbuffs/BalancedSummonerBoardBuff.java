@@ -44,7 +44,7 @@ public class BalancedSummonerBoardBuff extends TrinketBuff
             targetBM.addBuff(new ActiveBuff(BuffRegistry.Debuffs.DRYAD_HAUNTED, event.target, 10.0F, event.attacker), event.target.isServer());
             if (targetBM.getStacks(BuffRegistry.Debuffs.DRYAD_HAUNTED) >= 10)
             {
-                targetBM.removeBuff(BuffRegistry.Debuffs.DRYAD_HAUNTED, true);
+                targetBM.removeBuff(BuffRegistry.Debuffs.DRYAD_HAUNTED, event.target.isServer());
                 spawnDryadSpirit(event.attacker.getAttackOwner());
             }
         }
@@ -80,11 +80,11 @@ public class BalancedSummonerBoardBuff extends TrinketBuff
                 BuffManager buffManager = buff.owner.buffManager;
                 if (buffManager.hasBuff(BuffRegistry.SUMMONERS_BESTIARY))
                 {
-                    buffManager.removeBuff(BuffRegistry.SUMMONERS_BESTIARY, true);
+                    buffManager.removeBuff(BuffRegistry.SUMMONERS_BESTIARY, buff.owner.isServer());
                 }
                 ActiveBuff ab = new ActiveBuff(BuffRegistry.SUMMONERS_BESTIARY, buff.owner, 1000, null);
                 ab.setStacks(uniqueFollowerCount, 100, null);
-                buffManager.addBuff(ab, true);
+                buffManager.addBuff(ab, buff.owner.isServer());
             }
         }
     }

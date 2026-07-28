@@ -55,7 +55,7 @@ public class MagicianBoardBuff extends TrinketBuff
                 targetBM.addBuff(new ActiveBuff(BuffRegistry.getBuff("mummymagicdebuff"), event.target, 10.0F, event.attacker), event.target.isServer());
                 if (targetBM.getStacks(BuffRegistry.getBuff("mummymagicdebuff")) >= 10)
                 {
-                    targetBM.removeBuff(BuffRegistry.getBuff("mummymagicdebuff"), true);
+                    targetBM.removeBuff(BuffRegistry.getBuff("mummymagicdebuff"), event.target.isServer());
                     spawnMagicMummy(event.attacker.getAttackOwner());
                 }
             }
@@ -67,14 +67,14 @@ public class MagicianBoardBuff extends TrinketBuff
                 targetBM.addBuff(new ActiveBuff(BuffRegistry.Debuffs.DRYAD_HAUNTED, event.target, 10.0F, event.attacker), event.target.isServer());
                 if (targetBM.getStacks(BuffRegistry.Debuffs.DRYAD_HAUNTED) >= 10)
                 {
-                    targetBM.removeBuff(BuffRegistry.Debuffs.DRYAD_HAUNTED, true);
+                    targetBM.removeBuff(BuffRegistry.Debuffs.DRYAD_HAUNTED, event.target.isServer());
                     spawnDryadSpirit(event.attacker.getAttackOwner());
                 }
 
                 targetBM.addBuff(new ActiveBuff(BuffRegistry.getBuff("mummysummondebuff"), event.target, 10.0F, event.attacker), event.target.isServer());
                 if (targetBM.getStacks(BuffRegistry.getBuff("mummysummondebuff")) >= 50)
                 {
-                    targetBM.removeBuff(BuffRegistry.getBuff("mummysummondebuff"), true);
+                    targetBM.removeBuff(BuffRegistry.getBuff("mummysummondebuff"), event.target.isServer());
                     spawnSummonMummy(event.attacker.getAttackOwner());
                 }
             }
@@ -111,11 +111,11 @@ public class MagicianBoardBuff extends TrinketBuff
                 BuffManager buffManager = buff.owner.buffManager;
                 if (buffManager.hasBuff(BuffRegistry.SUMMONERS_BESTIARY))
                 {
-                    buffManager.removeBuff(BuffRegistry.SUMMONERS_BESTIARY, true);
+                    buffManager.removeBuff(BuffRegistry.SUMMONERS_BESTIARY, buff.owner.isServer());
                 }
                 ActiveBuff ab = new ActiveBuff(BuffRegistry.SUMMONERS_BESTIARY, buff.owner, 1000, null);
                 ab.setStacks(uniqueFollowerCount, 100, null);
-                buffManager.addBuff(ab, true);
+                buffManager.addBuff(ab, buff.owner.isServer());
             }
         }
         float damageConversion = buff.owner.buffManager.getModifier(BuffModifiers.SUMMON_DAMAGE);

@@ -42,11 +42,11 @@ public class FrenzystoneRingBuff extends TrinketBuff
         if (healthPercent < 0.5F && buff.owner.buffManager.getBuffDurationLeftSeconds(BuffRegistry.BLOODSTONE_RING_REGEN_ACTIVE_BUFF) <= 1.0F)
         {
             ActiveBuff activeBuff = new ActiveBuff(BuffRegistry.BLOODSTONE_RING_REGEN_ACTIVE_BUFF, buff.owner, 4.0F, (Attacker)null);
-            buff.owner.buffManager.addBuff(activeBuff, true);
+            buff.owner.buffManager.addBuff(activeBuff, buff.owner.isServer());
         }
         else if (healthPercent >= 0.5F && buff.owner.buffManager.hasBuff(BuffRegistry.BLOODSTONE_RING_REGEN_ACTIVE_BUFF))
         {
-            buff.owner.buffManager.removeBuff(BuffRegistry.BLOODSTONE_RING_REGEN_ACTIVE_BUFF, true);
+            buff.owner.buffManager.removeBuff(BuffRegistry.BLOODSTONE_RING_REGEN_ACTIVE_BUFF, buff.owner.isServer());
         }
     }
 
