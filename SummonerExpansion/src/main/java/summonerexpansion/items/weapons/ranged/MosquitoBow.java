@@ -32,8 +32,11 @@ import java.awt.geom.Point2D;
 
 public class MosquitoBow extends BowProjectileToolItem
 {
+    // Kept in the item's GND data rather than in a field, because Necesse registers one
+    // Item instance per id and shares it between every player on the server.
+    private static final String GND_MOSQUITO_STACK = "mosquitostack";
+
     public IntUpgradeValue maxMosquitos = new IntUpgradeValue(4, 0.0F);
-    public int mosquitoStack;
     public int projectileMaxHeight;
 
     public MosquitoBow(int enchantCost, Item.Rarity rarityTier)
@@ -67,11 +70,13 @@ public class MosquitoBow extends BowProjectileToolItem
         mob.updateDamage(getAttackDamage(item));
         mob.setEnchantment(getEnchantment(item));
 
-        if (++mosquitoStack >= 20)
+        int mosquitoStack = item.getGndData().getInt(GND_MOSQUITO_STACK, 0) + 1;
+        if (mosquitoStack >= 20)
         {
             attackerMob.getLevel().entityManager.addMob(mob, attackerMob.x, attackerMob.y);
             mosquitoStack = 0;
         }
+        item.getGndData().setInt(GND_MOSQUITO_STACK, mosquitoStack);
 
         return super.onAttack(level, x, y, attackerMob, attackHeight, item, slot, animAttack, seed, mapContent);
     }

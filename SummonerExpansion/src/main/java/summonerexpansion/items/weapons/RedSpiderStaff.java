@@ -22,7 +22,9 @@ import java.awt.*;
 
 public class RedSpiderStaff extends SummonToolItem
 {
-    public int alterType = 0;
+    // Kept in the item's GND data rather than in a field, because Necesse registers one
+    // Item instance per id and shares it between every player on the server.
+    private static final String GND_ALTER_TYPE = "altertype";
 
     public RedSpiderStaff(int enchantCost, Item.Rarity rarityTier)
     {
@@ -34,6 +36,7 @@ public class RedSpiderStaff extends SummonToolItem
 
     public void runServerSummon(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight, InventoryItem item, ItemAttackSlot slot, int animAttack, int seed, GNDItemMap mapContent)
     {
+        int alterType = item.getGndData().getInt(GND_ALTER_TYPE, 0);
         if (alterType > 0)
         {
             AttackingFollowingMob mob = (AttackingFollowingMob) MobRegistry.getMob("redspidermeleeminion", level);
@@ -46,6 +49,7 @@ public class RedSpiderStaff extends SummonToolItem
             summonServerMob(attackerMob, mob, x, y, attackHeight, item);
             alterType++;
         }
+        item.getGndData().setInt(GND_ALTER_TYPE, alterType);
     }
 
     protected void loadItemTextures() {
