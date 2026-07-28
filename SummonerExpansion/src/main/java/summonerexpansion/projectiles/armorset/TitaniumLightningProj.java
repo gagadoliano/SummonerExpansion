@@ -24,8 +24,6 @@ public class TitaniumLightningProj extends Projectile
 {
     private float nextTrailUpdatePoint = 0.0F;
     private float initialX;
-    private float targetX;
-    private float targetY;
     public GameDamage damage;
 
     public TitaniumLightningProj() {
@@ -37,8 +35,10 @@ public class TitaniumLightningProj extends Projectile
         this.setOwner(owner);
         this.x = x;
         this.y = y;
-        this.targetX = targetX;
-        this.targetY = targetY;
+        // setTarget stores these on Projectile, which syncs them to clients in the
+        // spawn packet. Keeping local copies here would leave them zeroed on every
+        // client, because clients rebuild projectiles through applySpawnPacket
+        // rather than through this constructor.
         this.setTarget(targetX, targetY);
         this.speed = speed;
         this.distance = distance;
