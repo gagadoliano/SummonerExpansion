@@ -12,7 +12,7 @@ public class SummonerWitchShop
     static void onExit(@Advice.This FriendlyWitchHumanMob NPC)
     {
         NPC.shop.addSellingItem("strangecookpot",  new SellingShopItem()).setStaticPriceBasedOnHappiness(400, 2000, 10).addKilledEitherMobsRequirement("evilwitchflask", "evilwitchbow", "evilwitchgreatsword", "evilwitch");
-        NPC.shop.addSellingItem("overgrowthornssapling",  new SellingShopItem(10, 1)).setStaticPriceBasedOnHappiness(500, 4000, 10).addKilledMobRequirement("pestwarden");
+        NPC.shop.addSellingItem("overgrowthornssapling",  new SellingShopItem(10, 1)).setStaticPriceBasedOnHappiness(500, 4000, 10).addHasCompletedStoryObjectiveRequirement("defeatpestwarden");
         NPC.shop.addSellingItem("spidernesttile",  new SellingShopItem(100, 50)).setStaticPriceBasedOnHappiness(10, 100, 10).addKilledMobRequirement("vampireminibossmob");
         NPC.shop.addSellingItem("cryptash",  new SellingShopItem(100, 50)).setStaticPriceBasedOnHappiness(10, 100, 10).addKilledMobRequirement("vampireminibossmob");
     }

@@ -27,7 +27,7 @@ public class RegistryRecipeOthers
                 SUMMONBOOKCRAFT,
                 new Ingredient[]{
                         new Ingredient("leather", 2),
-                        new Ingredient("mapfragment", 5),
+                        new Ingredient("mapfragment", 4),
                         new Ingredient("voidshard", 1)
                 }
         ));
@@ -38,24 +38,6 @@ public class RegistryRecipeOthers
                 RecipeTechRegistry.FORGE,
                 new Ingredient[]{
                         new Ingredient("titaniumore", 4)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "runestone",
-                5,
-                RecipeTechRegistry.DEMONIC_WORKSTATION,
-                new Ingredient[]{
-                        new Ingredient("runicfish", 1)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "purehorror",
-                5,
-                RecipeTechRegistry.TUNGSTEN_WORKSTATION,
-                new Ingredient[]{
-                        new Ingredient("shadowcreature", 1)
                 }
         ));
     }
@@ -133,6 +115,24 @@ public class RegistryRecipeOthers
                 new Ingredient[]{
                         new Ingredient("myceliumore", 1),
                         new Ingredient("wormbait", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "runestone",
+                5,
+                RecipeTechRegistry.DEMONIC_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("runicfish", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "purehorror",
+                5,
+                RecipeTechRegistry.TUNGSTEN_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("shadowcreature", 1)
                 }
         ));
     }

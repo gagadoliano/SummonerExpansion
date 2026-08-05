@@ -24,8 +24,6 @@ public class TitaniumLightningProj extends Projectile
 {
     private float nextTrailUpdatePoint = 0.0F;
     private float initialX;
-    private float targetX;
-    private float targetY;
     public GameDamage damage;
 
     public TitaniumLightningProj() {
@@ -37,8 +35,6 @@ public class TitaniumLightningProj extends Projectile
         this.setOwner(owner);
         this.x = x;
         this.y = y;
-        this.targetX = targetX;
-        this.targetY = targetY;
         this.setTarget(targetX, targetY);
         this.speed = speed;
         this.distance = distance;

@@ -133,7 +133,7 @@ public class AncientForestMiniBiomeWorldPreset extends WorldPreset
                                     int placeOffsetY = houseSize.height / 2 - preset.height / 2;
                                     preset.applyToLevel(level, houseTileX + placeOffsetX, houseTileY + placeOffsetY);
                                     CellAutomaton ca = lg.doCellularAutomaton(random);
-                                    ca.spawnMobs(level, random, "woodmob", 4, 8, 1, 10);
+                                    ca.spawnMobs(level, random, "woodmob", 4, 8, 1, 4);
                                 }));
                             }
                         }

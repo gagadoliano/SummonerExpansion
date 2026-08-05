@@ -63,7 +63,7 @@ public class MosquitoBow extends BowProjectileToolItem
     public InventoryItem onAttack(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight, InventoryItem item, ItemAttackSlot slot, int animAttack, int seed, GNDItemMap mapContent)
     {
         BowMosquitoMinion mob = new BowMosquitoMinion();
-        attackerMob.serverFollowersManager.addFollower("mosquitobowminion", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, maxMosquitos.getValue(getUpgradeTier(item)), null, false);
+        attackerMob.serverFollowersManager.addFollower("mosquitobowminion", mob, FollowPosition.SWARM_CLOSE, "summonedmob", 1.0F, maxMosquitos.getValue(getUpgradeTier(item)), null, false);
         mob.updateDamage(getAttackDamage(item));
         mob.setEnchantment(getEnchantment(item));
 

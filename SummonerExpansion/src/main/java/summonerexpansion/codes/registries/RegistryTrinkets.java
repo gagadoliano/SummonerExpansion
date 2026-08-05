@@ -66,6 +66,11 @@ public class RegistryTrinkets
         BuffRegistry.registerBuff("livingarmorstandbuff", new LivingArmorStandBuff());
         MobRegistry.registerMob("livingarmorstandminion", TrinketLivingArmorStandMinion.class, false);
         BuffRegistry.registerBuff("summonedlivingarmorstandminionbuff", new SummonedLivingArmorStandMinionBuff());
+        ItemRegistry.registerItem("dragonicflames", new BaseTrinketItem(Item.Rarity.COMMON, "dragonicflamesbuff", 100, TrinketsLootTable.trinkets), 100, true);
+        BuffRegistry.registerBuff("dragonicflamesbuff", new DragonicFlamesBuff());
+        MobRegistry.registerMob("dragonicflamesminion1", TrinketDragonFlameMinion1.class, false);
+        MobRegistry.registerMob("dragonicflamesminion2", TrinketDragonFlameMinion2.class, false);
+        MobRegistry.registerMob("dragonicflamesminion3", TrinketDragonFlameMinion3.class, false);
     }
 
     public static void registerTier2()

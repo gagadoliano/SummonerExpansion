@@ -19,6 +19,9 @@ public class RegistryParticlesTextures
     public static GameTexture pineWoodSpike;
     public static GameTexture thornSpike;
 
+    public static GameTexture groundFireParticles2;
+    public static GameTexture groundFireParticles3;
+
     public static void initResources()
     {
         pumpkinExplosionParticles = particlesTextureGenerator.addTexture(GameTexture.fromFile("particles/pumpkinparticles"));
@@ -33,5 +36,8 @@ public class RegistryParticlesTextures
         spiritGhoulPool = GameTexture.fromFile("particles/spiritghoulpool");
         pineWoodSpike = GameTexture.fromFile("particles/pinestaffspikes");
         thornSpike = GameTexture.fromFile("particles/thornspikes");
+
+        groundFireParticles2 = GameTexture.fromFile("particles/groundfire2");
+        groundFireParticles3 = GameTexture.fromFile("particles/groundfire3");
     }
 }

@@ -1,7 +1,5 @@
 package summonerexpansion.items.mounts.transformations;
 
-import necesse.engine.GlobalData;
-import necesse.engine.Settings;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.network.Packet;
@@ -52,12 +50,12 @@ public class SharkSummonMount extends BaseTransformMount implements MountAbility
     {
         if (isServer())
         {
-            GameCamera camera = GlobalData.getCurrentState().getCamera();
-            if (camera == null) {
+            Point aim = readAimTarget(content);
+            if (aim == null) {
                 return;
             }
-            player.attack(camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), false);
-            player.getLevel().entityManager.projectiles.add(new MountSharkWaveProj(player.getLevel(), x, y, camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), 45f, 500, damage, player));
+            player.attack(aim.x, aim.y, false);
+            player.getLevel().entityManager.projectiles.add(new MountSharkWaveProj(player.getLevel(), x, y, aim.x, aim.y, 45f, 500, damage, player));
             abilityCooldown = 20;
         }
     }

@@ -37,6 +37,7 @@ public class RegistryProjectiles
         ProjectileRegistry.registerProjectile("cactusproj", CactusProj.class, "cactusproj", "cactusproj_shadow");
         ProjectileRegistry.registerProjectile("emeraldlaserproj", GolemEmeraldLaserProj.class, null, null);
         ProjectileRegistry.registerProjectile("runeboneproj", RuneBoneProj.class, null, null);
+        ProjectileRegistry.registerProjectile("vampireminionproj", VampireMinionProj.class, "bloodbolt", "bloodbolt_shadow");
     }
 
     public static void registerSentry()
@@ -52,6 +53,7 @@ public class RegistryProjectiles
     {
         ProjectileRegistry.registerProjectile("clawdemonproj", ClawDemonProj.class, "evilsprotector2", "evilsprotector2_shadow");
         ProjectileRegistry.registerProjectile("globeboomerangproj", GlobeBoomerangProj.class, "globeboomerangproj", null);
+        ProjectileRegistry.registerProjectile("shreddingstarproj", ShreddingStarProj.class, "shreddingstarproj", null);
         ProjectileRegistry.registerProjectile("wormproj", WormProj.class, "wormproj", "wormproj_shadow");
         ProjectileRegistry.registerProjectile("spiderswordproj", SpiderSwordProj.class, null, null);
         ProjectileRegistry.registerProjectile("whipbaseproj", WhipBaseProj.class, null, null);
@@ -98,6 +100,8 @@ public class RegistryProjectiles
         ProjectileRegistry.registerProjectile("onionproj", PetOnionProj.class, "onionproj", null);
         ProjectileRegistry.registerProjectile("pumpkinproj", PetPumpkinProj.class, "pumpkinproj", null);
         ProjectileRegistry.registerProjectile("teapotproj", TeaPotProj.class, null, null);
+        ProjectileRegistry.registerProjectile("dragonicflames2", DragonicFlames2.class, null, null);
+        ProjectileRegistry.registerProjectile("dragonicflames3", DragonicFlames3.class, null, null);
     }
 
     public static void registerArmorSets()

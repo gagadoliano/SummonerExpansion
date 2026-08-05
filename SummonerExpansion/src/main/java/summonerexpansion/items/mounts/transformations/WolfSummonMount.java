@@ -1,6 +1,5 @@
 package summonerexpansion.items.mounts.transformations;
 
-import necesse.engine.Settings;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.network.Packet;

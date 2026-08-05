@@ -11,9 +11,9 @@ public class SummonerAnglerShop
     @Advice.OnMethodExit
     static void onExit(@Advice.This AnglerHumanMob NPC)
     {
-        NPC.shop.addSellingItem("myceliumworm",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(20, 50, 5).addQuestTierCompletedRequirement("pestwarden");
-        NPC.shop.addSellingItem("rainsummonhat",  new SellingShopItem()).setStaticPriceBasedOnHappiness(200, 2000, 10).addQuestTierCompletedRequirement("voidwizard");
-        NPC.shop.addSellingItem("rainsummoncoat",  new SellingShopItem()).setStaticPriceBasedOnHappiness(200, 2000, 10).addQuestTierCompletedRequirement("voidwizard");
-        NPC.shop.addSellingItem("rainsummonboots",  new SellingShopItem()).setStaticPriceBasedOnHappiness(200, 2000, 10).addQuestTierCompletedRequirement("voidwizard");
+        NPC.shop.addSellingItem("myceliumworm",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(20, 50, 5).addHasCompletedStoryObjectiveRequirement("defeatpestwarden");
+        NPC.shop.addSellingItem("rainsummonhat",  new SellingShopItem()).setStaticPriceBasedOnHappiness(200, 2000, 10).addHasCompletedStoryObjectiveRequirement("defeatvoidwizard");
+        NPC.shop.addSellingItem("rainsummoncoat",  new SellingShopItem()).setStaticPriceBasedOnHappiness(200, 2000, 10).addHasCompletedStoryObjectiveRequirement("defeatvoidwizard");
+        NPC.shop.addSellingItem("rainsummonboots",  new SellingShopItem()).setStaticPriceBasedOnHappiness(200, 2000, 10).addHasCompletedStoryObjectiveRequirement("defeatvoidwizard");
     }
 }

@@ -24,7 +24,7 @@ public class GlobeBoomerang extends BaseSummonBoomerangWeapon
 {
     public GlobeBoomerang(int enchantCost, Item.Rarity rarityTier, String projID)
     {
-        super(30, 50, 300, 180, 4000, 1, enchantCost, rarityTier, projID);
+        super(30, 50, 300, 180, 4000, 1, enchantCost, rarityTier, projID, "globeboomerangtip");
     }
 
     public InventoryItem onAttack(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight, InventoryItem item, ItemAttackSlot slot, int animAttack, int seed, GNDItemMap mapContent)
@@ -58,12 +58,5 @@ public class GlobeBoomerang extends BaseSummonBoomerangWeapon
             attackerMob.addAndSendAttackerProjectile(projectile);
         }
         return item;
-    }
-
-    public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard)
-    {
-        ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
-        tooltips.add(Localization.translate("itemtooltip", "globeboomerangtip"));
-        return tooltips;
     }
 }

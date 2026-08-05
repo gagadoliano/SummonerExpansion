@@ -1,7 +1,5 @@
 package summonerexpansion.items.mounts.transformations;
 
-import necesse.engine.GlobalData;
-import necesse.engine.Settings;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.network.Packet;
@@ -49,12 +47,12 @@ public class DwellerSummonMount extends BaseTransformMount implements MountAbili
     {
         if (isServer())
         {
-            GameCamera camera = GlobalData.getCurrentState().getCamera();
-            if (camera == null) {
+            Point aim = readAimTarget(content);
+            if (aim == null) {
                 return;
             }
-            player.attack(camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), false);
-            player.getLevel().entityManager.projectiles.add(new MountDwellerArrowProj(x, y, camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), 180f, 200, damage, 50, player));
+            player.attack(aim.x, aim.y, false);
+            player.getLevel().entityManager.projectiles.add(new MountDwellerArrowProj(x, y, aim.x, aim.y, 180f, 200, damage, 50, player));
             abilityCooldown = 20;
         }
     }

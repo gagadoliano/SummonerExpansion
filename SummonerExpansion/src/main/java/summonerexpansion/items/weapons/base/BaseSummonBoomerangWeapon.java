@@ -1,10 +1,14 @@
 package summonerexpansion.items.weapons.base;
 
+import necesse.engine.localization.Localization;
 import necesse.engine.registries.DamageTypeRegistry;
 import necesse.engine.registries.EnchantmentRegistry;
+import necesse.engine.util.GameBlackboard;
 import necesse.engine.util.GameRandom;
+import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.gfx.gameTexture.GameTexture;
+import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.enchants.Enchantable;
 import necesse.inventory.enchants.ItemEnchantment;
@@ -20,9 +24,10 @@ import java.util.Set;
 
 public class BaseSummonBoomerangWeapon extends BoomerangToolItem
 {
+    public String weaponTooltip;
     public IntUpgradeValue amount = (new IntUpgradeValue()).setBaseValue(1);
 
-    public BaseSummonBoomerangWeapon(float baseDamage, float t1Damage, int attackSpeed, int projVelocity, int range, int amount, int enchantCost, Item.Rarity rarityTier, String projID)
+    public BaseSummonBoomerangWeapon(float baseDamage, float t1Damage, int attackSpeed, int projVelocity, int range, int amount, int enchantCost, Item.Rarity rarityTier, String projID, String weaponTooltip)
     {
         super(enchantCost, SummonWeaponsLootTable.summonWeapons, projID);
         keyWords.add("summon");
@@ -36,6 +41,7 @@ public class BaseSummonBoomerangWeapon extends BoomerangToolItem
         attackRange.setBaseValue(range).setUpgradedValue(1, range + 200);
         velocity.setBaseValue(projVelocity).setUpgradedValue(1, projVelocity + 50);
         this.amount.setBaseValue(amount).setUpgradedValue(1, amount + 1).setUpgradedValue(10, amount + 2);
+        this.weaponTooltip = weaponTooltip;
         canBeUsedForRaids = false;
     }
 
@@ -61,5 +67,12 @@ public class BaseSummonBoomerangWeapon extends BoomerangToolItem
     public Set<Integer> getValidEnchantmentIDs(InventoryItem item)
     {
         return EnchantmentRegistry.meleeItemEnchantments;
+    }
+
+    public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard)
+    {
+        ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
+        tooltips.add(Localization.translate("itemtooltip", weaponTooltip));
+        return tooltips;
     }
 }

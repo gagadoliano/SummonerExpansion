@@ -2,10 +2,15 @@ package summonerexpansion.items.mounts.transformations;
 
 import necesse.engine.localization.Localization;
 import necesse.engine.network.Packet;
+import necesse.engine.network.PacketReader;
+import necesse.engine.network.PacketWriter;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.MountAbility;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.summon.summonFollowingMob.mountFollowingMob.MountFollowingMob;
+import necesse.gfx.camera.GameCamera;
+
+import java.awt.*;
 
 import static summonerexpansion.codes.registries.RegistrySummonModifiers.TRANSFORMATION_SPEED;
 
@@ -39,6 +44,25 @@ public class BaseTransformMount extends MountFollowingMob implements MountAbilit
 
     public boolean canRunMountAbility(PlayerMob player, Packet content) {
         return abilityCooldown == 0;
+    }
+
+    public Packet getMountAbilityContent(PlayerMob player, GameCamera camera)
+    {
+        Packet content = new Packet();
+        PacketWriter writer = new PacketWriter(content);
+        writer.putNextInt(camera.getMouseLevelPosX());
+        writer.putNextInt(camera.getMouseLevelPosY());
+        return content;
+    }
+
+    protected static Point readAimTarget(Packet content)
+    {
+        if (content == null || content.getSize() < Packet.INT_SIZE * 2)
+        {
+            return null;
+        }
+        PacketReader reader = new PacketReader(content);
+        return new Point(reader.getNextInt(), reader.getNextInt());
     }
 
     public void serverTick()

@@ -28,7 +28,7 @@ public class AncientRootObject extends StaticMultiObject
     {
         super(multiX, multiY, multiWidth, multiHeight, multiIDs, fullCollision, "ancientwoodroot");
         this.mapColor = new Color(73, 28, 45);
-        this.objectHealth = 150;
+        this.objectHealth = 550;
         this.toolType = ToolType.AXE;
         this.displayMapTooltip = true;
         this.isLightTransparent = true;

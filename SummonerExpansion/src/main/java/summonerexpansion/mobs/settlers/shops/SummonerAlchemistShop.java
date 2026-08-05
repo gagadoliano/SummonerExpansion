@@ -11,13 +11,13 @@ public class SummonerAlchemistShop
     @Advice.OnMethodExit
     static void onExit(@Advice.This AlchemistHumanMob NPC)
     {
-        NPC.shop.addSellingItem("minionattackspeedpotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addQuestTierCompletedRequirement("evilsprotector");
-        NPC.shop.addSellingItem("minioncritchancepotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addQuestTierCompletedRequirement("queenspider");
-        NPC.shop.addSellingItem("minioncritpotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addQuestTierCompletedRequirement("queenspider");
-        NPC.shop.addSellingItem("minionrangepotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addQuestTierCompletedRequirement("voidwizard");
-        NPC.shop.addSellingItem("minionspeedpotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addQuestTierCompletedRequirement("ancientvulture");
-        NPC.shop.addSellingItem("minionequinoxpotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addQuestTierCompletedRequirement("chieftain");
-        NPC.shop.addSellingItem("minioncloserangepotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addQuestTierCompletedRequirement("piratecaptain");
-        NPC.shop.addSellingItem("minionfarmpotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(100, 300, 5).addQuestTierCompletedRequirement("piratecaptain");
+        NPC.shop.addSellingItem("minionattackspeedpotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addHasCompletedStoryObjectiveRequirement("defeatevilsprotector");
+        NPC.shop.addSellingItem("minioncritchancepotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addHasCompletedStoryObjectiveRequirement("defeatqueenspider");
+        NPC.shop.addSellingItem("minioncritpotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addHasCompletedStoryObjectiveRequirement("defeatqueenspider");
+        NPC.shop.addSellingItem("minionrangepotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addHasCompletedStoryObjectiveRequirement("defeatvoidwizard");
+        NPC.shop.addSellingItem("minionspeedpotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addHasCompletedStoryObjectiveRequirement("defeatancientvulture");
+        NPC.shop.addSellingItem("minionequinoxpotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addHasCompletedStoryObjectiveRequirement("defeatchieftain");
+        NPC.shop.addSellingItem("minioncloserangepotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addHasCompletedStoryObjectiveRequirement("defeatpiratecaptain");
+        NPC.shop.addSellingItem("minionfarmpotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(100, 300, 5).addHasCompletedStoryObjectiveRequirement("defeatpiratecaptain");
     }
 }

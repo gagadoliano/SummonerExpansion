@@ -5,11 +5,15 @@ import necesse.engine.registries.MobRegistry;
 import necesse.engine.registries.ProjectileRegistry;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
+import necesse.engine.util.GameRandom;
+import necesse.engine.util.GameUtils;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.MobDrawable;
 import necesse.entity.mobs.PlayerMob;
+import necesse.entity.mobs.TrainingDummyMob;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFollowerChaserAI;
+import necesse.entity.mobs.ai.behaviourTree.trees.StationaryPlayerShooterAI;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
@@ -26,6 +30,7 @@ import summonerexpansion.mobs.minions.base.SentryBase;
 
 import java.awt.*;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static summonerexpansion.codes.registries.RegistryMinionTextures.leafShotColdSentry;
 
@@ -44,27 +49,38 @@ public class LeafShotColdSentry extends SentryBase
     public void init()
     {
         super.init();
-        ai = new BehaviourTreeAI<>(this, new PlayerFollowerChaserAI<LeafShotColdSentry>(600, 600, false, false, 90000, 64)
+        this.ai = new BehaviourTreeAI<>(this, new StationaryPlayerShooterAI<LeafShotColdSentry>(600)
         {
-            public boolean attackTarget(LeafShotColdSentry mob, Mob target)
+            public void shootTarget(LeafShotColdSentry mob, Mob target)
             {
                 float projVel = getAttackOwner().buffManager.getModifier(BuffModifiers.PROJECTILE_VELOCITY);
 
-                if (mob.canAttack())
-                {
-                    mob.attack(target.getX(), target.getY(), false);
-                    Projectile projectile = ProjectileRegistry.getProjectile("leafcoldballproj", mob.getLevel(), mob.x, mob.y, target.x, target.y, (120.0F * projVel), 640, summonDamage, mob);
-                    projectile.setTargetPrediction(target, -20.0F);
-                    projectile.moveDist(20.0);
-                    mob.getLevel().entityManager.projectiles.add(projectile);
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                Projectile projectile = ProjectileRegistry.getProjectile("leafcoldballproj", mob.getLevel(), mob.x, mob.y, target.x, target.y, (120.0F * projVel), 640, summonDamage, mob);
+                projectile.setTargetPrediction(target);
+                attack((int)(mob.x + projectile.dx * 100.0F), (int)(mob.y + projectile.dy * 100.0F), true);
+                projectile.x += Math.signum(attackDir.x) * 10.0F;
+                projectile.y += attackDir.y * 6.0F;
+                getLevel().entityManager.projectiles.add(projectile);
+            }
+
+            public Stream<Mob> streamTargets(LeafShotColdSentry mob, int shootDistance)
+            {
+                return GameUtils.streamTargets(mob, GameUtils.rangeBounds(x, y, 500)).filter((m) -> mob.isHostile || m.isHostile || m instanceof TrainingDummyMob).filter((m) -> m.getDistance(mob) <= 500.0F);
             }
         });
+        if (this.isClient())
+        {
+            GameRandom random = GameRandom.globalRandom;
+            float anglePerParticle = 36.0F;
+            for(int i = 0; i < 10; ++i)
+            {
+                int angle = (int)((float)i * anglePerParticle + random.nextFloat() * anglePerParticle);
+                float dx = (float)Math.sin(Math.toRadians(angle)) * 20.0F;
+                float dy = (float)Math.cos(Math.toRadians(angle)) * 20.0F;
+                this.getLevel().entityManager.addParticle(this, Particle.GType.IMPORTANT_COSMETIC).sprite(GameResources.puffParticles.sprite(random.nextInt(5), 0, 12)).sizeFades(12, 24).movesFriction(dx * 2.0F, dy * 2.0F, 0.8F).color(new Color(29, 97, 17)).heightMoves(0.0F, 30.0F).lifeTime(1500);
+            }
+            SoundManager.playSound(GameResources.magicbolt4, SoundEffect.effect(this).volume(0.3F).pitch(GameRandom.globalRandom.getFloatBetween(1.4F, 1.5F)));
+        }
     }
 
     public void clientTick()

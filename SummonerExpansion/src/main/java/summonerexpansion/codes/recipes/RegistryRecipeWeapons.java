@@ -189,6 +189,17 @@ public class RegistryRecipeWeapons
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "hivescepter",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("queenbee", 1),
+                        new Ingredient("goldbar", 12),
+                        new Ingredient("honey", 4)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "bearhead",
                 1,
                 SUMMONTABLECRAFT,
@@ -360,6 +371,16 @@ public class RegistryRecipeWeapons
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "batcage",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("demonicbar", 8),
+                        new Ingredient("batwing", 12)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "frostpiercer",
                 1,
                 SUMMONTABLECRAFT2,
@@ -466,6 +487,17 @@ public class RegistryRecipeWeapons
                         new Ingredient("ivybar", 15),
                         new Ingredient("swampsludge", 10),
                         new Ingredient("voidshard", 25)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "ancestorstaff",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("ancientfossilbar", 16),
+                        new Ingredient("wormcarapace", 8),
+                        new Ingredient("dryadlog", 25)
                 }
         ));
 
@@ -623,6 +655,17 @@ public class RegistryRecipeWeapons
                 new Ingredient[]{
                         new Ingredient("wormcarapace", 100),
                         new Ingredient("ancientfossilore", 25)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "ashgolemhead",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("charredbark", 50),
+                        new Ingredient("livingash", 10),
+                        new Ingredient("phoenixfeather", 4)
                 }
         ));
 
@@ -859,12 +902,45 @@ public class RegistryRecipeWeapons
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "portablefurnace",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("fuelskull", 10),
+                        new Ingredient("pristinegear", 10),
+                        new Ingredient("radiatedessence", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "ignitionkey",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("fuelskull", 12),
+                        new Ingredient("pristinegear", 12),
+                        new Ingredient("radiatedessence", 2)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "eyeofthevoid",
                 1,
                 SUMMONTABLECRAFT4,
                 new Ingredient[]{
                         new Ingredient("ascendedshard", 25),
                         new Ingredient("voidvessel", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "shreddingstar",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("junk", 50),
+                        new Ingredient("fuelskull", 6),
+                        new Ingredient("pristinegear", 2)
                 }
         ));
     }
@@ -899,8 +975,8 @@ public class RegistryRecipeWeapons
                 1,
                 SUMMONBOOKCRAFT,
                 new Ingredient[]{
-                        new Ingredient("fireresistancepotion", 5),
-                        new Ingredient("torch", 100),
+                        new Ingredient("charredbark", 50),
+                        new Ingredient("torch", 25),
                         new Ingredient("book", 1)
                 }
         ));

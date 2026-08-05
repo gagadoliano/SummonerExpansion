@@ -35,7 +35,7 @@ public class RegistryWeapons
         ItemRegistry.registerItem("royalhive", new BaseSummonWeapon(10F,30F,1F,100, FollowPosition.WALK_CLOSE, Item.Rarity.COMMON,"beequeenminion","royalhivetip"), 50, true);
         ItemRegistry.registerItem("bearhead", new BaseSummonSetWeapon(30F,50F,2F,100, FollowPosition.WALK_CLOSE, Item.Rarity.COMMON,"bearminion","bearheadtip", "leathersummonersetbonus", new Color(206, 135, 70)), 50, true);
         // Melee
-        ItemRegistry.registerItem("wormbucket", new BaseSummonBoomerangWeapon(10F, 35F, 300, 100, 400,1, 100, Item.Rarity.COMMON, "wormproj"), 50, true);
+        ItemRegistry.registerItem("wormbucket", new BaseSummonBoomerangWeapon(10F, 35F, 300, 100, 400,1, 100, Item.Rarity.COMMON, "wormproj", "wormbuckettip"), 50, true);
         ItemRegistry.registerItem("spidersummonsword", new SpiderSummonSword(100, Item.Rarity.COMMON), 50, true);
         ItemRegistry.registerItem("druidleatherclaw", new DruidLeatherClaw(100, Item.Rarity.COMMON), 50, true);
         ItemRegistry.registerItem("druidpolarclaw", new DruidPolarClaw(100, Item.Rarity.COMMON), 50, true);
@@ -74,7 +74,7 @@ public class RegistryWeapons
         ItemRegistry.registerItem("vampirewings", new BaseSummonSetWeapon(20F,65F,1F,100, FollowPosition.WALK_CLOSE, Item.Rarity.UNCOMMON,"vampireminion","vampirewingstip", "bloodplatemasksetbonus", new Color(180, 15, 50)), 100, true);
         ItemRegistry.registerItem("hungrymimic", new HungryMimic(200, Item.Rarity.UNCOMMON), 100, true);
         // Melee
-        ItemRegistry.registerItem("globeboomerang", new GlobeBoomerang(200, Item.Rarity.COMMON, null), 50, true);
+        ItemRegistry.registerItem("globeboomerang", new GlobeBoomerang(200, Item.Rarity.UNCOMMON, null), 100, true);
         ItemRegistry.registerItem("druidnecroticclaw", new DruidNecroticClaw(200, Item.Rarity.UNCOMMON), 100, true);
         ItemRegistry.registerItem("druidvultureclaw", new DruidVultureClaw(200, Item.Rarity.UNCOMMON), 100, true);
         ItemRegistry.registerItem("druidspiderclaw", new DruidSpiderClaw(200, Item.Rarity.UNCOMMON), 100, true);
@@ -88,7 +88,9 @@ public class RegistryWeapons
         // Secondary
         ItemRegistry.registerItem("bookfrozen", new BaseSummonSecondarySetWeapon(30,45,2,4,200, FollowPosition.WALK_CLOSE, Item.Rarity.UNCOMMON,"frozendwarfminion","bookfrozentip", "frostcrownsetbonus", new Color(87, 189, 216)), 100, true);
         ItemRegistry.registerItem("bookrunic", new BaseSummonSecondaryWeapon(30,65,2,4,200, FollowPosition.FLYING_CIRCLE, Item.Rarity.UNCOMMON,"runicshieldminion","bookrunictip"), 100, true);
+        ItemRegistry.registerItem("ancestorstaff", new AncestorStaff(200, Item.Rarity.UNCOMMON), 100, true);
         // Sentry
+
     }
 
     public static void registerTier3()
@@ -97,6 +99,7 @@ public class RegistryWeapons
         ItemRegistry.registerItem("magictungstenlamp", new BaseSummonWeapon(25F,45F,1F,100, FollowPosition.CIRCLE_FAR, Item.Rarity.RARE,"lampminiontungsten","magictungstenlamptip"), 200, true);
         ItemRegistry.registerItem("sandwormstaff", new BaseSummonWeapon(50F,150F,2F,100, FollowPosition.FLYING_CIRCLE_FAST, Item.Rarity.RARE,"sandwormheadminion","sandwormstafftip"), 200, true);
         ItemRegistry.registerItem("dryadessence", new BaseSummonWeapon(45F,90F,3F,100, FollowPosition.WALK_CLOSE, Item.Rarity.RARE,"spiritghoulminion","dryadessencetip"), 200, true);
+        ItemRegistry.registerItem("ashgolemhead", new BaseSummonWeapon(30F,50F,1F,100, FollowPosition.WALK_CLOSE, Item.Rarity.RARE,"ashgolemminion","ashgolemheadtip"), 200, true);
         // Melee
         ItemRegistry.registerItem("druidprimordialclaws", new DruidPrimordialClaws(400, Item.Rarity.RARE), 200, true);
         ItemRegistry.registerItem("druidancestorclaw", new DruidAncestorClaw(400, Item.Rarity.RARE), 200, true);
@@ -127,9 +130,11 @@ public class RegistryWeapons
         ItemRegistry.registerItem("gemrubyshards", new BaseSummonWeapon(100F,120F,1F,100, FollowPosition.WALK_CLOSE, Item.Rarity.EPIC,"golemrubyminion","rubyshardtip"), 400, true);
         // Melee
         ItemRegistry.registerItem("druidfallendragonclaw", new DruidFallenDragonClaw(800, Item.Rarity.EPIC), 400, true);
+        ItemRegistry.registerItem("shreddingstar", new BaseSummonBoomerangWeapon(50F, 70F, 200, 200, 800,3, 800, Item.Rarity.EPIC, "shreddingstarproj", "shreddingstartip"), 400, true);
         // Ranged
         // Magic
         // Secondary
+        ItemRegistry.registerItem("portablefurnace", new BaseSummonSecondaryWeapon(50,65,2,4,800, FollowPosition.LARGE_PYRAMID, Item.Rarity.EPIC,"furnacegolemminion","portablefurnacetip"), 400, true);
         // Sentry
         ItemRegistry.registerItem("vampirecoffin", new BaseSummonSetWeapon(60F,80F,1F,800, FollowPosition.WALK_CLOSE, Item.Rarity.EPIC,"coffinsentry","coffinsentrytip", "bloodplatemasksetbonus", new Color(180, 15, 50)), 400, true);
 

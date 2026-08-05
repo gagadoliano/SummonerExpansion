@@ -26,6 +26,8 @@ public class RegistryEvents
     public static void registerPool()
     {
         LevelEventRegistry.registerEvent("spiritghoulpoolevent", SpiritGhoulPoolEvent.class);
+        LevelEventRegistry.registerEvent("dragonicburninggroundevent2", DragonicBurningGroundEvent2.class);
+        LevelEventRegistry.registerEvent("dragonicburninggroundevent3", DragonicBurningGroundEvent3.class);
     }
 
     public static void registerThunder()

@@ -1,7 +1,5 @@
 package summonerexpansion.items.mounts.transformations;
 
-import necesse.engine.GlobalData;
-import necesse.engine.Settings;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.network.Packet;
@@ -44,12 +42,12 @@ public class ZombieArcherSummonMount extends BaseTransformMount implements Mount
     {
         if (isServer())
         {
-            GameCamera camera = GlobalData.getCurrentState().getCamera();
-            if (camera == null) {
+            Point aim = readAimTarget(content);
+            if (aim == null) {
                 return;
             }
-            player.attack(camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), false);
-            player.getLevel().entityManager.projectiles.add(new MountZombieArrowProj(x, y, camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), damage, player));
+            player.attack(aim.x, aim.y, false);
+            player.getLevel().entityManager.projectiles.add(new MountZombieArrowProj(x, y, aim.x, aim.y, damage, player));
             abilityCooldown = 10;
         }
     }

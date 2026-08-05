@@ -12,6 +12,6 @@ public class SummonerExoticShop
     static void onExit(@Advice.This ExoticMerchantHumanMob NPC)
     {
         NPC.shop.addSellingItem("alienparasite",  new SellingShopItem()).setRandomPrice(500, 3000).addRandomAvailableRequirement(0.25F);
-        NPC.shop.addSellingItem("cowskull",  new SellingShopItem()).setRandomPrice(500, 3000).addRandomAvailableRequirement(0.25F).addKilledMobRequirement("ancientvulture");
+        NPC.shop.addSellingItem("cowskull",  new SellingShopItem()).setRandomPrice(500, 3000).addRandomAvailableRequirement(0.25F).addHasCompletedStoryObjectiveRequirement("defeatancientvulture");
     }
 }

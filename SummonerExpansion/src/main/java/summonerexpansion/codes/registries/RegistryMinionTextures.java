@@ -103,6 +103,8 @@ public class RegistryMinionTextures
     // Trinket
     public static GameTexture trinketHorrorBatMinion;
     public static GameTexture petTeaPotMinion;
+    public static GameTexture dragonicFlamesMinion2;
+    public static GameTexture dragonicFlamesMinion3;
 
     // Mount
     public static GameTexture cavelingMinecartMount;
@@ -214,6 +216,8 @@ public class RegistryMinionTextures
         livingArmorMinion = GameTexture.fromFile("mobs/minions/trinket/livingarmorstandminion");
         trinketHorrorBatMinion = GameTexture.fromFile("mobs/minions/trinket/horrorbatminion");
         petTeaPotMinion = GameTexture.fromFile("mobs/minions/trinket/teapotminion");
+        dragonicFlamesMinion2 = GameTexture.fromFile("mobs/minions/trinket/dragonicflamesminion2");
+        dragonicFlamesMinion3 = GameTexture.fromFile("mobs/minions/trinket/dragonicflamesminion3");
 
         // Mount
         cavelingMinecartMount = GameTexture.fromFile("mobs/mount/cavelingminecart");

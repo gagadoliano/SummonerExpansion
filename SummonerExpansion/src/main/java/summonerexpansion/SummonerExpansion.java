@@ -43,6 +43,8 @@ public class SummonerExpansion
         RegistryPresets.registerPresets();
         RegistryPackets.registerPackets();
         RegistryMissions.registerMissions();
+        RegistryPickup.registerPickups();
+        RegistryPersonality.registerPersonalities();
     }
 
     public void initResources()

@@ -244,6 +244,17 @@ public class RegistryRecipeTrinkets
                         new Ingredient("bloodstains", 5)
                 }
         ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "dragonicflames",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("phoenixfeather", 20),
+                        new Ingredient("livingash", 2),
+                        new Ingredient("charredbark", 75)
+                }
+        ));
     }
 
     public static void registerTier4()

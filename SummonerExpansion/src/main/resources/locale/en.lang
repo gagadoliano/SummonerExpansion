@@ -117,6 +117,7 @@ cactusstaff=Cactus Staff
 polarhead=Polar Head
 royalhive=Royal Hive
 hungrymimic=Hungry Mimic
+ashgolemhead=Ash Golem Head
 
 // Sentry weapons
 leafshotheatpack=Fire Leaf Shooter Seed Pack
@@ -138,6 +139,8 @@ bookfrozen=Frozen Book
 bookmagma=Magma Book
 bookrunic=Runic Book
 bookbee=Bee Book
+ancestorstaff=Ancestor Staff
+portablefurnace=Portable Furnace
 
 // Melee weapons
 druidfallendragonclaw=Druid Fallen Dragon Claw
@@ -160,6 +163,7 @@ goblinsword=Goblin Sword
 horrorsword=Horror Sword
 mimesword=Mime Sword
 wormbucket=Worm Bucket
+shreddingstar=Shredding Star
 
 // Range weapons
 mosquitobow=Mosquito Bow
@@ -275,6 +279,7 @@ giantbeet=Giant Beet
 bonepile=Bone Pile
 cowskull=Cow Skull
 bullhead=Bull Head
+dragonicflames=Dragonic Flames
 
 // Potions
 minioncritchancepotion=Summon Critical Chance Potion
@@ -409,13 +414,14 @@ icewizardtip2=Shoots faster projectiles that does 20% more damage
 goldpitchforktip=Summons a farmer that have a small chance to spawn wheat or farm animals when attacking
 magicgoldlamptip=Summons a double gold lamp that glows and attack \nBurn foes on hit
 lampminiondungeontip=Summons a dungeon candelabra \nBurn foes at night
-vampirewingstip=Summons a vampire that shoots blood bolts at foes
+vampirewingstip=Summons a vampire that shoots blood bolts at foes \nDrops healing hearts that gives bloodplate buff on kill
 vampirewingstip2=Shoots faster projectiles that does 30% more damage
 hungrymimictip=Uses all your summon slots \nDamage is increased with each summon slot used
 // T3
 magictungstenlamptip=Summons a tungsten lamp that glows and attack \nBurn foes on hit
 dryadessencetip=Summons a slow moving ghoul \nThis ghoul leaves a damaging trail
 sandwormstafftip=Summons a sand worm to attack foes
+ashgolemheadtip=Summons an ash golem that grounds their target
 // T4
 amethystshardtip=Summons an amethyst golem \nThis golem can crystallize foes \nAdditional amethyst golems increases the chance to crystallize
 sapphireshardtip=Summons a sapphire golem \nThis golem summons a sapphire glyph at your location when you have life essence
@@ -448,6 +454,8 @@ bookrunictip2=Armor buff lasts longer
 bookfrozentip=Summons frozen dwarfs that throws 10 ice javelins that slows foes by 30%
 bookfrozentip2=Shoots faster projectiles that does 20% more damage and have 50% chance to throw more javelins before dying
 bookbeetip=Summons 3 bees \nThey slows foes by 10%
+ancestorstafftip=Summons an ancestor knight to that attack foes \nHave a small chance to summon a ancestor mage instead \nHigher upgrade tiers increases the summoning chance
+portablefurnacetip=Summons a furnace golem that sets nearby foes on fire \nThis golem takes damage from foes
 
 // Melee weapons
 horrorswordtip=Gains attack speed stacks by hitting foes \nAt max stacks consume them to summons a horror crawling zombie
@@ -470,6 +478,7 @@ druidleatherclawtip=20% increased damage taken
 druidnecroclawtip=Applies necrotic poison
 druidpolarclawtip=Slows by 30%
 webspiderwhiptip=20% chance to summon a spider on hit, up to 3
+shreddingstartip=10% chance to summon a haywire shredder, up to 3
 
 // Range weapons
 mosquitobowtip=Shoots down arrows from above that leaves a damaging pool in it's wake \nEvery 20 hits summons a mosquito that reduces foes armor
@@ -542,6 +551,7 @@ lightningamulettip=Shoots lightning bursts when attacking foes with summon weapo
 lightningamulettip2=The lightning deals <damage> damage
 timeworncoinstip=Every 5 hits taken drops 5 coins
 alienparasitetip=Increases summon damage and crit damage, max stamina and mana at cost of max health and resilience \nGrows stronger after each boss kill
+dragonicflamestip=Using non-summon weapons summon dragons that deals summon damage \nMelee damage summons fire dragons \nMagic damage summons frost dragons \nRanged damage summons poison dragons
 // T2
 overchargedvstip=Increases max mana by 50 \nConverts damage taken into mana \nReduces damage taken by 10% when mana is full \nIncreases damage taken by 20% during mana exhaustion
 frostsentrycoretip=20% chance to freeze foes that hits you \nClaw weapons have 50% chance to summon frost spikes that deals 20% of the claw's damage
@@ -1014,3 +1024,28 @@ titaniumorenode=Titanium Node
 druidswamphouse=Druid House
 trainingplain=Training Area
 beehivearea=Beehive Area
+
+[personalities]
+pyrotechnician=Pyrotechnician
+pyrotechnician_desc=<name> wants to see the world burn. They will get bonuses based on their quality of life level
+pyrotechnicianfire=While attacking occasionally launches flames at their target
+shamanic=Shamanic
+shamanic_desc=<name> knows how to gather souls and summon spirits. They will get bonuses based on their quality of life level
+shamanicsoul=While attacking occasionally summons spirits
+lightwaver=Lightwaver
+lightwaver_desc=<name> can manipulate light to improve their skills. They will get bonuses based on their quality of life level
+lightwaverbeam=While attacking occasionally materialize light javelins
+holypriest=Holy Priest
+holypriest_desc=<name> grew up in a holy church. They will get bonuses based on their quality of life level
+holypriestwave=While attacking occasionally releases a champion wave
+hydromancer=Hydromancer
+hydromancer_desc=<name> can bend water. They will get bonuses based on their quality of life level
+hydromancerspray=While attacking occasionally spray water
+slimeaddict=Slime Addicted
+slimeaddict_desc=<name> once ate slime and now is addicted to it. They will get bonuses based on their quality of life level
+slimeaddictproj=While attacking occasionally spits slime projectiles
+druidic=Druidic
+druidic_desc=<name> have a deeper understanding of nature. They will get bonuses based on their quality of life level
+druidpotionseller=Summon Potion Seller
+druidpotionseller_desc=<name> always brews an extra potion for summoners in need. They will have one random potion available to sell for each quality of life level above Low. Their selection will change every day
+druidpotionsellercurrent=<number> potion(s) available in shop

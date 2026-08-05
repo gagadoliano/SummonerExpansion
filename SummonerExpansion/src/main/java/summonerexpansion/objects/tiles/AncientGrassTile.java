@@ -13,13 +13,17 @@ import necesse.inventory.lootTable.lootItem.ChanceLootItem;
 import necesse.level.gameObject.GameObject;
 import necesse.level.gameTile.GrassTile;
 import necesse.level.gameTile.TerrainSplatterTile;
+import necesse.level.maps.IncursionLevel;
 import necesse.level.maps.Level;
+import necesse.level.maps.TilePosition;
+import necesse.level.maps.biomes.MobSpawnTable;
 import necesse.level.maps.regionSystem.SimulatePriorityList;
 
 import java.awt.*;
 
 public class AncientGrassTile extends TerrainSplatterTile
 {
+    public static MobSpawnTable ancientSpawnTable = (new MobSpawnTable()).add(100, "woodmob");
     public static double growChance = GameMath.getAverageSuccessRuns(7000.0F);
     public static double spreadChance = GameMath.getAverageSuccessRuns(850.0F);
     private final GameRandom drawRandom;
@@ -94,6 +98,15 @@ public class AncientGrassTile extends TerrainSplatterTile
                 }
             }
         }
+    }
+
+    public MobSpawnTable getMobSpawnTable(TilePosition pos, MobSpawnTable defaultTable)
+    {
+        return !(pos.level instanceof IncursionLevel) && pos.level.getIdentifier().isSurface() ? ancientSpawnTable : super.getMobSpawnTable(pos, defaultTable);
+    }
+
+    public int getMobSpawnPositionTickets(Level level, int tileX, int tileY) {
+        return 500;
     }
 
     public Point getTerrainSprite(GameTextureSection terrainTexture, Level level, int tileX, int tileY)

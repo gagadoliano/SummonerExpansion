@@ -7,6 +7,7 @@ import necesse.engine.registries.BuffRegistry;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
 import necesse.engine.util.DPSTracker;
+import necesse.engine.util.GameBlackboard;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.*;
 import necesse.gfx.GameResources;
@@ -171,9 +172,9 @@ public class TankTrainingDummyMob extends Mob
 
     }
 
-    public boolean onMouseHover(GameCamera camera, PlayerMob perspective, boolean debug)
+    public boolean onMouseHover(GameCamera camera, PlayerMob perspective, GameBlackboard blackboard, boolean debug)
     {
-        return debug && super.onMouseHover(camera, perspective, true);
+        return debug && super.onMouseHover(camera, perspective, blackboard, debug);
     }
 
     public float getArmorAfterPen(float armorPen) {

@@ -62,6 +62,8 @@ public class RegistryMinions
         MobRegistry.registerMob("butterflyblueminion", BookBlueButterflyMinion.class, false);
         MobRegistry.registerMob("butterflyredminion", BookRedButterflyMinion.class, false);
         MobRegistry.registerMob("hungrymimicminion", HungryMimicMinion.class, false);
+        MobRegistry.registerMob("ashgolemminion", AshGolemMinion.class, false);
+        MobRegistry.registerMob("furnacegolemminion", FurnaceGolemMinion.class, false);
         // Long range
         MobRegistry.registerMob("runerangedminion", RuneRangedMinion.class, false);
         MobRegistry.registerMob("redspiderrangeminion", RedSpiderRangeMinion.class, false);
@@ -122,6 +124,7 @@ public class RegistryMinions
         MobRegistry.registerMob("planetsaturnproj", PlanetSaturnMinion.class, false);
         MobRegistry.registerMob("planetvenusproj", PlanetVenusMinion.class, false);
         MobRegistry.registerMob("planetmarsproj", PlanetMarsMinion.class, false);
+        MobRegistry.registerMob("haywireshredderminion", HaywireShredderMinion.class, false);
         //Whip
         MobRegistry.registerMob("whipspiderminion", WhipSpiderMinion.class, false);
 

@@ -1,7 +1,5 @@
 package summonerexpansion.items.mounts.transformations;
 
-import necesse.engine.GlobalData;
-import necesse.engine.Settings;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.network.Packet;
@@ -12,7 +10,6 @@ import necesse.engine.sound.SoundSettings;
 import necesse.engine.util.GameUtils;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.buffs.BuffModifiers;
-import necesse.entity.mobs.buffs.staticBuffs.StaminaBuff;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
 import necesse.entity.particle.SmokePuffParticle;
@@ -51,12 +48,12 @@ public class CryptVampireSummonMount extends BaseTransformMount implements Mount
     {
         if (isServer())
         {
-            GameCamera camera = GlobalData.getCurrentState().getCamera();
-            if (camera == null) {
+            Point aim = readAimTarget(content);
+            if (aim == null) {
                 return;
             }
-            player.attack(camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), false);
-            player.getLevel().entityManager.projectiles.add(new MountCryptBoltProj(getLevel(), x, y, camera.getMouseLevelPosX(), camera.getMouseLevelPosY(), damage, player));
+            player.attack(aim.x, aim.y, false);
+            player.getLevel().entityManager.projectiles.add(new MountCryptBoltProj(getLevel(), x, y, aim.x, aim.y, damage, player));
             abilityCooldown = 10;
         }
     }

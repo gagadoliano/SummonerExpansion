@@ -3,6 +3,7 @@ package summonerexpansion.codes.registries;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.registries.BuffRegistry;
 import necesse.entity.mobs.buffs.staticBuffs.Buff;
+import necesse.entity.mobs.buffs.staticBuffs.PyromancyOnFireBuff;
 import summonerexpansion.buffs.debuffs.*;
 
 import java.awt.*;
@@ -38,6 +39,9 @@ public class RegistryDebuffs
         // Sentry
         public static Buff MUSHROOMSENTRYSLOW;
 
+        //Trinkets
+        public static Buff DRAGON_POISONDOT;
+        public static Buff DRAGON_FROSTDOT;
 
         public WeaponDebuffs() {
         }
@@ -69,6 +73,10 @@ public class RegistryDebuffs
 
         // Sentry
         BuffRegistry.registerBuff("mushroomslowdebuff", WeaponDebuffs.MUSHROOMSENTRYSLOW = new BaseStackingDebuff(new Color(174, 161, 137), 20, new ModifierValue<>(ARMOR_FLAT, -1)));
+
+        // Trinkets
+        BuffRegistry.registerBuff("dragonpoisondebuff", WeaponDebuffs.DRAGON_POISONDOT = new DragonPoisonDebuff());
+        BuffRegistry.registerBuff("dragonfrostdebuff", WeaponDebuffs.DRAGON_FROSTDOT = new DragonFrostDebuff());
     }
 
     public static class GenericDebuffs

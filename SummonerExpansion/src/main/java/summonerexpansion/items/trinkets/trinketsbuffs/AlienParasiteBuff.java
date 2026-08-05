@@ -1,6 +1,9 @@
 package summonerexpansion.items.trinkets.trinketsbuffs;
 
 import necesse.engine.localization.Localization;
+import necesse.engine.network.server.ServerClient;
+import necesse.entity.mobs.Mob;
+import necesse.entity.mobs.MobWasKilledEvent;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
@@ -13,108 +16,97 @@ import static summonerexpansion.codes.registries.RegistryTrinkets.TrinketBuffs.A
 
 public class AlienParasiteBuff extends TrinketBuff
 {
+    private static final float STACK_DURATION_SECONDS = 60.0F;
+    private static final int STACK_DURATION_MS = 60000;
+    private static final float REFRESH_BELOW_SECONDS = 5.0F;
+    private static final String[] BOSS_TIERS = {
+            "ascendedwizard",
+            "crystaldragon",
+            "moonlightdancer",
+            "sunlightchampion",
+            "spiderempress",
+            "nightswarm",
+            "motherslime",
+            "fallenwizard",
+            "sageandgrit",
+            "pestwarden",
+            "cryoqueen",
+            "reaper",
+            "piratecaptain",
+            "ancientvulture",
+            "swampguardian",
+            "chieftain",
+            "voidwizard",
+            "queenspider",
+            "evilsprotector",
+    };
+
     public AlienParasiteBuff() {}
 
     public void init(ActiveBuff buff, BuffEventSubscriber buffEventSubscriber)
     {
+        applyStacks(buff, null);
+    }
+
+    public void onHasKilledTarget(ActiveBuff buff, MobWasKilledEvent event)
+    {
+        applyStacks(buff, event.target);
     }
 
     public void serverTick(ActiveBuff buff)
     {
-        updateModifiers(buff);
-    }
-
-    public void clientTick(ActiveBuff buff)
-    {
-        updateModifiers(buff);
-    }
-
-    public void updateModifiers(ActiveBuff buff)
-    {
-        ActiveBuff ab = new ActiveBuff(ADAPTIVEALIENSTACKS, buff.owner, 60F, null);
-        if (buff.owner.isClient())
+        if (buff.owner.buffManager.getBuffDurationLeftSeconds(ADAPTIVEALIENSTACKS) > REFRESH_BELOW_SECONDS)
         {
-            if (buff.owner.getClient().characterStats.mob_kills.getKills("ascendedwizard") > 0)
+            return;
+        }
+        applyStacks(buff, null);
+    }
+
+    private void applyStacks(ActiveBuff buff, Mob justKilled)
+    {
+        if (!buff.owner.isServer() || !(buff.owner instanceof PlayerMob))
+        {
+            return;
+        }
+        ServerClient client = ((PlayerMob)buff.owner).getServerClient();
+        if (client == null)
+        {
+            return;
+        }
+        int tier = -1;
+        for (int i = 0; i < BOSS_TIERS.length; i++)
+        {
+            if (client.characterStats().mob_kills.getKills(BOSS_TIERS[i]) > 0)
             {
-                buff.owner.buffManager.addBuff(ab, true).setStacks(20, 60, buff.owner);
-            }
-            else if (buff.owner.getClient().characterStats.mob_kills.getKills("crystaldragon") > 0)
-            {
-                buff.owner.buffManager.addBuff(ab, true).setStacks(19, 60, buff.owner);
-            }
-            else if (buff.owner.getClient().characterStats.mob_kills.getKills("moonlightdancer") > 0)
-            {
-                buff.owner.buffManager.addBuff(ab, true).setStacks(18, 60, buff.owner);
-            }
-            else if (buff.owner.getClient().characterStats.mob_kills.getKills("sunlightchampion") > 0)
-            {
-                buff.owner.buffManager.addBuff(ab, true).setStacks(17, 60, buff.owner);
-            }
-            else if (buff.owner.getClient().characterStats.mob_kills.getKills("spiderempress") > 0)
-            {
-                buff.owner.buffManager.addBuff(ab, true).setStacks(16, 60, buff.owner);
-            }
-            else if (buff.owner.getClient().characterStats.mob_kills.getKills("nightswarm") > 0)
-            {
-                buff.owner.buffManager.addBuff(ab, true).setStacks(15, 60, buff.owner);
-            }
-            else if (buff.owner.getClient().characterStats.mob_kills.getKills("motherslime") > 0)
-            {
-                buff.owner.buffManager.addBuff(ab, true).setStacks(14, 60, buff.owner);
-            }
-            else if (buff.owner.getClient().characterStats.mob_kills.getKills("fallenwizard") > 0)
-            {
-                buff.owner.buffManager.addBuff(ab, true).setStacks(13, 60, buff.owner);
-            }
-            else if (buff.owner.getClient().characterStats.mob_kills.getKills("sageandgrit") > 0)
-            {
-                buff.owner.buffManager.addBuff(ab, true).setStacks(12, 60, buff.owner);
-            }
-            else if (buff.owner.getClient().characterStats.mob_kills.getKills("pestwarden") > 0)
-            {
-                buff.owner.buffManager.addBuff(ab, true).setStacks(11, 60, buff.owner);
-            }
-            else if (buff.owner.getClient().characterStats.mob_kills.getKills("cryoqueen") > 0)
-            {
-                buff.owner.buffManager.addBuff(ab, true).setStacks(10, 60, buff.owner);
-            }
-            else if (buff.owner.getClient().characterStats.mob_kills.getKills("reaper") > 0)
-            {
-                buff.owner.buffManager.addBuff(ab, true).setStacks(9, 60, buff.owner);
-            }
-            else if (buff.owner.getClient().characterStats.mob_kills.getKills("piratecaptain") > 0)
-            {
-                buff.owner.buffManager.addBuff(ab, true).setStacks(8, 60, buff.owner);
-            }
-            else if (buff.owner.getClient().characterStats.mob_kills.getKills("ancientvulture") > 0)
-            {
-                buff.owner.buffManager.addBuff(ab, true).setStacks(7, 60, buff.owner);
-            }
-            else if (buff.owner.getClient().characterStats.mob_kills.getKills("swampguardian") > 0)
-            {
-                buff.owner.buffManager.addBuff(ab, true).setStacks(6, 60, buff.owner);
-            }
-            else if (buff.owner.getClient().characterStats.mob_kills.getKills("chieftain") > 0)
-            {
-                buff.owner.buffManager.addBuff(ab, true).setStacks(5, 60, buff.owner);
-            }
-            else if (buff.owner.getClient().characterStats.mob_kills.getKills("voidwizard") > 0)
-            {
-                buff.owner.buffManager.addBuff(ab, true).setStacks(4, 60, buff.owner);
-            }
-            else if (buff.owner.getClient().characterStats.mob_kills.getKills("queenspider") > 0)
-            {
-                buff.owner.buffManager.addBuff(ab, true).setStacks(3, 60, buff.owner);
-            }
-            else if (buff.owner.getClient().characterStats.mob_kills.getKills("evilsprotector") > 0)
-            {
-                buff.owner.buffManager.addBuff(ab, true).setStacks(2, 60, buff.owner);
-            }
-            else
-            {
-                buff.owner.buffManager.addBuff(ab, true).setStacks(1, 60, buff.owner);
+                tier = i;
+                break;
             }
         }
+        if (justKilled != null)
+        {
+            for (int i = 0; i < BOSS_TIERS.length; i++)
+            {
+                if (BOSS_TIERS[i].equals(justKilled.getStringID()))
+                {
+                    if (tier < 0 || i < tier)
+                    {
+                        tier = i;
+                    }
+                    break;
+                }
+            }
+        }
+
+        int stacks = tier < 0 ? 1 : BOSS_TIERS.length + 1 - tier;
+
+        if (buff.owner.buffManager.getStacks(ADAPTIVEALIENSTACKS) == stacks && buff.owner.buffManager.getBuffDurationLeftSeconds(ADAPTIVEALIENSTACKS) > REFRESH_BELOW_SECONDS)
+        {
+            return;
+        }
+
+        ActiveBuff ab = new ActiveBuff(ADAPTIVEALIENSTACKS, buff.owner, STACK_DURATION_SECONDS, null);
+        ab.setStacks(stacks, STACK_DURATION_MS, buff.owner);
+        buff.owner.buffManager.addBuff(ab, true, true);
     }
 
     public ListGameTooltips getTrinketTooltip(TrinketItem trinketItem, InventoryItem item, PlayerMob perspective)
