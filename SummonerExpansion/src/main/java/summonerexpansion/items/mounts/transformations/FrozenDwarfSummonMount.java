@@ -28,7 +28,7 @@ import java.util.stream.Stream;
 
 public class FrozenDwarfSummonMount extends BaseTransformMount implements MountAbility
 {
-    static GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, 24);
+    static GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, 34);
     public boolean hasHair;
 
     public FrozenDwarfSummonMount()
@@ -52,7 +52,8 @@ public class FrozenDwarfSummonMount extends BaseTransformMount implements MountA
                 return;
             }
             player.attack(aim.x, aim.y, false);
-            player.getLevel().entityManager.projectiles.add(new IceMinionJavelinProj(x, y, aim.x, aim.y, damage, player));
+            float projVel = player.buffManager.getModifier(BuffModifiers.PROJECTILE_VELOCITY);
+            player.getLevel().entityManager.projectiles.add(new IceMinionJavelinProj(x, y, aim.x, aim.y, (80F * projVel), damage, player));
             abilityCooldown = 10;
         }
     }

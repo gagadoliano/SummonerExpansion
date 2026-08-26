@@ -17,7 +17,6 @@ import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.setBonusBuffs.SetBonusBuff;
 import necesse.entity.mobs.itemAttacker.CheckSlotType;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
-import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.item.DoubleItemStatTip;
 import necesse.inventory.item.ItemStatTip;
@@ -33,9 +32,9 @@ import java.util.LinkedList;
 
 public class SpiderBrideSetBonus extends SetBonusBuff implements BuffAbility
 {
-    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(35F).setUpgradedValue(1F, 35.0F);
-    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1F, 2).setUpgradedValue(10F, 3);
-    public IntUpgradeValue minionDuration = (new IntUpgradeValue()).setBaseValue(300).setUpgradedValue(1F, 400).setUpgradedValue(10F, 1200);
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(35F).setUpgradedValue(1, 35.0F);
+    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 4);
+    public IntUpgradeValue minionDuration = (new IntUpgradeValue()).setBaseValue(300).setUpgradedValue(1, 400).setUpgradedValue(10, 1200);
 
     public SpiderBrideSetBonus() {}
 
@@ -60,15 +59,13 @@ public class SpiderBrideSetBonus extends SetBonusBuff implements BuffAbility
 
         if (player.isServer())
         {
-            GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier()));
-            ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
             SetSpiderBrideMinion mob = new SetSpiderBrideMinion();
-            attackerMob.serverFollowersManager.addFollower("summonedspiderbridebuff", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1F, 1, null, false);
-            Point2D.Float spawnPoint = SummonToolItem.findSpawnLocation(mob, buff.owner.getLevel(), attackerMob.x, attackerMob.y);
-            mob.updateDamage(damage);
+            player.serverFollowersManager.addFollower("summonedspiderbrideminion", mob, FollowPosition.WALK_CLOSE, "summonedspiderbrideminionbuff", 1F, 1, null, false);
+            Point2D.Float spawnPoint = SummonToolItem.findSpawnLocation(mob, buff.owner.getLevel(), player.x, player.y);
+            mob.updateDamage(new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier())));
             mob.lifeTime = minionDuration.getValue(buff.getUpgradeTier());
             mob.setRemoveWhenNotInInventory(ItemRegistry.getItem("spiderbridehelmet"), CheckSlotType.HELMET);
-            attackerMob.getLevel().entityManager.addMob(mob, spawnPoint.x, spawnPoint.y);
+            player.getLevel().entityManager.addMob(mob, spawnPoint.x, spawnPoint.y);
         }
         player.buffManager.addBuff(new ActiveBuff(RegistryArmors.registerArmorSets.SPIDERBRIDECOOLDOWN, player, cooldown, null), false);
     }

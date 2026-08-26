@@ -24,6 +24,7 @@ import necesse.inventory.item.ItemInteractAction;
 import necesse.inventory.item.toolItem.swordToolItem.SwordToolItem;
 import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
+import summonerexpansion.items.weapons.base.BaseSummonSwordWeapon;
 import summonerexpansion.mobs.minions.melee.GoblinChestMinion;
 import summonerexpansion.mobs.minions.melee.GoblinHeadMinion;
 import summonerexpansion.mobs.minions.melee.GoblinLegMinion;
@@ -32,26 +33,16 @@ import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.LinkedList;
 
-public class GoblinSword extends SwordToolItem implements ItemInteractAction
+public class GoblinSword extends BaseSummonSwordWeapon implements ItemInteractAction
 {
     public GoblinSword(int enchantCost, Item.Rarity rarityTier)
     {
-        super(enchantCost, SummonWeaponsLootTable.summonWeapons);
-        keyWords.add("summon");
-        setItemCategory("equipment", "weapons", "summonweapons");
-        setItemCategory(ItemCategory.equipmentManager, "weapons", "summonweapons");
-        rarity = rarityTier;
-        damageType = DamageTypeRegistry.SUMMON;
+        super(enchantCost, rarityTier);
         attackDamage.setBaseValue(20.0F).setUpgradedValue(1, 100.0F);
         attackAnimTime.setBaseValue(300);
         resilienceGain.setBaseValue(0.5F).setUpgradedValue(1, 1.5F).setUpgradedValue(10, 4.0F);
         attackRange.setBaseValue(60);
         knockback.setBaseValue(75);
-        canBeUsedForRaids = true;
-    }
-
-    protected void loadItemTextures() {
-        itemTexture = GameTexture.fromFile("items/weapons/" + getStringID());
     }
 
     public void hitMob(InventoryItem item, ToolItemMobAbilityEvent event, Level level, Mob target, Mob attacker)

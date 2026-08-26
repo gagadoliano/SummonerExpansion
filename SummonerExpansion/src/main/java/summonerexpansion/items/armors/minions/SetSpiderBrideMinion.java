@@ -22,7 +22,6 @@ import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
 import necesse.gfx.drawOptions.texture.TextureDrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
-import necesse.gfx.gameTexture.GameTexture;
 import necesse.inventory.item.toolItem.projectileToolItem.ProjectileToolItem;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
@@ -130,9 +129,7 @@ public class SetSpiderBrideMinion extends AttackingFollowingMob
             }
         });
         TextureDrawOptions shadow = MobRegistry.Textures.giantCaveSpider.shadow.initDraw().sprite(0, sprite.y, 96).light(light).pos(drawX, drawY);
-        tileList.add((tm) -> {
-            shadow.draw();
-        });
+        tileList.add((tm) -> shadow.draw());
     }
 
     public int getRockSpeed() {

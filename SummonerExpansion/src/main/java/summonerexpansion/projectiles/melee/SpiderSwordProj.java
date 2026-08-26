@@ -17,6 +17,7 @@ import necesse.gfx.drawables.LevelSortedDrawable;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.level.maps.Level;
 import necesse.level.maps.LevelObjectHit;
+import summonerexpansion.codes.pickups.SpiderSwordPickupEntity;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -101,6 +102,14 @@ public class SpiderSwordProj extends Projectile
     {
         super.doHitLogic(mob, object, x, y);
         hitMob = mob != null;
+        if (mob != null)
+        {
+            if (isServer() && mob.hasDied())
+            {
+                SpiderSwordPickupEntity pickup = new SpiderSwordPickupEntity(getLevel(), (float)mob.getX(), (float)mob.getY(), 0.0F, 0.0F);
+                getLevel().entityManager.pickups.add(pickup);
+            }
+        }
     }
 
     public Color getParticleColor() {

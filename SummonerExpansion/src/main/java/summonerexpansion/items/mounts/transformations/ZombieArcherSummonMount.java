@@ -24,7 +24,7 @@ import java.util.stream.Stream;
 
 public class ZombieArcherSummonMount extends BaseTransformMount implements MountAbility
 {
-    static GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, 15);
+    static GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, 25);
 
     public ZombieArcherSummonMount()
     {
@@ -47,7 +47,8 @@ public class ZombieArcherSummonMount extends BaseTransformMount implements Mount
                 return;
             }
             player.attack(aim.x, aim.y, false);
-            player.getLevel().entityManager.projectiles.add(new MountZombieArrowProj(x, y, aim.x, aim.y, damage, player));
+            float projVel = player.buffManager.getModifier(BuffModifiers.PROJECTILE_VELOCITY);
+            player.getLevel().entityManager.projectiles.add(new MountZombieArrowProj(x, y, aim.x, aim.y, (60F * projVel), damage, player));
             abilityCooldown = 10;
         }
     }

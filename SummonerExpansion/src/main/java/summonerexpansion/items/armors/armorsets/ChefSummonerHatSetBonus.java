@@ -4,12 +4,14 @@ import necesse.engine.localization.message.GameMessage;
 import necesse.engine.localization.message.GameMessageBuilder;
 import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.registries.DamageTypeRegistry;
+import necesse.engine.registries.ItemRegistry;
 import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.MobWasHitEvent;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.setBonusBuffs.SetBonusBuff;
+import necesse.entity.mobs.itemAttacker.CheckSlotType;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.inventory.item.DoubleItemStatTip;
@@ -23,16 +25,16 @@ import java.util.LinkedList;
 
 public class ChefSummonerHatSetBonus extends SetBonusBuff
 {
-    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(50F).setUpgradedValue(1.0F, 50F);
-    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1F, 2);
-    public IntUpgradeValue maxFood = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1F, 1).setUpgradedValue(10F, 2);
-    public IntUpgradeValue minionDuration = (new IntUpgradeValue()).setBaseValue(300).setUpgradedValue(1F, 400).setUpgradedValue(10F, 1200);
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(50F).setUpgradedValue(1, 60F);
+    public FloatUpgradeValue summonDMG = (new FloatUpgradeValue().setBaseValue(20F).setUpgradedValue(1, 30F).setUpgradedValue(1, 50F));
+    public IntUpgradeValue maxFood = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 1).setUpgradedValue(10, 2);
+    public IntUpgradeValue minionDuration = (new IntUpgradeValue()).setBaseValue(300).setUpgradedValue(1, 400).setUpgradedValue(10, 1200);
 
     public ChefSummonerHatSetBonus() {}
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
     {
-        buff.setModifier(BuffModifiers.MAX_SUMMONS, maxSummons.getValue(buff.getUpgradeTier()));
+        buff.setModifier(BuffModifiers.SUMMON_DAMAGE, summonDMG.getValue(buff.getUpgradeTier()));
         buff.setModifier(BuffModifiers.MAX_FOOD_BUFFS, maxFood.getValue(buff.getUpgradeTier()));
     }
 
@@ -40,12 +42,13 @@ public class ChefSummonerHatSetBonus extends SetBonusBuff
     {
         super.onWasHit(buff, event);
         ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
-        if (attackerMob.isServer() && attackerMob.serverFollowersManager.getFollowerCount("summonedchefbuff") < 3.0F)
+        if (attackerMob.isServer() && attackerMob.serverFollowersManager.getFollowerCount("summonedchefminion") < 3F)
         {
             SetChefMinion mob = new SetChefMinion();
-            attackerMob.serverFollowersManager.addFollower("summonedchefbuff", mob, FollowPosition.LARGE_PYRAMID, "summonedmob", 1.0F, 3, null, false);
+            attackerMob.serverFollowersManager.addFollower("summonedchefminion", mob, FollowPosition.LARGE_PYRAMID, "summonedchefminionbuff", 1F, 3, null, false);
             mob.updateDamage(new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier())));
             mob.lifeTime = minionDuration.getValue(buff.getUpgradeTier());
+            mob.setRemoveWhenNotInInventory(ItemRegistry.getItem("chefsummonerhat"), CheckSlotType.HELMET);
             attackerMob.getLevel().entityManager.addMob(mob, attackerMob.x, attackerMob.y);
         }
     }

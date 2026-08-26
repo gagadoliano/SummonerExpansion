@@ -31,7 +31,7 @@ import java.util.stream.Stream;
 
 public class SharkSummonMount extends BaseTransformMount implements MountAbility
 {
-    static GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, 25);
+    static GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, 35);
 
     public SharkSummonMount()
     {
@@ -55,7 +55,8 @@ public class SharkSummonMount extends BaseTransformMount implements MountAbility
                 return;
             }
             player.attack(aim.x, aim.y, false);
-            player.getLevel().entityManager.projectiles.add(new MountSharkWaveProj(player.getLevel(), x, y, aim.x, aim.y, 45f, 500, damage, player));
+            float projVel = player.buffManager.getModifier(BuffModifiers.PROJECTILE_VELOCITY);
+            player.getLevel().entityManager.projectiles.add(new MountSharkWaveProj(player.getLevel(), x, y, aim.x, aim.y, (45F * projVel), 500, damage, player));
             abilityCooldown = 20;
         }
     }

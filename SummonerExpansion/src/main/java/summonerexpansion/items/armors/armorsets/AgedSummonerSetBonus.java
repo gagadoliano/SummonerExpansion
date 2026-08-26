@@ -30,10 +30,10 @@ import necesse.level.maps.Level;
 
 public class AgedSummonerSetBonus extends SetBonusBuff
 {
-    public IntUpgradeValue maxResilience = (new IntUpgradeValue()).setBaseValue(30).setUpgradedValue(1.0F, 30);
-    public FloatUpgradeValue resilienceGain = (new FloatUpgradeValue()).setBaseValue(0.2F).setUpgradedValue(1.0F, 0.2F);
-    public FloatUpgradeValue summonSpeed = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(0.20F).setUpgradedValue(1.0F, 0.20F);
-    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(25F).setUpgradedValue(1.0F, 25.0F);
+    public IntUpgradeValue maxResilience = (new IntUpgradeValue()).setBaseValue(30).setUpgradedValue(1, 50).setUpgradedValue(10, 100);
+    public FloatUpgradeValue resilienceGain = (new FloatUpgradeValue()).setBaseValue(0.2F).setUpgradedValue(1, 0.5F).setUpgradedValue(10, 1.0F);
+    public FloatUpgradeValue summonSpeed = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(0.20F).setUpgradedValue(1, 0.25F);
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(25F).setUpgradedValue(1, 60F);
 
     public AgedSummonerSetBonus() {}
 
@@ -46,17 +46,16 @@ public class AgedSummonerSetBonus extends SetBonusBuff
 
     public void serverTick(ActiveBuff buff)
     {
-        boolean fullHealth = buff.owner.getHealthPercent() == 1.0F;
+        boolean fullHealth = buff.owner.getHealthPercent() == 1F;
         if (buff.owner.isItemAttacker && fullHealth)
         {
             ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
-            float count = attackerMob.serverFollowersManager.getFollowerCount("summonedagedchampionbuff");
-            if (count <= 0.0F)
+            if (attackerMob.serverFollowersManager.getFollowerCount("summonedagedchampionbuff") <= 0F)
             {
                 GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier()));
                 Level level = buff.owner.getLevel();
                 AttackingFollowingMob mob = (AttackingFollowingMob) MobRegistry.getMob("setagedchampionminion", level);
-                attackerMob.serverFollowersManager.addFollower("summonedagedchampionbuff", mob, FollowPosition.WALK_CLOSE, "summonedagedchampionminionbuff", 1.0F, 1, null, false);
+                attackerMob.serverFollowersManager.addFollower("summonedagedchampionbuff", mob, FollowPosition.WALK_CLOSE, "summonedagedchampionminionbuff", 1F, 1, null, false);
                 mob.updateDamage(damage);
                 mob.setRemoveWhenNotInInventory(ItemRegistry.getItem("agedsummonerhelmet"), CheckSlotType.HELMET);
                 Point spawnPoint = new Point(attackerMob.getX() + GameRandom.globalRandom.getIntBetween(-5, 5), attackerMob.getY() + GameRandom.globalRandom.getIntBetween(-5, 5));
@@ -65,7 +64,7 @@ public class AgedSummonerSetBonus extends SetBonusBuff
         }
         else
         {
-            if (buff.owner.isServer() && buff.owner.buffManager.hasBuff("summonedagedchampionminionbuff"))
+            if (buff.owner.isItemAttacker && buff.owner.isServer() && buff.owner.buffManager.hasBuff("summonedagedchampionminionbuff"))
             {
                 buff.owner.buffManager.removeBuff("summonedagedchampionminionbuff", true);
             }
@@ -77,7 +76,7 @@ public class AgedSummonerSetBonus extends SetBonusBuff
         super.onWasHit(buff, event);
         if (buff.owner.buffManager.hasBuff(BuffRegistry.PERFECT_BLOCK))
         {
-            buff.owner.buffManager.addBuff(new ActiveBuff(BuffRegistry.AGED_CHAMPION_PROWESS, buff.owner, 5000, null), false);
+            buff.owner.buffManager.addBuff(new ActiveBuff(BuffRegistry.AGED_CHAMPION_PROWESS, buff.owner, 30F, null), false);
         }
     }
 

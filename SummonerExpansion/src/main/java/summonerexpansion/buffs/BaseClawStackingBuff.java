@@ -11,7 +11,7 @@ public class BaseClawStackingBuff extends Buff
 
     public BaseClawStackingBuff(ModifierValue<?>... modifiers)
     {
-        isVisible = true;
+        isVisible = false;
         canCancel = false;
         shouldSave = false;
         isImportant = true;
@@ -33,4 +33,6 @@ public class BaseClawStackingBuff extends Buff
     public boolean overridesStackDuration() {
         return true;
     }
+
+
 }

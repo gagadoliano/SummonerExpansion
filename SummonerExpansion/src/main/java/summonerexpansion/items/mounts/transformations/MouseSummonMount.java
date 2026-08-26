@@ -74,9 +74,7 @@ public class MouseSummonMount extends BaseTransformMount implements MountAbility
             }
         });
         TextureDrawOptions shadow = MobRegistry.Textures.mouse.shadow.initDraw().sprite(0, dir, 32).mirror(mirror, false).light(light).pos(drawX, drawY);
-        tileList.add((tm) -> {
-            shadow.draw();
-        });
+        tileList.add((tm) -> shadow.draw());
     }
 
     public int getRockSpeed() {
@@ -85,6 +83,6 @@ public class MouseSummonMount extends BaseTransformMount implements MountAbility
 
     public Stream<ModifierValue<?>> getDefaultRiderModifiers()
     {
-        return Stream.of(new ModifierValue<>(BuffModifiers.INTIMIDATED, true), new ModifierValue<>(BuffModifiers.TARGET_RANGE, -0.80F));
+        return Stream.of(new ModifierValue<>(BuffModifiers.INTIMIDATED, true), new ModifierValue<>(BuffModifiers.TARGET_RANGE, -0.80F), new ModifierValue<>(BuffModifiers.RESILIENCE_REGEN_FLAT, 0.50F), new ModifierValue<>(BuffModifiers.MANA_REGEN_FLAT, 0.50F), new ModifierValue<>(BuffModifiers.HEALTH_REGEN_FLAT, 0.50F));
     }
 }

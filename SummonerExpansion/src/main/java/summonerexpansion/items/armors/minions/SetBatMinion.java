@@ -14,7 +14,6 @@ import necesse.entity.particle.Particle;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.texture.TextureDrawOptionsEnd;
 import necesse.gfx.drawables.OrderableDrawables;
-import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 import summonerexpansion.mobs.minions.base.SummonFlyingBase;
@@ -27,6 +26,7 @@ import static summonerexpansion.codes.registries.RegistryMinionTextures.setBatMi
 public class SetBatMinion extends SummonFlyingBase
 {
     public int lifeTime = 0;
+    public int lifeStart = 0;
 
     public SetBatMinion()
     {
@@ -48,8 +48,8 @@ public class SetBatMinion extends SummonFlyingBase
     public void serverTick()
     {
         super.serverTick();
-        lifeTime++;
-        if (lifeTime >= 300)
+        lifeStart++;
+        if (lifeStart >= lifeTime)
         {
             remove(0.0F, 0.0F, null, true);
         }

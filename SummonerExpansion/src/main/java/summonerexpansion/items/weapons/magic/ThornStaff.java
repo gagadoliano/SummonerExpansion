@@ -83,8 +83,8 @@ public class ThornStaff extends BaseSummonMagicWeapon implements ItemInteractAct
     public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard)
     {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
-        tooltips.add(Localization.translate("itemtooltip", "clicksentrytip"));
         tooltips.add(Localization.translate("itemtooltip", "thornstafftip"));
+        tooltips.add(Localization.translate("itemtooltip", "clicksentrytip"));
         return tooltips;
     }
 }

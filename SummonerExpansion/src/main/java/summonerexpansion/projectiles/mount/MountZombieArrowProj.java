@@ -22,12 +22,12 @@ public class MountZombieArrowProj extends Projectile
     public MountZombieArrowProj() {
     }
 
-    public MountZombieArrowProj(float x, float y, float targetX, float targetY, GameDamage damage, Mob owner)
+    public MountZombieArrowProj(float x, float y, float targetX, float targetY, float speed, GameDamage damage, Mob owner)
     {
         this.x = x;
         this.y = y;
         this.setTarget(targetX, targetY);
-        this.speed = 60F;
+        this.speed = speed;
         this.setDamage(damage);
         this.setOwner(owner);
         this.setDistance(1000);

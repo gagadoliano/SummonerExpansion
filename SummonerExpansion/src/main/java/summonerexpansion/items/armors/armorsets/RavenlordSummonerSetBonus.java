@@ -24,14 +24,15 @@ import java.util.LinkedList;
 
 public class RavenlordSummonerSetBonus extends SetBonusBuff
 {
-    public FloatUpgradeValue moveMod = (new FloatUpgradeValue(0F, 0F)).setBaseValue(0.80F).setUpgradedValue(1.0F, 0.60F).setUpgradedValue(10F, 0.0F);
-    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0.0F, 0.2F)).setBaseValue(50.0F).setUpgradedValue(1.0F, 50.0F);
+    public FloatUpgradeValue moveMod = (new FloatUpgradeValue(0F, 0F)).setBaseValue(0.80F).setUpgradedValue(1, 0.60F).setUpgradedValue(10, 0.0F);
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0.0F, 0.2F)).setBaseValue(50.0F).setUpgradedValue(1, 70F);
     public static int speedDistance = 2800;
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
     {
+        Mob owner = buff.owner;
+        buff.getGndData().setDouble("distanceRan", owner.getDistanceRan() + owner.getDistanceRidden());
         buff.setModifier(BuffModifiers.ATTACK_MOVEMENT_MOD, moveMod.getValue(buff.getUpgradeTier()));
-        buff.getGndData().setDouble("distanceRan", buff.owner.getDistanceRan());
     }
 
     public void serverTick(ActiveBuff buff)
@@ -40,7 +41,7 @@ public class RavenlordSummonerSetBonus extends SetBonusBuff
         Mob owner = buff.owner;
         if (owner.isItemAttacker)
         {
-            double distanceRan = owner.getDistanceRan();
+            double distanceRan = owner.getDistanceRan() + owner.getDistanceRidden();
             double distanceRanSinceLastFeatherSpawn = buff.getGndData().getDouble("distanceRan");
             if (distanceRan - distanceRanSinceLastFeatherSpawn > (double)speedDistance)
             {
@@ -52,10 +53,10 @@ public class RavenlordSummonerSetBonus extends SetBonusBuff
 
     private void summonFeather(ActiveBuff buff, ItemAttackerMob itemAttacker)
     {
-        if (itemAttacker.isServer() && itemAttacker.serverFollowersManager.getFollowerCount("summonedravenlordbuff") < 6.0F)
+        if (itemAttacker.isServer() && itemAttacker.serverFollowersManager.getFollowerCount("summonedravenlordminion") < 6F)
         {
             SetRavenlordMinion mob = new SetRavenlordMinion();
-            itemAttacker.serverFollowersManager.addFollower("summonedravenlordbuff", mob, FollowPosition.LARGE_PYRAMID, "summonedmob", 1.0F, 6, null, false);
+            itemAttacker.serverFollowersManager.addFollower("summonedravenlordminion", mob, FollowPosition.LARGE_PYRAMID, "summonedravenlordminionbuff", 1.0F, 6, null, false);
             mob.updateDamage(new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier())));
             mob.setRemoveWhenNotInInventory(ItemRegistry.getItem("ravenlordsummonmask"), CheckSlotType.HELMET);
             itemAttacker.getLevel().entityManager.addMob(mob, itemAttacker.x, itemAttacker.y);
@@ -64,7 +65,7 @@ public class RavenlordSummonerSetBonus extends SetBonusBuff
 
     public static float getFinalDamage(Mob mob, float baseDamage)
     {
-        return (mob.buffManager.getModifier(BuffModifiers.SPEED) - 1.0F) * baseDamage;
+        return (mob.getSpeed() / 40.0F - 1.0F) * baseDamage;
     }
 
     public void addStatTooltips(LinkedList<ItemStatTip> list, ActiveBuff currentValues, ActiveBuff lastValues)

@@ -5,7 +5,6 @@ import necesse.engine.localization.message.GameMessageBuilder;
 import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.registries.DamageTypeRegistry;
 import necesse.engine.registries.ItemRegistry;
-import necesse.engine.registries.MobRegistry;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.Mob;
@@ -16,23 +15,22 @@ import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.setBonusBuffs.SetBonusBu
 import necesse.entity.mobs.itemAttacker.CheckSlotType;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
-import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.entity.particle.Particle;
 import necesse.inventory.item.DoubleItemStatTip;
 import necesse.inventory.item.ItemStatTip;
-import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
-import necesse.level.maps.Level;
+import summonerexpansion.items.armors.minions.SetHorrorBabyMinion;
 
 import java.awt.*;
-import java.awt.geom.Point2D;
 import java.util.LinkedList;
 
 public class ShadowHorrorSetBonus extends SetBonusBuff
 {
-    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(40.0F).setUpgradedValue(1F, 40.0F);
-    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1.0F, 2);
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(40F).setUpgradedValue(1, 70F);
+    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 4);
+    public IntUpgradeValue minionGroupSize = (new IntUpgradeValue()).setBaseValue(4).setUpgradedValue(1, 6).setUpgradedValue(10, 10);
+    public IntUpgradeValue minionDuration = (new IntUpgradeValue()).setBaseValue(900).setUpgradedValue(1, 1200).setUpgradedValue(10, 2400);
 
     public ShadowHorrorSetBonus() {}
 
@@ -55,17 +53,14 @@ public class ShadowHorrorSetBonus extends SetBonusBuff
         if (buff.owner.isItemAttacker && buff.owner.isInCombat())
         {
             ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
-            float count = attackerMob.serverFollowersManager.getFollowerCount("summonedhorrorbabybuff");
-            if (GameRandom.globalRandom.getChance(0.02F) && count <= 4)
+            if (GameRandom.globalRandom.getChance(0.02F) && attackerMob.serverFollowersManager.getFollowerCount("summonedhorrorbabybuff") < minionGroupSize.getValue(buff.getUpgradeTier()))
             {
-                GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier()));
-                Level level = buff.owner.getLevel();
-                AttackingFollowingMob mob = (AttackingFollowingMob)MobRegistry.getMob("sethorrorbabyminion", level);
-                attackerMob.serverFollowersManager.addFollower("summonedhorrorbabybuff", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, (p) -> 5, null, false);
-                Point2D.Float spawnPoint = SummonToolItem.findSpawnLocation(mob, level, attackerMob.x, attackerMob.y);
-                mob.updateDamage(damage);
+                SetHorrorBabyMinion mob = new SetHorrorBabyMinion();
+                attackerMob.serverFollowersManager.addFollower("summonedhorrorbabybuff", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1F, (p) -> minionGroupSize.getValue(buff.getUpgradeTier()), null, false);
+                mob.updateDamage(new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier())));
+                mob.lifeTime = minionDuration.getValue(buff.getUpgradeTier());
                 mob.setRemoveWhenNotInInventory(ItemRegistry.getItem("shadowhorrorhood"), CheckSlotType.HELMET);
-                mob.getLevel().entityManager.addMob(mob, spawnPoint.x, spawnPoint.y);
+                attackerMob.getLevel().entityManager.addMob(mob, attackerMob.x, attackerMob.y);
             }
         }
     }

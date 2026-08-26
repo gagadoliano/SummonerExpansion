@@ -29,18 +29,18 @@ import static summonerexpansion.codes.registries.RegistryMobTextures.woodIdol;
 
 public class WoodMob extends FlyingHostileMob
 {
-    public static GameDamage baseDamage = new GameDamage(10F);
-    public static GameDamage incursionDamage = new GameDamage(50F);
+    public static GameDamage baseDamage = new GameDamage(20F);
+    public static GameDamage incursionDamage = new GameDamage(150F);
     public ParticleTypeSwitcher particleTypes;
 
     public static LootTable lootTable = new LootTable(
-            ChanceLootItem.between(0.2f, "oaklog", 1, 10),
-            ChanceLootItem.between(0.2f, "palmlog", 1, 10),
-            ChanceLootItem.between(0.2f, "pinelog", 1, 10),
-            ChanceLootItem.between(0.2f, "maplelog", 1, 10),
-            ChanceLootItem.between(0.2f, "birchlog", 1, 10),
-            ChanceLootItem.between(0.2f, "sprucelog", 1, 10),
-            ChanceLootItem.between(0.2f, "willowlog", 1, 10)
+            ChanceLootItem.between(0.1f, "oaklog", 1, 10),
+            ChanceLootItem.between(0.1f, "palmlog", 1, 10),
+            ChanceLootItem.between(0.1f, "pinelog", 1, 10),
+            ChanceLootItem.between(0.1f, "maplelog", 1, 10),
+            ChanceLootItem.between(0.1f, "birchlog", 1, 10),
+            ChanceLootItem.between(0.1f, "sprucelog", 1, 10),
+            ChanceLootItem.between(0.1f, "willowlog", 1, 10)
     );
 
     public WoodMob()

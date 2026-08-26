@@ -93,6 +93,16 @@ public class RegistryRecipeTrinkets
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "overchargedtitaniumshards",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("overchargedvoidshards", 1),
+                        new Ingredient("titaniumbar", 15)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "inducingsatchel",
                 1,
                 SUMMONTABLECRAFT2,
@@ -132,6 +142,17 @@ public class RegistryRecipeTrinkets
                         new Ingredient("cactusemblem", 1),
                         new Ingredient("shellofretribution", 1),
                         new Ingredient("guardianshell", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "battleskull",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("necroticsoulskull", 1),
+                        new Ingredient("duelistdolls", 1),
+                        new Ingredient("flowerbrooch", 1)
                 }
         ));
     }
@@ -234,6 +255,18 @@ public class RegistryRecipeTrinkets
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "jellyessenceeggs",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("jellyfishbowl", 1),
+                        new Ingredient("fishianeggs", 1),
+                        new Ingredient("essenceofrebirth", 1),
+                        new Ingredient("agedchampionscabbard", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "demoniccontract",
                 1,
                 SUMMONTABLECRAFT3,
@@ -279,6 +312,17 @@ public class RegistryRecipeTrinkets
                         new Ingredient("diggingclaw", 1),
                         new Ingredient("toolbox", 1),
                         new Ingredient("willowisplantern", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "unstablemagicteapot",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("magicteapot", 1),
+                        new Ingredient("strangecookpot", 1),
+                        new Ingredient("unlabeledpotion", 1)
                 }
         ));
 
@@ -411,6 +455,17 @@ public class RegistryRecipeTrinkets
                         new Ingredient("littleangel", 1),
                         new Ingredient("transplantedheart", 1),
                         new Ingredient("challengerarmorpiece", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "jonastrophy",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("jonasgambit", 1),
+                        new Ingredient("livingarmorstand", 1),
+                        new Ingredient("silvergoblet", 1)
                 }
         ));
 

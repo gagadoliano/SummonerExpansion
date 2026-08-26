@@ -29,7 +29,7 @@ import java.util.stream.Stream;
 
 public class DwellerSummonMount extends BaseTransformMount implements MountAbility
 {
-    static GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, 60);
+    static GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, 70);
 
     public DwellerSummonMount()
     {
@@ -52,7 +52,8 @@ public class DwellerSummonMount extends BaseTransformMount implements MountAbili
                 return;
             }
             player.attack(aim.x, aim.y, false);
-            player.getLevel().entityManager.projectiles.add(new MountDwellerArrowProj(x, y, aim.x, aim.y, 180f, 200, damage, 50, player));
+            float projVel = player.buffManager.getModifier(BuffModifiers.PROJECTILE_VELOCITY);
+            player.getLevel().entityManager.projectiles.add(new MountDwellerArrowProj(x, y, aim.x, aim.y, (180F * projVel), 200, damage, 50, player));
             abilityCooldown = 20;
         }
     }

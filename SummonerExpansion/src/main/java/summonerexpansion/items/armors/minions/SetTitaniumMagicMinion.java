@@ -38,12 +38,12 @@ public class SetTitaniumMagicMinion extends FlyingAttackingFollowingMob
     {
         super(10);
         moveAccuracy = 15;
-        setSpeed(120.0F);
+        setSpeed(70.0F);
         setFriction(2.0F);
         attackCooldown = 1200;
         collision = new Rectangle(-18, -15, 36, 30);
         hitBox = new Rectangle(-18, -15, 36, 36);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(-18, -15, 36, 36);
         setAttackState = registerAbility(new BooleanMobAbility()
         {
             protected void run(boolean value)
@@ -63,8 +63,8 @@ public class SetTitaniumMagicMinion extends FlyingAttackingFollowingMob
                 if (canAttack() && !isOnGenericCooldown("attackCooldown"))
                 {
                     Point targetPoints = new Point((int)target.x, (int)target.y);
-                    TitaniumLightningLevelEvent event = new TitaniumLightningLevelEvent(getAttackOwner(), new GameRandom(10), targetPoints, summonDamage, 0.75F);
-                    getLevel().entityManager.events.add(event);
+                    TitaniumLightningLevelEvent event = new TitaniumLightningLevelEvent(getAttackOwner(), new GameRandom(), targetPoints, summonDamage, 1F);
+                    getAttackOwner().getLevel().entityManager.events.add(event);
                     startGenericCooldown("attackCooldown", attackCooldown);
                     return true;
                 }

@@ -22,6 +22,7 @@ public class RegistryChestLoot
 
     // Pedal
     public static LootTable woodenIdolPedal = new LootTable();
+    public static LootTable frogPedal = new LootTable();
 
     public static void registerLoot()
     {
@@ -108,11 +109,21 @@ public class RegistryChestLoot
                         ChanceLootItem.between(0.20f, "book", 1, 5)
                 )
         );
+        druidChest.items.addAll(
+                new LootItemList(
+                        new LootItem("book")
+                )
+        );
 
         // Pedals
         woodenIdolPedal.items.add(
                 new LootItemList(
                         new LootItem("woodenidol")
+                )
+        );
+        frogPedal.items.add(
+                new LootItemList(
+                        new LootItem("butterflyfrog")
                 )
         );
 

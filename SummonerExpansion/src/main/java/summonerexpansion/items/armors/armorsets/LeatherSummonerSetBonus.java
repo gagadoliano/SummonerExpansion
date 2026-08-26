@@ -16,7 +16,7 @@ import java.util.LinkedList;
 public class LeatherSummonerSetBonus extends SetBonusBuff
 {
     public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 4);
-    public FloatUpgradeValue staminaRegen = (new FloatUpgradeValue()).setBaseValue(0.20F).setUpgradedValue(1, 0.25F).setUpgradedValue(10, 0.50F);
+    public FloatUpgradeValue staminaRegen = (new FloatUpgradeValue()).setBaseValue(0.25F).setUpgradedValue(1, 0.40F).setUpgradedValue(10, 0.80F);
     public FloatUpgradeValue staminaMax = (new FloatUpgradeValue()).setBaseValue(0F).setUpgradedValue(1, 0.20F).setUpgradedValue(10, 1.00F);
     public FloatUpgradeValue summonDMG = (new FloatUpgradeValue()).setBaseValue(0F).setUpgradedValue(1, 0.10F).setUpgradedValue(10, 0.80F);
 

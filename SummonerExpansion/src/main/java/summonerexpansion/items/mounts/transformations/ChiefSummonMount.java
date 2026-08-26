@@ -54,16 +54,13 @@ public class ChiefSummonMount extends BaseActiveTransformMount implements Active
     public boolean tickActiveMountAbility(PlayerMob player, boolean isRunningClient)
     {
         ChiefAxeCharge = 20;
-        if (ChiefAxeCharge > 0)
+        long msToDeplete = 9000L;
+        float usage = 50.0F / (float)msToDeplete;
+        if (!StaminaBuff.useStaminaAndGetValid(player, usage))
         {
-            long msToDeplete = 9000L;
-            float usage = 50.0F / (float)msToDeplete;
-            if (!StaminaBuff.useStaminaAndGetValid(player, usage))
-            {
-                return false;
-            }
-            player.buffManager.addBuff(new ActiveBuff(BuffRegistry.getBuff("chiefbuff"), player, 1F, this), true);
+            return false;
         }
+        player.buffManager.addBuff(new ActiveBuff(BuffRegistry.getBuff("chiefbuff"), player, 1F, this), true);
         return !isRunningClient || Control.TRINKET_ABILITY.isDown();
     }
 

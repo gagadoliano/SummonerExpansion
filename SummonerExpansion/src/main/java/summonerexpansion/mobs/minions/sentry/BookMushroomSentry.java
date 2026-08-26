@@ -41,7 +41,7 @@ public class BookMushroomSentry extends SentryBase implements OEVicinityBuff
         super(2000F, 750F);
         collision = new Rectangle(0, 0, 86, 62);
         hitBox = new Rectangle(0, 0, 86, 62);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(0, 0, 86, 62);
     }
 
     public void init()

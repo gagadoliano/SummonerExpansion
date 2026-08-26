@@ -244,17 +244,6 @@ public class RegistryRecipeWeapons
         ));
 
         Recipes.registerModRecipe(new Recipe(
-                "cactusstaff",
-                1,
-                SUMMONTABLECRAFT,
-                new Ingredient[]{
-                        new Ingredient("sandtile", 10),
-                        new Ingredient("thorns", 25),
-                        new Ingredient("cactussapling", 50)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
                 "magicbranch",
                 1,
                 SUMMONTABLECRAFT,
@@ -273,6 +262,17 @@ public class RegistryRecipeWeapons
                         new Ingredient("dynamitestick", 1),
                         new Ingredient("snowmantrainingdummy", 1),
                         new Ingredient("snowball", 100)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "cactusstaff",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("sandtile", 10),
+                        new Ingredient("thorns", 25),
+                        new Ingredient("cactussapling", 50)
                 }
         ));
 
@@ -349,6 +349,17 @@ public class RegistryRecipeWeapons
     public static void registerTier2()
     {
         Recipes.registerModRecipe(new Recipe(
+                "magicivytools",
+                1,
+                RecipeTechRegistry.DEMONIC_ANVIL,
+                new Ingredient[]{
+                        new Ingredient("ivypickaxe", 1),
+                        new Ingredient("ivyaxe", 1),
+                        new Ingredient("anysapling", 60)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "magicgoldlamp",
                 1,
                 SUMMONTABLECRAFT2,
@@ -377,6 +388,18 @@ public class RegistryRecipeWeapons
                 new Ingredient[]{
                         new Ingredient("demonicbar", 8),
                         new Ingredient("batwing", 12)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "voidlaserspear",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("voidspear", 1),
+                        new Ingredient("voidstaff", 1),
+                        new Ingredient("voidshard", 5),
+                        new Ingredient("demonicbar", 8)
                 }
         ));
 
@@ -473,9 +496,9 @@ public class RegistryRecipeWeapons
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
-                        new Ingredient("ivybar", 15),
-                        new Ingredient("swampsludge", 10),
-                        new Ingredient("spikedfossil", 1)
+                        new Ingredient("ivybar", 8),
+                        new Ingredient("swampsludge", 4),
+                        new Ingredient("swampslime", 10)
                 }
         ));
 
@@ -491,13 +514,13 @@ public class RegistryRecipeWeapons
         ));
 
         Recipes.registerModRecipe(new Recipe(
-                "ancestorstaff",
+                "swampslimespear",
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
-                        new Ingredient("ancientfossilbar", 16),
-                        new Ingredient("wormcarapace", 8),
-                        new Ingredient("dryadlog", 25)
+                        new Ingredient("ivybar", 6),
+                        new Ingredient("swampsludge", 4),
+                        new Ingredient("swampslime", 25)
                 }
         ));
 
@@ -542,7 +565,7 @@ public class RegistryRecipeWeapons
                 new Ingredient[]{
                         new Ingredient("thorns", 35),
                         new Ingredient("mushroom", 15),
-                        new Ingredient("swampsludge", 5)
+                        new Ingredient("swampslime", 5)
                 }
         ));
     }
@@ -649,6 +672,17 @@ public class RegistryRecipeWeapons
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "ancestorstaff",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("ancientfossilbar", 16),
+                        new Ingredient("wormcarapace", 8),
+                        new Ingredient("dryadlog", 25)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "sandwormstaff",
                 1,
                 SUMMONTABLECRAFT3,
@@ -724,7 +758,7 @@ public class RegistryRecipeWeapons
                 new Ingredient[]{
                         new Ingredient("spoiledfood", 30),
                         new Ingredient("myceliumore", 12),
-                        new Ingredient("deepswampstone", 35),
+                        new Ingredient("swampslime", 35),
                         new Ingredient("reeds", 5)
                 }
         ));
@@ -740,16 +774,37 @@ public class RegistryRecipeWeapons
                         new Ingredient("pinesapling", 12)
                 }
         ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "swampslimeflask",
+                1,
+                SUMMONTABLECRAFT3,
+                new Ingredient[]{
+                        new Ingredient("necroticgreatsword", 1),
+                        new Ingredient("necroticflask", 1),
+                        new Ingredient("swampslime", 50)
+                }
+        ));
     }
 
     public static void registerTier4()
     {
         Recipes.registerModRecipe(new Recipe(
+                "grizzboltsphere",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("primordialessence", 20)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "reaperscall",
                 1,
                 SUMMONTABLECRAFT4,
                 new Ingredient[]{
-                        new Ingredient("shadowessence", 20)
+                        new Ingredient("shadowessence", 10),
+                        new Ingredient("ectoplasm", 50)
                 }
         ));
 
@@ -758,7 +813,8 @@ public class RegistryRecipeWeapons
                 1,
                 SUMMONTABLECRAFT4,
                 new Ingredient[]{
-                        new Ingredient("bioessence", 20)
+                        new Ingredient("bioessence", 10),
+                        new Ingredient("swampslime", 20)
                 }
         ));
 
@@ -767,7 +823,8 @@ public class RegistryRecipeWeapons
                 1,
                 SUMMONTABLECRAFT4,
                 new Ingredient[]{
-                        new Ingredient("primordialessence", 20)
+                        new Ingredient("primordialessence", 10),
+                        new Ingredient("bone", 50)
                 }
         ));
 
@@ -777,8 +834,9 @@ public class RegistryRecipeWeapons
                 SUMMONTABLECRAFT4,
                 new Ingredient[]{
                         new Ingredient("slimeessence", 5),
-                        new Ingredient("slimematter", 15),
-                        new Ingredient("slimeum", 15)
+                        new Ingredient("slimematter", 10),
+                        new Ingredient("slimeum", 10),
+                        new Ingredient("swampslime", 20)
                 }
         ));
 
@@ -788,8 +846,9 @@ public class RegistryRecipeWeapons
                 SUMMONTABLECRAFT4,
                 new Ingredient[]{
                         new Ingredient("bloodessence", 5),
-                        new Ingredient("nightsteelbar", 15),
-                        new Ingredient("phantomdust", 15)
+                        new Ingredient("nightsteelbar", 10),
+                        new Ingredient("phantomdust", 10),
+                        new Ingredient("purehorror", 25)
                 }
         ));
 
@@ -799,8 +858,9 @@ public class RegistryRecipeWeapons
                 SUMMONTABLECRAFT4,
                 new Ingredient[]{
                         new Ingredient("spideressence", 5),
-                        new Ingredient("spideritebar", 15),
-                        new Ingredient("spidervenom", 15)
+                        new Ingredient("spideritebar", 10),
+                        new Ingredient("spidervenom", 10),
+                        new Ingredient("silk", 25)
                 }
         ));
 
@@ -810,7 +870,7 @@ public class RegistryRecipeWeapons
                 RecipeTechRegistry.FALLEN_ANVIL,
                 new Ingredient[]{
                         new Ingredient("spidercastlecandelabra", 1),
-                        new Ingredient("spideritearrow", 50)
+                        new Ingredient("spideritearrow", 150)
                 }
         ));
 
@@ -820,7 +880,7 @@ public class RegistryRecipeWeapons
                 SUMMONTABLECRAFT4,
                 new Ingredient[]{
                         new Ingredient("spidercastlecandelabra", 1),
-                        new Ingredient("spideritearrow", 50)
+                        new Ingredient("spideritearrow", 150)
                 }
         ));
 
@@ -841,8 +901,10 @@ public class RegistryRecipeWeapons
                 SUMMONTABLECRAFT4,
                 new Ingredient[]{
                         new Ingredient("ruby", 10),
-                        new Ingredient("pearlescentdiamond", 15),
-                        new Ingredient("omnicrystal", 15)
+                        new Ingredient("pearlescentdiamond", 10),
+                        new Ingredient("omnicrystal", 10),
+                        new Ingredient("crystalessence", 5),
+                        new Ingredient("crystalstone", 250)
                 }
         ));
 
@@ -853,7 +915,8 @@ public class RegistryRecipeWeapons
                 new Ingredient[]{
                         new Ingredient("ruby", 20),
                         new Ingredient("pearlescentdiamond", 5),
-                        new Ingredient("omnicrystal", 5)
+                        new Ingredient("omnicrystal", 5),
+                        new Ingredient("crystalessence", 5)
                 }
         ));
 
@@ -864,7 +927,8 @@ public class RegistryRecipeWeapons
                 new Ingredient[]{
                         new Ingredient("sapphire", 20),
                         new Ingredient("pearlescentdiamond", 5),
-                        new Ingredient("omnicrystal", 5)
+                        new Ingredient("omnicrystal", 5),
+                        new Ingredient("crystalessence", 5)
                 }
         ));
 
@@ -875,7 +939,8 @@ public class RegistryRecipeWeapons
                 new Ingredient[]{
                         new Ingredient("emerald", 20),
                         new Ingredient("pearlescentdiamond", 5),
-                        new Ingredient("omnicrystal", 5)
+                        new Ingredient("omnicrystal", 5),
+                        new Ingredient("crystalessence", 5)
                 }
         ));
 
@@ -886,7 +951,8 @@ public class RegistryRecipeWeapons
                 new Ingredient[]{
                         new Ingredient("amethyst", 20),
                         new Ingredient("pearlescentdiamond", 5),
-                        new Ingredient("omnicrystal", 5)
+                        new Ingredient("omnicrystal", 5),
+                        new Ingredient("crystalessence", 5)
                 }
         ));
 
@@ -897,7 +963,8 @@ public class RegistryRecipeWeapons
                 new Ingredient[]{
                         new Ingredient("topaz", 20),
                         new Ingredient("pearlescentdiamond", 5),
-                        new Ingredient("omnicrystal", 5)
+                        new Ingredient("omnicrystal", 5),
+                        new Ingredient("crystalessence", 5)
                 }
         ));
 
@@ -917,9 +984,10 @@ public class RegistryRecipeWeapons
                 1,
                 SUMMONTABLECRAFT4,
                 new Ingredient[]{
-                        new Ingredient("fuelskull", 12),
-                        new Ingredient("pristinegear", 12),
-                        new Ingredient("radiatedessence", 2)
+                        new Ingredient("fuelskull", 10),
+                        new Ingredient("pristinegear", 10),
+                        new Ingredient("radiatedessence", 5),
+                        new Ingredient("junk", 150)
                 }
         ));
 
@@ -1010,6 +1078,17 @@ public class RegistryRecipeWeapons
                         new Ingredient("mushroom", 50),
                         new Ingredient("spoiledfood", 20),
                         new Ingredient("revivalpotion", 2),
+                        new Ingredient("book", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "bookfrostbite",
+                1,
+                SUMMONBOOKCRAFT,
+                new Ingredient[]{
+                        new Ingredient("frostshard", 20),
+                        new Ingredient("glacialshard", 20),
                         new Ingredient("book", 1)
                 }
         ));

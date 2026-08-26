@@ -7,7 +7,7 @@ import net.bytebuddy.asm.Advice;
 import static summonerexpansion.codes.registries.RegistrySummonModifiers.EMITS_SUMMON_LIGHT;
 
 @ModMethodPatch(target = Mob.class, arguments = {}, name = "clientTick")
-public class MobSummonPatches
+public class MobSummonClientPatches
 {
     @Advice.OnMethodExit
     static void onExit(@Advice.This Mob mob)

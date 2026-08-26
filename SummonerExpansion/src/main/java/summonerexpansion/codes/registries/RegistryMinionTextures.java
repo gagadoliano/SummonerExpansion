@@ -43,6 +43,8 @@ public class RegistryMinionTextures
     public static GameTexture ironAxeMinion;
     public static GameTexture goldPickMinion;
     public static GameTexture goldAxeMinion;
+    public static GameTexture ivyPickMinion;
+    public static GameTexture ivyAxeMinion;
     public static GameTexture explosiveSnowmanMinion;
     public static GameTexture spiritGhoulMinion;
     public static GameTexture beeQueenMinion;
@@ -84,6 +86,7 @@ public class RegistryMinionTextures
     public static GameTexture iceBlossomSentry;
     public static GameTexture firemoneSentry;
     public static GameTexture thornSentry;
+    public static GameTexture frostbiteSentry;
 
     public static GameTexture livingArmorMinion;
 
@@ -105,6 +108,7 @@ public class RegistryMinionTextures
     public static GameTexture petTeaPotMinion;
     public static GameTexture dragonicFlamesMinion2;
     public static GameTexture dragonicFlamesMinion3;
+    public static GameTexture sporebagMinion;
 
     // Mount
     public static GameTexture cavelingMinecartMount;
@@ -143,6 +147,8 @@ public class RegistryMinionTextures
         ironAxeMinion = GameTexture.fromFile("mobs/minions/ironaxeminion");
         goldPickMinion = GameTexture.fromFile("mobs/minions/goldpickminion");
         goldAxeMinion = GameTexture.fromFile("mobs/minions/goldaxeminion");
+        ivyPickMinion = GameTexture.fromFile("mobs/minions/ivypickminion");
+        ivyAxeMinion = GameTexture.fromFile("mobs/minions/ivyaxeminion");
         explosiveSnowmanMinion = GameTexture.fromFile("mobs/minions/explosivesnowmanminion");
         spiritGhoulMinion = GameTexture.fromFile("mobs/minions/spiritghoulminion");
         butterflyGreenMinion = GameTexture.fromFile("mobs/minions/butterflygreenminion");
@@ -190,7 +196,7 @@ public class RegistryMinionTextures
         iceBlossomSentry = GameTexture.fromFile("mobs/minions/sentry/iceblossomsentry");
         firemoneSentry = GameTexture.fromFile("mobs/minions/sentry/firemonesentry");
         thornSentry = GameTexture.fromFile("mobs/minions/sentry/thornsentry");
-
+        frostbiteSentry = GameTexture.fromFile("mobs/minions/sentry/frostbitesentry");
         horrorSentry = GameTexture.fromFile("mobs/minions/melee/horrorspikesentry");
 
         // Worm
@@ -218,6 +224,7 @@ public class RegistryMinionTextures
         petTeaPotMinion = GameTexture.fromFile("mobs/minions/trinket/teapotminion");
         dragonicFlamesMinion2 = GameTexture.fromFile("mobs/minions/trinket/dragonicflamesminion2");
         dragonicFlamesMinion3 = GameTexture.fromFile("mobs/minions/trinket/dragonicflamesminion3");
+        sporebagMinion = GameTexture.fromFile("mobs/minions/trinket/sporebagminion");
 
         // Mount
         cavelingMinecartMount = GameTexture.fromFile("mobs/mount/cavelingminecart");

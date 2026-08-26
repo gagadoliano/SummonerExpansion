@@ -34,12 +34,12 @@ public class IceMinionJavelinProj extends Projectile
 {
     public IceMinionJavelinProj() {}
 
-    public IceMinionJavelinProj(float x, float y, float targetX, float targetY, GameDamage damage, Mob owner)
+    public IceMinionJavelinProj(float x, float y, float targetX, float targetY, float speed, GameDamage damage, Mob owner)
     {
         this.x = x;
         this.y = y;
         this.setTarget(targetX, targetY);
-        this.speed = 80F;
+        this.speed = speed;
         this.setDamage(damage);
         this.setOwner(owner);
         this.setDistance(500);

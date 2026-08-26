@@ -1,5 +1,6 @@
 package summonerexpansion.codes.registries;
 
+import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.registries.BuffRegistry;
 import necesse.engine.registries.ItemRegistry;
 import necesse.engine.registries.MobRegistry;
@@ -7,11 +8,14 @@ import necesse.entity.mobs.buffs.staticBuffs.Buff;
 import necesse.entity.mobs.buffs.staticBuffs.ShownCooldownBuff;
 import necesse.inventory.item.Item;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import summonerexpansion.buffs.BaseStackingBuff;
 import summonerexpansion.items.armors.*;
 import summonerexpansion.items.armors.armorsets.*;
 import summonerexpansion.items.armors.buffs.*;
 import summonerexpansion.items.armors.debuffs.*;
 import summonerexpansion.items.armors.minions.*;
+
+import static necesse.entity.mobs.buffs.BuffModifiers.*;
 
 public class RegistryArmors
 {
@@ -44,6 +48,7 @@ public class RegistryArmors
         public static Buff TITANIUMSET;
         public static Buff TITANIUMMELEESET;
         public static Buff TITANIUMMAGICSET;
+        public static Buff TITANIUMMAGICSETBUFF;
         public static Buff TITANIUMSUMMONSET;
         public static Buff TITANIUMRANGEDSET;
         public static Buff PHARAOHSET;
@@ -79,15 +84,13 @@ public class RegistryArmors
         BuffRegistry.registerBuff("coppersetcooldown", registerArmorSets.COPPERCOOLDOWN = new ShownCooldownBuff());
         BuffRegistry.registerBuff("coppersetfiredebuff", registerArmorSets.COPPERSETFIRE = new CopperSetFireDebuff());
         BuffRegistry.registerBuff("coppersetconsecutive", registerArmorSets.COPPERSET_CONSECUTIVE = new CopperSetConsecutiveBuff());
-        ItemRegistry.registerItem("bloodplatemask", new BloodplateMask(100, Item.Rarity.COMMON), 50, true);
-        BuffRegistry.registerBuff("bloodplatemasksetbonus", registerArmorSets.BLOODPLATESET = new BloodplateMaskSetBonus());
-        ItemRegistry.registerItem("frostcrown", new FrostCrown(100, Item.Rarity.COMMON), 50, true);
-        BuffRegistry.registerBuff("frostcrownsetbonus", registerArmorSets.FROSTSET = new FrostCrownSetBonus());
         ItemRegistry.registerItem("redspiderhelmet", new RedSpiderHelmet(100, Item.Rarity.COMMON), 50, true);
         ItemRegistry.registerItem("redspiderchestplate", new RedSpiderChestplate(100, Item.Rarity.COMMON), 50, true);
         ItemRegistry.registerItem("redspiderboots", new BaseSummonShoes((new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1, 0.20F).setUpgradedValue(10, 0.40F),"redspiderboots",4,100, Item.Rarity.COMMON), 50, true);
         BuffRegistry.registerBuff("redspidersetbonus", registerArmorSets.REDSPIDERSET = new RedSpiderSetBonus());
         BuffRegistry.registerBuff("redspiderdebuff", registerArmorSets.REDSPIDERDOT = new RedSpiderSetDebuff());
+        ItemRegistry.registerItem("frostcrown", new FrostCrown(100, Item.Rarity.COMMON), 50, true);
+        BuffRegistry.registerBuff("frostcrownsetbonus", registerArmorSets.FROSTSET = new FrostCrownSetBonus());
         ItemRegistry.registerItem("rainsummonhat", new RainSummonHat(100, Item.Rarity.COMMON), 50, true);
         ItemRegistry.registerItem("rainsummoncoat", new RainSummonCoat(100, Item.Rarity.COMMON), 50, true);
         ItemRegistry.registerItem("rainsummonboots", new BaseSummonShoes((new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1, 0.20F).setUpgradedValue(10, 0.40F),"rainsummonboots",2,100, Item.Rarity.COMMON), 50, true);
@@ -98,21 +101,24 @@ public class RegistryArmors
 
     public static void registerTier2()
     {
+        ItemRegistry.registerItem("bloodplatemask", new BloodplateMask(100, Item.Rarity.UNCOMMON), 100, true);
+        BuffRegistry.registerBuff("bloodplatemasksetbonus", registerArmorSets.BLOODPLATESET = new BloodplateMaskSetBonus());
         ItemRegistry.registerItem("summonplaguemask", new PlagueSummonerMask(200, Item.Rarity.UNCOMMON), 100, true);
         ItemRegistry.registerItem("summonplaguerobe", new PlagueSummonerRobe(200, Item.Rarity.UNCOMMON), 100, true);
         ItemRegistry.registerItem("summonplagueboots", new BaseSummonShoes((new FloatUpgradeValue()).setBaseValue(0.20F).setUpgradedValue(1, 0.22F).setUpgradedValue(10, 0.40F),"summonplagueboots",15,200, Item.Rarity.COMMON), 100, true);
         BuffRegistry.registerBuff("summonplaguesetbonus", registerArmorSets.PLAGUESET = new SummonPlagueSetBonus());
-        ItemRegistry.registerItem("titaniummagichelmet", new TitaniumMagicHelmet(200, Item.Rarity.COMMON), 100, true);
-        ItemRegistry.registerItem("titaniummeleehelmet", new TitaniumMeleeHelmet(200, Item.Rarity.COMMON), 100, true);
-        ItemRegistry.registerItem("titaniumrangedhelmet", new TitaniumRangedHelmet(200, Item.Rarity.COMMON), 100, true);
-        ItemRegistry.registerItem("titaniumsummonhelmet", new TitaniumSummonHelmet(200, Item.Rarity.COMMON), 100, true);
-        ItemRegistry.registerItem("titaniumchestplate", new TitaniumChestplate(200, Item.Rarity.COMMON), 100, true);
+        ItemRegistry.registerItem("titaniummagichelmet", new TitaniumMagicHelmet(200, Item.Rarity.UNCOMMON), 100, true);
+        ItemRegistry.registerItem("titaniummeleehelmet", new TitaniumMeleeHelmet(200, Item.Rarity.UNCOMMON), 100, true);
+        ItemRegistry.registerItem("titaniumrangedhelmet", new TitaniumRangedHelmet(200, Item.Rarity.UNCOMMON), 100, true);
+        ItemRegistry.registerItem("titaniumsummonhelmet", new TitaniumSummonHelmet(200, Item.Rarity.UNCOMMON), 100, true);
+        ItemRegistry.registerItem("titaniumchestplate", new TitaniumChestplate(200, Item.Rarity.UNCOMMON), 100, true);
         ItemRegistry.registerItem("titaniumboots", new BaseSummonShoes((new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1, 0.20F).setUpgradedValue(10, 0.40F),"titaniumboots",4,200, Item.Rarity.COMMON), 100, true);
         BuffRegistry.registerBuff("titaniumsetbonus", registerArmorSets.TITANIUMSET = new TitaniumSetBonus());
         BuffRegistry.registerBuff("titaniummeleesetbonus", registerArmorSets.TITANIUMMELEESET = new TitaniumMeleeSetBonus());
         BuffRegistry.registerBuff("titaniummagicsetbonus", registerArmorSets.TITANIUMMAGICSET = new TitaniumMagicSetBonus());
         BuffRegistry.registerBuff("titaniumsummonsetbonus", registerArmorSets.TITANIUMSUMMONSET = new TitaniumSummonSetBonus());
         BuffRegistry.registerBuff("titaniumrangedsetbonus", registerArmorSets.TITANIUMRANGEDSET = new TitaniumRangedSetBonus());
+        BuffRegistry.registerBuff("titaniummagicstack", registerArmorSets.TITANIUMMAGICSETBUFF = new BaseStackingBuff(100, new ModifierValue<>(COMBAT_MANA_REGEN_FLAT, 0.01f)));
         ItemRegistry.registerItem("pharaohsmask", new PharaohsMask(200, Item.Rarity.UNCOMMON), 100, true);
         BuffRegistry.registerBuff("pharaohsmasksetbonus", registerArmorSets.PHARAOHSET = new PharaohsMaskSetBonus());
     }
@@ -121,7 +127,7 @@ public class RegistryArmors
     {
         ItemRegistry.registerItem("sharklavahelmet", new SharkLavaHelmet(400, Item.Rarity.RARE), 200, true);
         ItemRegistry.registerItem("sharklavachestplate", new SharkLavaChestplate(400, Item.Rarity.RARE), 200, true);
-        ItemRegistry.registerItem("sharklavaboots", new BaseSummonShoes((new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1, 0.20F).setUpgradedValue(10, 0.40F),"sharklavaboots",4,400, Item.Rarity.COMMON), 200, true);
+        ItemRegistry.registerItem("sharklavaboots", new BaseSummonShoes((new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1, 0.20F).setUpgradedValue(10, 0.40F),"sharklavaboots",14,400, Item.Rarity.COMMON), 200, true);
         BuffRegistry.registerBuff("sharklavasetbonus", registerArmorSets.LAVASHARKSET = new SharkLavaSetBonus());
         BuffRegistry.registerBuff("sharklavafrenzybuff", registerArmorSets.LAVASHARKFRENZY = new SharkLavaFrenzyBuff());
         BuffRegistry.registerBuff("sharklavableeddebuff", registerArmorSets.LAVASHARKBLEED = new SharkLavaBleedDebuff());
@@ -168,6 +174,7 @@ public class RegistryArmors
     {
         // T1
         MobRegistry.registerMob("setbatminion", SetBatMinion.class, false);
+        BuffRegistry.registerBuff("summonedbatminionbuff", new SummonedBatMinionBuff());
         MobRegistry.registerMob("setcloudminion", SetCloudMinion.class, false);
         BuffRegistry.registerBuff("summonedcloudminionbuff", new SummonedCloudMinionBuff());
         // T2
@@ -181,17 +188,23 @@ public class RegistryArmors
         // T3
         MobRegistry.registerMob("sethorrorbabyminion", SetHorrorBabyMinion.class, false);
         MobRegistry.registerMob("setspiderbrideminion", SetSpiderBrideMinion.class, false);
+        BuffRegistry.registerBuff("summonedspiderbrideminionbuff", new SummonedSpiderBrideMinionBuff());
         MobRegistry.registerMob("setagedchampionminion", SetAgedChampionMinion.class, false);
         BuffRegistry.registerBuff("summonedagedchampionminionbuff", new SummonedAgedChampionMinionBuff());
         MobRegistry.registerMob("setsharpshooterminion", SetSharpshooterMinion.class, false);
         BuffRegistry.registerBuff("summonedsharpshooterbuff", new SummonedSharpshooterMinionBuff());
         // T4
         MobRegistry.registerMob("setghostcaptainsminion", SetGhostCaptainMinion.class, false);
+        BuffRegistry.registerBuff("summonedghostcaptainminionbuff", new SummonedGhostCaptainMinionBuff());
         MobRegistry.registerMob("setsailorminion", SetSailorMinion.class, false);
+        BuffRegistry.registerBuff("summonedsailorminionbuff", new SummonedSailorMinionBuff());
         MobRegistry.registerMob("setslimewarriorminion", SetSlimeWarriorMinion.class, false);
         MobRegistry.registerMob("setslimemageminion", SetSlimeMageMinion.class, false);
         MobRegistry.registerMob("setravenlordminion", SetRavenlordMinion.class, false);
+        BuffRegistry.registerBuff("summonedravenlordminionbuff", new SummonedRavenlordMinionBuff());
         MobRegistry.registerMob("setchefminion", SetChefMinion.class, false);
+        BuffRegistry.registerBuff("summonedchefminionbuff", new SummonedChefMinionBuff());
         MobRegistry.registerMob("setarcanicpylonsentry", SetArcanicPylonSentry.class, false);
+        BuffRegistry.registerBuff("summonedarcanicpylonminionbuff", new SummonedArcanicPylonMinionBuff());
     }
 }

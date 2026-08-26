@@ -27,8 +27,7 @@ import static summonerexpansion.codes.registries.RegistryTrinkets.TrinketBuffs.M
 
 public class SandTempleMonkHeadBuff extends TrinketBuff implements BuffAbility
 {
-    public SandTempleMonkHeadBuff()
-    {
+    public SandTempleMonkHeadBuff() {
     }
 
     public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber)

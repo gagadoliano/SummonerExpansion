@@ -27,13 +27,17 @@ public class RegistryMobs
         MobRegistry.registerMob("woodmob", WoodMob.class, true);
         MobRegistry.registerMob("honeybeeguardmob", HoneyBeeGuardMob.class, true);
         MobRegistry.registerMob("sandgiantscorpionmob", SandGiantScorpionMob.class, true);
+        MobRegistry.registerMob("dollmakermob", DollMakerMob.class, true);
 
         // Cave
         MobRegistry.registerMob("lavacavesharkmob", LavaCaveSharkMob.class, true);
         MobRegistry.registerMob("vampireminibossmob", VampireMiniBossMob.class, true);
+        MobRegistry.registerMob("poisonswampslimemob", PoisonSwampSlimeMob.class, true);
 
         // Deep cave
         MobRegistry.registerMob("horrorspiritmob", HorrorSpiritMob.class, true);
+        MobRegistry.registerMob("poisonswampslimewormmob", PoisonSwampSlimeWormHead.class, true);
+        MobRegistry.registerMob("poisonswampslimewormbody", PoisonSwampSlimeWormBody.class, false);
     }
 
     public static void registerBoss()

@@ -28,8 +28,9 @@ import java.util.stream.Stream;
 
 public class CaveSpiderSummonMount extends BaseTransformMount implements MountAbility
 {
-    static GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, 20);
+    static GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, 38);
     public GiantCaveSpiderMob.Variant variant;
+
     public CaveSpiderSummonMount()
     {
         super(45.0F);

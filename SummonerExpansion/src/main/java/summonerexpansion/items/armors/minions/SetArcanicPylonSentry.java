@@ -16,7 +16,6 @@ import necesse.gfx.GameResources;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
-import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 import summonerexpansion.mobs.minions.base.SentryBase;
@@ -54,7 +53,7 @@ public class SetArcanicPylonSentry extends SentryBase
                 if (mob.canAttack())
                 {
                     mob.attack(target.getX(), target.getY(), false);
-                    mob.getLevel().entityManager.events.addHidden(new ArcanicPylonLightningLevelEvent(mob, 300, summonDamage.getTotalDamage(target, mob, 1F), target.getPositionPoint()));
+                    mob.getLevel().entityManager.events.add(new ArcanicPylonLightningLevelEvent(mob, 300, summonDamage.getTotalDamage(target, mob, 1F), target.getPositionPoint()));
                     return true;
                 }
                 else

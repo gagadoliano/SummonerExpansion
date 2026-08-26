@@ -28,7 +28,7 @@ public class ArcanicSummonerHelmet extends SetHelmetArmorItem
     private GameTexture lightTexture;
     public FloatUpgradeValue summonRange = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1F, 0.20F).setUpgradedValue(10F, 0.30F);
     public FloatUpgradeValue summonCritDamage = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1F, 0.10F).setUpgradedValue(10F, 0.30F);
-    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 3);
+    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 4);
 
     public ArcanicSummonerHelmet(int enchantCost, Item.Rarity rarityTier)
     {
@@ -45,6 +45,15 @@ public class ArcanicSummonerHelmet extends SetHelmetArmorItem
     {
         super.loadArmorTexture();
         lightTexture = GameTexture.fromFile("player/armor/" + textureName + "_light");
+    }
+
+    public DrawOptions getArmorDrawOptions(InventoryItem item, Level level, PlayerMob player, InventoryItem headItem, InventoryItem chestItem, InventoryItem feetItem, int spriteX, int spriteY, int spriteRes, int drawX, int drawY, int width, int height, boolean mirrorX, boolean mirrorY, GameLight light, boolean hasGlowEffect, int glowHash, float alpha, MaskShaderOptions mask)
+    {
+        DrawOptionsList options = new DrawOptionsList();
+        options.add(super.getArmorDrawOptions(item, level, player, headItem, chestItem, feetItem, spriteX, spriteY, spriteRes, drawX, drawY, width, height, mirrorX, mirrorY, light, hasGlowEffect, glowHash, alpha, mask));
+        Color col = this.getDrawColor(item, player);
+        options.add(this.lightTexture.initDraw().sprite(spriteX, spriteY, spriteRes).startGlowOptions(level, glowHash).colorLight(col, light.minLevelCopy(150.0F)).apply(hasGlowEffect).alpha(alpha).size(width, height).mirror(mirrorX, mirrorY).addMaskShader(mask).pos(drawX, drawY));
+        return options;
     }
 
     protected void loadItemTextures() {

@@ -27,7 +27,7 @@ public class SetChefMinion extends SummonHumanBase
     {
         super.init();
         updateLook();
-        ai = new BehaviourTreeAI(this, new PlayerFollowerChaserAI<SetChefMinion>(600, 600, true, false, 900, 80)
+        ai = new BehaviourTreeAI<>(this, new PlayerFollowerChaserAI<SetChefMinion>(600, 600, true, false, 900, 80)
         {
             public boolean attackTarget(SetChefMinion mob, Mob target)
             {

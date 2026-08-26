@@ -22,8 +22,8 @@ import java.util.LinkedList;
 
 public class ShadowHelmetSetBonus extends SetBonusBuff
 {
-    public FloatUpgradeValue speed = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1.0F, 0.10F);
-    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1.0F, 2);
+    public FloatUpgradeValue speed = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1, 0.10F).setUpgradedValue(10, 0.50F);
+    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 4);
 
     public ShadowHelmetSetBonus() {}
 
@@ -38,7 +38,7 @@ public class ShadowHelmetSetBonus extends SetBonusBuff
         super.onHasAttacked(buff, event);
         if (!event.wasPrevented && event.damageType == DamageTypeRegistry.SUMMON)
         {
-            event.target.buffManager.addBuff(new ActiveBuff(BuffRegistry.Debuffs.HAUNTED, event.target, 5.0F, event.attacker), event.target.isServer());
+            event.target.buffManager.addBuff(new ActiveBuff(BuffRegistry.Debuffs.HAUNTED, event.target, 5F, event.attacker), event.target.isServer());
         }
     }
 

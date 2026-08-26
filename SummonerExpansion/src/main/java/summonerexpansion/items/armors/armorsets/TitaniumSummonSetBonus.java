@@ -1,7 +1,11 @@
 package summonerexpansion.items.armors.armorsets;
 
 import necesse.engine.localization.Localization;
+import necesse.engine.localization.message.GameMessage;
+import necesse.engine.localization.message.GameMessageBuilder;
+import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.network.gameNetworkData.GNDItemMap;
+import necesse.engine.registries.DamageTypeRegistry;
 import necesse.engine.registries.ItemRegistry;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.util.GameBlackboard;
@@ -17,6 +21,7 @@ import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
+import necesse.inventory.item.DoubleItemStatTip;
 import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
@@ -103,27 +108,45 @@ public class TitaniumSummonSetBonus extends TitaniumSetBonus
     {
         if (!owner.isClient())
         {
-            GameDamage spiderDamage = new GameDamage(minionDamage.getValue(buff.getUpgradeTier()));
             AttackingFollowingMob wolf = (AttackingFollowingMob)MobRegistry.getMob("settitaniumsummonminion", owner.getLevel());
             ((ItemAttackerMob)owner).serverFollowersManager.addFollower("summonedtitanium", wolf, FollowPosition.PYRAMID, "summonedtitaniumminionbuff", 1.0F, this::getMaxWolfs, null, false);
             Point2D.Float spawnPoint = SummonToolItem.findSpawnLocation(wolf, owner.getLevel(), owner.x, owner.y);
-            wolf.updateDamage(spiderDamage);
+            wolf.updateDamage(new GameDamage(minionDamage.getValue(buff.getUpgradeTier())));
             wolf.setRemoveWhenNotInInventory(ItemRegistry.getItem("titaniumsummonhelmet"), CheckSlotType.HELMET);
             owner.getLevel().entityManager.addMob(wolf, spawnPoint.x, spawnPoint.y);
         }
-    }
-
-    public ListGameTooltips getTooltip(ActiveBuff ab, GameBlackboard blackboard)
-    {
-        ListGameTooltips tooltips = super.getTooltip(ab, blackboard);
-        tooltips.add(Localization.translate("itemtooltip", "titaniumsettip"));
-        tooltips.add(Localization.translate("itemtooltip", "titaniumsummontip"));
-        return tooltips;
     }
 
     public void addStatTooltips(LinkedList<ItemStatTip> list, ActiveBuff currentValues, ActiveBuff lastValues)
     {
         super.addStatTooltips(list, currentValues, lastValues);
         currentValues.getModifierTooltipsBuilder(true, true).addLastValues(lastValues).buildToStatList(list);
+        float damage = minionDamage.getValue(currentValues.getUpgradeTier());
+        if (currentValues.owner != null)
+        {
+            damage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
+        }
+        DoubleItemStatTip minionDamageTip = new DoubleItemStatTip(damage, 0)
+        {
+            public GameMessage toMessage(Color betterColor, Color worseColor, Color neutralColor, boolean showDifference)
+            {
+                return (new GameMessageBuilder())
+                        .append(new LocalMessage("itemtooltip", "titaniumsettip"))
+                        .append("\n")
+                        .append(new LocalMessage("itemtooltip", "titaniumsummontip"))
+                        .append("\n")
+                        .append(new LocalMessage("itemtooltip", "titaniumsummontip2", "damage", this.getReplaceValue(betterColor, worseColor, showDifference)));
+            }
+        };
+        if (lastValues != null)
+        {
+            float compareDamage = minionDamage.getValue(lastValues.getUpgradeTier());
+            if (lastValues.owner != null)
+            {
+                compareDamage *= GameDamage.getDamageModifier(currentValues.owner, DamageTypeRegistry.SUMMON);
+            }
+            minionDamageTip.setCompareValue(compareDamage);
+        }
+        list.add(minionDamageTip);
     }
 }

@@ -39,11 +39,11 @@ public class RegistryTiles
         TileRegistry.registerTile("empoweredemerald", new BaseBuffTile(false, 0.50f, new Color(0, 79, 99), 190F, "empoweredemerald", "empoweredemeraldbuff", "empoweredemeraldtip"), 10, true);
         TileRegistry.registerTile("empoweredruby", new BaseBuffTile(false, 0.50f, new Color(92, 54, 62), 337F, "empoweredruby", "empoweredrubybuff", "empoweredrubytip"), 10, true);
 
-        TileRegistry.registerTile("empowerednewsapphire", new BaseBuffTile(false, 0.50f, new Color(57, 137, 184), 199F, "empowerednewsapphire", "empoweredsapphirebuff", "empowerednewsapphiretip"), 10, true);
+        TileRegistry.registerTile("empowerednewsapphire", new BaseBuffTile(false, 0.50f, new Color(57, 137, 184), 199F, "empowerednewsapphire", "empoweredsapphirebuff", "empoweredsapphiretip"), 10, true);
         BuffRegistry.registerBuff("empoweredsapphirebuff", new BaseFloorBuff(new ModifierValue<>(SUMMON_CRIT_CHANCE, 0.10f), new ModifierValue<>(SUMMON_CRIT_DAMAGE, 0.10f)));
-        TileRegistry.registerTile("empowerednewemerald", new BaseBuffTile(false, 0.50f, new Color(72, 103, 46), 91F, "empowerednewemerald", "empoweredemeraldbuff", "empowerednewemeraldtip"), 10, true);
+        TileRegistry.registerTile("empowerednewemerald", new BaseBuffTile(false, 0.50f, new Color(72, 103, 46), 91F, "empowerednewemerald", "empoweredemeraldbuff", "empoweredemeraldtip"), 10, true);
         BuffRegistry.registerBuff("empoweredemeraldbuff", new BaseFloorBuff(new ModifierValue<>(MAX_MANA, 0.10f), new ModifierValue<>(COMBAT_MANA_REGEN, 0.10f)));
-        TileRegistry.registerTile("empowerednewruby", new BaseBuffTile(false, 0.50f, new Color(169, 37, 33), 3F, "empowerednewruby", "empoweredrubybuff", "empowerednewrubytip"), 10, true);
+        TileRegistry.registerTile("empowerednewruby", new BaseBuffTile(false, 0.50f, new Color(169, 37, 33), 3F, "empowerednewruby", "empoweredrubybuff", "empoweredrubytip"), 10, true);
         BuffRegistry.registerBuff("empoweredrubybuff", new BaseFloorBuff(new ModifierValue<>(SUMMON_ATTACK_SPEED, 0.10f), new ModifierValue<>(SUMMONS_SPEED, 0.10f)));
         TileRegistry.registerTile("empoweredamethyst", new BaseBuffTile(false, 0.50f, new Color(74, 61, 99), 258F, "empoweredamethyst", "empoweredamethystbuff", "empoweredamethysttip"), 10, true);
         BuffRegistry.registerBuff("empoweredamethystbuff", new BaseFloorBuff(new ModifierValue<>(SUMMONS_TARGET_RANGE, 0.10f), new ModifierValue<>(KNOCKBACK_OUT, 0.10f)));

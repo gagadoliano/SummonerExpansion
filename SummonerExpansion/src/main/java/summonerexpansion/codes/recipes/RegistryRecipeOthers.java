@@ -11,12 +11,26 @@ public class RegistryRecipeOthers
 {
     public static void registerRecipes()
     {
+        RegistryRecipeOthers.registerExplosives();
         RegistryRecipeOthers.registerMaterials();
         RegistryRecipeOthers.registerMaps();
         RegistryRecipeOthers.registerFishing();
         RegistryRecipeOthers.registerStats();
         RegistryRecipeOthers.registerBanners();
         RegistryRecipeOthers.registerBoss();
+    }
+
+    public static void registerExplosives()
+    {
+        Recipes.registerModRecipe(new Recipe(
+                "swampslimedynamitestick",
+                1,
+                RecipeTechRegistry.DEMONIC_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("dynamitestick", 1),
+                        new Ingredient("swampslime", 10)
+                }
+        ));
     }
 
     public static void registerMaterials()
@@ -38,6 +52,15 @@ public class RegistryRecipeOthers
                 RecipeTechRegistry.FORGE,
                 new Ingredient[]{
                         new Ingredient("titaniumore", 4)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "demonicbar",
+                10,
+                RecipeTechRegistry.DEMONIC_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("demonelixir", 1)
                 }
         ));
     }
@@ -109,6 +132,20 @@ public class RegistryRecipeOthers
         ).showAfter("woodfishingrod"));
 
         Recipes.registerModRecipe(new Recipe(
+                "combinedfishingrod",
+                1,
+                RecipeTechRegistry.TUNGSTEN_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("woodfishingrod", 1),
+                        new Ingredient("ironfishingrod", 1),
+                        new Ingredient("goldfishingrod", 1),
+                        new Ingredient("overgrownfishingrod", 1),
+                        new Ingredient("depthscatcher", 1),
+                        new Ingredient("ancientwoodfishingrod", 1)
+                }
+        ).showAfter("ancientwoodfishingrod"));
+
+        Recipes.registerModRecipe(new Recipe(
                 "myceliumworm",
                 1,
                 RecipeTechRegistry.CAVEGLOW_ALCHEMY,
@@ -151,7 +188,9 @@ public class RegistryRecipeOthers
                         new Ingredient("primordialessence", 5),
                         new Ingredient("slimeessence", 5),
                         new Ingredient("bloodessence", 5),
-                        new Ingredient("spideressence", 5)
+                        new Ingredient("spideressence", 5),
+                        new Ingredient("crystalessence", 5),
+                        new Ingredient("radiatedessence", 5)
                 }
         ));
     }
@@ -197,7 +236,7 @@ public class RegistryRecipeOthers
                 RecipeTechRegistry.DEMONIC_WORKSTATION,
                 new Ingredient[]{
                         new Ingredient("wool", 30),
-                        new Ingredient("swampgrassseed", 10)
+                        new Ingredient("swampslime", 20)
                 }
         ).showAfter("bannerofsummonspeed"));
 

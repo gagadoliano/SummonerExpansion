@@ -50,6 +50,13 @@ public class RegistryMinions
         MobRegistry.registerMob("runicshieldminion", BookRunicShieldMinion.class, false);
         MobRegistry.registerMob("magmaslimeminion", BookMagmaSlimeMinion.class, false);
         MobRegistry.registerMob("frozendwarfminion", BookFrozenMinion.class, false);
+        MobRegistry.registerMob("butterflygreenminion", BookGreenButterflyMinion.class, false);
+        MobRegistry.registerMob("butterflyblueminion", BookBlueButterflyMinion.class, false);
+        MobRegistry.registerMob("butterflyredminion", BookRedButterflyMinion.class, false);
+        MobRegistry.registerMob("hungrymimicminion", HungryMimicMinion.class, false);
+        MobRegistry.registerMob("ashgolemminion", AshGolemMinion.class, false);
+        MobRegistry.registerMob("furnacegolemminion", FurnaceGolemMinion.class, false);
+        // Magic tools
         MobRegistry.registerMob("woodpickminion", WoodPickMinion.class, false);
         MobRegistry.registerMob("woodaxeminion", WoodAxeMinion.class, false);
         MobRegistry.registerMob("copperpickminion", CopperPickMinion.class, false);
@@ -58,12 +65,8 @@ public class RegistryMinions
         MobRegistry.registerMob("ironaxeminion", IronAxeMinion.class, false);
         MobRegistry.registerMob("goldpickminion", GoldPickMinion.class, false);
         MobRegistry.registerMob("goldaxeminion", GoldAxeMinion.class, false);
-        MobRegistry.registerMob("butterflygreenminion", BookGreenButterflyMinion.class, false);
-        MobRegistry.registerMob("butterflyblueminion", BookBlueButterflyMinion.class, false);
-        MobRegistry.registerMob("butterflyredminion", BookRedButterflyMinion.class, false);
-        MobRegistry.registerMob("hungrymimicminion", HungryMimicMinion.class, false);
-        MobRegistry.registerMob("ashgolemminion", AshGolemMinion.class, false);
-        MobRegistry.registerMob("furnacegolemminion", FurnaceGolemMinion.class, false);
+        MobRegistry.registerMob("ivypickminion", IvyPickMinion.class, false);
+        MobRegistry.registerMob("ivyaxeminion", IvyAxeMinion.class, false);
         // Long range
         MobRegistry.registerMob("runerangedminion", RuneRangedMinion.class, false);
         MobRegistry.registerMob("redspiderrangeminion", RedSpiderRangeMinion.class, false);
@@ -112,6 +115,7 @@ public class RegistryMinions
         MobRegistry.registerMob("horrorwolfminion", HorrorWolfMinion.class, false);
         // Spear
         MobRegistry.registerMob("fishianminion", FishianMinion.class, false);
+        MobRegistry.registerMob("apprendiceminion", ApprenticeMinion.class, false);
         // Glaive
         MobRegistry.registerMob("horrorspikesentry", HorrorSentry.class, false);
         //Boomerang
@@ -134,6 +138,7 @@ public class RegistryMinions
     {
         // Minions
         MobRegistry.registerMob("pinewoodminion", PineWoodMinion.class, false);
+        MobRegistry.registerMob("swampwitchminion", SwampWitchMinion.class, false);
         // Sentries
         MobRegistry.registerMob("iceblossomsentry", IceBlossomSentry.class, false);
         MobRegistry.registerMob("sunflowersentry", SunflowerSentry.class, false);
@@ -158,6 +163,7 @@ public class RegistryMinions
         MobRegistry.registerMob("leafshotsentry", LeafShotSentry.class, false);
         MobRegistry.registerMob("caveglowsentry", CaveglowSentry.class, false);
         MobRegistry.registerMob("coffinsentry", VampireCoffinSentry.class, false);
+        MobRegistry.registerMob("frostbitesentry", FrostbiteSentry.class, false);
         // Summoner
         MobRegistry.registerMob("mushroomsentry", BookMushroomSentry.class, false);
         // Buffer

@@ -35,7 +35,7 @@ public class XmasTreeSentry extends SentryBase implements OEVicinityBuff
         super(3000F, 1000F);
         collision = new Rectangle(0, 0, 54, 100);
         hitBox = new Rectangle(0, 0, 54, 100);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(0, 0, 54, 100);
     }
 
     public void init()

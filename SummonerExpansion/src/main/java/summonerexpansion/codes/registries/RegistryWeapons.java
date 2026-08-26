@@ -53,10 +53,10 @@ public class RegistryWeapons
         ItemRegistry.registerItem("leafshotpack", new BaseSeedPackWeapon(22, 300, 6, "leafshotsentry", "seedpacksentry", "leafshotpacktip", Item.Rarity.COMMON), 50, true);
         // Secondary
         ItemRegistry.registerItem("explosivesnowball", new BaseSummonSecondarySetWeapon(20,40,3,6,100,FollowPosition.PYRAMID, Item.Rarity.COMMON, "explosivesnowmanminion", "explosivesnowballtip", "frostcrownsetbonus", new Color(87, 189, 216)), 50, true);
-        ItemRegistry.registerItem("magicwoodtools", new BaseMagicToolsWeapon(5,35,30,100, Item.Rarity.COMMON, "woodpickminion", "woodaxeminion", "woodtoolstip"), 50, true);
-        ItemRegistry.registerItem("magiccoppertools", new BaseMagicToolsWeapon(7,40,32,100, Item.Rarity.COMMON, "copperpickminion", "copperaxeminion", "coppertoolstip"), 50, true);
-        ItemRegistry.registerItem("magicirontools", new BaseMagicToolsWeapon(10,45,34,100, Item.Rarity.COMMON, "ironpickminion", "ironaxeminion", "irontoolstip"), 50, true);
-        ItemRegistry.registerItem("magicgoldtools", new BaseMagicToolsWeapon(12,50,36,100, Item.Rarity.COMMON, "goldpickminion", "goldaxeminion", "goldtoolstip"), 50, true);
+        ItemRegistry.registerItem("magicwoodtools", new BaseMagicToolsWeapon(5,35,10,100, Item.Rarity.COMMON, "woodpickminion", "woodaxeminion", "woodtoolstip"), 50, true);
+        ItemRegistry.registerItem("magiccoppertools", new BaseMagicToolsWeapon(7,40,12,100, Item.Rarity.COMMON, "copperpickminion", "copperaxeminion", "coppertoolstip"), 50, true);
+        ItemRegistry.registerItem("magicirontools", new BaseMagicToolsWeapon(10,45,14,100, Item.Rarity.COMMON, "ironpickminion", "ironaxeminion", "irontoolstip"), 50, true);
+        ItemRegistry.registerItem("magicgoldtools", new BaseMagicToolsWeapon(12,50,16,100, Item.Rarity.COMMON, "goldpickminion", "goldaxeminion", "goldtoolstip"), 50, true);
         ItemRegistry.registerItem("bookmagma", new BaseSummonSecondaryWeapon(22, 35,3,6,100, FollowPosition.SLIME_CIRCLE_MOVEMENT, Item.Rarity.COMMON, "magmaslimeminion", "bookmagmatip"), 50, true);
         ItemRegistry.registerItem("bookbee", new BaseSummonSecondaryWeapon(10, 30, 6, 6, 100, FollowPosition.FLYING_CIRCLE, Item.Rarity.COMMON, "beebookminion", "bookbeetip"), 50, true);
         // Sentry
@@ -66,12 +66,12 @@ public class RegistryWeapons
     public static void registerTier2()
     {
         // Minion
-        ItemRegistry.registerItem("magicdungeoncandelabra", new BaseSummonWeapon(15F,65F,1F,100, FollowPosition.CIRCLE_FAR, Item.Rarity.UNCOMMON,"lampminiondungeon","lampminiondungeontip"), 100, true);
-        ItemRegistry.registerItem("icewizardstaff", new BaseSummonSetWeapon(32F,50F,1F,100, FollowPosition.WALK_CLOSE, Item.Rarity.UNCOMMON,"icewizardminion","icewizardtip", "frostcrownsetbonus", new Color(87, 189, 216)), 100, true);
-        ItemRegistry.registerItem("magicgoldlamp", new BaseSummonWeapon(10F,40F,2F,100, FollowPosition.CIRCLE_FAR, Item.Rarity.UNCOMMON,"lampminiongold","magicgoldlamptip"), 100, true);
+        ItemRegistry.registerItem("magicdungeoncandelabra", new BaseSummonWeapon(15F,65F,1F,200, FollowPosition.CIRCLE_FAR, Item.Rarity.UNCOMMON,"lampminiondungeon","lampminiondungeontip"), 100, true);
+        ItemRegistry.registerItem("icewizardstaff", new BaseSummonSetWeapon(32F,50F,1F,200, FollowPosition.WALK_CLOSE, Item.Rarity.UNCOMMON,"icewizardminion","icewizardtip", "frostcrownsetbonus", new Color(87, 189, 216)), 100, true);
+        ItemRegistry.registerItem("magicgoldlamp", new BaseSummonWeapon(10F,40F,2F,200, FollowPosition.CIRCLE_FAR, Item.Rarity.UNCOMMON,"lampminiongold","magicgoldlamptip"), 100, true);
         ItemRegistry.registerItem("runebonestaff", new RuneboneStaff(200, Item.Rarity.UNCOMMON), 100, true);
-        ItemRegistry.registerItem("goldpitchfork", new BaseSummonWeapon(30F,120F,2F,100, FollowPosition.WALK_CLOSE, Item.Rarity.UNCOMMON,"farmerminion","goldpitchforktip"), 100, true);
-        ItemRegistry.registerItem("vampirewings", new BaseSummonSetWeapon(20F,65F,1F,100, FollowPosition.WALK_CLOSE, Item.Rarity.UNCOMMON,"vampireminion","vampirewingstip", "bloodplatemasksetbonus", new Color(180, 15, 50)), 100, true);
+        ItemRegistry.registerItem("goldpitchfork", new BaseSummonWeapon(30F,120F,2F,200, FollowPosition.WALK_CLOSE, Item.Rarity.UNCOMMON,"farmerminion","goldpitchforktip"), 100, true);
+        ItemRegistry.registerItem("vampirewings", new BaseSummonSetWeapon(20F,65F,1F,200, FollowPosition.WALK_CLOSE, Item.Rarity.UNCOMMON,"vampireminion","vampirewingstip", "bloodplatemasksetbonus", new Color(180, 15, 50)), 100, true);
         ItemRegistry.registerItem("hungrymimic", new HungryMimic(200, Item.Rarity.UNCOMMON), 100, true);
         // Melee
         ItemRegistry.registerItem("globeboomerang", new GlobeBoomerang(200, Item.Rarity.UNCOMMON, null), 100, true);
@@ -81,6 +81,8 @@ public class RegistryWeapons
         ItemRegistry.registerItem("druiddemonclaw", new DruidDemonClaw(200, Item.Rarity.UNCOMMON), 100, true);
         ItemRegistry.registerItem("goblinsword", new GoblinSword(200, Item.Rarity.UNCOMMON), 100, true);
         BuffRegistry.registerBuff("goblincooldowndebuff", new ShownItemCooldownBuff(1, true, "items/weapons/goblinsword"));
+        ItemRegistry.registerItem("swampslimespear", new SwampSlimeSpear(200, Item.Rarity.UNCOMMON), 100, true);
+        ItemRegistry.registerItem("voidlaserspear", new VoidLaserSpear(200, Item.Rarity.UNCOMMON), 100, true);
         // Ranged
         // Magic
         ItemRegistry.registerItem("applewalkingstick", new AppleWalkingStick(200, Item.Rarity.UNCOMMON), 100, true);
@@ -88,9 +90,14 @@ public class RegistryWeapons
         // Secondary
         ItemRegistry.registerItem("bookfrozen", new BaseSummonSecondarySetWeapon(30,45,2,4,200, FollowPosition.WALK_CLOSE, Item.Rarity.UNCOMMON,"frozendwarfminion","bookfrozentip", "frostcrownsetbonus", new Color(87, 189, 216)), 100, true);
         ItemRegistry.registerItem("bookrunic", new BaseSummonSecondaryWeapon(30,65,2,4,200, FollowPosition.FLYING_CIRCLE, Item.Rarity.UNCOMMON,"runicshieldminion","bookrunictip"), 100, true);
+        ItemRegistry.registerItem("magicivytools", new BaseMagicToolsWeapon(25,65,20,200, Item.Rarity.UNCOMMON, "ivypickminion", "ivyaxeminion", "ivytoolstip"), 100, true);
         ItemRegistry.registerItem("ancestorstaff", new AncestorStaff(200, Item.Rarity.UNCOMMON), 100, true);
         // Sentry
-
+        //ItemRegistry.registerItem("book", new BaseSummonSecondaryWeapon(30,65,2,4,200, FollowPosition.FLYING_CIRCLE, Item.Rarity.UNCOMMON,"",""), 100, true);
+        //ItemRegistry.registerItem("book", new BaseSummonSecondaryWeapon(30,65,2,4,200, FollowPosition.FLYING_CIRCLE, Item.Rarity.UNCOMMON,"",""), 100, true);
+        //ItemRegistry.registerItem("book", new BaseSummonSecondaryWeapon(30,65,2,4,200, FollowPosition.FLYING_CIRCLE, Item.Rarity.UNCOMMON,"",""), 100, true);
+        //ItemRegistry.registerItem("book", new BaseSummonSecondaryWeapon(30,65,2,4,200, FollowPosition.FLYING_CIRCLE, Item.Rarity.UNCOMMON,"",""), 100, true);
+        //ItemRegistry.registerItem("book", new BaseSummonSecondaryWeapon(30,65,2,4,200, FollowPosition.FLYING_CIRCLE, Item.Rarity.UNCOMMON,"",""), 100, true);
     }
 
     public static void registerTier3()
@@ -113,10 +120,12 @@ public class RegistryWeapons
         ItemRegistry.registerItem("mosquitobow", new MosquitoBow(400, Item.Rarity.RARE), 200, true);
         // Magic
         ItemRegistry.registerItem("pinewoodstaff", new PineWoodStaff(400, Item.Rarity.RARE), 200, true);
+        ItemRegistry.registerItem("swampslimeflask", new SwampSlimeFlask(400, Item.Rarity.RARE), 200, true);
         // Secondary
         // Sentry
-        ItemRegistry.registerItem("caveglowstaff", new BaseSummonWeapon(35F,80F,1F,400, FollowPosition.WALK_CLOSE, Item.Rarity.RARE,"caveglowsentry","caveglowsentrytip"), 400, true);
+        ItemRegistry.registerItem("caveglowstaff", new BaseSummonWeapon(35F,80F,1F,400, FollowPosition.WALK_CLOSE, Item.Rarity.RARE,"caveglowsentry","caveglowsentrytip"), 200, true);
         ItemRegistry.registerItem("coffebeampack", new CoffeBeamPack(Item.Rarity.RARE), 200, true);
+        ItemRegistry.registerItem("bookfrostbite", new BaseSummonSecondaryWeapon(40,85,1,2,400, FollowPosition.WALK_CLOSE, Item.Rarity.RARE,"frostbitesentry","bookfrostbitetip"), 200, true);
     }
 
     public static void registerTier4()

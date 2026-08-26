@@ -38,7 +38,7 @@ public class CaveglowSentry extends SentryBase
         super(3000F, 1000F);
         collision = new Rectangle(0, 0, 30, 68);
         hitBox = new Rectangle(0, 0, 30, 68);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(0, 0, 30, 68);
     }
 
     public void init()

@@ -22,7 +22,7 @@ public class SharkLavaChestplate extends ChestArmorItem
 
     public SharkLavaChestplate(int enchantCost, Item.Rarity rarityTier)
     {
-        super(7, enchantCost, "sharklavachestplate", "sharklavachestplatearms", BodyArmorLootTable.bodyArmor);
+        super(18, enchantCost, "sharklavachestplate", "sharklavachestplatearms", BodyArmorLootTable.bodyArmor);
         rarity = rarityTier;
     }
 

@@ -8,6 +8,15 @@ public class RegistrySpawn
 {
     public static void registerSpawn()
     {
+        Biome.defaultCaveMobs
+                .add(1, "vampireminibossmob");
+
+        SwampBiome.defaultCaveMobs
+                .add(1, "poisonswampslimemob");
+
+        SwampBiome.deepSwampCaveMobs
+                .add(1, "poisonswampslimewormmob");
+
         Biome.defaultDeepCaveMobs
                 .add(10, "horrorspiritmob");
 

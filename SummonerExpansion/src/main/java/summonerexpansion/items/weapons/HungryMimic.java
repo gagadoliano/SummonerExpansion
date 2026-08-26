@@ -21,13 +21,13 @@ import java.awt.*;
 
 public class HungryMimic extends SummonToolItem
 {
-    public static float finalDamageModifier = 0.25F;
+    public static float finalDamageModifier = 0.50F;
 
     public HungryMimic(int enchantCost, Item.Rarity rarityTier)
     {
         super("hungrymimicminion", FollowPosition.WALK_CLOSE, 1F, enchantCost, SummonWeaponsLootTable.summonWeapons);
         rarity = rarityTier;
-        attackDamage.setBaseValue(15.0F).setUpgradedValue(1, 30.0F);
+        attackDamage.setBaseValue(15F).setUpgradedValue(1, 30F);
         canBeUsedForRaids = true;
     }
 

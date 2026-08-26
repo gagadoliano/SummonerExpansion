@@ -16,7 +16,6 @@ import necesse.gfx.GameResources;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
-import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 
@@ -28,9 +27,10 @@ import static summonerexpansion.codes.registries.RegistryMinionTextures.setHorro
 
 public class SetHorrorBabyMinion extends FlyingAttackingFollowingMob
 {
+    public int lifeTime = 0;
+    public int lifeStart = 0;
     private float toMove;
     public float moveAngle;
-    public int lifeTime = 9000;
 
     public SetHorrorBabyMinion()
     {
@@ -83,10 +83,10 @@ public class SetHorrorBabyMinion extends FlyingAttackingFollowingMob
     public void serverTick()
     {
         super.serverTick();
-        this.lifeTime--;
-        if (this.lifeTime <= 0)
+        lifeStart++;
+        if (lifeStart >= lifeTime)
         {
-            this.remove(0.0F, 0.0F, null, true);
+            remove(0.0F, 0.0F, null, true);
         }
     }
 

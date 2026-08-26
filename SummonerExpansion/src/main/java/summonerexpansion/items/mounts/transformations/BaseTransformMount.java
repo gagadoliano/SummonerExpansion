@@ -39,7 +39,6 @@ public class BaseTransformMount extends MountFollowingMob implements MountAbilit
 
     public void runMountAbility(PlayerMob player, Packet content)
     {
-
     }
 
     public boolean canRunMountAbility(PlayerMob player, Packet content) {

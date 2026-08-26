@@ -15,8 +15,8 @@ import necesse.inventory.lootTable.presets.IncursionHeadArmorLootTable;
 
 public class ChefSummonerHat extends SetHelmetArmorItem
 {
-    public IntUpgradeValue maxHealth = (new IntUpgradeValue()).setBaseValue(10).setUpgradedValue(1F, 15).setUpgradedValue(10F, 50);
-    public IntUpgradeValue maxSummon = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 3);
+    public IntUpgradeValue maxHealth = (new IntUpgradeValue()).setBaseValue(10).setUpgradedValue(1F, 15).setUpgradedValue(10F, 250);
+    public IntUpgradeValue maxSummon = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 4);
 
     public ChefSummonerHat(int enchantCost, Item.Rarity rarityTier)
     {

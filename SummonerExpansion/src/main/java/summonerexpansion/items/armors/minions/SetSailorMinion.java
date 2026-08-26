@@ -53,7 +53,7 @@ public class SetSailorMinion extends SummonHumanBase
     public void serverTick()
     {
         super.serverTick();
-        if (attackLife >= 5)
+        if (attackLife > 5)
         {
             remove(0.0F, 0.0F, null, true);
         }

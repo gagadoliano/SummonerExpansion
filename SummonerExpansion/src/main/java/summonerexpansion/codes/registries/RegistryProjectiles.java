@@ -24,6 +24,7 @@ public class RegistryProjectiles
         RegistryProjectiles.registerTrinket();
         RegistryProjectiles.registerArmorSets();
         RegistryProjectiles.registerFoeProjs();
+        RegistryProjectiles.registerExplosives();
     }
 
     public static void registerSummon()
@@ -74,6 +75,7 @@ public class RegistryProjectiles
         ProjectileRegistry.registerProjectile("firemoneproj", FiremoneProj.class, "firemoneproj", "firemoneproj_shadow");
         ProjectileRegistry.registerProjectile("applewalkproj", AppleWalkProj.class, "applewalkproj", null);
         ProjectileRegistry.registerProjectile("thornspikes", ThornSpikesProj.class, null, null);
+        ProjectileRegistry.registerProjectile("swampslimeflaskproj", SwampSlimeFlaskProj.class, "swampslimeflask", "necroticflasksplash_shadow");
     }
 
     public static void registerMount()
@@ -121,5 +123,11 @@ public class RegistryProjectiles
         ProjectileRegistry.registerProjectile("horrorcultminionproj", HorrorCultMinionProj.class, null, null);
         ProjectileRegistry.registerProjectile("horrorwaveproj", HorrorWaveProj.class, "horrorwaveproj", null);
         ProjectileRegistry.registerProjectile("woodmobproj", WoodMobProj.class, null, null);
+        ProjectileRegistry.registerProjectile("poisonswampproj", PoisonSwampProj.class, "swampbolt", "bolt_shadow");
+    }
+
+    public static void registerExplosives()
+    {
+        ProjectileRegistry.registerProjectile("swampslimedynamitestickproj", SwampSlimeDynamiteStickProjectile.class, "swampslimedynamitestickproj", "dynamitestick_shadow");
     }
 }

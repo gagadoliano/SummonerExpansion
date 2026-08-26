@@ -52,7 +52,7 @@ public class LittleAngel extends TrinketItem
         }
         else
         {
-            return slot.getContainerIndex() == container.CLIENT_TRINKET_ABILITY_SLOT ? null : Localization.translate("itemtooltip", "littleangeltip");
+            return slot.getContainerIndex() == container.CLIENT_TRINKET_ABILITY_SLOT ? null : Localization.translate("itemtooltip", "foolsgambiterrortip");
         }
     }
 

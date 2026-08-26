@@ -30,8 +30,8 @@ import java.util.List;
 
 public class SetGhostCaptainMinion extends FlyingAttackingFollowingMob
 {
-    public int lifeStart = 0;
     public int lifeTime = 0;
+    public int lifeStart = 0;
     public Trail trail;
     boolean isBroadsideAttacking;
     protected BooleanMobAbility chargeBroardsideAttack;

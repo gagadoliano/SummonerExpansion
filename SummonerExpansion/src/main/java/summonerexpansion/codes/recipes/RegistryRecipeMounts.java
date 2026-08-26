@@ -53,7 +53,7 @@ public class RegistryRecipeMounts
                         new Ingredient("cheese", 1),
                         new Ingredient("luckycape", 1),
                         new Ingredient("speedpotion", 5),
-                        new Ingredient("voidshard", 8)
+                        new Ingredient("voidshard", 4)
                 }
         ));
 
@@ -73,8 +73,8 @@ public class RegistryRecipeMounts
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
-                        new Ingredient("cavespidergland", 50),
-                        new Ingredient("spiderclaw", 2),
+                        new Ingredient("cavespidergland", 30),
+                        new Ingredient("spiderclaw", 1),
                         new Ingredient("royalegg", 1)
                 }
         ));
@@ -87,6 +87,17 @@ public class RegistryRecipeMounts
                         new Ingredient("brutesbattleaxe", 1),
                         new Ingredient("runeboundbackbones", 1),
                         new Ingredient("resistancepotion", 5)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "swampshooterleaf",
+                1,
+                SUMMONTABLECRAFT2,
+                new Ingredient[]{
+                        new Ingredient("swampslime", 12),
+                        new Ingredient("ivybar", 5),
+                        new Ingredient("swampsludge", 4)
                 }
         ));
 
@@ -120,7 +131,7 @@ public class RegistryRecipeMounts
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
-                        new Ingredient("bone", 125),
+                        new Ingredient("bone", 50),
                         new Ingredient("ectoplasm", 15),
                         new Ingredient("lifequartz", 25)
                 }
@@ -143,7 +154,7 @@ public class RegistryRecipeMounts
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
                         new Ingredient("spiriturn", 1),
-                        new Ingredient("amber", 25),
+                        new Ingredient("amber", 15),
                         new Ingredient("basalt", 100)
                 }
         ));

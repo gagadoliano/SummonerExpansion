@@ -15,6 +15,8 @@ import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawables.LevelSortedDrawable;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.level.maps.Level;
+import necesse.level.maps.LevelObjectHit;
+import summonerexpansion.codes.events.TitaniumBeamsExplosionEvent;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -24,6 +26,8 @@ public class TitaniumLightningProj extends Projectile
 {
     private float nextTrailUpdatePoint = 0.0F;
     private float initialX;
+    private float targetX;
+    private float targetY;
     public GameDamage damage;
 
     public TitaniumLightningProj() {
@@ -35,6 +39,8 @@ public class TitaniumLightningProj extends Projectile
         this.setOwner(owner);
         this.x = x;
         this.y = y;
+        this.targetX = targetX;
+        this.targetY = targetY;
         this.setTarget(targetX, targetY);
         this.speed = speed;
         this.distance = distance;
@@ -57,13 +63,13 @@ public class TitaniumLightningProj extends Projectile
         this.initialX = this.x;
         if (this.isClient())
         {
-            SoundManager.playSound(GameResources.spiritBeam, SoundEffect.effect(this.targetX, this.targetY).volume(0.6F).pitch(GameRandom.globalRandom.getFloatBetween(0.8F, 1.2F)));
+            SoundManager.playSound(GameResources.spiritBeam, SoundEffect.effect(this.targetX, this.targetY).volume(0.6F).pitch(GameRandom.globalRandom.getFloatBetween(0.8F, 1.0F)));
         }
     }
 
     public boolean canHit(Mob mob)
     {
-        return true;
+        return false;
     }
 
     public void onMoveTick(Point2D.Float startPos, double movedDist)
@@ -106,5 +112,14 @@ public class TitaniumLightningProj extends Projectile
     }
 
     public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, OrderableDrawables overlayList, Level level, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
+    }
+
+    public void doHitLogic(Mob mob, LevelObjectHit object, float x, float y)
+    {
+        super.doHitLogic(mob, object, x, y);
+        TitaniumBeamsExplosionEvent explosionLevelEvent = new TitaniumBeamsExplosionEvent(x, y, 65, this.damage, false, 0.0F, this.getOwner());
+        explosionLevelEvent.level = this.getLevel();
+        explosionLevelEvent.resetUniqueID(new GameRandom(this.getUniqueID()));
+        this.getLevel().entityManager.events.addHidden(explosionLevelEvent);
     }
 }

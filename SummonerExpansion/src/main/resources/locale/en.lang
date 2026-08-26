@@ -38,7 +38,8 @@ mushroomminionstatue=Mushroom Minion Statue
 ascendedwizardstatue=Ascended Wizard Statue
 stuffedportalminion=Portal Minion Plush
 stuffedfrostsentry=Frost Sentry Plush
-apprendicestatue=Apprendice Statue
+swampshooterdoll=Swamp Shooter Plush
+apprendicestatue=Apprentice Statue
 stuffedswampslug=Swampslug Plush
 fakevultureegg=Fake Vulture Egg
 stuffedscorpion=Scorpion Plush
@@ -62,6 +63,7 @@ beetstatue=Beet Statue
 sandtemplemonkstatue=Sand Temple Monk Statue
 
 // Furniture
+polishedsunkenchest=Polished Sunken Chest
 arcanicdisplay=Arcanic Display
 arcanicchest=Arcanic Chest
 beehivechest=Beehive Chest
@@ -108,16 +110,16 @@ sandwormstaff=Sand Worm Staff
 bookbutterfly=Butterfly Book
 runebonestaff=Runebone Staff
 goldpitchfork=Gold Pitchfork
+ashgolemhead=Ash Golem Head
 gemtopazshards=Topaz Shards
 bearhead=Grizzly Bear Head
 vampirewings=Vampire Wings
 dryadessence=Dryad Essence
 gemrubyshards=Ruby Shards
 cactusstaff=Cactus Staff
+hungrymimic=Hungry Mimic
 polarhead=Polar Head
 royalhive=Royal Hive
-hungrymimic=Hungry Mimic
-ashgolemhead=Ash Golem Head
 
 // Sentry weapons
 leafshotheatpack=Fire Leaf Shooter Seed Pack
@@ -128,19 +130,21 @@ coffebeampack=Coffe Beam Seed Pack
 vampirecoffin=Vampire Coffin
 caveglowstaff=Caveglow Staff
 bookmushroom=Mushroom Book
+bookfrostbite=Frostbite Book
 
 // Secondary weapons
 explosivesnowball=Explosive Snowball
 magiccoppertools=Magic Copper Tools
+portablefurnace=Portable Furnace
 magicwoodtools=Magic Wood Tools
 magicirontools=Magic Iron Tools
 magicgoldtools=Magic Gold Tools
+magicivytools=Magic Ivy Tools
+ancestorstaff=Ancestor Staff
 bookfrozen=Frozen Book
 bookmagma=Magma Book
 bookrunic=Runic Book
 bookbee=Bee Book
-ancestorstaff=Ancestor Staff
-portablefurnace=Portable Furnace
 
 // Melee weapons
 druidfallendragonclaw=Druid Fallen Dragon Claw
@@ -150,27 +154,30 @@ druidancestorclaw=Druid Ancestor Claw
 druidleatherclaw=Druid Leather Claw
 druidvultureclaw=Druid Vulture Claw
 druidspiderclaw=Druid Spider Claw
+swampslimespear=Swamp Slime Spear
 druidpolarclaw=Druid Polar Claw
 druiddemonclaw=Druid Demon Claw
 globeboomerang=Globe Boomerang
 spidersummonsword=Spider Sword
 webspiderwhip=Spider Web Whip
+shreddingstar=Shredding Star
 ramnunchucks=Ram Nunchucks
 fishianspear=Fishian Spear
 horrorscythe=Horror Scythe
 horrorglaive=Horror Glaive
 goblinsword=Goblin Sword
 horrorsword=Horror Sword
-mimesword=Mime Sword
 wormbucket=Worm Bucket
-shreddingstar=Shredding Star
+mimesword=Mime Sword
+voidlaserspear=Void Laser Spear
 
 // Range weapons
-mosquitobow=Mosquito Bow
 yinyangninjastar=Yin Yang Ninjastar
+mosquitobow=Mosquito Bow
 
 // Magic weapons
 applewalkingstick=Apple Walking Stick
+swampslimeflask=Swamp Slime Flask
 iceblossomstaff=Ice Blossom Staff
 sunflowerstaff=Sunflower Staff
 pinewoodstaff=Pine Wood Staff
@@ -178,26 +185,32 @@ firemonestaff=Firemone Staff
 thornstaff=Thorns Staff
 
 // Armor pieces
-sharpshootersummonhat=Sharpshooter Summoner Hat
-arcanicsummonhelmet=Arcanic Summoner Helmet
-ravenlordsummonmask=Ravenlord Summoner Mask
+// T1
 leathersummonerhood=Leather Summoner Hood
-agedsummonerhelmet=Aged Summoner Helmet
-chefsummonerhat=Chef Summoner Hat
 copperminerhat=Copper Miner Hat
+// T2
 bloodplatemask=Bloodplate Mask
 pharaohsmask=Pharaoh's Mask
-shadowhelmet=Shadow Helmet
 frostcrown=Frost Crown
+// T3
+sharpshootersummonhat=Sharpshooter Summoner Hat
+agedsummonerhelmet=Aged Summoner Helmet
+shadowhelmet=Shadow Helmet
+// T4
+arcanicsummonhelmet=Arcanic Summoner Helmet
+ravenlordsummonmask=Ravenlord Summoner Mask
+chefsummonerhat=Chef Summoner Hat
 slimehood=Slime Hood
 
 // Armor sets
+// T1
 redspiderhelmet=Red Spider Helmet
 redspiderchestplate=Red Spider Chestplate
 redspiderboots=Red Spider Boots
 rainsummonhat=Rain Summon Hat
 rainsummoncoat=Rain Summon Coat
 rainsummonboots=Rain summon Boots
+// T2
 titaniummagichelmet=Titanium Magic Helmet
 titaniummeleehelmet=Titanium Melee Helmet
 titaniumrangedhelmet=Titanium Range Helmet
@@ -207,6 +220,7 @@ titaniumboots=Titanium Boots
 summonplaguemask=Summoner Plague Mask
 summonplaguerobe=Summoner Plague Robe
 summonplagueboots=Summoner Plague Boots
+// T3
 shadowhorrorhood=Shadow Horror Hood
 shadowhorrormantle=Shadow Horror Mantle
 shadowhorrorboots=Shadow Horror Boots
@@ -216,6 +230,7 @@ sharklavaboots=Lava Shark Boots
 spiderbridehelmet=Spider Bride Helmet
 spiderbridechest=Spider Bride Chest
 spiderbrideboots=Spider Bride Boots
+// T4
 ghostcaptainshat=Ghost Captain's Hat
 ghostcaptainsshirt=Ghost Captain's Shirt
 ghostcaptainsboots=Ghost Captain's Boots
@@ -224,62 +239,73 @@ sailorsummonshirt=Summoner Sailor Shirt
 sailorsummonshoes=Summoner Sailor Shoes
 
 // Trinkets
-essenceofcompanionship=Essence of Companionship
-challengerarmorpiece=Challenger's Armor Piece
-balancedsummonerboard=Balanced Summoner Board
-overchargedvoidshards=Overcharged Void Shards
-scryingmagicianscard=Scrying Magician's Card
-companionsatchels=Companion's Twin Satchels
-frozenassassinscowl=Frozen Assassins Cowl
-crystalamalgamation=Crystal Amalgamation
-sandtemplemonkhead=Sand Temple Monk Head
-magicianboard=Balanced Magician's Board
-calmminerslantern=Calm Miner's Lantern
+// T1
 alienparasite=Adaptive Alien Parasite
-transplantedheart=Transplanted Heart
-doomshroomshield=Doom Shroom Shield
-shadowhorrorcape=Shadow Horror Cape
-demonicpolarclaw=Demonic Polar Claw
-frenzyhorrorcape=Frenzy Horror Cape
 livingarmorstand=Living Armor Stand
-strangecookpot=Strange Cooking Pot
-hystericalmirror=Hysterical Mirror
-necromancerarmor=Necromancer Armor
+lightningamulet=Lightning Amulet
+timeworncoins=Timeworn Coins
+flowerbrooch=Flower Brooch
+cactusemblem=Cactus Emblem
+mesmercharm=Mesmer Charm
+// T2
+overchargedvoidshards=Overcharged Void Shards
+frozenassassinscowl=Frozen Assassins Cowl
+sandtemplemonkhead=Sand Temple Monk Head
+demonicpolarclaw=Demonic Polar Claw
 frostsentrycore=Frost Sentry Core
 definitiveshell=Definitive Shell
-lightningamulet=Lightning Amulet
-frenzystonering=Frenzystone Ring
 inducingsatchel=Inducing Satchel
+duelistdolls=Duelist Dolls
+battleskull=Battle Skull
+geniewish=Genie's Wish
+cowskull=Cow Skull
+bullhead=Bull Head
+overchargedtitaniumshards=Overcharged Titanium Shards
+sporebag=Spore Bag
+// T3
+essenceofcompanionship=Essence of Companionship
+challengerarmorpiece=Challenger's Armor Piece
+jellyessenceeggs=Jellyfish Essence Eggs
+shadowhorrorcape=Shadow Horror Cape
+hystericalmirror=Hysterical Mirror
+strangecookpot=Strange Cooking Pot
 demoniccontract=Demonic Contract
 galvanicamulet=Galvanic Amulet
 summonergambit=Summoner Gambit
+fishianeggs=Fishian Eggs
+spelltablet=Spell Tablet
+bonepile=Bone Pile
+dragonicflames=Dragonic Flames
+// T4
+balancedsummonerboard=Balanced Summoner Board
+scryingmagicianscard=Scrying Magician's Card
+companionsatchels=Companion's Twin Satchels
+crystalamalgamation=Crystal Amalgamation
+magicianboard=Balanced Magician's Board
+calmminerslantern=Calm Miner's Lantern
+transplantedheart=Transplanted Heart
+frenzyhorrorcape=Frenzy Horror Cape
+unstablemagicteapot=Unstable Teapot
+necromancerarmor=Necromancer Armor
+frenzystonering=Frenzystone Ring
 minerslantern=Miner's Lantern
 mesmersatchel=Mesmer Satchel
-jellyfishbowl=Jellyfish Bowl
-timeworncoins=Timeworn Coins
 bagofbullets=Bag Of Bullets
-giantpumpkin=Giant Pumpkin
-silvergoblet=Silver Goblet
-cactusemblem=Cactus Emblem
 necroticclaw=Necrotic Claw
-duelistdolls=Duelist Dolls
-flowerbrooch=Flower Brooch
-magicteapot=Magic Tea Pot
 bagofarrows=Bag Of Arrows
-giantcarrot=Giant Carrot
-giantpotato=Giant Potato
 littleangel=Little Angel
 littlemecha=Little Mecha
-spelltablet=Spell Tablet
-mesmercharm=Mesmer Charm
-fishianeggs=Fishian Eggs
-geniewish=Genie's Wish
+jonastrophy=Jonas Trophy
+// Challenges
+doomshroomshield=Doom Shroom Shield
+jellyfishbowl=Jellyfish Bowl
+giantpumpkin=Giant Pumpkin
+silvergoblet=Silver Goblet
+magicteapot=Magic Teapot
+giantcarrot=Giant Carrot
+giantpotato=Giant Potato
 giantonion=Giant Onion
 giantbeet=Giant Beet
-bonepile=Bone Pile
-cowskull=Cow Skull
-bullhead=Bull Head
-dragonicflames=Dragonic Flames
 
 // Potions
 minioncritchancepotion=Summon Critical Chance Potion
@@ -291,6 +317,7 @@ minionequinoxpotion=Summon Equinox Potion
 minionfarmpotion=Summon Farming Potion
 minionrangepotion=Summon Range Potion
 minionspeedpotion=Summon Speed Potion
+swampslimepotion=Swamp Slime Potion
 
 // Potions buffs
 minioncritchancebuff=Summon Critical Chance Buff
@@ -299,6 +326,7 @@ minioncloserangebuff=Summon Short Range Buff
 minioncritbuff=Summon Critical Damage Buff
 minionsunflowerbuff=Sunflower Potion Buff
 minionequinoxbuff=Summon Equinox Buff
+swampslimepotionbuff=Swamp Slime Buff
 minionfarmbuff=Summon Farming Buff
 minionrangebuff=Summon Range Buff
 minionspeedbuff=Summon Speed Buff
@@ -314,6 +342,7 @@ bannerofmana=Banner of Mana
 
 // Mounts
 forestspectorhands=Forest Spector Hands
+swampshooterleaf=Swamp Shooter Leaf
 frozendwarfbeard=Frozen Dwarf Beard
 cavelingminecart=Caveling Minecart
 sharkdivingmask=Shark Diving Mask
@@ -333,39 +362,42 @@ shadowhorrorportal=Shadow Horror Portal
 // Materials
 sandgiantscorpiontail=Giant Sand Scorpion Tail
 ancientgrassseed=Ancient Grass Seed
+sharklavascales=Lava Shark Scale
+swampslime=Swamp Slime Extract
 fossilhoney=Fossilized Honey
 titaniumore=Titanium Ore
 titaniumbar=Titanium Bar
 ancientlog=Ancient Log
 purehorror=Pure Horror
-sharklavascales=Lava Shark Scale
 
 // Fishing
 ancientwoodfishingrod=Ancient Wood Fishing Rod
-myceliumworm=Myscelium Worm Bait
+combinedfishingrod=Combined Fishing Rod
 inspectorclouseau=Inspector Clouseau
+myceliumworm=Myscelium Worm Bait
+shadowcreature=Shadow Creature
+waterzombie=Baby Water Zombie
 runicfish=Runic Fish
 tinyorca=Tiny Orca
-waterzombie=Baby Water Zombie
-shadowcreature=Shadow Creature
 
 // Foods
-berrytrio=Berry Trio
-rottenbread=Rotten Bread
-cookedworm=Cooked Worm
-cookedswampworm=Cooked Swamp Worm
-orcasugar=Orca Sugar
-rayjam=Ray Jam
-livingsharksoup=Living Shark Soup
-fullpicnicbasket=Full Picnic Basket
-enchantedgoblet=Enchanted Goblet
-runicmeal=Runic Meal
 waterzombiesoup=Baby Water Zombie Soup
-icecube=Ice Cube
-pigbanquet=Pig Banquet
+cookedmushroomcap=Cooked Mushroom Cap
+fullpicnicbasket=Full Picnic Basket
+cookedswampworm=Cooked Swamp Worm
+livingsharksoup=Living Shark Soup
+enchantedgoblet=Enchanted Goblet
 caveglowjam=Caveglow Jam
 spicycoffee=Spicy Coffee
 dragondonut=Dragon Donut
+rottenbread=Rotten Bread
+pigbanquet=Pig Banquet
+cookedworm=Cooked Worm
+berrytrio=Berry Trio
+orcasugar=Orca Sugar
+runicmeal=Runic Meal
+icecube=Ice Cube
+rayjam=Ray Jam
 
 // Bags
 shadowhorrorbag=Shadow Horror Bag
@@ -389,9 +421,13 @@ sandscorpionmob=Sand Scorpion
 
 // Stat item
 fusedessences=Infused Essences
+demonelixir=Demonic Elixir
 
 // Base weapons
 supportweapon=Support Weapon
+
+// Explosives
+swampslimedynamitestick=Swamp Slime Dynamite Stick
 
 [itemtooltip]
 // Minion weapons
@@ -432,6 +468,7 @@ rubyshardtip=Summons a ruby golem \nThis golem shoots crystal shards at foes
 
 // Sentry weapons
 bookmushroomtip=Summons a sentry that slows nearby foes and buffs nearby players \nSummons mushroom minions over time
+bookfrostbitetip=Summons a sentry that shoots ice
 xmastreetip=Debuffs nearby foes \nThey glow and takes 20% increased damage from all sources
 caveglowsentrytip=The sentry glows and shoot projectiles that can pierce and bounce once
 coffinsentrytip=Every 10 shoots summons a crypt bat that does 20% of the coffins damage
@@ -449,6 +486,7 @@ bookmagmatip=Summons magma slimes that attacks very close foes \nIf the target i
 woodtoolstip=Summons magic wood tools \nThey provide a stacking buff on hit that increases mining range and mining speed
 irontoolstip=Summons magic iron tools \nThey provide a stacking buff on hit that increases mining range and mining speed
 goldtoolstip=Summons magic gold tools \nThey provide a stacking buff on hit that increases mining range and mining speed
+ivytoolstip=Summons magic ivy tools \nCauses ivy poison debuff on hit \nThey provide a stacking buff on hit that increases mining range, mining speed and summon range
 bookrunictip=Summons runic shields that orbit you \nIncreases your armor with a stacking buff when they hit foes
 bookrunictip2=Armor buff lasts longer
 bookfrozentip=Summons frozen dwarfs that throws 10 ice javelins that slows foes by 30%
@@ -472,13 +510,15 @@ druidspiderclawtip=Shoots a web projectile to slow foes by 40%
 druidfallendragonclawtip=Summons up to <amount> fallen dragons
 druidprimordialclawtip=Increases all damage over time by 100%
 druidvultureclawtip=Increases your movement speed by 25%
-spidersummonswordtip=Flings poison dust on attack
+spidersummonswordtip=Flings poison dust on attack \nOn kill drops a healing heart that buffs attack speed
 druidancestorclawtip=Summons an ancestor warrior
 druidleatherclawtip=20% increased damage taken
 druidnecroclawtip=Applies necrotic poison
 druidpolarclawtip=Slows by 30%
 webspiderwhiptip=20% chance to summon a spider on hit, up to 3
 shreddingstartip=10% chance to summon a haywire shredder, up to 3
+swampslimespeartip=Attacks have 20% chance to summon a slime
+voidlaserspeartip=Shoots a laser when attacking \n10% chance to summon an apprentice on attack
 
 // Range weapons
 mosquitobowtip=Shoots down arrows from above that leaves a damaging pool in it's wake \nEvery 20 hits summons a mosquito that reduces foes armor
@@ -493,13 +533,12 @@ sunflowersentrytip=This sentry gives nearby allies health regen while on combat
 firemonesentrytip=This sentry gives nearby allies armor penetration
 iceblossomsentrytip=This sentry gives nearby allies armor
 thornstafftip=Creates a line of thorn spikes
+swampslimeflasktip=Throws a potion that poisons all targets for <value1> damage over <value2> seconds \nPress [input=mouse2] to summon a swamp witch
 
 // Armor set bonus
 // T1
-rainsummonsettip=Further Increases fishing lines during rain \nSummons a cloud that drenches foes \nDrenched foes takes up to 20% increased damage
+rainsummonsettip=Further increases fishing lines during rain \nSummons a cloud that drenches foes \nDrenched foes takes up to 20% increased damage
 rainsummonsettip2=Cloud damage: <damage>
-bloodplatemasksettip=After taking damage, your health regen is doubled for 4 seconds \nImproves summon vampire weapons
-bloodplatemasksettip2=While under 50% health you gain lifesteal and summon a bat on kill
 frostcrownsettip=Summon attacks slows and damages the target for 15 damage over 5 seconds \nImproves summon frost weapons
 frostcrownsettip2=Summon weapons shoots an icicle projectile that deals 25% damage
 redspidersettip=Grants immunity to slow and blindness \nSummon attacks slows foes
@@ -508,13 +547,18 @@ copperminersettip=Increases the light of magic lamps and candles
 copperminersettip2=Press [input=setability] to turn your minions into homing projectiles that set foes on fire
 leathersettip=While mounted your summon damage is increased
 // T2
-titaniumrangedtip=Summons a titanium bow that shoots arrows when you attack with summon bows and guns\nIt only shoots while you are standing still \nEach shot deals 50% of the weapon's damage
-titaniummagictip=Summons a titanium staff while above 50% mana \nIt summons lightning strikes at foes
+bloodplatemasksettip=After taking damage, your health regen is doubled for 4 seconds \nImproves summon vampire weapons
+bloodplatemasksettip2=While under 50% health you gain lifesteal and summon a bat on kill
 pharaohsmasksettip=Summons a locust when you kill a foe \nYou can have up to <amount> locusts
 pharaohsmasksettip2=Locust damage: <damage>
+titaniumrangedtip=Summons a titanium bow that shoots arrows when you attack with summon bows and guns\nIt only shoots while you are standing still \nEach shot deals 50% of the weapon's damage
+titaniummagictip=Summons a titanium staff while above 50% mana \nIt summons lightning strikes at foes
+titaniummagictip2=Staff damage: <damage>
 titaniumsettip=Increases your summon damage for each filled inventory slot
 titaniumsummontip=Summons a titanium wolf for every 4 minions you have
+titaniumsummontip2=Wolf damage: <damage>
 titaniummeleetip=Summons a titanium sword while above 50% health
+titaniummeleetip2=Sword damage: <damage>
 plaguesettip=Periodically summons mouses during combat
 plaguesettip2=Mouse damage: <damage>
 // T3
@@ -554,11 +598,14 @@ alienparasitetip=Increases summon damage and crit damage, max stamina and mana a
 dragonicflamestip=Using non-summon weapons summon dragons that deals summon damage \nMelee damage summons fire dragons \nMagic damage summons frost dragons \nRanged damage summons poison dragons
 // T2
 overchargedvstip=Increases max mana by 50 \nConverts damage taken into mana \nReduces damage taken by 10% when mana is full \nIncreases damage taken by 20% during mana exhaustion
+overchargedtitaniumtip=Summons a lightning strike every 10 mana spent \nIncreases max mana by 80 \nConverts damage taken into mana \nReduces damage taken by 20% when mana is full \nIncreases damage taken by 40% during mana exhaustion
 frostsentrycoretip=20% chance to freeze foes that hits you \nClaw weapons have 50% chance to summon frost spikes that deals 20% of the claw's damage
 geniewishtip=Decreases summon crit chance by 100% \nEvery 20 hits with summon weapons do a large critical hit
 demonicpolarclawtip=Summon attacks slows foes \nIncreases knockback resistance
 sandtemplemonkheadtip=Hitting foes gives tranquility stacks \nPress [input=trinketability] to consume half of the stacks to heal \nHealing gets stronger the less health you have \n20 seconds cooldown
 definitiveshelltip=10 armor \nEquip and press [input=trinketability] to temporarily increase armor \nCounters attackers with poison for 40 damage over 5 seconds and returns damage \nYou can use it as an item to dash while also temporarily increasing your armor
+battleskulltip=Increases summon damage by 15% \nIncreases sentry attack speed by 40% \nIncreases aggro range by 60% while in combat \nDecreases aggro range by 60% while out of combat \nEquip and press [input=trinketability] to apply necrotic poison and push foes away
+sporebagtip=Affects to all nearby allies \nDecreases projectile velocity by 50% \nIncreases projectile pierce by 2 \nWhen hit summons up to 3 spores
 // T3
 strangecookpottip=You can have 1 extra food buff \nIncreases potion duration by 50% \nSummon attacks have 10% chance to create a healing explosion \nThe explosion range scales with summon target range
 summonergambittip=+1 max summon \n+10 armor \n+50% summon damage \n-50% non-summon damage \n+10% summon crit chance \nCan only be equipped in the ability trinket slot
@@ -569,6 +616,7 @@ galvanicamulettip=Increases summon attack speed by 20% \nShoots 3 lightning burs
 galvanicamulettip2=The lightning deals <damage> damage
 demoniccontracttip=Takes bleeding damage over time \nOn foe kill drops 10 coins around you \nBosses drops 250 coins instead
 shadowhorrorcapetip=Increases movement speed by 20% \nSummons horror bats when taking damage
+jellyessenceeggstip=Summons a jellyfish minion that attack foes \nGrants immunity to blindness \nIncreases life essence gain and duration by 150% \nEach life essence stack increases max resilience \nPassively regen resilience \nBeing hit drains all resilience
 // T4
 calmminerslanterntip=Summons a Will-o'-Wisp \nIncreases mining and building stats \nMining rocks deals cleave damage to other nearby rocks \nSummon damage is increased by mining damage \nSwing to turn off calming effect
 minerslanterntip=Summons a Will-o'-Wisp \nIncreases mining and building stats \nMining rocks deals cleave damage to other nearby rocks \nSummon damage is increased by mining damage \nSwing to turn on calming effect
@@ -587,7 +635,9 @@ littlemechatip=Equip and press [input=trinketability] to blink forward \nIncreas
 frenzystoneringtip=Gain up to +50% summon damage based on missing health \nGain 4 health regen per second while below 50% health
 crystalamalgamationtip=Claw weapons shoots 4 crystals that deals 10% of the claw's damage each
 teapotminiontip=You can have 1 extra food buff \nSummons a magic tea pot that attack foes
-livingarmorstandtip=Increases armor by 15 \nSummons a living armor stand \nEvery few hits deals additional damage based on you armor value \nUses 1 minion slot
+livingarmorstandtip=Increases armor by 15 \nSummons a living armor stand \nEvery few hits deals additional damage based on you armor value
+jonastrophytip=Increases stats \nIncreases armor by 15% to all nearby allies \nSummons a living armor stand
+unstablemagicteapottip=Summons a magic tea pot that attack foes \nYou can have 2 extra food buffs \nIncreases potion duration by 150% \nSummon attacks can create up to 3 random explosions and then go on cooldown \nThe explosion range scales with summon target range
 
 //Challenge
 doomshroomshieldtip=Increases summon damage by 10% \nIncreases aggro range by 50% \nEquip and press [input=trinketability] to explode \nThe explosion pushes away foes and set them ablaze \n10 seconds cooldown
@@ -597,13 +647,14 @@ potatominiontip=Increases knockback by 20% \nSummons a potato minion that throws
 beetminiontip=Increases mining speed by 20% \nSummons a beet minion that throws beets at foes \nThrown beets have 10% chance to drop on missed hits
 onionminiontip=Increases speed by 20% \nSummons an onion minion that throws boomerang onions at foes \nThrown onion have 10% chance to drop on missed hits
 jellyfishminiontip=Grants immunity to blindness \nSummons a jellyfish minion that attack foes
-silvergoblettip=Increases Armor by 15% to all nearby allies
+silvergoblettip=Increases armor by 15% to all nearby allies
 
 // Potions buff
 minionequinoxtip=Increases summon damage and movement speed during the day \nIncreases armor and max health during the night
 sunflowerpotiontip=Increases sentry attack speed by 20% \nIncreases stamina capacity by 50% \nGrants immunity to blindness
-minionfarmtip=Decreases movement but increases pickup range by 50, mob spawn rate by 50%, summon speed and range by 40%
-minioncloserangetip=Decreases summon range by 80% and increases summon speed and attack speed by 20%
+minionfarmtip=Decreases movement but increases pickup range by 50 \nMob spawn rate by 50% \nSummon speed and range by 40%
+minioncloserangetip=Decreases summon range by 80% \nIncreases summon speed and attack speed by 20%
+swampslimepotiontip=Increases projectile pierce and bounce by 1 and velocity by 20%
 minioncritchancetip=Increases summon critical chance by 10%
 minionattackspeedtip=Increases summon attack speed by 20%
 minioncrittip=Increases summon critical damage by 50%
@@ -612,7 +663,7 @@ minionspeedtip=Increases summon speed by 20%
 
 // Mounts
 chieftainhattip=Tranforms you into a chieftain \nIncreases your health, armor and max minion slots \nHold [input=trinketability] to increase your armor and speed
-bouncingbonetip=Tranforms you into a skeleton thrower \nPress [input=trinketability] to shoot bouncing bones
+bouncingbonetip=Tranforms you into a skeleton thrower \nPress [input=trinketability] to throw bouncing bones
 cryptfangstip=Tranforms you into a crypt vampire\nPress [input=trinketability] to shoot homing blood bolts
 magiccheesetip=Tranforms you into a mouse \nGreatly decreases your aggro range, making foes ignore you
 zombiearrowtip=Tranforms you into a zombie archer \nPress [input=trinketability] to shoot arrows
@@ -624,6 +675,7 @@ frozendwarfbeardtip=Tranforms you into a frozen dwarf \nPress [input=trinketabil
 forestspectorhandstip=Tranforms you into a forest spector \nPress [input=trinketability] to summon forest spectors
 swampdwellerbowtip=Tranforms you into a swamp dweller \nPress [input=trinketability] to shoot an arrow that splits into petals
 snowwolftailtip=Tranforms you into a snow wolf \nPress [input=trinketability] to summon wolfs
+swampshooterleaftip=Tranforms you into a swamp shooter \nPress [input=trinketability] to shoot
 
 // Boss desc
 horrorportaltip=Summons an army of horror spirits
@@ -638,6 +690,7 @@ beehivechesttip=Can store up to 20 items \nReduces the spoil rate of items by 50
 bannerofwatertip=Allows water walking \nIncreases your fishing power and lines
 caveglowlamptip=Have a high glow radius \nBuffs your summon and mining range
 tanktrainingdummytip=A stronger training dummy with 1000 armor
+polishedsunkenchesttip=Can store up to 60 items
 ascendedwizardstatuetip=A relic of victory
 arcanicchesttip=Can store up to 80 items
 
@@ -655,11 +708,11 @@ honeybeeguardmobtip=A hostile bee that can't be killed
 sandscorpionmobtip=Found in the sand temple
 
 // Fishing
+shadowcreaturetip=Found by fishing in forest deep caves
+waterzombietip=Found by fishing in forest caves
 inspectorclouseautip=Found by fishing in ocean
 runicfishtip=Found by fishing in plains caves
 tinyorcatip=Found by fishing in ocean
-waterzombietip=Found by fishing in forest caves
-shadowcreaturetip=Found by fishing in forest deep caves
 
 // Tiles
 empoweredsapphiretip=Increases the speed of player and settlers by 50% \nIncreases summon crit chance and summon crit damage by 10%
@@ -667,6 +720,7 @@ empoweredemeraldtip=Increases the speed of player and settlers by 50% \nIncrease
 empoweredamethysttip=Increases the speed of player and settlers by 50% \nIncreases summon target range and knockback by 10%
 empoweredrubytip=Increases the speed of player and settlers by 50% \nIncreases summon speed and summon attack speed by 10%
 empoweredtopaztip=Increases the speed of player and settlers by 50% \nIncreases max resilience and resilience regen by 10%
+
 ancientgrasstiletip=Grows tall grass
 
 // Liquids
@@ -685,114 +739,12 @@ sentrytip=Summons a sentry that shoots at foes
 minionactivecap=Capped at <amount> minions
 storedshadowtip=Stored items: <items>
 supportsentrytip=Summons a sentry
-
+demonelixirtip=Increases your resilience by 10 permanently \nCan only be used while you have 0 resilience
+swampslimedynamitesticktip=Double range but takes longer to explode
 [mob]
-// Minions
-enchantedbabyzombiearcherminion=Enchanted Baby Zombie Archer Minion
-enchantedbabyzombieminion=Enchanted Baby Zombie Minion
-lampminioncastle=Spider Castle Candelabra Minion
-redspiderrangeminion=Ranged Red Spider Minion
-redspidermeleeminion=Melee Red Spider Minion
-lampminiondungeon=Dungeon Candelabra Minion
-golemsapphireminion=Sapphire Golem Minion
-golemamethystminion=Amethyst Golem Minion
-golememeraldminion=Emerald Golem Minion
-lampminiontungsten=Tungsten Lamp Minion
-lampminiongold=Double Gold Lamp Minion
-spiritghoulminion=Spirit Ghoul Minion
-runerangedminion=Runic Shaman Minion
-golemtopazminion=Topaz Golem Minion
-lampminioncopper=Copper Lamp Minion
-runemeleeminion=Runic Brute Minion
-golemrubyminion=Ruby Golem Minion
-icewizardminion=Ice Wizard Minion
-beequeenminion=Bee Queen Minion
-vampireminion=Vampire Minion
-bearpolarminion=Polar Minion
-cactusminion=Cactus Minion
-farmerminion=Farmer Minion
-bearminion=Bear Minion
-
-// Worm
-sandwormheadminion=Sand Worm Minion
-sandwormbodyminion=Sand Worm Minion
-
-// Secondary minions
-explosivesnowmanminion=Explosive Snowman Minion
-frozendwarfminion=Frozen Dwarf Minion
-runicshieldminion=Runic Shield Minion
-magmaslimeminion=Magma Slime Minion
-beebookminion=Bee Minion
-
-// Melee minions
-horrorcrawlingzombieminion=Horror Crawling Zombie Minion
-fishmackerelminion=Fish Mackerel Minion
-fishherringminion=Fish Herring Minion
-goblinchestminion=Goblin Chest Minion
-fishsalmonminion=Fish Salmon Minion
-horrorwolfminion=Horror Wolf Minion
-horrorbullminion=Horror Bull Minion
-goblinheadminion=Goblin Head Minion
-fishtroutminion=Fish Trout Minion
-goblinlegminion=Goblin Leg Minion
-fishcarpminion=Fish Carp Minion
-fishianminion=Fishian Minion
-
-// Range minions
-mosquitobowminion=Mosquito Minion
-
-// Armor minions
-ghostcaptainsminion=Ghost Captain Minion
-agedchampionminion=Aged Champion Minion
-spiderbrideminion=Spider Bride Minion
-horrorbabyminion=Horror Ghost Minion
-locustminion=Locust Minion
-mouseminion=Mouse Minion
-
-// Trinket minions
-mummymagicminion=Magic Mummy Minion
-teapotminion=Magic Tea Pot Minion
-horrorbatminion=Horror Bat Minion
-jellyfishminion=Jellyfish Minion
-mummysummonminion=Mummy Minion
-pumpkinminion=Pumpkin Minion
-carrotminion=Carrot Minion
-potatominion=Potato Minion
-onionminion=Onion Minion
-beetminion=Beet Minion
-
-// Sentry
-xmastreesentry=Christmas Tree Sentry
-mushroomsentry=Mushroom Sentry
-caveglowsentry=Caveglow Sentry
-coffinsentry=Coffin Sentry
-
-// Melee sentry minions
-horrorspikesentry=Horror Spike Sentry
-
-// Magic sentry minions
-iceblossomsentry5=Ice Blossom Sentry
-iceblossomsentry1=Ice Blossom Sentry
-iceblossomsentry=Ice Blossom Sentry
-sunflowersentry5=Sunflower Sentry
-sunflowersentry1=Sunflower Sentry
-sunflowersentry=Sunflower Sentry
-firemonesentry5=Firemone Sentry
-firemonesentry1=Firemone Sentry
-firemonesentry=Firemone Sentry
-
-// Consumable sentry
-leafshotheatsentry=Fire Leaf Shooter Sentry
-leafshotcoldsentry=Ice Leaf Shooter Sentry
-leafshotsentry=Leaf Shooter Sentry
-
-// Minions from minions
-batcryptminion=Crypt Bat Minion
-mushroomminion=Mushroom Minion
-beeminion=Bee Minion
-
 // Mounts
 cavespidersummonmount=Giant Black Cave Spider Form
+swampshootersummonmount=Swamp Shooter Form
 cryptvampiresummonmount=Crypt Vampire Form
 skeletonthrowersummonmount=Skeleton Form
 frozendwarfsummonmount=Frozen Dwarf Form
@@ -813,16 +765,19 @@ cavelingminecart=Caveling Minecart
 riftportalmob=Horror Rift Portal
 
 // Foes
+poisonswampslimewormmob=Poisonous Swamp Slime Worm
 sandgiantscorpionmob=Giant Sand Temple Scorpion
 horrorspiritcultsummon=Horror Spirit Cultist
 horrorspiritcultmelee=Horror Spirit Cultist
 horrorspiritcultmagic=Horror Spirit Cultist
 horrorspiritcultrange=Horror Spirit Cultist
 horrorspiritbossmob=Ancient Horror Spirit
+poisonswampslimemob=Poisonous Swamp Slime
 horrorspiritcultminion=Horror Spirit
 vampireminibossmob=Powerful Vampire
 honeybeeguardmob=Honey Bee Guard
 horrorspiritmob=Horror Spirit
+dollmakermob=The Doll Maker
 lavacavesharkmob=Lava Shark
 woodmob=Wooden Idol
 
@@ -838,9 +793,18 @@ druidtalk1=Are you interested in the arts of summoning?
 druidtalk2=The trees are more talkative at my hometown
 druidtalk3=I am looking for sacrifices
 druidtalk4=Hello my mentee!
+druidtalk5=Do you know where I can sharpen my claws?
+druidtalk6=I like to collect flowers, can you sell me some?
+druidtalk7=When life gives you lemons, turn into a bear
+druidtalk8=If you kill certain zombies, I can sell you new seed packs
+druidtalk9=That charred forest gives me the heebie-jeebies!
+druidtalk10=I can sell more claws if you defeat more bosses
+druidtalk11=Be careful when harvesting blue berries, some bushes know how to use knifes!
+druidtalk12=Don't ever eat raw mushrooms
 
 [buff]
 // Buffs
+ivytoolbuff=Increased mining range, mining speed and summon range
 horrorglaivestack=Allows horror sentry summoning at 100 stacks
 coppertoolbuff=Increased mining range and mining speed
 firemonebuff=Armor penetration and projectile velocity
@@ -867,6 +831,11 @@ clawdashstacks=Claw dash stacks
 runicshieldbuff=Runic armor
 healglyphbuff=Health regen
 sunflowerbuff=Health regen
+mimestack=Increased summon crit damage
+spiderswordstack=Increased attack speed
+titaniummagicstack=Mana regen
+titaniumshardsstacksbuff=Mana spent
+sporebagbuff=Spore bag buff
 
 // Debuffs
 summongenericdotdebuff=2x damage taken from elemental debuffs
@@ -906,6 +875,12 @@ summonedpotatominionbuff=Potato Minion
 summonedonionminionbuff=Onion Minion
 summonedcloudminionbuff=Cloud Minion
 summonedbeetminionbuff=Beet Minion
+summonedbatminionbuff=Bat Minion
+summonedsailorminionbuff=Sailor Minion
+summonedravenlordminionbuff=Ravenlord Minion
+summonedchefminionbuff=Battle Chef Minion
+summonedarcanicpylonminionbuff=Arcanic Pylon Minion
+
 // Generic Buffs
 summongenericdotdebuff=2x damage taken from elemental debuffs
 summongenericweaknessdebuff=Takes 20% more damage
@@ -921,6 +896,7 @@ geniecrittip=At 20 stacks you do a large critical hit
 monkstackstip=Each stack increases your max stamina
 copperbufftip=<value> consecutive projectiles shot
 adaptivealientip=Increases with each boss kill
+titaniumshardbufftip=Spending <value> mana will cause a lightning strike
 
 [buffmodifiers]
 transformationspeed=<mod>% transformation speed
@@ -928,28 +904,28 @@ sentryattackspeed=<mod>% sentry attack speed
 emitsummonlight=Emits stronger light
 
 [journal]
-watergrasscollected=[item=watergrass] Collect 35 water grass
+watergrasscollected=[item=watergrass] Collect 25 water grass
 lanternplaced=[item=waterlantern] Place 5 water lanterns
 fincollected=[item=fins] Gather a fin trinket
 bucketcrafted=[item=bucket] Craft a bucket
-duckkilled=[mob=duck] Hunt 20 ducks
+duckkilled=[mob=duck] Hunt 10 ducks
 upgradetier1=[mob=swampguardian] Defeat Swamp Guardian to upgrade your magic support sentries
 upgradetier2=[mob=piratecaptain] Defeat Pirate Captain to upgrade your magic support sentries
 upgradetier3=[mob=pestwarden] Defeat Pest Warden to upgrade your magic support sentries
 upgradetier4=[mob=fallenwizard] Defeat Fallen Wizard to upgrade your magic support sentries
-beetkilled=[mob=cropplerbeet] Kill 20 beet cave croppler
+beetkilled=[mob=cropplerbeet] Kill 10 beet cave croppler
 beetplanted=[item=beetseed] Plant 20 beet seeds in caves
 seedcollected=[item=wheatseed] Collect 50 seeds that can be found in forest caves
-onionkilled=[mob=croppleronion] Kill 20 onion cave croppler
+onionkilled=[mob=croppleronion] Kill 10 onion cave croppler
 onionplanted=[item=onionseed] Plant 20 onion seeds in caves
 
 snowmancollected=[item=snowmantrainingdummy] Craft a snowman
 xmaswreathcollected=[item=christmaswreath] Gather a christmas wreath
 xmastreeplaced=[item=christmastree] Place a christmas tree
 cookieeated=[item=cookies] Eat a cookie
-potatokilled=[mob=cropplerpotato] Kill 20 potato cave croppler
+potatokilled=[mob=cropplerpotato] Kill 10 potato cave croppler
 potatoplanted=[item=potatoseed] Plant 20 potato seeds in caves
-pumpkinkilled=[mob=cropplerpumpkin] Kill 20 pumpkin cave croppler
+pumpkinkilled=[mob=cropplerpumpkin] Kill 10 pumpkin cave croppler
 pumpkinplanted=[item=pumpkinseed] Plant 20 pumpkin seeds in caves
 
 trapreversecollected=[item=glyphtrapreversedamage] Collect 3 reverse damage traps
@@ -959,17 +935,17 @@ trapbouncycollected=[item=glyphtrapbounce] Collect 3 bounce traps
 fireflycollected=[mob=firefly] Capture a firefly
 eggplaced=[item=friedegg] Eat a fried egg
 katanastonedestroyed=[item=katanastone] Collect a katana from a stone
-whiteflowerplaced=[item=whiteflowerpatch] Place 15 white flowers
+whiteflowerplaced=[item=whiteflowerpatch] Place 10 white flowers
 
 fishiankilled=[mob=fishianhookwarrior] Kill 40 fishians in swamp
 bamboocollected=[item=bamboo] Collect 100 bamboo
-shelldestroyed=[item=seashell] Collect 30 seashells
-sporekilled=Destroy 10 swamp spores
+shelldestroyed=[item=seashell] Collect 20 seashells
+sporekilled=Destroy 8 swamp spores
 mushroomcollected=[item=mushroom] Collect 50 mushrooms
-mudcollected=[item=mudtile] Collect 100 mud tiles
+mudcollected=[item=mudtile] Collect 40 mud tiles
 stinkflaskcollected=[item=stinkflask] Gather a stink flask
 
-carrotkilled=[mob=cropplercarrot] Kill 20 carrot cave croppler
+carrotkilled=[mob=cropplercarrot] Kill 10 carrot cave croppler
 carrotplanted=[item=carrotseed] Plant 20 carrot seeds in caves
 
 [enchantment]

@@ -18,9 +18,10 @@ public class RegistryParticlesTextures
     public static GameTexture spiritGhoulPool;
     public static GameTexture pineWoodSpike;
     public static GameTexture thornSpike;
-
+    public static GameTexture spiderHeartPickup;
     public static GameTexture groundFireParticles2;
     public static GameTexture groundFireParticles3;
+    public static GameTexture swampSlimeFlaskDebris;
 
     public static void initResources()
     {
@@ -36,8 +37,9 @@ public class RegistryParticlesTextures
         spiritGhoulPool = GameTexture.fromFile("particles/spiritghoulpool");
         pineWoodSpike = GameTexture.fromFile("particles/pinestaffspikes");
         thornSpike = GameTexture.fromFile("particles/thornspikes");
-
+        spiderHeartPickup = GameTexture.fromFile("particles/spiderheart_pickup");
         groundFireParticles2 = GameTexture.fromFile("particles/groundfire2");
         groundFireParticles3 = GameTexture.fromFile("particles/groundfire3");
+        swampSlimeFlaskDebris = GameTexture.fromFile("particles/swampslimeflaskdebris");
     }
 }

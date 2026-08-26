@@ -26,13 +26,13 @@ public class MountCryptBoltProj extends FollowingProjectile
     {
     }
 
-    public MountCryptBoltProj(Level level, float x, float y, float targetX, float targetY, GameDamage damage, Mob owner)
+    public MountCryptBoltProj(Level level, float x, float y, float targetX, float targetY, float speed, GameDamage damage, Mob owner)
     {
         this.setLevel(level);
         this.x = x;
         this.y = y;
         this.setTarget(targetX, targetY);
-        this.speed = 100F;
+        this.speed = speed;
         this.setDamage(damage);
         this.setOwner(owner);
         this.setDistance(1000);

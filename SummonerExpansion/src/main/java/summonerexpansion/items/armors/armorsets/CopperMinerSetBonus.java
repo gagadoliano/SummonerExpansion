@@ -30,7 +30,7 @@ import java.util.LinkedList;
 
 public class CopperMinerSetBonus extends SetBonusBuff implements BuffAbility
 {
-    public FloatUpgradeValue abilityDamage = (new FloatUpgradeValue()).setBaseValue(0F).setUpgradedValue(1, 50.0F).setUpgradedValue(10, 100.0F);
+    public FloatUpgradeValue abilityDamage = (new FloatUpgradeValue()).setBaseValue(0F).setUpgradedValue(1, 50F).setUpgradedValue(10, 100F);
     public FloatUpgradeValue summonRange = (new FloatUpgradeValue()).setBaseValue(0F).setUpgradedValue(1, 0.20F).setUpgradedValue(10, 0.80F);
     public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 4);
     protected int abilityCooldown = 6;
@@ -110,7 +110,7 @@ public class CopperMinerSetBonus extends SetBonusBuff implements BuffAbility
                 timeBetweenShots = (int)((double)timeBetweenShots - GameMath.max((double)timeBetweenShots * 0.02, 8.0F));
                 GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, abilityDamage.getValue(ab.getUpgradeTier()));
                 float velocity = 150.0F * ab.owner.buffManager.getModifier(BuffModifiers.PROJECTILE_VELOCITY);
-                CopperSetProj projectile = new CopperSetProj(ab.owner.getLevel(), ab.owner, firstMob.mob.x, firstMob.mob.y, (float)targetX, (float)targetY, velocity, 800, damage, 0);
+                CopperSetProj projectile = new CopperSetProj(ab.owner.getLevel(), ab.owner, firstMob.mob.x, firstMob.mob.y, (float)targetX, (float)targetY, velocity, 1800, damage, 0);
                 ab.owner.getLevel().entityManager.projectiles.add(projectile);
                 chosenMob.remove(0.0F, 0.0F, null, true);
                 ActiveBuff stackBuff = new ActiveBuff(RegistryArmors.registerArmorSets.COPPERSET_CONSECUTIVE, ab.owner, 10.0F, ab.owner);

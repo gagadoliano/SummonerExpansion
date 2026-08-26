@@ -21,6 +21,8 @@ public class RegistryEvents
         LevelEventRegistry.registerEvent("snowmansetlevelevent", SnowmanSetLevelEvent.class);
         LevelEventRegistry.registerEvent("cookpothealevent", CookpotHealEvent.class);
         LevelEventRegistry.registerEvent("doomshroomevent", DoomShroomEvent.class);
+        LevelEventRegistry.registerEvent("titaniumbeamsexplosionevent", TitaniumBeamsExplosionEvent.class);
+        LevelEventRegistry.registerEvent("swampslimeflaskexplosionevent", SwampSlimeFlaskExplosionEvent.class);
     }
 
     public static void registerPool()

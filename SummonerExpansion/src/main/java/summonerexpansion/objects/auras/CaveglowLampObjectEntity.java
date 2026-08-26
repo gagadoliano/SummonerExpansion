@@ -20,7 +20,7 @@ public class CaveglowLampObjectEntity extends StandaloneBannerObjectEntity
 
     public void applyBuffs(Mob mob)
     {
-        ActiveBuff ab = new ActiveBuff(CAVEGLOWLAMPBOOST, mob, 100, null);
+        ActiveBuff ab = new ActiveBuff(CAVEGLOWLAMPBOOST, mob, 10F, null);
         mob.buffManager.addBuff(ab, false);
     }
 }

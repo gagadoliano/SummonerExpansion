@@ -23,6 +23,7 @@ import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 import necesse.level.maps.Level;
+import summonerexpansion.items.armors.minions.SetCloudMinion;
 
 import java.awt.*;
 import java.util.LinkedList;
@@ -32,7 +33,7 @@ public class RainSummonSetBonus extends SetBonusBuff
     public FloatUpgradeValue summonRange = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1, 0.10F).setUpgradedValue(10, 0.50F);
     public IntUpgradeValue fishLine = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 3).setUpgradedValue(10, 5);
     public IntUpgradeValue fishLine2 = (new IntUpgradeValue()).setBaseValue(2).setUpgradedValue(1, 6).setUpgradedValue(10, 10);
-    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(5F).setUpgradedValue(1, 25.0F);
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(5F).setUpgradedValue(1, 25F);
 
     public RainSummonSetBonus() {}
 
@@ -55,11 +56,10 @@ public class RainSummonSetBonus extends SetBonusBuff
             float count = attackerMob.serverFollowersManager.getFollowerCount("summonedcloudminion");
             if (count <= 0.0F)
             {
-                GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier()));
                 Level level = buff.owner.getLevel();
-                FlyingAttackingFollowingMob mob = (FlyingAttackingFollowingMob) MobRegistry.getMob("setcloudminion", level);
+                SetCloudMinion mob = new SetCloudMinion();
                 attackerMob.serverFollowersManager.addFollower("summonedcloudminion", mob, FollowPosition.WALK_CLOSE, "summonedcloudminionbuff", 1.0F, 1, null, false);
-                mob.updateDamage(damage);
+                mob.updateDamage(new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier())));
                 mob.setRemoveWhenNotInInventory(ItemRegistry.getItem("rainsummonhat"), CheckSlotType.HELMET);
                 Point spawnPoint = new Point(attackerMob.getX() + GameRandom.globalRandom.getIntBetween(-5, 5), attackerMob.getY() + GameRandom.globalRandom.getIntBetween(-5, 5));
                 level.entityManager.addMob(mob, (float)spawnPoint.x, (float)spawnPoint.y);

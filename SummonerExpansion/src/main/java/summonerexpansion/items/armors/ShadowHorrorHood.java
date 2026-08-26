@@ -23,8 +23,9 @@ import java.awt.*;
 
 public class ShadowHorrorHood extends SetHelmetArmorItem
 {
-    private GameTexture lightTexture;
-    public FloatUpgradeValue summonCritChance = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1F, 0.07F).setUpgradedValue(10F, 0.15F);
+    public GameTexture lightTexture;
+    public FloatUpgradeValue summonSpeed = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1, 0.10F).setUpgradedValue(10, 0.25F);
+    public FloatUpgradeValue summonCritChance = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1, 0.07F).setUpgradedValue(10, 0.15F);
 
     public ShadowHorrorHood(int enchantCost, Item.Rarity rarityTier)
     {
@@ -35,13 +36,22 @@ public class ShadowHorrorHood extends SetHelmetArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.MAX_SUMMONS, 1), new ModifierValue<>(BuffModifiers.SUMMON_CRIT_CHANCE, summonCritChance.getValue(getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.SUMMONS_SPEED, summonSpeed.getValue(getUpgradeTier(item))), new ModifierValue<>(BuffModifiers.SUMMON_CRIT_CHANCE, summonCritChance.getValue(getUpgradeTier(item))));
     }
 
     protected void loadArmorTexture()
     {
         super.loadArmorTexture();
         lightTexture = GameTexture.fromFile("player/armor/" + textureName + "_light");
+    }
+
+    public DrawOptions getArmorDrawOptions(InventoryItem item, Level level, PlayerMob player, InventoryItem headItem, InventoryItem chestItem, InventoryItem feetItem, int spriteX, int spriteY, int spriteRes, int drawX, int drawY, int width, int height, boolean mirrorX, boolean mirrorY, GameLight light, boolean hasGlowEffect, int glowHash, float alpha, MaskShaderOptions mask)
+    {
+        DrawOptionsList options = new DrawOptionsList();
+        options.add(super.getArmorDrawOptions(item, level, player, headItem, chestItem, feetItem, spriteX, spriteY, spriteRes, drawX, drawY, width, height, mirrorX, mirrorY, light, hasGlowEffect, glowHash, alpha, mask));
+        Color col = this.getDrawColor(item, player);
+        options.add(this.lightTexture.initDraw().sprite(spriteX, spriteY, spriteRes).startGlowOptions(level, glowHash).colorLight(col, light.minLevelCopy(150.0F)).apply(hasGlowEffect).alpha(alpha).size(width, height).mirror(mirrorX, mirrorY).addMaskShader(mask).pos(drawX, drawY));
+        return options;
     }
 
     protected void loadItemTextures() {

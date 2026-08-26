@@ -135,7 +135,32 @@ public class RegistryRecipeObjects
                 }
         ));
 
+        Recipes.registerModRecipe(new Recipe(
+                "ancienttree",
+                1,
+                RecipeTechRegistry.LANDSCAPING,
+                new Ingredient[]{
+                        new Ingredient("ancientlog", 50),
+                }
+        ));
 
+        Recipes.registerModRecipe(new Recipe(
+                "ancientwoodroot",
+                1,
+                RecipeTechRegistry.LANDSCAPING,
+                new Ingredient[]{
+                        new Ingredient("ancientlog", 10),
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "ancienttallgrass",
+                10,
+                RecipeTechRegistry.LANDSCAPING,
+                new Ingredient[]{
+                        new Ingredient("grassseed", 5),
+                }
+        ));
     }
 
     public static void registerTier3()
@@ -172,8 +197,6 @@ public class RegistryRecipeObjects
                         new Ingredient("torch", 1)
                 }
         ));
-
-
     }
 
     public static void registerTier4()

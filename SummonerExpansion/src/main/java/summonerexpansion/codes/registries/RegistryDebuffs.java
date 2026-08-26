@@ -35,6 +35,7 @@ public class RegistryDebuffs
         public static Buff CLAWPRIMORDIAL;
         
         // Magic
+        public static Buff SWAMPFLASKPOISON;
         
         // Sentry
         public static Buff MUSHROOMSENTRYSLOW;
@@ -50,16 +51,16 @@ public class RegistryDebuffs
     public static void registerWeaponDebuffs()
     {
         // Summon
-        BuffRegistry.registerBuff("lampgolddebuff", WeaponDebuffs.LAMPGOLDFIRE = new BaseStackingDebuff(new Color(226, 170, 0), 5, new ModifierValue<>(FIRE_DAMAGE_FLAT, 0.01f)));
-        BuffRegistry.registerBuff("lampdungeondebuff", WeaponDebuffs.LAMPDUNGEONFIRE = new BaseStackingDebuff(new Color(109, 96, 165), 6, new ModifierValue<>(FIRE_DAMAGE_FLAT , 1.0F)));
-        BuffRegistry.registerBuff("lamptungstendebuff", WeaponDebuffs.LAMPTUNGSTENFIRE = new BaseStackingDebuff(new Color(226, 170, 0), 10, new ModifierValue<>(FIRE_DAMAGE_FLAT, 0.01f)));
+        BuffRegistry.registerBuff("lampgolddebuff", WeaponDebuffs.LAMPGOLDFIRE = new BaseStackingDebuff(new Color(226, 170, 0), 10, new ModifierValue<>(FIRE_DAMAGE_FLAT, 0.05f)));
+        BuffRegistry.registerBuff("lampdungeondebuff", WeaponDebuffs.LAMPDUNGEONFIRE = new BaseStackingDebuff(new Color(109, 96, 165), 10, new ModifierValue<>(FIRE_DAMAGE_FLAT , 0.20F)));
+        BuffRegistry.registerBuff("lamptungstendebuff", WeaponDebuffs.LAMPTUNGSTENFIRE = new BaseStackingDebuff(new Color(226, 170, 0), 10, new ModifierValue<>(FIRE_DAMAGE_FLAT, 1F)));
         BuffRegistry.registerBuff("lampcastledebuff", WeaponDebuffs.LAMPCASTLEFIRE = new LampCastleDebuff());
         BuffRegistry.registerBuff("redspiderpoisondebuff", WeaponDebuffs.REDSPIDERPOISON = new BaseStackingDebuff(new Color(169, 37, 33), 1, new ModifierValue<>(POISON_DAMAGE_FLAT, 2F)));
         BuffRegistry.registerBuff("bearbleedingdebuff", WeaponDebuffs.BEARBLEEDING = new BearBleedingDebuff());
-        BuffRegistry.registerBuff("polarslowdebuff", WeaponDebuffs.POLARBEARSLOW = new BaseStackingDebuff(new Color(149, 204, 245), 25, new ModifierValue<>(SLOW, 0.01F)));
-        BuffRegistry.registerBuff("honeydebuff", WeaponDebuffs.HONEYBEESLOW = new BaseStackingDebuff(new Color(226, 166, 68), 10, new ModifierValue<>(SLOW, 0.01F)));
-        BuffRegistry.registerBuff("frozenbookdebuff", WeaponDebuffs.BOOKFROZENSLOW = new BaseStackingDebuff(new Color(92, 166, 193), 25, new ModifierValue<>(SLOW, 0.02F), new ModifierValue<>(FRICTION, -0.01F), new ModifierValue<>(DECELERATION, -0.01F)));
-        BuffRegistry.registerBuff("icewizarddebuff", WeaponDebuffs.ICEWIZARDFROST = new BaseStackingDebuff(new Color(92, 166, 193), 1, new ModifierValue<>(SLOW, 0.30F), new ModifierValue<>(FROST_DAMAGE_FLAT, 2.00F), new ModifierValue<>(FROST_DAMAGE, 1.00F)));
+        BuffRegistry.registerBuff("polarslowdebuff", WeaponDebuffs.POLARBEARSLOW = new BaseStackingDebuff(new Color(149, 204, 245), 10, new ModifierValue<>(SLOW, 0.07F)));
+        BuffRegistry.registerBuff("honeydebuff", WeaponDebuffs.HONEYBEESLOW = new BaseStackingDebuff(new Color(226, 166, 68), 5, new ModifierValue<>(SLOW, 0.05F)));
+        BuffRegistry.registerBuff("frozenbookdebuff", WeaponDebuffs.BOOKFROZENSLOW = new BaseStackingDebuff(new Color(92, 166, 193), 10, new ModifierValue<>(SLOW, 0.05F), new ModifierValue<>(FRICTION, -0.02F), new ModifierValue<>(DECELERATION, -0.02F)));
+        BuffRegistry.registerBuff("icewizarddebuff", WeaponDebuffs.ICEWIZARDFROST = new BaseStackingDebuff(new Color(92, 166, 193), 1, new ModifierValue<>(SLOW, 0.40F), new ModifierValue<>(FROST_DAMAGE_FLAT, 2.00F), new ModifierValue<>(FROST_DAMAGE, 1.00F)));
         BuffRegistry.registerBuff("enchanteddebuff", WeaponDebuffs.ENCHANTEDWEAK = new BaseStackingDebuff(new Color(76, 61, 94), 10, new ModifierValue<>(ARMOR_FLAT, -1)));
 
         // Melee
@@ -67,6 +68,9 @@ public class RegistryDebuffs
         BuffRegistry.registerBuff("clawpolardebuff", WeaponDebuffs.CLAWPOLARSLOW = new BaseClawStackingDebuff("genericslowstack", 10));
         BuffRegistry.registerBuff("clawnecrodebuff", WeaponDebuffs.CLAWNECROPOISON = new BaseClawStackingDebuff("necroticpoison"));
         BuffRegistry.registerBuff("clawprimordialdebuff", WeaponDebuffs.CLAWPRIMORDIAL = new BaseClawStackingDebuff("genericdoubledotstack"));
+
+        // Magic
+        BuffRegistry.registerBuff("swampflaskdebuff", WeaponDebuffs.SWAMPFLASKPOISON = new SwampFlaskDebuff());
 
         // Ranged
         BuffRegistry.registerBuff("mosquitodebuff", WeaponDebuffs.MOSQUITOWEAK = new BaseStackingDebuff(new Color(76, 61, 94), 20, new ModifierValue<>(ARMOR_FLAT, -1)));

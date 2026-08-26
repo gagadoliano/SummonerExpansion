@@ -47,8 +47,14 @@ public class HungryMimicMinion extends SummonWalkBase
             {
                 if (mob.canAttack())
                 {
+                    GameDamage damage = summonDamage;
+                    Mob followingMob = getFollowingMob();
+                    if (followingMob != null)
+                    {
+                        damage = damage.modDamage((float) followingMob.buffManager.getModifier(BuffModifiers.MAX_SUMMONS));
+                    }
                     mob.attack(target.getX(), target.getY(), false);
-                    target.isServerHit(summonDamage, mob.dx, mob.dy, 15.0F, mob);
+                    target.isServerHit(damage, mob.dx, mob.dy, 15.0F, mob);
                     mob.buffManager.addBuff(new ActiveBuff(MIMICSPEEDBUFF, mob, 20.0F, null), true);
                     return true;
                 }
@@ -64,10 +70,10 @@ public class HungryMimicMinion extends SummonWalkBase
 
     public float getSpeedModifier()
     {
-        ActiveBuff buff = this.buffManager.getBuff(MIMICSPEEDBUFF);
-        if (buff != null && this.isFollowing())
+        ActiveBuff buff = buffManager.getBuff(MIMICSPEEDBUFF);
+        if (buff != null && isFollowing())
         {
-            Mob attackOwner = this.getAttackOwner();
+            Mob attackOwner = getAttackOwner();
             if (attackOwner != null)
             {
                 return attackOwner.buffManager.getModifier(BuffModifiers.SUMMONS_SPEED) * super.getSpeedModifier();
@@ -80,7 +86,7 @@ public class HungryMimicMinion extends SummonWalkBase
     {
         for(int i = 0; i < 4; ++i)
         {
-            this.getLevel().entityManager.addParticle(new FleshParticle(this.getLevel(), MobRegistry.Textures.skeleton.body, GameRandom.globalRandom.nextInt(5), 8, 32, this.x, this.y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
+            getLevel().entityManager.addParticle(new FleshParticle(getLevel(), MobRegistry.Textures.skeleton.body, GameRandom.globalRandom.nextInt(5), 8, 32, x, y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
         }
     }
 
@@ -90,11 +96,11 @@ public class HungryMimicMinion extends SummonWalkBase
         GameLight light = level.getLightLevel(getTileCoordinate(x), getTileCoordinate(y));
         int drawX = camera.getDrawX(x) - 22 - 10;
         int drawY = camera.getDrawY(y) - 42;
-        Point sprite = this.getAnimSprite(x, y, this.getDir());
-        drawY += this.getBobbing(x, y);
+        Point sprite = getAnimSprite(x, y, getDir());
+        drawY += getBobbing(x, y);
         drawY += level.getTile(getTileCoordinate(x), getTileCoordinate(y)).getMobSinkingAmount(this);
-        MaskShaderOptions swimMask = this.getSwimMaskShaderOptions(this.inLiquidFloat(x, y));
-        final DrawOptions drawOptions = (MobRegistry.Textures.mimic.initDraw().sprite(sprite.x, sprite.y, 64).addMaskShader(swimMask).startGlowOptions(level, (long)this.getID()).light(light).applyTreasure(perspective)).pos(drawX, drawY);
+        MaskShaderOptions swimMask = getSwimMaskShaderOptions(inLiquidFloat(x, y));
+        final DrawOptions drawOptions = (MobRegistry.Textures.mimic.initDraw().sprite(sprite.x, sprite.y, 64).addMaskShader(swimMask).startGlowOptions(level, getID()).light(light).applyTreasure(perspective)).pos(drawX, drawY);
         list.add(new MobDrawable() {
             public void draw(TickManager tickManager) {
                 drawOptions.draw();

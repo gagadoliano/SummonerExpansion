@@ -33,9 +33,9 @@ import java.util.LinkedList;
 
 public class ArcanicSummonerSetBonus  extends SetBonusBuff implements BuffAbility
 {
-    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(40F).setUpgradedValue(1F, 40F);
-    public FloatUpgradeValue summonDMG = (new FloatUpgradeValue()).setBaseValue(0.20F).setUpgradedValue(1F, 0.20F).setUpgradedValue(10F, 1.00F);
-    public IntUpgradeValue minionDuration = (new IntUpgradeValue()).setBaseValue(300).setUpgradedValue(1F, 400).setUpgradedValue(10F, 1200);
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(40F).setUpgradedValue(1, 60F);
+    public FloatUpgradeValue summonDMG = (new FloatUpgradeValue()).setBaseValue(0.20F).setUpgradedValue(1, 0.20F).setUpgradedValue(10, 1.00F);
+    public IntUpgradeValue minionDuration = (new IntUpgradeValue()).setBaseValue(300).setUpgradedValue(1, 400).setUpgradedValue(10, 1200);
 
     public ArcanicSummonerSetBonus() {}
 
@@ -56,7 +56,7 @@ public class ArcanicSummonerSetBonus  extends SetBonusBuff implements BuffAbilit
             GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier()));
             ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
             SetArcanicPylonSentry mob = new SetArcanicPylonSentry();
-            attackerMob.serverFollowersManager.addFollower("summonedarcanicsummonbuff", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1F, 1, null, false);
+            attackerMob.serverFollowersManager.addFollower("summonedarcanicpylonminion", mob, FollowPosition.WALK_CLOSE, "summonedarcanicpylonminionbuff", 1F, 1, null, false);
             Point2D.Float spawnPoint = SummonToolItem.findSpawnLocation(mob, buff.owner.getLevel(), attackerMob.x, attackerMob.y);
             mob.updateDamage(damage);
             mob.lifeTime = minionDuration.getValue(buff.getUpgradeTier());

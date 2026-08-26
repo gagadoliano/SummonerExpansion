@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.LinkedList;
 import necesse.engine.localization.Localization;
 import necesse.engine.registries.DamageTypeRegistry;
-import necesse.engine.registries.MobRegistry;
+import necesse.engine.registries.ItemRegistry;
 import necesse.engine.util.GameBlackboard;
 import necesse.engine.registries.BuffRegistry;
 import necesse.engine.util.GameMath;
@@ -18,20 +18,23 @@ import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.setBonusBuffs.SetBonusBuff;
+import necesse.entity.mobs.itemAttacker.CheckSlotType;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
-import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 import necesse.level.maps.Level;
+import summonerexpansion.items.armors.minions.SetBatMinion;
 
 public class BloodplateMaskSetBonus extends SetBonusBuff
 {
-    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue()).setBaseValue(0F).setUpgradedValue(1, 20.0F).setUpgradedValue(10, 100.0F);
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue()).setBaseValue(0F).setUpgradedValue(1, 20F).setUpgradedValue(10, 100F);
     public FloatUpgradeValue summonSpeed = (new FloatUpgradeValue()).setBaseValue(0).setUpgradedValue(1, 0.20F).setUpgradedValue(10, 0.80F);
-    public IntUpgradeValue maxHealth = (new IntUpgradeValue()).setBaseValue(0).setUpgradedValue(1, 20).setUpgradedValue(10, 100);
+    public IntUpgradeValue maxHealth = (new IntUpgradeValue()).setBaseValue(0).setUpgradedValue(1, 20).setUpgradedValue(10, 200);
+    public IntUpgradeValue minionGroupSize = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 1).setUpgradedValue(10, 6);
+    public IntUpgradeValue minionDuration = (new IntUpgradeValue()).setBaseValue(300).setUpgradedValue(1, 400).setUpgradedValue(10, 1200);
 
     public BloodplateMaskSetBonus() {}
 
@@ -56,18 +59,18 @@ public class BloodplateMaskSetBonus extends SetBonusBuff
         if (minionDamage.getValue(buff.getUpgradeTier()) > 0 && event.target.isHostile && buff.owner.isItemAttacker && buff.owner.getHealthPercent() <= 0.50F)
         {
             ItemAttackerMob attackerMob = (ItemAttackerMob)buff.owner;
-            float count = attackerMob.serverFollowersManager.getFollowerCount("bloodplatesetbuff");
-            if (count <= 0.0F)
+            if (attackerMob.serverFollowersManager.getFollowerCount("bloodplatesetbuff") <= minionGroupSize.getValue(buff.getUpgradeTier()))
             {
                 GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier()));
                 Level level = buff.owner.getLevel();
-                AttackingFollowingMob mob = (AttackingFollowingMob) MobRegistry.getMob("setbatminion", level);
-                attackerMob.serverFollowersManager.addFollower("bloodplatesetbuff", mob, FollowPosition.FLYING_CIRCLE, "summonedmob", 1F, 1, null, false);
+                SetBatMinion mob = new SetBatMinion();
+                attackerMob.serverFollowersManager.addFollower("bloodplatesetbuff", mob, FollowPosition.FLYING_CIRCLE, "summonedbatminionbuff", 1, minionGroupSize.getValue(buff.getUpgradeTier()), null, false);
                 mob.updateDamage(damage);
+                mob.lifeTime = minionDuration.getValue(buff.getUpgradeTier());
+                mob.setRemoveWhenNotInInventory(ItemRegistry.getItem("bloodplatemask"), CheckSlotType.HELMET);
                 Point spawnPoint = new Point(attackerMob.getX() + GameRandom.globalRandom.getIntBetween(-5, 5), attackerMob.getY() + GameRandom.globalRandom.getIntBetween(-5, 5));
                 level.entityManager.addMob(mob, (float)spawnPoint.x, (float)spawnPoint.y);
             }
-
             float healthToAdd = (float)(attackerMob.getMaxHealth() - attackerMob.getHealth()) * 0.03F;
             LevelEvent healthEvent = new MobHealthChangeEvent(attackerMob, GameMath.max(1, (int)healthToAdd));
             buff.owner.getLevel().entityManager.events.add(healthEvent);

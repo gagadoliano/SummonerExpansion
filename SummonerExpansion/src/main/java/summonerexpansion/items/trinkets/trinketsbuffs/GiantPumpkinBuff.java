@@ -29,7 +29,7 @@ public class GiantPumpkinBuff extends TrinketBuff
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
     {
-        buff.setModifier(BuffModifiers.POTION_DURATION, 0.20F);
+        buff.setModifier(BuffModifiers.POTION_DURATION, 1.20F);
     }
 
     public void serverTick(ActiveBuff buff)

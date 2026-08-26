@@ -16,7 +16,7 @@ import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class BloodplateMask extends SetHelmetArmorItem
 {
-    public FloatUpgradeValue healthRegen = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1F, 0.25F);
+    public FloatUpgradeValue healthRegen = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1, 0.25F).setUpgradedValue(10, 1.50F);
     public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 4);
 
     public BloodplateMask(int enchantCost, Item.Rarity rarityTier)

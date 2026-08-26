@@ -19,7 +19,7 @@ public class RegistryPersonality
         SettlerPersonalityRegistry.registerSettlerPersonality("druidic", DruidicSettlerPersonality.class, (new SimplePersonalityFilter(100)).makeSettlerStringIDsWhitelist().filterSettlerStringID("druid"), true);
 
         //Shops
-        SettlerPersonalityRegistry.registerSettlerPersonality("druidpotionseller", DruidPotionSellerSettlerPersonality.class, (new SimplePersonalityFilter(100)).makeSettlerStringIDsWhitelist().filterSettlerStringID("druid").addHumanMobFilter((mob) -> mob instanceof HumanShop), true);
+        //SettlerPersonalityRegistry.registerSettlerPersonality("druidpotionseller", DruidPotionSellerSettlerPersonality.class, (new SimplePersonalityFilter(100)).makeSettlerStringIDsWhitelist().filterSettlerStringID("druid").addHumanMobFilter((mob) -> mob instanceof HumanShop), true);
 
 
 

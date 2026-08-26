@@ -17,6 +17,7 @@ import java.awt.*;
 
 public class MimeMinion  extends SummonHumanBase
 {
+    public int lifeTime = 0;
     protected long startSwingAttackTime;
     protected int swingAttackDir;
     protected final IntMobAbility startSwingAttackAbility;
@@ -105,6 +106,16 @@ public class MimeMinion  extends SummonHumanBase
         if (isClient())
         {
             SoundManager.playSound(GameResources.swing2, SoundEffect.effect(this));
+        }
+    }
+
+    public void serverTick()
+    {
+        super.serverTick();
+        lifeTime++;
+        if (lifeTime >= 1200)
+        {
+            remove(0.0F, 0.0F, null, true);
         }
     }
 }

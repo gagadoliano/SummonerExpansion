@@ -30,7 +30,7 @@ import java.util.stream.Stream;
 public class CryptVampireSummonMount extends BaseTransformMount implements MountAbility
 {
     private boolean isBat;
-    static GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, 65);
+    static GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, 105);
 
     public CryptVampireSummonMount()
     {
@@ -53,7 +53,8 @@ public class CryptVampireSummonMount extends BaseTransformMount implements Mount
                 return;
             }
             player.attack(aim.x, aim.y, false);
-            player.getLevel().entityManager.projectiles.add(new MountCryptBoltProj(getLevel(), x, y, aim.x, aim.y, damage, player));
+            float projVel = player.buffManager.getModifier(BuffModifiers.PROJECTILE_VELOCITY);
+            player.getLevel().entityManager.projectiles.add(new MountCryptBoltProj(getLevel(), x, y, aim.x, aim.y, (100F * projVel), damage, player));
             abilityCooldown = 10;
         }
     }
@@ -150,6 +151,6 @@ public class CryptVampireSummonMount extends BaseTransformMount implements Mount
 
     public Stream<ModifierValue<?>> getDefaultRiderModifiers()
     {
-        return Stream.of(new ModifierValue<>(BuffModifiers.INTIMIDATED, true));
+        return Stream.of(new ModifierValue<>(BuffModifiers.INTIMIDATED, true), new ModifierValue<>(BuffModifiers.WATER_WALKING, true));
     }
 }

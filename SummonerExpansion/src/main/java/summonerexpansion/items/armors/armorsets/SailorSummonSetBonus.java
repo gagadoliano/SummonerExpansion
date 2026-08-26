@@ -25,10 +25,10 @@ import java.util.LinkedList;
 
 public class SailorSummonSetBonus extends SetBonusBuff
 {
+    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(40F).setUpgradedValue(1, 50F);
     public FloatUpgradeValue speed = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1, 0.10F);
-    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2);
-    public FloatUpgradeValue minionDamage = (new FloatUpgradeValue()).setBaseValue(10F).setUpgradedValue(1, 20F).setUpgradedValue(10, 50F);
-    public IntUpgradeValue minionGroupSize = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1.0F, 2).setUpgradedValue(10F, 10);
+    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 4);
+    public IntUpgradeValue minionGroupSize = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 3).setUpgradedValue(10, 10);
     public int summonTimer = 0;
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)
@@ -54,10 +54,10 @@ public class SailorSummonSetBonus extends SetBonusBuff
 
     private void summonSailor(ActiveBuff buff, ItemAttackerMob itemAttacker)
     {
-        if (itemAttacker.isServer() && itemAttacker.serverFollowersManager.getFollowerCount("summonedsetsailorbuff") < minionGroupSize.getValue(buff.getUpgradeTier()))
+        if (itemAttacker.isServer() && itemAttacker.serverFollowersManager.getFollowerCount("summonedsailorminion") < minionGroupSize.getValue(buff.getUpgradeTier()))
         {
             SetSailorMinion mob = new SetSailorMinion();
-            itemAttacker.serverFollowersManager.addFollower("summonedsetsailorbuff", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, 10, null, false);
+            itemAttacker.serverFollowersManager.addFollower("summonedsailorminion", mob, FollowPosition.WALK_CLOSE, "summonedsailorminionbuff", 1.0F, 10, null, false);
             mob.updateDamage(new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier())));
             mob.setRemoveWhenNotInInventory(ItemRegistry.getItem("sailorsummonhat"), CheckSlotType.HELMET);
             itemAttacker.getLevel().entityManager.addMob(mob, itemAttacker.x, itemAttacker.y);

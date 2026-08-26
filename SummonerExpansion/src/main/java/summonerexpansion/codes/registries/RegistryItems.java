@@ -12,9 +12,6 @@ import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.Item;
-import necesse.inventory.item.baitItem.BaitItem;
-import necesse.inventory.item.matItem.FishItem;
-import necesse.inventory.item.matItem.MatItem;
 import necesse.inventory.item.placeableItem.consumableItem.TrinketSlotsIncreaseItem;
 import necesse.inventory.item.placeableItem.mapItem.WorldPresetMapItem;
 import necesse.level.maps.levelData.settlementData.settler.Settler;
@@ -22,6 +19,7 @@ import summonerexpansion.items.boss.*;
 import summonerexpansion.items.fishing.*;
 import summonerexpansion.items.foods.*;
 import summonerexpansion.items.materials.*;
+import summonerexpansion.items.permanent.*;
 import summonerexpansion.items.potions.*;
 import summonerexpansion.items.tools.*;
 
@@ -49,10 +47,11 @@ public class RegistryItems
         ItemRegistry.registerItem("titaniumbar", (new BaseMatItem(250, Item.Rarity.RARE)).setItemCategory("materials", "bars"), 4, true);
         ItemRegistry.registerItem("titaniumore", (new BaseMatItem(500, Item.Rarity.RARE)).setItemCategory("materials", "ore"), 1, true);
         // Mob drops
-        ItemRegistry.registerItem("sandgiantscorpiontail", (new BaseMatItem(500, Item.Rarity.RARE)).setItemCategory("materials", "mobdrops"), 18, true);
+        ItemRegistry.registerItem("sandgiantscorpiontail", (new BaseMatItem(999, Item.Rarity.RARE)).setItemCategory("materials", "mobdrops"), 18, true);
         ItemRegistry.registerItem("fossilhoney", (new BaseMatItem(999, Item.Rarity.UNCOMMON)).setItemCategory("materials", "mobdrops"), 10, true);
-        ItemRegistry.registerItem("sharklavascales", (new BaseMatItem(999, Item.Rarity.RARE)).setItemCategory("materials", "mobdrops"), 10, true);
-        ItemRegistry.registerItem("purehorror", new PureHorror(), 50, true);
+        ItemRegistry.registerItem("sharklavascales", (new BaseMatItem(999, Item.Rarity.RARE)).setItemCategory("materials", "mobdrops"), 20, true);
+        ItemRegistry.registerItem("swampslime", (new BaseMatItem(999, Item.Rarity.UNCOMMON)).setItemCategory("materials", "mobdrops"), 5, true);
+        ItemRegistry.registerItem("purehorror", new PureHorror(), 999, true);
     }
 
     public static void registerFoods()
@@ -62,8 +61,9 @@ public class RegistryItems
         ItemRegistry.registerItem("rottenbread", (new BaseFoodItemConsumable(250, Item.Rarity.NORMAL, Settler.FOOD_SIMPLE, 15, 1200, new ModifierValue<>(BuffModifiers.MAX_HEALTH, -0.20F), new ModifierValue<>(BuffModifiers.MAX_SUMMONS, 1))).spoilDuration(500), 0F, true);
         ItemRegistry.registerItem("cookedworm", (new BaseFoodItemConsumable(250, Item.Rarity.NORMAL, Settler.FOOD_SIMPLE, 15, 1200, new ModifierValue<>(BuffModifiers.FISHING_POWER, 10), new ModifierValue<>(BuffModifiers.FISHING_LINES, 1))).spoilDuration(500), 10F, true);
         ItemRegistry.registerItem("cookedswampworm", (new BaseFoodItemConsumable(250, Item.Rarity.NORMAL, Settler.FOOD_SIMPLE, 15, 1200, new ModifierValue<>(BuffModifiers.FISHING_POWER, 20), new ModifierValue<>(BuffModifiers.FISHING_LINES, 2))).spoilDuration(500), 10F, true);
-        ItemRegistry.registerItem("orcasugar", (new BaseFoodItemConsumable(250, Item.Rarity.NORMAL, Settler.FOOD_SIMPLE, 5, 1200, new ModifierValue<>(BuffModifiers.STAMINA_USAGE, -0.20F), new ModifierValue<>(BuffModifiers.STAMINA_CAPACITY, 0.10F))).spoilDuration(500), 0F, true);
-        ItemRegistry.registerItem("rayjam", (new BaseFoodItemConsumable(250, Item.Rarity.NORMAL, Settler.FOOD_SIMPLE, 10, 1200, new ModifierValue<>(BuffModifiers.EMITS_LIGHT, true), new ModifierValue<>(BuffModifiers.BOUNCY, true))).spoilDuration(500), 0F, true);
+        ItemRegistry.registerItem("cookedmushroomcap", (new BaseFoodItemConsumable(250, Item.Rarity.NORMAL, Settler.FOOD_SIMPLE, 10, 1200, new ModifierValue<>(BuffModifiers.STAMINA_CAPACITY, 1.00F), new ModifierValue<>(BuffModifiers.MINING_SPEED, 0.20F))).spoilDuration(500), 2F, true);
+        ItemRegistry.registerItem("orcasugar", (new BaseFoodItemConsumable(250, Item.Rarity.NORMAL, Settler.FOOD_SIMPLE, 5, 1200, new ModifierValue<>(BuffModifiers.STAMINA_USAGE, -0.20F), new ModifierValue<>(BuffModifiers.STAMINA_CAPACITY, 0.10F))).spoilDuration(500), 10F, true);
+        ItemRegistry.registerItem("rayjam", (new BaseFoodItemConsumable(250, Item.Rarity.NORMAL, Settler.FOOD_SIMPLE, 10, 1200, new ModifierValue<>(BuffModifiers.EMITS_LIGHT, true), new ModifierValue<>(BuffModifiers.BOUNCY, true))).spoilDuration(500), 10F, true);
         //Fine
         ItemRegistry.registerItem("livingsharksoup", (new BaseFoodItemConsumable(250, Item.Rarity.UNCOMMON, Settler.FOOD_FINE, 25, 1200, new ModifierValue<>(BuffModifiers.SWIM_SPEED, 0.20F), new ModifierValue<>(TRANSFORMATION_SPEED, 0.20F))).spoilDuration(500), 20F, true);
         ItemRegistry.registerItem("fullpicnicbasket", (new BaseFoodItemConsumable(250, Item.Rarity.UNCOMMON, Settler.FOOD_FINE, 25, 1200, new ModifierValue<>(BuffModifiers.MAX_HEALTH, 0.10F), new ModifierValue<>(BuffModifiers.SUMMON_CRIT_DAMAGE, 0.15F))).spoilDuration(500), 20F, true);
@@ -99,6 +99,7 @@ public class RegistryItems
     {
         // Rods
         ItemRegistry.registerItem("ancientwoodfishingrod", new AncientWoodFishingRod(), 40, true);
+        ItemRegistry.registerItem("combinedfishingrod", new CombinedFishingRod(), 40, true);
 
         // Bait
         ItemRegistry.registerItem("myceliumworm", new BaseBaitItem(true, 50), 20, true);
@@ -126,6 +127,7 @@ public class RegistryItems
     {
         // Stat increases
         ItemRegistry.registerItem("fusedessences", new TrinketSlotsIncreaseItem(9), 500, true, true);
+        ItemRegistry.registerItem("demonelixir", new DemonElixir(), 500, true);
     }
 
     public static void registerBags()
@@ -138,6 +140,9 @@ public class RegistryItems
 
     public static void registerConsumables()
     {
+        // Explosives
+        ItemRegistry.registerItem("swampslimedynamitestick", new SwampSlimeDynamiteStickToolItem(), 60.0F, true);
+
         // Boss Summon
         ItemRegistry.registerItem("shadowhorrorportal", new ShadowHorrorPortal(), 50, true);
 
@@ -156,7 +161,9 @@ public class RegistryItems
         BuffRegistry.registerBuff("minioncloserangebuff", new BasePotionBuff(new ModifierValue<>(BuffModifiers.SUMMONS_TARGET_RANGE, -0.80f), new ModifierValue<>(BuffModifiers.SUMMON_ATTACK_SPEED, 0.20f), new ModifierValue<>(BuffModifiers.SUMMONS_SPEED, 0.20f)));
         ItemRegistry.registerItem("minionfarmpotion", new BaseConsumePotion(100, Item.Rarity.COMMON,"minionfarmbuff", 300, "minionfarmtip"), 10, true);
         BuffRegistry.registerBuff("minionfarmbuff", new BasePotionBuff(new ModifierValue<>(BuffModifiers.SPEED, -0.90f), new ModifierValue<>(BuffModifiers.ITEM_PICKUP_RANGE, 50f), new ModifierValue<>(BuffModifiers.MOB_SPAWN_RATE, 0.60f), new ModifierValue<>(BuffModifiers.SUMMONS_SPEED, 0.20f), new ModifierValue<>(BuffModifiers.SUMMONS_TARGET_RANGE, 0.20f)));
-        ItemRegistry.registerItem("minionequinoxpotion", new BaseConsumePotion(100, Item.Rarity.COMMON,"minionequinoxbuff", 300, "minionequinoxtip"), 10, true);
+        ItemRegistry.registerItem("swampslimepotion", new BaseConsumePotion(100, Item.Rarity.COMMON,"swampslimepotionbuff", 300, "swampslimepotiontip"), 10, true);
+        BuffRegistry.registerBuff("swampslimepotionbuff", new BasePotionBuff(new ModifierValue<>(BuffModifiers.PROJECTILE_BOUNCES, 1),new ModifierValue<>(BuffModifiers.PROJECTILE_PIERCES, 1),new ModifierValue<>(BuffModifiers.PROJECTILE_VELOCITY, 0.20F)));
+        ItemRegistry.registerItem("minionequinoxpotion", new BaseConsumePotion(100, Item.Rarity.RARE,"minionequinoxbuff", 300, "minionequinoxtip"), 50, true);
         BuffRegistry.registerBuff("minionequinoxbuff", new MinionEquinoxBuff());
         ItemRegistry.registerItem("minionsunflowerpotion", new MinionSunflowerPotion(), 10, true);
         BuffRegistry.registerBuff("minionsunflowerbuff", new BasePotionBuff(new ModifierValue<>(SENTRY_ATTACK_SPEED, 0.20f), new ModifierValue<>(BuffModifiers.STAMINA_CAPACITY, 0.50f), new ModifierValue<>(BuffModifiers.BLINDNESS, 0f).max(0f)));

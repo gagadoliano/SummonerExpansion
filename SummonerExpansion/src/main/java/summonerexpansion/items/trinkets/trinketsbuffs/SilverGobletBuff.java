@@ -12,9 +12,7 @@ import java.awt.*;
 
 public class SilverGobletBuff extends AuraBuff
 {
-    public SilverGobletBuff()
-    {
-
+    public SilverGobletBuff() {
     }
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)

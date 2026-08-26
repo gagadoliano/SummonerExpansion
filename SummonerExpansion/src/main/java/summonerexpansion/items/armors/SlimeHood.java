@@ -16,7 +16,8 @@ import necesse.level.maps.incursion.IncursionData;
 
 public class SlimeHood extends SetHelmetArmorItem
 {
-    public FloatUpgradeValue manaRegen = (new FloatUpgradeValue()).setBaseValue(1.5F).setUpgradedValue(1.0F, 1.5F);
+    public FloatUpgradeValue summonSpeed = (new FloatUpgradeValue()).setBaseValue(0.20F).setUpgradedValue(1, 0.25F).setUpgradedValue(10, 0.50F);
+    public FloatUpgradeValue manaRegen = (new FloatUpgradeValue()).setBaseValue(1.5F).setUpgradedValue(1, 2.0F).setUpgradedValue(1, 5.0F);
 
     public SlimeHood(int enchantCost, Item.Rarity rarityTier)
     {
@@ -32,7 +33,7 @@ public class SlimeHood extends SetHelmetArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.MAGIC_DAMAGE, 0.15F), new ModifierValue<>(BuffModifiers.COMBAT_MANA_REGEN, manaRegen.getValue(getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.SUMMONS_SPEED, summonSpeed.getValue(getUpgradeTier(item))), new ModifierValue<>(BuffModifiers.COMBAT_MANA_REGEN, manaRegen.getValue(getUpgradeTier(item))));
     }
 
     protected void loadItemTextures() {

@@ -21,8 +21,10 @@ public class RegistryPresets
         WorldPresetRegistry.registerPreset("druidswamphousecave", new DruidSwampHouseCaveWorldPreset());
         WorldPresetRegistry.registerPreset("druidswamphouseloot", new DruidSwampHouseLootWorldPreset());
         WorldPresetRegistry.registerPreset("druidswamphouseside", new DruidSwampHouseSideWorldPreset());
+        WorldPresetRegistry.registerPreset("druidswamphousecook", new DruidSwampHouseCookWorldPreset());
         WorldPresetRegistry.registerPreset("druidswamphouseduo", new DruidSwampHouseDuoWorldPreset());
         WorldPresetRegistry.registerPreset("druidswamphouse", new DruidSwampHouseWorldPreset());
+        WorldPresetRegistry.registerPreset("frogshrine", new FrogShrineWorldPreset());
         // Snow
         WorldPresetRegistry.registerPreset("christmasshrine", new ChristmasShrineWorldPreset());
         // Plains
@@ -42,6 +44,7 @@ public class RegistryPresets
         // Swamp
         WorldPresetRegistry.registerPreset("cavemushroomshrine", new CaveSwampMushroomShrineWorldPreset());
         WorldPresetRegistry.registerPreset("titaniumorenode", new CaveSwampTitaniumNodeWorldPreset());
+        WorldPresetRegistry.registerPreset("witchhideout", new WitchHideoutWorldPreset());
         // Snow
         // Plains
         // Desert

@@ -10,12 +10,14 @@ import necesse.inventory.item.Item;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.SetHelmetArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 import necesse.inventory.lootTable.presets.ArmorSetsLootTable;
 import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class PlagueSummonerMask extends SetHelmetArmorItem
 {
     public FloatUpgradeValue summonSpeed = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1F, 0.10F).setUpgradedValue(10F, 0.30F);
+    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(10, 2);
 
     public PlagueSummonerMask(int enchantCost, Item.Rarity rarityTier)
     {
@@ -25,7 +27,7 @@ public class PlagueSummonerMask extends SetHelmetArmorItem
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob)
     {
-        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.MAX_SUMMONS, 1), new ModifierValue<>(BuffModifiers.SUMMONS_SPEED, summonSpeed.getValue(getUpgradeTier(item))));
+        return new ArmorModifiers(new ModifierValue<>(BuffModifiers.MAX_SUMMONS, maxSummons.getValue(getUpgradeTier(item))), new ModifierValue<>(BuffModifiers.SUMMONS_SPEED, summonSpeed.getValue(getUpgradeTier(item))));
     }
 
     protected void loadItemTextures() {

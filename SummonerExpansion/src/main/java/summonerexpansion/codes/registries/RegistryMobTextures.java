@@ -1,5 +1,6 @@
 package summonerexpansion.codes.registries;
 
+import necesse.entity.mobs.HumanTexture;
 import necesse.gfx.gameTexture.GameTexture;
 
 public class RegistryMobTextures
@@ -11,9 +12,12 @@ public class RegistryMobTextures
     public static GameTexture honeyBeeGuard;
     public static GameTexture woodIdol;
     public static GameTexture horrorSpirit;
+    public static GameTexture poisonSwampSlime;
+    public static GameTexture poisonSwampSlimeWorm;
 
     // Miniboss
     public static GameTexture horrorSpiritBoss;
+    public static HumanTexture dollMaker;
 
     // Boss
     public static GameTexture bossRiftPortal;
@@ -27,12 +31,14 @@ public class RegistryMobTextures
         lavaShark = GameTexture.fromFile("mobs/foes/lavacavesharkmob");
         woodIdol = GameTexture.fromFile("mobs/foes/woodmob");
         horrorSpirit = GameTexture.fromFile("mobs/foes/horrorspiritmob");
+        poisonSwampSlime = GameTexture.fromFile("mobs/foes/poisonswampslime");
+        poisonSwampSlimeWorm = GameTexture.fromFile("mobs/foes/swampslimeworm");
 
         // Miniboss
         horrorSpiritBoss = GameTexture.fromFile("mobs/foes/horrorspiritbossmob");
+        dollMaker = new HumanTexture(GameTexture.fromFile("mobs/foes/dollmakermob"), GameTexture.fromFile("mobs/foes/dollmakermobarms_left"), GameTexture.fromFile("mobs/foes/dollmakermobarms_right"));
 
         // Boss
         bossRiftPortal = GameTexture.fromFile("mobs/foes/boss/riftportalmob");
-        //BossRiftPortalMob.icon =  GameTexture.fromFile("mobicons/riftportalicon");
     }
 }

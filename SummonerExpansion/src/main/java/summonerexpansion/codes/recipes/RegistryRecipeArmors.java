@@ -24,7 +24,7 @@ public class RegistryRecipeArmors
                 1,
                 RecipeTechRegistry.IRON_ANVIL,
                 new Ingredient[]{
-                        new Ingredient("leather", 15),
+                        new Ingredient("leather", 12),
                         new Ingredient("beef", 2)
                 }
         ).showAfter("leatherhood"));
@@ -34,21 +34,19 @@ public class RegistryRecipeArmors
                 1,
                 SUMMONTABLECRAFT,
                 new Ingredient[]{
-                        new Ingredient("leather", 10),
+                        new Ingredient("leather", 8),
                         new Ingredient("beef", 5)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "leathershirt",
                 1,
                 SUMMONTABLECRAFT,
                 new Ingredient[]{
-                        new Ingredient("leather", 14),
+                        new Ingredient("leather", 10),
                         new Ingredient("beef", 4)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "leatherboots",
                 1,
@@ -64,8 +62,8 @@ public class RegistryRecipeArmors
                 1,
                 RecipeTechRegistry.IRON_ANVIL,
                 new Ingredient[]{
-                        new Ingredient("copperbar", 15),
-                        new Ingredient("torch", 25)
+                        new Ingredient("copperbar", 12),
+                        new Ingredient("torch", 15)
                 }
         ).showAfter("copperhelmet"));
 
@@ -74,26 +72,26 @@ public class RegistryRecipeArmors
                 1,
                 SUMMONTABLECRAFT,
                 new Ingredient[]{
-                        new Ingredient("copperbar", 10),
-                        new Ingredient("torch", 15)
+                        new Ingredient("copperbar", 8),
+                        new Ingredient("torch", 35)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "copperchestplate",
                 1,
                 SUMMONTABLECRAFT,
                 new Ingredient[]{
-                        new Ingredient("copperbar", 12)
+                        new Ingredient("copperbar", 10),
+                        new Ingredient("clay", 15)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "copperboots",
                 1,
                 SUMMONTABLECRAFT,
                 new Ingredient[]{
-                        new Ingredient("copperbar", 6)
+                        new Ingredient("copperbar", 4),
+                        new Ingredient("clay", 15)
                 }
         ));
 
@@ -103,27 +101,25 @@ public class RegistryRecipeArmors
                 SUMMONTABLECRAFT,
                 new Ingredient[]{
                         new Ingredient("cavespidergland", 6),
-                        new Ingredient("clay", 5)
+                        new Ingredient("clay", 4)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "spiderchestplate",
                 1,
                 SUMMONTABLECRAFT,
                 new Ingredient[]{
-                        new Ingredient("cavespidergland", 9),
-                        new Ingredient("clay", 5)
+                        new Ingredient("cavespidergland", 8),
+                        new Ingredient("clay", 10)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "spiderboots",
                 1,
                 SUMMONTABLECRAFT,
                 new Ingredient[]{
-                        new Ingredient("cavespidergland", 6),
-                        new Ingredient("clay", 5)
+                        new Ingredient("cavespidergland", 4),
+                        new Ingredient("clay", 8)
                 }
         ));
 
@@ -137,7 +133,6 @@ public class RegistryRecipeArmors
                         new Ingredient("swamplarva", 5)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "rainsummoncoat",
                 1,
@@ -148,7 +143,6 @@ public class RegistryRecipeArmors
                         new Ingredient("anglersbait", 5)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "rainsummonboots",
                 1,
@@ -165,25 +159,26 @@ public class RegistryRecipeArmors
                 1,
                 SUMMONTABLECRAFT,
                 new Ingredient[]{
-                        new Ingredient("goldbar", 10)
+                        new Ingredient("goldbar", 6),
+                        new Ingredient("goldore", 5)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "goldchestplate",
                 1,
                 SUMMONTABLECRAFT,
                 new Ingredient[]{
-                        new Ingredient("goldbar", 12)
+                        new Ingredient("goldbar", 8),
+                        new Ingredient("goldore", 5)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "goldboots",
                 1,
                 SUMMONTABLECRAFT,
                 new Ingredient[]{
-                        new Ingredient("goldbar", 10)
+                        new Ingredient("goldbar", 4),
+                        new Ingredient("goldore", 5)
                 }
         ));
 
@@ -197,26 +192,24 @@ public class RegistryRecipeArmors
                         new Ingredient("firemone", 20)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "redspiderchestplate",
                 1,
                 SUMMONTABLECRAFT,
                 new Ingredient[]{
                         new Ingredient("spiderchestplate", 1),
-                        new Ingredient("redflowerpatch", 15),
-                        new Ingredient("firemone", 20)
+                        new Ingredient("redflowerpatch", 14),
+                        new Ingredient("firemone", 25)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "redspiderboots",
                 1,
                 SUMMONTABLECRAFT,
                 new Ingredient[]{
                         new Ingredient("spiderboots", 1),
-                        new Ingredient("redflowerpatch", 10),
-                        new Ingredient("firemone", 20)
+                        new Ingredient("redflowerpatch", 8),
+                        new Ingredient("firemone", 15)
                 }
         ));
 
@@ -225,8 +218,7 @@ public class RegistryRecipeArmors
                 1,
                 RecipeTechRegistry.IRON_ANVIL,
                 new Ingredient[]{
-                        new Ingredient("frostshard", 15),
-                        new Ingredient("goldcrown", 1)
+                        new Ingredient("frostshard", 15)
                 }
         ).showAfter("frosthat"));
 
@@ -239,7 +231,6 @@ public class RegistryRecipeArmors
                         new Ingredient("goldcrown", 1)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "frostchestplate",
                 1,
@@ -249,7 +240,6 @@ public class RegistryRecipeArmors
                         new Ingredient("goldchestplate", 1)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "frostboots",
                 1,
@@ -257,6 +247,37 @@ public class RegistryRecipeArmors
                 new Ingredient[]{
                         new Ingredient("frostshard", 4),
                         new Ingredient("goldboots", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "arachnidhelmet",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("redspiderhelmet", 1),
+                        new Ingredient("frostshard", 2),
+                        new Ingredient("cavespidergland", 1)
+                }
+        ));
+        Recipes.registerModRecipe(new Recipe(
+                "arachnidchestplate",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("redspiderchestplate", 1),
+                        new Ingredient("frostshard", 3),
+                        new Ingredient("cavespidergland", 2)
+                }
+        ));
+        Recipes.registerModRecipe(new Recipe(
+                "arachnidlegs",
+                1,
+                SUMMONTABLECRAFT,
+                new Ingredient[]{
+                        new Ingredient("redspiderboots", 1),
+                        new Ingredient("frostshard", 1),
+                        new Ingredient("cavespidergland", 1)
                 }
         ));
     }
@@ -268,28 +289,26 @@ public class RegistryRecipeArmors
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
-                        new Ingredient("voidshard", 5),
-                        new Ingredient("wool", 10)
+                        new Ingredient("voidshard", 4),
+                        new Ingredient("wool", 14)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "voidrobe",
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
                         new Ingredient("voidshard", 5),
-                        new Ingredient("wool", 15)
+                        new Ingredient("wool", 16)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "voidboots",
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
-                        new Ingredient("voidshard", 5),
-                        new Ingredient("wool", 10)
+                        new Ingredient("voidshard", 3),
+                        new Ingredient("wool", 12)
                 }
         ));
 
@@ -298,8 +317,8 @@ public class RegistryRecipeArmors
                 1,
                 RecipeTechRegistry.DEMONIC_ANVIL,
                 new Ingredient[]{
-                        new Ingredient("demonicbar", 8),
-                        new Ingredient("batwing", 12)
+                        new Ingredient("demonicbar", 15),
+                        new Ingredient("batwing", 10)
                 }
         ).showAfter("bloodplatecowl"));
 
@@ -309,20 +328,18 @@ public class RegistryRecipeArmors
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
                         new Ingredient("bloodplatecowl", 1),
-                        new Ingredient("batwing", 10)
+                        new Ingredient("batwing", 12)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "bloodplatechestplate",
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
                         new Ingredient("demonicbar", 5),
-                        new Ingredient("batwing", 10)
+                        new Ingredient("batwing", 14)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "bloodplateboots",
                 1,
@@ -334,65 +351,30 @@ public class RegistryRecipeArmors
         ));
 
         Recipes.registerModRecipe(new Recipe(
-                "arachnidhelmet",
-                1,
-                SUMMONTABLECRAFT2,
-                new Ingredient[]{
-                        new Ingredient("redspiderhelmet", 1),
-                        new Ingredient("frostshard", 1),
-                        new Ingredient("cavespidergland", 2)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "arachnidchestplate",
-                1,
-                SUMMONTABLECRAFT2,
-                new Ingredient[]{
-                        new Ingredient("redspiderchestplate", 1),
-                        new Ingredient("frostshard", 4),
-                        new Ingredient("cavespidergland", 2)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "arachnidlegs",
-                1,
-                SUMMONTABLECRAFT2,
-                new Ingredient[]{
-                        new Ingredient("redspiderboots", 1),
-                        new Ingredient("frostshard", 2),
-                        new Ingredient("cavespidergland", 1)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
                 "runiccrown",
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
-                        new Ingredient("runestone", 3),
+                        new Ingredient("runicfish", 2),
                         new Ingredient("clothscraps", 3)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "runicchestplate",
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
-                        new Ingredient("runestone", 9),
-                        new Ingredient("clothscraps", 9)
+                        new Ingredient("runicfish", 3),
+                        new Ingredient("clothscraps", 5)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "runicboots",
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
-                        new Ingredient("runestone", 6),
-                        new Ingredient("clothscraps", 6)
+                        new Ingredient("runicfish", 1),
+                        new Ingredient("clothscraps", 2)
                 }
         ));
 
@@ -401,52 +383,47 @@ public class RegistryRecipeArmors
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
-                        new Ingredient("titaniumbar", 12)
+                        new Ingredient("titaniumbar", 10)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "titaniumrangedhelmet",
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
-                        new Ingredient("titaniumbar", 12)
+                        new Ingredient("titaniumbar", 10)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "titaniummagichelmet",
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
-                        new Ingredient("titaniumbar", 12)
+                        new Ingredient("titaniumbar", 10)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "titaniumsummonhelmet",
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
-                        new Ingredient("titaniumbar", 12)
+                        new Ingredient("titaniumbar", 10)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "titaniumchestplate",
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
-                        new Ingredient("titaniumbar", 15)
+                        new Ingredient("titaniumbar", 14)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "titaniumboots",
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
-                        new Ingredient("titaniumbar", 10)
+                        new Ingredient("titaniumbar", 8)
                 }
         ));
 
@@ -455,31 +432,29 @@ public class RegistryRecipeArmors
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
-                        new Ingredient("ivybar", 4),
-                        new Ingredient("swampsludge", 4),
-                        new Ingredient("voidshard", 1)
+                        new Ingredient("ivybar", 5),
+                        new Ingredient("swampsludge", 3),
+                        new Ingredient("swampslime", 5)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "ivychestplate",
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
-                        new Ingredient("ivybar", 10),
-                        new Ingredient("swampsludge", 8),
-                        new Ingredient("voidshard", 1)
+                        new Ingredient("ivybar", 6),
+                        new Ingredient("swampsludge", 5),
+                        new Ingredient("swampslime", 5)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "ivyboots",
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
-                        new Ingredient("ivybar", 6),
-                        new Ingredient("swampsludge", 4),
-                        new Ingredient("voidshard", 1)
+                        new Ingredient("ivybar", 4),
+                        new Ingredient("swampsludge", 2),
+                        new Ingredient("swampslime", 5)
                 }
         ));
 
@@ -489,32 +464,30 @@ public class RegistryRecipeArmors
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
                         new Ingredient("wool", 10),
-                        new Ingredient("ivybar", 2),
-                        new Ingredient("voidshard", 1),
-                        new Ingredient("glassbottle", 10)
+                        new Ingredient("ivybar", 6),
+                        new Ingredient("voidshard", 4),
+                        new Ingredient("glassbottle", 20)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "summonplaguerobe",
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
                         new Ingredient("wool", 10),
-                        new Ingredient("ivybar", 2),
-                        new Ingredient("voidshard", 1),
-                        new Ingredient("glassbottle", 10)
+                        new Ingredient("ivybar", 8),
+                        new Ingredient("voidshard", 5),
+                        new Ingredient("glassbottle", 30)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "summonplagueboots",
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
                         new Ingredient("wool", 10),
-                        new Ingredient("ivybar", 2),
-                        new Ingredient("voidshard", 1),
+                        new Ingredient("ivybar", 4),
+                        new Ingredient("voidshard", 3),
                         new Ingredient("glassbottle", 10)
                 }
         ));
@@ -535,12 +508,11 @@ public class RegistryRecipeArmors
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
-                        new Ingredient("ancientstatue", 1),
-                        new Ingredient("rice", 10),
-                        new Ingredient("amethyst", 4)
+                        new Ingredient("runiccrown", 1),
+                        new Ingredient("clothhat", 1),
+                        new Ingredient("rice", 10)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "pharaohsrobe",
                 1,
@@ -548,10 +520,9 @@ public class RegistryRecipeArmors
                 new Ingredient[]{
                         new Ingredient("runicchestplate", 1),
                         new Ingredient("clothrobe", 1),
-                        new Ingredient("clothscraps", 5)
+                        new Ingredient("rice", 14)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "pharaohssandals",
                 1,
@@ -559,7 +530,7 @@ public class RegistryRecipeArmors
                 new Ingredient[]{
                         new Ingredient("runicboots", 1),
                         new Ingredient("clothboots", 1),
-                        new Ingredient("clothscraps", 5)
+                        new Ingredient("rice", 8)
                 }
         ));
 
@@ -572,17 +543,15 @@ public class RegistryRecipeArmors
                         new Ingredient("sandstone", 40)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "quartzchestplate",
                 1,
                 SUMMONTABLECRAFT2,
                 new Ingredient[]{
-                        new Ingredient("quartz", 10),
+                        new Ingredient("quartz", 8),
                         new Ingredient("sandstone", 60)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "quartzboots",
                 1,
@@ -611,28 +580,28 @@ public class RegistryRecipeArmors
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
-                        new Ingredient("ectoplasm", 12),
-                        new Ingredient("obsidian", 10),
-                        new Ingredient("bone", 10)
+                        new Ingredient("ectoplasm", 8),
+                        new Ingredient("obsidian", 12),
+                        new Ingredient("bone", 6)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "shadowmantle",
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
                         new Ingredient("ectoplasm", 8),
+                        new Ingredient("obsidian", 18),
                         new Ingredient("bone", 10)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "shadowboots",
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
                         new Ingredient("ectoplasm", 10),
+                        new Ingredient("obsidian", 10),
                         new Ingredient("bone", 8)
                 }
         ));
@@ -647,7 +616,6 @@ public class RegistryRecipeArmors
                         new Ingredient("obsidian", 8)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "sharklavachestplate",
                 1,
@@ -658,7 +626,6 @@ public class RegistryRecipeArmors
                         new Ingredient("obsidian", 18)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "sharklavaboots",
                 1,
@@ -676,22 +643,20 @@ public class RegistryRecipeArmors
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
                         new Ingredient("ivycirclet", 1),
-                        new Ingredient("caveglow", 10),
+                        new Ingredient("caveglow", 12),
                         new Ingredient("obsidian", 5)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "soulseedchestplate",
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
                         new Ingredient("ivychestplate", 1),
-                        new Ingredient("caveglow", 10),
+                        new Ingredient("caveglow", 14),
                         new Ingredient("obsidian", 8)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "soulseedboots",
                 1,
@@ -713,25 +678,23 @@ public class RegistryRecipeArmors
                         new Ingredient("purehorror", 15)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "shadowhorrormantle",
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
-                        new Ingredient("wool", 12),
-                        new Ingredient("leather", 10),
+                        new Ingredient("wool", 14),
+                        new Ingredient("leather", 12),
                         new Ingredient("purehorror", 15)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "shadowhorrorboots",
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
-                        new Ingredient("wool", 12),
-                        new Ingredient("leather", 10),
+                        new Ingredient("wool", 10),
+                        new Ingredient("leather", 8),
                         new Ingredient("purehorror", 15)
                 }
         ));
@@ -741,28 +704,29 @@ public class RegistryRecipeArmors
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
-                        new Ingredient("glacialbar", 12),
+                        new Ingredient("frostcrown", 1),
+                        new Ingredient("glacialbar", 4),
                         new Ingredient("glacialshard", 1)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "glacialchestplate",
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
-                        new Ingredient("glacialbar", 12),
-                        new Ingredient("glacialshard", 3)
+                        new Ingredient("frostchestplate", 1),
+                        new Ingredient("glacialbar", 6),
+                        new Ingredient("glacialshard", 2)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "glacialboots",
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
-                        new Ingredient("glacialbar", 12),
-                        new Ingredient("glacialshard", 2)
+                        new Ingredient("frostboots", 1),
+                        new Ingredient("glacialbar", 5),
+                        new Ingredient("glacialshard", 1)
                 }
         ));
 
@@ -772,30 +736,31 @@ public class RegistryRecipeArmors
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
                         new Ingredient("witchhat", 1),
-                        new Ingredient("glacialbar", 12),
-                        new Ingredient("glacialshard", 2)
+                        new Ingredient("glacialbar", 4),
+                        new Ingredient("glacialshard", 1),
+                        new Ingredient("frostshard", 8)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "cryowitchrobe",
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
                         new Ingredient("witchrobe", 1),
-                        new Ingredient("glacialbar", 12),
-                        new Ingredient("glacialshard", 2)
+                        new Ingredient("glacialbar", 6),
+                        new Ingredient("glacialshard", 3),
+                        new Ingredient("frostshard", 12)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "cryowitchshoes",
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
                         new Ingredient("witchshoes", 1),
-                        new Ingredient("glacialbar", 12),
-                        new Ingredient("glacialshard", 2)
+                        new Ingredient("glacialbar", 5),
+                        new Ingredient("glacialshard", 2),
+                        new Ingredient("frostshard", 10)
                 }
         ));
 
@@ -809,7 +774,6 @@ public class RegistryRecipeArmors
                         new Ingredient("dryadsapling", 4)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "dryadchestplate",
                 1,
@@ -820,7 +784,6 @@ public class RegistryRecipeArmors
                         new Ingredient("dryadsapling", 8)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "dryadboots",
                 1,
@@ -837,31 +800,29 @@ public class RegistryRecipeArmors
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
+                        new Ingredient("arachnidhelmet", 1),
                         new Ingredient("silk", 10),
-                        new Ingredient("myceliumbar", 10),
-                        new Ingredient("cavespidergland", 20)
+                        new Ingredient("myceliumbar", 10)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "spiderbridechest",
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
+                        new Ingredient("arachnidchestplate", 1),
                         new Ingredient("silk", 15),
-                        new Ingredient("myceliumbar", 10),
-                        new Ingredient("cavespidergland", 20)
+                        new Ingredient("myceliumbar", 10)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "spiderbrideboots",
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
+                        new Ingredient("arachnidlegs", 1),
                         new Ingredient("silk", 10),
-                        new Ingredient("myceliumbar", 10),
-                        new Ingredient("cavespidergland", 20)
+                        new Ingredient("myceliumbar", 10)
                 }
         ));
 
@@ -870,11 +831,10 @@ public class RegistryRecipeArmors
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
-                        new Ingredient("myceliumbar", 10),
+                        new Ingredient("myceliumbar", 8),
                         new Ingredient("decayingleaf", 1)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "myceliumchestplate",
                 1,
@@ -884,13 +844,12 @@ public class RegistryRecipeArmors
                         new Ingredient("decayingleaf", 1)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "myceliumboots",
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
-                        new Ingredient("myceliumbar", 10),
+                        new Ingredient("myceliumbar", 6),
                         new Ingredient("decayingleaf", 1)
                 }
         ));
@@ -911,28 +870,29 @@ public class RegistryRecipeArmors
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
+                        new Ingredient("quartzcrown", 1),
                         new Ingredient("ancientfossilbar", 8),
-                        new Ingredient("wormcarapace", 5)
+                        new Ingredient("wormcarapace", 4)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "ancientfossilchestplate",
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
+                        new Ingredient("quartzchestplate", 1),
                         new Ingredient("ancientfossilbar", 10),
                         new Ingredient("wormcarapace", 5)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "ancientfossilboots",
                 1,
                 SUMMONTABLECRAFT3,
                 new Ingredient[]{
+                        new Ingredient("quartzboots", 1),
                         new Ingredient("ancientfossilbar", 8),
-                        new Ingredient("wormcarapace", 5)
+                        new Ingredient("wormcarapace", 3)
                 }
         ));
 
@@ -941,7 +901,7 @@ public class RegistryRecipeArmors
                 1,
                 RecipeTechRegistry.TUNGSTEN_ANVIL,
                 new Ingredient[]{
-                        new Ingredient("ancientfossilbar", 10),
+                        new Ingredient("ancientfossilbar", 12),
                         new Ingredient("wormcarapace", 5)
                 }
         ).showAfter("sharpshooterhat"));
@@ -956,7 +916,6 @@ public class RegistryRecipeArmors
                         new Ingredient("wormcarapace", 8)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "sharpshootercoat",
                 1,
@@ -967,7 +926,6 @@ public class RegistryRecipeArmors
                         new Ingredient("wormcarapace", 12)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "sharpshooterboots",
                 1,
@@ -992,7 +950,6 @@ public class RegistryRecipeArmors
                         new Ingredient("spareboatparts", 1)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "ghostcaptainsshirt",
                 1,
@@ -1003,7 +960,6 @@ public class RegistryRecipeArmors
                         new Ingredient("ectoplasm", 25)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "ghostcaptainsboots",
                 1,
@@ -1020,8 +976,9 @@ public class RegistryRecipeArmors
                 1,
                 RecipeTechRegistry.FALLEN_ANVIL,
                 new Ingredient[]{
-                        new Ingredient("slimematter", 24),
-                        new Ingredient("slimeum", 24)
+                        new Ingredient("slimeessence", 4),
+                        new Ingredient("slimematter", 15),
+                        new Ingredient("slimeum", 15)
                 }
         ).showAfter("slimehat"));
 
@@ -1035,7 +992,6 @@ public class RegistryRecipeArmors
                         new Ingredient("slimestone", 48)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "slimechestplate",
                 1,
@@ -1046,7 +1002,6 @@ public class RegistryRecipeArmors
                         new Ingredient("slimestone", 64)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "slimeboots",
                 1,
@@ -1067,7 +1022,6 @@ public class RegistryRecipeArmors
                         new Ingredient("phantomdust", 20)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "nightsteelchestplate",
                 1,
@@ -1077,7 +1031,6 @@ public class RegistryRecipeArmors
                         new Ingredient("phantomdust", 20)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "nightsteelboots",
                 1,
@@ -1097,7 +1050,6 @@ public class RegistryRecipeArmors
                         new Ingredient("spidervenom", 20)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "spideritechestplate",
                 1,
@@ -1107,7 +1059,6 @@ public class RegistryRecipeArmors
                         new Ingredient("spidervenom", 20)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "spideritegreaves",
                 1,
@@ -1128,7 +1079,6 @@ public class RegistryRecipeArmors
                         new Ingredient("omnicrystal", 10)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "crystalchestplate",
                 1,
@@ -1139,7 +1089,6 @@ public class RegistryRecipeArmors
                         new Ingredient("omnicrystal", 10)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "crystalboots",
                 1,
@@ -1171,7 +1120,6 @@ public class RegistryRecipeArmors
                         new Ingredient("anytier2essence", 15)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "ravenlordschestplate",
                 1,
@@ -1181,7 +1129,6 @@ public class RegistryRecipeArmors
                         new Ingredient("anytier2essence", 15)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "ravenlordsboots",
                 1,
@@ -1197,8 +1144,8 @@ public class RegistryRecipeArmors
                 1,
                 RecipeTechRegistry.FALLEN_ANVIL,
                 new Ingredient[]{
-                        new Ingredient("electrifiedmana", 18),
-                        new Ingredient("omnicrystal", 14)
+                        new Ingredient("electrifiedmana", 20),
+                        new Ingredient("omnicrystal", 10)
                 }
         ).showAfter("arcanichelmet"));
 
@@ -1207,30 +1154,28 @@ public class RegistryRecipeArmors
                 1,
                 SUMMONTABLECRAFT4,
                 new Ingredient[]{
-                        new Ingredient("electrifiedmana", 15),
-                        new Ingredient("omnicrystal", 15),
+                        new Ingredient("electrifiedmana", 14),
+                        new Ingredient("omnicrystal", 10),
                         new Ingredient("pearlescentdiamond", 5)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "arcanicchestplate",
                 1,
                 SUMMONTABLECRAFT4,
                 new Ingredient[]{
-                        new Ingredient("electrifiedmana", 15),
-                        new Ingredient("omnicrystal", 15),
+                        new Ingredient("electrifiedmana", 16),
+                        new Ingredient("omnicrystal", 10),
                         new Ingredient("pearlescentdiamond", 5)
                 }
         ));
-
         Recipes.registerModRecipe(new Recipe(
                 "arcanicboots",
                 1,
                 SUMMONTABLECRAFT4,
                 new Ingredient[]{
-                        new Ingredient("electrifiedmana", 15),
-                        new Ingredient("omnicrystal", 15),
+                        new Ingredient("electrifiedmana", 12),
+                        new Ingredient("omnicrystal", 10),
                         new Ingredient("pearlescentdiamond", 5)
                 }
         ));

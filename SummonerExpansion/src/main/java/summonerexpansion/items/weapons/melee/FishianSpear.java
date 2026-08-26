@@ -3,7 +3,6 @@ package summonerexpansion.items.weapons.melee;
 import necesse.engine.localization.Localization;
 import necesse.engine.network.gameNetworkData.GNDItemMap;
 import necesse.engine.registries.BuffRegistry;
-import necesse.engine.registries.DamageTypeRegistry;
 import necesse.engine.util.GameBlackboard;
 import necesse.engine.util.GameMath;
 import necesse.entity.levelEvent.mobAbilityLevelEvent.ToolItemMobAbilityEvent;
@@ -13,39 +12,30 @@ import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackSlot;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
-import necesse.gfx.gameTexture.GameTexture;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.Item;
-import necesse.inventory.item.ItemCategory;
-import necesse.inventory.item.toolItem.spearToolItem.SpearToolItem;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
-import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
+import summonerexpansion.items.weapons.base.BaseSummonSpearWeapon;
 import summonerexpansion.mobs.minions.melee.FishianMinion;
 
 import java.awt.geom.Point2D;
 
-public class FishianSpear extends SpearToolItem
+public class FishianSpear extends BaseSummonSpearWeapon
 {
-    public IntUpgradeValue maxFishians = (new IntUpgradeValue()).setBaseValue(2);
+    public IntUpgradeValue minionGroupSize = (new IntUpgradeValue()).setBaseValue(2);
 
     public FishianSpear(int enchantCost, Item.Rarity rarityTier)
     {
-        super(enchantCost, SummonWeaponsLootTable.summonWeapons);
-        keyWords.add("summon");
-        setItemCategory("equipment", "weapons", "summonweapons");
-        setItemCategory(ItemCategory.equipmentManager, "weapons", "summonweapons");
-        rarity = rarityTier;
-        damageType = DamageTypeRegistry.SUMMON;
+        super(enchantCost, rarityTier);
         attackDamage.setBaseValue(30.0F).setUpgradedValue(1, 45.0F);
         attackAnimTime.setBaseValue(500);
         resilienceGain.setBaseValue(0.5F).setUpgradedValue(1, 1.5F).setUpgradedValue(10, 4.0F);
         attackRange.setBaseValue(80);
         knockback.setBaseValue(25);
         width = 80.0F;
-        maxFishians.setBaseValue(2).setUpgradedValue(1, 4).setUpgradedValue(5, 6);
-        canBeUsedForRaids = true;
+        minionGroupSize.setBaseValue(2).setUpgradedValue(1, 4).setUpgradedValue(5, 6);
     }
 
     public void hitMob(InventoryItem item, ToolItemMobAbilityEvent event, Level level, Mob target, Mob attacker)
@@ -65,7 +55,7 @@ public class FishianSpear extends SpearToolItem
         {
             FishianMinion mob = new FishianMinion();
             Point2D.Float dir = GameMath.normalize((float)x - attackerMob.x, (float)y - attackerMob.y + (float)attackHeight);
-            attackerMob.serverFollowersManager.addFollower("summonedfishianminion", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, maxFishians.getValue(getUpgradeTier(item)), null, false);
+            attackerMob.serverFollowersManager.addFollower("summonedfishianminion", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, minionGroupSize.getValue(getUpgradeTier(item)), null, false);
             mob.updateDamage(getAttackDamage(item));
             mob.setEnchantment(getEnchantment(item));
             mob.dx = dir.x * 300.0F;
@@ -81,11 +71,7 @@ public class FishianSpear extends SpearToolItem
     {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "fishianspeartip"));
-        tooltips.add(Localization.translate("itemtooltip", "minionactivecap", "amount", maxFishians.getValue(getUpgradeTier(item))));
+        tooltips.add(Localization.translate("itemtooltip", "minionactivecap", "amount", minionGroupSize.getValue(getUpgradeTier(item))));
         return tooltips;
-    }
-
-    protected void loadItemTextures() {
-        itemTexture = GameTexture.fromFile("items/weapons/" + getStringID());
     }
 }

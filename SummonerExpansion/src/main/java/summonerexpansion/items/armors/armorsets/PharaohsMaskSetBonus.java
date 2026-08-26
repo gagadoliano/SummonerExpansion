@@ -5,21 +5,22 @@ import necesse.engine.localization.message.GameMessage;
 import necesse.engine.localization.message.GameMessageBuilder;
 import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.registries.DamageTypeRegistry;
-import necesse.engine.registries.MobRegistry;
+import necesse.engine.registries.ItemRegistry;
 import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.MobWasKilledEvent;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.setBonusBuffs.SetBonusBuff;
+import necesse.entity.mobs.itemAttacker.CheckSlotType;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
-import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.AttackingFollowingMob;
 import necesse.inventory.item.DoubleItemStatTip;
 import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
+import summonerexpansion.items.armors.minions.SetLocustMinion;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -58,11 +59,11 @@ public class PharaohsMaskSetBonus extends SetBonusBuff
             float count = attackerMob.serverFollowersManager.getFollowerCount("summonedlocustbuff");
             if (count < minionGroupSize.getValue(buff.getUpgradeTier()) && summonTimer >= 30)
             {
-                GameDamage explosionDamage = new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier()));
-                AttackingFollowingMob locust = (AttackingFollowingMob) MobRegistry.getMob("setlocustminion", attackerMob.getLevel());
-                (attackerMob).serverFollowersManager.addFollower("summonedlocustbuff", locust, FollowPosition.WALK_CLOSE, "summonedlocust", 1.0F, 10, null, false);
+                SetLocustMinion locust = new SetLocustMinion();
+                attackerMob.serverFollowersManager.addFollower("summonedlocustbuff", locust, FollowPosition.WALK_CLOSE, "summonedlocust", 1F, 10, null, false);
                 Point2D.Float spawnPoint = SummonToolItem.findSpawnLocation(locust, attackerMob.getLevel(), attackerMob.x, attackerMob.y);
-                locust.updateDamage(explosionDamage);
+                locust.updateDamage(new GameDamage(DamageTypeRegistry.SUMMON, minionDamage.getValue(buff.getUpgradeTier())));
+                locust.setRemoveWhenNotInInventory(ItemRegistry.getItem("pharaohsmask"), CheckSlotType.HELMET);
                 attackerMob.getLevel().entityManager.addMob(locust, spawnPoint.x, spawnPoint.y);
                 summonTimer = 0;
             }

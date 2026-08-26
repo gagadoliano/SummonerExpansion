@@ -42,7 +42,7 @@ public class VampireCoffinSentry extends SentryBase
         super(2000F, 1000F);
         collision = new Rectangle(0, 0, 32, 64);
         hitBox = new Rectangle(0, 0, 32, 64);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(0, 0, 32, 64);
     }
 
     public void init()

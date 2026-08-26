@@ -37,7 +37,7 @@ public class BaseSummonMagicWeapon extends MagicProjectileToolItem
         attackAnimTime.setBaseValue(500);
         attackRange.setBaseValue(500);
         velocity.setBaseValue(100);
-        knockback.setBaseValue(10);
+        knockback.setBaseValue(0);
         attackXOffset = 20;
         attackYOffset = 20;
         itemAttackerProjectileCanHitWidth = 5.0F;

@@ -65,13 +65,107 @@ public class RegistryRecipeConverter
         ));
 
         Recipes.registerModRecipe(new Recipe(
-                "magicteapot",
+                "cavespidergland",
                 1,
                 SUMMONCONVERTER,
                 new Ingredient[]{
-                        new Ingredient("teapot", 1)
+                        new Ingredient("silk", 2)
                 }
         ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "silk",
+                1,
+                SUMMONCONVERTER,
+                new Ingredient[]{
+                        new Ingredient("cavespidergland", 2)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "mimicchest",
+                1,
+                SUMMONCONVERTER,
+                new Ingredient[]{
+                        new Ingredient("storagebox", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "nightsteelbar",
+                1,
+                SUMMONCONVERTER,
+                new Ingredient[]{
+                        new Ingredient("spideritebar", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "spideritebar",
+                1,
+                SUMMONCONVERTER,
+                new Ingredient[]{
+                        new Ingredient("nightsteelbar", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "swampslime",
+                5,
+                SUMMONCONVERTER,
+                new Ingredient[]{
+                        new Ingredient("slimeessence", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "livingash",
+                1,
+                SUMMONCONVERTER,
+                new Ingredient[]{
+                        new Ingredient("phoenixfeather", 2)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "phoenixfeather",
+                1,
+                SUMMONCONVERTER,
+                new Ingredient[]{
+                        new Ingredient("livingash", 2)
+                }
+        ));
+
+        //Armor
+
+        Recipes.registerModRecipe(new Recipe(
+                "battlechefboots",
+                1,
+                SUMMONCONVERTER,
+                new Ingredient[]{
+                        new Ingredient("battlechefhat", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "battlechefchestplate",
+                1,
+                SUMMONCONVERTER,
+                new Ingredient[]{
+                        new Ingredient("battlechefboots", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "battlechefhat",
+                1,
+                SUMMONCONVERTER,
+                new Ingredient[]{
+                        new Ingredient("battlechefchestplate", 1)
+                }
+        ));
+
+        //Trinkets
 
         Recipes.registerModRecipe(new Recipe(
                 "essenceofperspective",
@@ -92,31 +186,15 @@ public class RegistryRecipeConverter
         ));
 
         Recipes.registerModRecipe(new Recipe(
-                "sailorsummonhat",
+                "ancientfeather",
                 1,
                 SUMMONCONVERTER,
                 new Ingredient[]{
-                        new Ingredient("sailorhat", 1)
+                        new Ingredient("inefficientfeather", 1)
                 }
         ));
 
-        Recipes.registerModRecipe(new Recipe(
-                "sailorsummonshirt",
-                1,
-                SUMMONCONVERTER,
-                new Ingredient[]{
-                        new Ingredient("sailorshirt", 1)
-                }
-        ));
-
-        Recipes.registerModRecipe(new Recipe(
-                "sailorsummonshoes",
-                1,
-                SUMMONCONVERTER,
-                new Ingredient[]{
-                        new Ingredient("sailorshoes", 1)
-                }
-        ));
+        //Traps
 
         Recipes.registerModRecipe(new Recipe(
                 "glyphtrapbounce",
@@ -144,6 +222,8 @@ public class RegistryRecipeConverter
                         new Ingredient("glyphtrapchicken", 1)
                 }
         ));
+
+        //Potions
 
         Recipes.registerModRecipe(new Recipe(
                 "healthpotion",
@@ -196,6 +276,44 @@ public class RegistryRecipeConverter
                 SUMMONCONVERTER,
                 new Ingredient[]{
                         new Ingredient("superiorhealthpotion", 1)
+                }
+        ));
+
+        //Upgrades
+
+        Recipes.registerModRecipe(new Recipe(
+                "magicteapot",
+                1,
+                SUMMONCONVERTER,
+                new Ingredient[]{
+                        new Ingredient("teapot", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "sailorsummonhat",
+                1,
+                SUMMONCONVERTER,
+                new Ingredient[]{
+                        new Ingredient("sailorhat", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "sailorsummonshirt",
+                1,
+                SUMMONCONVERTER,
+                new Ingredient[]{
+                        new Ingredient("sailorshirt", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "sailorsummonshoes",
+                1,
+                SUMMONCONVERTER,
+                new Ingredient[]{
+                        new Ingredient("sailorshoes", 1)
                 }
         ));
     }

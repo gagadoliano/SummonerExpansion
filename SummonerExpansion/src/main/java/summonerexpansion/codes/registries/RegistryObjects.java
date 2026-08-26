@@ -128,11 +128,16 @@ public class RegistryObjects
         ObjectRegistry.registerObject("stuffedsquirrel", new BaseTableDecorationObject("stuffedsquirrel", new Color(112, 63, 36), 12, 10, 0, -2), 1F, true);
         ObjectRegistry.registerObject("stuffedswampslug", new BaseTableDecorationObject("stuffedswampslug", new Color(97, 105, 57), 12, 10, 0, -2), 1F, true);
 
+        //Happy
+        SwampShooterDollObject.registerSwampShooterDoll("swampshooterdoll");
+
         // Furniture
         Color honeyMapColor = new Color(186, 136, 46);
         ObjectRegistry.registerObject("beehivechest", new BeehiveChestInventoryObject("beehivechest", 20, honeyMapColor), 10, true);
+        Color swampMapColor = new Color(105, 135, 79);
+        ObjectRegistry.registerObject("polishedsunkenchest", new BaseStorageBoxInventoryObject("polishedsunkenchest", 60, swampMapColor, "polishedsunkenchesttip","objects", "furniture"), 150F, true);
         Color arcanicMapColor = new Color(144, 143, 155);
-        ObjectRegistry.registerObject("arcanicdisplay", new BaseDisplayStandObject("arcanicdisplay", arcanicMapColor, 20, "objects", "furniture"), 10, true);
+        ObjectRegistry.registerObject("arcanicdisplay", new BaseDisplayStandObject("arcanicdisplay", arcanicMapColor, 20, "objects", "furniture"), 10F, true);
         ObjectRegistry.registerObject("arcanicchest", new BaseStorageBoxInventoryObject("arcanicchest", 80, arcanicMapColor, "arcanicchesttip","objects", "furniture"), 10F, true);
     }
 }

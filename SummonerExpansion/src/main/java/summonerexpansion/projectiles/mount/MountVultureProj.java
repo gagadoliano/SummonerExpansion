@@ -22,12 +22,12 @@ public class MountVultureProj extends Projectile
     public MountVultureProj() {
     }
 
-    public MountVultureProj(float x, float y, float targetX, float targetY, GameDamage damage, Mob owner)
+    public MountVultureProj(float x, float y, float targetX, float targetY, float speed, GameDamage damage, Mob owner)
     {
         this.x = x;
         this.y = y;
         this.setTarget(targetX, targetY);
-        this.speed = 100.0F;
+        this.speed = speed;
         this.setDamage(damage);
         this.setOwner(owner);
         this.setDistance(1000);

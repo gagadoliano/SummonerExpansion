@@ -21,6 +21,7 @@ public class RegistryBuffs
         public static Buff COPPERTOOL;
         public static Buff IRONTOOL;
         public static Buff GOLDTOOL;
+        public static Buff IVYTOOL;
         public static Buff RUNICSHIELD;
         public static Buff HONEYBEEBUFF;
         public static Buff MIMICSPEEDBUFF;
@@ -39,6 +40,7 @@ public class RegistryBuffs
         public static Buff MIMESTACKS;
         public static Buff HORRORGLAIVESTACKS;
         public static Buff FISHIANSTACKS;
+        public static Buff SPIDERSWORDSTACKS;
 
         // Magic
         public static Buff APPLEWALKBUFF;
@@ -63,6 +65,7 @@ public class RegistryBuffs
         BuffRegistry.registerBuff("coppertoolbuff", WeaponBuffs.COPPERTOOL = new BaseStackingBuff(20, new ModifierValue<>(MINING_RANGE, 0.15f), new ModifierValue<>(MINING_SPEED, 0.02f)));
         BuffRegistry.registerBuff("irontoolbuff", WeaponBuffs.IRONTOOL = new BaseStackingBuff(20, new ModifierValue<>(MINING_RANGE, 0.20f), new ModifierValue<>(MINING_SPEED, 0.03f)));
         BuffRegistry.registerBuff("goldtoolbuff", WeaponBuffs.GOLDTOOL = new BaseStackingBuff(20, new ModifierValue<>(MINING_RANGE, 0.25f), new ModifierValue<>(MINING_SPEED, 0.04f)));
+        BuffRegistry.registerBuff("ivytoolbuff", WeaponBuffs.IVYTOOL = new BaseStackingBuff(20, new ModifierValue<>(MINING_RANGE, 0.25f), new ModifierValue<>(MINING_SPEED, 0.05f), new ModifierValue<>(SUMMONS_TARGET_RANGE, 0.02f)));
         BuffRegistry.registerBuff("runicshieldbuff", WeaponBuffs.RUNICSHIELD = new BaseStackingBuff(24, new ModifierValue<>(ARMOR_FLAT, 1)));
         BuffRegistry.registerBuff("honeybeebuff", WeaponBuffs.HONEYBEEBUFF = new BaseStackingBuff(10, new ModifierValue<>(COMBAT_HEALTH_REGEN, 0.02f)));
         BuffRegistry.registerBuff("mimicspeedbuff", WeaponBuffs.MIMICSPEEDBUFF = new MimicSpeedBuff());
@@ -81,6 +84,7 @@ public class RegistryBuffs
         BuffRegistry.registerBuff("clawvulturebuff", WeaponBuffs.CLAWVULTURESPEED = new ClawVultureBuff());
         BuffRegistry.registerBuff("clawancestorbuff", WeaponBuffs.CLAWANCESTOR = new BaseClawStackingBuff());
         BuffRegistry.registerBuff("clawfallenbuff", WeaponBuffs.CLAWFALLEN = new BaseClawStackingBuff());
+        BuffRegistry.registerBuff("spiderswordstack", WeaponBuffs.SPIDERSWORDSTACKS = new BaseStackingBuff(5, new ModifierValue<>(SPEED, 0.10f)));
 
         // Magic
         BuffRegistry.registerBuff("applewalkbuff", WeaponBuffs.APPLEWALKBUFF = new BaseStackingBuff(100, new ModifierValue<>(SUMMON_DAMAGE, 0.01f)));

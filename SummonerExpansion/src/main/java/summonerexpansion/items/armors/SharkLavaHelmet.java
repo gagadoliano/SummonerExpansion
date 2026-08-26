@@ -22,7 +22,7 @@ public class SharkLavaHelmet extends SetHelmetArmorItem
 
     public SharkLavaHelmet(int enchantCost, Item.Rarity rarityTier)
     {
-        super(5, DamageTypeRegistry.SUMMON, enchantCost, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, rarityTier, "sharklavahelmet", "sharklavachestplate", "sharklavaboots", "sharklavasetbonus");
+        super(8, DamageTypeRegistry.SUMMON, enchantCost, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, rarityTier, "sharklavahelmet", "sharklavachestplate", "sharklavaboots", "sharklavasetbonus");
         hairDrawOptions = HairDrawMode.NO_HAIR;
         canBeUsedForRaids = true;
     }

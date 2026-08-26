@@ -30,7 +30,7 @@ import java.util.stream.Stream;
 
 public class SpectorSummonMount extends BaseTransformMount implements MountAbility
 {
-    static GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, 50);
+    static GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, 70);
 
     public SpectorSummonMount()
     {
@@ -94,6 +94,6 @@ public class SpectorSummonMount extends BaseTransformMount implements MountAbili
 
     public Stream<ModifierValue<?>> getDefaultRiderModifiers()
     {
-        return Stream.of(new ModifierValue<>(BuffModifiers.INTIMIDATED, true));
+        return Stream.of(new ModifierValue<>(BuffModifiers.INTIMIDATED, true), new ModifierValue<>(BuffModifiers.WATER_WALKING, true));
     }
 }

@@ -26,7 +26,7 @@ public class RegistryRecipeFoods
                 RecipeTechRegistry.COOKING_POT,
                 new Ingredient[]{
                         new Ingredient("bread", 1),
-                        new Ingredient("spoiledfood", 4)
+                        new Ingredient("spoiledfood", 2)
                 }
         ));
 
@@ -45,6 +45,15 @@ public class RegistryRecipeFoods
                 RecipeTechRegistry.COOKING_POT,
                 new Ingredient[]{
                         new Ingredient("swamplarva", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
+                "cookedmushroomcap",
+                1,
+                RecipeTechRegistry.COOKING_POT,
+                new Ingredient[]{
+                        new Ingredient("mushroom", 8)
                 }
         ));
 
@@ -74,8 +83,8 @@ public class RegistryRecipeFoods
                 1,
                 RecipeTechRegistry.COOKING_POT,
                 new Ingredient[]{
-                        new Ingredient("sharkscales", 4),
-                        new Ingredient("sharktooth", 2)
+                        new Ingredient("sharkscales", 2),
+                        new Ingredient("sharktooth", 1)
                 }
         ));
 
@@ -85,9 +94,9 @@ public class RegistryRecipeFoods
                 RecipeTechRegistry.COOKING_POT,
                 new Ingredient[]{
                         new Ingredient("bread", 1),
-                        new Ingredient("cabbage", 2),
-                        new Ingredient("apple", 4),
-                        new Ingredient("blueberry", 6)
+                        new Ingredient("cabbage", 1),
+                        new Ingredient("apple", 2),
+                        new Ingredient("blueberry", 4)
                 }
         ));
 
@@ -107,9 +116,9 @@ public class RegistryRecipeFoods
                 RecipeTechRegistry.COOKING_POT,
                 new Ingredient[]{
                         new Ingredient("runicfish", 1),
-                        new Ingredient("carrot", 2),
-                        new Ingredient("potato", 3),
-                        new Ingredient("cabbage", 4)
+                        new Ingredient("carrot", 1),
+                        new Ingredient("potato", 2),
+                        new Ingredient("cabbage", 3)
                 }
         ));
 
@@ -119,7 +128,7 @@ public class RegistryRecipeFoods
                 RecipeTechRegistry.COOKING_POT,
                 new Ingredient[]{
                         new Ingredient("waterzombie", 1),
-                        new Ingredient("spoiledfood", 4)
+                        new Ingredient("spoiledfood", 2)
                 }
         ));
 
@@ -128,7 +137,7 @@ public class RegistryRecipeFoods
                 1,
                 RecipeTechRegistry.COOKING_POT,
                 new Ingredient[]{
-                        new Ingredient("snowstone", 10)
+                        new Ingredient("snowstone", 20)
                 }
         ));
 
@@ -157,7 +166,7 @@ public class RegistryRecipeFoods
                 1,
                 RecipeTechRegistry.COOKING_STATION,
                 new Ingredient[]{
-                        new Ingredient("groundcoffee", 6),
+                        new Ingredient("groundcoffee", 4),
                         new Ingredient("chilipepper", 2),
                         new Ingredient("milk", 1)
                 }
@@ -168,7 +177,7 @@ public class RegistryRecipeFoods
                 1,
                 RecipeTechRegistry.COOKING_STATION,
                 new Ingredient[]{
-                        new Ingredient("primordialessence", 2),
+                        new Ingredient("primordialessence", 1),
                         new Ingredient("donut", 1)
                 }
         ));

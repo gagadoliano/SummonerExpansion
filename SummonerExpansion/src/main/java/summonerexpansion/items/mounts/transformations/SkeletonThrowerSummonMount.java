@@ -28,7 +28,7 @@ import java.util.stream.Stream;
 
 public class SkeletonThrowerSummonMount extends BaseTransformMount implements MountAbility
 {
-    static GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, 45);
+    static GameDamage damage = new GameDamage(DamageTypeRegistry.SUMMON, 65);
 
     public SkeletonThrowerSummonMount()
     {
@@ -51,7 +51,8 @@ public class SkeletonThrowerSummonMount extends BaseTransformMount implements Mo
                 return;
             }
             player.attack(aim.x, aim.y, false);
-            player.getLevel().entityManager.projectiles.add(new MountBounceBoneProj(x, y, aim.x, aim.y, damage, player));
+            float projVel = player.buffManager.getModifier(BuffModifiers.PROJECTILE_VELOCITY);
+            player.getLevel().entityManager.projectiles.add(new MountBounceBoneProj(x, y, aim.x, aim.y, (100F * projVel), damage, player));
             abilityCooldown = 10;
         }
     }

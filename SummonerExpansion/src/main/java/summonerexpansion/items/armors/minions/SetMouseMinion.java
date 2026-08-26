@@ -25,6 +25,7 @@ import static summonerexpansion.codes.registries.RegistryMinionTextures.setMouse
 public class SetMouseMinion extends SummonWalkBase
 {
     public int lifeTime = 0;
+    public int lifeStart = 0;
 
     public SetMouseMinion()
     {
@@ -60,8 +61,8 @@ public class SetMouseMinion extends SummonWalkBase
     public void serverTick()
     {
         super.serverTick();
-        lifeTime++;
-        if (lifeTime >= 2400)
+        lifeStart++;
+        if (lifeStart >= lifeTime)
         {
             remove(0.0F, 0.0F, null, true);
         }

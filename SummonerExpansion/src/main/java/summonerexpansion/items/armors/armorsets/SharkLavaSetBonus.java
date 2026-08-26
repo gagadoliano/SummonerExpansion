@@ -40,9 +40,9 @@ public class SharkLavaSetBonus extends SetBonusBuff
     public SharkLavaSetBonus()
     {
         particleTypeSwitcher = new ParticleTypeSwitcher(Particle.GType.IMPORTANT_COSMETIC, Particle.GType.COSMETIC);
-        buffDuration = (new FloatUpgradeValue()).setBaseValue(5.0F).setUpgradedValue(1, 10.0F).setUpgradedValue(10, 20.0F);
-        buffDMG = (new FloatUpgradeValue()).setBaseValue(1.0F).setUpgradedValue(1, 5.0F).setUpgradedValue(10, 10.0F);
         maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 4);
+        buffDuration = (new FloatUpgradeValue()).setBaseValue(5F).setUpgradedValue(1, 10F).setUpgradedValue(10, 20F);
+        buffDMG = (new FloatUpgradeValue()).setBaseValue(1F).setUpgradedValue(1, 5F).setUpgradedValue(10, 10F);
     }
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber)

@@ -18,7 +18,6 @@ import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.Blackboard;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerFlyingFollowerCollisionChaserAI;
 import necesse.entity.mobs.ai.behaviourTree.util.FlyingAIMover;
-import necesse.entity.mobs.summon.summonFollowingMob.attackingFollowingMob.FlyingAttackingFollowingMob;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
 import necesse.gfx.GameResources;
@@ -39,7 +38,7 @@ import java.util.List;
 public class SetLocustMinion extends SummonFlyingBase
 {
     protected boolean isAngry;
-    protected float angryProgress = 0.0F;
+    protected float angryProgress = 0F;
     protected Color bodyColor;
     protected Color angryColorMiddle;
     protected Color angryColorMax;

@@ -33,6 +33,7 @@ import java.util.LinkedList;
 
 public class SlimeHoodSetBonus extends SetBonusBuff implements BuffAbility
 {
+    public IntUpgradeValue projBounce = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 4);
     public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(2).setUpgradedValue(1, 2).setUpgradedValue(10, 4);
     public FloatUpgradeValue summonDMG = (new FloatUpgradeValue()).setBaseValue(0.10F).setUpgradedValue(1, 0.15F).setUpgradedValue(10, 0.15F);
     public FloatUpgradeValue minionDamage = (new FloatUpgradeValue()).setBaseValue(20F).setUpgradedValue(1, 20F).setUpgradedValue(10, 60F);
@@ -43,6 +44,7 @@ public class SlimeHoodSetBonus extends SetBonusBuff implements BuffAbility
     {
         buff.setModifier(BuffModifiers.MAX_SUMMONS, maxSummons.getValue(buff.getUpgradeTier()));
         buff.setModifier(BuffModifiers.SUMMON_DAMAGE, summonDMG.getValue(buff.getUpgradeTier()));
+        buff.setModifier(BuffModifiers.PROJECTILE_BOUNCES, projBounce.getValue(buff.getUpgradeTier()));
     }
 
     public void runAbility(PlayerMob player, ActiveBuff buff, Packet content)

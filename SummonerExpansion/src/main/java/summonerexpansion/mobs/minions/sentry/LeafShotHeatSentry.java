@@ -43,7 +43,7 @@ public class LeafShotHeatSentry extends SentryBase
         setKnockbackModifier(0.0F);
         collision = new Rectangle(-10, -7, 20, 14);
         hitBox = new Rectangle(-14, -12, 28, 24);
-        selectBox = new Rectangle();
+        selectBox = new Rectangle(-14, -41, 28, 48);
     }
 
     public void init()

@@ -16,8 +16,8 @@ import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class PharaohsMask extends SetHelmetArmorItem
 {
-    public FloatUpgradeValue summonDMG = (new FloatUpgradeValue()).setBaseValue(0.15F).setUpgradedValue(1F, 0.20F).setUpgradedValue(10F, 0.40F);
-    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 3);
+    public FloatUpgradeValue summonDMG = (new FloatUpgradeValue()).setBaseValue(0.15F).setUpgradedValue(1, 0.20F).setUpgradedValue(10, 0.40F);
+    public IntUpgradeValue maxSummons = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 4);
 
     public PharaohsMask(int enchantCost, Item.Rarity rarityTier)
     {

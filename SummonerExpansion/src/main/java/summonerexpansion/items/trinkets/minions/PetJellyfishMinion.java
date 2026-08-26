@@ -39,7 +39,7 @@ public class PetJellyfishMinion extends FlyingAttackingFollowingMob
         setSpeed(70.0F);
         setFriction(0.5F);
         moveAccuracy = 20;
-        attackCooldown = 400;
+        attackCooldown = 4000;
         collision = new Rectangle(-10, -7, 20, 14);
         hitBox = new Rectangle(-12, -14, 24, 24);
         selectBox = new Rectangle(-16, -28, 32, 34);

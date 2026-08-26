@@ -54,6 +54,17 @@ public class RegistryRecipePotions
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "swampslimepotion",
+                1,
+                RecipeTechRegistry.ALCHEMY,
+                new Ingredient[]{
+                        new Ingredient("glassbottle", 1),
+                        new Ingredient("swampslime", 4),
+                        new Ingredient("frogleg", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "minioncloserangepotion",
                 1,
                 RecipeTechRegistry.CAVEGLOW_ALCHEMY,

@@ -44,10 +44,10 @@ public class RegistryMounts
     {
         ItemRegistry.registerItem("frozendwarfbeard", new BaseTransformationItem(Item.Rarity.RARE, "frozendwarfsummonmount", "frozendwarfbeardtip"), 100, true);
         MobRegistry.registerMob("frozendwarfsummonmount", FrozenDwarfSummonMount.class, false);
-        ItemRegistry.registerItem("cavelingminecart", new BaseMountItem(Item.Rarity.RARE, "cavelingminecartmount", "cavelingminecarttip"), 100, true);
-        MobRegistry.registerMob("cavelingminecartmount", CavelingMinecartMount.class, false);
         ItemRegistry.registerItem("cavespidergoo", new BaseTransformationItem(Item.Rarity.RARE, "cavespidersummonmount", "cavespidergootip"), 100, true);
         MobRegistry.registerMob("cavespidersummonmount", CaveSpiderSummonMount.class, false);
+        ItemRegistry.registerItem("swampshooterleaf", new BaseTransformationItem(Item.Rarity.RARE, "swampshootersummonmount", "swampshooterleaftip"), 100, true);
+        MobRegistry.registerMob("swampshootersummonmount", SwampShooterSummonMount.class, false);
         ItemRegistry.registerItem("minivultureegg", new BaseTransformationItem(Item.Rarity.RARE, "vulturesummonmount", "minivultureeggtip"), 100, true);
         MobRegistry.registerMob("vulturesummonmount", VultureSummonMount.class, false);
         ItemRegistry.registerItem("chieftainhat", new BaseTransformationItem(Item.Rarity.RARE, "chiefsummonmount", "chieftainhattip"), 100, true);
@@ -55,7 +55,8 @@ public class RegistryMounts
         BuffRegistry.registerBuff("chiefbuff", MountBuffs.CHIEFARMOR = new MountChiefBuff());
         ItemRegistry.registerItem("magiccheese", new BaseTransformationItem(Item.Rarity.RARE, "mousesummonmount", "magiccheesetip"), 100, true);
         MobRegistry.registerMob("mousesummonmount", MouseSummonMount.class, false);
-
+        ItemRegistry.registerItem("cavelingminecart", new BaseMountItem(Item.Rarity.RARE, "cavelingminecartmount", "cavelingminecarttip"), 100, true);
+        MobRegistry.registerMob("cavelingminecartmount", CavelingMinecartMount.class, false);
     }
 
     public static void registerTier3()

@@ -20,6 +20,7 @@ public class RegistryLootBag
                         ChanceLootItem.between(0.20f, "enchantingscroll", 1, 2),
                         ChanceLootItem.between(0.15f, "brokencoppertool", 1, 5),
                         ChanceLootItem.between(0.10f, "brokenirontool", 1, 5),
+                        ChanceLootItem.between(0.08f, "polishedsunkenchest", 1, 1),
                         ChanceLootItem.between(0.05f, "recallscroll", 1, 10),
                         ChanceLootItem.between(0.02f, "stinkflask", 1, 1)
                 )
