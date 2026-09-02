@@ -31,7 +31,7 @@ public class FishianSpear extends BaseSummonSpearWeapon
         super(enchantCost, rarityTier);
         attackDamage.setBaseValue(30.0F).setUpgradedValue(1, 45.0F);
         attackAnimTime.setBaseValue(500);
-        resilienceGain.setBaseValue(0.5F).setUpgradedValue(1, 1.5F).setUpgradedValue(10, 4.0F);
+        resilienceGain.setBaseValue(2.5F).setUpgradedValue(1, 3.0F).setUpgradedValue(10, 5.0F);
         attackRange.setBaseValue(80);
         knockback.setBaseValue(25);
         width = 80.0F;

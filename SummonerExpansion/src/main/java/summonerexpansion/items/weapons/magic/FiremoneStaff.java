@@ -28,7 +28,6 @@ public class FiremoneStaff extends BaseSummonMagicWeapon implements ItemInteract
         super(enchantCost, rarityTier);
         attackDamage.setBaseValue(30.0F).setUpgradedValue(1, 160F);
         manaCost.setBaseValue(1.75F).setUpgradedValue(1, 4F);
-        resilienceGain.setBaseValue(0).setUpgradedValue(1, 1F);
         knockback.setBaseValue(10);
         attackAnimTime.setBaseValue(800);
         attackRange.setBaseValue(600).setUpgradedValue(1, 1000);
@@ -58,7 +57,7 @@ public class FiremoneStaff extends BaseSummonMagicWeapon implements ItemInteract
         if (attackerMob.isServer())
         {
             FiremoneSentry mob1 = new FiremoneSentry();
-            attackerMob.serverFollowersManager.addFollower("firemonesentry", mob1, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
+            attackerMob.serverFollowersManager.addFollower("firemonesentry", mob1, FollowPosition.PYRAMID, "summonedmob", 1, 1, null, false);
             attackerMob.getLevel().entityManager.addMob(mob1, attackerMob.x, attackerMob.y);
         }
         return item;

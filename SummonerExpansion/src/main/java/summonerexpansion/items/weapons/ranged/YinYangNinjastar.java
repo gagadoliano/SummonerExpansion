@@ -92,7 +92,6 @@ public class YinYangNinjastar extends GunProjectileToolItem
                             mob.dy = dir.y * 300.0F;
                             attackerMob.getLevel().entityManager.addMob(mob, attackerMob.x, attackerMob.y);
                             alterType = 0;
-                            ninjaStack = 0;
                         }
                         else
                         {
@@ -105,8 +104,8 @@ public class YinYangNinjastar extends GunProjectileToolItem
                             mob.dy = dir.y * 300.0F;
                             attackerMob.getLevel().entityManager.addMob(mob, attackerMob.x, attackerMob.y);
                             alterType++;
-                            ninjaStack = 0;
                         }
+                        ninjaStack = 0;
                     }
                 }
             }

@@ -31,7 +31,6 @@ public class AppleWalkingStick extends BaseSummonMagicWeapon
         super(enchantCost, rarityTier);
         attackDamage.setBaseValue(15.0F).setUpgradedValue(1, 100F);
         manaCost.setBaseValue(5F).setUpgradedValue(1, 10F);
-        resilienceGain.setBaseValue(0).setUpgradedValue(1, 1F);
         knockback.setBaseValue(10);
         attackCooldownTime.setBaseValue(800);
         attackAnimTime.setBaseValue(800);

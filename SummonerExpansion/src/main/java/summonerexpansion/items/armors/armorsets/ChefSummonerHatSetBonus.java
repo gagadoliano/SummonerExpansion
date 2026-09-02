@@ -26,8 +26,8 @@ import java.util.LinkedList;
 public class ChefSummonerHatSetBonus extends SetBonusBuff
 {
     public FloatUpgradeValue minionDamage = (new FloatUpgradeValue(0F, 0.2F)).setBaseValue(50F).setUpgradedValue(1, 60F);
-    public FloatUpgradeValue summonDMG = (new FloatUpgradeValue().setBaseValue(20F).setUpgradedValue(1, 30F).setUpgradedValue(1, 50F));
-    public IntUpgradeValue maxFood = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 1).setUpgradedValue(10, 2);
+    public FloatUpgradeValue summonDMG = (new FloatUpgradeValue().setBaseValue(0.20F).setUpgradedValue(1, 0.30F).setUpgradedValue(1, 0.50F));
+    public IntUpgradeValue maxFood = (new IntUpgradeValue()).setBaseValue(1).setUpgradedValue(1, 1).setUpgradedValue(10, 3);
     public IntUpgradeValue minionDuration = (new IntUpgradeValue()).setBaseValue(300).setUpgradedValue(1, 400).setUpgradedValue(10, 1200);
 
     public ChefSummonerHatSetBonus() {}

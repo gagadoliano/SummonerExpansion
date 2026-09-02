@@ -13,6 +13,5 @@ public class SummonerGuardShop
     {
         NPC.shop.addSellingItem("goblinsword",  new SellingShopItem()).setStaticPriceBasedOnHappiness(500, 1000, 50).addKilledAllMobsRequirement("trenchcoatgoblinhelmet", "trenchcoatgoblinchestplate", "trenchcoatgoblinshoes");
         NPC.shop.addSellingItem("duelistdolls",  new SellingShopItem()).setStaticPriceBasedOnHappiness(500, 4000, 100).addHasCompletedStoryObjectiveRequirement("defeatevilsprotector");
-
     }
 }

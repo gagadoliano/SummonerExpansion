@@ -73,6 +73,8 @@ public class RegistryMinionTextures
     public static GameTexture sandWormBodyMinion;
     public static GameTexture fallenDragonHeadMinion;
     public static GameTexture fallenDragonBodyMinion;
+
+    // Sentries
     public static GameTexture leafShotSentry;
     public static GameTexture leafShotHeatSentry;
     public static GameTexture leafShotColdSentry;
@@ -87,6 +89,7 @@ public class RegistryMinionTextures
     public static GameTexture firemoneSentry;
     public static GameTexture thornSentry;
     public static GameTexture frostbiteSentry;
+    public static GameTexture skyGuardSentry;
 
     public static GameTexture livingArmorMinion;
 
@@ -198,6 +201,7 @@ public class RegistryMinionTextures
         thornSentry = GameTexture.fromFile("mobs/minions/sentry/thornsentry");
         frostbiteSentry = GameTexture.fromFile("mobs/minions/sentry/frostbitesentry");
         horrorSentry = GameTexture.fromFile("mobs/minions/melee/horrorspikesentry");
+        skyGuardSentry = GameTexture.fromFile("mobs/minions/sentry/skyguardsentry");
 
         // Worm
         sandWormHeadMinion = GameTexture.fromFile("mobs/minions/worm/sandwormminion");

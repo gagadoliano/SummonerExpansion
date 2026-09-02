@@ -26,7 +26,6 @@ public class SunflowerStaff extends BaseSummonMagicWeapon implements ItemInterac
         super(enchantCost, rarityTier);
         attackDamage.setBaseValue(20.0F).setUpgradedValue(1, 150F);
         manaCost.setBaseValue(1.75F).setUpgradedValue(1, 4F);
-        resilienceGain.setBaseValue(0).setUpgradedValue(1, 1F);
         attackAnimTime.setBaseValue(800);
         attackRange.setBaseValue(500).setUpgradedValue(1, 1000);
         velocity.setBaseValue(70).setUpgradedValue(1, 80).setUpgradedValue(5, 150);
@@ -55,7 +54,7 @@ public class SunflowerStaff extends BaseSummonMagicWeapon implements ItemInterac
         if (attackerMob.isServer())
         {
             SunflowerSentry mob1 = new SunflowerSentry();
-            attackerMob.serverFollowersManager.addFollower("sunflowersentry", mob1, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
+            attackerMob.serverFollowersManager.addFollower("sunflowersentry", mob1, FollowPosition.PYRAMID, "summonedmob", 1, 1, null, false);
             attackerMob.getLevel().entityManager.addMob(mob1, attackerMob.x, attackerMob.y);
         }
         return item;

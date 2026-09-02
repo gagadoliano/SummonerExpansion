@@ -35,7 +35,7 @@ public class RamNunchucks extends BaseSummonSwordWeapon
         super(enchantCost, rarityTier);
         attackDamage.setBaseValue(25.0F).setUpgradedValue(1, 105.0F);
         attackAnimTime.setBaseValue(300).setUpgradedValue(1, 250);
-        resilienceGain.setBaseValue(0.5F).setUpgradedValue(1, 1.5F).setUpgradedValue(10, 4.0F);
+        resilienceGain.setBaseValue(1.5F).setUpgradedValue(1, 3.5F).setUpgradedValue(10, 5.0F);
         attackRange.setBaseValue(55).setUpgradedValue(1, 60).setUpgradedValue(10, 80);
         knockback.setBaseValue(150).setUpgradedValue(1, 200);
         minionGroupSize.setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(5, 6);

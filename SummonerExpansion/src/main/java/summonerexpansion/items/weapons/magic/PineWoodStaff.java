@@ -33,7 +33,6 @@ public class PineWoodStaff extends BaseSummonMagicWeapon implements ItemInteract
         super(enchantCost, rarityTier);
         attackDamage.setBaseValue(40.0F).setUpgradedValue(1, 120F);
         manaCost.setBaseValue(5.0F).setUpgradedValue(1, 10F);
-        resilienceGain.setBaseValue(0).setUpgradedValue(1, 1F);
         attackAnimTime.setBaseValue(800);
         attackRange.setBaseValue(500).setUpgradedValue(1, 1000);
         velocity.setBaseValue(150).setUpgradedValue(1, 200).setUpgradedValue(10, 500);

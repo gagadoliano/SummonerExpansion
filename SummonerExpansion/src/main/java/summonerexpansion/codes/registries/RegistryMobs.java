@@ -30,11 +30,12 @@ public class RegistryMobs
         MobRegistry.registerMob("dollmakermob", DollMakerMob.class, true);
 
         // Cave
-        MobRegistry.registerMob("lavacavesharkmob", LavaCaveSharkMob.class, true);
         MobRegistry.registerMob("vampireminibossmob", VampireMiniBossMob.class, true);
         MobRegistry.registerMob("poisonswampslimemob", PoisonSwampSlimeMob.class, true);
+        MobRegistry.registerMob("voidswampzombiemob", VoidSwampZombieMob.class, true);
 
         // Deep cave
+        MobRegistry.registerMob("lavacavesharkmob", LavaCaveSharkMob.class, true);
         MobRegistry.registerMob("horrorspiritmob", HorrorSpiritMob.class, true);
         MobRegistry.registerMob("poisonswampslimewormmob", PoisonSwampSlimeWormHead.class, true);
         MobRegistry.registerMob("poisonswampslimewormbody", PoisonSwampSlimeWormBody.class, false);

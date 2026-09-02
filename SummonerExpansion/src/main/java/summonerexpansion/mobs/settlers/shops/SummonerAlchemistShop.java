@@ -15,7 +15,7 @@ public class SummonerAlchemistShop
         NPC.shop.addSellingItem("minioncritchancepotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addHasCompletedStoryObjectiveRequirement("defeatqueenspider");
         NPC.shop.addSellingItem("minioncritpotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addHasCompletedStoryObjectiveRequirement("defeatqueenspider");
         NPC.shop.addSellingItem("minionrangepotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addHasCompletedStoryObjectiveRequirement("defeatvoidwizard");
-        NPC.shop.addSellingItem("swampslimepotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addHasCompletedStoryObjectiveRequirement("swampguardian");
+        NPC.shop.addSellingItem("swampslimepotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addHasCompletedStoryObjectiveRequirement("defeatswampguardian");
         NPC.shop.addSellingItem("minionspeedpotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addHasCompletedStoryObjectiveRequirement("defeatancientvulture");
         NPC.shop.addSellingItem("minionequinoxpotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addHasCompletedStoryObjectiveRequirement("defeatchieftain");
         NPC.shop.addSellingItem("minioncloserangepotion",  new SellingShopItem(25, 5)).setStaticPriceBasedOnHappiness(50, 200, 5).addHasCompletedStoryObjectiveRequirement("defeatpiratecaptain");

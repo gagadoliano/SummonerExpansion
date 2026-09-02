@@ -33,7 +33,7 @@ public class BaseSummonMagicWeapon extends MagicProjectileToolItem
         damageType = DamageTypeRegistry.SUMMON;
         attackDamage.setBaseValue(10.0F);
         manaCost.setBaseValue(1.0F);
-        resilienceGain.setBaseValue(0);
+        resilienceGain.setBaseValue(1.0F).setUpgradedValue(1, 3.0F).setUpgradedValue(10, 5.0F);
         attackAnimTime.setBaseValue(500);
         attackRange.setBaseValue(500);
         velocity.setBaseValue(100);

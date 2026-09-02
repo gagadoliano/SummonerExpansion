@@ -31,7 +31,7 @@ public class MimeSword extends BaseSummonSwordWeapon
         super(enchantCost, rarityTier);
         attackDamage.setBaseValue(30).setUpgradedValue(1, 200);
         attackAnimTime.setBaseValue(600).setUpgradedValue(1, 400);
-        resilienceGain.setBaseValue(1.5F).setUpgradedValue(1, 2.5F).setUpgradedValue(10, 4.0F);
+        resilienceGain.setBaseValue(2.5F).setUpgradedValue(1, 3.5F).setUpgradedValue(10, 5.0F);
         attackRange.setBaseValue(70).setUpgradedValue(1, 80);
         knockback.setBaseValue(80).setUpgradedValue(1, 100);
         minionGroupSize.setBaseValue(1).setUpgradedValue(1, 2).setUpgradedValue(10, 10);

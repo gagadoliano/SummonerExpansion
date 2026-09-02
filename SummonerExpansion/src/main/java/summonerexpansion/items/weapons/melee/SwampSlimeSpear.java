@@ -28,7 +28,7 @@ public class SwampSlimeSpear extends BaseSummonSpearWeapon
         super(enchantCost, rarityTier);
         attackDamage.setBaseValue(30F).setUpgradedValue(1, 100F);
         attackAnimTime.setBaseValue(500).setUpgradedValue(1, 400);
-        resilienceGain.setBaseValue(0.5F).setUpgradedValue(1, 1.5F).setUpgradedValue(10, 4.0F);
+        resilienceGain.setBaseValue(1.5F).setUpgradedValue(1, 2.5F).setUpgradedValue(10, 5.0F);
         attackRange.setBaseValue(120);
         knockback.setBaseValue(15);
         minionGroupSize.setBaseValue(2).setUpgradedValue(1, 4).setUpgradedValue(5, 10);

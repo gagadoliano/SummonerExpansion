@@ -1083,6 +1083,19 @@ public class RegistryRecipeWeapons
         ));
 
         Recipes.registerModRecipe(new Recipe(
+                "bookskyguard",
+                1,
+                SUMMONBOOKCRAFT,
+                new Ingredient[]{
+                        new Ingredient("batwing", 10),
+                        new Ingredient("demonicbar", 5),
+                        new Ingredient("goldbar", 5),
+                        new Ingredient("clay", 20),
+                        new Ingredient("book", 1)
+                }
+        ));
+
+        Recipes.registerModRecipe(new Recipe(
                 "bookfrostbite",
                 1,
                 SUMMONBOOKCRAFT,

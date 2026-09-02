@@ -131,8 +131,8 @@ public class RegistryChestLoot
 
         // Surface
         StartChestLootTable.instance.items.add(new LootItem("druidhousemap"));
-        SurfaceRuinsChestLootTable.secondItem.add(new ChanceLootItem(0.01f, "magiccoppertools"));
-        AnglerChestLootTable.instance.items.add(new ChanceLootItem(0.02f, ""));
+        SurfaceRuinsChestLootTable.secondItem.add(new ChanceLootItem(0.01f, "magicgoldtools"));
+        //AnglerChestLootTable.instance.items.add(new ChanceLootItem(0.02f, ""));
         BlacksmithChestLootTable.ores.add(ChanceLootItem.between(0.08f, "titaniumore", 1, 20));
         CarpenterChestLootTable.instance.items.add(ChanceLootItem.between(0.08f, "ancientlog", 1, 50));
         FarmerChestLootTable.instance.items.add(ChanceLootItem.between(0.01f, "ancienttreesapling", 1, 10));
@@ -140,7 +140,7 @@ public class RegistryChestLoot
         PirateChestLootTable.extra.add(new ChanceLootItem(0.02f, "timeworncoins"));
 
         // Cave
-        CaveChestLootTable.basicMainItems.items.add(new ChanceLootItem(0.02f, "magiccopperlamp"));
+        CaveChestLootTable.basicMainItems.items.add(new ChanceLootItem(0.02f, "magicgoldlamp"));
         CaveChestLootTable.plainsMainItems.items.add(new ChanceLootItem(0.01f, "royalhive"));
         BearBarrelLootTable.instance.items.add(ChanceLootItem.between(0.01f, "fossilhoney", 1, 10));
         AbandonedMineChestLootTable.potions.addAll(
@@ -175,6 +175,15 @@ public class RegistryChestLoot
                         ChanceLootItem.between(0.10f, "minionattackspeedpotion", 1, 5)
                 )
         );
+        DungeonChestLootTable.mainItems.items.addAll(
+            new LootItemList(
+                    new ChanceLootItem(0.10f, "ritualcandles"),
+                    new ChanceLootItem(0.10f, "forbiddenscroll"),
+                    new ChanceLootItem(0.10f, "goldencross"),
+                    new ChanceLootItem(0.10f, "voidscarf")
+            )
+        );
+
         DeepCaveChestLootTable.basicMainItems.items.add(new ChanceLootItem(0.02f, "magictungstenlamp"));
         FishianBarrelLootTable.mainItems.items.add(new ChanceLootItem(0.50f, "fishianeggs"));
         TempleChestLootTable.mainItems.items.add(new ChanceLootItem(0.01f, "sandwormstaff"));

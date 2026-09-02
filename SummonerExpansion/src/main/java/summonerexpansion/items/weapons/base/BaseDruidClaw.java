@@ -61,7 +61,7 @@ public class BaseDruidClaw extends SwordToolItem implements ItemInteractAction
         setItemCategory("equipment", "weapons", "summonweapons");
         setItemCategory(ItemCategory.equipmentManager, "weapons", "summonweapons");
         canBeUsedForRaids = false;
-        resilienceGain.setBaseValue(1.5F).setUpgradedValue(1.0F, 1.5F).setUpgradedValue(10.0F, 2.0F);
+        resilienceGain.setBaseValue(2.0F).setUpgradedValue(1, 2.5F).setUpgradedValue(10, 5.0F);
 
         maxDashStacks = new IntUpgradeValue(3, 0.0F);
         dashRange = new IntUpgradeValue(100, 0.0F);

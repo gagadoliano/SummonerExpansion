@@ -164,6 +164,7 @@ public class RegistryMinions
         MobRegistry.registerMob("caveglowsentry", CaveglowSentry.class, false);
         MobRegistry.registerMob("coffinsentry", VampireCoffinSentry.class, false);
         MobRegistry.registerMob("frostbitesentry", FrostbiteSentry.class, false);
+        MobRegistry.registerMob("skyguardsentry", SkyGuardSentry.class, false);
         // Summoner
         MobRegistry.registerMob("mushroomsentry", BookMushroomSentry.class, false);
         // Buffer

@@ -93,7 +93,7 @@ public class RegistryWeapons
         ItemRegistry.registerItem("magicivytools", new BaseMagicToolsWeapon(25,65,20,200, Item.Rarity.UNCOMMON, "ivypickminion", "ivyaxeminion", "ivytoolstip"), 100, true);
         ItemRegistry.registerItem("ancestorstaff", new AncestorStaff(200, Item.Rarity.UNCOMMON), 100, true);
         // Sentry
-        //ItemRegistry.registerItem("book", new BaseSummonSecondaryWeapon(30,65,2,4,200, FollowPosition.FLYING_CIRCLE, Item.Rarity.UNCOMMON,"",""), 100, true);
+        ItemRegistry.registerItem("bookskyguard", new BaseSummonSecondaryWeapon(40,85,1,4,200, null, Item.Rarity.UNCOMMON,"skyguardsentry","bookskyguardtip"), 100, true);
         //ItemRegistry.registerItem("book", new BaseSummonSecondaryWeapon(30,65,2,4,200, FollowPosition.FLYING_CIRCLE, Item.Rarity.UNCOMMON,"",""), 100, true);
         //ItemRegistry.registerItem("book", new BaseSummonSecondaryWeapon(30,65,2,4,200, FollowPosition.FLYING_CIRCLE, Item.Rarity.UNCOMMON,"",""), 100, true);
         //ItemRegistry.registerItem("book", new BaseSummonSecondaryWeapon(30,65,2,4,200, FollowPosition.FLYING_CIRCLE, Item.Rarity.UNCOMMON,"",""), 100, true);

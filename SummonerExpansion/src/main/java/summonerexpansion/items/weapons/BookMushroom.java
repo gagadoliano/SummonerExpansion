@@ -25,7 +25,7 @@ public class BookMushroom extends SummonToolItem
 
     public BookMushroom(int enchantCost, Item.Rarity rarityTier)
     {
-        super("mushroomsentry", FollowPosition.WALK_CLOSE, 1F, enchantCost, SummonWeaponsLootTable.summonWeapons);
+        super("mushroomsentry", null, 1F, enchantCost, SummonWeaponsLootTable.summonWeapons);
         summonType = "summonedmushroom";
         rarity = rarityTier;
         drawMaxSummons = true;

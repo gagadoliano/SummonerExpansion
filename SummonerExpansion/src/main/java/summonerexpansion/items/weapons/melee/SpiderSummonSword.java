@@ -23,7 +23,7 @@ public class SpiderSummonSword extends BaseSummonSwordWeapon
         super(enchantCost, rarityTier);
         attackDamage.setBaseValue(20.0F).setUpgradedValue(1, 70.0F);
         attackAnimTime.setBaseValue(300).setUpgradedValue(1, 250);
-        resilienceGain.setBaseValue(0.5F).setUpgradedValue(1, 1.5F).setUpgradedValue(10, 4.0F);
+        resilienceGain.setBaseValue(2.5F).setUpgradedValue(1, 3.5F).setUpgradedValue(10, 6.0F);
         attackRange.setBaseValue(50).setUpgradedValue(1, 70).setUpgradedValue(10, 100);
         knockback.setBaseValue(70).setUpgradedValue(1, 100);
     }

@@ -31,7 +31,7 @@ public class HorrorScythe extends GreatswordToolItem
         rarity = rarityTier;
         damageType = DamageTypeRegistry.SUMMON;
         attackDamage.setBaseValue(60.0F).setUpgradedValue(1, 65.0F);
-        resilienceGain.setBaseValue(1F).setUpgradedValue(1, 2F).setUpgradedValue(10, 5.0F);
+        resilienceGain.setBaseValue(5F).setUpgradedValue(1, 10F).setUpgradedValue(10, 15F);
         attackRange.setBaseValue(80);
         knockback.setBaseValue(120);
         attackXOffset = 12;

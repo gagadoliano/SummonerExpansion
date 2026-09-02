@@ -19,8 +19,10 @@ public class AlienParasiteBuff extends TrinketBuff
     private static final float STACK_DURATION_SECONDS = 60.0F;
     private static final int STACK_DURATION_MS = 60000;
     private static final float REFRESH_BELOW_SECONDS = 5.0F;
-    private static final String[] BOSS_TIERS = {
+    private static final String[] BOSS_TIERS =
+    {
             "ascendedwizard",
+            "mutanthydra",
             "crystaldragon",
             "moonlightdancer",
             "sunlightchampion",
@@ -32,6 +34,7 @@ public class AlienParasiteBuff extends TrinketBuff
             "pestwarden",
             "cryoqueen",
             "reaper",
+            "riftportalmob",
             "piratecaptain",
             "ancientvulture",
             "swampguardian",
@@ -96,14 +99,11 @@ public class AlienParasiteBuff extends TrinketBuff
                 }
             }
         }
-
         int stacks = tier < 0 ? 1 : BOSS_TIERS.length + 1 - tier;
-
         if (buff.owner.buffManager.getStacks(ADAPTIVEALIENSTACKS) == stacks && buff.owner.buffManager.getBuffDurationLeftSeconds(ADAPTIVEALIENSTACKS) > REFRESH_BELOW_SECONDS)
         {
             return;
         }
-
         ActiveBuff ab = new ActiveBuff(ADAPTIVEALIENSTACKS, buff.owner, STACK_DURATION_SECONDS, null);
         ab.setStacks(stacks, STACK_DURATION_MS, buff.owner);
         buff.owner.buffManager.addBuff(ab, true, true);

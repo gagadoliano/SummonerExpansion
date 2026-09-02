@@ -13,6 +13,7 @@ import java.io.FileNotFoundException;
 
 public class AdaptiveAlienBuff extends Buff
 {
+    private float removeTime = 0F;
     private GameTexture Texture1;
     private GameTexture Texture2;
     private GameTexture Texture3;
@@ -39,7 +40,12 @@ public class AdaptiveAlienBuff extends Buff
     {
         if (!buff.owner.buffManager.hasBuff("alienparasitebuff"))
         {
-            buff.remove();
+            removeTime += 0.1f;
+            if (removeTime >= 1.0F)
+            {
+                removeTime = 0;
+                buff.remove();
+            }
         }
     }
 
@@ -82,7 +88,7 @@ public class AdaptiveAlienBuff extends Buff
     }
 
     public int getStackSize(ActiveBuff buff) {
-        return 20;
+        return 30;
     }
 
     public boolean shouldDrawDuration(ActiveBuff buff) {

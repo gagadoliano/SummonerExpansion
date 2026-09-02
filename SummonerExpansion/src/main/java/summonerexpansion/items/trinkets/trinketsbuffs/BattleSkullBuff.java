@@ -67,7 +67,7 @@ public class BattleSkullBuff extends TrinketBuff implements BuffAbility
 
     public void updateModifiers(ActiveBuff buff)
     {
-        if (!buff.owner.isAttacking)
+        if (!buff.owner.isInCombat())
         {
             buff.setModifier(BuffModifiers.TARGET_RANGE, -0.60F);
         }

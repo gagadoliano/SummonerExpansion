@@ -45,7 +45,7 @@ public class MosquitoBow extends BowProjectileToolItem
         rarity = rarityTier;
         damageType = DamageTypeRegistry.SUMMON;
         attackDamage.setBaseValue(40.0F).setUpgradedValue(1, 75.0F);
-        resilienceGain.setBaseValue(0.5F).setUpgradedValue(1, 1.5F).setUpgradedValue(1, 2.5F);
+        resilienceGain.setBaseValue(1.5F).setUpgradedValue(1, 2.5F).setUpgradedValue(1, 6.0F);
         attackAnimTime.setBaseValue(1500);
         attackRange.setBaseValue(1600);
         velocity.setBaseValue(350);

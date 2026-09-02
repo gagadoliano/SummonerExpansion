@@ -10,7 +10,6 @@ import necesse.entity.mobs.buffs.staticBuffs.ShownCooldownBuff;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.SimpleTrinketBuff;
 import necesse.inventory.item.Item;
 import necesse.inventory.item.trinketItem.ShieldTrinketItem;
-import necesse.inventory.item.trinketItem.SimpleTrinketItem;
 import necesse.inventory.lootTable.presets.TrinketsLootTable;
 import summonerexpansion.items.trinkets.*;
 import summonerexpansion.items.trinkets.minions.*;
@@ -35,6 +34,8 @@ public class RegistryTrinkets
     {
         // T1
         public static Buff ADAPTIVEALIENSTACKS;
+        public static Buff CROSSCOOLDOWN;
+        public static Buff VOIDSCARFSPEED;
         // T2
         public static Buff GENIECRITSTACKS;
         public static Buff MONKSTACKS;
@@ -60,6 +61,16 @@ public class RegistryTrinkets
         BuffRegistry.registerBuff("mesmercharmbuff", new SimpleTrinketBuff(new ModifierValue<>(BuffModifiers.MAX_SUMMONS, 1), new ModifierValue<>(BuffModifiers.STAMINA_CAPACITY, 0.80f)));
         ItemRegistry.registerItem("lightningamulet", new BaseTrinketItem(Item.Rarity.COMMON, "lightningamuletbuff", 100, TrinketsLootTable.trinkets), 100, true);
         BuffRegistry.registerBuff("lightningamuletbuff", new LightningAmuletBuff());
+        ItemRegistry.registerItem("ritualcandles", new BaseTrinketItem(Item.Rarity.COMMON, "ritualcandlesbuff", 100, TrinketsLootTable.trinkets), 100, true);
+        BuffRegistry.registerBuff("ritualcandlesbuff", new SimpleTrinketBuff(new ModifierValue<>(BuffModifiers.SUMMON_ATTACK_SPEED, 0.40f), new ModifierValue<>(BuffModifiers.SUMMON_CRIT_DAMAGE, 0.20f), new ModifierValue<>(BuffModifiers.SUMMONS_TARGET_RANGE, -0.60f)));
+        ItemRegistry.registerItem("forbiddenscroll", new BaseTrinketItem(Item.Rarity.COMMON, "forbiddenscrollbuff", 100, TrinketsLootTable.trinkets), 100, true);
+        BuffRegistry.registerBuff("forbiddenscrollbuff", new SimpleTrinketBuff(new ModifierValue<>(BuffModifiers.DASH_STACKS, 1), new ModifierValue<>(BuffModifiers.DASH_COOLDOWN, -0.15f), new ModifierValue<>(BuffModifiers.SUMMON_DAMAGE, 0.10f)));
+        ItemRegistry.registerItem("goldencross", new BaseTrinketItem(Item.Rarity.COMMON, "goldencrossbuff", 100, TrinketsLootTable.trinkets), 100, true);
+        BuffRegistry.registerBuff("goldencrossbuff", new GoldenCrossBuff());
+        BuffRegistry.registerBuff("goldencrosscooldown", TrinketBuffs.CROSSCOOLDOWN = new ShownCooldownBuff());
+        ItemRegistry.registerItem("voidscarf", new BaseTrinketItem(Item.Rarity.COMMON, "voidscarfbuff", 100, TrinketsLootTable.trinkets), 100, true);
+        BuffRegistry.registerBuff("voidscarfbuff", new VoidScarfBuff());
+        BuffRegistry.registerBuff("voidscarfspeedbuff", TrinketBuffs.VOIDSCARFSPEED = new VoidScarfSpeedBuff());
         //Desert
         ItemRegistry.registerItem("cactusemblem", new BaseTrinketItem(Item.Rarity.COMMON, "cactusemblembuff", 100, TrinketsLootTable.trinkets), 100, true);
         BuffRegistry.registerBuff("cactusemblembuff", new CactusEmblemBuff());
@@ -103,10 +114,6 @@ public class RegistryTrinkets
         BuffRegistry.registerBuff("cowskullbuff", new SimpleTrinketBuff(new ModifierValue<>(TRANSFORMATION_SPEED, 0.40F)));
         ItemRegistry.registerItem("bullhead", new BaseTrinketItem(Item.Rarity.UNCOMMON, "bullheadbuff", 200, TrinketsLootTable.trinkets).addDisables("cowskull"), 200, true);
         BuffRegistry.registerBuff("bullheadbuff", new SimpleTrinketBuff(new ModifierValue<>(TRANSFORMATION_SPEED, 0.50F), new ModifierValue<>(BuffModifiers.SPEED, 0.20F), new ModifierValue<>(BuffModifiers.MAX_SUMMONS, 1)));
-        ItemRegistry.registerItem("sandtemplemonkhead", new BaseActiveTrinketItem(Item.Rarity.UNCOMMON, "sandtemplemonkheadbuff", 200, TrinketsLootTable.trinkets), 200, true);
-        BuffRegistry.registerBuff("sandtemplemonkheadbuff", new SandTempleMonkHeadBuff());
-        BuffRegistry.registerBuff("sandtemplemonkheadcooldown", new ShownCooldownBuff());
-        BuffRegistry.registerBuff("monkstacksbuff", TrinketBuffs.MONKSTACKS = new MonkStacksBuff());
         ItemRegistry.registerItem("definitiveshell", new DefinitiveShell(), 200, true);
         BuffRegistry.registerBuff("definitiveshellbuff", new DefinitiveShellBuff());
         //Pirates
@@ -136,7 +143,7 @@ public class RegistryTrinkets
         ItemRegistry.registerItem("galvanicamulet", new BaseTrinketItem(Item.Rarity.RARE, "galvanicamuletbuff", 400, TrinketsLootTable.trinkets).addDisables("lightningamulet"), 400, true);
         BuffRegistry.registerBuff("galvanicamuletbuff", new GalvanicAmuletBuff());
         //Plains
-        ItemRegistry.registerItem("essenceofcompanionship", new BaseTrinketItem(Item.Rarity.RARE, "essenceofcompanionshipbuff", 400, TrinketsLootTable.trinkets).addDisables("companionlocket", "essenceofperspective", "essenceofprolonging"), 400, true);
+        ItemRegistry.registerItem("essenceofcompanionship", new BaseTrinketItem(Item.Rarity.RARE, "essenceofcompanionshipbuff", 400, TrinketsLootTable.trinkets).addDisables("companionlocket", "essenceofrebirth", "essenceofperspective", "essenceofprolonging"), 400, true);
         BuffRegistry.registerBuff("essenceofcompanionshipbuff", new EssenceOfCompanionshipBuff());
         //Swamp
         ItemRegistry.registerItem("challengerarmorpiece", new BaseTrinketItem(Item.Rarity.RARE, "challengerarmorpiecebuff", 400, TrinketsLootTable.trinkets).addDisables("manica", "claygauntlet", "challengerspauldron"), 400, true);
@@ -174,6 +181,10 @@ public class RegistryTrinkets
         BuffRegistry.registerBuff("calmminerslanternbuff", new CalmMinersLanternBuff());
         ItemRegistry.registerItem("minerslantern", new MinerLantern(800, Item.Rarity.EPIC), 800, true);
         BuffRegistry.registerBuff("minerslanternbuff", new MinersLanternBuff());
+        ItemRegistry.registerItem("magicteapot", new BaseTrinketItem(Item.Rarity.RARE, "magicteapotbuff", 100, TrinketsLootTable.trinkets), 50, true);
+        BuffRegistry.registerBuff("magicteapotbuff", new MagicTeaPotBuff());
+        MobRegistry.registerMob("teapotminion", PetTeaPotMinion.class, false);
+        BuffRegistry.registerBuff("summonedteapotminionbuff", new SummonedTeaPotMinionBuff());
         //Snow
         ItemRegistry.registerItem("transplantedheart", new BaseTrinketItem(Item.Rarity.EPIC, "transplantedheartbuff", 800, TrinketsLootTable.trinkets).addDisables("lifependant", "clockworkheart", "frozensoul", "lifeline", "frozenheart"), 800, true);
         BuffRegistry.registerBuff("transplantedheartbuff", new TransplantedHeartBuff());
@@ -181,7 +192,7 @@ public class RegistryTrinkets
         BuffRegistry.registerBuff("necroticclawbuff", new NecroticClawBuff());
         //Dungeon
         //Plains
-        ItemRegistry.registerItem("companionsatchels", new BaseTrinketItem(Item.Rarity.EPIC, "companionsatchelsbuff", 800, TrinketsLootTable.trinkets).addDisables("mesmersatchel", "essenceofcompanionship", "companionlocket", "essenceofperspective", "essenceofprolonging"), 800, true);
+        ItemRegistry.registerItem("companionsatchels", new BaseTrinketItem(Item.Rarity.EPIC, "companionsatchelsbuff", 800, TrinketsLootTable.trinkets).addDisables("mesmersatchel", "essenceofcompanionship", "companionlocket", "essenceofrebirth", "essenceofperspective", "essenceofprolonging"), 800, true);
         BuffRegistry.registerBuff("companionsatchelsbuff", new CompanionSatchelsBuff());
         ItemRegistry.registerItem("balancedsummonerboard", new BaseTrinketItem(Item.Rarity.EPIC, "balancedsummonerboardbuff", 800, TrinketsLootTable.trinkets).addDisables("balancedfrostfirefoci", "spiritboard", "summonersbestiary"), 800, true);
         BuffRegistry.registerBuff("balancedsummonerboardbuff", new BalancedSummonerBoardBuff());
@@ -199,6 +210,10 @@ public class RegistryTrinkets
         BuffRegistry.registerBuff("littleangelbuff", new LittleAngelBuff());
         ItemRegistry.registerItem("littlemecha", new LittleMecha(800, Item.Rarity.EPIC), 800, true);
         BuffRegistry.registerBuff("littlemechabuff", new LittleMechaBuff());
+        ItemRegistry.registerItem("sandtemplemonkhead", new BaseActiveTrinketItem(Item.Rarity.UNCOMMON, "sandtemplemonkheadbuff", 200, TrinketsLootTable.trinkets), 200, true);
+        BuffRegistry.registerBuff("sandtemplemonkheadbuff", new SandTempleMonkHeadBuff());
+        BuffRegistry.registerBuff("sandtemplemonkheadcooldown", new ShownCooldownBuff());
+        BuffRegistry.registerBuff("monkstacksbuff", TrinketBuffs.MONKSTACKS = new MonkStacksBuff());
         //Pirates
         //Fishing
         //Shops
@@ -253,10 +268,6 @@ public class RegistryTrinkets
         BuffRegistry.registerBuff("giantpotatobuff", new GiantPotatoBuff());
         MobRegistry.registerMob("potatominion", PetPotatoMinion.class, false);
         BuffRegistry.registerBuff("summonedpotatominionbuff", new SummonedPotatoMinionBuff());
-        ItemRegistry.registerItem("magicteapot", new BaseTrinketItem(Item.Rarity.RARE, "magicteapotbuff", 100, TrinketsLootTable.trinkets), 50, true);
-        BuffRegistry.registerBuff("magicteapotbuff", new MagicTeaPotBuff());
-        MobRegistry.registerMob("teapotminion", PetTeaPotMinion.class, false);
-        BuffRegistry.registerBuff("summonedteapotminionbuff", new SummonedTeaPotMinionBuff());
         ItemRegistry.registerItem("giantonion", new BaseTrinketItem(Item.Rarity.RARE, "giantonionbuff", 100, TrinketsLootTable.trinkets), 50, true);
         BuffRegistry.registerBuff("giantonionbuff", new GiantOnionBuff());
         MobRegistry.registerMob("onionminion", PetOnionMinion.class, false);

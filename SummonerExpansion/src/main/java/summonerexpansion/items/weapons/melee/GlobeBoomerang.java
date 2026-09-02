@@ -1,17 +1,13 @@
 package summonerexpansion.items.weapons.melee;
 
-import necesse.engine.localization.Localization;
 import necesse.engine.network.gameNetworkData.GNDItemMap;
-import necesse.engine.util.GameBlackboard;
 import necesse.engine.util.GameMath;
 import necesse.engine.util.GameRandom;
-import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.attackHandler.MouseProjectileAttackHandler;
 import necesse.entity.mobs.itemAttacker.ItemAttackSlot;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.projectile.followingProjectile.FollowingProjectile;
 import necesse.entity.projectile.modifiers.ResilienceOnHitProjectileModifier;
-import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.Item;
 import necesse.level.maps.Level;

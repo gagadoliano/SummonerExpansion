@@ -43,7 +43,7 @@ public class BaseWhipWeapon extends SwordToolItem
         attackDamage.setBaseValue(5F);
         attackRange.setBaseValue(200).setUpgradedValue(1F, 300).setUpgradedValue(10F, 500);
         knockback.setBaseValue(75);
-        projectileResilienceGain.setBaseValue(1F).setUpgradedValue(1, 3F);
+        projectileResilienceGain.setBaseValue(1.0F).setUpgradedValue(1, 3.0F).setUpgradedValue(1, 5.0F);
         canBeUsedForRaids = false;
         attackXOffset = 16;
         attackYOffset = 16;

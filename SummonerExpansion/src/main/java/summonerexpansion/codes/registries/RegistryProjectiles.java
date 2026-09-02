@@ -48,6 +48,8 @@ public class RegistryProjectiles
         ProjectileRegistry.registerProjectile("leafballproj", LeafBallProj.class, "leafballproj", "bolt_shadow");
         ProjectileRegistry.registerProjectile("caveglowproj", CaveglowProj.class, "caveglowproj", "caveglowproj_shadow");
         ProjectileRegistry.registerProjectile("horrorsentryproj", HorrorSentryProj.class, null, null);
+        ProjectileRegistry.registerProjectile("frostbiteproj", FrostbiteProj.class, null, null);
+        ProjectileRegistry.registerProjectile("skyguardproj", SkyGuardProj.class, null, null);
     }
 
     public static void registerMelee()

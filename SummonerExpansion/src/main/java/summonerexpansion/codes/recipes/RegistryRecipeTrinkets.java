@@ -14,6 +14,7 @@ public class RegistryRecipeTrinkets
         RegistryRecipeTrinkets.registerTier2();
         RegistryRecipeTrinkets.registerTier3();
         RegistryRecipeTrinkets.registerTier4();
+        RegistryRecipeTrinkets.registerVanilla();
     }
 
     public static void registerTier1()
@@ -480,6 +481,63 @@ public class RegistryRecipeTrinkets
                         new Ingredient("amethyst", 100),
                         new Ingredient("topaz", 100),
                         new Ingredient("pearlescentdiamond", 1)
+                }
+        ));
+    }
+
+    public static void registerVanilla()
+    {
+        Recipes.registerModRecipe(new Recipe(
+                "foolsgambit",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("shadowessence", 30)
+                }
+        ));
+        Recipes.registerModRecipe(new Recipe(
+                "inducingamulet",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("cryoessence", 30)
+                }
+        ));
+        Recipes.registerModRecipe(new Recipe(
+                "companionlocket",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("primordialessence", 30)
+                }
+        ));
+        Recipes.registerModRecipe(new Recipe(
+                "mesmertablet",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("bioessence", 30)
+                }
+        ));
+        Recipes.registerModRecipe(new Recipe(
+                "summonersbestiary",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("bloodessence", 30)
+                }
+        ));
+        Recipes.registerModRecipe(new Recipe(
+                "jonasgambit",
+                1,
+                SUMMONTABLECRAFT4,
+                new Ingredient[]{
+                        new Ingredient("ascendedshard", 5),
+                        new Ingredient("radiatedessence", 10),
+                        new Ingredient("crystalessence", 10),
+                        new Ingredient("spideressence", 10),
+                        new Ingredient("bloodessence", 10),
+                        new Ingredient("slimeessence", 10)
                 }
         ));
     }

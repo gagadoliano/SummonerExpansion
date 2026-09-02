@@ -14,6 +14,8 @@ public class RegistryMobTextures
     public static GameTexture horrorSpirit;
     public static GameTexture poisonSwampSlime;
     public static GameTexture poisonSwampSlimeWorm;
+    public static HumanTexture voidSwampZombie;
+
 
     // Miniboss
     public static GameTexture horrorSpiritBoss;
@@ -33,6 +35,8 @@ public class RegistryMobTextures
         horrorSpirit = GameTexture.fromFile("mobs/foes/horrorspiritmob");
         poisonSwampSlime = GameTexture.fromFile("mobs/foes/poisonswampslime");
         poisonSwampSlimeWorm = GameTexture.fromFile("mobs/foes/swampslimeworm");
+        voidSwampZombie = new HumanTexture(GameTexture.fromFile("mobs/foes/voidswampzombie"), GameTexture.fromFile("mobs/foes/voidswampzombiearms_left"), GameTexture.fromFile("mobs/foes/voidswampzombiearms_right"));
+
 
         // Miniboss
         horrorSpiritBoss = GameTexture.fromFile("mobs/foes/horrorspiritbossmob");

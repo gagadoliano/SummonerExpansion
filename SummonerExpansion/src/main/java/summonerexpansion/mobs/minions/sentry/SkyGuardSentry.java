@@ -27,38 +27,39 @@ import java.awt.*;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static summonerexpansion.codes.registries.RegistryMinionTextures.frostbiteSentry;
+import static summonerexpansion.codes.registries.RegistryMinionTextures.skyGuardSentry;
 
-public class FrostbiteSentry extends SentryBase
+public class SkyGuardSentry extends SentryBase
 {
     public float moveAngle;
 
-    public FrostbiteSentry()
+    public SkyGuardSentry()
     {
-        super(3000F, 1000F);
-        collision = new Rectangle(0, 0, 44, 70);
-        hitBox = new Rectangle(0, 0, 44, 70);
-        selectBox = new Rectangle(0, 0, 44, 70);
+        super(2000F, 1000F);
+        collision = new Rectangle(0, 0, 40, 72);
+        hitBox = new Rectangle(0, 0, 40, 72);
+        selectBox = new Rectangle(0, 0, 40, 72);
     }
 
     public void init()
     {
         super.init();
-        this.ai = new BehaviourTreeAI<>(this, new StationaryPlayerShooterAI<FrostbiteSentry>(700)
+        this.ai = new BehaviourTreeAI<>(this, new StationaryPlayerShooterAI<SkyGuardSentry>(1200)
         {
-            public void shootTarget(FrostbiteSentry mob, Mob target)
+            public void shootTarget(SkyGuardSentry mob, Mob target)
             {
                 float projVel = getAttackOwner().buffManager.getModifier(BuffModifiers.PROJECTILE_VELOCITY);
-
-                Projectile projectile = ProjectileRegistry.getProjectile("frostbiteproj", mob.getLevel(), mob.x, mob.y, target.x, target.y, (60.0F * projVel), 700, summonDamage, mob);
-                projectile.setTargetPrediction(target);
-                attack((int)(mob.x + projectile.dx * 100.0F), (int)(mob.y + projectile.dy * 100.0F), true);
-                projectile.x += Math.signum(attackDir.x) * 10.0F;
-                projectile.y += attackDir.y * 6.0F;
-                getLevel().entityManager.projectiles.add(projectile);
+                if(target.getFlyingHeight() > 0)
+                {
+                    Projectile projectile = ProjectileRegistry.getProjectile("skyguardproj", mob.getLevel(), mob.x, mob.y, target.x, target.y, (200.0F * projVel), 1200, summonDamage, mob);
+                    projectile.setTargetPrediction(target);
+                    attack((int)(mob.x + projectile.dx * 100.0F), (int)(mob.y + projectile.dy * 100.0F), true);
+                    projectile.x += Math.signum(attackDir.x) * 10.0F;
+                    projectile.y += attackDir.y * 6.0F;
+                    getLevel().entityManager.projectiles.add(projectile);
+                }
             }
-
-            public Stream<Mob> streamTargets(FrostbiteSentry mob, int shootDistance)
+            public Stream<Mob> streamTargets(SkyGuardSentry mob, int shootDistance)
             {
                 return GameUtils.streamTargets(mob, GameUtils.rangeBounds(x, y, 500)).filter((m) -> mob.isHostile || m.isHostile || m instanceof TrainingDummyMob).filter((m) -> m.getDistance(mob) <= 500.0F);
             }
@@ -72,7 +73,7 @@ public class FrostbiteSentry extends SentryBase
                 int angle = (int)((float)i * anglePerParticle + random.nextFloat() * anglePerParticle);
                 float dx = (float)Math.sin(Math.toRadians(angle)) * 20.0F;
                 float dy = (float)Math.cos(Math.toRadians(angle)) * 20.0F;
-                this.getLevel().entityManager.addParticle(this, Particle.GType.IMPORTANT_COSMETIC).sprite(GameResources.puffParticles.sprite(random.nextInt(5), 0, 12)).sizeFades(12, 24).movesFriction(dx * 2.0F, dy * 2.0F, 0.8F).color(new Color(29, 152, 246)).heightMoves(0.0F, 30.0F).lifeTime(1500);
+                this.getLevel().entityManager.addParticle(this, Particle.GType.IMPORTANT_COSMETIC).sprite(GameResources.puffParticles.sprite(random.nextInt(5), 0, 12)).sizeFades(12, 24).movesFriction(dx * 2.0F, dy * 2.0F, 0.8F).color(new Color(140, 42, 42)).heightMoves(0.0F, 30.0F).lifeTime(1500);
             }
             SoundManager.playSound(GameResources.magicbolt4, SoundEffect.effect(this).volume(0.3F).pitch(GameRandom.globalRandom.getFloatBetween(1.4F, 1.5F)));
         }
@@ -88,7 +89,7 @@ public class FrostbiteSentry extends SentryBase
     {
         for(int i = 0; i < 20; ++i)
         {
-            getLevel().entityManager.addParticle(x, y, Particle.GType.COSMETIC).movesConstantAngle((float) GameRandom.globalRandom.nextInt(360), (float)GameRandom.globalRandom.getIntBetween(5, 20)).color(new Color(29, 152, 246));
+            getLevel().entityManager.addParticle(x, y, Particle.GType.COSMETIC).movesConstantAngle((float) GameRandom.globalRandom.nextInt(360), (float)GameRandom.globalRandom.getIntBetween(5, 20)).color(new Color(140, 42, 42));
         }
     }
 
@@ -98,7 +99,7 @@ public class FrostbiteSentry extends SentryBase
         GameLight light = level.getLightLevel(x / 32, y / 32);
         int drawX = camera.getDrawX(x) - 16;
         int drawY = camera.getDrawY(y) - 20;
-        DrawOptions body = frostbiteSentry.initDraw().light(light).rotate(moveAngle, 15, 30).pos(drawX, drawY);
+        DrawOptions body = skyGuardSentry.initDraw().light(light).rotate(moveAngle, 15, 30).pos(drawX, drawY);
         topList.add((tm) -> body.draw());
     }
 }

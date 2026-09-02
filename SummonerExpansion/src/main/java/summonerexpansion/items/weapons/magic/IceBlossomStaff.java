@@ -28,7 +28,6 @@ public class IceBlossomStaff extends BaseSummonMagicWeapon implements ItemIntera
         super(enchantCost, rarityTier);
         attackDamage.setBaseValue(25.0F).setUpgradedValue(1, 155F);
         manaCost.setBaseValue(1.75F).setUpgradedValue(1, 4F);
-        resilienceGain.setBaseValue(0).setUpgradedValue(1, 1F);
         knockback.setBaseValue(20);
         attackAnimTime.setBaseValue(800);
         attackRange.setBaseValue(700).setUpgradedValue(1, 1000);
@@ -58,7 +57,7 @@ public class IceBlossomStaff extends BaseSummonMagicWeapon implements ItemIntera
         if (attackerMob.isServer())
         {
             IceBlossomSentry mob1 = new IceBlossomSentry();
-            attackerMob.serverFollowersManager.addFollower("iceblossomsentry", mob1, FollowPosition.WALK_CLOSE, "summonedmob", 1, 1, null, false);
+            attackerMob.serverFollowersManager.addFollower("iceblossomsentry", mob1, FollowPosition.PYRAMID, "summonedmob", 1, 1, null, false);
             attackerMob.getLevel().entityManager.addMob(mob1, attackerMob.x, attackerMob.y);
         }
         return item;

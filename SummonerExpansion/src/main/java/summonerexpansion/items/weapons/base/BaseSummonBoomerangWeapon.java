@@ -37,7 +37,7 @@ public class BaseSummonBoomerangWeapon extends BoomerangToolItem
         damageType = DamageTypeRegistry.SUMMON;
         attackDamage.setBaseValue(baseDamage).setUpgradedValue(1, t1Damage);
         attackAnimTime.setBaseValue(attackSpeed);
-        resilienceGain.setBaseValue(0.5F).setUpgradedValue(1, 1.5F).setUpgradedValue(10, 2.0F);
+        resilienceGain.setBaseValue(1.0F).setUpgradedValue(1, 2.5F).setUpgradedValue(10, 5.0F);
         attackRange.setBaseValue(range).setUpgradedValue(1, range + 200);
         velocity.setBaseValue(projVelocity).setUpgradedValue(1, projVelocity + 50);
         this.amount.setBaseValue(amount).setUpgradedValue(1, amount + 1).setUpgradedValue(10, amount + 2);
